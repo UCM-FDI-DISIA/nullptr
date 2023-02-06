@@ -1,1 +1,14 @@
-﻿
+﻿  Game.cpp
+  SDLApplication.cpp
+  AlbumScene.cpp
+  BattleScene.cpp
+  ChestScene.cpp
+  GameState.cpp
+  InventoryScene.cpp
+  MainMenuScene.cpp
+  MapScene.cpp
+  OptionsMenuScene.cpp
+  PauseMenuScene.cpp
+  ShopScene.cpp
+  Generando código...
+  Game.vcxproj -> C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\x64\Debug\Game.exe
