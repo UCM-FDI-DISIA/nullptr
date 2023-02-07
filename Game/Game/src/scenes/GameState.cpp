@@ -23,6 +23,8 @@ void GameState::update() {
     for (Manager* manager : sceneManagers) {
         manager->update();
     }
+
+    refresh();
 }
 
 // Draws the scene on screen
@@ -45,4 +47,24 @@ void GameState::handleEvent(SDL_Event event) {
     for (Manager* manager : sceneManagers) {
         manager->handleEvent(event);
     }
+}
+
+
+// Erases every not alive GameObject
+// Borra todos los GameObject no vivos
+void GameState::refresh() {
+    for (Manager* manager : sceneManagers) {
+        manager->refresh();
+    }
+    stateScene.erase(
+        std::remove_if(stateScene.begin(), stateScene.end(), [](GameObject* e) {
+            if (e->isAlive()) {
+                return false;
+            }
+            else {
+                delete e;
+                return true;
+            }
+            }), //
+        stateScene.end());
 }

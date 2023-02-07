@@ -29,5 +29,8 @@ public:
     // Handles the current event
     // Maneja el evento actual
     virtual void handleEvent(SDL_Event event);
+    // Erases every not alive GameObject
+    // Borra todos los GameObject no vivos
+    void refresh();
 };
 #endif

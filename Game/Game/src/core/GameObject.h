@@ -7,7 +7,6 @@
 #include <vector>
 #include "../components/Component.h"
 
-#include <iostream>
 using namespace std;
 
 class GameObject {

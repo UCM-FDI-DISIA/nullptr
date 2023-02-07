@@ -146,9 +146,6 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Component.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>

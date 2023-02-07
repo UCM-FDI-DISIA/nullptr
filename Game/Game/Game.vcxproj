@@ -169,7 +169,6 @@
     <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\components\Component.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
