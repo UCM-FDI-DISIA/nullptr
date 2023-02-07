@@ -1,4 +1,6 @@
 ﻿  Game.cpp
+  GameStateMachine.cpp
+  Manager.cpp
   SDLApplication.cpp
   AlbumScene.cpp
   BattleScene.cpp

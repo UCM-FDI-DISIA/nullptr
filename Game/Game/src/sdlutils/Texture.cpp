@@ -17,11 +17,17 @@ void Texture::_free() {
 void Texture::load(string filename, uint nRows, uint nCols) {
 	SDL_Surface* tempSurface;
 	tempSurface = IMG_Load(filename.c_str());
-	if (tempSurface == nullptr) throw SDL_SetError(IMG_GetError());
+	if (tempSurface == nullptr) {
+		SDL_SetError(IMG_GetError());
+		throw SDL_GetError();
+	}
 	
 	_free();
 	texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	if (texture == nullptr) throw SDL_SetError(("Error loading texture from " + filename).c_str());
+	if (texture == nullptr) {
+		SDL_SetError(("Error loading texture from " + filename).c_str());
+		throw SDL_GetError();
+	}
 	numRows = nRows;
 	numCols = nCols;
 	w = tempSurface->w;

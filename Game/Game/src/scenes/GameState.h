@@ -4,6 +4,7 @@
 
 #include <list>
 #include "../core/GameObject.h"
+#include "../core/Manager.h"
 
 class SDLApplication;
 using namespace std;
@@ -12,6 +13,7 @@ class GameState {
 protected:
     SDLApplication* game = nullptr;
     list<GameObject*> stateScene;
+    list<Manager*> sceneManagers;
 
 public:
     // Constructor
@@ -19,10 +21,13 @@ public:
     // Destructor
     virtual ~GameState();
     // Updates scene's objects
+    // Actualiza los objetos de la escea
     virtual void update();
     // Draws the scene on screen
+    // Dibuja la escena en pantalla
     virtual void render() const;
-    // Handles the event
+    // Handles the current event
+    // Maneja el evento actual
     virtual void handleEvent(SDL_Event event);
 };
 #endif

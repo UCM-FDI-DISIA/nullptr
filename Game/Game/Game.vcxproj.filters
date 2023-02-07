@@ -37,6 +37,9 @@
     <Filter Include="Archivos de origen\components">
       <UniqueIdentifier>{d0de8c64-ac1c-47d1-b79d-22cd93f59ed7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\data">
+      <UniqueIdentifier>{ea4e73d4-23a3-4c13-92c9-94c5bec1a983}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -90,14 +93,14 @@
     <ClInclude Include="src\components\Component.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
-    <ClInclude Include="ecs.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
     <ClInclude Include="src\core\GameObject.h">
       <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
-    <ClInclude Include="src\constants.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="src\data\constants.h">
+      <Filter>Archivos de encabezado\data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Manager.h">
+      <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="src\components\Component.cpp">
       <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Manager.cpp">
+      <Filter>Archivos de origen\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

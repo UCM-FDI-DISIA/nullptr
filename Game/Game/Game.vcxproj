@@ -147,12 +147,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ecs.h" />
     <ClInclude Include="src\components\Component.h" />
-    <ClInclude Include="src\constants.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
+    <ClInclude Include="src\core\Manager.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
+    <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
@@ -171,6 +171,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\Component.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
+    <ClCompile Include="src\core\Manager.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
