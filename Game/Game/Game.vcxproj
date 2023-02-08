@@ -147,13 +147,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="src\components\Component.h" />
+    <ClInclude Include="src\core\GameObject.h" />
+    <ClInclude Include="src\core\GameStateMachine.h" />
+    <ClInclude Include="src\core\Manager.h" />
+    <ClInclude Include="src\core\SDLApplication.h" />
+    <ClInclude Include="src\data\constants.h" />
+    <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\scenes\AlbumScene.h" />
+    <ClInclude Include="src\scenes\BattleScene.h" />
+    <ClInclude Include="src\scenes\ChestScene.h" />
+    <ClInclude Include="src\scenes\GameState.h" />
+    <ClInclude Include="src\scenes\InventoryScene.h" />
+    <ClInclude Include="src\scenes\MainMenuScene.h" />
+    <ClInclude Include="src\scenes\MapScene.h" />
+    <ClInclude Include="src\scenes\OptionsMenuScene.h" />
+    <ClInclude Include="src\scenes\PauseMenuScene.h" />
+    <ClInclude Include="src\scenes\ShopScene.h" />
+    <ClInclude Include="src\sdlutils\Texture.h" />
+    <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="src\core\GameStateMachine.cpp" />
+    <ClCompile Include="src\core\Manager.cpp" />
+    <ClCompile Include="src\core\SDLApplication.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\scenes\AlbumScene.cpp" />
+    <ClCompile Include="src\scenes\BattleScene.cpp" />
+    <ClCompile Include="src\scenes\ChestScene.cpp" />
+    <ClCompile Include="src\scenes\GameState.cpp" />
+    <ClCompile Include="src\scenes\InventoryScene.cpp" />
+    <ClCompile Include="src\scenes\MainMenuScene.cpp" />
+    <ClCompile Include="src\scenes\MapScene.cpp" />
+    <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
+    <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
+    <ClCompile Include="src\scenes\ShopScene.cpp" />
+    <ClCompile Include="src\sdlutils\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

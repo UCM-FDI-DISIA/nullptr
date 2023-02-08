@@ -28,8 +28,3 @@
 *.exe
 *.out
 *.app
-*.db
-*.db-shm
-*.ipch
-*.db-wal
-*.opendb
