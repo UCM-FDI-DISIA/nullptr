@@ -26,7 +26,7 @@ public:
 	void render() const;
 	// Handle's the  current event for every GameObject of the Manager
 	// Maneja el evento actual para todos los GameObject del Manager
-	void handleEvent(SDL_Event event);
+	void handleInput();
 };
 
 #endif // !MANAGER_H_

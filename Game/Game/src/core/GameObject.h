@@ -94,9 +94,9 @@ public:
 	}
 	// Handle's the GameObject's events
 	// Maneja los eventos del GameObject
-	virtual void handleEvent(SDL_Event event) {
+	virtual void handleInput() {
 		for (Component* cmp : currCmps) {
-			cmp->handleEvent(event);
+			cmp->handleInput();
 		}
 	}
 };

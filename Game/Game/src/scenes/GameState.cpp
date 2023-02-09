@@ -40,12 +40,12 @@ void GameState::render() const {
 
 // Handles the event
 // Maneja el evento actual
-void GameState::handleEvent(SDL_Event event) {
+void GameState::handleInput() {
     for (GameObject* object : stateScene) {
-        object->handleEvent(event);
+        object->handleInput();
     }
     for (Manager* manager : sceneManagers) {
-        manager->handleEvent(event);
+        manager->handleInput();
     }
 }
 

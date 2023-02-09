@@ -33,7 +33,7 @@ public:
 	virtual void render() const {}
 	// Handle's the Component's events
 	// Maneja los eventos del Component
-	virtual void handleEvent(SDL_Event event) {}
+	virtual void handleInput() {}
 };
 
 #endif // !COMPONENT_H_
