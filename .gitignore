@@ -1,4 +1,3 @@
-Game/.vs/
 # Prerequisites
 *.d
 
@@ -29,3 +28,7 @@ Game/.vs/
 *.exe
 *.out
 *.app
+*.vsidx
+*.pdb
+*.tlog
+Game/.vs/
