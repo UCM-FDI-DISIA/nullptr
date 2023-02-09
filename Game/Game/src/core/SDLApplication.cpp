@@ -57,13 +57,16 @@ void SDLApplication::run() {
 	startTime = SDL_GetTicks();
 
 	while (!exit) {
+
+		InputHandler::instance()->refresh();
+
 		update();
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= DELAY_TIME) {
 			render();
 			startTime = SDL_GetTicks();
 		}
-		handleEvents();
+		handleInput();
 	}
 	gameStateMachine->clearStates();
 }
@@ -85,11 +88,8 @@ void SDLApplication::update() {
 
 // Updates the game depending on the current event
 // Actualiza el juego en función al evento actual
-void SDLApplication::handleEvents() {
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		gameStateMachine->currentState()->handleEvent(event);
-	}
+void SDLApplication::handleInput() {
+	gameStateMachine->currentState()->handleInput();
 }
 
 // Returns needed Texture

@@ -40,6 +40,9 @@
     <Filter Include="Archivos de encabezado\data">
       <UniqueIdentifier>{ea4e73d4-23a3-4c13-92c9-94c5bec1a983}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\utils">
+      <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -101,6 +104,12 @@
     </ClInclude>
     <ClInclude Include="src\core\Manager.h">
       <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Singleton.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\InputHandler.h">
+      <Filter>Archivos de encabezado\sdlutils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

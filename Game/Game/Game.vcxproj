@@ -165,8 +165,10 @@
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
+    <ClInclude Include="src\sdlutils\InputHandler.h" />
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\targetver.h" />
+    <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\GameStateMachine.cpp" />

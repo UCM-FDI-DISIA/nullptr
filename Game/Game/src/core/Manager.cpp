@@ -58,8 +58,8 @@ void Manager::render() const {
 
 // Handle's the  current event for every GameObject of the Manager
 // Maneja el evento actual para todos los GameObject del Manager
-void Manager::handleEvent(SDL_Event event) {
+void Manager::handleInput() {
 	for (GameObject* gObj : gObjs) {
-		gObj->handleEvent(event);
+		gObj->handleInput();
 	}
 }
