@@ -148,10 +148,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Component.h" />
+    <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
     <ClInclude Include="src\core\Manager.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
+    <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\Resource.h" />
@@ -169,9 +171,11 @@
     <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
+    <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />

@@ -102,6 +102,12 @@
     <ClInclude Include="src\core\Manager.h">
       <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\Transform.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Vector2D.h">
+      <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -148,6 +154,12 @@
     </ClCompile>
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Transform.cpp">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Vector2D.cpp">
+      <Filter>Archivos de encabezado\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
