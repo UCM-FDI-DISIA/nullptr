@@ -53,6 +53,16 @@ public:
 		width_ = newWidth;
 	}
 
+	//Devuelve height
+	inline float getHeight() {
+		return height_;
+    }
+
+	//Devuelve width
+	inline float getWidth() {
+		return width_;
+	}
+
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
