@@ -1,0 +1,1 @@
+PlinPlinPlon ../Game/resources/images/plinplinplon.jpg 1 1
