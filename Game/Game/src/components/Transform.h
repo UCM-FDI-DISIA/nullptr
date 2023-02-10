@@ -19,7 +19,10 @@ private:
 	float width_;
 	float height_;
 	float rotation_;
+	
 public:
+
+	static const int id = _TRANSFORM;
 	Transform(Vector2D pos, Vector2D vel, float w = 0, float h = 0, float r = 0);
 	virtual ~Transform();
 
@@ -66,6 +69,7 @@ public:
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
+	void move();
 	virtual void update();
 	
 };

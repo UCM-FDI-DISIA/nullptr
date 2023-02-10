@@ -12,15 +12,15 @@ Transform::~Transform(){}
 
 //Rota el vector de velocidad para que se dirija hacia el punto definido
 void Transform::lookAt(Vector2D point) {
-	Vector2D aux = position_ + velocity_;
-	rotation_ = aux.angle(point);
+	Vector2D aux = position_ - point;
+	float rotation = aux.angle(velocity_);
 	velocity_ = velocity_.rotate(rotation_);
 }
 
 //Rota el vector de velocidad
 void Transform::rotate(float rotation) {
-	rotation_ = rotation;
-	velocity_ = velocity_.rotate(rotation_);
+	rotation_ += rotation;
+	velocity_ = velocity_.rotate(rotation);
 }
 
 //Quita la rotacion al vector de velocidad
@@ -30,6 +30,8 @@ void Transform::unrotate() {
 }
 
 //Actualiza la posicion con el vector de velocidad
-void Transform::update() {
+void Transform::move() {
 	position_ = position_ + velocity_;
 }
+
+void Transform::update() {}
