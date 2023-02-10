@@ -10,14 +10,21 @@ Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) {
 
 Transform::~Transform(){}
 
-//Rota el vector de velocidad para que se dirija hacia el punto definido
+// Rota el vector de velocidad para que se dirija hacia el punto definido
 void Transform::lookAt(Vector2D point) {
-	Vector2D aux = position_ + velocity_;
+	Vector2D aux = position_;
 	rotation_ = aux.angle(point);
 	velocity_ = velocity_.rotate(rotation_);
 }
+// Devuelve un float con el modulo de la distancia entre este y otro punto
+float Transform::getDistance(Vector2D other)
+{
+	float x = other.getX() - position_.getX();
+	float y = other.getY() - position_.getY();
+	return abs(sqrt(x * x + y * y));
+}
 
-//Rota el vector de velocidad
+// Rota el vector de velocidad
 void Transform::rotate(float rotation) {
 	rotation_ = rotation;
 	velocity_ = velocity_.rotate(rotation_);

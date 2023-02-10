@@ -7,6 +7,7 @@ private:
 	int modifiedMaxLife;
 public:
 	HealthComponent(Manager* mngr_, GameObject* gameObject, int Maxlife);
+	//Delete del padre
 	void receiveDamage(int damage);
 	void heal(int heal);
 	void die();
