@@ -65,7 +65,15 @@ public:
 	inline float getWidth() {
 		return width_;
 	}
+	inline SDL_Rect getRect() {
+		SDL_Rect rect;
+		rect.x = position_.getX();
+		rect.y = position_.getY();
+		rect.w = width_;
+		rect.h = height_;
 
+		return rect;
+	}
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();

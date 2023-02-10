@@ -34,4 +34,16 @@ void Transform::move() {
 	position_ = position_ + velocity_;
 }
 
-void Transform::update() {}
+void Transform::update() {
+	position_ = position_ + velocity_;
+}
+
+SDL_Rect Transform::getRect() {
+	SDL_Rect rect;
+	rect.x = position_.getX
+	rect.y = this->pos.getY();
+	rect.w = this->width * this->size;
+	rect.h = this->height * this->size;
+
+	return rect;
+}
