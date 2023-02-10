@@ -56,6 +56,6 @@ public:
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
-	virtual void update();
+	void move();
 	
 };
