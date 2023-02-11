@@ -51,11 +51,11 @@ void PlayerMovementComponent::handleInput() {
 		transform->setVel(Vector2D(-playerSpeed, playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_s) && InputHandler::instance()->isKeyDown(SDLK_a)) {
-		//Se levanta la s
+		//Se levanta la s y se queda la a
 		transform->setVel(Vector2D(-playerSpeed, 0));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_a)&& InputHandler::instance()->isKeyDown(SDLK_s)) {
-		//Se levanta la a
+		//Se levanta la a y se queda la s
 		transform->setVel(Vector2D(0, playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_s) && InputHandler::instance()->isKeyUp(SDLK_a)) {
@@ -69,14 +69,15 @@ void PlayerMovementComponent::handleInput() {
 		transform->setVel(Vector2D(playerSpeed, playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_s) && InputHandler::instance()->isKeyDown(SDLK_d)) {
-		//Se levanta la s
+		//Se levanta la s y se queda la d
 		transform->setVel(Vector2D(playerSpeed, 0));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_d)&& InputHandler::instance()->isKeyDown(SDLK_s)) {
-		//Se levanta la d
+		//Se levanta la d y se queda la s
 		transform->setVel(Vector2D(0, playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_s)&& InputHandler::instance()->isKeyUp(SDLK_d)) {
+		//Se levantan ambas
 		transform->setVel(Vector2D());
 	}
 	//W+D
@@ -86,14 +87,15 @@ void PlayerMovementComponent::handleInput() {
 		transform->setVel(Vector2D(playerSpeed, -playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_d)&& InputHandler::instance()->isKeyDown(SDLK_w)) {
-		//Se levanta la d
+		//Se levanta la d y se queda la w
 		transform->setVel(Vector2D(0, -playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_w) && InputHandler::instance()->isKeyDown(SDLK_d)) {
-		//Se levanta la w
+		//Se levanta la w y se queda la d
 		transform->setVel(Vector2D(playerSpeed, 0));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_w)&& InputHandler::instance()->isKeyUp(SDLK_d)) {
+		//Se levantan ambas
 		transform->setVel(Vector2D());
 	}
 	//Pendant
@@ -104,14 +106,15 @@ void PlayerMovementComponent::handleInput() {
 		transform->setVel(Vector2D(-playerSpeed, -playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_w) && InputHandler::instance()->isKeyDown(SDLK_a)) {
-		//Se levanta la w
+		//Se levanta la w y se queda la a
 		transform->setVel(Vector2D(-playerSpeed, 0));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_a)&& InputHandler::instance()->isKeyDown(SDLK_w)) {
-		//Se levanta la a
+		//Se levanta la a y se queda la w
 		transform->setVel(Vector2D(0, -playerSpeed));
 	}
 	else if (InputHandler::instance()->isKeyUp(SDLK_w)&& InputHandler::instance()->isKeyUp(SDLK_a)) {
+		//Se levantan ambas
 		transform->setVel(Vector2D());
 	}
 	
