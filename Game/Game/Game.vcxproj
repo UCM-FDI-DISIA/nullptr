@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClInclude Include="src\components\ButtonComponent.h" />
     <ClInclude Include="src\components\Component.h" />
+    <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
@@ -176,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />

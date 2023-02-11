@@ -121,6 +121,10 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\components\ButtonComponent.h">
+    <ClInclude Include="src\components\ecs.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Image.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -170,9 +174,6 @@
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Transform.cpp">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de encabezado\core</Filter>
     </ClCompile>
@@ -180,6 +181,10 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\components\ButtonComponent.cpp">
+    <ClCompile Include="src\components\Image.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Transform.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>

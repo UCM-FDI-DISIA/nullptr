@@ -19,7 +19,11 @@ private:
 	float width_;
 	float height_;
 	float rotation_;
+	
 public:
+
+	static const int id = _TRANSFORM;
+	Transform();
 	Transform(Vector2D pos, Vector2D vel, float w = 0, float h = 0, float r = 0);
 	virtual ~Transform();
 
@@ -53,9 +57,28 @@ public:
 		width_ = newWidth;
 	}
 
+	//Devuelve height
+	inline float getHeight() {
+		return height_;
+    }
+
+	//Devuelve width
+	inline float getWidth() {
+		return width_;
+	}
+	inline SDL_Rect getRect() {
+		SDL_Rect rect;
+		rect.x = position_.getX();
+		rect.y = position_.getY();
+		rect.w = width_;
+		rect.h = height_;
+
+		return rect;
+	}
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
+	void move();
 	virtual void update();
 	
 };
