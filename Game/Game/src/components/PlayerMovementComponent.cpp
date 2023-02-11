@@ -119,3 +119,7 @@ void PlayerMovementComponent::handleInput() {
 	}
 	
 }
+
+void PlayerMovementComponent::setPlayerSpeed(int newSpeed) {
+	playerSpeed = newSpeed;
+}

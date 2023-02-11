@@ -4,13 +4,13 @@
 #include "Transform.h"
 
 
-const float playerSpeed = 0.001;
 
 
 class PlayerMovementComponent : public Component
 {
 private:
 	Transform* transform;
+	float playerSpeed = 0.001;
 
 public:
 	static const int id = _PLAYERMOVEMENTCOMPONENT;
@@ -20,5 +20,8 @@ public:
 	virtual void initComponent();
 
 	virtual void handleInput();
+
+	void setPlayerSpeed(int newSpeed);
+
 };
 
