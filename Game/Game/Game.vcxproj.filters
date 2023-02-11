@@ -43,6 +43,12 @@
     <Filter Include="Archivos de encabezado\utils">
       <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\gameObjects">
+      <UniqueIdentifier>{46471e40-501b-4a57-a4bc-8c499bf9e6c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\gameObjects">
+      <UniqueIdentifier>{efbd73b6-a7b1-413a-9442-8511de47cd3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -129,6 +135,9 @@
     <ClInclude Include="src\components\ecs.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\RangedEnemy.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -190,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="src\components\RangeBehavior.cpp">
       <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

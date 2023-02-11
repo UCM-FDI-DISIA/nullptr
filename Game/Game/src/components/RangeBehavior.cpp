@@ -1,11 +1,15 @@
 #include "RangeBehavior.h"
-RangeBehavior::RangeBehavior(Manager* mgr, GameObject* gmObj,Transform* Pos ,Transform* playerpos, float spd, float safedist, float stoptime, float movetime)
-	:EnemyBehavior(mgr, gmObj,Pos, playerPos,spd)
+RangeBehavior::RangeBehavior(float spd, float safedist, float stoptime, float movetime)
+	:EnemyBehavior(spd)
 {
 	safeDistance = safedist;
-	initialDir = Pos->getVel();
+	initialDir = pos->getVel();
 	stopTime = stoptime;
 	moveTime = movetime;
+}
+void RangeBehavior::initComponent()
+{
+	setDirectionTo();
 }
 void RangeBehavior::setDirectionTo()
 {
@@ -18,7 +22,7 @@ void RangeBehavior::setDirectionTo()
 void RangeBehavior::update()
 {
 	actualTime = SDL_GetTicks();
-	setDirectionTo();
+
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 	if (actualTime - elapsedTime > stopTime)
 	{
@@ -27,6 +31,7 @@ void RangeBehavior::update()
 		// Si te has estado moviendo más tiempo de lo que deberia, vuelves al ciclo de parada
 		 if (actualTime - elapsedTime > stopTime + moveTime)
 		{
+			setDirectionTo();
 			elapsedTime = SDL_GetTicks();
 		}
 	}

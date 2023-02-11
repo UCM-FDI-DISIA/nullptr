@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "Transform.h"
+#include "../core/Manager.h"
 class EnemyBehavior: public Component
 {
 protected:
@@ -9,12 +10,11 @@ protected:
 	float speed;
 	// AttackComponent* attack (cuando este cerca del player, envia un mensaje para atacar)
 public:
-	EnemyBehavior(Manager* mgr, GameObject* gmObj,Transform* Pos, Transform* playerpos, float spd)
+	EnemyBehavior(float spd) : speed(spd){};
+	virtual void initComponent()
 	{
-		setContext(gmObj, mgr);
-		playerPos = playerpos;
-		speed = spd;
-		pos = Pos;
+		pos = gObj->getComponent<Transform>();
+		playerPos = mngr->getPlayer->getComponent<Transform>();
 	}
 	virtual void moveTo() = 0;
 	virtual void attack() = 0;

@@ -12,9 +12,10 @@ private:
 	bool stopped = false;
 public:
 	static const int id = _RANGE_BEHAVIOR;
-	RangeBehavior(Manager* mgr, GameObject* gmObj,Transform* Pos ,Transform* playerpos, float spd, float safDist, float stoptime, float moveTime);
+	RangeBehavior(float spd, float safDist, float stoptime, float moveTime);
 	~RangeBehavior();
-	virtual void setDirectionTo();
+	virtual void initComponent();
+	void setDirectionTo();
 	virtual void update();
 	// virtual void attack();
 };
