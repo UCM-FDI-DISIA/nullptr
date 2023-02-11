@@ -117,17 +117,11 @@
     <ClInclude Include="src\core\Vector2D.h">
       <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyBehavior.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\HeatlhComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\EnemyBehavior.h">
       <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="RangeBehavior.h">
-      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\components\RangeBehavior.h">
       <Filter>Archivos de encabezado\components</Filter>
