@@ -4,7 +4,7 @@
 #include "Transform.h"
 
 
-const int playerSpeed = 10;
+const float playerSpeed = 0.001;
 
 
 class PlayerMovementComponent : public Component
