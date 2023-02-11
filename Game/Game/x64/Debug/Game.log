@@ -1,82 +1,13 @@
-﻿  Image.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Transform.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  GameStateMachine.cpp
-  Manager.cpp
-  SDLApplication.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Vector2D.cpp
-  Game.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  AlbumScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  BattleScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  ChestScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  GameState.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  InventoryScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  MainMenuScene.cpp
+﻿  BattleScene.cpp
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\core\GameObject.h(46,32): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\scenes\MainMenuScene.cpp(8,83): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\scenes\BattleScene.cpp(6,87): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
           with
           [
               T=Transform
           ]
-  MapScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  OptionsMenuScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  PauseMenuScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  ShopScene.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Texture.cpp
-  Generando código...
+  LINK : no se encontró C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   Game.vcxproj -> C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
