@@ -10,13 +10,15 @@ typedef void CallBack(Manager* game);
 class ButtonComponent : public Component {
 
 private:
-	int state = 0;
+	int state;
 	CallBack* function;
-	Transform* transform;
+	Transform* tr;
 
 public:
-	ButtonComponent() : Component() {}
+	static const int id = _BUTTON;
+	ButtonComponent(CallBack* _f) : Component(), state(0), function(_f) {}
 
 	virtual void update();
 	virtual void handleInput();
+	virtual void initComponent();
 };
