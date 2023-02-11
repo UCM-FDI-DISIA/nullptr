@@ -17,7 +17,7 @@ private:
 	std::array<Component*, maxComponentId> cmps;
 public:
 	// Constructor
-	GameObject() : mngr(nullptr), cmps(), currCmps(), alive(true) {
+	GameObject() : mngr(nullptr), cmps(), currCmps(), alive() {
 		currCmps.reserve(maxComponentId);
 	}
 	// Destructor

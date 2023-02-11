@@ -5,7 +5,6 @@
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
-	_IMAGE,
 	// ... (compoment ids)
 	_HEALTH,
 	_RANGE_BEHAVIOR,

@@ -19,15 +19,11 @@ private:
 	float width_;
 	float height_;
 	float rotation_;
-	
 public:
-
-	static const int id = _TRANSFORM;
-	Transform();
 	Transform(Vector2D pos, Vector2D vel, float w = 0, float h = 0, float r = 0);
 	virtual ~Transform();
 
-	//Devuelve la posiciï¿½n
+	//Devuelve la posición
 	inline Vector2D& getPos() {
 		return position_;
 	};
@@ -37,7 +33,7 @@ public:
 		return velocity_;
 	};
 
-	//Setea posiciï¿½n		
+	//Setea posición		
 	inline void setPos(Vector2D newPos) {
 		position_ = newPos;
 	};
@@ -57,29 +53,9 @@ public:
 		width_ = newWidth;
 	}
 	float getDistance(Vector2D other);
-
-	//Devuelve height
-	inline float getHeight() {
-		return height_;
-    }
-
-	//Devuelve width
-	inline float getWidth() {
-		return width_;
-	}
-	inline SDL_Rect getRect() {
-		SDL_Rect rect;
-		rect.x = position_.getX();
-		rect.y = position_.getY();
-		rect.w = width_;
-		rect.h = height_;
-
-		return rect;
-	}
-
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
 	void move();
-	virtual void update();	
+	
 };
