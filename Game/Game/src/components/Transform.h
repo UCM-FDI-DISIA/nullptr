@@ -23,6 +23,7 @@ private:
 public:
 
 	static const int id = _TRANSFORM;
+	Transform();
 	Transform(Vector2D pos, Vector2D vel, float w = 0, float h = 0, float r = 0);
 	virtual ~Transform();
 

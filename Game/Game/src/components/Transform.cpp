@@ -1,5 +1,13 @@
 #include "Transform.h"
 
+Transform::Transform() {
+	position_ = Vector2D(0, 0);
+	velocity_ = Vector2D(0, 0);
+	width_ = 0;
+	height_ = 0;
+	rotation_ = 0;
+}
+
 Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) {
 	position_ = pos;
 	velocity_ = vel;
