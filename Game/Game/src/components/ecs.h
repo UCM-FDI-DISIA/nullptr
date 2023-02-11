@@ -6,7 +6,8 @@ using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
 	// ... (compoment ids)
-
+	_HEALTH,
+	_RANGE_BEHAVIOR,
 	// do not remove this
 	_LAST_CMP_ID
 };

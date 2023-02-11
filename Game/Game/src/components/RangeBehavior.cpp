@@ -22,10 +22,10 @@ void RangeBehavior::update()
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 	if (actualTime - elapsedTime > stopTime)
 	{
-		// Te mueves Movecomponent.Move()
+		// Te mueves Transform.setVel(1)
 
 		// Si te has estado moviendo más tiempo de lo que deberia, vuelves al ciclo de parada
-		if (actualTime - elapsedTime > stopTime + moveTime)
+		 if (actualTime - elapsedTime > stopTime + moveTime)
 		{
 			elapsedTime = SDL_GetTicks();
 		}

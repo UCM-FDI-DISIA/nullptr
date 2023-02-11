@@ -6,6 +6,7 @@ private:
 	int maxLife;
 	int modifiedMaxLife;
 public:
+	static const int id = _HEALTH;
 	HealthComponent(Manager* mngr_, GameObject* gameObject, int Maxlife);
 	//Delete del padre
 	void receiveDamage(int damage);

@@ -11,6 +11,7 @@ private:
 	float actualTime = 0;
 	bool stopped = false;
 public:
+	static const int id = _RANGE_BEHAVIOR;
 	RangeBehavior(Manager* mgr, GameObject* gmObj,Transform* Pos ,Transform* playerpos, float spd, float safDist, float stoptime, float moveTime);
 	~RangeBehavior();
 	virtual void setDirectionTo();
