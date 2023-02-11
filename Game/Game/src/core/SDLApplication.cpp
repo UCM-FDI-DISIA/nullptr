@@ -34,7 +34,7 @@ SDLApplication::SDLApplication() {
 	}
 
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new MainMenuScene(this));
+	gameStateMachine->pushState(new BattleScene(this));
 	exit = false;
 }
 
