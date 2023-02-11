@@ -3,6 +3,8 @@
 #include "../Game/src/components/Component.h"
 #include "../Game/src/components/Transform.h"
 
+const int playerSpeed = 10;
+
 class PlayerMovementComponent : public Component
 {
 private:

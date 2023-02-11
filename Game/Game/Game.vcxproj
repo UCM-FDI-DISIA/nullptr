@@ -176,8 +176,8 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />

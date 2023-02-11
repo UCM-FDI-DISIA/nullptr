@@ -182,8 +182,8 @@
     <ClCompile Include="src\components\Transform.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerMovementComponent.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="src\components\PlayerMovementComponent.cpp">
+      <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
