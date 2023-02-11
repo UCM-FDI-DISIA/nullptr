@@ -10,6 +10,7 @@
 #include "../data/constants.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
+#include "../scenes/MainMenuScene.h"
 #include "../sdlutils/InputHandler.h"
 using namespace std;
 

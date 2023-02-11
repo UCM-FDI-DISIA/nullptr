@@ -3,6 +3,8 @@
 #define MAINMENUSCENE_H_
 
 #include "GameState.h"
+#include "../components/Transform.h"
+#include "../components/Image.h"
 class MainMenuScene : public GameState {
 private:
 public:
