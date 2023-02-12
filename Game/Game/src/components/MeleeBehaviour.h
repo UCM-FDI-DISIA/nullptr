@@ -7,7 +7,7 @@ private:
 	bool closeToPlayer;
 	float attackDistance;
 public:
-	MeleeBehaviour(float stopT, float spd, int dmg, float atkDist);
+	MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack);
 	virtual ~MeleeBehaviour();
 	static const int id = _MELEE_BEHAVIOUR;
 	virtual void moveTo();

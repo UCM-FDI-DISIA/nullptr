@@ -1,5 +1,5 @@
 #include "MeleeBehaviour.h"
-MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist) :EnemyBehavior(spd, dmg, stopT) {
+MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack) :EnemyBehavior(spd, dmg, stopT, attack) {
 	initialDir = pos->getVel();
 	attackDistance = atkDist;
 }

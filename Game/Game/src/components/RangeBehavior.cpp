@@ -1,7 +1,7 @@
 #include "RangeBehavior.h"
 
-RangeBehavior::RangeBehavior(float spd, float safedist, float stoptime, float movetime, int dmg)
-	:EnemyBehavior(spd, dmg, stopTime)
+RangeBehavior::RangeBehavior(float spd, float safedist, float stoptime, float movetime, int dmg, float attack)
+	:EnemyBehavior(spd, dmg, stoptime, attack)
 {
     safeDistance = safedist;
 	initialDir = pos->getVel();

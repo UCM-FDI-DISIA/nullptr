@@ -22,7 +22,8 @@ public:
 	virtual void initComponent()
 	{
 		pos = gObj->getComponent<Transform>();
-		playerPos = mngr->getPlayer->getComponent<Transform>();
+		pos->setVel(Vector2D(0, speed));
+		//playerPos = mngr->getPlayer->getComponent<Transform>();
 	}
 	virtual void attack() = 0;
 };
