@@ -1,4 +1,16 @@
-﻿  Transform.cpp
-  Vector2D.cpp
-  Generating Code...
-  Game.vcxproj -> C:\Users\User\Desktop\Programacion\nullptr\Game\x64\Debug\Game.exe
+﻿  RangeBehavior.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(24,27): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(35,30): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  RangedEnemy.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\GameObject.h(46,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\RangedEnemy.h(10,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int,int>(Vector2D &,Vector2D &,int &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  Generando código...
+  Game.vcxproj -> C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\x64\Debug\Game.exe

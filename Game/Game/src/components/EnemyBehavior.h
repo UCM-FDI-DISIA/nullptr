@@ -14,9 +14,9 @@ public:
 	virtual void initComponent()
 	{
 		pos = gObj->getComponent<Transform>();
-		playerPos = mngr->getPlayer->getComponent<Transform>();
+		/*playerPos = mngr->getPlayer->getComponent<Transform>();*/
 	}
-	virtual void moveTo() = 0;
-	virtual void attack() = 0;
+	virtual void setDirectionTo() = 0;
+	/*virtual void attack() = 0;*/
 };
 
