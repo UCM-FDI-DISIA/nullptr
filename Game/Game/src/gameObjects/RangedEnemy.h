@@ -4,9 +4,8 @@
 class RangedEnemy:public GameObject
 {
 public:
-	RangedEnemy(Manager* mngr, Vector2D pos, Vector2D vel)
+	RangedEnemy(Vector2D pos, Vector2D vel)
 	{
-		setContext(mngr);
 		addComponent<Transform>(pos, vel, 30, 60, 0);
 		addComponent<RangeBehavior>(1, 20, 3, 3);
 	}
