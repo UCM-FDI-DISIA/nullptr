@@ -123,6 +123,9 @@
     <ClInclude Include="src\components\Image.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerMovementComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -177,6 +180,9 @@
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Transform.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\PlayerMovementComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>
