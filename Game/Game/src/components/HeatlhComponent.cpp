@@ -2,10 +2,9 @@
 #include"../core/GameObject.h"
 // Al construirse, adopta el gameObject y su manager como propios
 // También define la vida máxima del objeto
-HealthComponent::HealthComponent(Manager* mngr_, GameObject* gameObject, int life)
+HealthComponent::HealthComponent(int life)
 {
 	maxLife = modifiedMaxLife = lifePoints = life;
-	setContext(gameObject, mngr_);
 }
 // Resta el daño a la vida actual y si baja de 0, mata al objeto
 void HealthComponent::receiveDamage(int damage)
