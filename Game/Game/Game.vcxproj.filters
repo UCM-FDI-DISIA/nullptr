@@ -126,6 +126,12 @@
     <ClInclude Include="PlayerMovementComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\data\Card.h">
+      <Filter>Archivos de encabezado\data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\CardComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -183,6 +189,12 @@
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\PlayerMovementComponent.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\Card.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\CardComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>

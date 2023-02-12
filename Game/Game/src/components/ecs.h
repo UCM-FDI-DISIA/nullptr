@@ -7,6 +7,7 @@ enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
+	_CARDCOMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this
