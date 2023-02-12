@@ -3,7 +3,8 @@
 #include "../core/SDLApplication.h"
 
 MainSceneManager::MainSceneManager(CallBack _c, SDLApplication* game) {
-	
-	Button* button = new Button(_c, game);
-	addGameObject(button);
+	for (int i = 0; i < 3; i++) {
+		Button* button = new Button(_c, game, Vector2D(WIN_WIDTH/2 - 79, (WIN_HEIGHT/2 - 30) + i * 30));
+		addGameObject(button);
+	}
 }

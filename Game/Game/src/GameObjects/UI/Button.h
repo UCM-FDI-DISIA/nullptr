@@ -12,7 +12,7 @@ class Button : public GameObject {
 private:
 
 public:
-	Button(CallBack _c, SDLApplication* game);
+	Button(CallBack _c, SDLApplication* game, Vector2D _pos);
 
 
 };
