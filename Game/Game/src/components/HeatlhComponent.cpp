@@ -16,7 +16,7 @@ void HealthComponent::receiveDamage(int damage)
 void HealthComponent::heal(int heal)
 {
 	if (lifePoints + heal <= modifiedMaxLife) lifePoints += heal;
-	else lifePoints += heal;
+	else lifePoints = modifiedMaxLife;
 }
 void HealthComponent::die()
 {
