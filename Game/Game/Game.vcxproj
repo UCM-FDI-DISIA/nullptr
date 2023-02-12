@@ -151,6 +151,7 @@
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\EnemyBehavior.h" />
     <ClInclude Include="src\components\HeatlhComponent.h" />
+    <ClInclude Include="src\components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\RangeBehavior.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\GameObject.h" />
@@ -180,6 +181,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\EnemyBehavior.cpp" />
     <ClCompile Include="src\components\HeatlhComponent.cpp" />
+    <ClCompile Include="src\components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\RangeBehavior.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
