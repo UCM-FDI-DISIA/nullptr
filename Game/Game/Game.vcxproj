@@ -161,6 +161,7 @@
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
     <ClInclude Include="src\gameObjects\RangedEnemy.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
@@ -189,7 +190,6 @@
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
