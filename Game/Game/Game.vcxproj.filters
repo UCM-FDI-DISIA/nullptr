@@ -138,6 +138,9 @@
     <ClInclude Include="src\gameObjects\RangedEnemy.h">
       <Filter>Archivos de encabezado\gameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\MeleeBehaviour.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -202,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\MeleeBehaviour.cpp">
+      <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
