@@ -8,6 +8,7 @@ enum cmpId : cmpId_type {
 	// ... (compoment ids)
 	_HEALTH,
 	_RANGE_BEHAVIOR,
+	_MELEE_BEHAVIOUR,
 	// do not remove this
 	_LAST_CMP_ID
 };

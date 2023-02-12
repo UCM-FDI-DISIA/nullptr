@@ -10,14 +10,19 @@ class EnemyBehavior: public Component
 protected:
 	Transform* pos;
 	Transform* playerPos;
+	float stopTime;
+	float elapsedTime;
+	float actualTime;
+	float attackInterval;
 	float speed;
+	int damage;
 	// AttackComponent* attack (cuando este cerca del player, envia un mensaje para atacar)
 public:
-	EnemyBehavior(float spd) : speed(spd){};
+	EnemyBehavior(float spd, int dmg, float stop, float attack) : speed(spd), damage(dmg), stopTime(stop), attackInterval(attack) {};
 	virtual void initComponent()
 	{
 		pos = gObj->getComponent<Transform>();
-		/*playerPos = mngr->getPlayer->getComponent<Transform>();*/
+		playerPos = mngr->getPlayer->getComponent<Transform>();
 	}
 	virtual void attack() = 0;
 };

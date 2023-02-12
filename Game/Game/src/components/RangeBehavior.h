@@ -15,8 +15,9 @@ private:
 	bool stopped = false;
 public:
 	static const int id = _RANGE_BEHAVIOR;
-	RangeBehavior(float spd, float safDist, float stoptime, float moveTime);
-	virtual void initComponent();
+
+	RangeBehavior(float spd, float safDist, float stoptime, float moveTime, int dmg);
+    virtual void initComponent();
 	void setDirectionTo();
 	virtual void update();
 	virtual void attack();
