@@ -21,6 +21,9 @@ void PlayerMovementComponent::handleInput() {
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 		vel = vel + Vector2D(0, playerSpeed);
 	}
+	if(vel.magnitude()!=0)
+	vel = vel / vel.magnitude();
+	vel = vel * playerSpeed;
 	transform->setVel(vel);
 	
 	
