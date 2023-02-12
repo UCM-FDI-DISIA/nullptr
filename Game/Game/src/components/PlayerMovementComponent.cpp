@@ -10,16 +10,16 @@ void PlayerMovementComponent::initComponent() {
 void PlayerMovementComponent::handleInput() {
 	Vector2D vel(0, 0);
 	if (InputHandler::instance()->isKeyDown(SDLK_a)) {
-		vel = vel + Vector2D(-playerSpeed, 0);
+		vel = vel + Vector2D(-1, 0);
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_d)) {
-		vel = vel + Vector2D(playerSpeed, 0);
+		vel = vel + Vector2D(1, 0);
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_w)) {
-		vel = vel + Vector2D(0, -playerSpeed);
+		vel = vel + Vector2D(0, -1);
 	}
 	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-		vel = vel + Vector2D(0, playerSpeed);
+		vel = vel + Vector2D(0, 1);
 	}
 	if(vel.magnitude()!=0)
 	vel = vel / vel.magnitude();
