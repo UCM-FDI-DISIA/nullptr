@@ -1,5 +1,8 @@
 #pragma once
 #include "EnemyBehavior.h"
+
+// Esta clase define el comportamiento del enemigo a distancia
+// Se mueve por un tiempo determinado y se queda parado otro
 class RangeBehavior :public EnemyBehavior
 {
 private:
@@ -14,8 +17,8 @@ public:
 	static const int id = _RANGE_BEHAVIOR;
 	RangeBehavior(float spd, float safDist, float stoptime, float moveTime);
 	virtual void initComponent();
-	virtual void setDirectionTo();
+	void setDirectionTo();
 	virtual void update();
-	// virtual void attack();
+	virtual void attack();
 };
 
