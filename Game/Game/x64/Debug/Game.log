@@ -10,7 +10,7 @@ C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.cpp(124,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.cpp(139,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   SDLApplication.cpp
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -94,4 +94,5 @@ C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
   Generando código...
+  LINK : no se encontró C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   Game.vcxproj -> C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
