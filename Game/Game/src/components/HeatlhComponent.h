@@ -13,6 +13,6 @@ public:
 	void heal(int heal);
 	void die();
 	int getLife();
-	void setLife(double multiplier);
+	void multiplyLife(double multiplier);
 	/*void timeDamage()*/
 };
