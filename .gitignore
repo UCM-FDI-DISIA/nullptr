@@ -32,5 +32,3 @@
 *.pdb
 *.tlog
 Game/.vs/
-Game/Game/Game.vcxproj
-Game/Game/Game.vcxproj.filters
