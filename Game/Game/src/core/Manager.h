@@ -5,7 +5,7 @@
 #include "GameObject.h"
 
 class Manager {
-private:
+protected:
 	std::vector<GameObject*> gObjs;
 public:
 	// Constructor
@@ -15,6 +15,7 @@ public:
 	// Adds a new empty GameObject to the Manager, returns a pointer to said GameObject
 	// Añade un nuevo GameObject vacío al Manager, devuelve un puntero a dicho GameObject
 	GameObject* addGameObject();
+	void addGameObject(GameObject* g);
 	// Erases every not alive GameObject
 	// Borra todos los GameObject no vivos
 	void refresh();

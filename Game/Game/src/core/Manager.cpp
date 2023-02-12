@@ -22,6 +22,11 @@ GameObject* Manager::addGameObject() {
 	gObjs.push_back(e);
 	return e;
 }
+void Manager::addGameObject(GameObject* g) {
+	g->setAlive(true);
+	g->setContext(this);
+	gObjs.push_back(g);
+}
 
 // Erases every not alive GameObject
 // Borra todos los GameObject no vivos

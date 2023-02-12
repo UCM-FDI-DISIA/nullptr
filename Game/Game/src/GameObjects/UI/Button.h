@@ -6,14 +6,13 @@
 #include "../../components/Image.h"
 #include "../../components/ButtonComponent.h"
 
+class SDLApplication;
+typedef void CallBack();
 class Button : public GameObject {
 private:
 
 public:
-	Button() : GameObject() {
-		addComponent<Transform>();
-		addComponent<Image>();
-		//addComponent<Animator>(_ANIMATOR);
-		addComponent<ButtonComponent>();
-	}
+	Button(CallBack _c, SDLApplication* game);
+
+
 };

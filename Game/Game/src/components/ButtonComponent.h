@@ -5,7 +5,8 @@
 
 enum State { OnOut = 0, OnOver, OnClick };
 
-typedef void CallBack(Manager* game);
+class SDL_Application;
+typedef void CallBack();
 
 class ButtonComponent : public Component {
 
