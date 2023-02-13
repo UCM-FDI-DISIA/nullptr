@@ -21,16 +21,30 @@ void CardComponent::initDeck() {
 
 }
 
-void CardComponent::resuflePile() {
-
+void CardComponent::reshufflePile() {
+	//Semilla aleatoria, con tiempo del ordenador
+	srand(time(0));
+	//Copia y mezcla
+	pile.swap(deck);
+	random_shuffle(deck.begin(), deck.end());
 }
 
 void CardComponent::newHand() {
-
+	handSize = 4;
+	//Si la mano esta vacia se barajan nuevas cartas
+	if (deck.size() == 0)
+		reshufflePile();
+	for (int i = 0; i++; i < 4) {
+		drawCard(i);
+		//Si se vacia la mano al ir sacando cartas
+		if (deck.size() == 0)
+			reshufflePile();
+	}
 }
 
-void CardComponent::drawCard() {
-
+void CardComponent::drawCard(int handPos) {
+	hand[handPos] = deck.back();
+	deck.pop_back();
 }
 
 void CardComponent::discardCard(int discarded) {
