@@ -1,6 +1,6 @@
 #pragma once
-#include "src/utils/Singleton.h"
-#include "src/data/Card.h"
+#include "../utils/Singleton.h"
+#include "../core/Card.h"
 #include <vector>
 
 
@@ -46,5 +46,11 @@ class PlayerData : public Singleton<PlayerData>
 		vector<Card*> getLibrary();
 
 
+
+
+
 };
 
+inline PlayerData& pD() {
+	return *PlayerData::instance();
+}
