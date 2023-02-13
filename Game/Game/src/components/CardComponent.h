@@ -12,6 +12,7 @@ class CardComponent : public Component {
 		array<Card*, 4> hand;
 		vector<Card*> pile;
 		int active,handSize;
+		float downTime, attackMult, cadenceMult;
 
 		int mana, maxMana;
 

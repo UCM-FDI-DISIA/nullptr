@@ -13,22 +13,24 @@ class Card
 		float downtime;
 		string name, abilityText, attackText;
 		Texture* texture;
-		function<void(Vector2D,Vector2D)> attackFunction;
-		function<void(Vector2D, Vector2D)> abilityFunction;
+		function<void(Vector2D,Vector2D,float)> attackFunction;
+		function<void(Vector2D, Vector2D, float)> abilityFunction;
 
-		void gunattack(Vector2D playerPos, Vector2D mousePos);
-		void gunability(Vector2D playerPos, Vector2D mousePos);
-		void swordattack(Vector2D playerPos, Vector2D mousePos);
-		void swordability(Vector2D playerPos, Vector2D mousePos);
+		void gunattack(Vector2D playerPos, Vector2D mousePos, float attackMult);
+		void gunability(Vector2D playerPos, Vector2D mousePos, float attackMult);
+		void swordattack(Vector2D playerPos, Vector2D mousePos, float attackMult);
+		void swordability(Vector2D playerPos, Vector2D mousePos, float attackMult);
 
 
 	public:
 		Card(int damage,int uses,int mana, float downtime, string name, string abilityText, string attackText, Texture* texture, function<void(Vector2D, Vector2D)> attackFunction, function<void(Vector2D, Vector2D)> abilityFunction);
-		void attack(Vector2D playerPos, Vector2D mousePos) { attackFunction(playerPos, mousePos); }
-		void ability(Vector2D playerPos, Vector2D mousePos) { abilityFunction(playerPos, mousePos); }
+		void attack(Vector2D playerPos, Vector2D mousePos, float attackMult) { attackFunction(playerPos, mousePos, attackMult); }
+		void ability(Vector2D playerPos, Vector2D mousePos, float attackMult) { abilityFunction(playerPos, mousePos, attackMult); }
 		int getUses() { return remainingUses; }
 		void use() { remainingUses -= 1;}
 		void resetUses() { remainingUses = maxUses;}
 		int getMana() { return mana; }
+		int getDownTime() { return downtime; }
+
 };
 
