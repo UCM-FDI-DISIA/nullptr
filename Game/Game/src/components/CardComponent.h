@@ -26,7 +26,7 @@ class CardComponent : public Component {
 
 	public:
 		static const int id = _CARDCOMPONENT;
-		CardComponent();
+		CardComponent(vector<Card*> wholeDeck, int maxMana);
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);

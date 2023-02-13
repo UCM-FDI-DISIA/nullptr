@@ -139,7 +139,6 @@
       <Filter>Archivos de encabezado\cards</Filter>
     </ClInclude>
     <ClInclude Include="src\core\Card.h">
-    <ClInclude Include="PlayerData.h">
       <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
   </ItemGroup>
@@ -206,8 +205,6 @@
     </ClCompile>
     <ClCompile Include="src\cards\laserShades.cpp">
       <Filter>Archivos de origen\cards</Filter>
-    <ClCompile Include="PlayerData.cpp">
-      <Filter>Archivos de origen\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
