@@ -148,17 +148,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
+    <ClInclude Include="src\cards\laserShades.h" />
     <ClInclude Include="src\components\CardComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Transform.h" />
+    <ClInclude Include="src\core\Card.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
     <ClInclude Include="src\core\Manager.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
     <ClInclude Include="src\core\Vector2D.h" />
-    <ClInclude Include="src\data\Card.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\Resource.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\cards\laserShades.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
@@ -186,7 +188,6 @@
     <ClCompile Include="src\core\Manager.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
-    <ClCompile Include="src\data\Card.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />

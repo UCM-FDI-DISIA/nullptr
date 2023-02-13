@@ -4,7 +4,7 @@
 #include "Component.h"
 #include "Transform.h"
 #include "../core/Vector2D.h"
-#include "../data/Card.h"
+#include "../core/Card.h"
 
 #pragma once
 class CardComponent : public Component {

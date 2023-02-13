@@ -43,6 +43,12 @@
     <Filter Include="Archivos de encabezado\utils">
       <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\cards">
+      <UniqueIdentifier>{9cfed996-8cde-4eea-bdce-58117a523d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\cards">
+      <UniqueIdentifier>{02b2c91d-7bbb-4011-a7ef-331be307cbba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -126,11 +132,14 @@
     <ClInclude Include="PlayerMovementComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\data\Card.h">
-      <Filter>Archivos de encabezado\data</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\CardComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cards\laserShades.h">
+      <Filter>Archivos de encabezado\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Card.h">
+      <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -191,11 +200,11 @@
     <ClCompile Include="src\components\PlayerMovementComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\data\Card.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\CardComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cards\laserShades.cpp">
+      <Filter>Archivos de origen\cards</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
