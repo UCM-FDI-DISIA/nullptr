@@ -162,7 +162,6 @@
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\managers\MainMenuManager.h" />
-    <ClInclude Include="src\managers\MapManager.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
@@ -191,7 +190,6 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\managers\MainMenuManager.cpp" />
-    <ClCompile Include="src\managers\MapManager.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />

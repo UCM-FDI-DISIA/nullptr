@@ -11,9 +11,6 @@
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
 #include "../scenes/MainMenuScene.h"
-#include "../scenes/ChestScene.h"
-#include "../scenes/MapScene.h"
-#include "../managers/MainMenuManager.h"
 #include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
 using namespace std;
