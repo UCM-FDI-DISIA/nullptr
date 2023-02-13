@@ -34,7 +34,7 @@ SDLApplication::SDLApplication() {
 	}
 
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new BattleScene(this));
+	gameStateMachine->pushState(new MainMenuScene(this));
 	exit = false;
 }
 
@@ -99,7 +99,24 @@ Texture* SDLApplication::getTexture(TextureName texture) const { return textures
 
 // Starts game
 // Inicia el juego
-void SDLApplication::playGame(SDLApplication* _game) {  }
+void SDLApplication::playGame(SDLApplication* _game) { 
+	_game->gameStateMachine->changeState(new BattleScene(_game));
+}
+
+//Te lleva al Menu de opciones
+void SDLApplication::options(SDLApplication* _game) {
+	_game->gameStateMachine->changeState(new OptionsMenuScene(_game));
+}
+
+//Te lleva al album de cartas
+void SDLApplication::album(SDLApplication* _game) {
+	_game->gameStateMachine->changeState(new AlbumScene(_game));
+}
+
+//Te lleva al menu principal
+void SDLApplication::mainMenu(SDLApplication* _game) {
+	_game->gameStateMachine->changeState(new MainMenuScene(_game));
+}
 
 // Pauses the game
 // Pausa el juego

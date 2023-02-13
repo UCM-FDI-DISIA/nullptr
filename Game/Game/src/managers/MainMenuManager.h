@@ -7,5 +7,8 @@ class SDLApplication;
 class MainMenuManager : public Manager {
 public:
 	MainMenuManager(SDLApplication* game);
-	static void Test(SDLApplication* game);
+	static void play(SDLApplication* game);
+	static void options(SDLApplication* game);
+	static void album(SDLApplication* game);
+	static void exit(SDLApplication* game);
 };
