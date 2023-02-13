@@ -43,6 +43,12 @@
     <Filter Include="Archivos de encabezado\utils">
       <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\gameObjects">
+      <UniqueIdentifier>{f749c2fa-e67a-41d3-a960-c471083db738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\gameObjects">
+      <UniqueIdentifier>{5f8d733a-88fc-40a7-9103-27e7bcce32c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -126,6 +132,12 @@
     <ClInclude Include="PlayerMovementComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\Camera.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\CameraComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -183,6 +195,12 @@
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\PlayerMovementComponent.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Camera.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\CameraComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>

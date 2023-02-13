@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
+    <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Image.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
@@ -184,6 +187,7 @@
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
