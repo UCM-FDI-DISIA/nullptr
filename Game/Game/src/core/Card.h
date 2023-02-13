@@ -19,6 +19,5 @@ class Card
 		void resetUses() { remainingUses = maxUses;}
 		int getMana() { return mana; }
 		int getDownTime() { return downtime; }
-
 };
 

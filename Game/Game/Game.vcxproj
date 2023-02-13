@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="PlayerData.h" />
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="src\cards\laserShades.h" />
     <ClInclude Include="src\components\CardComponent.h" />
@@ -180,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\cards\laserShades.cpp" />
+    <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />

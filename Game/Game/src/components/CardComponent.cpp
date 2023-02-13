@@ -1,10 +1,11 @@
 #include "CardComponent.h"
-
-CardComponent::CardComponent(vector<Card*> wholeDeck,int mMana) {
-	deck = wholeDeck;
+#include "../core/PlayerData.h"
+#include "../sdlutils/InputHandler.h"
+CardComponent::CardComponent() {
+	deck = PlayerData::instance()->getDeck();
 	initDeck();
-	maxMana = mMana;
-	mana = mMana;
+	maxMana = 100;
+	mana = 50;
 	active = 0;
 	attackMult = 0;
 }
