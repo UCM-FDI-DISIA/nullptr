@@ -10,6 +10,8 @@ enum cmpId : cmpId_type {
 	_HEALTH,
 	_MELEE_BEHAVIOUR,
 	_RANGE_BEHAVIOR,
+	_COLLIDER_COMPONENT,
+	_BULLET_COMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this

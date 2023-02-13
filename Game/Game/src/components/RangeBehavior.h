@@ -17,6 +17,5 @@ public:
     virtual void initComponent();
 	void setDirectionTo();
 	virtual void update();
-	virtual void attack();
 };
 

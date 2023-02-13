@@ -25,12 +25,12 @@ void RangeBehavior::update() {
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 	if (actualTime - elapsedTime > stopTime)
 	{
-		// Te mueves Transform.setVel(1)
-
+		pos->setVel(initialDir);
 		// Si te has estado moviendo m�s tiempo de lo que deberia, vuelves al ciclo de parada
 		 if (actualTime - elapsedTime > stopTime + moveTime)
 		{
 			setDirectionTo();
+			pos->setVel(Vector2D(0, 0));
 			elapsedTime = SDL_GetTicks();
 		}
 	}

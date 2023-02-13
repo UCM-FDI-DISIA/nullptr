@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
+    <ClInclude Include="src\components\BulletBehavior.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\EnemyBehavior.h" />

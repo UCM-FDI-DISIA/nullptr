@@ -25,6 +25,13 @@ void Transform::lookAt(Vector2D point) {
 	velocity_ = velocity_.rotate(rotation_);
 }
 
+// Devuelve la distancia en valor absoluto desde un punto a otro
+float Transform::getDistance(Vector2D other) {
+	float x = other.getX() - position_.getX();
+	float y = other.getY() - position_.getY();
+	return abs(sqrt(x * x + y * y));
+}
+
 //Rota el vector de velocidad
 void Transform::rotate(float rotation) {
 	rotation_ += rotation;
