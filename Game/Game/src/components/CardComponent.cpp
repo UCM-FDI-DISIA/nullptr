@@ -1,5 +1,13 @@
 #include "CardComponent.h"
 
+CardComponent::CardComponent(vector<Card*> wholeDeck,int mMana) {
+	deck = wholeDeck;
+	initDeck();
+	maxMana = mMana;
+	mana = mMana;
+	active = 0;
+}
+
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	if (hand[active]->getMana() >= mana) {
 		hand[active]->ability(playerPos, mousePos);
@@ -14,11 +22,17 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 }
 
 void CardComponent::switchActive(bool left) {
-
+	if (left)
+		--active;
+	else
+		++active;
+	active %= 4;
 }
 
 void CardComponent::initDeck() {
-
+	srand(time(0));
+	random_shuffle(deck.begin(), deck.end());
+	newHand();
 }
 
 void CardComponent::reshufflePile() {
