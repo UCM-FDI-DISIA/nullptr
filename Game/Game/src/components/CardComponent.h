@@ -1,5 +1,6 @@
 #include <vector>
 #include <array>
+#include <algorithm>
 #include "Component.h"
 #include "Transform.h"
 #include "../core/Vector2D.h"
@@ -16,9 +17,9 @@ class CardComponent : public Component {
 		int mana, maxMana;
 
 		void initDeck();
-		void resuflePile();
+		void reshufflePile();
 		void newHand();
-		void drawCard();
+		void drawCard(int handPos);
 		void discardCard(int discarded);
 
 
