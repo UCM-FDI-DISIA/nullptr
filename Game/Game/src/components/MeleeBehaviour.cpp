@@ -1,5 +1,5 @@
 #include "MeleeBehaviour.h"
-MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack) :EnemyBehavior(spd, dmg, stopT, attack) {
+MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
 	initialDir = pos->getVel();
 	attackDistance = atkDist;
 }
@@ -41,7 +41,7 @@ void MeleeBehaviour::update() {
 		if (actualTime - elapsedTime > attackInterval)
 		{
 			//Ataca
-			attack();
+			/*attack();*/
 
 			//Reseteamos el contador
 			elapsedTime = SDL_GetTicks();

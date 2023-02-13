@@ -1,13 +1,15 @@
 #pragma once
 #include "../core/GameObject.h"
 #include "../components/RangeBehavior.h"
+#include "../components/Image.h"
 class RangedEnemy:public GameObject
 {
 public:
-	RangedEnemy(Vector2D pos, Vector2D vel)
+	RangedEnemy(SDLApplication* game,Vector2D pos, Vector2D vel, Player* player)
 	{
 		addComponent<Transform>(pos, vel, 30, 60, 0);
-		addComponent<RangeBehavior>(1, 20, 3, 3);
+		addComponent<Image>(game->getTexture("Enemy"));
+		addComponent<RangeBehavior>(1, 200, 3000, 3000, 5, 4, player);
 	}
 };
 

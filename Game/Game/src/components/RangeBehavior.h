@@ -13,7 +13,7 @@ private:
 public:
 	static const int id = _RANGE_BEHAVIOR;
 
-	RangeBehavior(float spd, float safDist, float stoptime, float moveTime, int dmg, float attack);
+	RangeBehavior(float spd, float safDist, float stoptime, float moveTime,int damage, int attack, Player* player);
     virtual void initComponent();
 	void setDirectionTo();
 	virtual void update();

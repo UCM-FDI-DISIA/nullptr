@@ -1,13 +1,15 @@
 #include "RangeBehavior.h"
 
-RangeBehavior::RangeBehavior(float spd, float safedist, float stoptime, float movetime, int dmg, float attack)
-	:EnemyBehavior(spd, dmg, stoptime, attack)
+RangeBehavior::RangeBehavior(float spd, float safDist, float stoptime, float moveTime, int damage, int attack, Player* player)
+	:EnemyBehavior(spd, damage, stoptime, attack, player)
 {
-    safeDistance = safedist;
-	initialDir = pos->getVel();
-	moveTime = movetime;
+    safeDistance = safDist;
+	moveTime = moveTime;
 }
 void RangeBehavior::initComponent() {
+	pos = gObj->getComponent<Transform>();
+	pos->setVel(Vector2D(0.0001, 0.0001));
+	initialDir = pos->getVel();
 	setDirectionTo();
 }
 // Se encarga de comprobar si el enemigo est� dentro o fuera del radio de peligro
@@ -30,7 +32,7 @@ void RangeBehavior::update() {
 		 if (actualTime - elapsedTime > stopTime + moveTime)
 		{
 			setDirectionTo();
-			pos->setVel(Vector2D(0, 0));
+			/*pos->setVel(Vector2D(0, 0));*/
 			elapsedTime = SDL_GetTicks();
 		}
 	}

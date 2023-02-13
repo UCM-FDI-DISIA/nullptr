@@ -164,6 +164,9 @@
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
+    <ClInclude Include="src\gameObjects\Player.h" />
+    <ClInclude Include="src\gameObjects\RangedEnemy.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
