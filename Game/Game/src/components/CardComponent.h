@@ -2,7 +2,7 @@
 #include <array>
 #include "Component.h"
 #include "Transform.h"
-#include "../sdlutils/Texture.h"
+#include "../core/Vector2D.h"
 #include "../data/Card.h"
 
 #pragma once
@@ -11,14 +11,15 @@ class CardComponent : public Component {
 		vector<Card*> deck;
 		array<Card*, 4> hand;
 		vector<Card*> pile;
-		Card* active;
+		int active,handSize;
 
 		int mana, maxMana;
 
 		void initDeck();
 		void resuflePile();
+		void newHand();
 		void drawCard();
-		void discardCard(Card* discarded);
+		void discardCard(int discarded);
 
 
 	public:
