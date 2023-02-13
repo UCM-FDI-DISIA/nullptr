@@ -6,6 +6,7 @@ CardComponent::CardComponent(vector<Card*> wholeDeck,int mMana) {
 	maxMana = mMana;
 	mana = mMana;
 	active = 0;
+	attackMult = 0;
 }
 
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
@@ -14,13 +15,14 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 		hand[active]->use();
 		downTime = hand[active]->getDownTime() / cadenceMult;
 		if (hand[active]->getUses() <= 0)discardCard(active);
+	}
 }
 
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
-	if (hand[active]->getMana() <= mana) {
-		hand[active]->ability(playerPos, mousePos, attackMult);
-		discardCard(active);
-	}
+		if (hand[active]->getMana() <= mana) {
+			hand[active]->ability(playerPos, mousePos, attackMult);
+			discardCard(active);
+		}
 }
 
 
