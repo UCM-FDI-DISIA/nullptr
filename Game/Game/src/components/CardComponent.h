@@ -4,7 +4,7 @@
 #include "Component.h"
 #include "Transform.h"
 #include "../core/Vector2D.h"
-#include "../data/Card.h"
+#include "../core/Card.h"
 
 #pragma once
 class CardComponent : public Component {
@@ -26,7 +26,7 @@ class CardComponent : public Component {
 
 	public:
 		static const int id = _CARDCOMPONENT;
-		CardComponent(vector<Card*> wholeDeck, int maxMana);
+		CardComponent();
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);

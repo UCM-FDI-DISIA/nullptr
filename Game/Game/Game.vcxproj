@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="PlayerData.h" />
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="src\components\CardComponent.h" />
     <ClInclude Include="src\components\Component.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />

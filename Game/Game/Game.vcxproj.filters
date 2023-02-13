@@ -132,6 +132,9 @@
     <ClInclude Include="src\components\CardComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -196,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="src\components\CardComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Archivos de origen\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
