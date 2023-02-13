@@ -8,6 +8,8 @@ enum cmpId : cmpId_type {
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
 	_HEALTH,
+	_MELEE_BEHAVIOUR,
+	_RANGE_BEHAVIOR,
 	// ... (compoment ids)
 
 	// do not remove this

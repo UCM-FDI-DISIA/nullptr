@@ -1,8 +1,133 @@
-﻿  PlayerMovementComponent.cpp
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.cpp(33,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  Game.vcxproj -> C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
+﻿  EnemyBehavior.cpp
+  Image.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  MeleeBehaviour.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\MeleeBehaviour.cpp(11,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\MeleeBehaviour.cpp(21,11): error C2039: "getDistance": no es un miembro de "Transform"
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(15): message : vea la declaración de 'Transform'
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\MeleeBehaviour.cpp(25,30): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\MeleeBehaviour.cpp(36,27): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\MeleeBehaviour.cpp(47,30): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  PlayerMovementComponent.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.cpp(33,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  RangeBehavior.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\RangeBehavior.cpp(17,11): error C2039: "getDistance": no es un miembro de "Transform"
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(15): message : vea la declaración de 'Transform'
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\RangeBehavior.cpp(23,27): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\RangeBehavior.cpp(34,30): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  Transform.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  GameStateMachine.cpp
+  Manager.cpp
+  SDLApplication.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Vector2D.cpp
+  Game.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  AlbumScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  BattleScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\core\GameObject.h(46,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=uint
+          ]
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\scenes\BattleScene.cpp(6): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,uint,uint>(Vector2D &&,Vector2D &&,uint &&,uint &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  ChestScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  GameState.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  InventoryScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  MainMenuScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\core\GameObject.h(46,32): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\scenes\MainMenuScene.cpp(8): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  MapScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  OptionsMenuScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  PauseMenuScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Generando código...
+  Compilando...
+  ShopScene.cpp
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mirgu\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Texture.cpp
+  Generando código...

@@ -150,7 +150,10 @@
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\EnemyBehavior.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\MeleeBehaviour.h" />
+    <ClInclude Include="src\components\RangeBehavior.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
@@ -176,8 +179,11 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\EnemyBehavior.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
+    <ClCompile Include="src\components\RangeBehavior.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />
