@@ -278,4 +278,3 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
-Game/Game/x64/Debug/Game.log
