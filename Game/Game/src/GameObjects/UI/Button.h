@@ -7,7 +7,7 @@
 #include "../../components/ButtonComponent.h"
 
 class SDLApplication;
-typedef void CallBack();
+typedef void CallBack(SDLApplication* game);
 class Button : public GameObject {
 private:
 

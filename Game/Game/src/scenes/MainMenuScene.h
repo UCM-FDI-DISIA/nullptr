@@ -9,8 +9,6 @@ class MainMenuScene : public GameState {
 private:
 public:
 	MainMenuScene(SDLApplication* _game);
-
-	static void Test();
 };
 
 #endif

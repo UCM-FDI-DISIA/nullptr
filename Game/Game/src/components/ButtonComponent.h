@@ -5,19 +5,20 @@
 
 enum State { OnOut = 0, OnOver, OnClick };
 
-class SDL_Application;
-typedef void CallBack();
+class SDLApplication;
+typedef void CallBack(SDLApplication* game);
 
 class ButtonComponent : public Component {
 
 private:
+	SDLApplication* game;
 	int state;
 	CallBack* function;
 	Transform* tr;
 
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack* _f) : Component(), state(0), function(_f) {}
+	ButtonComponent(CallBack* _f, SDLApplication* _g) : Component(), state(0), function(_f), game(_g) {}
 
 	virtual void update();
 	virtual void handleInput();

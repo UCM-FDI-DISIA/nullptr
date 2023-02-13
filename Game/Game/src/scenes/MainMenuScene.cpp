@@ -9,10 +9,6 @@ MainMenuScene::MainMenuScene(SDLApplication* _game) : GameState(_game) {
 	//ben->addComponent<Image>(game->getTexture("Opciones"));
 	//stateScene.push_back(ben);
 
-	MainSceneManager* msm = new MainSceneManager(Test, game);
+	MainSceneManager* msm = new MainSceneManager(game);
 	sceneManagers.push_back(msm);
-}
-
-void MainMenuScene::Test() {
-	cout << "HE SIDO CLICADO" << endl;
 }
