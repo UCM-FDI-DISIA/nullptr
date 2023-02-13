@@ -147,6 +147,9 @@
     <ClInclude Include="src\components\ButtonComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\managers\MapManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -214,6 +217,9 @@
     </ClCompile>
     <ClCompile Include="src\components\ButtonComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MapManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
