@@ -1,6 +1,6 @@
 #pragma once
-#include "src/utils/Singleton.h"
-#include "src/core/Card.h"
+#include ""
+#include "../core/Card.h"
 #include <vector>
 
 
