@@ -138,6 +138,9 @@
     <ClInclude Include="src\components\CameraComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\Player.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -202,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="src\components\CameraComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Player.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

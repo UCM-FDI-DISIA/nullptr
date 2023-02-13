@@ -19,12 +19,12 @@ private:
 	float width_;
 	float height_;
 	float rotation_;
-	
+	const Vector2D& center_;
 public:
 
 	static const int id = _TRANSFORM;
 	Transform();
-	Transform(Vector2D pos, Vector2D vel, float w = 0, float h = 0, float r = 0);
+	Transform(Vector2D pos = Vector2D(0, 0), Vector2D vel = Vector2D(0, 0), float w = 0, float h = 0, float r = 0, const Vector2D& center = Vector2D(0, 0));
 	virtual ~Transform();
 
 	//Devuelve la posición

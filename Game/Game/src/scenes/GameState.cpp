@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState(SDLApplication* _game) : game(_game) {}
+GameState::GameState(SDLApplication* _game) : game(_game), camera(new Camera()) {}
 
 // Destructor
 GameState::~GameState() {
@@ -15,7 +15,7 @@ GameState::~GameState() {
 }
 
 // Updates scene's objects
-// Actualiza los objetos de la escea
+// Actualiza los objetos de la escena
 void GameState::update() {
     for (GameObject* object : stateScene) {
         object->update();
@@ -48,7 +48,6 @@ void GameState::handleInput() {
         manager->handleInput();
     }
 }
-
 
 // Erases every not alive GameObject
 // Borra todos los GameObject no vivos

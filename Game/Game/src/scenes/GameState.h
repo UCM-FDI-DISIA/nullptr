@@ -5,6 +5,7 @@
 #include <list>
 #include "../core/GameObject.h"
 #include "../core/Manager.h"
+#include "../gameObjects/Camera.h"
 
 class SDLApplication;
 using namespace std;
@@ -14,7 +15,7 @@ protected:
     SDLApplication* game = nullptr;
     list<GameObject*> stateScene;
     list<Manager*> sceneManagers;
-
+    Camera* camera = nullptr;
 public:
     // Constructor
     GameState(SDLApplication* _game);
