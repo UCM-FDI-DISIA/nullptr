@@ -1,11 +1,13 @@
 #include "RangeBehavior.h"
 
-RangeBehavior::RangeBehavior(float spd, float safDist, float stoptime, float moveTime, int damage, int attack, Player* player, SDLApplication* Game)
+RangeBehavior::RangeBehavior(float spd, float safDist, float stoptime, float moveTime, 
+	int damage, int attack, Player* player, SDLApplication* Game,BattleScene* scene)
 	:EnemyBehavior(spd, damage, stoptime, attack, player)
 {
     safeDistance = safDist;
 	moveTime = moveTime;
 	game = Game;
+	myScene = scene;
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
@@ -41,6 +43,6 @@ void RangeBehavior::update() {
 	}
 }
 void RangeBehavior:: attack() {
-	GameObject* bullet = mngr->addGameObject();
-	bullet = new Bullet(pos->getPos(), playerPos->getPos() - pos->getPos(), 20, player,game);
+	GameObject* bullet = new Bullet(pos->getPos(), (playerPos->getPos() - pos->getPos())/100000, 20, player,game);
+	myScene->addGameObject(bullet);
 }

@@ -10,9 +10,10 @@
 class BattleScene : public GameState {
 private:
 	GameObject* player;
-
+	
 public:
 	BattleScene(SDLApplication* _game);
+	void addGameObject(GameObject* object);
 };
 
 #endif
