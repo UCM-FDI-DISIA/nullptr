@@ -12,6 +12,8 @@
 #include "GameStateMachine.h"
 #include "../scenes/MainMenuScene.h"
 #include "../scenes/BattleScene.h"
+#include "../scenes/AlbumScene.h"
+#include "../scenes/OptionsMenuScene.h"
 #include "../sdlutils/InputHandler.h"
 using namespace std;
 
@@ -55,6 +57,14 @@ public:
 	// Starts the game
 	// Inicia el juego
 	static void playGame(SDLApplication* _game);
+	//Te lleva al menu de opciones
+	static void options(SDLApplication* _game);
+	//Te lleva al album de cartas
+	static void album(SDLApplication* _game);
+	//Te lleva al menu principal
+	static void mainMenu(SDLApplication* _game);
+	//
+	static void beginScene(SDLApplication* game, GameState* newScene);
 	// Pauses the game
 	// Pausa el juego
 	static void pauseGame(SDLApplication* _game);
