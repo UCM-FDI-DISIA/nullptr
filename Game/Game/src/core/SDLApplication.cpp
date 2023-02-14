@@ -22,7 +22,7 @@ SDLApplication::SDLApplication() {
 		file >> key;
 		while (!file.eof()) {
 			file >> path >> vframes >> hframes;
-			texturesMap[key] = new Texture(renderer, path, hframes, vframes);
+			texturesMap[key] = new Texture(renderer, path);
 			file >> key;
 		}
 		file.close();
