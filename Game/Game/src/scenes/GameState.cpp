@@ -2,10 +2,13 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState(SDLApplication* _game) : game(_game) {}
+GameState::GameState(SDLApplication* _game) : game(_game), camera(new Camera()) { stateScene.push_back(camera); }
 
 // Destructor
 GameState::~GameState() {
+    delete camera;
+    camera = nullptr;
+
     for (GameObject* object : stateScene) {
         delete(object);
     }
@@ -14,8 +17,7 @@ GameState::~GameState() {
     }
 }
 
-// Updates scene's objects
-// Actualiza los objetos de la escea
+// Actualiza los objetos de la escena
 void GameState::update() {
     for (GameObject* object : stateScene) {
         object->update();
@@ -27,7 +29,6 @@ void GameState::update() {
     refresh();
 }
 
-// Draws the scene on screen
 // Dibuja la escena en pantalla
 void GameState::render() const {
     for (GameObject* object : stateScene) {
@@ -38,7 +39,6 @@ void GameState::render() const {
     }
 }
 
-// Handles the event
 // Maneja el evento actual
 void GameState::handleInput() {
     for (GameObject* object : stateScene) {
@@ -49,8 +49,6 @@ void GameState::handleInput() {
     }
 }
 
-
-// Erases every not alive GameObject
 // Borra todos los GameObject no vivos
 void GameState::refresh() {
     for (Manager* manager : sceneManagers) {
@@ -68,3 +66,6 @@ void GameState::refresh() {
             }), //
         stateScene.end());
 }
+
+// Devuelve la camara de la escena
+Camera* GameState::getCamera() const { return camera; }
