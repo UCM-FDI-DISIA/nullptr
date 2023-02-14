@@ -25,8 +25,6 @@ void PlayerMovementComponent::handleInput() {
 	vel = vel / vel.magnitude();
 	vel = vel * playerSpeed;
 	transform->setVel(vel);
-	
-	
 }
 
 void PlayerMovementComponent::setPlayerSpeed(int newSpeed) {

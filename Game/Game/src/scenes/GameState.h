@@ -33,5 +33,8 @@ public:
     // Erases every not alive GameObject
     // Borra todos los GameObject no vivos
     void refresh();
+
+    // Devuelve la camara
+    Camera* getCamera() const;
 };
 #endif

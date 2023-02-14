@@ -1,8 +1,9 @@
 #include "Transform.h"
+#include <iostream>
 
-Transform::Transform() : position_(Vector2D(0, 0)), velocity_(Vector2D(0, 0)), width_(0), height_(0), rotation_(0), center_(Vector2D(0,0)) {}
+Transform::Transform() : position_(Vector2D(0, 0)), velocity_(Vector2D(0, 0)), width_(0), height_(0), rotation_(0), center_(new Vector2D(0,0)) {}
 
-Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r, const Vector2D& center) : position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r), center_(center) {}
+Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r, Vector2D& center) : position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r), center_(&center) {}
 
 Transform::~Transform(){}
 
@@ -32,6 +33,4 @@ void Transform::move() {
 
 void Transform::update() {
 	position_ = position_ + velocity_;
-	//position_ = position_ + center_ + velocity_;
 }
-

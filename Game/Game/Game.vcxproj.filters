@@ -135,9 +135,6 @@
     <ClInclude Include="src\gameObjects\Camera.h">
       <Filter>Archivos de encabezado\gameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\CameraComponent.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Player.h">
       <Filter>Archivos de encabezado\gameObjects</Filter>
     </ClInclude>
@@ -202,9 +199,6 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\Camera.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\CameraComponent.cpp">
-      <Filter>Archivos de origen\components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Player.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>

@@ -6,13 +6,16 @@
 #include "../components/Transform.h"
 #include "../components/Image.h"
 #include "../components/PlayerMovementComponent.h"
+#include "../scenes/GameState.h"
 class SDLApplication;
 
 class Player : public GameObject {
+private:
+	Transform* transform;
+	Image* image;
+	PlayerMovementComponent* playerMovementComponent;
 public:
-	// Constructoras
+	// Constructora
 	Player(SDLApplication* _game);
-	Player(SDLApplication* _game, const Vector2D& _center);
-
 };
 #endif //!PLAYER_H_

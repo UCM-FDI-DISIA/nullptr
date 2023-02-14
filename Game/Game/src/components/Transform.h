@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "../core/Vector2D.h"
+#include "../data/constants.h"
 
 /*  
 *  Clase que implementa el transform de los objetos del juego
@@ -19,57 +20,68 @@ private:
 	float width_;
 	float height_;
 	float rotation_;
-	const Vector2D& center_;
+	Vector2D* center_;
 public:
 
 	static const int id = _TRANSFORM;
 	Transform();
-	Transform(Vector2D pos = Vector2D(0, 0), Vector2D vel = Vector2D(0, 0), float w = 0, float h = 0, float r = 0, const Vector2D& center = Vector2D(0, 0));
+	Transform(Vector2D pos = Vector2D(0, 0), Vector2D vel = Vector2D(0, 0), float w = 0, float h = 0, float r = 0, Vector2D& center = (*new Vector2D(0, 0)));
 	virtual ~Transform();
 
-	//Devuelve la posición
+	// Devuelve la posición
 	inline Vector2D& getPos() {
 		return position_;
 	};
 
-	//Devuelve la velocidad
+	// Devuelve la velocidad
 	inline Vector2D& getVel() {
 		return velocity_;
 	};
 
-	//Setea posición		
+	// Setea posición		
 	inline void setPos(Vector2D newPos) {
 		position_ = newPos;
 	};
 
-	//Setea velocidad
+	// Setea velocidad
 	inline void setVel(Vector2D newVel) {
 		velocity_ = newVel;
 	};
 
-	//setea height
+	// Setea height
 	inline void setHeight(float newHeight) {
 		height_ = newHeight;
 	}
 
-	//setea width
+	// Setea width
 	inline void setWidth(float newWidth) {
 		width_ = newWidth;
 	}
 
-	//Devuelve height
+	// Setea center
+	inline void setCenter(Vector2D newCenter) {
+		center_ = &newCenter;
+	}
+
+	// Devuelve center
+	inline Vector2D getCenter() {
+		return center_;
+	}
+
+	// Devuelve height
 	inline float getHeight() {
 		return height_;
     }
 
-	//Devuelve width
+	// Devuelve width
 	inline float getWidth() {
 		return width_;
 	}
+
 	inline SDL_Rect getRect() {
 		SDL_Rect rect;
-		rect.x = position_.getX();
-		rect.y = position_.getY();
+		rect.x = position_.getX() + center_->getX();
+		rect.y = position_.getY() + center_->getY();
 		rect.w = width_;
 		rect.h = height_;
 
