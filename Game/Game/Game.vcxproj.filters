@@ -43,6 +43,9 @@
     <Filter Include="Archivos de encabezado\utils">
       <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\gameObjects">
+      <UniqueIdentifier>{baa4b73d-437c-4952-88c6-814c435bb315}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -135,6 +138,27 @@
     <ClInclude Include="src\components\RangeBehavior.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\BulletBehavior.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ColliderComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Bullet.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Player.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\RangedEnemy.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\MeleeEnemy.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\HeatlhComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -201,6 +225,9 @@
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\RangeBehavior.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\HeatlhComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
   </ItemGroup>

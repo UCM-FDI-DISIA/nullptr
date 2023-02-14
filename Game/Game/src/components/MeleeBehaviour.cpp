@@ -1,11 +1,12 @@
 #include "MeleeBehaviour.h"
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
-	initialDir = pos->getVel();
 	attackDistance = atkDist;
 }
 
 void MeleeBehaviour::initComponent() {
-	
+	pos = gObj->getComponent<Transform>();
+	pos->setVel(Vector2D(0, speed));
+	initialDir = pos->getVel();
 	moveTo();
 	closeToPlayer = false;
 	elapsedTime = SDL_GetTicks();
@@ -18,7 +19,7 @@ void MeleeBehaviour::moveTo() {
 bool MeleeBehaviour::close() {
 
 	//Si esta cerca del player
-	if (pos->getDistance(playerPos->getPos()) <= attackDistance) {
+	if (pos->getDistance(playerPos->getPos()) < attackDistance) {
 		//Si ya ha estado cerca del player
 		if (!closeToPlayer) {
 			//Setea elapsed time, velocidad a 0 y marca que ha estado cerca del player ya
@@ -51,8 +52,9 @@ void MeleeBehaviour::update() {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 		if (actualTime - elapsedTime > stopTime) {
 			pos->setVel(initialDir);
+			closeToPlayer = false;
 		}
-		closeToPlayer = false;
+		
 	}
 	
 	moveTo();

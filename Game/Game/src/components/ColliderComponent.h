@@ -8,6 +8,9 @@ public:
 	static const int id = _COLLIDER_COMPONENT;
 	//Devuelve un booleano de colision entre el objeto y el objetivo
 	bool hasCollided(Transform* other) {
-		return SDL_HasIntersection(&gObj->getComponent<Transform>()->getRect(), &other->getRect());
+		/*SDL_Rect aux = gObj->getComponent<Transform>()->getRect();
+		SDL_Rect aux1 = other->getRect();
+		return SDL_HasIntersection(&aux, &aux1);*/
+		return false;
 	}
 };

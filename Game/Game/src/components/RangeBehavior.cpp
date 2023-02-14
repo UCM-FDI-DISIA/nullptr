@@ -15,10 +15,11 @@ void RangeBehavior::initComponent() {
 // Se encarga de comprobar si el enemigo est� dentro o fuera del radio de peligro
 // Dependiendo de eso, se dirije al jugador o se aleja de �l
 void RangeBehavior::setDirectionTo() {
+	
+	//Si no, vuelve a ir hacia �l
+    pos->lookAt(playerPos->getPos());
 	//Si estas dentro del rango de peligro, da media vuelta para salir de �l
 	if (pos->getDistance(playerPos->getPos()) < safeDistance) pos->rotate(180);
-	//Si no, vuelve a ir hacia �l
-	else pos->lookAt(playerPos->getPos());
 }
 // Se trata de un ciclo de movimiento y parada
 void RangeBehavior::update() {
