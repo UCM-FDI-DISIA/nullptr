@@ -96,26 +96,10 @@ void SDLApplication::handleInput() {
 // Devuelve la Texture pedida
 Texture* SDLApplication::getTexture(TextureName texture) const { return texturesMap.at(texture); }
 
-
-// Starts game
-// Inicia el juego
-void SDLApplication::playGame(SDLApplication* _game) { 
-	_game->gameStateMachine->changeState(new BattleScene(_game));
-}
-
-//Te lleva al Menu de opciones
-void SDLApplication::options(SDLApplication* _game) {
-	_game->gameStateMachine->changeState(new OptionsMenuScene(_game));
-}
-
-//Te lleva al album de cartas
-void SDLApplication::album(SDLApplication* _game) {
-	_game->gameStateMachine->changeState(new AlbumScene(_game));
-}
-
-//Te lleva al menu principal
-void SDLApplication::mainMenu(SDLApplication* _game) {
-	_game->gameStateMachine->changeState(new MainMenuScene(_game));
+//Launches a new GameScene
+//Lanza una nueva escena del juego
+void SDLApplication::beginScene(SDLApplication* _game, GameState* newScene) {
+	_game->gameStateMachine->changeState(newScene);
 }
 
 // Pauses the game

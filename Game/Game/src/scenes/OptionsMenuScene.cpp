@@ -10,5 +10,5 @@ OptionsMenuScene::OptionsMenuScene(SDLApplication* _game) : GameState(_game) {
 }
 
 void OptionsMenuScene::mainMenu(SDLApplication* _game) {
-	_game->mainMenu(_game);
+	_game->beginScene(_game, new MainMenuScene(_game));
 }

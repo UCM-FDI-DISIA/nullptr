@@ -63,6 +63,8 @@ public:
 	static void album(SDLApplication* _game);
 	//Te lleva al menu principal
 	static void mainMenu(SDLApplication* _game);
+	//
+	static void beginScene(SDLApplication* game, GameState* newScene);
 	// Pauses the game
 	// Pausa el juego
 	static void pauseGame(SDLApplication* _game);
