@@ -13,8 +13,6 @@ private:
 public:
 	// Constructora
 	BattleScene(SDLApplication* _game);
-	// Actualiza los objetos teniendo en cuenta que la camara sigue al Player
-	virtual void update();
 };
 
 #endif

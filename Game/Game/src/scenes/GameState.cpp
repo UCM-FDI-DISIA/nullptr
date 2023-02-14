@@ -2,12 +2,13 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState(SDLApplication* _game) : game(_game), camera(new Camera()) {
-    stateScene.push_back(camera);
-}
+GameState::GameState(SDLApplication* _game) : game(_game), camera(new Camera()) { stateScene.push_back(camera); }
 
 // Destructor
 GameState::~GameState() {
+    delete camera;
+    camera = nullptr;
+
     for (GameObject* object : stateScene) {
         delete(object);
     }

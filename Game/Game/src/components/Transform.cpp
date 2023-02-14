@@ -1,11 +1,11 @@
 #include "Transform.h"
 #include <iostream>
 
-Transform::Transform() : position_(Vector2D(0, 0)), velocity_(Vector2D(0, 0)), width_(0), height_(0), rotation_(0), center_(new Vector2D(0,0)) {}
+Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), width_(0), height_(0), rotation_(0) {}
 
-Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r, Vector2D& center) : position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r), center_(&center) {}
+Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) : initialPosition_(pos), position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {}
 
-Transform::~Transform(){}
+Transform::~Transform() {}
 
 //Rota el vector de velocidad para que se dirija hacia el punto definido
 void Transform::lookAt(Vector2D point) {

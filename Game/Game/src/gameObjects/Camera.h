@@ -3,16 +3,22 @@
 #define CAMERA_H_
 #include "../core/GameObject.h"
 #include "../core/Vector2D.h"
+#include "../components/Transform.h"
+#include "../components/CameraComponent.h"
 
 class Camera : public GameObject {
 private:
-	Vector2D* pos;
+	Transform* transform;
+	CameraComponent* cameraComponent;
+	GameObject* followObject;
 public:
 	// Constructor por defecto
 	Camera();
-	// Setea la posicion central de la camara
-	void setPosition(Vector2D pos);
-	// Devuelve puntero a la posicion central de la camara
-	Vector2D* getPosition();
+	// Destructora
+	~Camera();
+	// Asigna el objeto a seguir
+	void startFollowObject(GameObject* followObject_);
+	// Devuelve el followObject
+	GameObject* getFollowObject();
 };
 #endif // !CAMERA_H_

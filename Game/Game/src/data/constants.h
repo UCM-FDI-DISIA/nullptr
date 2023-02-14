@@ -11,6 +11,7 @@
 using namespace std;
 using uint = unsigned int;
 
+const Vector2D VECTOR_ZERO = { 0,0 };
 // WINDOW
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;

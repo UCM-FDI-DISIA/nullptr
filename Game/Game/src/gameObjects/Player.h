@@ -16,6 +16,6 @@ private:
 	PlayerMovementComponent* playerMovementComponent;
 public:
 	// Constructora
-	Player(SDLApplication* _game);
+	Player(SDLApplication* _game, Camera* _camera);
 };
 #endif //!PLAYER_H_

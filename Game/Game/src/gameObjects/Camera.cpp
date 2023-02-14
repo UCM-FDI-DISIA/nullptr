@@ -1,17 +1,31 @@
 #include "Camera.h"
 
 /*
-	Almacena una posicion inicializada en (0,0) que cambiará si existe un objeto Player
+	En cada escena se crea una camara inicializada en la posicion (0,0),
+	de forma que si no tiene un followObject, cuando se añade un GameObject
+	a la escena con un transform y un image, no se modifica su metodo render
+	al estar sumando (0,0).
+	El CameraComponent es el que gestiona el renderizado de los objetos que
+	tengan atachado la camara en su componente Image
 */
 
 // Constructora por defecto
-Camera::Camera() : pos(new Vector2D(0,0)) {}
-
-// Setea la posicion central de la camara
-void Camera::setPosition(Vector2D pos_) {
-	pos->setX(pos_.getX());
-	pos->setY(pos_.getY());
+Camera::Camera() : followObject(nullptr) {
+	transform = addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	cameraComponent = addComponent<CameraComponent>();
 }
 
-// Devuelve punto a la posicion de la camara
-Vector2D* Camera::getPosition() { return pos; }
+// Destructora
+Camera::~Camera() {
+	// El delete del objeto seguido se debe hacer en la destructora de la propia clase
+	followObject = nullptr;
+}
+
+// Asigna el objeto a seguir
+void Camera::startFollowObject(GameObject* followObject_) {
+	followObject = followObject_;
+	cameraComponent->setFollowObject(followObject);
+}
+
+// Devuelve el followObject
+GameObject* Camera::getFollowObject() { return followObject; }
