@@ -65,6 +65,12 @@ public:
 	static void mainMenu(SDLApplication* _game);
 	//
 	static void beginScene(SDLApplication* game, GameState* newScene);
+
+	template<typename T, typename ...Ts>
+	static void newScene(SDLApplication* game, Ts&& ...args) {
+		T* scene = new T(game, std::forward<Ts>(args)...);
+		game->gameStateMachine->changeState(scene);
+	}
 	// Pauses the game
 	// Pausa el juego
 	static void pauseGame(SDLApplication* _game);

@@ -22,15 +22,15 @@ MainMenuManager::MainMenuManager(SDLApplication* game) {
 }
 
 void MainMenuManager::play(SDLApplication* game) {
-	game->beginScene(game, new BattleScene(game));
+	SDLApplication::newScene<BattleScene>(game);
 }
 
 void MainMenuManager::options(SDLApplication* game) {
-	game->beginScene(game, new OptionsMenuScene(game));
+	SDLApplication::newScene<OptionsMenuScene>(game);
 }
 
 void MainMenuManager::album(SDLApplication* game) {
-	game->beginScene(game, new AlbumScene(game));
+	SDLApplication::newScene<AlbumScene>(game);
 }
 
 void MainMenuManager::exit(SDLApplication* game) {
