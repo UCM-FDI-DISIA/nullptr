@@ -34,7 +34,7 @@ SDLApplication::SDLApplication() {
 	}
 
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new BattleScene(this));
+	gameStateMachine->pushState(new MainMenuScene(this));
 	exit = false;
 }
 
@@ -96,10 +96,11 @@ void SDLApplication::handleInput() {
 // Devuelve la Texture pedida
 Texture* SDLApplication::getTexture(TextureName texture) const { return texturesMap.at(texture); }
 
-
-// Starts game
-// Inicia el juego
-void SDLApplication::playGame(SDLApplication* _game) {  }
+//Launches a new GameScene
+//Lanza una nueva escena del juego
+void SDLApplication::beginScene(SDLApplication* _game, GameState* newScene) {
+	_game->gameStateMachine->changeState(newScene);
+}
 
 // Pauses the game
 // Pausa el juego

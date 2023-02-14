@@ -9,6 +9,7 @@ enum cmpId : cmpId_type {
 	_PLAYERMOVEMENTCOMPONENT,
 	_HEALTH,
 	_CAMERACOMPONENT,
+	_BUTTON,
 	// ... (compoment ids)
 
 	// do not remove this
