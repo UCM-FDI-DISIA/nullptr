@@ -1,10 +1,11 @@
 #include "RangeBehavior.h"
 
-RangeBehavior::RangeBehavior(float spd, float safDist, float stoptime, float moveTime, int damage, int attack, Player* player)
+RangeBehavior::RangeBehavior(float spd, float safDist, float stoptime, float moveTime, int damage, int attack, Player* player, SDLApplication* Game)
 	:EnemyBehavior(spd, damage, stoptime, attack, player)
 {
     safeDistance = safDist;
 	moveTime = moveTime;
+	game = Game;
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
@@ -33,11 +34,13 @@ void RangeBehavior::update() {
 		 if (actualTime - elapsedTime > stopTime + moveTime)
 		{
 			setDirectionTo();
-			/*pos->setVel(Vector2D(0, 0));*/
-			elapsedTime = SDL_GetTicks();
+			//pos->setVel(Vector2D(0, 0));
+			attack();
+			elapsedTime = actualTime;
 		}
 	}
 }
-void attack() {
-	// Instancia clase bala
+void RangeBehavior:: attack() {
+	GameObject* bullet = mngr->addGameObject();
+	bullet = new Bullet(pos->getPos(), playerPos->getPos() - pos->getPos(), 20, player,game);
 }

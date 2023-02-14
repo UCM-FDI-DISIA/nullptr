@@ -9,7 +9,7 @@ public:
 	{
 		addComponent<Transform>(pos, vel, 30, 60, 0);
 		addComponent<Image>(game->getTexture("Enemy"));
-		addComponent<RangeBehavior>(1, 200, 3000, 3000, 5, 4, player);
+		addComponent<RangeBehavior>(1, 200, 3000, 3000, 5, 4, player, game);
 		//addComponent<ColliderComponent>();
 		//addComponent<HealthComponent>(life);
 	}
