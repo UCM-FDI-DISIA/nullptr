@@ -4,11 +4,11 @@ Card Card::getCard(CardId type) {
 	switch (type)
 	{
 	case gun:
-		return Gun();
+		return GunCard();
 	case sword:
-		return Sword();
+		return SwordCard();
 	case laserShades:
-		return LaserShades();
+		return LaserShadesCard();
 	default:
 		break;
 	}

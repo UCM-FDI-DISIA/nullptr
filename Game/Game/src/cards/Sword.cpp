@@ -1,7 +1,7 @@
 #include "Cards.h"
 #include "../sdlutils/Texture.h"
 
-Sword::Sword() {
+SwordCard::SwordCard() {
 	damage = 20;
 	maxUses = 5;
 	remainingUses = maxUses;
@@ -13,10 +13,10 @@ Sword::Sword() {
 	texture = nullptr;
 }
 
-void Sword::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
 
 }
 
-void Sword::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
 
 }

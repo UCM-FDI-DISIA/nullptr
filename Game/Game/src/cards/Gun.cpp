@@ -1,9 +1,9 @@
 #include "Cards.h"
 #include "../sdlutils/Texture.h"
 
-Gun::Gun() {
-	damage = 10;
-	maxUses = 6;
+GunCard::GunCard() {
+	damage = 20;
+	maxUses = 5;
 	remainingUses = maxUses;
 	mana = 35;
 	downtime = 0.5;
@@ -13,10 +13,10 @@ Gun::Gun() {
 	texture = nullptr;
 }
 
-void Gun::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
 
 }
 
-void Gun::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
 
 }

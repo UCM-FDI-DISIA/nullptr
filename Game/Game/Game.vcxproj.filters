@@ -31,6 +31,7 @@
     <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
+    <ClCompile Include="src\core\PlayerData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
@@ -69,6 +70,7 @@
     <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
+    <ClInclude Include="src\core\PlayerData.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

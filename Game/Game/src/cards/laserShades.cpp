@@ -1,7 +1,7 @@
 #include "Cards.h"
 #include "../sdlutils/Texture.h"
 
-LaserShades::LaserShades() {
+LaserShadesCard::LaserShadesCard() {
 	damage = 20;
 	maxUses = 5;
 	remainingUses = maxUses;
@@ -13,10 +13,10 @@ LaserShades::LaserShades() {
 	texture = nullptr;
 }
 
-void LaserShades::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void LaserShadesCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
 
 }
 
-void LaserShades::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void LaserShadesCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
 
 }
