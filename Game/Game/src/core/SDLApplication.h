@@ -10,6 +10,18 @@
 #include "../data/constants.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
+<<<<<<< Updated upstream
+=======
+#include "../scenes/MainMenuScene.h"
+#include "../scenes/BattleScene.h"
+#include "../scenes/AlbumScene.h"
+#include "../scenes/OptionsMenuScene.h"
+#include "../sdlutils/InputHandler.h"
+#include "../scenes/ChestScene.h"
+#include "../scenes/MapScene.h"
+#include "../managers/MainMenuManager.h"
+
+>>>>>>> Stashed changes
 using namespace std;
 
 using TextureName = string;
@@ -52,6 +64,20 @@ public:
 	// Starts the game
 	// Inicia el juego
 	static void playGame(SDLApplication* _game);
+	//Te lleva al menu de opciones
+	static void options(SDLApplication* _game);
+	//Te lleva al album de cartas
+	static void album(SDLApplication* _game);
+	//Te lleva al menu principal
+	static void mainMenu(SDLApplication* _game);
+	//
+	static void beginScene(SDLApplication* game, GameState* newScene);
+
+	template<typename T, typename ...Ts>
+	static void newScene(SDLApplication* game, Ts&& ...args) {
+		T* scene = new T(game, std::forward<Ts>(args)...);
+		game->gameStateMachine->changeState(scene);
+	}
 	// Pauses the game
 	// Pausa el juego
 	static void pauseGame(SDLApplication* _game);
