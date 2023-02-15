@@ -11,7 +11,7 @@
 using namespace std;
 
 class GameObject {
-private:
+protected:
 	bool alive;
 	Manager* mngr;
 	std::vector<Component*> currCmps;

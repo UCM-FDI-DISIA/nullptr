@@ -80,6 +80,9 @@ public:
 
 		return rect;
 	}
+
+	// Devuelve la distancia en valor absoluto desde un punto a otro
+	float getDistance(Vector2D other);
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
