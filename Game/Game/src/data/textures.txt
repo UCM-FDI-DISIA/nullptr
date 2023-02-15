@@ -1,3 +1,5 @@
 PlinPlinPlon ../Game/resources/images/plinplinplon.jpg 1 1
 Player ../Game/resources/images/player.png 1 1
 Opciones ../Game/resources/images/UI/MainMenu/OpcionesButtonIdle_79x18.png 1 1
+MarcoBoton ../Game/resources/images/UI/MainMenu/ButtonsBG_95x45.png 1 1
+MainMenuFondo ../Game/resources/images/UI/MainMenu/MainMenuBackground.png 1 1

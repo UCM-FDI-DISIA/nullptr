@@ -6,9 +6,6 @@ GameState::GameState(SDLApplication* _game) : game(_game), camera(new Camera()) 
 
 // Destructor
 GameState::~GameState() {
-    delete camera;
-    camera = nullptr;
-
     for (GameObject* object : stateScene) {
         delete(object);
     }

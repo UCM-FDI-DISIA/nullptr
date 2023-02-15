@@ -4,7 +4,7 @@
 // Constructora
 BattleScene::BattleScene(SDLApplication* _game) : GameState(_game) {
   cout << "Has entrado en la escena de Batalla" << endl;
-  
+
 	// Quitar cuando se cree el mapa de combate
 	floor = new GameObject();
 	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
