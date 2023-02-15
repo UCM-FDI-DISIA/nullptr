@@ -9,6 +9,7 @@ enum cmpId : cmpId_type {
 	_PLAYERMOVEMENTCOMPONENT,
 	_CARDCOMPONENT,
 	_HEALTH,
+	_CAMERACOMPONENT,
 	_BUTTON,
 	// ... (compoment ids)
 

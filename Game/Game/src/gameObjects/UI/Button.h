@@ -12,5 +12,5 @@ class Button : public GameObject {
 private:
 
 public:
-	Button(CallBack _c, SDLApplication* game, Vector2D _pos, string img);
+	Button(CallBack _c, SDLApplication* game, Vector2D _pos);
 };

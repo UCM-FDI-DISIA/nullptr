@@ -4,9 +4,6 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-	/*cout << "Funciona" << endl;
-	return 0;*/
-
 	#ifdef DEBUG
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); // Check Memory Leaks
 	#endif

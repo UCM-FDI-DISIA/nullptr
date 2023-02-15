@@ -3,9 +3,6 @@
 #include "Component.h"
 #include "Transform.h"
 
-
-
-
 class PlayerMovementComponent : public Component
 {
 private:

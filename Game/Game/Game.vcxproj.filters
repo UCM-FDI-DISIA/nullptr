@@ -214,7 +214,6 @@
     </ClCompile>
     <ClCompile Include="src\cards\LaserShades.cpp">
       <Filter>Archivos de origen\cards</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\ButtonComponent.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -240,8 +239,6 @@
       <Filter>Archivos de origen\cards</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Game.rc">
       <Filter>Archivos de recursos</Filter>
     </ResourceCompile>
   </ItemGroup>
