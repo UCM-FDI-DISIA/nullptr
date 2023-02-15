@@ -2,13 +2,13 @@
 #include "../sdlutils/Texture.h"
 
 Gun::Gun() {
-	damage = 20;
-	maxUses = 5;
+	damage = 10;
+	maxUses = 6;
 	remainingUses = maxUses;
-	mana = 80;
-	downtime = 2;
+	mana = 35;
+	downtime = 0.5;
 	name = "Pistola";
-	abilityText = "";
+	abilityText = "Se disparan todas las balas como escopeta";
 	attackText = "";
 	texture = nullptr;
 }
