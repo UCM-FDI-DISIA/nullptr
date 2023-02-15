@@ -1,1 +1,14 @@
-﻿  Game.vcxproj -> C:\Users\49leg\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
+﻿  CardComponent.cpp
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(29,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(46,34): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(47,36): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(54,62): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.cpp(71,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\49leg\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.cpp(78,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Game.vcxproj -> C:\Users\49leg\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe

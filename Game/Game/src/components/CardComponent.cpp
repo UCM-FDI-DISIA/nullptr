@@ -56,7 +56,7 @@ void CardComponent::switchActive(bool left) {
 void CardComponent::switchActive(int number) {
 	if (number >= 0 && number < hand.size()) {
 		active = hand.begin();
-		std::advance(active,number);
+		std::advance(active, number);
 	}
 }
 
@@ -97,6 +97,8 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
 	(*discarded)->resetUses();
 	active = hand.erase(discarded);
+	if(active != hand.begin())
+		--active;
 	if (hand.size() <= 0) {
 		newHand();
 	}
