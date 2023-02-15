@@ -31,6 +31,8 @@ class PlayerData : public Singleton<PlayerData>
 	int maxHP;
 	int currHP;
 	int currMana;
+
+	float attackMult, fireRateMult;
 	
 
 	PlayerData();
@@ -38,7 +40,19 @@ class PlayerData : public Singleton<PlayerData>
 	public:
 
 		int getMaxMana() { return maxMana; }
+		int getCurrMana() { return maxMana; }
+		int getMaxHP() { return maxMana; }
+		int getCurrHP() { return maxMana; }
+		float getAttackMult() { return maxMana; }
+		float getFireRateMult() { return maxMana; }
+
 		void setMaxMana(int maxMana) { this->maxMana = maxMana; }
+		void setCurrMana(int currMana) { this->currMana = currMana; }
+		void setMaxHP(int maxHP) { this->maxHP = maxHP; }
+		void setCurrHP(int currHP) { this->currHP = currHP; }
+		void setAttackMult(float attackMult) { this->attackMult = attackMult; }
+		void setFireRateMult(float fireRateMult) { this->maxMana = fireRateMult; }
+
 
 		void getDataFromJSON();
 		void setDataToJSON();

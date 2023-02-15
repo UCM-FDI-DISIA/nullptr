@@ -1,20 +1,39 @@
 #include "CardComponent.h"
 #include "../core/PlayerData.h"
+#include "../core/GameObject.h"
+#include "../sdlutils/InputHandler.h"
 
 CardComponent::CardComponent() {
 	deck = PlayerData::instance()->getDeck();
 	initDeck();
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
+	attackMult = PlayerData::instance()->getAttackMult();
+	fireRateMult = PlayerData::instance()->getFireRateMult();
 	active = 0;
-	attackMult = 0;
 }
+
+void CardComponent::initComponent() {
+	tr = gObj->getComponent<Transform>();
+}
+
+void CardComponent::handleInput() {
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getPos(), InputHandler::instance()->getMousePos()); }
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getPos(), InputHandler::instance()->getMousePos()); }
+	if (InputHandler::instance()->mouseWheelDown()) { switchActive(false); }
+	if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
+}
+
 
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
 		hand[active]->attack(playerPos, mousePos, attackMult);
 		hand[active]->use();
-		downTime = hand[active]->getDownTime() / cadenceMult;
+		downTime = hand[active]->getDownTime() / fireRateMult;
 		if (hand[active]->getUses() <= 0)discardCard(active);
 	}
 }
@@ -22,6 +41,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		if (hand[active]->getMana() <= mana) {
 			hand[active]->ability(playerPos, mousePos, attackMult);
+			mana -= hand[active]->getMana();
 			discardCard(active);
 		}
 }
@@ -34,6 +54,12 @@ void CardComponent::switchActive(bool left) {
 		++active;
 	active %= 4;
 }
+
+void CardComponent::switchActive(int number) {
+	if (number >= 0 && number <= 3)
+		active = number;
+}
+
 
 void CardComponent::initDeck() {
 	srand(time(0));
@@ -77,7 +103,4 @@ void CardComponent::discardCard(int discarded) {
 	}
 }
 
-void CardComponent::render() {
-
-}
 

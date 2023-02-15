@@ -30,6 +30,9 @@ public:
 		isKeyUpEvent_ = false;
 		isMouseButtonEvent_ = false;
 		isMouseMotionEvent_ = false;
+		isMouseWheelEvent_ = false;
+		mouseWheelUp_ = false;
+		mouseWheelDown_ = false;
 		for (auto i = 0u; i < 3; i++) {
 			mbState_[i] = false;
 		}
@@ -52,6 +55,9 @@ public:
 			break;
 		case SDL_MOUSEBUTTONUP:
 			onMouseButtonChange(event, false);
+			break;
+		case SDL_MOUSEWHEEL:
+			onMouseWheelEvent(event);
 			break;
 		case SDL_WINDOWEVENT:
 			handleWindowEvent(event);
@@ -125,7 +131,20 @@ public:
 		return isMouseButtonEvent_;
 	}
 
-	inline const std::pair<Sint32, Sint32>& getMousePos() {
+	inline bool isMouseWheelEvent() {
+		return isMouseWheelEvent_;
+	}
+
+	inline bool mouseWheelUp() {
+		return isMouseWheelEvent() && mouseWheelUp_;
+	}
+
+	inline bool mouseWheelDown() {
+		return isMouseWheelEvent() && mouseWheelDown_;
+	}
+
+
+	inline const Vector2D& getMousePos() {
 		return mousePos_;
 	}
 
@@ -152,9 +171,8 @@ private:
 
 	inline void onMouseMotion(const SDL_Event &event) {
 		isMouseMotionEvent_ = true;
-		mousePos_.first = event.motion.x;
-		mousePos_.second = event.motion.y;
-
+		mousePos_.setX(event.motion.x);
+		mousePos_.setY(event.motion.y);
 	}
 
 	inline void onMouseButtonChange(const SDL_Event &event, bool isDown) {
@@ -174,6 +192,12 @@ private:
 		}
 	}
 
+	inline void onMouseWheelEvent(const SDL_Event& event) {
+		isMouseWheelEvent_ = true;
+		if (event.wheel.y < 0) mouseWheelDown_ = true;
+		if (event.wheel.y < 0) mouseWheelUp_ = true;
+	}
+
 	inline void handleWindowEvent(const SDL_Event &event) {
 		switch (event.window.event) {
 		case SDL_WINDOWEVENT_CLOSE:
@@ -189,7 +213,10 @@ private:
 	bool isKeyDownEvent_;
 	bool isMouseMotionEvent_;
 	bool isMouseButtonEvent_;
-	std::pair<Sint32, Sint32> mousePos_;
+	bool isMouseWheelEvent_;
+	bool mouseWheelUp_;
+	bool mouseWheelDown_;
+	Vector2D mousePos_;
 	std::array<bool, 3> mbState_;
 	const Uint8 *kbState_;
 }

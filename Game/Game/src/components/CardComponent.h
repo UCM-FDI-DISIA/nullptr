@@ -12,8 +12,9 @@ class CardComponent : public Component {
 		vector<Card*> deck;
 		array<Card*, 4> hand;
 		vector<Card*> pile;
+		Transform* tr;
 		int active,handSize;
-		float downTime, attackMult, cadenceMult;
+		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
 
@@ -22,14 +23,19 @@ class CardComponent : public Component {
 		void newHand();
 		void drawCard(int handPos);
 		void discardCard(int discarded);
+		void attack(Vector2D playerPos, Vector2D mousePos);
+		void ability(Vector2D playerPos, Vector2D mousePos);
+		void switchActive(bool left = false);
+		void switchActive(int number);
 
 
 	public:
 		static const int id = _CARDCOMPONENT;
 		CardComponent();
+		void initComponent();
+		void handleInput();
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
-		void render();
 };
 
