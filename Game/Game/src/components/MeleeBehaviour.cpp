@@ -1,4 +1,5 @@
 #include "MeleeBehaviour.h"
+
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
 }

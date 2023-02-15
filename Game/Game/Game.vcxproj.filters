@@ -159,6 +159,30 @@
     <ClInclude Include="src\gameObjects\Player.h">
       <Filter>Archivos de encabezado\gameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\MeleeEnemy.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\RangedEnemy.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\EnemyBehavior.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\HeatlhComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\MeleeBehaviour.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\BulletBehavior.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\RangeBehavior.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ColliderComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -237,6 +261,27 @@
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Player.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\EnemyBehavior.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\HeatlhComponent.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\MeleeBehaviour.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\RangeBehavior.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Bullet.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,6 +3,8 @@
 #define BATTLESCENE_H_
 #include "GameState.h"
 #include "../gameObjects/Player.h"
+#include "../gameObjects/MeleeEnemy.h"
+#include "../gameObjects/RangedEnemy.h"
 
 class BattleScene : public GameState {
 private:

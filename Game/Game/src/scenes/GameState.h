@@ -32,6 +32,8 @@ public:
     virtual void handleInput();
     // Erases every not alive GameObject
     // Borra todos los GameObject no vivos
+
+    void addGameObject(GameObject* object);
     void refresh();
 
     // Devuelve la camara
