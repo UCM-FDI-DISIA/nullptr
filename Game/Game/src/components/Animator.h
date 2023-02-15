@@ -34,6 +34,7 @@ public:
 	void createAnim(string key,int start, int end, int rate, int _rep = 0);
 	void play(string key);
 	void stop();
+	void resume();
 	
 	//Metodos esenciales
 	virtual void update();

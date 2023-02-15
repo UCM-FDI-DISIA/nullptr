@@ -6,17 +6,21 @@ void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	anims.insert({ key, newAnim });
 }
 
-//
+// Starts a new animation
 void Animator::play(string key) {
 	currentAnimKey = key;
 	currentAnimation = &anims[currentAnimKey];
 	repetitions = 0;
 }
 
-//
+// Stops the current animation
 void Animator::stop() {
 	currentAnimation = nullptr;
-	currentAnimKey = "";
+}
+
+// Resumes the last animation played
+void Animator::resume() {
+	currentAnimation = &anims[currentAnimKey];
 }
 
 //
@@ -30,9 +34,12 @@ void Animator::update() {
 
 				// Si ha terminado una iteracion de la animacion, se le resta una repeticion
 				if (currentFrame == currentAnimation->endFrame) {
+
 					++repetitions;
 				}
 			}
+
+			else currentFrame = currentAnimation->startFrame;
 
 			startTime = SDL_GetTicks();
 		}
@@ -43,7 +50,7 @@ void Animator::update() {
 void Animator::render() const {
 	SDL_Rect srcRect;
 	srcRect.x = (currentFrame % cols) * fw;
-	srcRect.y = (currentFrame % rows) * fh;
+	srcRect.y = ((currentFrame / cols) % rows) * fh;
 	srcRect.w = fw;
 	srcRect.h = fh;
 	
