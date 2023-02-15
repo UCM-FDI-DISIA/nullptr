@@ -1,7 +1,10 @@
-﻿  MapManager.cpp
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Game.vcxproj -> C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\x64\Debug\Game.exe
+﻿  CardComponent.cpp
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(29,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.cpp(38,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.cpp(45,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.cpp(56,25): warning C4552: "<": el resultado de la expresión no se usa
+  Game.vcxproj -> C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe

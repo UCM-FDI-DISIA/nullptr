@@ -30,9 +30,6 @@ class CardComponent : public Component {
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
-		void initComponent();
-		void update();
-		void handleInput();
 		void render();
 };
 
