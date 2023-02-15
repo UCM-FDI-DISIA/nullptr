@@ -17,7 +17,7 @@ private:
 	std::array<Component*, maxComponentId> cmps;
 public:
 	// Constructor
-	GameObject() : mngr(nullptr), cmps(), currCmps(), alive() {
+	GameObject() : mngr(nullptr), cmps(), currCmps(), alive(true) {
 		currCmps.reserve(maxComponentId);
 	}
 	// Destructor
@@ -94,9 +94,9 @@ public:
 	}
 	// Handle's the GameObject's events
 	// Maneja los eventos del GameObject
-	virtual void handleEvent(SDL_Event event) {
+	virtual void handleInput() {
 		for (Component* cmp : currCmps) {
-			cmp->handleEvent(event);
+			cmp->handleInput();
 		}
 	}
 };

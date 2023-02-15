@@ -15,6 +15,8 @@ public:
 	// Adds a new empty GameObject to the Manager, returns a pointer to said GameObject
 	// Añade un nuevo GameObject vacío al Manager, devuelve un puntero a dicho GameObject
 	GameObject* addGameObject();
+
+	void addGameObject(GameObject* _g);
 	// Erases every not alive GameObject
 	// Borra todos los GameObject no vivos
 	void refresh();
@@ -26,7 +28,7 @@ public:
 	void render() const;
 	// Handle's the  current event for every GameObject of the Manager
 	// Maneja el evento actual para todos los GameObject del Manager
-	void handleEvent(SDL_Event event);
+	void handleInput();
 };
 
 #endif // !MANAGER_H_

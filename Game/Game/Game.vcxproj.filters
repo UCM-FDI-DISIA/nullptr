@@ -40,6 +40,21 @@
     <Filter Include="Archivos de encabezado\data">
       <UniqueIdentifier>{ea4e73d4-23a3-4c13-92c9-94c5bec1a983}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\utils">
+      <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\gameObjects">
+      <UniqueIdentifier>{824f44b6-1b62-413a-abde-922928c116fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\gameObjects">
+      <UniqueIdentifier>{4ff7dd74-e05d-444a-acad-08d95da75379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\managers">
+      <UniqueIdentifier>{a23e9629-da43-4711-a3b7-711e19fe4989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\managers">
+      <UniqueIdentifier>{184a6657-b822-4113-8495-17c2172fb095}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -102,6 +117,39 @@
     <ClInclude Include="src\core\Manager.h">
       <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\Singleton.h">
+      <Filter>Archivos de encabezado\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\InputHandler.h">
+      <Filter>Archivos de encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Transform.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Vector2D.h">
+      <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ecs.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Image.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\Button.h">
+      <Filter>Archivos de encabezado\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\managers\MainMenuManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ButtonComponent.h">
+      <Filter>Archivos de encabezado\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\managers\MapManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
@@ -147,6 +195,30 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\core\Manager.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Image.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Transform.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\PlayerMovementComponent.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\Button.cpp">
+      <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MainMenuManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\ButtonComponent.cpp">
+      <Filter>Archivos de origen\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MapManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>
   </ItemGroup>

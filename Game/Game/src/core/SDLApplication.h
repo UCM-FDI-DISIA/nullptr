@@ -10,8 +10,6 @@
 #include "../data/constants.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
-<<<<<<< Updated upstream
-=======
 #include "../scenes/MainMenuScene.h"
 #include "../scenes/BattleScene.h"
 #include "../scenes/AlbumScene.h"
@@ -20,8 +18,6 @@
 #include "../scenes/ChestScene.h"
 #include "../scenes/MapScene.h"
 #include "../managers/MainMenuManager.h"
-
->>>>>>> Stashed changes
 using namespace std;
 
 using TextureName = string;
@@ -57,7 +53,7 @@ public:
 	void update();
 	// Updates the game depending on the current event 
 	// Actualiza el juego en función al evento actual
-	void handleEvents();
+	void handleInput();
 	// Returns needed texture
 	// Devuelve la Texture pedida
 	Texture* getTexture(TextureName texture) const;

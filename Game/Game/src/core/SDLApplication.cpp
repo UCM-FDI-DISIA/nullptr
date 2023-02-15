@@ -34,7 +34,7 @@ SDLApplication::SDLApplication() {
 	}
 
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new GameState(this));
+	gameStateMachine->pushState(new MainMenuScene(this));
 	exit = false;
 }
 
@@ -63,7 +63,7 @@ void SDLApplication::run() {
 			render();
 			startTime = SDL_GetTicks();
 		}
-		handleEvents();
+		handleInput();
 	}
 	gameStateMachine->clearStates();
 }
@@ -85,11 +85,8 @@ void SDLApplication::update() {
 
 // Updates the game depending on the current event
 // Actualiza el juego en función al evento actual
-void SDLApplication::handleEvents() {
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		gameStateMachine->currentState()->handleEvent(event);
-	}
+void SDLApplication::handleInput() {
+	gameStateMachine->currentState()->handleInput();
 }
 
 // Returns needed Texture

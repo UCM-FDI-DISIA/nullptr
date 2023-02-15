@@ -28,7 +28,7 @@ public:
     virtual void render() const;
     // Handles the current event
     // Maneja el evento actual
-    virtual void handleEvent(SDL_Event event);
+    virtual void handleInput();
     // Erases every not alive GameObject
     // Borra todos los GameObject no vivos
     void refresh();
