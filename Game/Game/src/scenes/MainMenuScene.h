@@ -6,12 +6,10 @@
 #include "../components/Transform.h"
 #include "../components/Image.h"
 #include "../components/Animator.h"
-#include <vector>
+#include "../GameObjects/UI/Button.h"
 
 class MainMenuScene : public GameState {
 private:
-	vector<Animator*> marcos;
-
 public:
 	MainMenuScene(SDLApplication* _game);
 	static void play(SDLApplication* game);

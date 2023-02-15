@@ -13,6 +13,7 @@ void Animator::play(string key) {
 	currentAnimation = &anims[currentAnimKey];
 	currentFrame = currentAnimation->startFrame;
 	repetitions = 0;
+	startTime = SDL_GetTicks();
 }
 
 // Stops the current animation
