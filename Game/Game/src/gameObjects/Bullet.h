@@ -1,8 +1,12 @@
 #pragma once
 #include "../core/GameObject.h"
+#include "../core/SDLApplication.h"
 #include "../components/Transform.h"
 #include "../components/ColliderComponent.h"
 #include "../components/BulletBehavior.h"
+#include "../components/Image.h"
+
+
 class Bullet:public GameObject
 {
 public:

@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="src\cards\Cards.h" />
+    <ClInclude Include="src\components\BulletBehavior.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\CardComponent.h" />
     <ClInclude Include="src\components\ButtonComponent.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />

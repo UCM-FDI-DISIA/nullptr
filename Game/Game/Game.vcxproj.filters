@@ -71,6 +71,9 @@
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
     <ClInclude Include="src\core\PlayerData.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
+    <ClInclude Include="src\components\BulletBehavior.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

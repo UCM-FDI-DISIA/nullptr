@@ -1,5 +1,6 @@
 #include "Cards.h"
 #include "../sdlutils/Texture.h"
+#include "../gameObjects/Bullet.h"
 
 GunCard::GunCard() {
 	damage = 20;
