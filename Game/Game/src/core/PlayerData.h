@@ -37,6 +37,9 @@ class PlayerData : public Singleton<PlayerData>
 
 	public:
 
+		int getMaxMana() { return maxMana; }
+		void setMaxMana(int maxMana) { this->maxMana = maxMana; }
+
 		void getDataFromJSON();
 		void setDataToJSON();
 

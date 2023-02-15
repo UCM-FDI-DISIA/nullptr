@@ -1,4 +1,15 @@
 #include "PlayerData.h"
+#include "../cards/Cards.h"	
+PlayerData::PlayerData() {
+	maxHP = 100;
+	currHP = maxHP;
+
+	maxMana = 100;
+	currMana = maxMana;
+
+	deck.push_back(new GunCard());
+
+}
 
 void PlayerData::getDataFromJSON()
 {
