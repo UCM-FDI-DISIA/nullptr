@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
-    <ClInclude Include="src\cards\laserShades.h" />
+    <ClInclude Include="src\cards\Cards.h" />
     <ClInclude Include="src\components\CardComponent.h" />
     <ClInclude Include="src\components\ButtonComponent.h" />
     <ClInclude Include="src\components\Component.h" />
@@ -183,12 +183,15 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\cards\laserShades.cpp" />
+    <ClCompile Include="src\cards\Gun.cpp" />
+    <ClCompile Include="src\cards\LaserShades.cpp" />
+    <ClCompile Include="src\cards\Sword.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
+    <ClCompile Include="src\core\Card.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />

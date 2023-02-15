@@ -2,6 +2,13 @@
 #include "../sdlutils/Texture.h"
 #pragma once
 
+enum CardId
+{
+	gun = 0,
+	sword,
+	laserShades,
+};
+
 class Card
 {
 	protected:
@@ -11,7 +18,8 @@ class Card
 		Texture* texture;
 
 	public:
-		Card() {}
+		Card() {};
+		static Card getCard(CardId type);
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {}
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {}
 		int getUses() { return remainingUses; }

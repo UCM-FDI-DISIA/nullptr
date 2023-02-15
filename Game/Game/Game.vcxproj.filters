@@ -135,11 +135,23 @@
     <ClInclude Include="src\components\CardComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\cards\laserShades.h">
+    <ClInclude Include="src\cards\Cards.h">
       <Filter>Archivos de encabezado\cards</Filter>
     </ClInclude>
     <ClInclude Include="src\core\Card.h">
       <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ButtonComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\Button.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\managers\MainMenuManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\managers\MapManager.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -188,9 +200,6 @@
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\Vector2D.cpp">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\Image.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
@@ -203,7 +212,31 @@
     <ClCompile Include="src\components\CardComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\cards\laserShades.cpp">
+    <ClCompile Include="src\cards\LaserShades.cpp">
+      <Filter>Archivos de origen\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\ButtonComponent.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\Button.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MainMenuManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MapManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Vector2D.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Card.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cards\Sword.cpp">
+      <Filter>Archivos de origen\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cards\Gun.cpp">
       <Filter>Archivos de origen\cards</Filter>
     </ClCompile>
   </ItemGroup>
