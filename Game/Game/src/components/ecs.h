@@ -11,6 +11,7 @@ enum cmpId : cmpId_type {
 	_HEALTH,
 	_CAMERACOMPONENT,
 	_BUTTON,
+	_COLLIDER_COMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this
