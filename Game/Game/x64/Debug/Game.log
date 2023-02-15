@@ -1,7 +1,141 @@
-﻿  MapManager.cpp
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Game.vcxproj -> C:\Users\pk\Desktop\segundo-de-videojuegos\proyecto2\nullptr\Game\x64\Debug\Game.exe
+﻿  ButtonComponent.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Image.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  PlayerMovementComponent.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.cpp(33,16): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Transform.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  GameStateMachine.cpp
+  Manager.cpp
+  SDLApplication.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Vector2D.cpp
+  Game.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Button.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\core\GameObject.h(46,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\gameObjects\UI\Button.cpp(5,55): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D,int,int>(Vector2D &,Vector2D &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  MainMenuManager.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\managers\MainMenuManager.cpp(7,94): warning C4244: 'argumento': conversión de 'uint' a 'float'; posible pérdida de datos
+  MapManager.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  AlbumScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  BattleScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\core\GameObject.h(46,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=uint
+          ]
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\scenes\BattleScene.cpp(6,118): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,uint,uint>(Vector2D &&,Vector2D &&,uint &&,uint &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  ChestScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  GameState.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  InventoryScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  MainMenuScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  MapScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  OptionsMenuScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Generando código...
+  Compilando...
+  PauseMenuScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  ShopScene.cpp
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(71,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(72,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(73,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\Transform.h(74,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(13,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Texture.cpp
+  Generando código...
+  Game.vcxproj -> C:\Users\portatil\Desktop\Clase\Facul\P2\nullptr\Game\x64\Debug\Game.exe
