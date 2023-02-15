@@ -76,3 +76,7 @@ void CardComponent::discardCard(int discarded) {
 	}
 }
 
+void CardComponent::render() {
+
+}
+
