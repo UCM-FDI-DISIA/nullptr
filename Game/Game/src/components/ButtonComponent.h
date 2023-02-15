@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "Transform.h"
 #include "../sdlutils/InputHandler.h"
+#include "../components/Animator.h"
 
 enum State { OnOut = 0, OnOver, OnClick };
 
@@ -15,6 +16,7 @@ private:
 	int state;
 	CallBack* function;
 	Transform* tr;
+	Animator* anim;
 
 public:
 	static const int id = _BUTTON;

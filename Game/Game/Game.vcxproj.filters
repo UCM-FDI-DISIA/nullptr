@@ -141,9 +141,6 @@
     <ClInclude Include="src\gameObjects\UI\Button.h">
       <Filter>Archivos de encabezado\gameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="src\managers\MainMenuManager.h">
-      <Filter>Archivos de encabezado\managers</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\ButtonComponent.h">
       <Filter>Archivos de encabezado\components</Filter>
     </ClInclude>
@@ -220,9 +217,6 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\Button.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\MainMenuManager.cpp">
-      <Filter>Archivos de origen\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\components\ButtonComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
