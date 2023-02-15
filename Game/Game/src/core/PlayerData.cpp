@@ -9,6 +9,14 @@ PlayerData::PlayerData() {
 
 	deck.push_back(new GunCard());
 
+	deck.push_back(new GunCard());
+
+	deck.push_back(new GunCard());
+
+	deck.push_back(new GunCard());
+
+	deck.push_back(new GunCard());
+
 }
 
 void PlayerData::getDataFromJSON()

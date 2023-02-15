@@ -15,7 +15,7 @@ GunCard::GunCard() {
 }
 
 void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
-
+	std::cout << "pium";
 }
 
 void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {

@@ -10,7 +10,7 @@
 class CardComponent : public Component {
 	private:
 		vector<Card*> deck;
-		array<Card*, 4> hand;
+		vector<Card*> hand;
 		vector<Card*> pile;
 		Transform* tr;
 		int active,handSize;
@@ -34,8 +34,6 @@ class CardComponent : public Component {
 		CardComponent();
 		void initComponent();
 		void handleInput();
-		void attack(Vector2D playerPos, Vector2D mousePos);
-		void ability(Vector2D playerPos, Vector2D mousePos);
-		void switchActive(bool left = false);
+		
 };
 

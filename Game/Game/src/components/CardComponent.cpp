@@ -52,11 +52,11 @@ void CardComponent::switchActive(bool left) {
 		--active;
 	else
 		++active;
-	active %= 4;
+	active %= hand.size();
 }
 
 void CardComponent::switchActive(int number) {
-	if (number >= 0 && number <= 3)
+	if (number >= 0 && number < hand.size())
 		active = number;
 }
 
@@ -81,15 +81,15 @@ void CardComponent::newHand() {
 	if (deck.size() == 0)
 		reshufflePile();
 	for (int i = 0; i++; i < 4) {
-		drawCard(i);
+		drawCard();
 		//Si se vacia la mano al ir sacando cartas
 		if (deck.size() == 0)
 			reshufflePile();
 	}
 }
 
-void CardComponent::drawCard(int handPos) {
-	hand[handPos] = deck.back();
+void CardComponent::drawCard() {
+	hand.push_back(deck.back());
 	deck.pop_back();
 }
 
@@ -97,8 +97,7 @@ void CardComponent::discardCard(int discarded) {
 	pile.push_back(hand[discarded]);
 	hand[discarded]->resetUses();
 	hand[discarded] = nullptr;
-	handSize--;
-	if (handSize <= 0) {
+	if (hand.size() <= 0) {
 		newHand();
 	}
 }
