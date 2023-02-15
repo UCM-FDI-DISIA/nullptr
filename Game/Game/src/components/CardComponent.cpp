@@ -4,13 +4,12 @@
 #include "../sdlutils/InputHandler.h"
 
 CardComponent::CardComponent() {
-	deck = PlayerData::instance()->getDeck();
-	initDeck();
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	active = 0;
+	deck = PlayerData::instance()->getDeck();
+	initDeck();
 }
 
 void CardComponent::initComponent() {
@@ -31,17 +30,17 @@ void CardComponent::handleInput() {
 
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
-		hand[active]->attack(playerPos, mousePos, attackMult);
-		hand[active]->use();
-		downTime = hand[active]->getDownTime() / fireRateMult;
-		if (hand[active]->getUses() <= 0)discardCard(active);
+		(*active)->attack(playerPos, mousePos, attackMult);
+		(*active)->use();
+		downTime = (*active)->getDownTime() / fireRateMult;
+		if ((*active)->getUses() <= 0)discardCard(active);
 	}
 }
 
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
-		if (hand[active]->getMana() <= mana) {
-			hand[active]->ability(playerPos, mousePos, attackMult);
-			mana -= hand[active]->getMana();
+		if ((*active)->getMana() <= mana) {
+			(*active)->ability(playerPos, mousePos, attackMult);
+			mana -= (*active)->getMana();
 			discardCard(active);
 		}
 }
@@ -52,12 +51,13 @@ void CardComponent::switchActive(bool left) {
 		--active;
 	else
 		++active;
-	active %= hand.size();
 }
 
 void CardComponent::switchActive(int number) {
-	if (number >= 0 && number < hand.size())
-		active = number;
+	if (number >= 0 && number < hand.size()) {
+		active = hand.begin();
+		std::advance(active,number);
+	}
 }
 
 
@@ -76,16 +76,16 @@ void CardComponent::reshufflePile() {
 }
 
 void CardComponent::newHand() {
-	handSize = 4;
 	//Si la mano esta vacia se barajan nuevas cartas
 	if (deck.size() == 0)
 		reshufflePile();
-	for (int i = 0; i++; i < 4) {
+	for (int i = 0; i < 4; i++) {
 		drawCard();
 		//Si se vacia la mano al ir sacando cartas
 		if (deck.size() == 0)
 			reshufflePile();
 	}
+	active = hand.begin();
 }
 
 void CardComponent::drawCard() {
@@ -93,10 +93,10 @@ void CardComponent::drawCard() {
 	deck.pop_back();
 }
 
-void CardComponent::discardCard(int discarded) {
-	pile.push_back(hand[discarded]);
-	hand[discarded]->resetUses();
-	hand[discarded] = nullptr;
+void CardComponent::discardCard(deque<Card*>::iterator discarded) {
+	pile.push_back(*discarded);
+	(*discarded)->resetUses();
+	active = hand.erase(discarded);
 	if (hand.size() <= 0) {
 		newHand();
 	}

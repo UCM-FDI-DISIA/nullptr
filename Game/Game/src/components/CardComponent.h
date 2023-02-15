@@ -5,15 +5,16 @@
 #include "Transform.h"
 #include "../core/Vector2D.h"
 #include "../core/Card.h"
+#include <deque>
 
 #pragma once
 class CardComponent : public Component {
 	private:
 		vector<Card*> deck;
-		vector<Card*> hand;
+		deque<Card*> hand;
 		vector<Card*> pile;
 		Transform* tr;
-		int active,handSize;
+		deque<Card*>::iterator active;
 		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
@@ -21,8 +22,8 @@ class CardComponent : public Component {
 		void initDeck();
 		void reshufflePile();
 		void newHand();
-		void drawCard(int handPos);
-		void discardCard(int discarded);
+		void drawCard();
+		void discardCard(deque<Card*>::iterator discarded);
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
