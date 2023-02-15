@@ -153,6 +153,7 @@
     <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\CardComponent.h" />
     <ClInclude Include="src\components\ButtonComponent.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Image.h" />
