@@ -57,7 +57,6 @@ void SDLApplication::run() {
 	startTime = SDL_GetTicks();
 
 	while (!exit) {
-
 		InputHandler::instance()->refresh();
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= DELAY_TIME) {

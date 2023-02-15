@@ -6,15 +6,19 @@ void ButtonComponent::update() {
 	SDL_GetMouseState(&mouseX, &mouseY);
 
 	if ((mouseX >= tr->getPos().getX() && mouseX < tr->getPos().getX() + tr->getWidth()) &&
-		(mouseY >= tr->getPos().getY() && mouseY < tr->getPos().getY() + tr->getHeight())) {
-		if (anim->currentAnimationKey() != "OnOver") anim->stop();
+		(mouseY >= tr->getPos().getY() && mouseY < tr->getPos().getY() + tr->getHeight()))
 		state = OnOver;
-		anim->play("OnOver");
-	}
-	else {
-		if (anim->currentAnimationKey() != "Idle") anim->stop();
-		state = OnOut;
-		anim->play("Idle");
+	else state = OnOut;
+
+	// Cambiar animación según el estado
+	switch (state) {
+		case 0: 
+			if (anim->currentAnimationKey() != "Idle") { anim->stop(); anim->play("Idle"); }
+		break;
+		case 1: 
+			if (anim->currentAnimationKey() != "OnOver") { anim->stop(); anim->play("OnOver"); }
+		break;
+		case 2: anim->stop(); anim->play("OnClick"); break;
 	}
 }
 
