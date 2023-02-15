@@ -11,6 +11,7 @@ private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
 	GameObject* floor;
+	vector<GameObject*> enemies;
 public:
 	// Constructora
 	BattleScene(SDLApplication* _game);

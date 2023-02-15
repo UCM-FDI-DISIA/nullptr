@@ -43,6 +43,6 @@ void RangeBehavior::update() {
 	}
 }
 void RangeBehavior:: attack() {
-	GameObject* bullet = new Bullet(pos->getPos(), (playerPos->getPos() - pos->getPos())/100000, 20, player,game, myScene->getCamera()->getComponent<Transform>());
-	myScene->addGameObject(bullet);
+	/*GameObject* bullet = new Bullet(pos->getPos(), (playerPos->getPos() - pos->getPos())/100000, 20, player,game, myScene->getCamera()->getComponent<Transform>());
+	myScene->addGameObject(bullet);*/
 }
