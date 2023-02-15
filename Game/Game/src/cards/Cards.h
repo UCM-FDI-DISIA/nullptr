@@ -1,23 +1,23 @@
 #include "../core/Card.h"
 #pragma once
 
-class Gun : public Card {
+class GunCard : public Card {
 	public:
-		Gun();
+		GunCard();
 		void attack(Vector2D playerPos, Vector2D mousePos, float attackMult);
 		void ability(Vector2D playerPos, Vector2D mousePos, float attackMult);
 };
 
-class Sword : public Card {
+class SwordCard : public Card {
 	public:
-		Sword();
+		SwordCard();
 		void attack(Vector2D playerPos, Vector2D mousePos, float attackMult);
 		void ability(Vector2D playerPos, Vector2D mousePos, float attackMult);
 };
 
-class LaserShades : public Card {
+class LaserShadesCard : public Card {
 	public:
-		LaserShades();
+		LaserShadesCard();
 		void attack(Vector2D playerPos, Vector2D mousePos, float attackMult);
 		void ability(Vector2D playerPos, Vector2D mousePos, float attackMult);
 };
