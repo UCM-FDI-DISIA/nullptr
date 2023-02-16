@@ -23,7 +23,7 @@ private:
 	// Estado del botón
 	int state;
 
-	// Puntero al marco del botón -> de no tener, debe ser "nullptr"
+	// Puntero al marco del botón
 	GameObject* frame;
 
 	// Punteros a componentes
@@ -33,7 +33,8 @@ private:
 
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack* _f, SDLApplication* _g, GameObject* _frame) : Component(), state(0), function(_f), game(_g), frame(_frame) {}
+	ButtonComponent(CallBack* _f, SDLApplication* _g, GameObject* _frame = nullptr) :
+		Component(), state(0), function(_f), game(_g), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
 
 	virtual void update();
 	virtual void handleInput();

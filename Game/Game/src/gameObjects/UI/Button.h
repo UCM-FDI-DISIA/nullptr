@@ -13,5 +13,10 @@ class Button : public GameObject {
 private:
 
 public:
-	Button(CallBack _cb, SDLApplication* game, Vector2D _pos, string key, int _w, int _h, int _r, int _c, GameObject* _frame);
+	// Constructora
+	Button(CallBack _cb, SDLApplication* game, Vector2D _pos, 
+		string key, GameObject* _frame = nullptr, int _w = BUTTON_SPRITE_WIDTH, int _h = BUTTON_SPRITE_HEIGHT, int _r = BUTTON_SPRITE_ROWS, int _c = BUTTON_SPRITE_COLUMS);
+
+	// Crear animaciones
+	void createButtonAnimations(Animator* animator);
 };

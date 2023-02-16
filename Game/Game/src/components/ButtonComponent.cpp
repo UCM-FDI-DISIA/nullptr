@@ -13,9 +13,9 @@ void ButtonComponent::update() {
 
 	// Cambiar animación según el estado
 	switch (state) {
-		case 0: changeStateAnim("Idle"); break;
-		case 1: changeStateAnim("OnOver"); break;
-		case 2: changeStateAnim("OnClick"); break;
+		case OnOut: changeStateAnim(ONOUT); break;
+		case OnOver: changeStateAnim(ONOVER); break;
+		case OnClick: changeStateAnim(ONCLICK); break;
 	}
 }
 
@@ -34,8 +34,12 @@ void ButtonComponent::initComponent() {
 
 // Cambia el estado de los animators para mostrar el estado del botón recibido
 void ButtonComponent::changeStateAnim(string key) {
-	if (animButton->currentAnimationKey() != key) {			// Comprobar si la animación actual no es a la que hay que cambiar
-		animButton->play(key);								// Reproducir la correspondiente
-		if (frame != nullptr) animFrame->play(key);			// Cambiar el estado del frame al correspondiente
+	// Comprobar si la animación actual no es a la que hay que cambiar
+	if (animButton->currentAnimationKey() != key) {
+		// Reproducir la correspondiente
+		animButton->play(key);
+
+		// Cambiar el estado del frame al correspondiente
+		if (frame != nullptr) animFrame->play(key);
 	}
 }

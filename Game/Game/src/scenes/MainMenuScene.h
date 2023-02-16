@@ -16,8 +16,6 @@ public:
 	static void options(SDLApplication* game);
 	static void album(SDLApplication* game);
 	static void exit(SDLApplication* game);
-
-	void createButtonAnimations(Animator* anim);
 };
 
 #endif

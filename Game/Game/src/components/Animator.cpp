@@ -47,7 +47,6 @@ void Animator::update() {
 			startTime = SDL_GetTicks();
 		}
 	}
-	else currentFrame = 0;
 }
 
 //
