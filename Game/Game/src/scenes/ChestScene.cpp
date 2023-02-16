@@ -2,7 +2,10 @@
 #include "../core/SDLApplication.h"
 
 ChestScene::ChestScene(SDLApplication* _game) : GameState(_game) {
-	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 50), "Opciones");
+	cout << "Has entrado en la escena de Cofre" << endl;
+
+	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
+		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	stateScene.push_back(MainMenu);
 }
 void ChestScene::mainMenu(SDLApplication* _game) {
