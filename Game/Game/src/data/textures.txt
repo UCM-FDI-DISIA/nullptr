@@ -3,3 +3,9 @@ Player ../Game/resources/images/player.png 1 1
 Opciones ../Game/resources/images/UI/MainMenu/OpcionesButtonIdle_79x18.png 1 1
 MarcoBoton ../Game/resources/images/UI/MainMenu/ButtonsBG_95x45.png 1 1
 MainMenuFondo ../Game/resources/images/UI/MainMenu/MainMenuBackground.png 1 1
+Pasado ../Game/resources/images/cuentodenavidadPa187x76.png 1 1
+Presente ../Game/resources/images/cuentodenavidadPr187x76.png 1 1
+Futuro ../Game/resources/images/cuentodenavidadFu187x76.png 1 1
+Tienda ../Game/resources/images/Tienda187x76.png 1 1
+Cofre ../Game/resources/images/Cofre187x76.png 1 1
+
