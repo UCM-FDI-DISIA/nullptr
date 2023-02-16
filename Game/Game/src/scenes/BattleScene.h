@@ -1,6 +1,6 @@
 #pragma once
-#ifndef BATTLESCENE_H_
-#define BATTLESCENE_H_
+#ifndef FUBATTLESCENE_H_
+#define FUBATTLESCENE_H_
 #include "GameState.h"
 #include "../gameObjects/Player.h"
 
@@ -11,7 +11,8 @@ private:
 	GameObject* floor;
 public:
 	// Constructora
-	BattleScene(SDLApplication* _game);
+	BattleScene(SDLApplication* _game, int a);
+	static void mainMenu(SDLApplication* game);
 };
 
 #endif

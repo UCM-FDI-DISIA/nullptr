@@ -1,7 +1,7 @@
 #include "Button.h"
 #include "../../core/SDLApplication.h"
 
-// Añade los componentes al botón y crea sus animaciones
+// Aï¿½ade los componentes al botï¿½n y crea sus animaciones
 Button::Button(CallBack _cb, SDLApplication* game, Vector2D _pos, string key, int _w, int _h, int _r, int _c, GameObject* _frame) : GameObject() {
 	// Transform
 	addComponent<Transform>(_pos, Vector2D(0, 0), BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -14,7 +14,7 @@ Button::Button(CallBack _cb, SDLApplication* game, Vector2D _pos, string key, in
 	addComponent<ButtonComponent>(_cb, game, _frame);
 }
 
-// Crea las animaciones esenciales de un botón: OnClick, OnOver y Idle
+// Crea las animaciones esenciales de un botï¿½n: OnClick, OnOver y Idle
 void Button::createButtonAnimations(Animator* animator) {
 	animator->createAnim(ONOUT, ONOUT_ALL_FRAMES, ONOUT_ALL_FRAMES, ONCLICK_ONOUT_SPEED, -1);
 	animator->createAnim(ONOVER, ONONVER_START_FRAME, ONOVER_END_FRAME, ONOVER_SPEED, -1);
