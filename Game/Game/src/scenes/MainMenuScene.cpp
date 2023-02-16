@@ -47,7 +47,7 @@ MainMenuScene::MainMenuScene(SDLApplication* _game) : GameState(_game) {
 }
 
 void MainMenuScene::play(SDLApplication* game) {
-	SDLApplication::newScene<BattleScene>(game);
+	SDLApplication::newScene<MapScene>(game);
 }
 
 void MainMenuScene::options(SDLApplication* game) {
