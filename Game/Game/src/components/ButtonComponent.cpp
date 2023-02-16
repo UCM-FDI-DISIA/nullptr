@@ -29,7 +29,7 @@ void ButtonComponent::handleInput() {
 void ButtonComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 	animButton = gObj->getComponent<Animator>();
-	animFrame = frame->getComponent<Animator>();
+	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
 }
 
 // Cambia el estado de los animators para mostrar el estado del botón recibido
