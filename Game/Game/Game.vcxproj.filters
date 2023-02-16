@@ -52,8 +52,8 @@
     <Filter Include="Archivos de encabezado\managers">
       <UniqueIdentifier>{a23e9629-da43-4711-a3b7-711e19fe4989}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\managers">
-      <UniqueIdentifier>{184a6657-b822-4113-8495-17c2172fb095}</UniqueIdentifier>
+    <Filter Include="Archivos de origen\Manager">
+      <UniqueIdentifier>{6c5cc646-6b64-4d92-8152-acb572cf2176}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -224,9 +224,6 @@
     <ClCompile Include="src\gameObjects\UI\Button.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\MainMenuManager.cpp">
-      <Filter>Archivos de origen\managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\ButtonComponent.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
@@ -242,9 +239,6 @@
     <ClCompile Include="src\gameObjects\Player.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\MapManager.cpp">
-      <Filter>Archivos de origen\managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\scenes\PaBattleScene.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
@@ -256,6 +250,12 @@
     </ClCompile>
     <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MainMenuManager.cpp">
+      <Filter>Archivos de origen\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MapManager.cpp">
+      <Filter>Archivos de origen\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

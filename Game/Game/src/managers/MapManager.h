@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "../core/Manager.h"
 #include "../gameObjects/UI/Button.h"
 #include "../core/SDLApplication.h"
@@ -21,4 +21,4 @@ public:
 	static void Futuro(SDLApplication* game);
 	static void Tienda(SDLApplication* game);
 	static void Cofre(SDLApplication* game);
-};
+};*/
