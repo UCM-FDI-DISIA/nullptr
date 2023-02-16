@@ -23,7 +23,6 @@ public:
 	virtual void initComponent();
 	// Dibuja en pantalla la textura en el rectángulo del transform
 	virtual void render() const;
-	// Devuelve el rect dependiendo de la camara
 	virtual SDL_Rect getRect() const;
 };
 #endif // !IMAGE_H_
