@@ -11,9 +11,8 @@
 #include "../core/SDLApplication.h"
 #include "../scenes/ChestScene.h"
 #include "../scenes/ShopScene.h"
-#include "../scenes/FuBattleScene.h"
-#include "../scenes/PreBattleScene.h"
-#include "../scenes/PaBattleScene.h"
+#include "../scenes/BattleScene.h"
+
 
 class GameState;
 class SDLApplication;
@@ -25,12 +24,12 @@ private:
 public:
 
 	MapScene(SDLApplication* game);
-	static void Pasado(SDLApplication* game);
-	static void Presente(SDLApplication* game);
-	static void Futuro(SDLApplication* game);
-	static void Tienda(SDLApplication* game);
-	static void Cofre(SDLApplication* game);
-	static void Salir(SDLApplication* game);
+	static void pasado(SDLApplication* game);
+	static void presente(SDLApplication* game);
+	static void futuro(SDLApplication* game);
+	static void tienda(SDLApplication* game);
+	static void cofre(SDLApplication* game);
+	static void salir(SDLApplication* game);
 };
 
 #endif

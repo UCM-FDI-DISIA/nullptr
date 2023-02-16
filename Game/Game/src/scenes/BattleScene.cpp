@@ -1,8 +1,8 @@
-#include "PreBattleScene.h"
+#include "BattleScene.h"
 #include "../core/SDLApplication.h"
 
 // Constructora
-PreBattleScene::PreBattleScene(SDLApplication* _game) : GameState(_game) {
+BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
   cout << "Has entrado en la escena de Batalla" << endl;
 
 	// Quitar cuando se cree el mapa de combate
@@ -14,10 +14,9 @@ PreBattleScene::PreBattleScene(SDLApplication* _game) : GameState(_game) {
 	player = new Player(_game, getCamera());
 	stateScene.push_back(player);
 
-
-	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, 10), "Opciones");
+	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79,10), "Opciones");
 	stateScene.push_back(MainMenu);
 }
-void PreBattleScene::mainMenu(SDLApplication* _game) {
+void BattleScene::mainMenu(SDLApplication* _game) {
 	SDLApplication::newScene<MapScene>(_game);
 }

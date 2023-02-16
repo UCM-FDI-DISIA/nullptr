@@ -159,13 +159,7 @@
     <ClInclude Include="src\managers\MapManager.h">
       <Filter>Archivos de encabezado\managers</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\PreBattleScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\FuBattleScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\PaBattleScene.h">
+    <ClInclude Include="src\scenes\BattleScene.h">
       <Filter>Archivos de encabezado\scenes</Filter>
     </ClInclude>
   </ItemGroup>
@@ -239,13 +233,7 @@
     <ClCompile Include="src\gameObjects\Player.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\scenes\PaBattleScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\PreBattleScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\FuBattleScene.cpp">
+    <ClCompile Include="src\scenes\BattleScene.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
     <ClCompile Include="src\core\Vector2D.cpp">
