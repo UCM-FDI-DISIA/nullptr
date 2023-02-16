@@ -18,5 +18,5 @@ FuBattleScene::FuBattleScene(SDLApplication* _game) : GameState(_game) {
 	stateScene.push_back(MainMenu);
 }
 void FuBattleScene::mainMenu(SDLApplication* _game) {
-	SDLApplication::newScene<MainMenuScene>(_game);
+	SDLApplication::newScene<MapScene>(_game);
 }

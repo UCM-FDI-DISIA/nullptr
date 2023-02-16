@@ -6,5 +6,5 @@ ChestScene::ChestScene(SDLApplication* _game) : GameState(_game) {
 	stateScene.push_back(MainMenu);
 }
 void ChestScene::mainMenu(SDLApplication* _game) {
-	SDLApplication::newScene<MainMenuScene>(_game);
+	SDLApplication::newScene<MapScene>(_game);
 }

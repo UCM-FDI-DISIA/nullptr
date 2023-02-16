@@ -30,6 +30,7 @@ public:
 	static void Futuro(SDLApplication* game);
 	static void Tienda(SDLApplication* game);
 	static void Cofre(SDLApplication* game);
+	static void Salir(SDLApplication* game);
 };
 
 #endif

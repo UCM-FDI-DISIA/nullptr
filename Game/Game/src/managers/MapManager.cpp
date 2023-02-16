@@ -1,4 +1,4 @@
-/*#include "MapManager.h"
+#include "MapManager.h"
 
 
 MapManager::MapManager(SDLApplication* game) {
@@ -35,4 +35,4 @@ void MapManager::Tienda(SDLApplication* game) {//para la tienda
 void MapManager::Cofre(SDLApplication* game) {//para el cofre
 	cout << "HE SIDO CLICADO Cofre" << endl;
 	SDLApplication::newScene<ChestScene>(game);
-}*/
+}
