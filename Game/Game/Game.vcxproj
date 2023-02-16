@@ -148,20 +148,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
+    <ClInclude Include="src\cards\Cards.h" />
     <ClInclude Include="src\components\Animator.h" />
-    <ClInclude Include="src\components\ButtonComponent.h" />
+    <ClInclude Include="src\components\BulletBehavior.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
+    <ClInclude Include="src\components\CardComponent.h" />
+    <ClInclude Include="src\components\ButtonComponent.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Transform.h" />
+    <ClInclude Include="src\core\Card.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
     <ClInclude Include="src\core\Manager.h" />
+    <ClInclude Include="src\core\PlayerData.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
@@ -183,14 +190,20 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\cards\Gun.cpp" />
+    <ClCompile Include="src\cards\LaserShades.cpp" />
+    <ClCompile Include="src\cards\Sword.cpp" />
     <ClCompile Include="src\components\Animator.cpp" />
-    <ClCompile Include="src\components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\CardComponent.cpp" />
+    <ClCompile Include="src\components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
+    <ClCompile Include="src\core\Card.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\Manager.cpp" />
+    <ClCompile Include="src\core\PlayerData.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\Game.cpp" />

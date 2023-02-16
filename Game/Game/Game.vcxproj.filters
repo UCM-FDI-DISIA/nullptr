@@ -1,256 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado\scenes">
-      <UniqueIdentifier>{4ac0ba22-27dd-4b59-b242-22312d08081e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\scenes">
-      <UniqueIdentifier>{bcb129b3-b175-4f75-ac0c-b22330542277}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\sdlutils">
-      <UniqueIdentifier>{a4cc0550-81d1-4aa4-99ab-6bb4da09e846}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\sdlutils">
-      <UniqueIdentifier>{a2ed04b6-0c05-431c-8aac-13e78d56991d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\core">
-      <UniqueIdentifier>{9fef2ca9-492f-4058-91b5-f0bcb042eec8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\core">
-      <UniqueIdentifier>{49e5bb11-f6df-444a-90fb-b1951cec736e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\components">
-      <UniqueIdentifier>{5b5532de-94db-4d66-a859-1353272697f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\components">
-      <UniqueIdentifier>{d0de8c64-ac1c-47d1-b79d-22cd93f59ed7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\data">
-      <UniqueIdentifier>{ea4e73d4-23a3-4c13-92c9-94c5bec1a983}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\utils">
-      <UniqueIdentifier>{e3c47c4e-ea37-4041-8356-0ae0ddd10a2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\gameObjects">
-      <UniqueIdentifier>{824f44b6-1b62-413a-abde-922928c116fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\gameObjects">
-      <UniqueIdentifier>{4ff7dd74-e05d-444a-acad-08d95da75379}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\managers">
-      <UniqueIdentifier>{a23e9629-da43-4711-a3b7-711e19fe4989}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\managers">
-      <UniqueIdentifier>{184a6657-b822-4113-8495-17c2172fb095}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="src\cards\Gun.cpp" />
+    <ClCompile Include="src\cards\LaserShades.cpp" />
+    <ClCompile Include="src\cards\Sword.cpp" />
+    <ClCompile Include="src\components\CardComponent.cpp" />
+    <ClCompile Include="src\components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
+    <ClCompile Include="src\components\Transform.cpp" />
+    <ClCompile Include="src\core\Card.cpp" />
+    <ClCompile Include="src\core\GameStateMachine.cpp" />
+    <ClCompile Include="src\core\Manager.cpp" />
+    <ClCompile Include="src\core\SDLApplication.cpp" />
+    <ClCompile Include="src\core\Vector2D.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\gameObjects\UI\Button.cpp" />
+    <ClCompile Include="src\managers\MainMenuManager.cpp" />
+    <ClCompile Include="src\scenes\AlbumScene.cpp" />
+    <ClCompile Include="src\scenes\BattleScene.cpp" />
+    <ClCompile Include="src\scenes\ChestScene.cpp" />
+    <ClCompile Include="src\scenes\GameState.cpp" />
+    <ClCompile Include="src\scenes\InventoryScene.cpp" />
+    <ClCompile Include="src\scenes\MainMenuScene.cpp" />
+    <ClCompile Include="src\scenes\MapScene.cpp" />
+    <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
+    <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
+    <ClCompile Include="src\scenes\ShopScene.cpp" />
+    <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\components\CameraComponent.cpp" />
+    <ClCompile Include="src\gameObjects\Camera.cpp" />
+    <ClCompile Include="src\gameObjects\Player.cpp" />
+    <ClCompile Include="src\core\PlayerData.cpp" />
+    <ClCompile Include="src\components\Animator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\scenes\AlbumScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\BattleScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\ChestScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\GameState.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\InventoryScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\MainMenuScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\MapScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\OptionsMenuScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\PauseMenuScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\ShopScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sdlutils\Texture.h">
-      <Filter>Archivos de encabezado\sdlutils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\SDLApplication.h">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Resource.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\targetver.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\framework.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Component.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\GameObject.h">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\data\constants.h">
-      <Filter>Archivos de encabezado\data</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Manager.h">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utils\Singleton.h">
-      <Filter>Archivos de encabezado\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sdlutils\InputHandler.h">
-      <Filter>Archivos de encabezado\sdlutils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Transform.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Vector2D.h">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\ecs.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Image.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerMovementComponent.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\Button.h">
-      <Filter>Archivos de encabezado\gameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\MainMenuManager.h">
-      <Filter>Archivos de encabezado\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\ButtonComponent.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Animator.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\CameraComponent.h">
-      <Filter>Archivos de encabezado\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Camera.h">
-      <Filter>Archivos de encabezado\gameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Player.h">
-      <Filter>Archivos de encabezado\gameObjects</Filter>
-    </ClInclude>
+    <ClInclude Include="PlayerMovementComponent.h" />
+    <ClInclude Include="src\cards\Cards.h" />
+    <ClInclude Include="src\components\CardComponent.h" />
+    <ClInclude Include="src\components\ButtonComponent.h" />
+    <ClInclude Include="src\components\Component.h" />
+    <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\Transform.h" />
+    <ClInclude Include="src\core\Card.h" />
+    <ClInclude Include="src\core\GameObject.h" />
+    <ClInclude Include="src\core\GameStateMachine.h" />
+    <ClInclude Include="src\core\Manager.h" />
+    <ClInclude Include="src\core\SDLApplication.h" />
+    <ClInclude Include="src\core\Vector2D.h" />
+    <ClInclude Include="src\data\constants.h" />
+    <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\UI\Button.h" />
+    <ClInclude Include="src\managers\MainMenuManager.h" />
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\scenes\AlbumScene.h" />
+    <ClInclude Include="src\scenes\BattleScene.h" />
+    <ClInclude Include="src\scenes\ChestScene.h" />
+    <ClInclude Include="src\scenes\GameState.h" />
+    <ClInclude Include="src\scenes\InventoryScene.h" />
+    <ClInclude Include="src\scenes\MainMenuScene.h" />
+    <ClInclude Include="src\scenes\MapScene.h" />
+    <ClInclude Include="src\scenes\OptionsMenuScene.h" />
+    <ClInclude Include="src\scenes\PauseMenuScene.h" />
+    <ClInclude Include="src\scenes\ShopScene.h" />
+    <ClInclude Include="src\sdlutils\InputHandler.h" />
+    <ClInclude Include="src\sdlutils\Texture.h" />
+    <ClInclude Include="src\targetver.h" />
+    <ClInclude Include="src\utils\Singleton.h" />
+    <ClInclude Include="src\components\CameraComponent.h" />
+    <ClInclude Include="src\gameObjects\Camera.h" />
+    <ClInclude Include="src\gameObjects\Player.h" />
+    <ClInclude Include="src\core\PlayerData.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
+    <ClInclude Include="src\components\BulletBehavior.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
+    <ClInclude Include="src\components\Animator.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\scenes\AlbumScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\BattleScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\ChestScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\GameState.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\InventoryScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\MainMenuScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\MapScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\OptionsMenuScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\PauseMenuScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\ShopScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sdlutils\Texture.cpp">
-      <Filter>Archivos de origen\sdlutils</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\GameStateMachine.cpp">
-      <Filter>Archivos de origen\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\SDLApplication.cpp">
-      <Filter>Archivos de origen\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\Manager.cpp">
-      <Filter>Archivos de origen\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\Vector2D.cpp">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Image.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Transform.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\PlayerMovementComponent.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\Button.cpp">
-      <Filter>Archivos de origen\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\MainMenuManager.cpp">
-      <Filter>Archivos de origen\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\ButtonComponent.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Animator.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Camera.cpp">
-      <Filter>Archivos de origen\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\CameraComponent.cpp">
-      <Filter>Archivos de origen\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Player.cpp">
-      <Filter>Archivos de origen\gameObjects</Filter>
-    </ClCompile>
+    <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Game.rc">
-      <Filter>Archivos de recursos</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="Game.ico">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
+    <Image Include="Game.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
 </Project>
