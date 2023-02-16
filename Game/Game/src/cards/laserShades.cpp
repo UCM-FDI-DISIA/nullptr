@@ -1,5 +1,7 @@
 #include "Cards.h"
 #include "../sdlutils/Texture.h"
+#include <iostream>
+
 
 LaserShadesCard::LaserShadesCard() {
 	damage = 20;
@@ -14,7 +16,7 @@ LaserShadesCard::LaserShadesCard() {
 }
 
 void LaserShadesCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
-
+	std::cout << "fium"<<endl;
 }
 
 void LaserShadesCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {

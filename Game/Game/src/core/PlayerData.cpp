@@ -9,11 +9,11 @@ PlayerData::PlayerData() {
 
 	deck.push_back(new GunCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new SwordCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new LaserShadesCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new SwordCard());
 
 	deck.push_back(new GunCard());
 

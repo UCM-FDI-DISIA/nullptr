@@ -1,5 +1,6 @@
 #include "Cards.h"
 #include "../sdlutils/Texture.h"
+#include <iostream>
 
 SwordCard::SwordCard() {
 	damage = 20;
@@ -14,7 +15,7 @@ SwordCard::SwordCard() {
 }
 
 void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
-
+	std::cout << "slash"<<endl;
 }
 
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
