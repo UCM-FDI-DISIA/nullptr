@@ -1,8 +1,8 @@
-#include "BattleScene.h"
+#include "PaBattleScene.h"
 #include "../core/SDLApplication.h"
 
 // Constructora
-BattleScene::BattleScene(SDLApplication* _game) : GameState(_game) {
+PaBattleScene::PaBattleScene(SDLApplication* _game) : GameState(_game) {
   cout << "Has entrado en la escena de Batalla" << endl;
 
 	// Quitar cuando se cree el mapa de combate

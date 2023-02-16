@@ -3,6 +3,7 @@
 #define MAPSCENE_H_
 
 #include "GameState.h"
+#include "../managers/MapManager.h"
 class MapScene : public GameState {
 private:
 public:

@@ -60,9 +60,6 @@
     <ClInclude Include="src\scenes\AlbumScene.h">
       <Filter>Archivos de encabezado\scenes</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\BattleScene.h">
-      <Filter>Archivos de encabezado\scenes</Filter>
-    </ClInclude>
     <ClInclude Include="src\scenes\ChestScene.h">
       <Filter>Archivos de encabezado\scenes</Filter>
     </ClInclude>
@@ -159,12 +156,21 @@
     <ClInclude Include="src\gameObjects\Player.h">
       <Filter>Archivos de encabezado\gameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="src\managers\MapManager.h">
+      <Filter>Archivos de encabezado\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\PreBattleScene.h">
+      <Filter>Archivos de encabezado\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\FuBattleScene.h">
+      <Filter>Archivos de encabezado\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\PaBattleScene.h">
+      <Filter>Archivos de encabezado\scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
-      <Filter>Archivos de origen\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\BattleScene.cpp">
       <Filter>Archivos de origen\scenes</Filter>
     </ClCompile>
     <ClCompile Include="src\scenes\ChestScene.cpp">
@@ -206,9 +212,6 @@
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\Vector2D.cpp">
-      <Filter>Archivos de encabezado\core</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\Image.cpp">
       <Filter>Archivos de origen\components</Filter>
     </ClCompile>
@@ -238,6 +241,21 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\Player.cpp">
       <Filter>Archivos de origen\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\managers\MapManager.cpp">
+      <Filter>Archivos de origen\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\PaBattleScene.cpp">
+      <Filter>Archivos de origen\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\PreBattleScene.cpp">
+      <Filter>Archivos de origen\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\FuBattleScene.cpp">
+      <Filter>Archivos de origen\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Vector2D.cpp">
+      <Filter>Archivos de origen\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

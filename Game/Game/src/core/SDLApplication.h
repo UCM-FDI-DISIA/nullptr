@@ -6,15 +6,19 @@
 #include <iostream>
 #include <fstream>
 #include <unordered_map>
-
+#include "../scenes/PaBattleScene.h"
+#include "../scenes/PreBattleScene.h"
 #include "../data/constants.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
 #include "../scenes/MainMenuScene.h"
-#include "../scenes/BattleScene.h"
 #include "../scenes/AlbumScene.h"
 #include "../scenes/OptionsMenuScene.h"
+#include "../scenes/MapScene.h"
 #include "../sdlutils/InputHandler.h"
+#include "../scenes/FuBattleScene.h"
+
+
 using namespace std;
 
 using TextureName = string;
