@@ -16,7 +16,7 @@ LaserShadesCard::LaserShadesCard() {
 }
 
 void LaserShadesCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
-	std::cout << "fium"<<endl;
+	std::cout << "fium"<<std::endl;
 }
 
 void LaserShadesCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {

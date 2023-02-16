@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="src\cards\Cards.h" />
+    <ClInclude Include="src\components\Animator.h" />
     <ClInclude Include="src\components\BulletBehavior.h" />
     <ClInclude Include="src\components\CameraComponent.h" />
     <ClInclude Include="src\components\CardComponent.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="src\cards\Gun.cpp" />
     <ClCompile Include="src\cards\LaserShades.cpp" />
     <ClCompile Include="src\cards\Sword.cpp" />
+    <ClCompile Include="src\components\Animator.cpp" />
     <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\ButtonComponent.cpp" />

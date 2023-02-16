@@ -14,7 +14,7 @@ class Card
 	protected:
 		int damage, maxUses, remainingUses, mana;
 		float downtime;
-		string name, abilityText, attackText;
+		std::string name, abilityText, attackText;
 		Texture* texture;
 
 	public:

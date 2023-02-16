@@ -21,3 +21,16 @@ void Image::render() const {
 	}
 	texture->render(rect);
 }
+
+//Devuelve el rect dependiendo de la cámara
+SDL_Rect Image::getRect() const{
+	SDL_Rect rect = transform->getRect();
+
+	if (cameraTransform != nullptr) {
+		//Dependiendo de la posición de la cámara
+		rect.x += cameraTransform->getRect().x;
+		rect.y += cameraTransform->getRect().y;
+	}
+	
+	return rect;
+}

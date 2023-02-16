@@ -32,6 +32,7 @@
     <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
     <ClCompile Include="src\core\PlayerData.cpp" />
+    <ClCompile Include="src\components\Animator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerMovementComponent.h" />
@@ -74,6 +75,7 @@
     <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\BulletBehavior.h" />
     <ClInclude Include="src\gameObjects\Bullet.h" />
+    <ClInclude Include="src\components\Animator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

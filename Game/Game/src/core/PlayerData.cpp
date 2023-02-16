@@ -1,5 +1,5 @@
 #include "PlayerData.h"
-#include "../cards/Cards.h"	
+#include "../cards/Cards.h"
 PlayerData::PlayerData() {
 	maxHP = 100;
 	currHP = maxHP;
@@ -9,7 +9,7 @@ PlayerData::PlayerData() {
 
 	fireRateMult = 1;
 	attackMult = 1;
-
+	
 	deck.push_back(new GunCard());
 
 	deck.push_back(new SwordCard());
@@ -32,12 +32,12 @@ void PlayerData::setDataToJSON()
 {
 }
 
-vector<Card*> PlayerData::getDeck()
+std::vector<Card*> PlayerData::getDeck()
 {
 	return deck;
 }
 
-void PlayerData::setDeck(vector<Card*> newDeck)
+void PlayerData::setDeck(std::vector<Card*> newDeck)
 {
 	deck = newDeck;
 }
@@ -47,7 +47,7 @@ void PlayerData::addCardToLibrary(Card* newCard)
 	library.push_back(newCard);
 }
 
-vector<Card*> PlayerData::getLibrary()
+std::vector<Card*> PlayerData::getLibrary()
 {
 	return library;
 }

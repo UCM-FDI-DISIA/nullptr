@@ -8,17 +8,18 @@ MainMenuManager::MainMenuManager(SDLApplication* game) {
 		addGameObject(button);
 	}*/
 
-	Button* Play = new Button(play, game, Vector2D(WIN_WIDTH / 2 - 79, 50));
+	Button* Play = new Button(play, game, Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT/2));
 	addGameObject(Play);
 
-	Button* Options = new Button(options, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50));
+	Button* Options = new Button(options, game, Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT * 5 / 8));
 	addGameObject(Options);
 
-	Button* Album = new Button(album, game, Vector2D(WIN_WIDTH / 2 - 79, (2 * WIN_HEIGHT / 4) + 50));
+	Button* Album = new Button(album, game, Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT * 6 / 8));
 	addGameObject(Album);
 
-	Button* Exit = new Button(exit, game, Vector2D(WIN_WIDTH / 2 - 79, (3 * WIN_HEIGHT / 4) + 50));
+	Button* Exit = new Button(exit, game, Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT * 7 / 8));
 	addGameObject(Exit);
+	
 }
 
 void MainMenuManager::play(SDLApplication* game) {

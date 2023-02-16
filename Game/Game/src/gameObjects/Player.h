@@ -5,6 +5,7 @@
 #include "../data/constants.h"
 #include "../components/Transform.h"
 #include "../components/Image.h"
+#include "../components/Animator.h"
 #include "../components/PlayerMovementComponent.h"
 #include "../scenes/GameState.h"
 #include "../components/CardComponent.h"

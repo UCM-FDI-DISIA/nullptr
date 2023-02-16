@@ -1,1 +1,21 @@
-﻿  Game.vcxproj -> C:\Users\mirgu\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
+﻿  SDLApplication.cpp
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(10,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(29,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+  Game.cpp
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\PlayerMovementComponent.h(10,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(29,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+  Texture.cpp
+  Generando código...
+  Game.vcxproj -> C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe

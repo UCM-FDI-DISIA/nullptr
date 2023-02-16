@@ -15,7 +15,7 @@ SwordCard::SwordCard() {
 }
 
 void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
-	std::cout << "slash"<<endl;
+	std::cout << "slash"<<std::endl;
 }
 
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {

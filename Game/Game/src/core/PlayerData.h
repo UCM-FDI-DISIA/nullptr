@@ -3,7 +3,7 @@
 #include "../core/Card.h"
 #include <vector>
 
-
+class Card;
 class PlayerData : public Singleton<PlayerData>
 {
 	friend Singleton<PlayerData>;
@@ -24,8 +24,8 @@ class PlayerData : public Singleton<PlayerData>
 	
 	*/
 
-	vector<Card*> deck;
-	vector<Card*> library;
+	std::vector<Card*> deck;
+	std::vector<Card*> library;
 
 	int maxMana;
 	int maxHP;
@@ -57,11 +57,11 @@ class PlayerData : public Singleton<PlayerData>
 		void getDataFromJSON();
 		void setDataToJSON();
 
-		vector<Card*> getDeck();
-		void setDeck(vector<Card*> newDeck);
+		std::vector<Card*> getDeck();
+		void setDeck(std::vector<Card*> newDeck);
 		void addCardToLibrary(Card* newCard);
-		vector<Card*> getLibrary();
-
+		std::vector<Card*> getLibrary();
+		
 
 
 

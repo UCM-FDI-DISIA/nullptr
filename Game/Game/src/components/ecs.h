@@ -13,6 +13,7 @@ enum cmpId : cmpId_type {
 	_BUTTON,
 	_COLLIDER_COMPONENT,
 	_BULLET_COMPONENT,
+	_ANIMATOR,
 	// ... (compoment ids)
 
 	// do not remove this
