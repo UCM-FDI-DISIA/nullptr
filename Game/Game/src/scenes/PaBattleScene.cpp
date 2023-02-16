@@ -14,7 +14,7 @@ PaBattleScene::PaBattleScene(SDLApplication* _game) : GameState(_game) {
 	player = new Player(_game, getCamera());
 	stateScene.push_back(player);
 
-	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), "Opciones");
+	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, 10), "Opciones");
 	stateScene.push_back(MainMenu);
 }
 void PaBattleScene::mainMenu(SDLApplication* _game) {
