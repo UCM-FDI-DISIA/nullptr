@@ -7,6 +7,7 @@ class ChestScene : public GameState {
 private:
 public:
 	ChestScene(SDLApplication* _game);
+	static void mainMenu(SDLApplication* game);
 };
 
 #endif
