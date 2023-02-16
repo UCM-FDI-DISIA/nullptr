@@ -13,4 +13,11 @@ PreBattleScene::PreBattleScene(SDLApplication* _game) : GameState(_game) {
 
 	player = new Player(_game, getCamera());
 	stateScene.push_back(player);
+
+
+	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), "Opciones");
+	stateScene.push_back(MainMenu);
+}
+void PreBattleScene::mainMenu(SDLApplication* _game) {
+	SDLApplication::newScene<MainMenuScene>(_game);
 }

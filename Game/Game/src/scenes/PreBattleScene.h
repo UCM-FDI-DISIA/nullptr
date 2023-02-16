@@ -12,6 +12,7 @@ private:
 public:
 	// Constructora
 	PreBattleScene(SDLApplication* _game);
+	static void mainMenu(SDLApplication* game);
 };
 
 #endif

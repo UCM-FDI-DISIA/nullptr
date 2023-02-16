@@ -12,6 +12,7 @@ private:
 public:
 	// Constructora
 	PaBattleScene(SDLApplication* _game);
+	static void mainMenu(SDLApplication* game);
 };
 
 #endif

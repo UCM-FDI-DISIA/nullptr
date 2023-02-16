@@ -12,6 +12,7 @@ private:
 public:
 	// Constructora
 	FuBattleScene(SDLApplication* _game);
+	static void mainMenu(SDLApplication* game);
 };
 
 #endif
