@@ -16,6 +16,12 @@ void CardComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 }
 
+void CardComponent::update() {
+	if (downTime > 0) {
+		downTime -= 0.1;
+	}
+}
+
 void CardComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getPos(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getPos(), InputHandler::instance()->getMousePos()); }

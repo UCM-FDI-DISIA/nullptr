@@ -34,6 +34,7 @@ class CardComponent : public Component {
 		static const int id = _CARDCOMPONENT;
 		CardComponent();
 		void initComponent();
+		void update();
 		void handleInput();
 		
 };

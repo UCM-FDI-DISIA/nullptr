@@ -7,6 +7,9 @@ PlayerData::PlayerData() {
 	maxMana = 100;
 	currMana = maxMana;
 
+	fireRateMult = 1;
+	attackMult = 1;
+
 	deck.push_back(new GunCard());
 
 	deck.push_back(new SwordCard());
