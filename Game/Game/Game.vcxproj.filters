@@ -91,9 +91,6 @@
     <ClCompile Include="src\scenes\ShopScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\MainMenuManager.cpp">
-      <Filter>Archivos de Dependecias\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de Dependecias\Managers</Filter>
     </ClCompile>
@@ -195,9 +192,6 @@
     <ClInclude Include="src\components\Component.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerMovementComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Transform.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
@@ -226,6 +220,9 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Animator.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\PlayerMovementComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>

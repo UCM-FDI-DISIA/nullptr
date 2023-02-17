@@ -147,7 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="src\cards\Cards.h" />
     <ClInclude Include="src\components\Animator.h" />
     <ClInclude Include="src\components\BulletBehavior.h" />
@@ -158,6 +157,7 @@
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\PlayerMovementComponent.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\Card.h" />
     <ClInclude Include="src\core\GameObject.h" />
@@ -211,7 +211,6 @@
     <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
-    <ClCompile Include="src\managers\MainMenuManager.cpp" />
     <ClCompile Include="src\managers\MapManager.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
