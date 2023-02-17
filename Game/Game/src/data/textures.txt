@@ -1,6 +1,7 @@
 PlinPlinPlon ../Game/resources/images/plinplinplon.jpg 1 1
 Player ../Game/resources/images/player.png 1 1
 MainMenuFondo ../Game/resources/images/UI/MainMenu/MainMenuBackground.png 1 1
+Logo ../Game/resources/images/UI/MainMenu/LogoTimelessDeck_200x140.png 1 1
 Marco ../Game/resources/images/UI/MainMenu/ButtonsBG_95x45.png 1 1
 Jugar ../Game/resources/images/UI/MainMenu/Jugar_79x18.PNG 1 1
 Opciones ../Game/resources/images/UI/MainMenu/Opciones_79x18.png 1 1
