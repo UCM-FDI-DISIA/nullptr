@@ -33,6 +33,9 @@ public:
     // Erases every not alive GameObject
     // Borra todos los GameObject no vivos
     void refresh();
+    //Add a new GameObject to the scene
+    //Inserta un nuevo GameObject a la escena
+    void addGameObject(GameObject* toAdd);
 
     // Devuelve la camara
     Camera* getCamera() const;
