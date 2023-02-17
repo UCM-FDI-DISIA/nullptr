@@ -33,7 +33,7 @@ const float PLAYER_INITIAL_WIDTH = WIN_WIDTH / 10;
 const float PLAYER_INITIAL_HEIGHT = WIN_HEIGHT / 10;
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
-const float PLAYER_SPEED = 1;
+const float PLAYER_SPEED = 0.001;
 
 // BUTTONS
 // Tamaño del sprite
