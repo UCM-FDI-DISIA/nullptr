@@ -37,5 +37,8 @@ class CardComponent : public Component {
 		void update();
 		void handleInput();
 		
+		//Getters
+		int getDeckSize() { return deck.size(); }
+		int getPileSize() { return pile.size(); }
 };
 

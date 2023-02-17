@@ -172,7 +172,6 @@
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
-    <ClInclude Include="src\managers\MainMenuManager.h" />
     <ClInclude Include="src\managers\MapManager.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
@@ -211,7 +210,6 @@
     <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
-    <ClCompile Include="src\managers\MainMenuManager.cpp" />
     <ClCompile Include="src\managers\MapManager.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />

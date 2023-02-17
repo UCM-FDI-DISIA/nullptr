@@ -63,4 +63,8 @@ const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
 const string ALBUM = "Album";
 const string EXIT = "Salir";
+
+// CARDS
+const int REVERSE_WIDTH = 58;
+const int REVERSE_HEIGHT = 93;
 #endif

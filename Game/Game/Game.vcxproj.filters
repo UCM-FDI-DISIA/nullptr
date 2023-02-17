@@ -91,9 +91,6 @@
     <ClCompile Include="src\scenes\ShopScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\MainMenuManager.cpp">
-      <Filter>Archivos de Dependecias\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\Manager.cpp">
       <Filter>Archivos de Dependecias\Managers</Filter>
     </ClCompile>
@@ -206,9 +203,6 @@
     </ClInclude>
     <ClInclude Include="src\scenes\InventoryScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\MainMenuManager.h">
-      <Filter>Archivos de Encabezado\Managers</Filter>
     </ClInclude>
     <ClInclude Include="src\core\Manager.h">
       <Filter>Archivos de Encabezado\Managers</Filter>
