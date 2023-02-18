@@ -4,7 +4,6 @@
 
 #include <list>
 #include "../core/GameObject.h"
-#include "../core/Manager.h"
 #include "../gameObjects/Camera.h"
 
 class SDLApplication;
