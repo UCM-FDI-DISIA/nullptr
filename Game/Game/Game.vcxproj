@@ -156,9 +156,11 @@
     <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\EnemyBehavior.h" />
     <ClInclude Include="src\components\HeatlhComponent.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\PlayerMovementComponent.h" />
+    <ClInclude Include="src\components\RangeBehavior.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\Card.h" />
     <ClInclude Include="src\core\GameObject.h" />
@@ -171,6 +173,7 @@
     <ClInclude Include="src\gameObjects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
+    <ClInclude Include="src\gameObjects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
@@ -196,9 +199,12 @@
     <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\EnemyBehavior.cpp" />
     <ClCompile Include="src\components\HeatlhComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
+    <ClCompile Include="src\components\RangeBehavior.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\Card.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
@@ -208,6 +214,7 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />

@@ -15,12 +15,11 @@ private:
 	float moveTime = 0;
 	bool stopped = false;
 	SDLApplication* game;
-	GameState* myScene;
 public:
 	static const int id = _RANGE_BEHAVIOR;
 
 	RangeBehavior(float spd, float safDist, float stoptime, float moveTime,
-		int damage, int attack, Player* player,SDLApplication* game, GameState* scene);
+		int damage, int attack, Player* player,SDLApplication* game);
     virtual void initComponent();
 	void setDirectionTo();
 	virtual void update();

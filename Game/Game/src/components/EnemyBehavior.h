@@ -3,7 +3,6 @@
 #include "Transform.h"
 #include "ColliderComponent.h"
 #include "HeatlhComponent.h"
-#include "../core/Manager.h"
 #include "../gameObjects/Player.h"
 
 // Clase abstracta que junta la logica común del comportamiento enemigo como su posición,
@@ -35,7 +34,7 @@ public:
 		
 	};
 
-	virtual void update();
+	//virtual void update();
 	/*virtual void attack() = 0;*/
 };
 

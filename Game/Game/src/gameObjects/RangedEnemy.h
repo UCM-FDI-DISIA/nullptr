@@ -11,7 +11,8 @@ class SDLApplication;
 class RangedEnemy:public GameObject
 {
 public:
-	RangedEnemy(SDLApplication* game, Vector2D pos, Vector2D vel, int life, Player* player, GameState* scene, Transform* camera);
+	RangedEnemy();
+	virtual void initGameObject(SDLApplication* game, Vector2D pos, int life, Player* player);
 	
 };
 #endif

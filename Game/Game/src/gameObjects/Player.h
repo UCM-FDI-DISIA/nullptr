@@ -17,6 +17,7 @@ private:
 	Image* image;
 	PlayerMovementComponent* playerMovementComponent;
 	CardComponent* cardComponent;
+	//HealthComponent* health;
 public:
 	// Crea los componentes del jugador
 	virtual void initGameObject(SDLApplication* _game);

@@ -8,7 +8,6 @@
 #include "../components/Image.h"
 
 
->>>>>>> Hito-1
 class Bullet:public GameObject
 {
 public:

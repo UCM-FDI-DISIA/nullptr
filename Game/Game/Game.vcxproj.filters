@@ -94,6 +94,18 @@
     <ClCompile Include="src\components\HeatlhComponent.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\MeleeBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\RangeBehavior.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\EnemyBehavior.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -214,6 +226,15 @@
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\HeatlhComponent.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\RangedEnemy.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\RangeBehavior.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\EnemyBehavior.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>

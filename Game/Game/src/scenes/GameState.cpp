@@ -53,7 +53,7 @@ void GameState::refresh() {
 }
 
 void GameState::addGameObject(GameObject* object) {
-    stateScene.push_back(object);
+    gObjs.push_back(object);
 };
 
 // Devuelve la camara de la escena
