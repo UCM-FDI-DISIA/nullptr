@@ -97,6 +97,9 @@
     <ClCompile Include="src\managers\MapManager.cpp">
       <Filter>Archivos de Dependecias\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\HeatlhComponent.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -223,6 +226,9 @@
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\PlayerMovementComponent.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\HeatlhComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>

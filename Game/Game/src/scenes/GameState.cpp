@@ -72,3 +72,7 @@ void GameState::addGameObject(GameObject* toAdd) {
 
 // Devuelve la camara de la escena
 Camera* GameState::getCamera() const { return camera; }
+
+SDLApplication* GameState::getGame() const{
+    return game;
+}

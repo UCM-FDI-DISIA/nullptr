@@ -37,6 +37,8 @@ public:
     //Inserta un nuevo GameObject a la escena
     void addGameObject(GameObject* toAdd);
 
+    SDLApplication* getGame() const;
+
     // Devuelve la camara
     Camera* getCamera() const;
 };
