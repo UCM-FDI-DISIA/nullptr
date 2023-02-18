@@ -27,8 +27,8 @@ private:
 	Animation* currentAnimation;
 public:
 	static const int id = _ANIMATOR;
-	Animator(Texture* _texture, int _w, int _h, int _r, int _c, Transform* _cameraTransform = nullptr) :
-		Image(_texture, _cameraTransform), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), startTime(SDL_GetTicks()), currentAnimation(nullptr) { };
+	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
+		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), startTime(SDL_GetTicks()), currentAnimation(nullptr) { };
 
 	//Animaciones
 	void createAnim(string key,int start, int end, int rate, int _rep = 0);
