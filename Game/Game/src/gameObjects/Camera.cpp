@@ -29,3 +29,7 @@ void Camera::startFollowObject(GameObject* followObject_) {
 
 // Devuelve el followObject
 GameObject* Camera::getFollowObject() { return followObject; }
+
+Vector2D Camera::getOffset() {
+	return transform->getPos();
+}

@@ -20,5 +20,7 @@ public:
 	void startFollowObject(GameObject* followObject_);
 	// Devuelve el followObject
 	GameObject* getFollowObject();
+
+	Vector2D getOffset();
 };
 #endif // !CAMERA_H_
