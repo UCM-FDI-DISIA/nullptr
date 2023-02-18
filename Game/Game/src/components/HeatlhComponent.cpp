@@ -9,6 +9,7 @@ HealthComponent::HealthComponent(int life)
 // Resta el daño a la vida actual y si baja de 0, mata al objeto
 void HealthComponent::receiveDamage(int damage)
 {
+	cout << "ouch" << endl;
 	lifePoints -= damage;
 	if (lifePoints <= 0) die();
 }

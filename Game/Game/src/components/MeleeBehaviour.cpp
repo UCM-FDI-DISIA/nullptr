@@ -2,6 +2,7 @@
 
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
+	
 }
 
 void MeleeBehaviour::initComponent() {
@@ -10,6 +11,7 @@ void MeleeBehaviour::initComponent() {
 	initialDir = pos->getVel();
 	moveTo();
 	closeToPlayer = false;
+	attacked = false;
 	elapsedTime = SDL_GetTicks();
 }
 
@@ -38,12 +40,15 @@ void MeleeBehaviour::update() {
 	actualTime = SDL_GetTicks();
 
 	if (close()) {
-		
+		if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
+			player->getComponent<HealthComponent>()->receiveDamage(damage);
+			attacked = true;
+		}
 		//Si ha pasado suficiente tiempo para atacar
 		if (actualTime - elapsedTime > attackInterval)
 		{
-			//Ataca
-			/*attack();*/
+			attacked = false;
+			
 
 			//Reseteamos el contador
 			elapsedTime = SDL_GetTicks();
