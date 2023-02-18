@@ -64,4 +64,16 @@ const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
 const string ALBUM = "Album";
 const string EXIT = "Salir";
+// Logo
+const int LOGO_WIDTH = 400;
+const int LOGO_HEIGHT = 280;
+const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 7};
+const int LOGO_ROWS = 1;
+const int LOGO_COLUMNS = 4;
+const int LOGO_FRAME_WIDTH = 200;
+const int LOGO_FRAME_HEIGHT = 140;
+const string LOGO_ANIM_KEY = "LogoIdle";
+const int LOGO_START_FRAME = 0;
+const int LOGO_END_FRAME = 3;
+const int LOGO_FRAME_RATE = 4;
 #endif

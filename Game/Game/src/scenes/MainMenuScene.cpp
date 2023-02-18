@@ -8,6 +8,13 @@ MainMenuScene::MainMenuScene(SDLApplication* _game) : GameState(_game) {
 	background->addComponent<Image>(game->getTexture("MainMenuFondo"));
 	stateScene.push_back(background);
 
+	GameObject* logo = new GameObject();
+	logo->addComponent<Transform>(LOGO_POSITION, Vector2D(0, 0), LOGO_WIDTH, LOGO_HEIGHT);
+	Animator* a = logo->addComponent<Animator>(game->getTexture("Logo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
+	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
+	a->play(LOGO_ANIM_KEY);
+	stateScene.push_back(logo);
+
 	// Marco de los botones
 	for (int i = 0; i < 4; i++) {
 		GameObject* marco = new GameObject();
@@ -19,7 +26,7 @@ MainMenuScene::MainMenuScene(SDLApplication* _game) : GameState(_game) {
 	
 	// Iterador para la asignación del marco creado anteriormente para cada botón
 	list<GameObject*>::iterator it = stateScene.begin(); 
-	it++; it++; // Saltar la cámara y el fondo
+	it++; it++; it++; // Saltar la cámara y el fondo
 
 	// BOTONES -> se crean y se añaden a la lista de la escena
 	// Botón jugar
