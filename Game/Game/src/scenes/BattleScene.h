@@ -14,7 +14,7 @@ public:
 	// Constructora
 	BattleScene(SDLApplication* _game, int a);
 	static void mainMenu(SDLApplication* game);
-	vector<GameObject*> getEnemies();
+	vector<GameObject*>& getEnemies();
 };
 
 #endif

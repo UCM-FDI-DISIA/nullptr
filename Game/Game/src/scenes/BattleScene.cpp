@@ -23,6 +23,6 @@ void BattleScene::mainMenu(SDLApplication* _game) {
 	SDLApplication::newScene<MapScene>(_game);
 }
 
-vector<GameObject*> BattleScene::getEnemies() {
+vector<GameObject*>& BattleScene::getEnemies() {
 	return enemies;
 }
