@@ -2,36 +2,11 @@
 
 // Constructor
 SDLApplication::SDLApplication() {
-	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("Timeless Deck - Es Tiempo", SDL_WINDOWPOS_CENTERED,
-		SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (window == nullptr || renderer == nullptr) {
-		SDL_SetError("Could not load window.");
-		throw SDL_GetError();
-	}
 
-	ifstream file(TEXTURES_FILE);
-	if (!file) {
-		file.close();
-		//throw FileNotFoundError(TEXTURES_FILE);
-		throw "Could not find file: " + TEXTURES_FILE;
-	}
-	try {
-		string key, path; uint hframes, vframes;
-		file >> key;
-		while (!file.eof()) {
-			file >> path >> vframes >> hframes;
-			texturesMap[key] = new Texture(renderer, path);
-			file >> key;
-		}
-		file.close();
-	}
-	catch (string error) {
-		file.close();
-		//throw FileFormatError("Invalid textures file. " + error);
-		throw "File format error. Invalid textures file. " + error;
-	}
+	SDLUtils::init("Timeless Deck - Es tiempo", WIN_WIDTH, WIN_HEIGHT, "../Game/src/data/game.resources.json");
+	utils = SDLUtils::instance();
+	window = utils->window();
+	renderer = utils->renderer();
 
 	gameStateMachine = new GameStateMachine();
 	gameStateMachine->pushState(new MainMenuScene(this));
@@ -40,9 +15,6 @@ SDLApplication::SDLApplication() {
 
 // Destructor
 SDLApplication::~SDLApplication() {
-	for (auto it : texturesMap) {
-		delete(it.second);
-	}
 	delete(gameStateMachine);
 
 	SDL_DestroyRenderer(renderer);
@@ -92,7 +64,7 @@ void SDLApplication::handleInput() {
 
 // Returns needed Texture
 // Devuelve la Texture pedida
-Texture* SDLApplication::getTexture(TextureName texture) const { return texturesMap.at(texture); }
+Texture* SDLApplication::getTexture(TextureName texture) const { return &SDLUtils::instance()->images().at(texture); /*return texturesMap.at(texture);*/ }
 
 //Launches a new GameScene
 //Lanza una nueva escena del juego

@@ -15,23 +15,18 @@
 #include "../scenes/MapScene.h"
 #include "../sdlutils/InputHandler.h"
 #include "../scenes/BattleScene.h"
-
+#include "../sdlutils/SDLUtils.h"
 
 using namespace std;
 
 using TextureName = string;
 
-typedef struct {
-	string filename;
-	uint hframes, vframes;
-} TextureDescription;
-
 class SDLApplication {
 private:
+	SDLUtils* utils = nullptr;
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 
-	unordered_map<TextureName, Texture*> texturesMap;
 	GameStateMachine* gameStateMachine = nullptr;
 
 	bool exit;

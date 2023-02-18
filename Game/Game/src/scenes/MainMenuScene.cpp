@@ -5,11 +5,14 @@ MainMenuScene::MainMenuScene(SDLApplication* _game) : GameState(_game) {
 	// Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), 800, 600);
-	background->addComponent<Image>(game->getTexture("MainMenuFondo"));
+	//background->addComponent<Image>(game->getTexture("MainMenuFondo"));
+	background->addComponent<Image>(&SDLUtils::instance()->images().at("MainMenuFondo"));
+	
 
 	GameObject* logo = addGameObject();
 	logo->addComponent<Transform>(LOGO_POSITION, Vector2D(0, 0), LOGO_WIDTH, LOGO_HEIGHT);
-	Animator* a = logo->addComponent<Animator>(game->getTexture("Logo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
+	//Animator* a = logo->addComponent<Animator>(game->getTexture("Logo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
+	Animator* a = logo->addComponent<Animator>(&SDLUtils::instance()->images().at("Logo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
 	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
 	a->play(LOGO_ANIM_KEY);
 
@@ -20,7 +23,7 @@ MainMenuScene::MainMenuScene(SDLApplication* _game) : GameState(_game) {
 	for (int i = 0; i < 4; i++) {
 		marcos[i] = addGameObject();
 		marcos[i]->addComponent<Transform>(Vector2D(WIN_WIDTH/ 2 - 103, (WIN_HEIGHT * (4 + i) / 8) - 44), Vector2D(0, 0), 190, 90);
-		marcos[i]->addComponent<Animator>(game->getTexture("Marco"),
+		marcos[i]->addComponent<Animator>(&SDLUtils::instance()->images().at("Marco"),
 			BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	}
 
