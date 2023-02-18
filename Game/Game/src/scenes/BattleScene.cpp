@@ -14,7 +14,6 @@ BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
 
 	Button* MainMenu = addGameObject<Button>(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
 		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
-	gObjs.push_back(MainMenu);
 	MainMenu->getComponent<Animator>()->attachToCamera();
 
 	addGameObject<CardCounter>(game, true, player->getComponent<CardComponent>());
