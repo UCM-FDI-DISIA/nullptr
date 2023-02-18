@@ -4,6 +4,9 @@
 #include "ColliderComponent.h"
 #include "HeatlhComponent.h"
 #include <vector>
+
+//Este componente le proporciona a la bala la lógica necesaria en el momento de la colision
+
 class BulletBehavior:public Component
 {
 private:
@@ -26,7 +29,7 @@ public:
 		for (int i = 0; i < target.size(); i++) {
 			if (gObj->getComponent<ColliderComponent>()->
 				hasCollided(target[i]->getComponent<Transform>())) {
-				target[i]->getComponent<HealthComponent>()->receiveDamage(damage);
+				/*target[i]->getComponent<HealthComponent>()->receiveDamage(damage);*/
 			}
 		}
 	}
