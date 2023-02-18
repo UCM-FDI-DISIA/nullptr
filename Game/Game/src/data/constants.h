@@ -67,4 +67,10 @@ const string EXIT = "Salir";
 // CARDS
 const int REVERSE_WIDTH = 58;
 const int REVERSE_HEIGHT = 93;
+
+//NUMBERS
+const int NUMBERS_WIDTH = 130;
+const int NUMBERS_HEIGHT = 250;
+const int NUMBERS_SPRITE_COLUMS = 2;
+const int NUMBERS_SPRITE_ROWS = 5;
 #endif
