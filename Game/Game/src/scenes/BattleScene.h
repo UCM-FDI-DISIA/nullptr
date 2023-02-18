@@ -6,6 +6,8 @@
 #include "../gameObjects/MeleeEnemy.h"
 #include "../gameObjects/RangedEnemy.h"
 #include "../gameObjects/RangedEnemy.h"
+#include "../gameObjects/UI/CardCounter.h"
+
 
 class BattleScene : public GameState {
 private:
