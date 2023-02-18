@@ -56,17 +56,6 @@ public:
 	// Returns needed texture
 	// Devuelve la Texture pedida
 	Texture* getTexture(TextureName texture) const;
-	// Starts the game
-	// Inicia el juego
-	static void playGame(SDLApplication* _game);
-	//Te lleva al menu de opciones
-	static void options(SDLApplication* _game);
-	//Te lleva al album de cartas
-	static void album(SDLApplication* _game);
-	//Te lleva al menu principal
-	static void mainMenu(SDLApplication* _game);
-	//
-	static void beginScene(SDLApplication* game, GameState* newScene);
 
 	template<typename T, typename ...Ts>
 	static void newScene(SDLApplication* game, Ts&& ...args) {
