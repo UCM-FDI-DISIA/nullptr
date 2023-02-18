@@ -156,6 +156,7 @@
     <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\HeatlhComponent.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\PlayerMovementComponent.h" />
     <ClInclude Include="src\components\Transform.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\HeatlhComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />

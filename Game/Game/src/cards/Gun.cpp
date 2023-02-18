@@ -15,7 +15,7 @@ GunCard::GunCard() {
 }
 
 void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-	where->addGameObject(new Bullet(playerPos, mousePos - playerPos, damage, where->getEnemies(), where->getGame()));
+	where->addGameObject(new Bullet(playerPos, playerPos- mousePos, damage, where->getEnemies(), where->getGame()));
 }
 
 void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
