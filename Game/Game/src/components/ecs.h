@@ -14,6 +14,7 @@ enum cmpId : cmpId_type {
 	_COLLIDER_COMPONENT,
 	_BULLET_COMPONENT,
 	_ANIMATOR,
+	_LIFETIME,
 	// ... (compoment ids)
 
 	// do not remove this

@@ -94,6 +94,9 @@
     <ClCompile Include="src\components\HeatlhComponent.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\LifetimeComponent.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -215,6 +218,15 @@
     </ClInclude>
     <ClInclude Include="src\components\HeatlhComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\LifetimeComponent.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\SwordSlash.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\SwordSpin.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
