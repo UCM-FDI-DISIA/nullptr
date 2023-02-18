@@ -1,9 +1,11 @@
 #include "CardComponent.h"
 #include "../core/PlayerData.h"
 #include "../core/GameObject.h"
+#include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
 
-CardComponent::CardComponent() {
+CardComponent::CardComponent(BattleScene* where) {
+	scene = where;
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
@@ -36,7 +38,7 @@ void CardComponent::handleInput() {
 
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
-		(*active)->attack(playerPos, mousePos, attackMult);
+		(*active)->attack(playerPos, mousePos, attackMult, scene);
 		(*active)->use();
 		downTime = (*active)->getDownTime() / fireRateMult;
 		if ((*active)->getUses() <= 0)discardCard(active);
@@ -45,7 +47,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		if ((*active)->getMana() <= mana) {
-			(*active)->ability(playerPos, mousePos, attackMult);
+			(*active)->ability(playerPos, mousePos, attackMult, scene);
 			mana -= (*active)->getMana();
 			discardCard(active);
 		}

@@ -1,5 +1,6 @@
 #include "../core/Vector2D.h"
 #include "../sdlutils/Texture.h"
+
 #pragma once
 
 enum CardId
@@ -8,7 +9,7 @@ enum CardId
 	sword,
 	laserShades,
 };
-
+class BattleScene;
 class Card
 {
 	protected:
@@ -20,8 +21,8 @@ class Card
 	public:
 		Card() {};
 		static Card getCard(CardId type);
-		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {}
-		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {}
+		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
+		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
 		int getUses() { return remainingUses; }
 		void use() { remainingUses -= 1;}
 		void resetUses() { remainingUses = maxUses;}

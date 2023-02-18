@@ -8,8 +8,10 @@
 #include <deque>
 
 #pragma once
+class BattleScene;
 class CardComponent : public Component {
 	private:
+		BattleScene* scene;
 		vector<Card*> deck;
 		deque<Card*> hand;
 		vector<Card*> pile;
@@ -32,7 +34,7 @@ class CardComponent : public Component {
 
 	public:
 		static const int id = _CARDCOMPONENT;
-		CardComponent();
+		CardComponent(BattleScene* where);
 		void initComponent();
 		void update();
 		void handleInput();

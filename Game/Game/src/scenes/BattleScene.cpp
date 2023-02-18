@@ -11,7 +11,7 @@ BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
 	floor->addComponent<Image>(_game->getTexture("Player"), getCamera()->getComponent<Transform>());
 	stateScene.push_back(floor);
 
-	player = new Player(_game, getCamera());
+	player = new Player(_game, getCamera(), this);
 	stateScene.push_back(player);
 
 	Button* MainMenu = new Button(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),

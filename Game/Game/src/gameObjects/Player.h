@@ -17,8 +17,9 @@ private:
 	Image* image;
 	PlayerMovementComponent* playerMovementComponent;
 	CardComponent* cardComponent;
+	
 public:
 	// Constructora
-	Player(SDLApplication* _game, Camera* _camera);
+	Player(SDLApplication* _game, Camera* _camera, BattleScene* where);
 };
 #endif //!PLAYER_H_

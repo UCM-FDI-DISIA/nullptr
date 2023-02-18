@@ -1,10 +1,10 @@
 #include "Player.h"
 #include "../core/SDLApplication.h"
 
-Player::Player(SDLApplication* _game, Camera* _camera) {
+Player::Player(SDLApplication* _game, Camera* _camera, BattleScene* where) {
 	transform = addComponent<Transform>(PLAYER_INITIAL_POSITION, PLAYER_INITIAL_VELOCITY, PLAYER_INITIAL_WIDTH, PLAYER_INITIAL_HEIGHT, PLAYER_INITIAL_ROTATION);
 	image = addComponent<Image>(_game->getTexture("Player"), _camera->getComponent<Transform>());
 	playerMovementComponent = addComponent<PlayerMovementComponent>();
-	cardComponent = addComponent<CardComponent>();
+	cardComponent = addComponent<CardComponent>(where);
 	_camera->startFollowObject(this);
 }

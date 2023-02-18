@@ -14,10 +14,10 @@ GunCard::GunCard() {
 	texture = nullptr;
 }
 
-void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	std::cout << "pium"<<endl;
 }
 
-void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult) {
+void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 
 }
