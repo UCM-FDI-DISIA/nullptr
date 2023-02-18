@@ -21,3 +21,7 @@ BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
 void BattleScene::mainMenu(SDLApplication* _game) {
 	SDLApplication::newScene<MapScene>(_game);
 }
+
+vector<GameObject*>& BattleScene::getEnemies() {
+	return enemies;
+}

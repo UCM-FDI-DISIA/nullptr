@@ -42,6 +42,8 @@ public:
         gObjs.push_back(e);
         return e;
     }
+
+    SDLApplication* getGame() const;
     // Devuelve la camara
     Camera* getCamera() const;
 };
