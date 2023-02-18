@@ -18,10 +18,10 @@ private:
 	//El numero de cartas del vector que debo mirar
 	int currentNumber;
 public: 
-	CardCounter(SDLApplication* game, bool _ref, CardComponent* _data);
 
 	virtual void update();
-	virtual void render();
+	virtual void render() const;
+	virtual void initGameObject(SDLApplication* game, bool _ref, CardComponent* _data);
 
-	void createAnims(Animator* _anim);
+	void createAnims(Animator* &_anim);
 };

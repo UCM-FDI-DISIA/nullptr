@@ -9,7 +9,9 @@ Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraT
 // Inicializa el componente y asigna su puntero a transform
 void Image::initComponent() {
 	transform = gObj->getComponent<Transform>();
-	cameraTransform = gStt->getCamera()->getComponent<Transform>();
+	if (gStt != nullptr) {
+		cameraTransform = gStt->getCamera()->getComponent<Transform>();
+	}
 }
 
 // Dibuja en pantalla la textura en el rectángulo del transform
