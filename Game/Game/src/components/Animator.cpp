@@ -1,16 +1,19 @@
 #include "Animator.h"
 
-//
+// Crea una animación nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	Animation newAnim = Animation(start, end, rate, _rep);
 	anims.insert({ key, newAnim });
+	currentFrame = start;
 }
 
 // Starts a new animation
 void Animator::play(string key) {
 	currentAnimKey = key;
 	currentAnimation = &anims[currentAnimKey];
+	currentFrame = currentAnimation->startFrame;
 	repetitions = 0;
+	startTime = SDL_GetTicks();
 }
 
 // Stops the current animation

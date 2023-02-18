@@ -8,6 +8,7 @@
 #include "../components/Animator.h"
 #include "../components/PlayerMovementComponent.h"
 #include "../scenes/GameState.h"
+#include "../components/CardComponent.h"
 class SDLApplication;
 
 class Player : public GameObject {
@@ -15,8 +16,9 @@ private:
 	Transform* transform;
 	Image* image;
 	PlayerMovementComponent* playerMovementComponent;
+	CardComponent* cardComponent;
 public:
-	// Constructora
-	Player(SDLApplication* _game, Camera* _camera);
+	// Crea los componentes del jugador
+	virtual void initGameObject(SDLApplication* _game);
 };
 #endif //!PLAYER_H_

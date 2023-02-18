@@ -2,20 +2,26 @@
 #include "../core/SDLApplication.h"
 
 // Constructora
-BattleScene::BattleScene(SDLApplication* _game) : GameState(_game) {
-  cout << "Has entrado en la escena de Batalla" << endl;
-
+BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
+	cout << "Has entrado en la escena de Batalla" << endl;
+  
 	// Quitar cuando se cree el mapa de combate
-	floor = new GameObject();
+	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
-	floor->addComponent<Image>(_game->getTexture("Player"), getCamera()->getComponent<Transform>());
-	stateScene.push_back(floor);
-	player = new Player(_game, getCamera());
-	player->addComponent<HealthComponent>(1000);
-	stateScene.push_back(new RangedEnemy(game, Vector2D(0, 0), Vector2D(1, 1), 100, static_cast<Player*> (player),this, getCamera()->getComponent<Transform>()));
-	enemies.push_back(stateScene.back());
-	stateScene.push_back(new MeleeEnemy(game, Vector2D(0, 10), Vector2D(0, 3), 100, static_cast<Player*>(player), getCamera()->getComponent<Transform>()));
-	enemies.push_back(stateScene.back());
+	floor->addComponent<Image>(_game->getTexture("Player"));
 
-	stateScene.push_back(player);
+	player = addGameObject<Player>(game);
+	camera->startFollowObject(player);
+
+	Button* MainMenu = addGameObject<Button>(mainMenu, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
+		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
+	MainMenu->getComponent<Animator>()->attachToCamera();
+}
+
+void BattleScene::mainMenu(SDLApplication* _game) {
+	SDLApplication::newScene<MapScene>(_game);
+}
+
+vector<GameObject*>& BattleScene::getEnemies() {
+	return enemies;
 }

@@ -57,14 +57,12 @@ void SDLApplication::run() {
 	startTime = SDL_GetTicks();
 
 	while (!exit) {
-
 		InputHandler::instance()->refresh();
-
-		update();
 		frameTime = SDL_GetTicks() - startTime;
+		update();
 		if (frameTime >= DELAY_TIME) {
-			render();
 			startTime = SDL_GetTicks();
+			render();
 		}
 		handleInput();
 	}

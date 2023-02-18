@@ -1,11 +1,28 @@
-﻿  RangeBehavior.cpp
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\PlayerMovementComponent.h(10,8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\EnemyBehavior.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(5,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(14,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(29,27): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-  Game.vcxproj -> C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\x64\Debug\Game.exe
+﻿  Gun.cpp
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(30,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\data\constants.h(36,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\core\GameObject.h(43,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\diego\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Bullet.h(18,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+LaserShades.obj : warning LNK4099: no se encontró PDB '' con 'LaserShades.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+Sword.obj : warning LNK4099: no se encontró PDB '' con 'Sword.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+CardComponent.obj : warning LNK4099: no se encontró PDB '' con 'CardComponent.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+Card.obj : warning LNK4099: no se encontró PDB '' con 'Card.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+PlayerData.obj : warning LNK4099: no se encontró PDB '' con 'PlayerData.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+Vector2D.obj : warning LNK4099: no se encontró PDB '' con 'Vector2D.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+Texture.obj : warning LNK4099: no se encontró PDB '' con 'Texture.obj' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+Gun.obj : error LNK2019: símbolo externo "public: void __cdecl HealthComponent::receiveDamage(int)" (?receiveDamage@HealthComponent@@QEAAXH@Z) sin resolver al que se hace referencia en la función "public: virtual void __cdecl BulletBehavior::update(void)" (?update@BulletBehavior@@UEAAXXZ)
+C:\Users\diego\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe : fatal error LNK1120: 1 externos sin resolver

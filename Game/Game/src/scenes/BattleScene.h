@@ -1,6 +1,6 @@
 #pragma once
-#ifndef BATTLESCENE_H_
-#define BATTLESCENE_H_
+#ifndef FUBATTLESCENE_H_
+#define FUBATTLESCENE_H_
 #include "GameState.h"
 #include "../gameObjects/Player.h"
 #include "../gameObjects/MeleeEnemy.h"
@@ -14,7 +14,9 @@ private:
 	vector<GameObject*> enemies;
 public:
 	// Constructora
-	BattleScene(SDLApplication* _game);
+	BattleScene(SDLApplication* _game, int a);
+	static void mainMenu(SDLApplication* game);
+	vector<GameObject*>& getEnemies();
 };
 
 #endif

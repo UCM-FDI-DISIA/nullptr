@@ -18,12 +18,13 @@ protected:
 public:
 	static const int id = _IMAGE;
 	// Constructora
-	Image(Texture* _texture, Transform* _cameraTransform = nullptr);
+	Image(Texture* _texture);
 	// Inicializa el componente y asigna su puntero a transform
 	virtual void initComponent();
 	// Dibuja en pantalla la textura en el rectángulo del transform
 	virtual void render() const;
-	// Devuelve el rect dependiendo de la camara
 	virtual SDL_Rect getRect() const;
+	// Hace que el GameObject se renderice en función a la ventana, no a la cámara
+	void attachToCamera();
 };
 #endif // !IMAGE_H_

@@ -13,12 +13,12 @@ using namespace std;
 class GameObject {
 protected:
 	bool alive;
-	Manager* mngr;
+	GameState* gStt;
 	std::vector<Component*> currCmps;
 	std::array<Component*, maxComponentId> cmps;
 public:
 	// Constructor
-	GameObject() : mngr(nullptr), cmps(), currCmps(), alive(true) {
+	GameObject() : gStt(nullptr), cmps(), currCmps(), alive(true) {
 		currCmps.reserve(maxComponentId);
 	}
 	// Destructor
@@ -32,7 +32,9 @@ public:
 		}
 	}
 	// Asigna el Manager del GameObject
-	inline void setContext(Manager* _mngr) { mngr = _mngr; }
+	inline void setContext(GameState* _gStt) { gStt = _gStt; }
+	// Inicializa el GameObject tras tener el contexto
+	virtual void initGameObject() {}
 	// Devuelve si el GameObject está vivo
 	inline bool isAlive() { return alive; }
 	// Asigna si el GameObject está vivo o no
@@ -44,7 +46,7 @@ public:
 		removeComponent<T>();
 		currCmps.push_back(c);
 		cmps[T::id] = c;
-		c->setContext(this, mngr);
+		c->setContext(this, gStt);
 		c->initComponent();
 		return c;
 	}
