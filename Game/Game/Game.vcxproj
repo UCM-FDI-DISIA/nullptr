@@ -172,6 +172,7 @@
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Camera.h" />
+    <ClInclude Include="src\gameObjects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
     <ClInclude Include="src\gameObjects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Camera.cpp" />
+    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
     <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
