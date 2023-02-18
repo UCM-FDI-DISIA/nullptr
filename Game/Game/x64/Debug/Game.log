@@ -1,16 +1,16 @@
-﻿  RangeBehavior.cpp
+﻿  HeatlhComponent.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(36,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\HeatlhComponent.cpp(37,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+  RangedEnemy.cpp
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(36,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\Card.h(32,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\EnemyBehavior.h(32,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(5,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(13,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\RangeBehavior.cpp(28,27): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\Card.h(32,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\EnemyBehavior.h(32,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
 C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
           with
           [
@@ -21,4 +21,5 @@ C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Bullet.
           [
               T=Transform
           ]
+  Generando código...
   Game.vcxproj -> C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\x64\Debug\Game.exe

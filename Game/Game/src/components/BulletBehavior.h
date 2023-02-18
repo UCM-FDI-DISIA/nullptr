@@ -26,6 +26,7 @@ public:
 			if (gObj->getComponent<ColliderComponent>()->
 				hasCollided(target[i]->getComponent<Transform>())) {
 				target[i]->getComponent<HealthComponent>()->receiveDamage(damage);
+				gObj->setAlive(false);
 			}
 		}
 	}

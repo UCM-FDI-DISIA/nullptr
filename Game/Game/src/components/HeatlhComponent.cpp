@@ -20,7 +20,9 @@ void HealthComponent::heal(int heal)
 }
 void HealthComponent::die()
 {
-	gObj->setAlive(false);
+	cout << "MUERTE" << endl; //Para pruebas
+	lifePoints = modifiedMaxLife;
+	/*gObj->setAlive(false);*/
 }
 // Devuelve el valor actual de la vida
 int HealthComponent::getLife()

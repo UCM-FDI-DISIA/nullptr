@@ -9,6 +9,7 @@
 #include "../components/PlayerMovementComponent.h"
 #include "../scenes/GameState.h"
 #include "../components/CardComponent.h"
+#include "../components/HeatlhComponent.h"
 class SDLApplication;
 
 class Player : public GameObject {
@@ -17,7 +18,7 @@ private:
 	Image* image;
 	PlayerMovementComponent* playerMovementComponent;
 	CardComponent* cardComponent;
-	//HealthComponent* health;
+	HealthComponent* health;
 public:
 	// Crea los componentes del jugador
 	virtual void initGameObject(SDLApplication* _game);
