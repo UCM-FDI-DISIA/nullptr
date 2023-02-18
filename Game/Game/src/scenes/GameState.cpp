@@ -2,27 +2,22 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState(SDLApplication* _game) : game(_game), camera(new Camera()) { stateScene.push_back(camera); }
+GameState::GameState(SDLApplication* _game) : gObjs(), game(_game), camera(addGameObject<Camera>()) { 
+    gObjs.reserve(100);
+}
 
 // Destructor
 GameState::~GameState() {
-    
-
-    for (GameObject* object : stateScene) {
-        delete(object);
-    }
-    for (Manager* manager : sceneManagers) {
-        delete(manager);
+    for (GameObject* gObj : gObjs) {
+        delete(gObj);
+        gObj = nullptr;
     }
 }
 
 // Actualiza los objetos de la escena
 void GameState::update() {
-    for (GameObject* object : stateScene) {
-        object->update();
-    }
-    for (Manager* manager : sceneManagers) {
-        manager->update();
+    for (GameObject* gObj : gObjs) {
+        gObj->update();
     }
 
     refresh();
@@ -30,31 +25,22 @@ void GameState::update() {
 
 // Dibuja la escena en pantalla
 void GameState::render() const {
-    for (GameObject* object : stateScene) {
-        object->render();
-    }
-    for (Manager* manager : sceneManagers) {
-        manager->render();
+    for (GameObject* gObj : gObjs) {
+        gObj->render();
     }
 }
 
 // Maneja el evento actual
 void GameState::handleInput() {
-    for (GameObject* object : stateScene) {
-        object->handleInput();
-    }
-    for (Manager* manager : sceneManagers) {
-        manager->handleInput();
+    for (GameObject* gObj : gObjs) {
+        gObj->handleInput();
     }
 }
 
 // Borra todos los GameObject no vivos
 void GameState::refresh() {
-    for (Manager* manager : sceneManagers) {
-        manager->refresh();
-    }
-    stateScene.erase(
-        std::remove_if(stateScene.begin(), stateScene.end(), [](GameObject* e) {
+    gObjs.erase(
+        std::remove_if(gObjs.begin(), gObjs.end(), [](GameObject* e) {
             if (e->isAlive()) {
                 return false;
             }
@@ -63,11 +49,7 @@ void GameState::refresh() {
                 return true;
             }
             }), //
-        stateScene.end());
-}
-
-void GameState::addGameObject(GameObject* toAdd) {
-    stateScene.push_back(toAdd);
+        gObjs.end());
 }
 
 // Devuelve la camara de la escena

@@ -1,25 +1,20 @@
 #include "Image.h"
 #include "../core/GameObject.h"
+#include "../scenes/GameState.h"
 
 // Constructor
-Image::Image(Texture* _texture, Transform* _cameraTransform) : texture(_texture), transform(nullptr), cameraTransform(_cameraTransform) {}
+Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraTransform(nullptr) {}
 
 
 // Inicializa el componente y asigna su puntero a transform
 void Image::initComponent() {
 	transform = gObj->getComponent<Transform>();
+	cameraTransform = gStt->getCamera()->getComponent<Transform>();
 }
 
 // Dibuja en pantalla la textura en el rectángulo del transform
 void Image::render() const {
-	SDL_Rect rect = transform->getRect();
-	
-	if (cameraTransform != nullptr) {
-		// Dependiendo de la posicion de la camara
-		rect.x += cameraTransform->getRect().x;
-		rect.y += cameraTransform->getRect().y;
-	}
-	texture->render(rect);
+	texture->render(getRect());
 }
 
 //Devuelve el rect dependiendo de la cámara
@@ -33,4 +28,9 @@ SDL_Rect Image::getRect() const{
 	}
 	
 	return rect;
+}
+
+// Hace que el GameObject se renderice en función a la ventana, no a la cámara
+void Image::attachToCamera() {
+	cameraTransform = nullptr;
 }

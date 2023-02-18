@@ -1,6 +1,5 @@
 #pragma once
 #include "Component.h"
-#include "../core/Manager.h"
 #include "ColliderComponent.h"
 #include "HeatlhComponent.h"
 #include <vector>
