@@ -3,8 +3,8 @@
 #include "../gameObjects/Bullet.h"
 
 GunCard::GunCard() {
-	damage = 20;
-	maxUses = 5;
+	damage = 10;
+	maxUses = 6;
 	remainingUses = maxUses;
 	mana = 35;
 	downtime = 0.5;
