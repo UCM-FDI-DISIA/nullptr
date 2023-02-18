@@ -18,7 +18,7 @@ private:
 	PlayerMovementComponent* playerMovementComponent;
 	CardComponent* cardComponent;
 public:
-	// Constructora
-	Player(SDLApplication* _game, Camera* _camera);
+	// Crea los componentes del jugador
+	virtual void initGameObject(SDLApplication* _game);
 };
 #endif //!PLAYER_H_

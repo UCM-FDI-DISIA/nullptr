@@ -7,7 +7,7 @@ class PlayerMovementComponent : public Component
 {
 private:
 	Transform* transform;
-	float playerSpeed = 0.001;
+	float playerSpeed = PLAYER_SPEED;
 
 public:
 	static const int id = _PLAYERMOVEMENTCOMPONENT;

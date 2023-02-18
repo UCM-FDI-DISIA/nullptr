@@ -8,8 +8,10 @@
 #include <deque>
 
 #pragma once
+class BatleScene;
 class CardComponent : public Component {
 	private:
+		BattleScene* where;
 		vector<Card*> deck;
 		deque<Card*> hand;
 		vector<Card*> pile;

@@ -91,11 +91,8 @@
     <ClCompile Include="src\scenes\ShopScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\Manager.cpp">
-      <Filter>Archivos de Dependecias\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\MapManager.cpp">
-      <Filter>Archivos de Dependecias\Managers</Filter>
+    <ClCompile Include="src\components\HeatlhComponent.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +189,6 @@
     <ClInclude Include="src\components\Component.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerMovementComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Transform.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
@@ -203,12 +197,6 @@
     </ClInclude>
     <ClInclude Include="src\scenes\InventoryScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Manager.h">
-      <Filter>Archivos de Encabezado\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\MapManager.h">
-      <Filter>Archivos de Encabezado\Managers</Filter>
     </ClInclude>
     <ClInclude Include="src\data\constants.h">
       <Filter>Archivos de Encabezado\Data</Filter>
@@ -220,6 +208,12 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Animator.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\PlayerMovementComponent.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\HeatlhComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -253,9 +247,6 @@
     <Filter Include="Archivos de Encabezado\Components">
       <UniqueIdentifier>{f4a51f0e-9cd0-4261-a82e-66807bcdcb77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Encabezado\Managers">
-      <UniqueIdentifier>{f8de9465-bef9-43fb-b4a4-8e894c67df0f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Encabezado\Data">
       <UniqueIdentifier>{0f7d1b63-081f-4359-883e-15f41cdf434a}</UniqueIdentifier>
     </Filter>
@@ -270,9 +261,6 @@
     </Filter>
     <Filter Include="Archivos de Dependecias\Objects">
       <UniqueIdentifier>{d157e118-8f22-4aae-9fea-908093b55884}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Dependecias\Managers">
-      <UniqueIdentifier>{fc24263d-3d8a-4808-9dc5-dc4ca0dea74e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>

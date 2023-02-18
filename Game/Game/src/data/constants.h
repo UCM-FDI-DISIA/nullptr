@@ -33,6 +33,7 @@ const float PLAYER_INITIAL_WIDTH = WIN_WIDTH / 10;
 const float PLAYER_INITIAL_HEIGHT = WIN_HEIGHT / 10;
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
+const float PLAYER_SPEED = 0.001;
 
 // BUTTONS
 // Tamaño del sprite
@@ -73,4 +74,16 @@ const int NUMBERS_WIDTH = 130;
 const int NUMBERS_HEIGHT = 250;
 const int NUMBERS_SPRITE_COLUMS = 2;
 const int NUMBERS_SPRITE_ROWS = 5;
+// Logo
+const int LOGO_WIDTH = 400;
+const int LOGO_HEIGHT = 280;
+const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 7};
+const int LOGO_ROWS = 1;
+const int LOGO_COLUMNS = 4;
+const int LOGO_FRAME_WIDTH = 200;
+const int LOGO_FRAME_HEIGHT = 140;
+const string LOGO_ANIM_KEY = "LogoIdle";
+const int LOGO_START_FRAME = 0;
+const int LOGO_END_FRAME = 3;
+const int LOGO_FRAME_RATE = 4;
 #endif

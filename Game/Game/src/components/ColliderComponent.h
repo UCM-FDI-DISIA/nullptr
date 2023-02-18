@@ -1,7 +1,6 @@
 #pragma once
 #include "Component.h"
 #include "Transform.h"
-#include "../core/Manager.h"
 class ColliderComponent: public Component
 {
 public:
