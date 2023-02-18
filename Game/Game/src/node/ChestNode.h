@@ -8,7 +8,7 @@ class ChestScene;
 class ChestNode : public Node {
 public:
 	ChestNode();
-	virtual void loadNode() const;
+	virtual CallBack* loadNode() const;
 };
 
 #endif // !CHESTNODE_H_

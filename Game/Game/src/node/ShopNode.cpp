@@ -1,7 +1,7 @@
 #include "ShopNode.h"
 
-ShopNode::ShopNode() : Node() {}
+ShopNode::ShopNode() : Node("Tienda") {}
 
-void ShopNode::loadNode() const {
-	SDLApplication::newScene<ShopScene>();
+CallBack* ShopNode::loadNode() const {
+	return MapScene::tienda;
 }

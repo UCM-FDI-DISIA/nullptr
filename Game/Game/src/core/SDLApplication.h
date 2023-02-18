@@ -16,6 +16,8 @@
 #include "../sdlutils/InputHandler.h"
 #include "../scenes/BattleScene.h"
 
+#include "../node/Node.h"
+
 
 using namespace std;
 

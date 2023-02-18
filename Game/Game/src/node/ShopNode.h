@@ -8,7 +8,7 @@ class ShopScene;
 class ShopNode : public Node {
 public:
 	ShopNode();
-	virtual void loadNode() const;
+	virtual CallBack* loadNode() const;
 };
 
 #endif // !SHOPNODE_H_

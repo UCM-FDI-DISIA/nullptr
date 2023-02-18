@@ -33,6 +33,8 @@ SDLApplication::SDLApplication() {
 		throw "File format error. Invalid textures file. " + error;
 	}
 
+	Node::initializeNodeMap();
+
 	gameStateMachine = new GameStateMachine();
 	gameStateMachine->pushState(new MainMenuScene(this));
 	exit = false;
@@ -44,6 +46,8 @@ SDLApplication::~SDLApplication() {
 		delete(it.second);
 	}
 	delete(gameStateMachine);
+
+	Node::clearNodeMap();
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
@@ -93,12 +97,6 @@ void SDLApplication::handleInput() {
 // Returns needed Texture
 // Devuelve la Texture pedida
 Texture* SDLApplication::getTexture(TextureName texture) const { return texturesMap.at(texture); }
-
-//Launches a new GameScene
-//Lanza una nueva escena del juego
-void SDLApplication::beginScene(SDLApplication* _game, GameState* newScene) {
-	_game->gameStateMachine->changeState(newScene);
-}
 
 // Pauses the game
 // Pausa el juego

@@ -11,12 +11,13 @@
 #include "../scenes/ShopScene.h"
 #include "../scenes/BattleScene.h"
 
-
+class Node;
 class GameState;
 class SDLApplication;
 
 class MapScene : public  GameState {
 private:
+	vector<Node*>& nodeMap;
 public:
 	MapScene(SDLApplication* game);
 	static void pasado(SDLApplication* game);

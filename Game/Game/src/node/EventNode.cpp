@@ -1,7 +1,7 @@
 #include "EventNode.h"
 
-EventNode::EventNode() : Node() {}
+EventNode::EventNode() : Node("Salir0") {}
 
-void EventNode::loadNode() const {
-	SDLApplication::instance()->newScene<EventScene>();
+CallBack* EventNode::loadNode() const {
+	return MapScene::salir;
 }

@@ -1,7 +1,7 @@
 #include "ChestNode.h"
 
-ChestNode::ChestNode() : Node() {}
+ChestNode::ChestNode() : Node("Cofre") {}
 
-void ChestNode::loadNode() const{
-	SDLApplication::newScene<ChestScene>();
+CallBack* ChestNode::loadNode() const{
+	return MapScene::cofre;
 }

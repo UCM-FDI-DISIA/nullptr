@@ -8,7 +8,7 @@ class EventNode : public Node {
 private:
 public:
 	EventNode();
-	virtual void loadNode() const;
+	virtual CallBack* loadNode() const;
 };
 
 #endif // !EVENTNODE_H_

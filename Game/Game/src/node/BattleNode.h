@@ -16,7 +16,7 @@ private:
 	battleType type;
 public:
 	BattleNode();
-	virtual void loadNode() const;
+	virtual CallBack* loadNode() const;
 };
 
 #endif // !BATTLENODE_H_
