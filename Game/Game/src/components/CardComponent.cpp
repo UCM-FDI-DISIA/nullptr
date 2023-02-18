@@ -4,8 +4,7 @@
 #include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
 
-CardComponent::CardComponent(BattleScene* where) {
-	scene = where;
+CardComponent::CardComponent() {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
@@ -16,6 +15,7 @@ CardComponent::CardComponent(BattleScene* where) {
 
 void CardComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
+	where = dynamic_cast<BattleScene*>(gStt);
 }
 
 void CardComponent::update() {
@@ -38,7 +38,7 @@ void CardComponent::handleInput() {
 
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
-		(*active)->attack(playerPos, mousePos, attackMult, scene);
+		(*active)->attack(playerPos, mousePos, attackMult, where);
 		(*active)->use();
 		downTime = (*active)->getDownTime() / fireRateMult;
 		if ((*active)->getUses() <= 0)discardCard(active);
@@ -47,7 +47,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		if ((*active)->getMana() <= mana) {
-			(*active)->ability(playerPos, mousePos, attackMult, scene);
+			(*active)->ability(playerPos, mousePos, attackMult, where);
 			mana -= (*active)->getMana();
 			discardCard(active);
 		}

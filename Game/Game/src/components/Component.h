@@ -4,21 +4,21 @@
 #include <SDL.h>
 #include "ecs.h"
 class GameObject;
-class Manager;
+class GameState;
 
 class Component {
 protected:
 	GameObject* gObj;
-	Manager* mngr;
+	GameState* gStt;
 public:
 	// Constructora
-	Component() : gObj(nullptr), mngr(nullptr) {}
+	Component() : gObj(nullptr), gStt(nullptr) {}
 	// Destructora
 	virtual ~Component() {}
 	// Asigna el GameObject y el Manager del Component
-	inline void setContext(GameObject* _gObj, Manager* _mngr) {
+	inline void setContext(GameObject* _gObj, GameState* _gStt) {
 		gObj = _gObj;
-		mngr = _mngr;
+		gStt = _gStt;
 	}
 	// Inicializa el Component si es necesario
 	virtual void initComponent() {}

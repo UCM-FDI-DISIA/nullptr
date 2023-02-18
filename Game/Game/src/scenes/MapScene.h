@@ -3,8 +3,6 @@
 #define MAPSCENE_H_
 
 #include "GameState.h"
-#include "../managers/MapManager.h"
-#include "../core/Manager.h"
 #include "../gameObjects/UI/Button.h"
 #include "../core/SDLApplication.h"
 #include "../gameObjects/UI/Button.h"
@@ -16,13 +14,10 @@
 
 class GameState;
 class SDLApplication;
-class Manager;
 
 class MapScene : public  GameState {
 private:
-	Manager *manager = new Manager();
 public:
-
 	MapScene(SDLApplication* game);
 	static void pasado(SDLApplication* game);
 	static void presente(SDLApplication* game);

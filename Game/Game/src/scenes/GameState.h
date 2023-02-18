@@ -4,7 +4,6 @@
 
 #include <list>
 #include "../core/GameObject.h"
-#include "../core/Manager.h"
 #include "../gameObjects/Camera.h"
 
 class SDLApplication;
@@ -13,8 +12,7 @@ using namespace std;
 class GameState {
 protected:
     SDLApplication* game = nullptr;
-    list<GameObject*> stateScene;
-    list<Manager*> sceneManagers;
+    vector<GameObject*> gObjs;
     Camera* camera = nullptr;
 public:
     // Constructor
@@ -35,8 +33,17 @@ public:
     void refresh();
     //Add a new GameObject to the scene
     //Inserta un nuevo GameObject a la escena
-    void addGameObject(GameObject* toAdd);
+    template<typename T = GameObject, typename ...Ts>
+    T* addGameObject(Ts&& ...args) {
+        T* e = new T();
+        e->setAlive(true);
+        e->setContext(this);
+        e->initGameObject(std::forward<Ts>(args)...);
+        gObjs.push_back(e);
+        return e;
+    }
 
+    SDLApplication* getGame() const;
     // Devuelve la camara
     Camera* getCamera() const;
 };
