@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../components/ecs.h"
 #include "../../core/GameObject.h"
 #include "../../components/Transform.h"

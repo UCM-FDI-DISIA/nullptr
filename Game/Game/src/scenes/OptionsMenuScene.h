@@ -8,8 +8,8 @@ class SDLApplication;
 class OptionsMenuScene : public GameState {
 private:
 public:
-	OptionsMenuScene(SDLApplication* _game);
-	static void mainMenu(SDLApplication* _game);
+	OptionsMenuScene();
+	static void mainMenu();
 };
 
 #endif

@@ -12,8 +12,8 @@ private:
 	vector<GameObject*> enemies;
 public:
 	// Constructora
-	BattleScene(SDLApplication* _game, int a);
-	static void mainMenu(SDLApplication* game);
+	BattleScene(int a);
+	static void mainMenu();
 	vector<GameObject*>& getEnemies();
 };
 
