@@ -105,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="src\data\json\JSONValue.cpp">
       <Filter>Archivos de Dependecias\Data\json</Filter>
+	</ClCompile>
+    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
+      <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +257,9 @@
     </ClInclude>
     <ClInclude Include="src\data\json\JSONValue.h">
       <Filter>Archivos de Encabezado\Data\json</Filter>
+	</ClInclude>
+    <ClInclude Include="src\gameObjects\UI\CardCounter.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

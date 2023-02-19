@@ -1,5 +1,4 @@
 #include "BattleScene.h"
-#include "../core/SDLApplication.h"
 
 // Constructora
 BattleScene::BattleScene(int a) : GameState() {
@@ -7,8 +6,8 @@ BattleScene::BattleScene(int a) : GameState() {
   
 	// Quitar cuando se cree el mapa de combate
 	floor = addGameObject();
-	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
-	floor->addComponent<Image>(SDLApplication::getTexture("Player"));
+	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH*2, WIN_HEIGHT*2);
+	floor->addComponent<Image>(SDLApplication::getTexture("FloorPast"));
 
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
@@ -16,6 +15,9 @@ BattleScene::BattleScene(int a) : GameState() {
 	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
 		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	MainMenu->getComponent<Animator>()->attachToCamera();
+
+	addGameObject<CardCounter>(game, true, player->getComponent<CardComponent>());
+	addGameObject<CardCounter>(game, false, player->getComponent<CardComponent>());
 }
 
 void BattleScene::mainMenu() {
