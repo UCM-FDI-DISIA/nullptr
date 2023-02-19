@@ -24,6 +24,8 @@ SDLApplication::~SDLApplication() {
 
 // Ejecuta el juego
 void SDLApplication::run() {
+	gameStateMachine->pushState(new MainMenuScene());
+
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 
@@ -77,7 +79,3 @@ void SDLApplication::popGameState() { SDLApplication::instance()->gameStateMachi
 
 // Cierra el juego
 void SDLApplication::quitGame() { SDLApplication::instance()->exit = true; }
-
-void SDLApplication::pushMainMenuScene() {
-	SDLApplication::instance()->gameStateMachine->pushState(new MainMenuScene());
-}

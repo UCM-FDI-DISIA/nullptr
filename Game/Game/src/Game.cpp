@@ -10,7 +10,6 @@ int main(int argc, char* argv[]) {
 
 	try {
 		SDLApplication::init();
-		SDLApplication::pushMainMenuScene();
 		SDLApplication::instance()->run();
 	} catch (const std::string& e) { // catch exceptions thrown as strings
 		std::cerr << e << std::endl;

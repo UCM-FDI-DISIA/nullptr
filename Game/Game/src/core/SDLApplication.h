@@ -56,12 +56,7 @@ public:
 		T* scene = new T(std::forward<Ts>(args)...);
 		SDLApplication::instance()->gameStateMachine->changeState(scene);
 	}
-	template<typename T>
-	static void newScene() {
-		T* scene = new T();
-		SDLApplication::instance()->gameStateMachine->changeState(scene);
-	}
-
+	
 	// Pausa el juego
 	static void pauseGame();
 	// Reanuda el juego
@@ -70,8 +65,6 @@ public:
 	static void popGameState();
 	// Cierra el juego
 	static void quitGame();
-
-	static void pushMainMenuScene();
 };
 #endif
 

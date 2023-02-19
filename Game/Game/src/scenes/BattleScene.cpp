@@ -10,7 +10,7 @@ BattleScene::BattleScene(int a) : GameState() {
 	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
 	floor->addComponent<Image>(SDLApplication::getTexture("Player"));
 
-	player = addGameObject<Player>(SDLApplication::instance());
+	player = addGameObject<Player>();
 	camera->startFollowObject(player);
 
 	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),

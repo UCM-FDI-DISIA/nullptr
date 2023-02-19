@@ -32,7 +32,7 @@ public:
         T* e = new T();
         e->setAlive(true);
         e->setContext(this);
-        //e->initGameObject(std::forward<Ts>(args)...);
+        e->initGameObject(std::forward<Ts>(args)...);
         gObjs.push_back(e);
         return e;
     }
