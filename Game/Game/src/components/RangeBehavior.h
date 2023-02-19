@@ -14,12 +14,11 @@ private:
 	Vector2D initialDirection;
 	float moveTime = 0;
 	bool stopped = false;
-	SDLApplication* game;
 public:
 	static const int id = _RANGE_BEHAVIOR;
 
 	RangeBehavior(float spd, float safDist, float stptime, float mvTime,
-		int dmg, int atck, Player* plyr,SDLApplication* gm);
+		int dmg, int atck, Player* plyr);
     virtual void initComponent();
 	void setDirectionTo();
 	virtual void update();

@@ -15,7 +15,7 @@ class MeleeEnemy :public GameObject
 {
 public:
 	MeleeEnemy();
-	virtual void initGameObject(SDLApplication* game,Vector2D pos, int life, Player* player);
+	virtual void initGameObject(Vector2D pos, int life, Player* player);
 	
 };
 #endif

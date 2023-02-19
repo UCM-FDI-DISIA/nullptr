@@ -24,7 +24,8 @@
       { "id" : "Bullet", "file": "../Game/resources/images/bullet.jpg"},
       { "id" : "FloorPast", "file": "../Game/resources/images/FloorPast.png"},
       { "id" : "Reverse", "file": "../Game/resources/images/UI/ReversoCarta_58x93.png"},
-      { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"}
+      { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"},
+      { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"}
     ],
     
     "messages" : [

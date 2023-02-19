@@ -1,12 +1,11 @@
 #include "RangeBehavior.h"
 
 RangeBehavior::RangeBehavior(float spd, float safDist, float stptime, float mvTime, 
-	int dmg, int atck, Player* plyr, SDLApplication* gm)
+	int dmg, int atck, Player* plyr)
 	:EnemyBehavior(spd, dmg, stptime, atck, plyr)
 {
     safeDistance = safDist;
 	moveTime = moveTime;
-	game = gm;
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
@@ -49,7 +48,7 @@ void RangeBehavior::enemyAttack() {
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
 		/*vel = vel * bulletSpedd;*/
-		gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player, game); // El vel/500 es temporal para que funcione 
+		gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player); // El vel/500 es temporal para que funcione 
 		                                                                             // Hasta que hagamos un deltaTime
 	}
 }
