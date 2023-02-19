@@ -1,6 +1,6 @@
 #include "CardCounter.h"
 
-void CardCounter::initGameObject(SDLApplication* _game, bool _ref, CardComponent* _data) {
+void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Asigno los valores para saber si cuento el mazo, guardarme la referencia de las cartas del jugador y el numero lo seteo a 0
 	amIDeck = _ref;
 	myData = _data;
@@ -14,13 +14,13 @@ void CardCounter::initGameObject(SDLApplication* _game, bool _ref, CardComponent
 	else trP = addComponent<Transform>(Vector2D(WIN_WIDTH - RIGHT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), REVERSE_WIDTH, REVERSE_HEIGHT);
 
 	//Me guardo una referencia al componente de renderizado para anclarlo a la camara (asi tiene una posicion fija en pantalla)
-	Image* im = addComponent<Image>(_game->getTexture("Reverse"));
+	Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
 	im->attachToCamera();
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
 	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(0, 0), NUM_RENDER_W, NUM_RENDER_H);
-	Animator* decAnim = decs->addComponent<Animator>(_game->getTexture("Numbers"),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
+	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture("Numbers"),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	decAnim->attachToCamera();
 	createAnims(decAnim);
 	decAnim->play(to_string(0));
@@ -28,7 +28,7 @@ void CardCounter::initGameObject(SDLApplication* _game, bool _ref, CardComponent
 	//Creamos el objeto de las unidades: con sus componentes y sus animaciones
 	unids = new GameObject();
 	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(0, 0), NUM_RENDER_W, NUM_RENDER_H);
-	Animator* uniAnim =  unids->addComponent<Animator>(_game->getTexture("Numbers"), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
+	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture("Numbers"), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
 	uniAnim->play(to_string(0));

@@ -94,6 +94,18 @@
     <ClCompile Include="src\components\HeatlhComponent.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\sdlutils\SDLUtils.cpp">
+      <Filter>Archivos de Dependecias\sdlutils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sdlutils\SoundEffect.cpp">
+      <Filter>Archivos de Dependecias\sdlutils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\json\JSON.cpp">
+      <Filter>Archivos de Dependecias\Data\json</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\json\JSONValue.cpp">
+      <Filter>Archivos de Dependecias\Data\json</Filter>
+	</ClCompile>
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
@@ -219,6 +231,33 @@
     <ClInclude Include="src\components\HeatlhComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\sdlutils\Font.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\SoundEffect.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\macros.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\Music.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\RandomNumberGenerator.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\SDLUtils.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\VirtualTimer.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\json\JSON.h">
+      <Filter>Archivos de Encabezado\Data\json</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\json\JSONValue.h">
+      <Filter>Archivos de Encabezado\Data\json</Filter>
+	</ClInclude>
     <ClInclude Include="src\gameObjects\UI\CardCounter.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
@@ -271,10 +310,21 @@
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de Encabezado\Data\json">
+      <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Data\json">
+      <UniqueIdentifier>{4272b9bf-8ad8-455b-87a9-713e5643df61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
       <Filter>Archivos de Recursos</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\data\game.resources.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@
 enum State { OnOut = 0, OnOver, OnClick };
 
 class SDLApplication;
-typedef void CallBack(SDLApplication* game);
+typedef void CallBack();
 
 class ButtonComponent : public Component {
 
