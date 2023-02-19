@@ -17,6 +17,8 @@ private:
 	vector<GameObject*> enemies;
 	GameObject* deck;
 	GameObject* pile;
+	vector<vector<GameObject*>::iterator> enemiesToDestroy;
+
 public:
 	// Constructora
 	BattleScene(int a);
@@ -24,6 +26,10 @@ public:
 	vector<GameObject*>& getEnemies();
 	void OnPlayerDies();
 	Player* getPlayer() { return player; };
+	void deleteEnemy(vector<GameObject*>::iterator _it) {
+		if (enemies.size() == 1) enemies.erase(enemies.begin());
+		else enemies.erase(prev(enemies.end())); 
+	}
 };
 
 #endif

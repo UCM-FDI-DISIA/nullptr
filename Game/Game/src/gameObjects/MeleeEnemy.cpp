@@ -1,8 +1,6 @@
 #include "MeleeEnemy.h"
 #include "../core/SDLApplication.h"
 
-MeleeEnemy::MeleeEnemy() {}
-
 void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<Transform>(pos, Vector2D(0,0), 30, 60, 0);
 	addComponent<Image>(SDLApplication::getTexture("Enemy"));

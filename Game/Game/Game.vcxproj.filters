@@ -109,13 +109,23 @@
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\EnemyBehavior.cpp" />
-    <ClCompile Include="src\components\MeleeBehaviour.cpp" />
-    <ClCompile Include="src\components\RangeBehavior.cpp" />
-    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp" />
-    <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
     <ClCompile Include="src\scenes\GameOverScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\EnemyBehavior.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\MeleeBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\RangeBehavior.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,13 +279,23 @@
     <ClInclude Include="src\gameObjects\UI\CardCounter.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\EnemyBehavior.h" />
-    <ClInclude Include="src\components\MeleeBehaviour.h" />
-    <ClInclude Include="src\components\RangeBehavior.h" />
-    <ClInclude Include="src\gameObjects\MeleeEnemy.h" />
-    <ClInclude Include="src\gameObjects\RangedEnemy.h" />
     <ClInclude Include="src\scenes\GameOverScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\RangedEnemy.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\MeleeEnemy.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\EnemyBehavior.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\MeleeBehaviour.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\RangeBehavior.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
