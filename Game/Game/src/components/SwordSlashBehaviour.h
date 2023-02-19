@@ -19,10 +19,10 @@ public:
 		hitRegistry.assign(1, false);
 		damage = dmg;
 	}
-	SwordSlashBehaviour(int dmg, vector<GameObject*>Target)
+	SwordSlashBehaviour(int dmg, vector<GameObject*>*Target)
 	{
-		target = Target;
-		hitRegistry.assign(Target.size(), false);
+		target = *Target;
+		hitRegistry.assign((*Target).size(), false);
 		damage = dmg;
 	}
 

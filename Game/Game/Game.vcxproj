@@ -182,6 +182,7 @@
     <ClInclude Include="src\gameObjects\SwordSlash.h" />
     <ClInclude Include="src\gameObjects\SwordSpin.h" />
     <ClInclude Include="src\gameObjects\RangedEnemy.h" />
+    <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\Resource.h" />
