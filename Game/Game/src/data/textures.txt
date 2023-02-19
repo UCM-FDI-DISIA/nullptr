@@ -17,3 +17,4 @@ Reverse ../Game/resources/images/UI/ReversoCarta_58x93.png 1 1
 Numbers ../Game/resources/images/UI/Numeros_130x250.png 1 1
 Bullet ../Game/resources/images/bullet.jpg 1 1
 Floor ../Game/resources/images/Floor.png 1 1
+CPistola ../Game/resources/images/UI/Pistola_58x93.png 1 1

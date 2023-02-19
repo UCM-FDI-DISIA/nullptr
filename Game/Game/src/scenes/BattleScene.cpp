@@ -16,8 +16,11 @@ BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
 		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	MainMenu->getComponent<Animator>()->attachToCamera();
 
-	addGameObject<CardCounter>(game, true, player->getComponent<CardComponent>());
-	addGameObject<CardCounter>(game, false, player->getComponent<CardComponent>());
+	CardComponent* cardComp = player->getComponent<CardComponent>();
+	addGameObject<CardCounter>(game, true, cardComp);
+	addGameObject<CardCounter>(game, false, cardComp);
+
+	hand = addGameObject<HandUI>(game, cardComp);
 }
 
 void BattleScene::mainMenu(SDLApplication* _game) {
@@ -26,4 +29,8 @@ void BattleScene::mainMenu(SDLApplication* _game) {
 
 vector<GameObject*>& BattleScene::getEnemies() {
 	return enemies;
+}
+
+void BattleScene::changeUISelected(bool key, int number) {
+	hand->changeSelected(key, number);
 }

@@ -25,11 +25,14 @@ class Card
 		static Card getCard(CardId type);
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
-		int getUses() { return remainingUses; }
 		void use() { remainingUses -= 1;}
 		void resetUses() { remainingUses = maxUses;}
+		
+
+		// Getters
+		int getUses() { return remainingUses; }
 		int getMana() { return mana; }
 		int getDownTime() { return downtime; }
-
+		Texture* getTexture() { return texture; }
 };
 

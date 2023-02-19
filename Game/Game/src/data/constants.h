@@ -73,6 +73,12 @@ const int LEFT_OFFSET = REVERSE_WIDTH / 4;
 const int DOWN_OFFSET = WIN_HEIGHT - 6 * REVERSE_HEIGHT / 5;
 const int CARD_OFFSET_W = 2;
 const int CARD_OFFSET_H = 21;
+const int MAX_HAND_SIZE = 4;
+const string PISTOLA = "CPistola";
+const int CARD_WIDTH = 58;
+const int CARD_HEIGTH = 93;
+const int X_CARD_POS = WIN_WIDTH / 6 + LEFT_OFFSET;
+const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 4;
 
 //NUMBERS
 const int NUMBERS_WIDTH = 130;

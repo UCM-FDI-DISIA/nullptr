@@ -55,16 +55,22 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 
 
 void CardComponent::switchActive(bool left) {
-	if (left)
+	cout << left << endl;
+	if (left) {
 		--active;
-	else
+		where->changeUISelected(false, -1);
+	}
+	else {
 		++active;
+		where->changeUISelected(false, 1);
+	}
 }
 
 void CardComponent::switchActive(int number) {
 	if (number >= 0 && number < hand.size()) {
 		active = hand.begin();
 		std::advance(active, number);
+		where->changeUISelected(true, number);
 	}
 }
 

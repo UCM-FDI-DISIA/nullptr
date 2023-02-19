@@ -42,5 +42,6 @@ class CardComponent : public Component {
 		//Getters
 		int getDeckSize() { return deck.size(); }
 		int getPileSize() { return pile.size(); }
+		deque<Card*> getHand() { return hand; }
 };
 
