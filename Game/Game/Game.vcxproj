@@ -183,6 +183,8 @@
     <ClInclude Include="src\gameObjects\SwordSpin.h" />
     <ClInclude Include="src\gameObjects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
+    <ClInclude Include="src\gameObjects\UI\HandUI.h" />
+    <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
@@ -235,6 +237,7 @@
     <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
+    <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />

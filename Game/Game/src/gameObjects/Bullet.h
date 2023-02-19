@@ -3,6 +3,7 @@
 #include "../core/SDLApplication.h"
 #include "../components/Transform.h"
 #include "../components/ColliderComponent.h"
+#include "../components/LifetimeComponent.h"
 #include "../components/BulletBehavior.h"
 #include "../gameObjects/Camera.h"
 #include "../components/Image.h"
@@ -31,6 +32,7 @@ public:
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
+		addComponent<LifeTimeComponent>(10000);
 		addComponent<ColliderComponent>();
 	}
 
@@ -38,6 +40,7 @@ public:
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
+		addComponent<LifeTimeComponent>(10000);
 		addComponent<ColliderComponent>();
 	}
 };

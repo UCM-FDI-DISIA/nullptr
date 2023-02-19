@@ -59,16 +59,21 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 
 
 void CardComponent::switchActive(bool left) {
-	if (left)
+	if (left) {
 		--active;
-	else
+		where->changeUISelected(false, -1);
+	}
+	else {
 		++active;
+		where->changeUISelected(false, 1);
+	}
 }
 
 void CardComponent::switchActive(int number) {
 	if (number >= 0 && number < hand.size()) {
 		active = hand.begin();
 		std::advance(active, number);
+		where->changeUISelected(true, number);
 	}
 }
 
@@ -109,12 +114,14 @@ void CardComponent::drawCard() {
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
 	(*discarded)->resetUses();
+	where->discardUI(discarded);
 	active = hand.erase(discarded);
-	if(active != hand.begin())
+	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
 		cout << "Se acabo tu mano\n";
 		newHand();
+		where->recreateUI();
 	}
 }
 
