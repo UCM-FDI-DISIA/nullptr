@@ -22,6 +22,5 @@ private:
 public:
 	// Crea los componentes del jugador
 	virtual void initGameObject();
-	//BattleScene* getScene() { return dynamic_cast<BattleScene*>(gStt); }
 };
 #endif //!PLAYER_H_

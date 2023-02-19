@@ -23,6 +23,7 @@ public:
 	static void mainMenu();
 	vector<GameObject*>& getEnemies();
 	void OnPlayerDies();
+	Player* getPlayer() { return player; };
 };
 
 #endif
