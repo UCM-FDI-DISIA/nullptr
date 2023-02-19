@@ -59,6 +59,7 @@ const int ONCLICK_ALL_FRAMES = 11;
 const string ONOUT = "OnOut";
 const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
+const string SHCARTA = "SHCarta";
 // Keys de botones
 const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
