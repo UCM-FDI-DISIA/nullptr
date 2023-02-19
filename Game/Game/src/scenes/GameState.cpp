@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState(SDLApplication* _game) : gObjs(), game(_game), camera(addGameObject<Camera>()) { 
+GameState::GameState() : gObjs(), camera(addGameObject<Camera>()) { 
     gObjs.reserve(100);
 }
 
@@ -58,7 +58,3 @@ void GameState::addGameObject(GameObject* object) {
 
 // Devuelve la camara de la escena
 Camera* GameState::getCamera() const { return camera; }
-
-SDLApplication* GameState::getGame() const{
-    return game;
-}

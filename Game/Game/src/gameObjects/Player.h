@@ -21,6 +21,6 @@ private:
 	HealthComponent* health;
 public:
 	// Crea los componentes del jugador
-	virtual void initGameObject(SDLApplication* _game);
+	virtual void initGameObject();
 };
 #endif //!PLAYER_H_

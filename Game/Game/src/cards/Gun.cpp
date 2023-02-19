@@ -8,8 +8,7 @@ void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	
 	dir = dir.normalize() * bulletSpeed;
 
-	//where->addGameObject(new Bullet(playerPos,dir , where->getCamera(), damage, where->getEnemies(), where->getGame()));
-	where->addGameObject<Bullet>(playerPos, dir, damage, where->getEnemies(), where->getGame());
+	where->addGameObject<Bullet>(playerPos, dir, damage, where->getEnemies());
 }
 
 void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
@@ -18,8 +17,6 @@ void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 
 		dir = dir.normalize() * bulletSpeed;
 
-		//where->addGameObject(new Bullet(playerPos, dir, where->getCamera(), damage, where->getEnemies(), where->getGame()));
-		where->addGameObject<Bullet>(playerPos, dir, damage, where->getEnemies(), where->getGame());
+		where->addGameObject<Bullet>(playerPos, dir, damage, where->getEnemies());
 	}
-
 }

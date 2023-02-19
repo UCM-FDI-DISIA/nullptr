@@ -6,7 +6,7 @@
 class InventoryScene : public GameState {
 private:
 public:
-	InventoryScene(SDLApplication* _game);
+	InventoryScene();
 };
 
 #endif

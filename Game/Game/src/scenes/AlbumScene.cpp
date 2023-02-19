@@ -1,6 +1,6 @@
 #include "AlbumScene.h"
 #include "../core/SDLApplication.h"
 
-AlbumScene::AlbumScene(SDLApplication* _game) : GameState(_game) {
+AlbumScene::AlbumScene() : GameState() {
 	cout << "Has entrado en la escena del album" << endl;
 }
