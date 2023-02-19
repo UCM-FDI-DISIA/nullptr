@@ -5,6 +5,7 @@
 #include "Node.h"
 #include "../core/SDLApplication.h"
 class BattleScene;
+class NodeButtonComponent;
 
 enum battleType {
 	_PASTBATTLE = 0,
@@ -12,24 +13,21 @@ enum battleType {
 	_FUTUREBATTLE
 };
 
-struct A : Singleton<A> {
-	battleType type;
-	CallBack* operator()(battleType t) {
-		type = t;
-		return (CallBack*)(A::instance());
-	}
-	void operator()(SDLApplication* game) {
-		SDLApplication::newScene<BattleScene>(game, type);
-	}
-};
-
 class BattleNode : public Node {
 	friend Node;
+	friend NodeButtonComponent;
 private:
-	battleType type;
+
+	static list<battleType>::iterator* lastType;
+	static list<battleType> battleTypes;
+	list<battleType>::iterator type;
+
+
+	//battleType type;
 	BattleNode(Vector2D const& pos);
 public:
 	virtual CallBack* loadNode() const;
+	virtual list<battleType>::iterator* getIt() { return &type; }
 };
 
 #endif // !BATTLENODE_H_

@@ -40,5 +40,7 @@ public:
 	virtual void handleInput();
 	virtual void initComponent();
 
+	virtual void onClick();
+
 	void changeStateAnim(string key);
 };

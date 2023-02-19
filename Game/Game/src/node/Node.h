@@ -4,8 +4,12 @@
 
 #include <iostream>
 #include <vector>
+#include <functional>
 #include "../scenes/MapScene.h"
+#include "../components/ButtonComponent.h"
 using namespace std;
+
+enum battleType;
 
 enum nodeState {
 	_LOCKED_NODE = 0,
@@ -41,6 +45,7 @@ public:
 	// Devuelve la posición asignada al nodo
 	inline const Vector2D& getPosition() const { return position; }
 
+	virtual list<battleType>::iterator* getIt() { return nullptr; }
 	// MÉTODOS ESTÁTICOS
 
 	// Inicializa el mapa completo de Nodos

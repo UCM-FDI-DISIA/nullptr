@@ -21,8 +21,7 @@ void ButtonComponent::update() {
 
 void ButtonComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT) && state == OnOver) {
-		state = OnClick;
-		function();
+		onClick();
 	}
 }
 
@@ -30,6 +29,11 @@ void ButtonComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
+}
+
+void ButtonComponent::onClick() {
+	state = OnClick;
+	function();
 }
 
 // Cambia el estado de los animators para mostrar el estado del botón recibido

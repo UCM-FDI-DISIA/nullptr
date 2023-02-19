@@ -1,6 +1,6 @@
 #include "MapScene.h"
 #include "../core/SDLApplication.h"
-#include "../node/Node.h"
+#include "../gameObjects/NodeButton.h"
 
 MapScene::MapScene() : GameState(), nodeMap(Node::getNodeMap()) {
 	/*addGameObject<Button>(pasado, game, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 2 - 30) + 1 * 30), "Pasado", 186, 76, 1, 1);
@@ -18,7 +18,7 @@ MapScene::MapScene() : GameState(), nodeMap(Node::getNodeMap()) {
 		addGameObject<Button>(nodeMap[i]->loadNode(), game, nodeMap[i]->getPosition(), nodeMap[i]->getTextureKey(), 186, 76, 1, 1);
 	}*/
 	for (Node* node : nodeMap) {
-		addGameObject<Button>(node->loadNode(), SDLApplication::instance(), node->getPosition(), node->getTextureKey(), NODE_WIDTH, NODE_HEIGHT, 186, 76, 1, 1);
+		addGameObject<NodeButton>(node->getIt(), node->loadNode(), SDLApplication::instance(), node->getPosition(), node->getTextureKey(), NODE_WIDTH, NODE_HEIGHT, 186, 76, 1, 1);
 	}
 }
 
