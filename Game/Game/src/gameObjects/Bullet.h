@@ -17,28 +17,28 @@ public:
 	{
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
-		addComponent<Image>(game->getTexture("Bullet"), camera->getComponent<Transform>());
+		addComponent<Image>(SDLApplication::getTexture("Bullet"), camera->getComponent<Transform>());
 		addComponent<ColliderComponent>();
 	}
 	Bullet(Vector2D pos, Vector2D dir,Camera* camera, int dmg, GameObject* target, SDLApplication* game)
 	{
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
-		addComponent<Image>(game->getTexture("Bullet"), camera->getComponent<Transform>());
+		addComponent<Image>(SDLApplication::getTexture("Bullet"), camera->getComponent<Transform>());
 		addComponent<ColliderComponent>();
 	}*/
 
-	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, vector<GameObject*> target, SDLApplication* game) {
+	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, vector<GameObject*> target) {
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
-		addComponent<Image>(game->getTexture("Bullet"));
+		addComponent<Image>(SDLApplication::getTexture("Bullet"));
 		addComponent<ColliderComponent>();
 	}
 
-	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, GameObject* target, SDLApplication* game) {
+	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, GameObject* target) {
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
-		addComponent<Image>(game->getTexture("Bullet"));
+		addComponent<Image>(SDLApplication::getTexture("Bullet"));
 		addComponent<ColliderComponent>();
 	}
 };

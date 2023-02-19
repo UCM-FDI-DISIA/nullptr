@@ -19,7 +19,6 @@ private:
 	CardComponent* cardComponent;
 public:
 	// Crea los componentes del jugador
-	virtual void initGameObject(SDLApplication* _game);
-	BattleScene* getScene() { return dynamic_cast<BattleScene*>(gStt); }
+	virtual void initGameObject();
 };
 #endif //!PLAYER_H_
