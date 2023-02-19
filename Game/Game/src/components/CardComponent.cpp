@@ -81,6 +81,7 @@ void CardComponent::reshufflePile() {
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
+	cout << "Se barajo la pila de descartes para formar un nuevo mazo";
 }
 
 void CardComponent::newHand() {
@@ -108,6 +109,7 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if(active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
+		cout << "Se acabo tu mano\n";
 		newHand();
 	}
 }

@@ -7,11 +7,11 @@ void Button::initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, s
 	addComponent<Transform>(_pos, Vector2D(0, 0), BUTTON_WIDTH, BUTTON_HEIGHT);
 
 	// Animator y sus animaciones
-	createButtonAnimations(addComponent<Animator>(game->getTexture(key), _w, _h, _r, _c));
+	createButtonAnimations(addComponent<Animator>(SDLApplication::getTexture(key), _w, _h, _r, _c));
 	if (_frame != nullptr) createButtonAnimations(_frame->getComponent<Animator>());
 
 	// Componente de botones
-	addComponent<ButtonComponent>(_cb, game, _frame);
+	addComponent<ButtonComponent>(_cb, SDLApplication::instance(), _frame);
 }
 
 // Crea las animaciones esenciales de un bot�n: OnClick, OnOver y Idle

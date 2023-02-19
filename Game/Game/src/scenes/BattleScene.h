@@ -3,6 +3,11 @@
 #define FUBATTLESCENE_H_
 #include "GameState.h"
 #include "../gameObjects/Player.h"
+#include "../gameObjects/MeleeEnemy.h"
+#include "../gameObjects/RangedEnemy.h"
+#include "../gameObjects/RangedEnemy.h"
+#include "../gameObjects/UI/CardCounter.h"
+
 
 class BattleScene : public GameState {
 private:
@@ -12,8 +17,8 @@ private:
 	vector<GameObject*> enemies;
 public:
 	// Constructora
-	BattleScene(SDLApplication* _game, int a);
-	static void mainMenu(SDLApplication* game);
+	BattleScene(int a);
+	static void mainMenu();
 	vector<GameObject*>& getEnemies();
 };
 
