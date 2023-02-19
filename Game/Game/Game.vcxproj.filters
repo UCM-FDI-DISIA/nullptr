@@ -108,16 +108,18 @@
     </ClCompile>
     <ClCompile Include="src\data\json\JSONValue.cpp">
       <Filter>Archivos de Dependecias\Data\json</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\EnemyBehavior.cpp" />
+    <ClCompile Include="src\components\MeleeBehaviour.cpp" />
+    <ClCompile Include="src\components\RangeBehavior.cpp" />
+    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de Encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Resource.h">
       <Filter>Archivos de Encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\core\SDLApplication.h">
@@ -169,9 +171,6 @@
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Bullet.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\Button.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Camera.h">
@@ -268,9 +267,17 @@
     </ClInclude>
     <ClInclude Include="src\data\json\JSONValue.h">
       <Filter>Archivos de Encabezado\Data\json</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="src\gameObjects\UI\CardCounter.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\EnemyBehavior.h" />
+    <ClInclude Include="src\components\MeleeBehaviour.h" />
+    <ClInclude Include="src\components\RangeBehavior.h" />
+    <ClInclude Include="src\gameObjects\MeleeEnemy.h" />
+    <ClInclude Include="src\gameObjects\RangedEnemy.h" />
+    <ClInclude Include="src\components\SwordSlashBehaviour.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

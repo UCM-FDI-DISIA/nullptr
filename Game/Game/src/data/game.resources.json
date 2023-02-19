@@ -25,7 +25,9 @@
       { "id" : "FloorPast", "file": "../Game/resources/images/FloorPast.png"},
       { "id" : "Reverse", "file": "../Game/resources/images/UI/ReversoCarta_58x93.png"},
       { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"},
-      { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"}
+      { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"},
+      {"id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
+      {"id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
     ],
     
     "messages" : [

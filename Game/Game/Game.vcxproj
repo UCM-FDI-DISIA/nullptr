@@ -163,6 +163,7 @@
     <ClInclude Include="src\components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\PlayerMovementComponent.h" />
     <ClInclude Include="src\components\RangeBehavior.h" />
+    <ClInclude Include="src\components\SwordSlashBehaviour.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\core\Card.h" />
     <ClInclude Include="src\core\GameObject.h" />
