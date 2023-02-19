@@ -86,7 +86,6 @@ void CardComponent::reshufflePile() {
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
-	animationB();
 	cout << "Se barajo la pila de descartes para formar un nuevo mazo";
 }
 

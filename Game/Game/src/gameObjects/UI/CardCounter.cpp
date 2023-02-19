@@ -75,6 +75,10 @@ void CardCounter::update() {
 			anim = decs->getComponent<Animator>();
 			anim->stop();
 			anim->play(to_string(dec));
+			if (currentNumber <= 0)
+			{
+				;
+			}
 		}
 	}
 }

@@ -31,16 +31,18 @@ BattleScene::BattleScene(int a) : GameState() {
 	enemies.push_back(
 		addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player)
 	);
-	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 -50, 10),
-		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
-	MainMenu->getComponent<Animator>()->attachToCamera();
+	//Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 -50, 10),
+	//	PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
+	//MainMenu->getComponent<Animator>()->attachToCamera();
 
 	addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
 	addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
 
-	sufle = addGameObject();
-	sufle->addComponent<Transform>(Vector2D(CARD_OFFSET_W, DOWN_OFFSET),Vector2D(0,0), 0, 4);
-	animationB(sufle->addComponent<Animator>(SDLApplication::getTexture("SHCarta"), 1000, 93, 6, 2));
+	GameObject* sufle = addGameObject();
+	sufle->addComponent<Transform>(Vector2D(500, 300),Vector2D(0,0), 0, 4);
+	Animator* animator = sufle->addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 1000, 93, 6, 2);
+	animator->createAnim(SHCARTA, 0, 4, 5, -1);
+	animator->play(SHCARTA);
 }
 
 void BattleScene::mainMenu() {

@@ -21,7 +21,7 @@ class BattleScene : public GameState {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor, *decs,*vida, *barraVida, *sufle;
+	GameObject* floor, *decs,*vida, *barraVida;
 	vector<GameObject*> enemies;
 public:
 	// Constructora
