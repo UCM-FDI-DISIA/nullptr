@@ -5,7 +5,12 @@
 #include "ChestNode.h"
 #include "EventNode.h"
 
-Node::Node(string tKey) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey) {}
+vector<Node*> Node::nodeMap = vector<Node*>();
+
+// Constructora, recibe la clave de la textura
+Node::Node(string tKey) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey) {
+	nodeMap.push_back(this);
+}
 
 // Asigna el estado del nodo a desbloqueado
 void Node::unlock() {
@@ -22,7 +27,7 @@ void Node::unlockNextNodes() {
 }
 
 // Asigna los siguientes nodos
-void Node::setNextNodes(const vector<Node*>& nNodes) {
+void Node::setNextNodes(vector<Node*> const& nNodes) {
 	nextNodes = nNodes;
 }
 
@@ -32,25 +37,21 @@ void Node::complete() {
 	unlockNextNodes();
 }
 
-inline const string& Node::getTextureKey() const { return textureKey; }
+
+// MÉTODOS ESTÁTICOS
 
 // Inicializa el mapa completo de Nodos
 void Node::initializeNodeMap() {
-	nodeMap.push_back(new BattleNode());
-	nodeMap.push_back(new ShopNode());
-	nodeMap.push_back(new ChestNode());
-	nodeMap.push_back(new EventNode());
-	nodeMap.push_back(new BattleNode());
-
+	new BattleNode();
+	new ShopNode();
+	new ChestNode();
+	new EventNode();
+	new BattleNode();
 
 	nodeMap[0]->setNextNodes({ nodeMap[1], nodeMap[2] });
 	nodeMap[1]->setNextNodes({ nodeMap[3] });
 	nodeMap[2]->setNextNodes({ nodeMap[4] });
 }
-
-
-// Devuelve una referencia al mapa completo de Nodos
-inline vector<Node*>& Node::getNodeMap() { return nodeMap; }
 
 // Vacía el mapa completo de Nodos
 void Node::clearNodeMap() {

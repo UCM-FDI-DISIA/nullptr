@@ -17,7 +17,7 @@ class SDLApplication;
 
 class MapScene : public  GameState {
 private:
-	vector<Node*>& nodeMap;
+	vector<Node*> const& nodeMap;
 public:
 	MapScene(SDLApplication* game);
 	static void pasado(SDLApplication* game);

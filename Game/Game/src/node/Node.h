@@ -26,22 +26,25 @@ private:
 	// Desbloquea los siguientes nodos
 	void unlockNextNodes();
 public:
+	// Constructora, recibe la clave de la textura
 	Node(string tKey);
 	// Asigna los siguientes nodos
-	void setNextNodes(const vector<Node*>& nNodes);
+	void setNextNodes(vector<Node*> const& nNodes);
 	// Cambia el estado a completado y desbloquea los siguientes nodos
 	void complete();
 	// Carga el nodo correspondiente
 	virtual CallBack* loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
-	inline const string& getTextureKey() const;
+	inline const string& getTextureKey() const { return textureKey; }
+
+	// MÉTODOS ESTÁTICOS
+
 	// Inicializa el mapa completo de Nodos
 	static void initializeNodeMap();
 	// Devuelve una referencia al mapa completo de Nodos
-	static inline vector<Node*>& getNodeMap();
+	static inline const vector<Node*> const& getNodeMap() { return nodeMap; }
 	// Vacía el mapa completo de Nodos
 	static void clearNodeMap();
-
 };
 
 #endif // NODE_H_
