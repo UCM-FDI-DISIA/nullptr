@@ -25,6 +25,8 @@ public:
     // Maneja el evento actual
     virtual void handleInput();
     // Borra todos los GameObject no vivos
+
+    void addGameObject(GameObject* object);
     void refresh();
     //Inserta un nuevo GameObject a la escena
     template<typename T = GameObject, typename ...Ts>

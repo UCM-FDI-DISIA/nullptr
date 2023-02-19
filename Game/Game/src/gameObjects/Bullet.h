@@ -11,8 +11,7 @@
 class Bullet:public GameObject
 {
 public:
-	// Se le pasa la posición de inicio de quien lo ha disparado y la dirección a la que va
-
+	// Se le pasa la posicion de inicio de quien lo ha disparado y la direccion a la que va
 	/*Bullet(Vector2D pos, Vector2D dir,Camera* camera, int dmg, vector<GameObject*> target, SDLApplication* game)
 	{
 		addComponent<BulletBehavior>(dmg, target);

@@ -52,5 +52,9 @@ void GameState::refresh() {
         gObjs.end());
 }
 
+void GameState::addGameObject(GameObject* object) {
+    gObjs.push_back(object);
+};
+
 // Devuelve la camara de la escena
 Camera* GameState::getCamera() const { return camera; }
