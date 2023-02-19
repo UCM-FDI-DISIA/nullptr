@@ -23,6 +23,9 @@ public:
 	// Métodos virtuales
 	virtual void render() const;
 
+	// Crear o recrear la UI
+	void createUI();
+
 	// Cambiar de selección (llamado SIEMPRE por BattleScene)
 	void changeSelected(bool key, int number);
 

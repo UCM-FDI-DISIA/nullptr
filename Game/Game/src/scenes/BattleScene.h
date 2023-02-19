@@ -23,8 +23,10 @@ public:
 	static void mainMenu(SDLApplication* game);
 	vector<GameObject*>& getEnemies();
 
-	// Comunicar cambio a la UI
+	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
+	void discardUI(deque<Card*>::iterator discarded);
+	void recreateUI();
 };
 
 #endif

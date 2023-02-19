@@ -79,6 +79,7 @@ const int CARD_WIDTH = 58;
 const int CARD_HEIGTH = 93;
 const int X_CARD_POS = WIN_WIDTH / 6 + LEFT_OFFSET;
 const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 4;
+const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 4 - 30;
 
 //NUMBERS
 const int NUMBERS_WIDTH = 130;

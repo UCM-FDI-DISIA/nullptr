@@ -20,6 +20,7 @@ BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
 	addGameObject<CardCounter>(game, true, cardComp);
 	addGameObject<CardCounter>(game, false, cardComp);
 
+	// Mano de la UI
 	hand = addGameObject<HandUI>(game, cardComp);
 }
 
@@ -31,6 +32,18 @@ vector<GameObject*>& BattleScene::getEnemies() {
 	return enemies;
 }
 
+// CAMBIOS DE UI
+// Lamar a cambiar la carta seleccionada de la UI
 void BattleScene::changeUISelected(bool key, int number) {
 	hand->changeSelected(key, number);
+}
+
+// Llamar a borrar una carta de la UI
+void BattleScene::discardUI(deque<Card*>::iterator discarded) {
+	hand->discard(discarded);
+}
+
+// Llamar a la creación de la UI
+void BattleScene::recreateUI() {
+	hand->createUI();
 }
