@@ -6,8 +6,10 @@
 class ChestScene;
 
 class ChestNode : public Node {
+	friend Node;
+private:
+	ChestNode(Vector2D const& pos);
 public:
-	ChestNode();
 	virtual CallBack* loadNode() const;
 };
 

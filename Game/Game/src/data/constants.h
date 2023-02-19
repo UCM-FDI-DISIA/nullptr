@@ -42,8 +42,8 @@ const int BUTTON_SPRITE_HEIGHT = 18;
 const int BUTTON_SPRITE_COLUMS = 2;
 const int BUTTON_SPRITE_ROWS = 6;
 // Tamaño de los botones
-const int BUTTON_WIDTH = 158;
-const int BUTTON_HEIGHT = 36;
+const int MAINMENU_BUTTON_WIDTH = 158;
+const int MAINMENU_BUTTON_HEIGHT = 36;
 // Velocidades de animaciones
 const int ONCLICK_ONOUT_SPEED = 1;
 const int ONOVER_SPEED = 10;
@@ -76,4 +76,12 @@ const string LOGO_ANIM_KEY = "LogoIdle";
 const int LOGO_START_FRAME = 0;
 const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
+
+
+// Nodos
+const float NODE_LEVEL_X[3] = { WIN_WIDTH / 7, WIN_WIDTH / 7 * 3, WIN_WIDTH / 7 * 5 };
+const float NODE_LEVEL_Y[3] = { WIN_HEIGHT / 7 * 5, WIN_HEIGHT / 7 * 3, WIN_HEIGHT / 7 };
+const int NODE_WIDTH = 50;
+const int NODE_HEIGHT = 50;
+
 #endif

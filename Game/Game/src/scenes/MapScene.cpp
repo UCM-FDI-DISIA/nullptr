@@ -14,8 +14,11 @@ MapScene::MapScene(SDLApplication* game) : GameState(game), nodeMap(Node::getNod
 		addGameObject<Button>(node->loadNode(), game, Vector2D(WIN_WIDTH/2, WIN_HEIGHT/2), node->getTextureKey(), 186, 76, 1, 1);
 	}*/
 
-	for (int i = 0; i < nodeMap.size(); ++i) {
-		addGameObject<Button>(nodeMap[i]->loadNode(), game, Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / nodeMap.size() * i), nodeMap[i]->getTextureKey(), 186, 76, 1, 1);
+	/*for (int i = 0; i < nodeMap.size(); ++i) {
+		addGameObject<Button>(nodeMap[i]->loadNode(), game, nodeMap[i]->getPosition(), nodeMap[i]->getTextureKey(), 186, 76, 1, 1);
+	}*/
+	for (Node* node : nodeMap) {
+		addGameObject<Button>(node->loadNode(), game, node->getPosition(), node->getTextureKey(), NODE_WIDTH, NODE_HEIGHT, 186, 76, 1, 1);
 	}
 }
 

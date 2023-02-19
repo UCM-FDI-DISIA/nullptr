@@ -18,6 +18,7 @@ private:
 	nodeState state;
 	vector<Node*> nextNodes;
 	string textureKey;
+	Vector2D position;
 
 	static vector<Node*> nodeMap;
 	
@@ -25,9 +26,10 @@ private:
 	void unlock();
 	// Desbloquea los siguientes nodos
 	void unlockNextNodes();
-public:
+protected:
 	// Constructora, recibe la clave de la textura
-	Node(string tKey);
+	Node(string tKey, Vector2D const& pos);
+public:
 	// Asigna los siguientes nodos
 	void setNextNodes(vector<Node*> const& nNodes);
 	// Cambia el estado a completado y desbloquea los siguientes nodos
@@ -36,6 +38,8 @@ public:
 	virtual CallBack* loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
 	inline const string& getTextureKey() const { return textureKey; }
+	// Devuelve la posición asignada al nodo
+	inline const Vector2D& getPosition() const { return position; }
 
 	// MÉTODOS ESTÁTICOS
 

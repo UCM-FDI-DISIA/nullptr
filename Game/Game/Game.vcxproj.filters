@@ -91,11 +91,20 @@
     <ClCompile Include="src\scenes\ShopScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\Manager.cpp">
-      <Filter>Archivos de Dependecias\Managers</Filter>
+    <ClCompile Include="src\node\BattleNode.cpp">
+      <Filter>Archivos de Dependecias\Node</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\MapManager.cpp">
-      <Filter>Archivos de Dependecias\Managers</Filter>
+    <ClCompile Include="src\node\ChestNode.cpp">
+      <Filter>Archivos de Dependecias\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\node\EventNode.cpp">
+      <Filter>Archivos de Dependecias\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\node\Node.cpp">
+      <Filter>Archivos de Dependecias\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\node\ShopNode.cpp">
+      <Filter>Archivos de Dependecias\Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -201,15 +210,6 @@
     <ClInclude Include="src\scenes\InventoryScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="src\managers\MainMenuManager.h">
-      <Filter>Archivos de Encabezado\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Manager.h">
-      <Filter>Archivos de Encabezado\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\MapManager.h">
-      <Filter>Archivos de Encabezado\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="src\data\constants.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
@@ -224,6 +224,21 @@
     </ClInclude>
     <ClInclude Include="src\components\PlayerMovementComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\node\Node.h">
+      <Filter>Archivos de Encabezado\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\node\BattleNode.h">
+      <Filter>Archivos de Encabezado\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\node\ChestNode.h">
+      <Filter>Archivos de Encabezado\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\node\EventNode.h">
+      <Filter>Archivos de Encabezado\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\node\ShopNode.h">
+      <Filter>Archivos de Encabezado\Node</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +294,12 @@
     </Filter>
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Node">
+      <UniqueIdentifier>{a05e57fa-0108-4b7d-949c-96f6849be196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Node">
+      <UniqueIdentifier>{55f4d9cb-7a16-42ae-b42e-ac84b0db3f84}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

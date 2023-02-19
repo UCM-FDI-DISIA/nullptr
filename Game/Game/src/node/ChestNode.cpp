@@ -1,6 +1,6 @@
 #include "ChestNode.h"
 
-ChestNode::ChestNode() : Node("Cofre") {}
+ChestNode::ChestNode(Vector2D const& pos) : Node("Cofre", pos) {}
 
 CallBack* ChestNode::loadNode() const{
 	return MapScene::cofre;

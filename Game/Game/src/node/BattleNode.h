@@ -3,6 +3,7 @@
 #define BATTLENODE_H_
 
 #include "Node.h"
+#include "../core/SDLApplication.h"
 class BattleScene;
 
 enum battleType {
@@ -11,11 +12,23 @@ enum battleType {
 	_FUTUREBATTLE
 };
 
+struct A : Singleton<A> {
+	battleType type;
+	CallBack* operator()(battleType t) {
+		type = t;
+		return (CallBack*)(A::instance());
+	}
+	void operator()(SDLApplication* game) {
+		SDLApplication::newScene<BattleScene>(game, type);
+	}
+};
+
 class BattleNode : public Node {
+	friend Node;
 private:
 	battleType type;
+	BattleNode(Vector2D const& pos);
 public:
-	BattleNode();
 	virtual CallBack* loadNode() const;
 };
 

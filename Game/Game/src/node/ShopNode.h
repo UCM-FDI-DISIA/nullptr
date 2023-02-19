@@ -6,8 +6,10 @@
 class ShopScene;
 
 class ShopNode : public Node {
+	friend Node;
+private:
+	ShopNode(Vector2D const& pos);
 public:
-	ShopNode();
 	virtual CallBack* loadNode() const;
 };
 

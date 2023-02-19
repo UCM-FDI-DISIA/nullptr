@@ -8,7 +8,7 @@
 vector<Node*> Node::nodeMap = vector<Node*>();
 
 // Constructora, recibe la clave de la textura
-Node::Node(string tKey) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey) {
+Node::Node(string tKey, Vector2D const& pos) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey), position(pos) {
 	nodeMap.push_back(this);
 }
 
@@ -42,11 +42,11 @@ void Node::complete() {
 
 // Inicializa el mapa completo de Nodos
 void Node::initializeNodeMap() {
-	new BattleNode();
-	new ShopNode();
-	new ChestNode();
-	new EventNode();
-	new BattleNode();
+	(new BattleNode({NODE_LEVEL_X[0], NODE_LEVEL_Y[0]}))->unlock();
+	(new ShopNode({ NODE_LEVEL_X[1], NODE_LEVEL_Y[0] }))->unlock();
+	(new ChestNode({ NODE_LEVEL_X[2], NODE_LEVEL_Y[0] }))->unlock();
+	new EventNode({ NODE_LEVEL_X[0], NODE_LEVEL_Y[1] });
+	new BattleNode({ NODE_LEVEL_X[1], NODE_LEVEL_Y[1] });
 
 	nodeMap[0]->setNextNodes({ nodeMap[1], nodeMap[2] });
 	nodeMap[1]->setNextNodes({ nodeMap[3] });
