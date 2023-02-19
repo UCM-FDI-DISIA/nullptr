@@ -5,9 +5,6 @@
 class HandUI : public GameObject
 {
 private:
-	// Puntero al juego
-	SDLApplication* game = nullptr;
-
 	// Puntero al componente de cartas del jugador
 	CardComponent* cardComp = nullptr;
 
@@ -18,7 +15,7 @@ private:
 
 public:
 	// Constructora
-	virtual void initGameObject(SDLApplication* _g, CardComponent* _cComp);
+	virtual void initGameObject(CardComponent* _cComp);
 
 	// Métodos virtuales
 	virtual void render() const;

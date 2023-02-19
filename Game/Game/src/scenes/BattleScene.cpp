@@ -18,10 +18,10 @@ BattleScene::BattleScene(int a) : GameState() {
 	MainMenu->getComponent<Animator>()->attachToCamera();
 
 	CardComponent* cardComp = player->getComponent<CardComponent>();
-	addGameObject<CardCounter>(game, true, cardComp);
-	addGameObject<CardCounter>(game, false, cardComp);
+	addGameObject<CardCounter>(true, cardComp);
+	addGameObject<CardCounter>(false, cardComp);
 
-	hand = addGameObject<HandUI>(game, cardComp);
+	hand = addGameObject<HandUI>(cardComp);
 }
 
 void BattleScene::mainMenu() {
