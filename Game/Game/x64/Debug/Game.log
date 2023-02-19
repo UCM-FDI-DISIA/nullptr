@@ -1,46 +1,13 @@
-﻿  MeleeEnemy.cpp
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\data\constants.h(36,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(32,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.h(43,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.h(44,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\EnemyBehavior.h(32,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\MeleeEnemy.cpp(7): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D,int,int,int>(Vector2D &,Vector2D &&,int &&,int &&,int &&)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-  RangedEnemy.cpp
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\data\constants.h(36,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\Card.h(32,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.h(43,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\CardComponent.h(44,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\EnemyBehavior.h(32,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Bullet.h(32): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-  Generando código...
-  Game.vcxproj -> C:\Users\pedro\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
+﻿  MapScene.cpp
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\data\constants.h(36,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\Transform.h(76,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\Transform.h(77,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\Transform.h(78,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\Transform.h(79,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\core\Card.h(32,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\CardComponent.h(43,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\CardComponent.h(44,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\Game\src\components\EnemyBehavior.h(32,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  Game.vcxproj -> C:\Users\pkn\Desktop\segundo-de-videojuegos\nullptr\Game\x64\Debug\Game.exe
