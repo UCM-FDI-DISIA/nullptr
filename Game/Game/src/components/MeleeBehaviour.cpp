@@ -30,7 +30,7 @@ bool MeleeBehaviour::close() {
 
 		return true; 
 	}
-	else return false;
+	return false;
 }
 
 void MeleeBehaviour::update() {

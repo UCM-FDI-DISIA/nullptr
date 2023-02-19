@@ -10,7 +10,8 @@ RangeBehavior::RangeBehavior(float spd, float safDist, float stptime, float mvTi
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
-	pos->setVel(Vector2D(0.0005, 0.0005));
+	pos->setVel(Vector2D(0.0005, 0.0005)); // El 0.0005 es temporal hasta que hagamos la velocidad bien
+	                                       // Es un valor adecuado para que el movimiento funcione
 	initialDirection = pos->getVel();
 	setDirectionTo();
 }
@@ -48,6 +49,7 @@ void RangeBehavior::enemyAttack() {
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
 		/*vel = vel * bulletSpedd;*/
-		gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player, game);
+		gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player, game); // El vel/500 es temporal para que funcione 
+		                                                                             // Hasta que hagamos un deltaTime
 	}
 }
