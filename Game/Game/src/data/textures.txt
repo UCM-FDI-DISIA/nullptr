@@ -13,6 +13,8 @@ Futuro ../Game/resources/images/cuentodenavidadFu187x76.png 1 1
 Tienda ../Game/resources/images/Tienda187x76.png 1 1
 Cofre ../Game/resources/images/Cofre187x76.png 1 1
 SalirO ../Game/resources/images/Salir187x76.png 1 1
+Bullet ../Game/resources/images/bullet.jpg 1 1
+Enemy ../Game/resources/images/enemy.png 1 1
 Reverse ../Game/resources/images/UI/ReversoCarta_58x93.png 1 1
 Numbers ../Game/resources/images/UI/Numeros_130x250.png 1 1
 Bullet ../Game/resources/images/bullet.jpg 1 1

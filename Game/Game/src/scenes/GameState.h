@@ -11,27 +11,23 @@ using namespace std;
 
 class GameState {
 protected:
-    SDLApplication* game = nullptr;
     vector<GameObject*> gObjs;
     Camera* camera = nullptr;
 public:
     // Constructor
-    GameState(SDLApplication* _game);
+    GameState();
     // Destructor
     virtual ~GameState();
-    // Updates scene's objects
     // Actualiza los objetos de la escea
     virtual void update();
-    // Draws the scene on screen
     // Dibuja la escena en pantalla
     virtual void render() const;
-    // Handles the current event
     // Maneja el evento actual
     virtual void handleInput();
-    // Erases every not alive GameObject
     // Borra todos los GameObject no vivos
+
+    void addGameObject(GameObject* object);
     void refresh();
-    //Add a new GameObject to the scene
     //Inserta un nuevo GameObject a la escena
     template<typename T = GameObject, typename ...Ts>
     T* addGameObject(Ts&& ...args) {
@@ -43,7 +39,6 @@ public:
         return e;
     }
 
-    SDLApplication* getGame() const;
     // Devuelve la camara
     Camera* getCamera() const;
 };

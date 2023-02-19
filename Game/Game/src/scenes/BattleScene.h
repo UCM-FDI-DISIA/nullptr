@@ -3,6 +3,9 @@
 #define FUBATTLESCENE_H_
 #include "GameState.h"
 #include "../gameObjects/Player.h"
+#include "../gameObjects/MeleeEnemy.h"
+#include "../gameObjects/RangedEnemy.h"
+#include "../gameObjects/RangedEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/UI/HandUI.h"
 
@@ -19,8 +22,8 @@ private:
 
 public:
 	// Constructora
-	BattleScene(SDLApplication* _game, int a);
-	static void mainMenu(SDLApplication* game);
+	BattleScene(int a);
+	static void mainMenu();
 	vector<GameObject*>& getEnemies();
 
 	// Comunicar cambios a la UI
