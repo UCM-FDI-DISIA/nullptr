@@ -7,4 +7,5 @@ void Player::initGameObject() {
 	image = addComponent<Image>(SDLApplication::getTexture("Player"));
 	playerMovementComponent = addComponent<PlayerMovementComponent>();
 	cardComponent = addComponent<CardComponent>();
+	health = addComponent<HealthComponent>(100);
 }

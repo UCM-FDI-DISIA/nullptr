@@ -12,7 +12,8 @@ BattleScene::BattleScene(int a) : GameState() {
 
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
-
+	addGameObject<RangedEnemy>(Vector2D(0, 0), 50, player);
+	addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player);
 	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
 		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	MainMenu->getComponent<Animator>()->attachToCamera();
