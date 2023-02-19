@@ -23,8 +23,9 @@ public:
 	// Constructora
 	BattleScene(int a);
 	static void mainMenu();
-	vector<GameObject*>& getEnemies();
+	vector<GameObject*>* getEnemies();
 	void OnPlayerDies();
+	virtual void update();
 	Player* getPlayer() { return player; };
 	void deleteEnemy(vector<GameObject*>::iterator _it) {
 		if (enemies.size() == 1) enemies.erase(enemies.begin());

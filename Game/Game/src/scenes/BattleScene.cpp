@@ -25,13 +25,28 @@ BattleScene::BattleScene(int a) : GameState() {
 	deck = addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
 	pile = addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
 }
+void BattleScene::update() {
+	for (GameObject* gObj : gObjs) {
+		gObj->update();
+	}
+	auto it = enemies.begin();
+	while (it != enemies.end())
+	{
+		if ((*it)->isAlive() == false) {
+			auto itAux = it;
+			it = enemies.erase(itAux);
+		}
+		else it++;
+	}
+	refresh();
+}
 
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
 }
 
-vector<GameObject*>& BattleScene::getEnemies() {
-	return enemies;
+vector<GameObject*>* BattleScene::getEnemies() {
+	return &enemies;
 }
 
 void BattleScene::OnPlayerDies() {

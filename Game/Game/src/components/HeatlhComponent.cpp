@@ -28,17 +28,8 @@ void HealthComponent::die()
 	auto sc = dynamic_cast<BattleScene*>(gStt);
 	if (gObj->hasComponent<CardComponent>()) {
 		sc->OnPlayerDies();
-		gObj->setAlive(false);
 	}
-
-	else {
-		if (gObj->hasComponent<RangeBehavior>()) {
-			sc->deleteEnemy(gObj->getComponent<RangeBehavior>()->getEnemyPos());
-		}
-		else {
-			sc->deleteEnemy(gObj->getComponent<MeleeBehaviour>()->getEnemyPos());
-		}
-	}
+	gObj->setAlive(false);
 }
 // Devuelve el valor actual de la vida
 int HealthComponent::getLife()
