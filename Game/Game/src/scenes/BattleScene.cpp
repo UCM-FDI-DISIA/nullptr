@@ -16,8 +16,8 @@ BattleScene::BattleScene(int a) : GameState() {
 		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	MainMenu->getComponent<Animator>()->attachToCamera();
 
-	addGameObject<CardCounter>(game, true, player->getComponent<CardComponent>());
-	addGameObject<CardCounter>(game, false, player->getComponent<CardComponent>());
+	addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
+	addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
 }
 
 void BattleScene::mainMenu() {

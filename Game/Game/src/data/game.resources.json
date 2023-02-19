@@ -21,7 +21,10 @@
       { "id" : "Tienda", "file": "../Game/resources/images/Tienda187x76.png"},
       { "id" : "Cofre", "file": "../Game/resources/images/Cofre187x76.png"},
       { "id" : "SalirO", "file": "../Game/resources/images/Salir187x76.png"},
-      { "id" : "Bullet", "file": "../Game/resources/images/bullet.jpg"}
+      { "id" : "Bullet", "file": "../Game/resources/images/bullet.jpg"},
+      { "id" : "FloorPast", "file": "../Game/resources/images/FloorPast.png"},
+      { "id" : "Reverse", "file": "../Game/resources/images/UI/ReversoCarta_58x93.png"},
+      { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"}
     ],
     
     "messages" : [

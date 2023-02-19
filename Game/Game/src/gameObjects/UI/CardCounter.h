@@ -26,7 +26,7 @@ public:
 	//Sobrescribimos los metodos
 	virtual void update();
 	virtual void render() const;
-	virtual void initGameObject(SDLApplication* game, bool _ref, CardComponent* _data);
+	virtual void initGameObject(bool _ref, CardComponent* _data);
 	//Metodo para crear las animaciones de los numeros de los digitos
 	void createAnims(Animator* &_anim);
 };
