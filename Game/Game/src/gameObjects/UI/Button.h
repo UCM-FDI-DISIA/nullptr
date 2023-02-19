@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../components/ecs.h"
 #include "../../core/GameObject.h"
 #include "../../components/Transform.h"
@@ -8,7 +7,7 @@
 #include "../../components/Animator.h"
 
 class SDLApplication;
-typedef void CallBack(SDLApplication* game);
+typedef void CallBack();
 class Button : public GameObject {
 private:
 public:

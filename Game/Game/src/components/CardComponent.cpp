@@ -15,6 +15,7 @@ CardComponent::CardComponent() {
 
 void CardComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
+	where = dynamic_cast<BattleScene*>(gStt);
 }
 
 void CardComponent::update() {
@@ -37,7 +38,7 @@ void CardComponent::handleInput() {
 
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
-		(*active)->attack(playerPos, mousePos, attackMult, gStt);
+		(*active)->attack(playerPos, mousePos, attackMult, where);
 		(*active)->use();
 		downTime = (*active)->getDownTime() / fireRateMult;
 		if ((*active)->getUses() <= 0)discardCard(active);
@@ -46,7 +47,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		if ((*active)->getMana() <= mana) {
-			(*active)->ability(playerPos, mousePos, attackMult, gStt);
+			(*active)->ability(playerPos, mousePos, attackMult, where);
 			mana -= (*active)->getMana();
 			discardCard(active);
 		}
@@ -80,6 +81,7 @@ void CardComponent::reshufflePile() {
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
+	cout << "Se barajo la pila de descartes para formar un nuevo mazo";
 }
 
 void CardComponent::newHand() {
@@ -107,6 +109,7 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if(active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
+		cout << "Se acabo tu mano\n";
 		newHand();
 	}
 }

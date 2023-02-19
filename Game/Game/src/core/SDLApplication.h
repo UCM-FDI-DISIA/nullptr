@@ -6,76 +6,65 @@
 #include <iostream>
 #include <fstream>
 #include <unordered_map>
+#include "../sdlutils/SDLUtils.h"
 #include "../data/constants.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
-#include "../scenes/MainMenuScene.h"
-#include "../scenes/AlbumScene.h"
-#include "../scenes/OptionsMenuScene.h"
-#include "../scenes/MapScene.h"
 #include "../sdlutils/InputHandler.h"
+#include "../gameObjects/UI/Button.h"
+#include "../scenes/AlbumScene.h"
 #include "../scenes/BattleScene.h"
+#include "../scenes/ChestScene.h"
+#include "../scenes/InventoryScene.h"
+#include "../scenes/MainMenuScene.h"
+#include "../scenes/MapScene.h"
+#include "../scenes/OptionsMenuScene.h"
+#include "../scenes/PauseMenuScene.h"
+#include "../scenes/ShopScene.h"
 
 #include "../node/Node.h"
 
-
 using namespace std;
-
 using TextureName = string;
 
-typedef struct {
-	string filename;
-	uint hframes, vframes;
-} TextureDescription;
-
-class SDLApplication {
+class SDLApplication: public Singleton<SDLApplication> {
 private:
+	SDLUtils* utils = nullptr;
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
-
-	unordered_map<TextureName, Texture*> texturesMap;
 	GameStateMachine* gameStateMachine = nullptr;
-
 	bool exit;
 
 public:
-	// Constructor
+	// Constructora
 	SDLApplication();
-	// Destructor
+	// Destructora
 	~SDLApplication();
-	// Executes the game
 	// Ejecuta el juego
 	void run();
-	// Draws the game on screen
 	// Ejecuta el juego
 	void render() const;
-	// Updates all the game entities
 	// Actualiza todas las entidades del juego
 	void update();
-	// Updates the game depending on the current event 
 	// Actualiza el juego en función al evento actual
 	void handleInput();
-	// Returns needed texture
 	// Devuelve la Texture pedida
-	Texture* getTexture(TextureName texture) const;
+	static Texture* getTexture(TextureName texture);
 
 	template<typename T, typename ...Ts>
-	static void newScene(SDLApplication* game, Ts&& ...args) {
-		T* scene = new T(game, std::forward<Ts>(args)...);
-		game->gameStateMachine->changeState(scene);
+	static void newScene(Ts&& ...args) {
+		T* scene = new T(std::forward<Ts>(args)...);
+		SDLApplication::instance()->gameStateMachine->changeState(scene);
 	}
-	// Pauses the game
+	
 	// Pausa el juego
-	static void pauseGame(SDLApplication* _game);
-	// Resumes the game
+	static void pauseGame();
 	// Reanuda el juego
-	static void resumeGame(SDLApplication* _game);
-	// Pops the top state
+	static void resumeGame();
 	// Elimina el estado en la cima de la pila
-	static void popGameState(SDLApplication* _game);
-	// Quits the game
+	static void popGameState();
 	// Cierra el juego
-	static void quitGame(SDLApplication* _game);
+	static void quitGame();
 };
 #endif
 

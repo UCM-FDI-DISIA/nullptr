@@ -64,6 +64,24 @@ const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
 const string ALBUM = "Album";
 const string EXIT = "Salir";
+
+// CARDS
+const int REVERSE_WIDTH = 58;
+const int REVERSE_HEIGHT = 93;
+const int RIGHT_OFFSET = 5 * REVERSE_WIDTH / 4;
+const int LEFT_OFFSET = REVERSE_WIDTH / 4;
+const int DOWN_OFFSET = WIN_HEIGHT - 6 * REVERSE_HEIGHT / 5;
+const int CARD_OFFSET_W = 2;
+const int CARD_OFFSET_H = 21;
+
+//NUMBERS
+const int NUMBERS_WIDTH = 130;
+const int NUMBERS_HEIGHT = 250;
+const int NUMBERS_SPRITE_COLUMS = 2;
+const int NUMBERS_SPRITE_ROWS = 5;
+const int NUM_RENDER_W = NUMBERS_WIDTH / 5;
+const int NUM_RENDER_H = NUMBERS_HEIGHT / 5;
+
 // Logo
 const int LOGO_WIDTH = 400;
 const int LOGO_HEIGHT = 280;

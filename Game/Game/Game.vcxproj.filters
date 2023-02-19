@@ -106,6 +106,24 @@
     <ClCompile Include="src\node\ShopNode.cpp">
       <Filter>Archivos de Dependecias\Node</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\HeatlhComponent.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sdlutils\SDLUtils.cpp">
+      <Filter>Archivos de Dependecias\sdlutils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sdlutils\SoundEffect.cpp">
+      <Filter>Archivos de Dependecias\sdlutils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\json\JSON.cpp">
+      <Filter>Archivos de Dependecias\Data\json</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\json\JSONValue.cpp">
+      <Filter>Archivos de Dependecias\Data\json</Filter>
+	</ClCompile>
+    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
+      <Filter>Archivos de Dependecias\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -240,6 +258,39 @@
     <ClInclude Include="src\node\ShopNode.h">
       <Filter>Archivos de Encabezado\Node</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\HeatlhComponent.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\Font.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\SoundEffect.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\macros.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\Music.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\RandomNumberGenerator.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\SDLUtils.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sdlutils\VirtualTimer.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\json\JSON.h">
+      <Filter>Archivos de Encabezado\Data\json</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\json\JSONValue.h">
+      <Filter>Archivos de Encabezado\Data\json</Filter>
+	</ClInclude>
+    <ClInclude Include="src\gameObjects\UI\CardCounter.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
@@ -271,9 +322,6 @@
     <Filter Include="Archivos de Encabezado\Components">
       <UniqueIdentifier>{f4a51f0e-9cd0-4261-a82e-66807bcdcb77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Encabezado\Managers">
-      <UniqueIdentifier>{f8de9465-bef9-43fb-b4a4-8e894c67df0f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Encabezado\Data">
       <UniqueIdentifier>{0f7d1b63-081f-4359-883e-15f41cdf434a}</UniqueIdentifier>
     </Filter>
@@ -289,9 +337,6 @@
     <Filter Include="Archivos de Dependecias\Objects">
       <UniqueIdentifier>{d157e118-8f22-4aae-9fea-908093b55884}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Dependecias\Managers">
-      <UniqueIdentifier>{fc24263d-3d8a-4808-9dc5-dc4ca0dea74e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>
     </Filter>
@@ -301,10 +346,21 @@
     <Filter Include="Archivos de Encabezado\Node">
       <UniqueIdentifier>{55f4d9cb-7a16-42ae-b42e-ac84b0db3f84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de Encabezado\Data\json">
+      <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Data\json">
+      <UniqueIdentifier>{4272b9bf-8ad8-455b-87a9-713e5643df61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
       <Filter>Archivos de Recursos</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\data\game.resources.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
   </ItemGroup>
 </Project>

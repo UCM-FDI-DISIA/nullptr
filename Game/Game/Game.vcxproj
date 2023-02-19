@@ -156,6 +156,7 @@
     <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\HeatlhComponent.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\PlayerMovementComponent.h" />
     <ClInclude Include="src\components\Transform.h" />
@@ -166,11 +167,14 @@
     <ClInclude Include="src\core\SDLApplication.h" />
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
+    <ClInclude Include="src\data\json\JSON.h" />
+    <ClInclude Include="src\data\json\JSONValue.h" />
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Camera.h" />
     <ClInclude Include="src\gameObjects\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
+    <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\node\BattleNode.h" />
     <ClInclude Include="src\node\ChestNode.h" />
     <ClInclude Include="src\node\EventNode.h" />
@@ -187,8 +191,15 @@
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
+    <ClInclude Include="src\sdlutils\Font.h" />
     <ClInclude Include="src\sdlutils\InputHandler.h" />
+    <ClInclude Include="src\sdlutils\macros.h" />
+    <ClInclude Include="src\sdlutils\Music.h" />
+    <ClInclude Include="src\sdlutils\RandomNumberGenerator.h" />
+    <ClInclude Include="src\sdlutils\SDLUtils.h" />
+    <ClInclude Include="src\sdlutils\SoundEffect.h" />
     <ClInclude Include="src\sdlutils\Texture.h" />
+    <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
@@ -200,6 +211,7 @@
     <ClCompile Include="src\components\CameraComponent.cpp" />
     <ClCompile Include="src\components\CardComponent.cpp" />
     <ClCompile Include="src\components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\HeatlhComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
@@ -208,10 +220,13 @@
     <ClCompile Include="src\core\PlayerData.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
+    <ClCompile Include="src\data\json\JSON.cpp" />
+    <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
+    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\node\BattleNode.cpp" />
     <ClCompile Include="src\node\ChestNode.cpp" />
     <ClCompile Include="src\node\EventNode.cpp" />
@@ -227,6 +242,8 @@
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
+    <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
+    <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +252,9 @@
   <ItemGroup>
     <Image Include="Game.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\data\game.resources.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

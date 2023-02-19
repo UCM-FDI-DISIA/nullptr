@@ -22,7 +22,7 @@ void ButtonComponent::update() {
 void ButtonComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT) && state == OnOver) {
 		state = OnClick;
-		function(game);
+		function();
 	}
 }
 

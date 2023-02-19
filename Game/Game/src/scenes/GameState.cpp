@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState(SDLApplication* _game) : gObjs(), game(_game), camera(addGameObject<Camera>()) { 
+GameState::GameState() : gObjs(), camera(addGameObject<Camera>()) { 
     gObjs.reserve(100);
 }
 
