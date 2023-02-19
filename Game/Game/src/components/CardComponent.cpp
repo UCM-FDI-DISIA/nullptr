@@ -51,6 +51,10 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 			mana -= (*active)->getMana();
 			discardCard(active);
 		}
+		else 
+		{
+			std::cout << "Necesitas manases adicionales" << endl;
+		}
 }
 
 
