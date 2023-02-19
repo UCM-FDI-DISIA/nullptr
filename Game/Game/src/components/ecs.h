@@ -16,6 +16,8 @@ enum cmpId : cmpId_type {
 	_RANGE_BEHAVIOR,
 	_COLLIDER_COMPONENT,
 	_BULLET_COMPONENT,
+	_SWORD_BEHAVIOUR,
+	_LIFETIME,
 	// ... (compoment ids)
 
 	// do not remove this

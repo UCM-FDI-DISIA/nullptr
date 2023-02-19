@@ -94,6 +94,9 @@
     <ClCompile Include="src\components\HeatlhComponent.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\LifetimeComponent.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\sdlutils\SDLUtils.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
     </ClCompile>
@@ -109,30 +112,27 @@
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\scenes\GameOverScene.cpp">
-      <Filter>Archivos de Dependecias\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp">
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
+    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp">
       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\components\EnemyBehavior.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\RangeBehavior.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\components\MeleeBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\RangeBehavior.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
+       <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de Encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Resource.h">
       <Filter>Archivos de Encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\core\SDLApplication.h">
@@ -184,9 +184,6 @@
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Bullet.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\Button.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Camera.h">
@@ -249,6 +246,9 @@
     <ClInclude Include="src\components\HeatlhComponent.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\LifetimeComponent.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\sdlutils\Font.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
@@ -279,13 +279,19 @@
     <ClInclude Include="src\gameObjects\UI\CardCounter.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\GameOverScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+    <ClInclude Include="src\components\SwordSlashBehaviour.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\RangedEnemy.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
+    <ClInclude Include="src\gameObjects\SwordSpin.h">
+      <Filter>Archivos de Encabezado\Objects\CardAttacks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\SwordSlash.h">
+      <Filter>Archivos de Encabezado\Objects\CardAttacks</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\MeleeEnemy.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\RangedEnemy.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\components\EnemyBehavior.h">
@@ -296,6 +302,9 @@
     </ClInclude>
     <ClInclude Include="src\components\RangeBehavior.h">
       <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\HandUI.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -351,6 +360,9 @@
     </Filter>
     <Filter Include="Archivos de Dependecias\Data\json">
       <UniqueIdentifier>{4272b9bf-8ad8-455b-87a9-713e5643df61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\CardAttacks">
+      <UniqueIdentifier>{2af54b70-dcdf-462a-a211-3bb0d4163525}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

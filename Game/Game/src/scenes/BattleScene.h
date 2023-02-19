@@ -7,22 +7,27 @@
 #include "../gameObjects/RangedEnemy.h"
 #include "../gameObjects/RangedEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
+#include "../gameObjects/UI/HandUI.h"
 
-
+class HandUI;
 class BattleScene : public GameState {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor;
+	GameObject* floor, *vida, *barraVida;
 	vector<GameObject*> enemies;
 	GameObject* deck;
 	GameObject* pile;
-	vector<vector<GameObject*>::iterator> enemiesToDestroy;
-
+	// Puntero a la mano del jugador en la UI
+	HandUI* hand = nullptr;
 public:
 	// Constructora
 	BattleScene(int a);
 	static void mainMenu();
+	// Comunicar cambios a la UI
+	void changeUISelected(bool key, int number);
+	void discardUI(deque<Card*>::iterator discarded);
+	void recreateUI();
 	vector<GameObject*>* getEnemies();
 	void OnPlayerDies();
 	virtual void update();

@@ -10,20 +10,37 @@ BattleScene::BattleScene(int a) : GameState() {
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH*2, WIN_HEIGHT*2);
 	floor->addComponent<Image>(SDLApplication::getTexture("FloorPast"));
-	//Añadimos el jugador
+	barraVida = addGameObject();
+	vida = addGameObject();
+
+	barraVida->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 + 150, 10), Vector2D(0, 0), 150, 30);
+	vida->addComponent<Transform>(Vector2D(WIN_WIDTH/2 +125, 0), Vector2D(0, 0),250, 50);
+	
+	barraVida->addComponent<Image>(SDLApplication::getTexture("Life"));
+	vida->addComponent<Image>(SDLApplication::getTexture("LifeBar"));
+
+	barraVida->getComponent<Image>()->attachToCamera();
+	vida->getComponent<Image>()->attachToCamera();
+
+
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
-	//Añadimos el enemigo a distancia y le asignamos su posicion del vector
-	RangedEnemy* rEn = addGameObject<RangedEnemy>(Vector2D(0, 0), 50, player);
-	enemies.push_back(rEn);
-	rEn->getComponent<RangeBehavior>()->setEnemyPosition(prev(enemies.end()));
 
-	MeleeEnemy* mEn = addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player);
-	enemies.push_back(mEn);
-	mEn->getComponent<MeleeBehaviour>()->setEnemyPosition(prev(enemies.end()));
+	enemies.push_back(
+		addGameObject<RangedEnemy>(Vector2D(0, 0), 50, player)
+	);
+	enemies.push_back(
+		addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player)
+	);
+	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 -50, 10),
+		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
+	MainMenu->getComponent<Animator>()->attachToCamera();
 
-	deck = addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
-	pile = addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
+	CardComponent* cardComp = player->getComponent<CardComponent>();
+	addGameObject<CardCounter>(true, cardComp);
+	addGameObject<CardCounter>(false, cardComp);
+
+	hand = addGameObject<HandUI>(cardComp);
 }
 void BattleScene::update() {
 	for (GameObject* gObj : gObjs) {
@@ -40,7 +57,6 @@ void BattleScene::update() {
 	}
 	refresh();
 }
-
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
 }
@@ -51,4 +67,20 @@ vector<GameObject*>* BattleScene::getEnemies() {
 
 void BattleScene::OnPlayerDies() {
 	SDLApplication::newScene<GameOverScene>();
+}
+
+// CAMBIOS DE UI
+// Lamar a cambiar la carta seleccionada de la UI
+void BattleScene::changeUISelected(bool key, int number) {
+	hand->changeSelected(key, number);
+}
+
+// Llamar a borrar una carta de la UI
+void BattleScene::discardUI(deque<Card*>::iterator discarded) {
+	hand->discard(discarded);
+}
+
+// Llamar a la creaciï¿½n de la UI
+void BattleScene::recreateUI() {
+	hand->createUI();
 }

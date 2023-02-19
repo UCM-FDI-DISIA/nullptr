@@ -43,6 +43,12 @@ public:
 	inline void setPos(Vector2D newPos) {
 		position_ = newPos;
 	};
+	inline void setY(int y) {
+		position_ = Vector2D(position_.getX(), y);
+	}
+	inline void setX(int x) {
+		position_ = Vector2D(x, position_.getY());
+	}
 
 	// Setea velocidad
 	inline void setVel(Vector2D newVel) {
