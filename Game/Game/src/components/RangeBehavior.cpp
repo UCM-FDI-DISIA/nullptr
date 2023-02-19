@@ -1,17 +1,17 @@
 #include "RangeBehavior.h"
 
-RangeBehavior::RangeBehavior(float spd, float safDist, float stoptime, float moveTime, 
-	int damage, int attack, Player* player, SDLApplication* Game)
-	:EnemyBehavior(spd, damage, stoptime, attack, player)
+RangeBehavior::RangeBehavior(float spd, float safDist, float stptime, float mvTime, 
+	int dmg, int atck, Player* plyr, SDLApplication* gm)
+	:EnemyBehavior(spd, dmg, stptime, atck, plyr)
 {
     safeDistance = safDist;
 	moveTime = moveTime;
-	game = Game;
+	game = gm;
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
 	pos->setVel(Vector2D(0.0005, 0.0005));
-	initialDir = pos->getVel();
+	initialDirection = pos->getVel();
 	setDirectionTo();
 }
 // Se encarga de comprobar si el enemigo est� dentro o fuera del radio de peligro
@@ -30,20 +30,24 @@ void RangeBehavior::update() {
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 	if (actualTime - elapsedTime > stopTime)
 	{
-		pos->setVel(initialDir);
+		pos->setVel(initialDirection);
 		// Si te has estado moviendo m�s tiempo de lo que deberia, vuelves al ciclo de parada
 		 if (actualTime - elapsedTime > stopTime + moveTime)
 		{
 			setDirectionTo();
 			//pos->setVel(Vector2D(0, 0));
-			attack();
+			enemyAttack();
 			elapsedTime = actualTime;
 		}
 	}
 }
-void RangeBehavior:: attack() {
+
+// Permite al enemigo instanciar balas
+void RangeBehavior::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
-	vel= vel / vel.magnitude();
-	/*vel = vel * bulletSpedd;*/
-	gStt->addGameObject<Bullet>(pos->getPos(), vel/500 ,damage, player, game);
+	if (vel.magnitude() != 0) {
+		vel = vel / vel.magnitude();
+		/*vel = vel * bulletSpedd;*/
+		gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player, game);
+	}
 }

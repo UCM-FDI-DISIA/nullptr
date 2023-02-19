@@ -159,6 +159,7 @@
     <ClInclude Include="src\components\EnemyBehavior.h" />
     <ClInclude Include="src\components\HeatlhComponent.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\PlayerMovementComponent.h" />
     <ClInclude Include="src\components\RangeBehavior.h" />
     <ClInclude Include="src\components\Transform.h" />

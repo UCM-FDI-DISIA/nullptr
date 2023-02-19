@@ -9,26 +9,23 @@ void MeleeBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
 	pos->setVel(Vector2D(0, speed));
 	initialDir = pos->getVel();
-	moveTo();
-	closeToPlayer = false;
+	pos->lookAt(playerPos->getPos());
+	hasBeenCloseToPlayer = false;
 	attacked = false;
 	elapsedTime = SDL_GetTicks();
 }
 
-void MeleeBehaviour::moveTo() {
-	pos->lookAt(playerPos->getPos());
-}
 
 bool MeleeBehaviour::close() {
 
 	//Si esta cerca del player
 	if (pos->getDistance(playerPos->getPos()) < attackDistance) {
 		//Si ya ha estado cerca del player
-		if (!closeToPlayer) {
+		if (!hasBeenCloseToPlayer) {
 			//Setea elapsed time, velocidad a 0 y marca que ha estado cerca del player ya
 			elapsedTime = SDL_GetTicks();
 			pos->setVel(Vector2D(0, 0));
-			closeToPlayer = true;
+			hasBeenCloseToPlayer = true;
 		}
 
 		return true; 
@@ -54,16 +51,16 @@ void MeleeBehaviour::update() {
 			elapsedTime = SDL_GetTicks();
 		}
 	}
-	else if (closeToPlayer) {
+	else if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 		if (actualTime - elapsedTime > stopTime) {
 			pos->setVel(initialDir);
-			closeToPlayer = false;
+			hasBeenCloseToPlayer = false;
 		}
 		
 	}
 	
-	moveTo();
+	pos->lookAt(playerPos->getPos());
 }
 
 

@@ -33,7 +33,7 @@ int HealthComponent::getLife()
 // Multiplica la vida maxima, que nunca cambia, por el multiplicador dado
 void HealthComponent::multiplyLife(double multiplier)
 {
-	int lifePercent = lifePoints / modifiedMaxLife; // Saca el porcentaje de la vida actual
+	float lifePercent = lifePoints / modifiedMaxLife; // Saca el porcentaje de la vida actual
 
 	modifiedMaxLife = maxLife * multiplier; // Modifica la vida maxima actual
 
