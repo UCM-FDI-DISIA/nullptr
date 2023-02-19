@@ -16,7 +16,7 @@ public:
 	BattleScene(int a);
 	static void mainMenu();
 	vector<GameObject*>& getEnemies();
-	void OnPlayerDies(SDLApplication* game);
+	void OnPlayerDies();
 };
 
 #endif

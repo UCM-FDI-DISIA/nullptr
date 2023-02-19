@@ -32,11 +32,11 @@ vector<GameObject*>& BattleScene::getEnemies() {
 void BattleScene::OnPlayerDies() {
 	GameObject* message = addGameObject<GameObject>();
 	message->addComponent<Transform>(Vector2D(MESSAGE_X, MESSAGE_Y), Vector2D(0,0), MESSAGE_W, MESSAGE_H);
-	message->addComponent<Image>(SDLApplication::instance()->getTexture("YouDied"));
+	message->addComponent<Image>(SDLApplication::getTexture("YouDied"));
 
 	GameObject* marco = addGameObject();
 	marco->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 103, WIN_HEIGHT* 2 / 3 - 44), Vector2D(0, 0), 190, 90);
-	marco->addComponent<Animator>(SDLApplication::instance()->getTexture("Marco"),
+	marco->addComponent<Animator>(SDLApplication::getTexture("Marco"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 
 	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT / 2),

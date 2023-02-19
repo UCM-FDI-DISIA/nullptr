@@ -24,8 +24,10 @@ void HealthComponent::die()
 {
 	gObj->setAlive(false);
 	if (gObj->hasComponent<CardComponent>()) {
-		Player* me = dynamic_cast<Player*>(gObj);
-		me->getScene()->OnPlayerDies();
+		/*Player* me = dynamic_cast<Player*>(gObj);
+		me->getScene()->OnPlayerDies();*/
+		auto sc = dynamic_cast<BattleScene*>(gStt);
+		sc->OnPlayerDies();
 	}
 }
 // Devuelve el valor actual de la vida
