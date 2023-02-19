@@ -7,6 +7,7 @@
 #include "../core/Card.h"
 #include <deque>
 #include "Animator.h"
+
 #pragma once
 class BatleScene;
 class CardComponent : public Component {

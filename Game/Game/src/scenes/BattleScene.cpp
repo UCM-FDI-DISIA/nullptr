@@ -38,7 +38,9 @@ BattleScene::BattleScene(int a) : GameState() {
 	addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
 	addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
 
-	animation(addComponent<Animator>(SDLApplication::getTexture("SHCarta"), 1000, 93, 6, 2));
+	sufle = addGameObject();
+	sufle->addComponent<Transform>(Vector2D(CARD_OFFSET_W, DOWN_OFFSET),Vector2D(0,0), 0, 4);
+	animationB(sufle->addComponent<Animator>(SDLApplication::getTexture("SHCarta"), 1000, 93, 6, 2));
 }
 
 void BattleScene::mainMenu() {
@@ -48,7 +50,7 @@ void BattleScene::mainMenu() {
 vector<GameObject*>& BattleScene::getEnemies() {
 	return enemies;
 }
-void BattleScene::animation(Animator* animator) {
+void BattleScene::animationB(Animator* animator) {
 	
 
 	animator->createAnim(SHCARTA, 0, 4, 5, 1);

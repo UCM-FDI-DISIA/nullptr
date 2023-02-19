@@ -27,7 +27,7 @@ public:
 	// Constructora
 	BattleScene(int a);
 	static void mainMenu();
-	void animation(Animator* animator);
+	void animationB(Animator* animator);
 	vector<GameObject*>& getEnemies();
 };
 

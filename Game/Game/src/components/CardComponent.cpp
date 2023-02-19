@@ -3,6 +3,7 @@
 #include "../core/GameObject.h"
 #include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
+#include "../scenes/BattleScene.h"
 
 CardComponent::CardComponent() {
 	maxMana = PlayerData::instance()->getMaxMana();
@@ -85,7 +86,7 @@ void CardComponent::reshufflePile() {
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
-	//animation();
+	animationB();
 	cout << "Se barajo la pila de descartes para formar un nuevo mazo";
 }
 
