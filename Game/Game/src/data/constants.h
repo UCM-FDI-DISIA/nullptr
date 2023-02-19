@@ -98,6 +98,6 @@ const int LOGO_FRAME_RATE = 4;
 //Message
 const int MESSAGE_W = 300;
 const int MESSAGE_H = 200;
-const int MESSAGE_X = (WIN_WIDTH / 2) - (MESSAGE_X / 2);
-const int MESSAGE_Y = WIN_HEIGHT / 3;
+const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
+const int MESSAGE_Y = WIN_HEIGHT / 4;
 #endif

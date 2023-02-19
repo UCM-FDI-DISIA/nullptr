@@ -12,18 +12,18 @@ BattleScene::BattleScene(int a) : GameState() {
 
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
-	addGameObject<RangedEnemy>(Vector2D(0, 0), 50, player);
-	addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player);
-	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
-		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
-	MainMenu->getComponent<Animator>()->attachToCamera();
+	
+	GameObject* en = addGameObject<RangedEnemy>(Vector2D(0, 0), 50, player);
+	enemies.push_back(en);
+	en = addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player);
+	enemies.push_back(en);
 
-	addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
-	addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
+	deck = addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
+	pile = addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
 }
 
 void BattleScene::mainMenu() {
-	SDLApplication::newScene<MapScene>();
+	SDLApplication::newScene<MainMenuScene>();
 }
 
 vector<GameObject*>& BattleScene::getEnemies() {
@@ -31,15 +31,29 @@ vector<GameObject*>& BattleScene::getEnemies() {
 }
 
 void BattleScene::OnPlayerDies() {
-	GameObject* message = addGameObject<GameObject>();
-	message->addComponent<Transform>(Vector2D(MESSAGE_X, MESSAGE_Y), Vector2D(0,0), MESSAGE_W, MESSAGE_H);
-	message->addComponent<Image>(SDLApplication::getTexture("YouDied"));
+	//Desactivo los enemigos y mis contadores de cartas
+	for (auto it = enemies.begin(); it != enemies.end(); it++) {
+		(*it)->setAlive(false);
+	}
+	enemies.clear();
+	pile->setAlive(false);
+	deck->setAlive(false);
 
+	//Fijo el suelo a la camara
+	floor->getComponent<Image>()->attachToCamera();
+	//Creo el objeto con la imagen del mensaje de muerte
+	GameObject* message = addGameObject();
+	message->addComponent<Transform>(Vector2D(MESSAGE_X, MESSAGE_Y), Vector2D(0,0), MESSAGE_W, MESSAGE_H);
+	auto im = message->addComponent<Image>(SDLApplication::getTexture("YouDied"));
+	im->attachToCamera();
+	//Creo el boton y su marco y los fijo a la camara
 	GameObject* marco = addGameObject();
 	marco->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 103, WIN_HEIGHT* 2 / 3 - 44), Vector2D(0, 0), 190, 90);
-	marco->addComponent<Animator>(SDLApplication::getTexture("Marco"),
+	auto An = marco->addComponent<Animator>(SDLApplication::getTexture("Marco"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
+	An->attachToCamera();
 
-	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT / 2),
+	auto but = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT * 2/ 3),
 		EXIT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marco);
+	but->getComponent<Animator>()->attachToCamera();
 }

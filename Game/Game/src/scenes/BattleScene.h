@@ -15,6 +15,8 @@ private:
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
 	GameObject* floor;
 	vector<GameObject*> enemies;
+	GameObject* deck;
+	GameObject* pile;
 public:
 	// Constructora
 	BattleScene(int a);
