@@ -10,7 +10,7 @@
 #include "../scenes/GameState.h"
 #include "../components/CardComponent.h"
 class SDLApplication;
-
+class BattleScene;
 class Player : public GameObject {
 private:
 	Transform* transform;
@@ -20,5 +20,6 @@ private:
 public:
 	// Crea los componentes del jugador
 	virtual void initGameObject(SDLApplication* _game);
+	BattleScene* getScene() { return dynamic_cast<BattleScene*>(gStt); }
 };
 #endif //!PLAYER_H_

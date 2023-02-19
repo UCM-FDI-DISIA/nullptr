@@ -94,4 +94,10 @@ const string LOGO_ANIM_KEY = "LogoIdle";
 const int LOGO_START_FRAME = 0;
 const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
+
+//Message
+const int MESSAGE_W = 300;
+const int MESSAGE_H = 200;
+const int MESSAGE_X = (WIN_WIDTH / 2) - (MESSAGE_X / 2);
+const int MESSAGE_Y = WIN_HEIGHT / 3;
 #endif

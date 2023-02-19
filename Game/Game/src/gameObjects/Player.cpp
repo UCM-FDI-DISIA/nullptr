@@ -7,4 +7,6 @@ void Player::initGameObject(SDLApplication* _game) {
 	image = addComponent<Image>(_game->getTexture("Player"));
 	playerMovementComponent = addComponent<PlayerMovementComponent>();
 	cardComponent = addComponent<CardComponent>();
+
+	_myScene = dynamic_cast<BattleScene*>(gStt);
 }

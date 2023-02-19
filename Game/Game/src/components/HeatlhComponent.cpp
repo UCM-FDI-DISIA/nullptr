@@ -1,5 +1,7 @@
 #include "HeatlhComponent.h"
 #include"../core/GameObject.h"
+#include "../scenes/BattleScene.h"
+
 // Al construirse, adopta el gameObject y su manager como propios
 // También define la vida máxima del objeto
 HealthComponent::HealthComponent(int life)
@@ -21,6 +23,10 @@ void HealthComponent::heal(int heal)
 void HealthComponent::die()
 {
 	gObj->setAlive(false);
+	if (gObj->hasComponent<CardComponent>()) {
+		Player* me = dynamic_cast<Player*>(gObj);
+		me->getScene()->OnPlayerDies();
+	}
 }
 // Devuelve el valor actual de la vida
 int HealthComponent::getLife()
