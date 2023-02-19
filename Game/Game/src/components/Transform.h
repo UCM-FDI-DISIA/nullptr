@@ -22,6 +22,7 @@ private:
 	float width_;
 	float height_;
 	float rotation_;
+	SDL_Point* anchorPoint_;
 public:
 
 	static const int id = _TRANSFORM;
@@ -39,6 +40,11 @@ public:
 		return velocity_;
 	};
 
+	inline Vector2D getCenter() {
+		return position_ + Vector2D(width_ / 2, height_ / 2);
+	};
+
+
 	// Setea posición		
 	inline void setPos(Vector2D newPos) {
 		position_ = newPos;
@@ -48,6 +54,12 @@ public:
 	inline void setVel(Vector2D newVel) {
 		velocity_ = newVel;
 	};
+
+	inline void setAnchorPoint(int x, int y) {
+		if (anchorPoint_ == nullptr) anchorPoint_ = new SDL_Point();
+		anchorPoint_->x = x;
+		anchorPoint_->y = y;
+	}
 
 	// Setea height
 	inline void setHeight(float newHeight) {
@@ -80,6 +92,16 @@ public:
 
 		return rect;
 	}
+
+	inline SDL_Point* getAnchorPoint() {
+		return anchorPoint_;
+	};
+
+
+	inline float getRotation() {
+		return rotation_;
+	};
+
 
 	// Devuelve la distancia en valor absoluto desde un punto a otro
 	float getDistance(Vector2D other);

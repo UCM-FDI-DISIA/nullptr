@@ -25,8 +25,8 @@ void CardComponent::update() {
 }
 
 void CardComponent::handleInput() {
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getPos(), InputHandler::instance()->getMousePos()); }
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getPos(), InputHandler::instance()->getMousePos()); }
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getCenter(), InputHandler::instance()->getMousePos()); }
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->mouseWheelDown()) { switchActive(false); }
 	if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
 	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); }
