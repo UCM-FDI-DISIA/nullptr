@@ -6,8 +6,8 @@ BattleScene::BattleScene(SDLApplication* _game,int a) : GameState(_game) {
   
 	// Quitar cuando se cree el mapa de combate
 	floor = addGameObject();
-	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
-	floor->addComponent<Image>(_game->getTexture("Floor"));
+	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH*2, WIN_HEIGHT*2);
+	floor->addComponent<Image>(_game->getTexture("FloorPast"));
 
 	player = addGameObject<Player>(game);
 	camera->startFollowObject(player);
