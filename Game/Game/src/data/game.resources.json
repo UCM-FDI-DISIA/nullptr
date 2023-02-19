@@ -15,9 +15,9 @@
       { "id" : "Opciones", "file": "../Game/resources/images/UI/MainMenu/Opciones_79x18.png"},
       { "id" : "Album", "file": "../Game/resources/images/UI/MainMenu/Album_79x18.png"},
       { "id" : "Salir", "file": "../Game/resources/images/UI/MainMenu/Salir_79x18.png"},
-      { "id" : "Pasado", "file": "../Game/resources/images/cuentodenavidadPa187x76.png"},
-      { "id" : "Presente", "file": "../Game/resources/images/cuentodenavidadPr187x76.png"},
-      { "id" : "Futuro", "file": "../Game/resources/images/cuentodenavidadFu187x76.png"},
+      { "id" : "Pasado", "file": "../Game/resources/images/nodo_pasado.png"},
+      { "id" : "Presente", "file": "../Game/resources/images/nodo_pasado.png"},
+      { "id" : "Futuro", "file": "../Game/resources/images/nodo_pasado.png"},
       { "id" : "Tienda", "file": "../Game/resources/images/Tienda187x76.png"},
       { "id" : "Cofre", "file": "../Game/resources/images/Cofre187x76.png"},
       { "id" : "SalirO", "file": "../Game/resources/images/Salir187x76.png"},
@@ -27,7 +27,10 @@
       { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"},
       { "id" : "LifeBar", "file": "../Game/resources/images/Bar1027x222.png"},
       { "id" : "Life", "file": "../Game/resources/images/barravida718x178.png"},
-      { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"}
+      { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"},
+      {"id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
+      {"id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
+
     ],
     
     "messages" : [
