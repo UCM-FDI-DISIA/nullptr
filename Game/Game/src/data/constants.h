@@ -1,6 +1,6 @@
 
 /*
- * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
+ * La idea serÃ­a tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_
@@ -22,7 +22,7 @@ const double FRAME_TIME = 30;
 const int DELAY_TIME = 17;
 
 // TEXTURES
-const string TEXTURES_FILE = "../Game/src/data/textures.txt"; // Hay que rehacer las movidas bien aquí, en vez del archivo este
+const string TEXTURES_FILE = "../Game/src/data/textures.txt"; // Hay que rehacer las movidas bien aquÃ­, en vez del archivo este
 const int NUM_TEXTURES = 19;
 const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
@@ -36,26 +36,26 @@ const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 0.001;
 
 // BUTTONS
-// Tamaño del sprite
+// TamaÃ±o del sprite
 const int BUTTON_SPRITE_WIDTH = 79;
 const int BUTTON_SPRITE_HEIGHT = 18;
 const int BUTTON_SPRITE_COLUMS = 2;
 const int BUTTON_SPRITE_ROWS = 6;
-// Tamaño de los botones
+// TamaÃ±o de los botones
 const int BUTTON_WIDTH = 158;
 const int BUTTON_HEIGHT = 36;
 // Velocidades de animaciones
 const int ONCLICK_ONOUT_SPEED = 1;
 const int ONOVER_SPEED = 10;
-// Tamaño de los marcos
+// TamaÃ±o de los marcos
 const int BUTTON_FRAME_SPRITE_WIDTH = 95;
 const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
-// Frames de animación
+// Frames de animaciÃ³n
 const int ONOUT_ALL_FRAMES = 10;
 const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
-// Keys de animación
+// Keys de animaciÃ³n
 const string ONOUT = "OnOut";
 const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
@@ -102,8 +102,16 @@ const int LOGO_START_FRAME = 0;
 const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
 
+
 // Estudio
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
 const Vector2D STUDIO_POSITION = { WIN_WIDTH / 9 - STUDIO_WIDTH / 2, WIN_HEIGHT - WIN_HEIGHT / 10 - 10 };
+
+//Message
+const int MESSAGE_W = 300;
+const int MESSAGE_H = 200;
+const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
+const int MESSAGE_Y = WIN_HEIGHT / 4;
+
 #endif

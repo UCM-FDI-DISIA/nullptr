@@ -19,10 +19,10 @@ public:
 		hitRegistry.assign(1, false);
 		damage = dmg;
 	}
-	SwordSlashBehaviour(int dmg, vector<GameObject*>Target)
+	SwordSlashBehaviour(int dmg, vector<GameObject*>*Target)
 	{
-		target = Target;
-		hitRegistry.assign(Target.size(), false);
+		target = *Target;
+		hitRegistry.assign((*Target).size(), false);
 		damage = dmg;
 	}
 
@@ -32,7 +32,6 @@ public:
 		// Comprueba si ha chocado con el objetivo
 			if (gObj->getComponent<ColliderComponent>()->
 				hasCollided(target[i]->getComponent<Transform>())) {
-				cout << "colisiono" << endl;
  				if (!hitRegistry[i]) {
 					cout << "hizo damages" << endl;
 					target[i]->getComponent<HealthComponent>()->receiveDamage(damage);
