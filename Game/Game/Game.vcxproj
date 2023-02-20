@@ -183,12 +183,14 @@
     <ClInclude Include="src\gameObjects\SwordSlash.h" />
     <ClInclude Include="src\gameObjects\SwordSpin.h" />
     <ClInclude Include="src\gameObjects\RangedEnemy.h" />
+    <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
+    <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\scenes\GameState.h" />
     <ClInclude Include="src\scenes\InventoryScene.h" />
     <ClInclude Include="src\scenes\MainMenuScene.h" />
@@ -243,6 +245,7 @@
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
+    <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\scenes\GameState.cpp" />
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
     <ClCompile Include="src\scenes\MainMenuScene.cpp" />

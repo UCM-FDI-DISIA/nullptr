@@ -133,6 +133,7 @@
     <ClCompile Include="src\components\PlayerAnimator.cpp">
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\scenes\GameOverScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -312,6 +313,11 @@
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\components\PlayerAnimator.h">
       <Filter>Archivos de Encabezado\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\GameOverScene.h" />
+    <ClInclude Include="src\gameObjects\UI\Button.h">
+      <Filter>Archivos de Encabezado\Objects</Filter>
+
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
