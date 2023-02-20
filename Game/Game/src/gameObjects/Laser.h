@@ -15,6 +15,6 @@ public:
 		addComponent<LifeTimeComponent>(90);
 	}
 private:
-	const float HEIGHT = 5;
-	const float WIDTH = 300;
+	const float HEIGHT = 10;
+	const float WIDTH = 1100;
 };
