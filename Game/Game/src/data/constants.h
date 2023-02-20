@@ -28,8 +28,8 @@ const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
 
 // PLAYER
-const float PLAYER_INITIAL_WIDTH = WIN_WIDTH / 10;
-const float PLAYER_INITIAL_HEIGHT = WIN_HEIGHT / 10;
+const float PLAYER_INITIAL_WIDTH = 36 * 4;
+const float PLAYER_INITIAL_HEIGHT = 36 * 4;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
@@ -43,6 +43,10 @@ const int PLAYER_IDLE_FRAME_RATE = 10;
 const int PLAYER_MOVE_INITIAL_FRAME = 8;
 const int PLAYER_MOVE_FINAL_FRAME = 14;
 const int PLAYER_MOVE_FRAME_RATE = 10;
+
+// ENEMIES
+const int ENEMY_WIDTH = 30 * 2;
+const int ENEMY_HEIGHT = 60 * 2;
 
 // BUTTONS
 // Tamaño del sprite
