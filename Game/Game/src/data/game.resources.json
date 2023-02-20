@@ -16,6 +16,7 @@
       { "id" : "Opciones", "file": "../Game/resources/images/UI/MainMenu/Opciones_79x18.png"},
       { "id" : "Album", "file": "../Game/resources/images/UI/MainMenu/Album_79x18.png"},
       { "id" : "Salir", "file": "../Game/resources/images/UI/MainMenu/Salir_79x18.png"},
+      { "id" : "Reanudar", "file": "../Game/resources/images/UI/MainMenu/Reanudar_79x18.png"},
 
       { "id" : "Pasado", "file": "../Game/resources/images/Panodo_pasado80x100.png"},
       { "id" : "Presente", "file": "../Game/resources/images/Panodo_presente80x100.png"},
