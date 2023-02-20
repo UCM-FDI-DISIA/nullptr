@@ -7,7 +7,7 @@
 
 class Laser : public GameObject {
 public:
-	void initGameObject(Vector2D pos, float rotation, int damage, vector<GameObject*> enemies) {
+	void initGameObject(Vector2D pos, float rotation, int damage, vector<GameObject*>* enemies) {
 		addComponent<Transform>(pos, Vector2D(0,0), WIDTH, HEIGHT, rotation)->setAnchorPoint(0, HEIGHT / 2);
 		addComponent<Image>(SDLApplication::getTexture("Laser"));
 		addComponent<BulletBehavior>(damage, enemies);

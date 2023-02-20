@@ -10,9 +10,6 @@
 #include "../components/CardComponent.h"
 #include "../components/HeatlhComponent.h"
 
-class SDLApplication;
-class BattleScene;
-
 class Player : public GameObject {
 private:
 	Transform* transform;
