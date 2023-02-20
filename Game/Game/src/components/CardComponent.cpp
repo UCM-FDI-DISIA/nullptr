@@ -4,6 +4,7 @@
 #include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
 
+//Constructor CardComponent, carga todos los datos del Player Data
 CardComponent::CardComponent() {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
@@ -13,17 +14,20 @@ CardComponent::CardComponent() {
 	initDeck();
 }
 
+//Obtiene las referencias a otros componentes y escenas necesarias
 void CardComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 	where = dynamic_cast<BattleScene*>(gStt);
 }
 
+//Reduce el tiempo de disparo TODO añadirle el delta Time
 void CardComponent::update() {
 	if (downTime > 0) {
 		downTime -= 0.1;
 	}
 }
 
+//Coge el imput del teclado y ratón y llama a los métodos necesarios
 void CardComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getCenter(), InputHandler::instance()->getMousePos()); }
@@ -35,7 +39,7 @@ void CardComponent::handleInput() {
 	if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
 }
 
-
+//Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
 void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
 		(*active)->attack(playerPos, mousePos, attackMult, where);
@@ -45,6 +49,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	}
 }
 
+//Checkea el mana necesario y llama al metodo habilidad de la carta activa, descartandola y consumiendo mana
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		if ((*active)->getMana() <= mana) {
 			(*active)->ability(playerPos, mousePos, attackMult, where);
@@ -57,7 +62,7 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		}
 }
 
-
+//Mueve el puntero de la carta activa, dependiendo del valor de left lo mueve hacia la derecha o hacia la izquerda
 void CardComponent::switchActive(bool left) {
 	if (left) {
 		--active;
@@ -69,6 +74,7 @@ void CardComponent::switchActive(bool left) {
 	}
 }
 
+//Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
 void CardComponent::switchActive(int number) {
 	if (number >= 0 && number < hand.size()) {
 		active = hand.begin();
@@ -77,7 +83,7 @@ void CardComponent::switchActive(int number) {
 	}
 }
 
-
+//Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
 	srand(time(0));
 	random_shuffle(deck.begin(), deck.end());
@@ -106,11 +112,13 @@ void CardComponent::newHand() {
 	active = hand.begin();
 }
 
+//Añade la primera carta del mazo a la mano y la borra del mazo
 void CardComponent::drawCard() {
 	hand.push_back(deck.back());
 	deck.pop_back();
 }
 
+//Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
 	(*discarded)->resetUses();
