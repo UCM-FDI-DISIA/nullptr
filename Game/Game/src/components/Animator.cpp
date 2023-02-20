@@ -28,6 +28,7 @@ void Animator::resume() {
 
 //
 void Animator::update() {
+
 	if (currentAnimation != nullptr) {
 		if (SDL_GetTicks() - startTime >= (1000 / currentAnimation->frameRate)) {
 

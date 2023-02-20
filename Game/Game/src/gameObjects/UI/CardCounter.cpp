@@ -32,6 +32,14 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
 	uniAnim->play(to_string(0));
+
+
+	cards = new GameObject();
+	cards->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH / 2 + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), 
+									Vector2D(0, 0), REVERSE_HEIGHT * 2, REVERSE_WIDTH * 2);
+	Animator* animator = cards->addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 200, 93, 1, 5);
+	animator->attachToCamera();
+	animator->createAnim(SHCARTA, 0, 4, 5, -1);
 }
 
 void CardCounter::update() {
@@ -69,15 +77,21 @@ void CardCounter::update() {
 			Animator* anim;
 			//Cojo el Animator del objeto de las unidades y reproduzco la nueva animacion correspondiente
 			anim = unids->getComponent<Animator>();
-			anim->stop();
+			//anim->stop();
 			anim->play(to_string(uni));
 			//COjo el Animator del objeto de las decenas y reproduzco la nueva animacion correspondiente
 			anim = decs->getComponent<Animator>();
-			anim->stop();
+			//anim->stop();
 			anim->play(to_string(dec));
-			if (currentNumber <= 0)
+			if (currentNumber <= 1)
 			{
-				;
+				anim = cards->getComponent<Animator>();
+				//anim->stop();
+				anim->play(SHCARTA);
+			}
+			else
+			{
+				//anim->stop();
 			}
 		}
 	}
