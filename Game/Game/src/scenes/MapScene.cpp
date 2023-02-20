@@ -17,8 +17,8 @@ MapScene::MapScene() : GameState(), nodeMap(Node::getNodeMap()) {
 	/*for (int i = 0; i < nodeMap.size(); ++i) {
 		addGameObject<Button>(nodeMap[i]->loadNode(), game, nodeMap[i]->getPosition(), nodeMap[i]->getTextureKey(), 186, 76, 1, 1);
 	}*/
-	for (Node* node : nodeMap) {
-		addGameObject<NodeButton>(node->getIt(), node->loadNode(), SDLApplication::instance(), node->getPosition(), node->getTextureKey(), NODE_WIDTH, NODE_HEIGHT, 186, 76, 1, 1);
+	for (vector<Node*>::const_iterator node = nodeMap.begin(); node != nodeMap.end(); ++node) {
+		addGameObject<NodeButton>(node, (*node)->loadNode());
 	}
 }
 

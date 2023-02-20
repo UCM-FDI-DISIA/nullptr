@@ -25,7 +25,10 @@ private:
 	Vector2D position;
 
 	static vector<Node*> nodeMap;
+	static vector<Node*>* unlockedNodes;
 	
+	// Asigna el estado del nodo a bloqueado
+	void lock();
 	// Asigna el estado del nodo a desbloqueado
 	void unlock();
 	// Desbloquea los siguientes nodos
@@ -41,13 +44,15 @@ public:
 	// Carga el nodo correspondiente
 	virtual CallBack* loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
-	inline const string& getTextureKey() const { return textureKey; }
+	inline virtual const string& getTextureKey() const { return textureKey; }
 	// Devuelve la posición asignada al nodo
 	inline const Vector2D& getPosition() const { return position; }
-
+	// Devuelve un puntero al estado del nodo
+	inline const nodeState* getState() const { return &state; }
+	// Devuelve un iterador al tipo de batalla del nodo
 	virtual list<battleType>::iterator* getIt() { return nullptr; }
-	// MÉTODOS ESTÁTICOS
 
+	// MÉTODOS ESTÁTICOS
 	// Inicializa el mapa completo de Nodos
 	static void initializeNodeMap();
 	// Devuelve una referencia al mapa completo de Nodos

@@ -24,7 +24,13 @@
       { "id" : "Bullet", "file": "../Game/resources/images/bullet.jpg"},
       { "id" : "FloorPast", "file": "../Game/resources/images/FloorPast.png"},
       { "id" : "Reverse", "file": "../Game/resources/images/UI/ReversoCarta_58x93.png"},
-      { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"}
+      { "id" : "Numbers", "file": "../Game/resources/images/UI/Numeros_130x250.png"},
+      { "id" : "BattleNode0", "file": "../Game/resources/images/Map/TestNode.png"},
+      { "id" : "BattleNode1", "file": "../Game/resources/images/Map/TestNode.png"},
+      { "id" : "BattleNode2", "file": "../Game/resources/images/Map/TestNode.png"},
+      { "id" : "ShopNode", "file": "../Game/resources/images/Map/TestNode.png"},
+      { "id" : "ChestNode", "file": "../Game/resources/images/Map/TestNode.png"},
+      { "id" : "EventNode", "file": "../Game/resources/images/Map/TestNode.png"}
     ],
     
     "messages" : [

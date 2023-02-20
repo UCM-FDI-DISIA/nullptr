@@ -59,6 +59,8 @@ const int ONCLICK_ALL_FRAMES = 11;
 const string ONOUT = "OnOut";
 const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
+const string ONLOCKED= "OnLocked";
+const string ONCOMPLETED= "OnCompleted";
 // Keys de botones
 const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
@@ -101,5 +103,26 @@ const float NODE_LEVEL_X[3] = { WIN_WIDTH / 7, WIN_WIDTH / 7 * 3, WIN_WIDTH / 7 
 const float NODE_LEVEL_Y[3] = { WIN_HEIGHT / 7 * 5, WIN_HEIGHT / 7 * 3, WIN_HEIGHT / 7 };
 const int NODE_WIDTH = 50;
 const int NODE_HEIGHT = 50;
+
+const string BATTLE_NODE_TEXTURE_KEY = "BattleNode";
+const string SHOP_NODE_TEXTURE_KEY = "ShopNode";
+const string CHEST_NODE_TEXTURE_KEY = "ChestNode";
+const string EVENT_NODE_TEXTURE_KEY = "EventNode";
+
+const int NODE_FRAME_WIDTH = 1;
+const int NODE_FRAME_HEIGHT = 1;
+const int NODE_FRAME_ROWS = 1;
+const int NODE_FRAME_COLUMNS = 5;
+
+const int NODE_BUTTON_ONOUT_START_FRAME = 0;
+const int NODE_BUTTON_ONOUT_END_FRAME = 0;
+const int NODE_BUTTON_ONOVER_START_FRAME = 1;
+const int NODE_BUTTON_ONOVER_END_FRAME = 1;
+const int NODE_BUTTON_ONCLICK_START_FRAME = 2;
+const int NODE_BUTTON_ONCLICK_END_FRAME = 2;
+const int NODE_BUTTON_ONLOCKED_START_FRAME = 3;
+const int NODE_BUTTON_ONLOCKED_END_FRAME = 3;
+const int NODE_BUTTON_ONCOMPLETED_START_FRAME = 4;
+const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 4;
 
 #endif

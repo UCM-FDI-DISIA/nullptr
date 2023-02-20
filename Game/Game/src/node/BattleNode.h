@@ -28,6 +28,8 @@ private:
 public:
 	virtual CallBack* loadNode() const;
 	virtual list<battleType>::iterator* getIt() { return &type; }
+	// Devuelve la clave de la textura del nodo
+	inline virtual const string& getTextureKey() const { return Node::getTextureKey() + to_string((int)*type); }
 };
 
 #endif // !BATTLENODE_H_
