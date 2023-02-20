@@ -34,6 +34,15 @@ const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WID
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 0.001;
+// PLAYER ANIMATIONS
+const string PLAYER_IDLE = "PlayerIdle";
+const string PLAYER_MOVE = "PlayerMove";
+const int PLAYER_IDLE_INITIAL_FRAME = 0;
+const int PLAYER_IDLE_FINAL_FRAME = 7;
+const int PLAYER_IDLE_FRAME_RATE = 10;
+const int PLAYER_MOVE_INITIAL_FRAME = 8;
+const int PLAYER_MOVE_FINAL_FRAME = 14;
+const int PLAYER_MOVE_FRAME_RATE = 10;
 
 // BUTTONS
 // Tamaño del sprite
