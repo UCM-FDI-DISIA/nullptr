@@ -1,4 +1,6 @@
 #include "BattleScene.h"
+#include "../components/RangeBehavior.h"
+#include "../components/MeleeBehaviour.h"
 
 // Constructora
 BattleScene::BattleScene(int a) : GameState() {
@@ -8,7 +10,6 @@ BattleScene::BattleScene(int a) : GameState() {
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH*2, WIN_HEIGHT*2);
 	floor->addComponent<Image>(SDLApplication::getTexture("FloorPast"));
-
 	barraVida = addGameObject();
 	vida = addGameObject();
 
@@ -41,13 +42,31 @@ BattleScene::BattleScene(int a) : GameState() {
 
 	hand = addGameObject<HandUI>(cardComp);
 }
-
+void BattleScene::update() {
+	for (GameObject* gObj : gObjs) {
+		gObj->update();
+	}
+	auto it = enemies.begin();
+	while (it != enemies.end())
+	{
+		if ((*it)->isAlive() == false) {
+			auto itAux = it;
+			it = enemies.erase(itAux);
+		}
+		else it++;
+	}
+	refresh();
+}
 void BattleScene::mainMenu() {
-	SDLApplication::newScene<MapScene>();
+	SDLApplication::newScene<MainMenuScene>();
 }
 
-vector<GameObject*>& BattleScene::getEnemies() {
-	return enemies;
+vector<GameObject*>* BattleScene::getEnemies() {
+	return &enemies;
+}
+
+void BattleScene::OnPlayerDies() {
+	SDLApplication::newScene<GameOverScene>();
 }
 
 // CAMBIOS DE UI

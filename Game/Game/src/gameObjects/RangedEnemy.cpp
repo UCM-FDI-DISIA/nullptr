@@ -2,11 +2,6 @@
 #include "../components/RangeBehavior.h"
 #include "../scenes/BattleScene.h"
 
-
-RangedEnemy::RangedEnemy()
-{
-	//addComponent<ColliderComponent>();
-}
 void RangedEnemy::initGameObject(Vector2D pos,int life, Player* player)
 {
 	addComponent<Transform>(pos, Vector2D(0,0), 30, 60, 0);
