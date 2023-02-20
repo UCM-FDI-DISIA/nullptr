@@ -5,9 +5,16 @@ OptionsMenuScene::OptionsMenuScene() : GameState() {
 	cout << "Has entrado en la escena de Opciones" << endl;
 
 	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50),
-		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
+		EXIT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
+
+	addGameObject<Button>(toggleScreen, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 200),
+		OPTIONS, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
 }
 
 void OptionsMenuScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
+}
+
+void OptionsMenuScene::toggleScreen() {
+	SDLUtils::instance()->toggleFullScreen();
 }

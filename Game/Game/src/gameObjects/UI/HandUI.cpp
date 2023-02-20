@@ -72,10 +72,9 @@ void HandUI::createUI() {
 		GameObject* card = new GameObject();
 
 		// Añadir transform, haciendo que la primera carta esté más alta que el resto; y la textura
-		if (i == 1) card->addComponent<Transform>(Vector2D(X_CARD_POS - CARD_WIDTH / 2, Y_CARD_POS_SELECTED), Vector2D(), CARD_WIDTH * 2, CARD_HEIGTH * 2, -15 + 10 * (i - 3));
-		else card->addComponent<Transform>(Vector2D(X_CARD_POS * i - CARD_WIDTH / 2, Y_CARD_POS), Vector2D(), CARD_WIDTH * 2, CARD_HEIGTH * 2, -15 + 10 * (i - 3));
-		card->addComponent<Image>(SDLApplication::instance()->getTexture("Reverse"));
-		// card->addComponent<Image>(handPlayer[j]->getTexture());
+		if (i == 1) card->addComponent<Transform>(Vector2D(X_CARD_POS - CARD_WIDTH / 2, Y_CARD_POS_SELECTED), Vector2D(), CARD_WIDTH * 4, CARD_HEIGTH * 4, 0);
+		else card->addComponent<Transform>(Vector2D(X_CARD_POS * i - CARD_WIDTH / 2, Y_CARD_POS), Vector2D(), CARD_WIDTH * 4, CARD_HEIGTH * 4, 0);
+		card->addComponent<Image>(handPlayer[j]->getTexture());
 
 		// Añadir a la deque de la UI y marcar iteración
 		handUI.push_back(card);
