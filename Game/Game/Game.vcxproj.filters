@@ -128,7 +128,10 @@
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
-       <Filter>Archivos de Dependecias\Objects</Filter>
+      <Filter>Archivos de Dependecias\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\PlayerAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -305,6 +308,10 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\HandUI.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\components\PlayerAnimator.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

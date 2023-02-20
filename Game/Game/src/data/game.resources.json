@@ -7,7 +7,7 @@
     
     "images" : [
       { "id" : "PlinPlinPlon", "file" : "../Game/resources/images/plinplinplon.jpg" },
-      { "id" : "Player", "file" : "../Game/resources/images/player.png" },
+      { "id" : "Player", "file" : "../Game/resources/images/Player/player_all_36x36.png" },
       { "id" : "MainMenuFondo", "file" : "../Game/resources/images/UI/MainMenu/MainMenuBackground.png" },
       { "id" : "Logo", "file" : "../Game/resources/images/UI/MainMenu/LogoTimelessDeck_200x140.png" },
       { "id" : "Marco", "file" : "../Game/resources/images/UI/MainMenu/ButtonsBG_95x45.png" }, 

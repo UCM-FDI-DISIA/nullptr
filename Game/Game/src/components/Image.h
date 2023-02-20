@@ -15,6 +15,7 @@ protected:
 	Texture* texture;
 	Transform* transform;
 	Transform* cameraTransform;
+	SDL_RendererFlip flip;
 public:
 	static const int id = _IMAGE;
 	// Constructora
@@ -26,5 +27,11 @@ public:
 	virtual SDL_Rect getRect() const;
 	// Hace que el GameObject se renderice en función a la ventana, no a la cámara
 	void attachToCamera();
+	// Flipea la imagen horizontalmente
+	void flipHorizontal();
+	// Flipea la imagen verticalmente
+	void flipVertical();
+	// Desflipea la imagen
+	void flipNone();
 };
 #endif // !IMAGE_H_
