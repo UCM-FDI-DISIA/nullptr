@@ -34,11 +34,9 @@
       { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png" },
       { "id" : "Pistola", "file" : "../Game/resources/images/cards/CartaPistola_58x93.png" },
       { "id" : "Espada", "file" : "../Game/resources/images/cards/CartaEspada_58x93.png" },
-      { "id" : "Gafas", "file" : "../Game/resources/images/cards/CartaGafas_58x93.png" }
-
-
-      {"id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
-      {"id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
+       { "id" : "Gafas", "file" : "../Game/resources/images/cards/CartaGafas_58x93.png" },
+      { "id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
+      { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
 
     ],
     
