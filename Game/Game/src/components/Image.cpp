@@ -16,7 +16,7 @@ void Image::initComponent() {
 
 // Dibuja en pantalla la textura en el rectángulo del transform
 void Image::render() const {
-	texture->render(getRect());
+	texture->render(getRect(), transform->getRotation(),transform->getAnchorPoint());
 }
 
 //Devuelve el rect dependiendo de la cámara
@@ -31,6 +31,7 @@ SDL_Rect Image::getRect() const{
 	
 	return rect;
 }
+
 
 // Hace que el GameObject se renderice en función a la ventana, no a la cámara
 void Image::attachToCamera() {

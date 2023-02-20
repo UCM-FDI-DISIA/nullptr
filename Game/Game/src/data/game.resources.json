@@ -31,7 +31,8 @@
       { "id" : "Life", "file": "../Game/resources/images/LifeBar_200x30.png"},
       { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"},
       {"id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
-      {"id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
+      {"id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"},
+      {"id" : "Laser", "file" : "../Game/resources/images/Laser.png"}
     ],
     
     "messages" : [

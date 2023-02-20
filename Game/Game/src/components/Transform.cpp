@@ -1,9 +1,9 @@
 #include "Transform.h"
 #include <iostream>
 
-Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), width_(0), height_(0), rotation_(0) {}
+Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), width_(0), height_(0), rotation_(0), anchorPoint_(nullptr) {}
 
-Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) : initialPosition_(pos), position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {}
+Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) : initialPosition_(pos), position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r), anchorPoint_(nullptr) {}
 
 Transform::~Transform() {}
 
