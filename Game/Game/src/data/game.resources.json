@@ -7,7 +7,7 @@
     
     "images" : [
       { "id" : "PlinPlinPlon", "file" : "../Game/resources/images/plinplinplon.jpg" },
-      { "id" : "Player", "file" : "../Game/resources/images/player.png" },
+      { "id" : "Player", "file" : "../Game/resources/images/Player/player_all_36x36.png" },
       { "id" : "MainMenuFondo", "file" : "../Game/resources/images/UI/MainMenu/MainMenuBackground_106x59.png" },
       { "id" : "Logo", "file" : "../Game/resources/images/UI/MainMenu/LogoTimelessDeck_200x140.png" },
       { "id" : "Estudio", "file" : "../Game/resources/images/UI/MainMenu/nullptr_84x18.png" },
@@ -39,11 +39,10 @@
       { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png" },
       { "id" : "Pistola", "file" : "../Game/resources/images/cards/CartaPistola_58x93.png" },
       { "id" : "Espada", "file" : "../Game/resources/images/cards/CartaEspada_58x93.png" },
-       { "id" : "Gafas", "file" : "../Game/resources/images/cards/CartaGafas_58x93.png" },
+      { "id" : "Gafas", "file" : "../Game/resources/images/cards/CartaGafas_58x93.png" },
       { "id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
-      { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
-
-
+      { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"},
+      { "id" : "Laser", "file": "../Game/resources/images/Laser.png"}
     ],
     
     "messages" : [
