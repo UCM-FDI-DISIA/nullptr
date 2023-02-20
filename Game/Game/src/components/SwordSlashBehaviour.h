@@ -32,7 +32,6 @@ public:
 		// Comprueba si ha chocado con el objetivo
 			if (gObj->getComponent<ColliderComponent>()->
 				hasCollided(target[i]->getComponent<Transform>())) {
-				cout << "colisiono" << endl;
  				if (!hitRegistry[i]) {
 					cout << "hizo damages" << endl;
 					target[i]->getComponent<HealthComponent>()->receiveDamage(damage);
