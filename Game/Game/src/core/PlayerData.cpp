@@ -4,7 +4,7 @@ PlayerData::PlayerData() {
 	maxHP = 100;
 	currHP = maxHP;
 
-	maxMana = 100;
+	maxMana = INT_MAX;
 	currMana = maxMana;
 
 	fireRateMult = 1;
