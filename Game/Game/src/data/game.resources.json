@@ -16,7 +16,11 @@
       { "id" : "Opciones", "file": "../Game/resources/images/UI/MainMenu/Opciones_79x18.png"},
       { "id" : "Album", "file": "../Game/resources/images/UI/MainMenu/Album_79x18.png"},
       { "id" : "Salir", "file": "../Game/resources/images/UI/MainMenu/Salir_79x18.png"},
-      { "id" : "Pasado", "file": "../Game/resources/images/nodo_pasado.png"},
+
+      { "id" : "Pasado", "file": "../Game/resources/images/Panodo_pasado80x100.png"},
+      { "id" : "Presente", "file": "../Game/resources/images/Panodo_presente80x100.png"},
+      { "id" : "Futuro", "file": "../Game/resources/images/Panodo_futuro80x100.png"},
+
       { "id" : "Tienda", "file": "../Game/resources/images/Tienda187x76.png"},
       { "id" : "Cofre", "file": "../Game/resources/images/Cofre187x76.png"},
       { "id" : "SalirO", "file": "../Game/resources/images/Salir187x76.png"},
@@ -30,6 +34,7 @@
       { "id" : "Life", "file": "../Game/resources/images/LifeBar_200x30.png"},
       { "id" : "Enemy", "file": "../Game/resources/images/enemy.png"},
 
+
       { "id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
       { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png" },
       { "id" : "Pistola", "file" : "../Game/resources/images/cards/CartaPistola_58x93.png" },
@@ -37,6 +42,7 @@
        { "id" : "Gafas", "file" : "../Game/resources/images/cards/CartaGafas_58x93.png" },
       { "id" : "SwordSlash", "file" : "../Game/resources/images/SwordSlash200x200.png"},
       { "id" : "SwordSpin", "file" : "../Game/resources/images/SwordSpin400x400.png"}
+
 
     ],
     

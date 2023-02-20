@@ -25,12 +25,12 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	dir = dir.normalize() * bulletSpeed;
 	
 
-	where->addGameObject<SwordSlash>(playerPos, dir, where, damage);
+	where->addGameObject<SwordSlash>(playerPos, dir, where, damage * attackMult);
 
 }
 
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	
-	where->addGameObject<SwordSpin>(playerPos, where, damage * remainingUses);
+	where->addGameObject<SwordSpin>(playerPos, where, damage * remainingUses * attackMult);
 
 }
