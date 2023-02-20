@@ -16,7 +16,7 @@ void PlayerAnimator::update() {
 	Animator::update();
 
 	if (transform != nullptr) {
-		if (transform->getVel().getX() < 0 || transform->getVel().getX() > 0) {
+		if (transform->getVel().getX() < 0 || transform->getVel().getX() > 0 || transform->getVel().getY() < 0 || transform->getVel().getY() > 0) {
 			if (currentAnimationKey() != PLAYER_MOVE) {
 				play(PLAYER_MOVE);
 			}
