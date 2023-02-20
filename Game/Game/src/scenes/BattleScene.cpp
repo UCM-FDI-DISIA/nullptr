@@ -8,17 +8,17 @@ BattleScene::BattleScene(int a) : GameState() {
   
 	// Quitar cuando se cree el mapa de combate
 	floor = addGameObject();
-	floor->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH*2, WIN_HEIGHT*2);
-	floor->addComponent<Image>(SDLApplication::getTexture("FloorPast"));
+	floor->addComponent<Transform>(FLOOR_PAST_POSITION, FLOOR_PAST_VELOCITY, FLOOR_PAST_WIDTH, FLOOR_PAST_HEIGHT);
+	floor->addComponent<Image>(SDLApplication::getTexture(FLOOR_PAST));
 	
 	vida = addGameObject();
 	barraVida = addGameObject();
 
-	barraVida->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 + 138, 20), Vector2D(0, 0), 200, 30);
-	vida->addComponent<Transform>(Vector2D(WIN_WIDTH/2 +125, 0), Vector2D(0, 0),213, 53);
+	barraVida->addComponent<Transform>(LIFEFRAME_POSITION, LIFEFRAME_VELOCITY, LIFEFRAME_WIDTH, LIFEFRAME_HEIGHT);
+	vida->addComponent<Transform>(LIFE_POSITION, LIFE_VELOCITY, LIFE_WIDTH, LIFE_HEIGHT);
 	
-	barraVida->addComponent<Image>(SDLApplication::getTexture("Life"));
-	vida->addComponent<Image>(SDLApplication::getTexture("LifeBar"));
+	barraVida->addComponent<Image>(SDLApplication::getTexture(LIFEFRAME));
+	vida->addComponent<Image>(SDLApplication::getTexture(LIFE));
 
 	barraVida->getComponent<Image>()->attachToCamera();
 	vida->getComponent<Image>()->attachToCamera();
@@ -28,10 +28,10 @@ BattleScene::BattleScene(int a) : GameState() {
 	camera->startFollowObject(player);
 
 	enemies.push_back(
-		addGameObject<RangedEnemy>(Vector2D(0, 0), 50, player)
+		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
 	);
 	enemies.push_back(
-		addGameObject<MeleeEnemy>(Vector2D(0, 0), 50, player)
+		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
 	);
   
 	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10),

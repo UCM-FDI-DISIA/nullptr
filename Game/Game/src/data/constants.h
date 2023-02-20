@@ -27,14 +27,17 @@ const int NUM_TEXTURES = 19;
 const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
 
-// PLAYER
-const float PLAYER_INITIAL_WIDTH = 36 * 4;
-const float PLAYER_INITIAL_HEIGHT = 36 * 4;
-const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
-const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
-const float PLAYER_INITIAL_ROTATION = 0;
-const float PLAYER_SPEED = 0.001;
+// ANIMATIONS
+const string ONOUT = "OnOut";
+const string ONOVER = "OnOver";
+const string ONCLICK = "OnClick";
+
 // PLAYER ANIMATIONS
+const string PLAYER = "Player";
+const int PLAYER_SPRITE_WIDTH = 17;
+const int PLAYER_SPRITE_HEIGHT = 30;
+const int PLAYER_SPRITE_ROWS = 2;
+const int PLAYER_SPRITE_COLS = 8;
 const string PLAYER_IDLE = "PlayerIdle";
 const string PLAYER_MOVE = "PlayerMove";
 const int PLAYER_IDLE_INITIAL_FRAME = 0;
@@ -43,40 +46,60 @@ const int PLAYER_IDLE_FRAME_RATE = 10;
 const int PLAYER_MOVE_INITIAL_FRAME = 8;
 const int PLAYER_MOVE_FINAL_FRAME = 14;
 const int PLAYER_MOVE_FRAME_RATE = 10;
+// PLAYER
+const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 4;
+const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 4;
+const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
+const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
+const float PLAYER_INITIAL_ROTATION = 0;
+const float PLAYER_SPEED = 0.001;
 
 // ENEMIES
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
 
-// BUTTONS
-// Tamaño del sprite
+// BUTTONS ANIMATIONS
 const int BUTTON_SPRITE_WIDTH = 79;
 const int BUTTON_SPRITE_HEIGHT = 18;
 const int BUTTON_SPRITE_COLUMS = 2;
 const int BUTTON_SPRITE_ROWS = 6;
-// Tamaño de los botones
-const int BUTTON_WIDTH = 158;
-const int BUTTON_HEIGHT = 36;
-// Velocidades de animaciones
 const int ONCLICK_ONOUT_SPEED = 1;
 const int ONOVER_SPEED = 10;
-// Tamaño de los marcos
-const int BUTTON_FRAME_SPRITE_WIDTH = 95;
-const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
-// Frames de animación
+// BUTTON FRAMES ANIMATIONS
 const int ONOUT_ALL_FRAMES = 10;
 const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
-// Keys de animación
-const string ONOUT = "OnOut";
-const string ONOVER = "OnOver";
-const string ONCLICK = "OnClick";
-// Keys de botones
+// BUTTON FRAMES
+const int BUTTON_FRAME_SPRITE_WIDTH = 95;
+const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
+// BUTTONS
+const int BUTTON_WIDTH = 158;
+const int BUTTON_HEIGHT = 36;
+// BUTTON KEYS
 const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
 const string ALBUM = "Album";
 const string EXIT = "Salir";
+
+// FLOOR
+const string FLOOR_PAST = "FloorPast";
+const Vector2D FLOOR_PAST_POSITION = VECTOR_ZERO;
+const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+const int FLOOR_PAST_WIDTH = WIN_WIDTH * 2;
+const int FLOOR_PAST_HEIGHT = WIN_HEIGHT * 2;
+
+// LIFEBAR
+const string LIFEFRAME = "LifeFrame";
+const string LIFE = "Life";
+const Vector2D LIFEFRAME_POSITION = { WIN_WIDTH - 213 * 2, 30 };
+const Vector2D LIFEFRAME_VELOCITY = VECTOR_ZERO;
+const int LIFEFRAME_WIDTH = 200;
+const int LIFEFRAME_HEIGHT = 30;
+const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
+const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
+const int LIFE_WIDTH = 213;
+const int LIFE_HEIGHT = 53;
 
 // CARDS
 const int REVERSE_WIDTH = 58 * 2;
@@ -94,7 +117,7 @@ const int X_CARD_POS = WIN_WIDTH / 6 + LEFT_OFFSET / 2;
 const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 2;
 const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 2 - 60;
 
-//NUMBERS
+// NUMBERS
 const int NUMBERS_WIDTH = 130;
 const int NUMBERS_HEIGHT = 250;
 const int NUMBERS_SPRITE_COLUMS = 2;
@@ -102,7 +125,7 @@ const int NUMBERS_SPRITE_ROWS = 5;
 const int NUM_RENDER_W = NUMBERS_WIDTH / 5 * 2;
 const int NUM_RENDER_H = NUMBERS_HEIGHT / 5 * 2;
 
-// Logo
+// LOGO
 const int LOGO_WIDTH = 576;
 const int LOGO_HEIGHT = 403;
 const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 7};
@@ -114,17 +137,14 @@ const string LOGO_ANIM_KEY = "LogoIdle";
 const int LOGO_START_FRAME = 0;
 const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
-
-
-// Estudio
+// STUDIO
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
 const Vector2D STUDIO_POSITION = { WIN_WIDTH / 9 - STUDIO_WIDTH / 2, WIN_HEIGHT - WIN_HEIGHT / 10 - 10 };
 
-//Message
+// MESSAGE
 const int MESSAGE_W = 300;
 const int MESSAGE_H = 200;
 const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
-
 #endif
