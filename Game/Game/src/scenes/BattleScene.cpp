@@ -34,22 +34,14 @@ BattleScene::BattleScene(int a) : GameState() {
 
 
 
-	//Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 -50, 10),
-	//	PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
-	//MainMenu->getComponent<Animator>()->attachToCamera();
+	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 -50, 10),
+		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
+	MainMenu->getComponent<Animator>()->attachToCamera();
 
 
 
 	addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
 	addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
-
-
-
-	/*GameObject* sufle = addGameObject();
-	sufle->addComponent<Transform>(Vector2D(665, 485),Vector2D(0,0), REVERSE_HEIGHT*2, REVERSE_WIDTH*2);
-	Animator* animator = sufle->addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 200, 93, 1, 5);
-	animator->attachToCamera();
-	animator->createAnim(SHCARTA, 0, 4, 5, -1);*/
 
 }
 
