@@ -3,6 +3,8 @@
 #include "../core/GameObject.h"
 #include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
+#include "../scenes/BattleScene.h"
+#include "../gameObjects/UI/CardCounter.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
 CardComponent::CardComponent() {
@@ -11,6 +13,7 @@ CardComponent::CardComponent() {
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
 	deck = PlayerData::instance()->getDeck();
+	_myCounter = nullptr;
 	initDeck();
 }
 
@@ -96,7 +99,6 @@ void CardComponent::reshufflePile() {
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
-	cout << "Se barajo la pila de descartes para formar un nuevo mazo";
 }
 
 void CardComponent::newHand() {
@@ -106,8 +108,11 @@ void CardComponent::newHand() {
 	for (int i = 0; i < 4; i++) {
 		drawCard();
 		//Si se vacia la mano al ir sacando cartas
-		if (deck.size() == 0)
+		if (deck.size() == 0) {
+			//Si tengo un contador asignado muestro la animacion de barajar
+			if (_myCounter != nullptr) _myCounter->showShuffle();
 			reshufflePile();
+		}
 	}
 	active = hand.begin();
 }
@@ -132,5 +137,3 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 		where->recreateUI();
 	}
 }
-
-

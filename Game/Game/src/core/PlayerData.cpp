@@ -32,6 +32,8 @@ PlayerData::PlayerData() {
 
 	deck.push_back(new LaserShadesCard());
 
+	deck.push_back(new LaserShadesCard());
+
 }
 
 void PlayerData::getDataFromJSON()

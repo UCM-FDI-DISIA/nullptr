@@ -29,4 +29,5 @@ public:
 	virtual void initGameObject(bool _ref, CardComponent* _data);
 	//Metodo para crear las animaciones de los numeros de los digitos
 	void createAnims(Animator* &_anim);
+	void showShuffle();
 };

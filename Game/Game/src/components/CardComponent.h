@@ -6,9 +6,11 @@
 #include "../core/Vector2D.h"
 #include "../core/Card.h"
 #include <deque>
+#include "Animator.h"
 
 #pragma once
 class BatleScene;
+class CardCounter;
 class CardComponent : public Component {
 	private:
 		BattleScene* where;
@@ -17,6 +19,8 @@ class CardComponent : public Component {
 		vector<Card*> pile;
 		Transform* tr;
 		deque<Card*>::iterator active;
+		GameObject *card;
+		CardCounter* _myCounter;
 		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
@@ -26,6 +30,7 @@ class CardComponent : public Component {
 		void newHand();
 		void drawCard();
 		void discardCard(deque<Card*>::iterator discarded);
+		void animation();
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
@@ -38,6 +43,7 @@ class CardComponent : public Component {
 		void initComponent();
 		void update();
 		void handleInput();
+		void setCounter(CardCounter* _cc) { _myCounter = _cc; }
 		
 		//Getters
 		int getDeckSize() { return deck.size(); }
