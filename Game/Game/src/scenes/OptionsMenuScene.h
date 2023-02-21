@@ -4,10 +4,13 @@
 
 #include "GameState.h"
 
+class SDLApplication;
 class OptionsMenuScene : public GameState {
 private:
 public:
-	OptionsMenuScene(SDLApplication* _game);
+	OptionsMenuScene();
+	static void mainMenu();
+	static void toggleScreen();
 };
 
 #endif

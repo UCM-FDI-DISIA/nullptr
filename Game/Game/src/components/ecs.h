@@ -5,6 +5,20 @@
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
+	_IMAGE,
+	_PLAYERMOVEMENTCOMPONENT,
+	_CARDCOMPONENT,
+	_HEALTH,
+	_CAMERACOMPONENT,
+	_BUTTON,
+	_ANIMATOR,
+	_PLAYER_ANIMATOR,
+	_MELEE_BEHAVIOUR,
+	_RANGE_BEHAVIOR,
+	_COLLIDER_COMPONENT,
+	_BULLET_COMPONENT,
+	_SWORD_BEHAVIOUR,
+	_LIFETIME,
 	// ... (compoment ids)
 
 	// do not remove this

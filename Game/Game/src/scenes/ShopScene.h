@@ -6,7 +6,8 @@
 class ShopScene : public GameState {
 private:
 public:
-	ShopScene(SDLApplication* _game);
+	ShopScene();
+	static void mainMenu();
 };
 
 #endif

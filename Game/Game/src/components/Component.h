@@ -1,39 +1,33 @@
 #pragma once
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
-
 #include <SDL.h>
 #include "ecs.h"
 class GameObject;
-class Manager;
+class GameState;
 
 class Component {
 protected:
 	GameObject* gObj;
-	Manager* mngr;
+	GameState* gStt;
 public:
-	// Constructor
-	Component() : gObj(nullptr), mngr(nullptr) {}
-	// Destructor
+	// Constructora
+	Component() : gObj(nullptr), gStt(nullptr) {}
+	// Destructora
 	virtual ~Component() {}
-	// Sets the GameObject and the Manager of the Component
 	// Asigna el GameObject y el Manager del Component
-	inline void setContext(GameObject* _gObj, Manager* _mngr) {
+	inline void setContext(GameObject* _gObj, GameState* _gStt) {
 		gObj = _gObj;
-		mngr = _mngr;
+		gStt = _gStt;
 	}
-	// Inizializes Component if it's necessary
 	// Inicializa el Component si es necesario
 	virtual void initComponent() {}
-	// Updates the Component
 	// Actualiza el Component
 	virtual void update() {}
-	// Draws the Component on screen
 	// Dibuja el Component en pantalla
 	virtual void render() const {}
-	// Handle's the Component's events
 	// Maneja los eventos del Component
-	virtual void handleEvent(SDL_Event event) {}
+	virtual void handleInput() {}
 };
 
 #endif // !COMPONENT_H_

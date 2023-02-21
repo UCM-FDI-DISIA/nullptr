@@ -147,17 +147,57 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\cards\Cards.h" />
+    <ClInclude Include="src\components\Animator.h" />
+    <ClInclude Include="src\components\BulletBehavior.h" />
+    <ClInclude Include="src\components\CameraComponent.h" />
+    <ClInclude Include="src\components\CardComponent.h" />
+    <ClInclude Include="src\components\ButtonComponent.h" />
+    <ClInclude Include="src\components\ColliderComponent.h" />
     <ClInclude Include="src\components\Component.h" />
+    <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\EnemyBehavior.h" />
+    <ClInclude Include="src\components\HeatlhComponent.h" />
+    <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\NodeButtonComponent.h" />
+    <ClInclude Include="src\components\LifetimeComponent.h" />
+    <ClInclude Include="src\components\MeleeBehaviour.h" />
+    <ClInclude Include="src\components\PlayerAnimator.h" />
+    <ClInclude Include="src\components\PlayerMovementComponent.h" />
+    <ClInclude Include="src\components\RangeBehavior.h" />
+    <ClInclude Include="src\components\SwordSlashBehaviour.h" />
+    <ClInclude Include="src\components\Transform.h" />
+    <ClInclude Include="src\core\Card.h" />
     <ClInclude Include="src\core\GameObject.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
-    <ClInclude Include="src\core\Manager.h" />
+    <ClInclude Include="src\core\PlayerData.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
+    <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
+    <ClInclude Include="src\data\json\JSON.h" />
+    <ClInclude Include="src\data\json\JSONValue.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Bullet.h" />
+    <ClInclude Include="src\gameObjects\Camera.h" />
+    <ClInclude Include="src\gameObjects\NodeButton.h" />
+    <ClInclude Include="src\gameObjects\MeleeEnemy.h" />
+    <ClInclude Include="src\gameObjects\Player.h" />
+    <ClInclude Include="src\gameObjects\SwordSlash.h" />
+    <ClInclude Include="src\gameObjects\SwordSpin.h" />
+    <ClInclude Include="src\gameObjects\RangedEnemy.h" />
+    <ClInclude Include="src\gameObjects\UI\Button.h" />
+    <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
+    <ClInclude Include="src\node\BattleNode.h" />
+    <ClInclude Include="src\node\ChestNode.h" />
+    <ClInclude Include="src\node\EventNode.h" />
+    <ClInclude Include="src\node\Node.h" />
+    <ClInclude Include="src\node\ShopNode.h" />
+    <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
-    <ClInclude Include="src\scenes\BattleScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
+    <ClInclude Include="src\scenes\BattleScene.h" />
+    <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\scenes\GameState.h" />
     <ClInclude Include="src\scenes\InventoryScene.h" />
     <ClInclude Include="src\scenes\MainMenuScene.h" />
@@ -165,17 +205,61 @@
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
+    <ClInclude Include="src\sdlutils\Font.h" />
+    <ClInclude Include="src\sdlutils\InputHandler.h" />
+    <ClInclude Include="src\sdlutils\macros.h" />
+    <ClInclude Include="src\sdlutils\Music.h" />
+    <ClInclude Include="src\sdlutils\RandomNumberGenerator.h" />
+    <ClInclude Include="src\sdlutils\SDLUtils.h" />
+    <ClInclude Include="src\sdlutils\SoundEffect.h" />
     <ClInclude Include="src\sdlutils\Texture.h" />
+    <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
+    <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\cards\Gun.cpp" />
+    <ClCompile Include="src\cards\LaserShades.cpp" />
+    <ClCompile Include="src\cards\Sword.cpp" />
+    <ClCompile Include="src\components\Animator.cpp" />
+    <ClCompile Include="src\components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\CardComponent.cpp" />
+    <ClCompile Include="src\components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\EnemyBehavior.cpp" />
+    <ClCompile Include="src\components\HeatlhComponent.cpp" />
+    <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\NodeButtonComponent.cpp" />
+    <ClCompile Include="src\components\LifetimeComponent.cpp" />
+    <ClCompile Include="src\components\MeleeBehaviour.cpp" />
+    <ClCompile Include="src\components\PlayerAnimator.cpp" />
+    <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
+    <ClCompile Include="src\components\RangeBehavior.cpp" />
+    <ClCompile Include="src\components\Transform.cpp" />
+    <ClCompile Include="src\core\Card.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
-    <ClCompile Include="src\core\Manager.cpp" />
+    <ClCompile Include="src\core\PlayerData.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
+    <ClCompile Include="src\core\Vector2D.cpp" />
+    <ClCompile Include="src\data\json\JSON.cpp" />
+    <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\gameObjects\Camera.cpp" />
+    <ClCompile Include="src\gameObjects\NodeButton.cpp" />
+    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Player.cpp" />
+    <ClCompile Include="src\gameObjects\RangedEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\UI\Button.cpp" />
+    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
+    <ClCompile Include="src\node\BattleNode.cpp" />
+    <ClCompile Include="src\node\ChestNode.cpp" />
+    <ClCompile Include="src\node\EventNode.cpp" />
+    <ClCompile Include="src\node\Node.cpp" />
+    <ClCompile Include="src\node\ShopNode.cpp" />
+    <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
-    <ClCompile Include="src\scenes\BattleScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
+    <ClCompile Include="src\scenes\BattleScene.cpp" />
+    <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\scenes\GameState.cpp" />
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
     <ClCompile Include="src\scenes\MainMenuScene.cpp" />
@@ -183,6 +267,8 @@
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
+    <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
+    <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +277,9 @@
   <ItemGroup>
     <Image Include="Game.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\data\game.resources.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

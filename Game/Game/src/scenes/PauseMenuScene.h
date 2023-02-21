@@ -6,7 +6,7 @@
 class PauseMenuScene : public GameState {
 private:
 public:
-	PauseMenuScene(SDLApplication* _game);
+	PauseMenuScene();
 };
 
 #endif

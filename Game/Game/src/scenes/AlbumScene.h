@@ -6,7 +6,8 @@
 class AlbumScene : public GameState {
 private:
 public:
-	AlbumScene(SDLApplication* _game);
+	AlbumScene();
+	static void mainMenu();
 };
 
 #endif // !ALBUMSCENE_H_
