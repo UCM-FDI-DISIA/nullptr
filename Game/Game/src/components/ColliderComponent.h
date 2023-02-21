@@ -11,6 +11,5 @@ public:
 		SDL_Rect aux = gObj->getComponent<Transform>()->getRect();
 		SDL_Rect aux1 = other->getRect();
 		return SDL_HasIntersection(&aux, &aux1);
-		return false;
 	}
 };

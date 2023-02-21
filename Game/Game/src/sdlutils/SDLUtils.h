@@ -13,6 +13,7 @@
 //#include "SoundEffect.h"
 #include "Texture.h"
 #include "VirtualTimer.h"
+#include "../data/constants.h"
 
 class SDLUtils: public Singleton<SDLUtils> {
 
@@ -101,8 +102,10 @@ public:
 	inline void toggleFullScreen() {
 		auto flags = SDL_GetWindowFlags(window_);
 		if (flags & SDL_WINDOW_FULLSCREEN) {
+			SDL_SetWindowSize(window_, 80, 60);
 			SDL_SetWindowFullscreen(window_, 0);
 		} else {
+			SDL_SetWindowSize(window_, WIN_WIDTH, WIN_HEIGHT);
 			SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
 		}
 	}

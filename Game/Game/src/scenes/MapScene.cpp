@@ -1,36 +1,34 @@
 #include "MapScene.h"
 #include "../core/SDLApplication.h"
+#include "../gameObjects/NodeButton.h"
 
-MapScene::MapScene() : GameState() {
-	addGameObject<Button>(pasado, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2, (WIN_HEIGHT / 2 - 30) -3 * 30), "Pasado", 80, 100, 1, 1, 80, 100);
-	addGameObject<Button>(presente, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2, (WIN_HEIGHT / 2 - 30) + 1 * 30), "Presente", 80, 100, 1, 1, 80, 100);
-	addGameObject<Button>(futuro, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2, (WIN_HEIGHT / 2 - 30) + 5 * 30), "Futuro", 80, 100, 1, 1, 80, 100);
-	addGameObject<Button>(tienda, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 300, (WIN_HEIGHT / 2 - 30) + 3 * 30), "Tienda", 186, 76, 1, 1,BUTTON_WIDTH, BUTTON_HEIGHT);
-	addGameObject<Button>(cofre, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 300, (WIN_HEIGHT / 2 - 30) + 5 * 30), "Cofre", 186, 76, 1, 1, BUTTON_WIDTH, BUTTON_HEIGHT);
-	addGameObject<Button>(salir, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 300, (WIN_HEIGHT / 2 - 30) + 1 * 30), "SalirO", 186, 76, 1, 1, BUTTON_WIDTH, BUTTON_HEIGHT);
+MapScene::MapScene() : GameState(), nodeMap(Node::getNodeMap()) {
+	for (vector<Node*>::const_iterator node = nodeMap.begin(); node != nodeMap.end(); ++node) {
+		addGameObject<NodeButton>(node, (*node)->loadNode());
+	}
 }
 
-void MapScene::pasado() {//para el pasado
-	cout << "HE SIDO CLICADO Pasado" << endl;
-	SDLApplication::newScene<BattleScene>(0);
+// Abre la escena de batalla en el pasado
+void MapScene::pasado() {
+	//SDLApplication::newScene<BattleScene>(0);
 }
-void MapScene::presente() {//para el presente
-	cout << "HE SIDO CLICADO Presente " << endl;
-	SDLApplication::newScene<BattleScene>(1);
+// Abre la escena de batalla en el presente
+void MapScene::presente() {
+	//SDLApplication::newScene<BattleScene>(1);
 }
-void MapScene::futuro() {//para el futuro
-	cout << "HE SIDO CLICADO Futuro" << endl;
-	SDLApplication::newScene<BattleScene>(2);
+// Abre la escena de batalla en el furuto
+void MapScene::futuro() {
+	//SDLApplication::newScene<BattleScene>(2);
 }
-void MapScene::tienda() {//para la tienda
-	cout << "HE SIDO CLICADO Tienda" << endl;
+// Abre la escena de tienda
+void MapScene::tienda() {
 	SDLApplication::newScene<ShopScene>();
 }
-void MapScene::cofre() {//para el cofre
-	cout << "HE SIDO CLICADO Cofre" << endl;
+// Abre la escena de cofre
+void MapScene::cofre() {
 	SDLApplication::newScene<ChestScene>();
 }
-void MapScene::salir() {//para el cofre
-	cout << "HE SIDO CLICADO El menu inicial" << endl;
+// Vuelve a la escena de menú principal
+void MapScene::salir() {
 	SDLApplication::newScene<MainMenuScene>();
 }

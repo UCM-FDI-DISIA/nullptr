@@ -1,5 +1,6 @@
 #include "../cards/Cards.h"
 
+//Devuelve la carta correspondiente al id
 Card Card::getCard(CardId type) {
 	switch (type)
 	{

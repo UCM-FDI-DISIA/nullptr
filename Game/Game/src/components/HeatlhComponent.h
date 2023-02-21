@@ -1,5 +1,8 @@
 #pragma once
 #include "Component.h"
+
+// Este componente sirve para manejar todos los eventos relacionados con la vida del objeto
+// Como su muerte o su curación
 class HealthComponent : public Component {
 private:
 	int lifePoints;

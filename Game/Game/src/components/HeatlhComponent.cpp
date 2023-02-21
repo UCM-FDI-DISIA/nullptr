@@ -1,5 +1,9 @@
 #include "HeatlhComponent.h"
 #include"../core/GameObject.h"
+#include "../scenes/BattleScene.h"
+#include "RangeBehavior.h"
+#include "MeleeBehaviour.h"
+
 // Al construirse, adopta el gameObject y su manager como propios
 // También define la vida máxima del objeto
 HealthComponent::HealthComponent(int life)
@@ -19,11 +23,15 @@ void HealthComponent::heal(int heal)
 	if (lifePoints + heal <= modifiedMaxLife) lifePoints += heal;
 	else lifePoints = modifiedMaxLife;
 }
+// Al llegar la vida a 0, el objetose dispone a morir
+// En el caso del jugador, termina la partida
 void HealthComponent::die()
 {
-	cout << "MUERTE" << endl; //Para pruebas
-	lifePoints = modifiedMaxLife;
-	/*gObj->setAlive(false);*/
+	auto sc = dynamic_cast<BattleScene*>(gStt);
+	if (gObj->hasComponent<CardComponent>()) {
+		sc->OnPlayerDies();
+	}
+	gObj->setAlive(false);
 }
 // Devuelve el valor actual de la vida
 int HealthComponent::getLife()

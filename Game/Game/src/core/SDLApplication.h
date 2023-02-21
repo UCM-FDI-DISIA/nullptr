@@ -21,6 +21,9 @@
 #include "../scenes/OptionsMenuScene.h"
 #include "../scenes/PauseMenuScene.h"
 #include "../scenes/ShopScene.h"
+#include "../scenes/GameOverScene.h"
+
+#include "../node/Node.h"
 
 using namespace std;
 using TextureName = string;
@@ -48,8 +51,6 @@ public:
 	void handleInput();
 	// Devuelve la Texture pedida
 	static Texture* getTexture(TextureName texture);
-
-	static void beginScene(GameState* newScene);
 
 	template<typename T, typename ...Ts>
 	static void newScene(Ts&& ...args) {
