@@ -33,6 +33,7 @@ const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
 const string ONLOCKED = "OnLocked";
 const string ONCOMPLETED = "OnCompleted";
+const string SHCARTA = "SHCarta";
 
 // PLAYER ANIMATIONS
 const string PLAYER = "Player";
@@ -74,12 +75,6 @@ const int ONOUT_ALL_FRAMES = 10;
 const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
-// Keys de animación
-const string ONOUT = "OnOut";
-const string ONOVER = "OnOver";
-const string ONCLICK = "OnClick";
-const string SHCARTA = "SHCarta";
-// Keys de botones
 
 // BUTTON FRAMES
 const int BUTTON_FRAME_SPRITE_WIDTH = 95;

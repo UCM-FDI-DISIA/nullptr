@@ -9,7 +9,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Me guardo el Transform del objeto principal (para ajustar los numeros de acorde)
 	Transform* trP;
 	// Si soy el contador de cartas del mazo me coloco a la izquierda
-	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), 93, REVERSE_HEIGHT);
+	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), 196, REVERSE_HEIGHT);
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
 	else trP = addComponent<Transform>(Vector2D(WIN_WIDTH - RIGHT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), REVERSE_WIDTH, REVERSE_HEIGHT);
 
@@ -24,7 +24,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	}
 	else
 	{
-		//Me guardo una referencia al componente de renderizado para anclarlo a la camara (asi tiene una posicion fija en pantalla)
+		//Si no soy mazo simplemente renderizo el reverso de la carta
 		Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
 		im->attachToCamera();
 	}
@@ -116,6 +116,7 @@ void CardCounter::createAnims(Animator* &_anim) {
 	}
 }
 
+//Metodo para reproducir la animacion de barajar el mazo
 void CardCounter::showShuffle() {
 	if (amIDeck) {
 		auto anim = getComponent<Animator>();

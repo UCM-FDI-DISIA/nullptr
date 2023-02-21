@@ -99,7 +99,6 @@ void CardComponent::reshufflePile() {
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
-	cout << "Se barajo la pila de descartes para formar un nuevo mazo";
 }
 
 void CardComponent::newHand() {
@@ -110,6 +109,7 @@ void CardComponent::newHand() {
 		drawCard();
 		//Si se vacia la mano al ir sacando cartas
 		if (deck.size() == 0) {
+			//Si tengo un contador asignado muestro la animacion de barajar
 			if (_myCounter != nullptr) _myCounter->showShuffle();
 			reshufflePile();
 		}
