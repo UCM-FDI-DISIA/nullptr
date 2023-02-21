@@ -25,6 +25,7 @@ private:
 	Vector2D position;
 
 	static vector<Node*> nodeMap;
+	static vector<Node*> initialNodes;
 	static vector<Node*>* unlockedNodes;
 	
 	// Asigna el estado del nodo a bloqueado
