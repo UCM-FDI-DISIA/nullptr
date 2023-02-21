@@ -23,6 +23,8 @@ void HealthComponent::heal(int heal)
 	if (lifePoints + heal <= modifiedMaxLife) lifePoints += heal;
 	else lifePoints = modifiedMaxLife;
 }
+// Al llegar la vida a 0, el objetose dispone a morir
+// En el caso del jugador, termina la partida
 void HealthComponent::die()
 {
 	auto sc = dynamic_cast<BattleScene*>(gStt);
