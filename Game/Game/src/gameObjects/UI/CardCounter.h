@@ -10,7 +10,6 @@ private:
 	//Referencias a mis objetos "numero" y a las cartas del jugador
 	GameObject* decs;
 	GameObject* unids;
-	GameObject* cards;
 	CardComponent* myData;
 
 	//Me indica si debo contar mazo o descartes
@@ -23,7 +22,6 @@ public:
 		GameObject::~GameObject();
 		delete(decs);
 		delete(unids);
-		delete(cards);
 	}
 	//Sobrescribimos los metodos
 	virtual void update();

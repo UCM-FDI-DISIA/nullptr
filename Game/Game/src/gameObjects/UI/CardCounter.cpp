@@ -13,17 +13,18 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
 	else trP = addComponent<Transform>(Vector2D(WIN_WIDTH - RIGHT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), REVERSE_WIDTH, REVERSE_HEIGHT);
 
-	Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
-	im->attachToCamera();
+	
 
 	if (amIDeck)
 	{
 		//Me guardo una referencia al componente de renderizado para anclarlo a la camara (asi tiene una posicion fija en pantalla)
-		//Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
-		//im->attachToCamera();
+		Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
+		im->attachToCamera();
 	}
 	else
 	{
+	
+
 		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 200, 93, 1, 5);
 		anim->attachToCamera();
 		anim->createAnim(SHCARTA, 0, 4, 5, -1);
@@ -95,7 +96,7 @@ void CardCounter::update() {
 			anim->play(to_string(dec));
 			if (currentNumber <= 0)
 			{
-				anim = cards->getComponent<Animator>();
+				anim = getComponent<Animator>();
 				anim->stop();
 				anim->play(SHCARTA);
 			}
