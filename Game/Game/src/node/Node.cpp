@@ -60,6 +60,9 @@ void Node::complete() {
 
 // Inicializa el mapa completo de Nodos
 void Node::initializeNodeMap() {
+	// crear vector con los niveles iniciales y asignarlos al puntero de desbloqueados
+	vector<Node*> initVect;
+	unlockedNodes = &initVect;
 
 	// Crear los nodos (con unos iniciales desbloqueados)
 	(new BattleNode({NODE_LEVEL_X[0], NODE_LEVEL_Y[0]}))->unlock();
@@ -68,9 +71,8 @@ void Node::initializeNodeMap() {
 	(new EventNode({ NODE_LEVEL_X[0], NODE_LEVEL_Y[1] }))->unlock();
 	(new ShopNode({ NODE_LEVEL_X[1], NODE_LEVEL_Y[1] }))->unlock();
 
-	// crear vector con los niveles iniciales y asignarlos al puntero de desbloqueados
-	vector<Node*> initVect = { nodeMap[0], nodeMap[1], nodeMap[2], nodeMap[3], nodeMap[4]};
-	unlockedNodes = &initVect;
+	// inicializar el vector con los niveles iniciales
+	initVect = { nodeMap[0], nodeMap[1], nodeMap[2], nodeMap[3], nodeMap[4]};
 
 	// asignar los nodos que se desbloquean al completar cada nodo
 	nodeMap[0]->setNextNodes({ nodeMap[3], nodeMap[4] });
