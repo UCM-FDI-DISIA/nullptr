@@ -3,7 +3,7 @@
 #include "../components/MeleeBehaviour.h"
 
 // Constructora
-BattleScene::BattleScene(int a) : GameState() {
+BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
   
 	// Quitar cuando se cree el mapa de combate
@@ -27,6 +27,7 @@ BattleScene::BattleScene(int a) : GameState() {
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
 
+
 	enemies.push_back(
 		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
 	);
@@ -35,7 +36,8 @@ BattleScene::BattleScene(int a) : GameState() {
 	);
   
 	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10),
-		EXIT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH, BUTTON_HEIGHT);
+		EXIT, MAINMENU_BUTTON_WIDTH, MAINMENU_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
+
 	MainMenu->getComponent<Animator>()->attachToCamera();
 
 	CardComponent* cardComp = player->getComponent<CardComponent>();

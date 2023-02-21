@@ -24,13 +24,14 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// BOTONES -> se crean y se añaden a la lista de la escena
 	// Botón jugar
+
 	marcos[0] = addGameObject();
 	marcos[0]->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - (3 * WIN_WIDTH / 10) - 10, WIN_HEIGHT * 4 / 8 - 88), Vector2D(0, 0), 190 * 2, 90 * 2);
 	marcos[0]->addComponent<Animator>(SDLApplication::getTexture("Marco"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	addGameObject<Button>(play, SDLApplication::instance(),
 		Vector2D(WIN_WIDTH / 2 - ((79 * 2) + (190 * 2)) , WIN_HEIGHT * 4 / 8),
-		PLAY, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH * 2, BUTTON_HEIGHT * 2, marcos[0]);
+		PLAY, MAINMENU_BUTTON_WIDTH * 2, MAINMENU_BUTTON_HEIGHT * 2, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marcos[0]);
 
 	// Botón album
 	marcos[1] = addGameObject();
@@ -38,7 +39,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 	marcos[1]->addComponent<Animator>(SDLApplication::getTexture("Marco"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	addGameObject<Button>(album, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 + BUTTON_SPRITE_WIDTH * 2, WIN_HEIGHT * 5.5 / 8),
-		ALBUM, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH * 2, BUTTON_HEIGHT * 2, marcos[1]);
+		ALBUM, MAINMENU_BUTTON_WIDTH * 2, MAINMENU_BUTTON_HEIGHT * 2, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marcos[1]);
 
 	// Botón options
 	marcos[2] = addGameObject();
@@ -46,7 +47,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 	marcos[2]->addComponent<Animator>(SDLApplication::getTexture("Marco"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	addGameObject<Button>(options, SDLApplication::instance(), Vector2D(WIN_WIDTH / 3 - BUTTON_SPRITE_WIDTH, WIN_HEIGHT * 5.5 / 8),
-		OPTIONS, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH * 2, BUTTON_HEIGHT * 2, marcos[2]);
+		OPTIONS, MAINMENU_BUTTON_WIDTH * 2, MAINMENU_BUTTON_HEIGHT * 2, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marcos[2]);
 
 	// Botón salir
 	marcos[3] = addGameObject();
@@ -54,7 +55,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 	marcos[3]->addComponent<Animator>(SDLApplication::getTexture("Marco"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	addGameObject<Button>(exit, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 + (3 * WIN_WIDTH / 20), WIN_HEIGHT * 4 / 8),
-		EXIT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, BUTTON_WIDTH * 2, BUTTON_HEIGHT * 2, marcos[3]);
+		EXIT, MAINMENU_BUTTON_WIDTH * 2, MAINMENU_BUTTON_HEIGHT * 2, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marcos[3]);
 }
 
 void MainMenuScene::play() {

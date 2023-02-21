@@ -31,6 +31,8 @@ const int DIGITS_NUMB = 4;
 const string ONOUT = "OnOut";
 const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
+const string ONLOCKED = "OnLocked";
+const string ONCOMPLETED = "OnCompleted";
 
 // PLAYER ANIMATIONS
 const string PLAYER = "Player";
@@ -63,6 +65,8 @@ const int BUTTON_SPRITE_WIDTH = 79;
 const int BUTTON_SPRITE_HEIGHT = 18;
 const int BUTTON_SPRITE_COLUMS = 2;
 const int BUTTON_SPRITE_ROWS = 6;
+
+// Velocidades de animaciones
 const int ONCLICK_ONOUT_SPEED = 1;
 const int ONOVER_SPEED = 10;
 // BUTTON FRAMES ANIMATIONS
@@ -70,12 +74,13 @@ const int ONOUT_ALL_FRAMES = 10;
 const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
+
 // BUTTON FRAMES
 const int BUTTON_FRAME_SPRITE_WIDTH = 95;
 const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
 // BUTTONS
-const int BUTTON_WIDTH = 158;
-const int BUTTON_HEIGHT = 36;
+const int MAINMENU_BUTTON_WIDTH = 158;
+const int MAINMENU_BUTTON_HEIGHT = 36;
 // BUTTON KEYS
 const string PLAY = "Jugar";
 const string OPTIONS = "Opciones";
@@ -137,6 +142,34 @@ const string LOGO_ANIM_KEY = "LogoIdle";
 const int LOGO_START_FRAME = 0;
 const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
+
+// Nodos
+const float NODE_LEVEL_X[3] = { WIN_WIDTH / 7, WIN_WIDTH / 7 * 3, WIN_WIDTH / 7 * 5 };
+const float NODE_LEVEL_Y[3] = { WIN_HEIGHT / 7 * 5, WIN_HEIGHT / 7 * 3, WIN_HEIGHT / 7 };
+const int NODE_WIDTH = 50;
+const int NODE_HEIGHT = 50;
+
+const string BATTLE_NODE_TEXTURE_KEY = "BattleNode";
+const string SHOP_NODE_TEXTURE_KEY = "ShopNode";
+const string CHEST_NODE_TEXTURE_KEY = "ChestNode";
+const string EVENT_NODE_TEXTURE_KEY = "EventNode";
+
+const int NODE_FRAME_WIDTH = 1;
+const int NODE_FRAME_HEIGHT = 1;
+const int NODE_FRAME_ROWS = 1;
+const int NODE_FRAME_COLUMNS = 5;
+
+const int NODE_BUTTON_ONOUT_START_FRAME = 0;
+const int NODE_BUTTON_ONOUT_END_FRAME = 0;
+const int NODE_BUTTON_ONOVER_START_FRAME = 1;
+const int NODE_BUTTON_ONOVER_END_FRAME = 1;
+const int NODE_BUTTON_ONCLICK_START_FRAME = 2;
+const int NODE_BUTTON_ONCLICK_END_FRAME = 2;
+const int NODE_BUTTON_ONLOCKED_START_FRAME = 3;
+const int NODE_BUTTON_ONLOCKED_END_FRAME = 3;
+const int NODE_BUTTON_ONCOMPLETED_START_FRAME = 4;
+const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 4;
+
 // STUDIO
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
