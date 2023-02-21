@@ -16,23 +16,23 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	if (_ref)
 	{
 		//SI soy mazo debo enseñar la animacion de barajear
-		Animator* anim = addComponent<Animator>(SDLApplication::getTexture("SHCarta"), 90, 93, 1, 5);
+		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 90, 93, 1, 5);
 		anim->attachToCamera();
 		anim->createAnim(SHCARTA, 0, 4, 5, 1);
-		anim->createAnim("Idle", 0, 0, 1, 1);
-		anim->play("Idle");
+		anim->createAnim(IDLE, 0, 0, 1, 1);
+		anim->play(IDLE);
 	}
 	else
 	{
 		//Si no soy mazo simplemente renderizo el reverso de la carta
-		Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
+		Image* im = addComponent<Image>(SDLApplication::getTexture(REVERSE));
 		im->attachToCamera();
 	}
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
 	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(0, 0), NUM_RENDER_W, NUM_RENDER_H);
-	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture("Numbers"),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
+	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture(NUMBERS),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	decAnim->attachToCamera();
 	createAnims(decAnim);
 	decAnim->play(to_string(0));
@@ -40,7 +40,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	//Creamos el objeto de las unidades: con sus componentes y sus animaciones
 	unids = new GameObject();
 	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(0, 0), NUM_RENDER_W, NUM_RENDER_H);
-	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture("Numbers"), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
+	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture(NUMBERS), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
 	uniAnim->play(to_string(0));

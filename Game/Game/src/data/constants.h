@@ -34,6 +34,9 @@ const string ONCLICK = "OnClick";
 const string ONLOCKED = "OnLocked";
 const string ONCOMPLETED = "OnCompleted";
 const string SHCARTA = "SHCarta";
+const string IDLE = "Idle";
+const string REVERSE = "Reverse";
+const string NUMBERS = "Numbers";
 
 // PLAYER ANIMATIONS
 const string PLAYER = "Player";
