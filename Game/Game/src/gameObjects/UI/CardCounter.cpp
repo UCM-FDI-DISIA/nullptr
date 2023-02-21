@@ -9,29 +9,25 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Me guardo el Transform del objeto principal (para ajustar los numeros de acorde)
 	Transform* trP;
 	// Si soy el contador de cartas del mazo me coloco a la izquierda
-	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), REVERSE_WIDTH, REVERSE_HEIGHT);
+	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), 93, REVERSE_HEIGHT);
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
 	else trP = addComponent<Transform>(Vector2D(WIN_WIDTH - RIGHT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), REVERSE_WIDTH, REVERSE_HEIGHT);
 
-	
-
-	if (amIDeck)
+	if (_ref)
+	{
+		//SI soy mazo debo enseñar la animacion de barajear
+		Animator* anim = addComponent<Animator>(SDLApplication::getTexture("SHCarta"), 90, 93, 1, 5);
+		anim->attachToCamera();
+		anim->createAnim(SHCARTA, 0, 4, 5, 1);
+		anim->createAnim("Idle", 0, 0, 1, 1);
+		anim->play("Idle");
+	}
+	else
 	{
 		//Me guardo una referencia al componente de renderizado para anclarlo a la camara (asi tiene una posicion fija en pantalla)
 		Image* im = addComponent<Image>(SDLApplication::getTexture("Reverse"));
 		im->attachToCamera();
 	}
-	else
-	{
-	
-
-		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 200, 93, 1, 5);
-		anim->attachToCamera();
-		anim->createAnim(SHCARTA, 0, 4, 5, -1);
-		anim->play(SHCARTA);
-	}
-
-
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
@@ -48,20 +44,20 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
 	uniAnim->play(to_string(0));
-
-
-
 }
 
 void CardCounter::update() {
+
+	//Si soy mazo debo actualizar mis componentes para que se vea la animacion
+	if (amIDeck) GameObject::update();
+
+
 	//Si cuento las cartas del mazo
 	if (amIDeck) {
 		//Si el numero ha cambiado...
 		if (currentNumber != myData->getDeckSize()) {
-			//Actualizo mi numero y calculo las decenas y las unidades
-			currentNumber = myData->getDeckSize();
-			int uni = currentNumber % 10;
-			int dec = currentNumber / 10;
+			int uni = myData->getDeckSize() % 10;
+			int dec = myData->getDeckSize() / 10;
 
 			//Creo una referencia del tipo Animator
 			Animator* anim;
@@ -73,16 +69,29 @@ void CardCounter::update() {
 			anim = decs->getComponent<Animator>();
 			anim->stop();
 			anim->play(to_string(dec));
+
+			//Si no tenia cartas y ahora si, muestro la animacion de barajear
+			if (currentNumber == 0 && myData->getDeckSize() > 0)
+			{
+				anim = getComponent<Animator>();
+				anim->stop();
+				anim->play(SHCARTA);
+			}
+			else {
+				anim = getComponent<Animator>();
+				anim->stop();
+				anim->play("Idle");
+			}
+			//Actualizo mi numero y calculo las decenas y las unidades
+			currentNumber = myData->getDeckSize();
 		}
 	}
 	//Si cuento las cartas de la pila de descartes
 	else {
 		//Si el numero ha cambiado...
 		if (currentNumber != myData->getPileSize()) {
-			//Actualizo mi numero y calculo las decenas y las unidades
-			currentNumber = myData->getPileSize();
-			int uni = currentNumber % 10;
-			int dec = currentNumber / 10;
+			int uni = myData->getPileSize() % 10;
+			int dec = myData->getPileSize() / 10;
 
 			//Creo una referencia del tipo Animator
 			Animator* anim;
@@ -94,12 +103,9 @@ void CardCounter::update() {
 			anim = decs->getComponent<Animator>();
 			anim->stop();
 			anim->play(to_string(dec));
-			if (currentNumber <= 0)
-			{
-				anim = getComponent<Animator>();
-				anim->stop();
-				anim->play(SHCARTA);
-			}
+
+			//Actualizo mi numero y calculo las decenas y las unidades
+			currentNumber = myData->getPileSize();
 		}
 	}
 }
