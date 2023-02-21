@@ -17,6 +17,7 @@
 //	texture = nullptr;
 //}
 
+// Crea un gObj Slash en la dirección que apunta el jugador
 void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	std::cout << "slash"<<std::endl;
 	
@@ -29,6 +30,7 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 }
 
+// Crea un gObj Spin en el centro del jugador
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	
 	where->addGameObject<SwordSpin>(playerPos, where, damage * remainingUses * attackMult);
