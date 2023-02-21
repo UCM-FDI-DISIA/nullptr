@@ -11,7 +11,7 @@
 using namespace std;
 
 class GameObject {
-private:
+protected:
 	bool alive;
 	GameState* gStt;
 	std::vector<Component*> currCmps;

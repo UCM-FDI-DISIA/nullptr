@@ -57,5 +57,5 @@ void Animator::render() const {
 	srcRect.w = fw;
 	srcRect.h = fh;
 	
-	texture->render(srcRect, getRect());
+	texture->render(srcRect, getRect(), 0, nullptr, flip);
 }

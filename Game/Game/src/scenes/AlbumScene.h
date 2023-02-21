@@ -7,6 +7,7 @@ class AlbumScene : public GameState {
 private:
 public:
 	AlbumScene();
+	static void mainMenu();
 };
 
 #endif // !ALBUMSCENE_H_

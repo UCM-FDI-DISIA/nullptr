@@ -21,6 +21,7 @@
 #include "../scenes/OptionsMenuScene.h"
 #include "../scenes/PauseMenuScene.h"
 #include "../scenes/ShopScene.h"
+#include "../scenes/GameOverScene.h"
 
 #include "../node/Node.h"
 

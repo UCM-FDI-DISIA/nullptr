@@ -11,9 +11,14 @@ enum cmpId : cmpId_type {
 	_HEALTH,
 	_CAMERACOMPONENT,
 	_BUTTON,
+	_ANIMATOR,
+	_PLAYER_ANIMATOR,
+	_MELEE_BEHAVIOUR,
+	_RANGE_BEHAVIOR,
 	_COLLIDER_COMPONENT,
 	_BULLET_COMPONENT,
-	_ANIMATOR,
+	_SWORD_BEHAVIOUR,
+	_LIFETIME,
 	// ... (compoment ids)
 
 	// do not remove this

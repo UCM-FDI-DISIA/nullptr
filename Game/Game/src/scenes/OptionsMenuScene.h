@@ -10,6 +10,7 @@ private:
 public:
 	OptionsMenuScene();
 	static void mainMenu();
+	static void toggleScreen();
 };
 
 #endif

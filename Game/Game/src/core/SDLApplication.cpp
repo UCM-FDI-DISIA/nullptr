@@ -8,6 +8,7 @@ SDLApplication::SDLApplication() {
 	utils = SDLUtils::instance();
 	window = utils->window();
 	renderer = utils->renderer();
+	//utils->toggleFullScreen();
 
 	Node::initializeNodeMap();
 
