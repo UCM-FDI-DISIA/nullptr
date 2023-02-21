@@ -21,7 +21,7 @@ GameOverScene::GameOverScene() {
 	An->attachToCamera();
 
 	auto but = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT * 2 / 3),
-		EXIT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS,BUTTON_WIDTH,BUTTON_HEIGHT, marco);
+		EXIT, MAINMENU_BUTTON_WIDTH, MAINMENU_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marco);
 	but->getComponent<Animator>()->attachToCamera();
 }
 
