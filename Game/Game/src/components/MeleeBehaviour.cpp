@@ -2,9 +2,9 @@
 
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
-	
 }
 
+//Inicializacion de variables necesarias para el componente
 void MeleeBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
 	pos->setVel(Vector2D(0, speed));
@@ -15,7 +15,7 @@ void MeleeBehaviour::initComponent() {
 	elapsedTime = SDL_GetTicks();
 }
 
-
+//Metodo para saber si el enemigo esta cerca del player
 bool MeleeBehaviour::close() {
 
 	//Si esta cerca del player
@@ -36,8 +36,11 @@ bool MeleeBehaviour::close() {
 void MeleeBehaviour::update() {
 	actualTime = SDL_GetTicks();
 
+	//Si ha estado cerca
 	if (close()) {
+		//Si no ha atacado y colisiona
 		if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
+			//Daña al jugador e informa de que ha atacado
 			player->getComponent<HealthComponent>()->receiveDamage(damage);
 			attacked = true;
 		}
@@ -57,7 +60,6 @@ void MeleeBehaviour::update() {
 			pos->setVel(initialDir);
 			hasBeenCloseToPlayer = false;
 		}
-		
 	}
 	
 	pos->lookAt(playerPos->getPos());

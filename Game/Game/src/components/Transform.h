@@ -7,7 +7,6 @@
 	Clase que implementa el transform de los objetos del juego
 	con 3 vectores: posicion initial, posicion actual y velocidad, y ademas
 	una altura, anchura y un factor de rotacion.
-	una altura, anchura y un factor de rotacion.
 	Dispone de funciones para rotar y desrotar el vector de 
 	velocidad y la posicion se actualiza en el update respecto
 	a la velocidad. 
@@ -40,6 +39,7 @@ public:
 		return velocity_;
 	};
 
+	//devuelve el centro del objeto
 	inline Vector2D getCenter() {
 		return position_ + Vector2D(width_ / 2, height_ / 2);
 	};
@@ -49,9 +49,13 @@ public:
 	inline void setPos(Vector2D newPos) {
 		position_ = newPos;
 	};
+
+	// Setea el valor de Y del transform
 	inline void setY(int y) {
 		position_ = Vector2D(position_.getX(), y);
 	}
+
+	//Setea el valor de X en el transform
 	inline void setX(int x) {
 		position_ = Vector2D(x, position_.getY());
 	}
@@ -61,6 +65,7 @@ public:
 		velocity_ = newVel;
 	};
 
+	
 	inline void setAnchorPoint(int x, int y) {
 		if (anchorPoint_ == nullptr) anchorPoint_ = new SDL_Point();
 		anchorPoint_->x = x;
@@ -87,8 +92,10 @@ public:
 		return width_;
 	}
 
+	//Devuelve la posicion inicial
 	inline Vector2D getInitialPosition() { return initialPosition_; }
 
+	//Devuele un rectangulo SDL
 	inline SDL_Rect getRect() {
 		SDL_Rect rect;
 		rect.x = position_.getX();
@@ -99,6 +106,7 @@ public:
 		return rect;
 	}
 
+	//Devuelve un rectangulo rotado de SDL
 	inline SDL_Rect getRotatedRect() {
 
 		double radians = rotation_ * (M_PI / 180.0);
@@ -130,12 +138,12 @@ public:
 		return rect;
 	}
 
-
+	//Devuelve el punto de anclaje
 	inline SDL_Point* getAnchorPoint() {
 		return anchorPoint_;
 	};
 
-
+	//Devuelve la rotacion
 	inline float getRotation() {
 		return rotation_;
 	};

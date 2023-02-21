@@ -1,8 +1,10 @@
 #include "Transform.h"
 #include <iostream>
 
+//Constructora por defecto
 Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), width_(0), height_(0), rotation_(0), anchorPoint_(nullptr) {}
 
+//Constructora normal
 Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) : initialPosition_(pos), position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r), anchorPoint_(nullptr) {}
 
 Transform::~Transform() {}
@@ -38,6 +40,7 @@ void Transform::move() {
 	position_ = position_ + velocity_;
 }
 
+//Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
 	position_ = position_ + velocity_;
 }
