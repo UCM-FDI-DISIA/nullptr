@@ -1,5 +1,7 @@
 #include "RangeBehavior.h"
 
+// Esta clase maneja el comportamiento de los enemigos a distancia
+// Como su movimento y su habilidad para atacar
 RangeBehavior::RangeBehavior(float spd, float safDist, float stptime, float mvTime, 
 	int dmg, int atck, Player* plyr)
 	:EnemyBehavior(spd, dmg, stptime, atck, plyr)
