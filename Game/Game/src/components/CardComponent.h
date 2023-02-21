@@ -10,6 +10,7 @@
 
 #pragma once
 class BatleScene;
+class CardCounter;
 class CardComponent : public Component {
 	private:
 		BattleScene* where;
@@ -19,6 +20,7 @@ class CardComponent : public Component {
 		Transform* tr;
 		deque<Card*>::iterator active;
 		GameObject *card;
+		CardCounter* _myCounter;
 		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
@@ -41,6 +43,7 @@ class CardComponent : public Component {
 		void initComponent();
 		void update();
 		void handleInput();
+		void setCounter(CardCounter* _cc) { _myCounter = _cc; }
 		
 		//Getters
 		int getDeckSize() { return deck.size(); }

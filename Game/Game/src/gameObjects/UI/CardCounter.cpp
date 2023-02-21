@@ -56,8 +56,11 @@ void CardCounter::update() {
 	if (amIDeck) {
 		//Si el numero ha cambiado...
 		if (currentNumber != myData->getDeckSize()) {
-			int uni = myData->getDeckSize() % 10;
-			int dec = myData->getDeckSize() / 10;
+			//Actualizo mi numero y calculo las decenas y las unidades
+			currentNumber = myData->getDeckSize();
+
+			int uni = currentNumber % 10;
+			int dec = currentNumber / 10;
 
 			//Creo una referencia del tipo Animator
 			Animator* anim;
@@ -69,21 +72,6 @@ void CardCounter::update() {
 			anim = decs->getComponent<Animator>();
 			anim->stop();
 			anim->play(to_string(dec));
-
-			//Si no tenia cartas y ahora si, muestro la animacion de barajear
-			if (currentNumber == 0 && myData->getDeckSize() > 0)
-			{
-				anim = getComponent<Animator>();
-				anim->stop();
-				anim->play(SHCARTA);
-			}
-			else {
-				anim = getComponent<Animator>();
-				anim->stop();
-				anim->play("Idle");
-			}
-			//Actualizo mi numero y calculo las decenas y las unidades
-			currentNumber = myData->getDeckSize();
 		}
 	}
 	//Si cuento las cartas de la pila de descartes
@@ -125,5 +113,12 @@ void CardCounter::render() const {
 void CardCounter::createAnims(Animator* &_anim) {
 	for (int i = 0; i < 10; i++) {
 		_anim->createAnim(std::to_string(i), i, i, 2, -1);
+	}
+}
+
+void CardCounter::showShuffle() {
+	if (amIDeck) {
+		auto anim = getComponent<Animator>();
+		anim->play(SHCARTA);
 	}
 }

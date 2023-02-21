@@ -40,9 +40,10 @@ BattleScene::BattleScene(int a) : GameState() {
 
 
 
-	addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
+	auto gO = addGameObject<CardCounter>(true, player->getComponent<CardComponent>());
 	addGameObject<CardCounter>(false, player->getComponent<CardComponent>());
 
+	player->getComponent<CardComponent>()->setCounter(gO);
 }
 
 void BattleScene::mainMenu() {

@@ -4,6 +4,7 @@
 #include "../scenes/BattleScene.h"
 #include "../sdlutils/InputHandler.h"
 #include "../scenes/BattleScene.h"
+#include "../gameObjects/UI/CardCounter.h"
 
 CardComponent::CardComponent() {
 	maxMana = PlayerData::instance()->getMaxMana();
@@ -11,6 +12,7 @@ CardComponent::CardComponent() {
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
 	deck = PlayerData::instance()->getDeck();
+	_myCounter = nullptr;
 	initDeck();
 }
 
@@ -96,8 +98,10 @@ void CardComponent::newHand() {
 	for (int i = 0; i < 4; i++) {
 		drawCard();
 		//Si se vacia la mano al ir sacando cartas
-		if (deck.size() == 0)
+		if (deck.size() == 0) {
+			if (_myCounter != nullptr) _myCounter->showShuffle();
 			reshufflePile();
+		}
 	}
 	active = hand.begin();
 }
