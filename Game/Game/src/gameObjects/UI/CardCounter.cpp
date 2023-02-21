@@ -118,8 +118,5 @@ void CardCounter::createAnims(Animator* &_anim) {
 
 //Metodo para reproducir la animacion de barajar el mazo
 void CardCounter::showShuffle() {
-	if (amIDeck) {
-		auto anim = getComponent<Animator>();
-		anim->play(SHCARTA);
-	}
+	if (amIDeck) { getComponent<Animator>()->play(SHCARTA); }
 }
