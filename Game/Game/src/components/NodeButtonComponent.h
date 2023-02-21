@@ -19,34 +19,16 @@ private:
 	nodeState const* nState;
 public:
 	// Constructora que recibe un iterador al tipo de  batalla, un callback y un puntero al estado del nodo
-	NodeButtonComponent(list<battleType>::iterator* _it, CallBack* _f, nodeState const* _nState) :
-	ButtonComponent(_f, nullptr), it(_it), nState(_nState) {}
+	NodeButtonComponent(list<battleType>::iterator* _it, CallBack* _f, nodeState const* _nState);
 	
 	// Actualiza el estado del botón
-	virtual void update() {
-		ButtonComponent::update();
-		if (*nState == _LOCKED_NODE) state = OnLocked;
-		else if (*nState == _COMPLETED_NODE) state = OnCompleted;
-	}
+	virtual void update();
 
 	// Actualiza la animación del botón según el estado
-	virtual void updateAnimation() {
-		if (state == OnLocked) {
-			changeStateAnim(ONLOCKED);
-		}
-		else if (state == OnCompleted) {
-			changeStateAnim(ONCOMPLETED);
-		}
-		else ButtonComponent::updateAnimation();
-	}
+	virtual void updateAnimation();
 
 	// Ejecuta el callback del botón si este está disponible
-	virtual void onClick() {
-		if (!(state == OnLocked || state == OnCompleted)) {
-			BattleNode::lastType = it;
-			ButtonComponent::onClick();
-		}
-	}
+	virtual void onClick();
 };
 
 #endif // !NODEBUTTONCOMPONENT_H_

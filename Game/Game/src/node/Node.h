@@ -31,7 +31,7 @@ private:
 	void lock();
 	// Asigna el estado del nodo a desbloqueado
 	void unlock();
-	// Desbloquea los siguientes nodos
+	// Desbloquea los siguientes nodos y bloquea los nodos que estuvieran desbloqueados
 	void unlockNextNodes();
 protected:
 	// Constructora, recibe la clave de la textura
@@ -39,12 +39,14 @@ protected:
 public:
 	// Asigna los siguientes nodos
 	void setNextNodes(vector<Node*> const& nNodes);
+	// Añade el nodo recibido a los siguientes nodos
+	void addToNextNodes(Node* const& node);
 	// Cambia el estado a completado y desbloquea los siguientes nodos
 	void complete();
 	// Carga el nodo correspondiente
 	virtual CallBack* loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
-	inline virtual const string& getTextureKey() const { return textureKey; }
+	inline virtual string getTextureKey() const { return textureKey; }
 	// Devuelve la posición asignada al nodo
 	inline const Vector2D& getPosition() const { return position; }
 	// Devuelve un puntero al estado del nodo

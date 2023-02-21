@@ -22,27 +22,27 @@ MapScene::MapScene() : GameState(), nodeMap(Node::getNodeMap()) {
 	}
 }
 
-void MapScene::pasado() {//para el pasado
-	cout << "HE SIDO CLICADO Pasado" << endl;
-	SDLApplication::newScene<BattleScene>(0);
+// Abre la escena de batalla en el pasado
+void MapScene::pasado() {
+	//SDLApplication::newScene<BattleScene>(0);
 }
-void MapScene::presente() {//para el presente
-	cout << "HE SIDO CLICADO Presente " << endl;
-	SDLApplication::newScene<BattleScene>(1);
+// Abre la escena de batalla en el presente
+void MapScene::presente() {
+	//SDLApplication::newScene<BattleScene>(1);
 }
-void MapScene::futuro() {//para el futuro
-	cout << "HE SIDO CLICADO Futuro" << endl;
-	SDLApplication::newScene<BattleScene>(2);
+// Abre la escena de batalla en el furuto
+void MapScene::futuro() {
+	//SDLApplication::newScene<BattleScene>(2);
 }
-void MapScene::tienda() {//para la tienda
-	cout << "HE SIDO CLICADO Tienda" << endl;
+// Abre la escena de tienda
+void MapScene::tienda() {
 	SDLApplication::newScene<ShopScene>();
 }
-void MapScene::cofre() {//para el cofre
-	cout << "HE SIDO CLICADO Cofre" << endl;
+// Abre la escena de cofre
+void MapScene::cofre() {
 	SDLApplication::newScene<ChestScene>();
 }
-void MapScene::salir() {//para el cofre
-	cout << "HE SIDO CLICADO El menu inicial" << endl;
+// Vuelve a la escena de menú principal
+void MapScene::salir() {
 	SDLApplication::newScene<MainMenuScene>();
 }

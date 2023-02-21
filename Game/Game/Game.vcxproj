@@ -215,6 +215,7 @@
     <ClCompile Include="src\components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\HeatlhComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\NodeButtonComponent.cpp" />
     <ClCompile Include="src\components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\core\Card.cpp" />
@@ -226,6 +227,7 @@
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Camera.cpp" />
+    <ClCompile Include="src\gameObjects\NodeButton.cpp" />
     <ClCompile Include="src\gameObjects\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />

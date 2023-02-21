@@ -1,7 +1,7 @@
 #include "BattleScene.h"
 
 // Constructora
-BattleScene::BattleScene(int a) : GameState() {
+BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
   
 	// Quitar cuando se cree el mapa de combate
