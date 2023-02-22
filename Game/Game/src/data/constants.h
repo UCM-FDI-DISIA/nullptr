@@ -69,6 +69,7 @@ const int BUTTON_SPRITE_WIDTH = 79;
 const int BUTTON_SPRITE_HEIGHT = 18;
 const int BUTTON_SPRITE_COLUMS = 2;
 const int BUTTON_SPRITE_ROWS = 6;
+const int BULLET_ANGLE = 20;
 
 // Velocidades de animaciones
 const int ONCLICK_ONOUT_SPEED = 1;
