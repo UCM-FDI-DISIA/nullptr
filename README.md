@@ -188,7 +188,7 @@ A continuación se especificarán las características de los menús e interface
 
 El menú es claro y sencillo. Incluirá el título del juego y el nombre del estudio así como 4 botones:Jugar, Salir, Opciones y Albúm.
 
-![titleScreen]((https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/title.png))
+![titleScreen](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/title.png)
 
 **2. Opciones**
 
@@ -252,7 +252,7 @@ Lugar donde el jugador podrá hacerse con hasta 4 nuevas cartas (una del pasado,
 
 ![tienda1](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/shop1.png)
 
-![tienda2]((https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/shop2.png))
+![tienda2](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/shop2.png)
 
 **9. Cofre**
 
