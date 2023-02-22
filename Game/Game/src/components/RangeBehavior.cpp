@@ -8,6 +8,7 @@ RangeBehavior::RangeBehavior(float spd, float safDist, float stptime, float mvTi
 {
     safeDistance = safDist;
 	moveTime = moveTime;
+	shotPattern = rand() % 3;
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
@@ -50,7 +51,20 @@ void RangeBehavior::enemyAttack() {
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
 		/*vel = vel * bulletSpedd;*/
-		gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player); // El vel/500 es temporal para que funcione 
-		                                                                             // Hasta que hagamos un deltaTime
+		if(shotPattern==0) gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player); // El vel/500 es temporal para que funcione 
+		// Hasta que hagamos un deltaTime
+		else if (shotPattern == 1) {
+			vel = vel.rotate(20);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			vel = vel.rotate(-40);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+		}
+		else if (shotPattern == 2) {
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			vel = vel.rotate(20);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			vel = vel.rotate(-40);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+		}
 	}
 }
