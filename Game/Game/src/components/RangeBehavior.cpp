@@ -54,16 +54,16 @@ void RangeBehavior::enemyAttack() {
 		if(shotPattern==0) gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player); // El vel/500 es temporal para que funcione 
 		// Hasta que hagamos un deltaTime
 		else if (shotPattern == 1) {
-			vel = vel.rotate(20);
+			vel = vel.rotate(BULLET_ANGLE);
 			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
-			vel = vel.rotate(-40);
+			vel = vel.rotate(-2*BULLET_ANGLE);
 			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
 		}
 		else if (shotPattern == 2) {
 			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
-			vel = vel.rotate(20);
+			vel = vel.rotate(BULLET_ANGLE);
 			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
-			vel = vel.rotate(-40);
+			vel = vel.rotate(-2*BULLET_ANGLE);
 			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
 		}
 	}
