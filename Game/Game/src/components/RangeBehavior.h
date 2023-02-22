@@ -14,6 +14,7 @@ private:
 	Vector2D initialDirection;
 	float moveTime = 0;
 	bool stopped = false;
+	int shotPattern = 0;
 public:
 	static const int id = _RANGE_BEHAVIOR;
 
