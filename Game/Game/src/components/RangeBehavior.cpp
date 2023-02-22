@@ -11,7 +11,7 @@ RangeBehavior::RangeBehavior(float spd, float safDist, float stptime, float mvTi
 }
 void RangeBehavior::initComponent() {
 	pos = gObj->getComponent<Transform>();
-	pos->setVel(Vector2D(0.0005, 0.0005)); // El 0.0005 es temporal hasta que hagamos la velocidad bien
+	pos->setVel(Vector2D(0.0005, 0.0005)); // El 0.0005 es temporal hasta que hagamos la velocidad bien // // cleon says: cuidado con los TODO temporales...
 	                                       // Es un valor adecuado para que el movimiento funcione
 	initialDirection = pos->getVel();
 	setDirectionTo();

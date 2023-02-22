@@ -24,7 +24,8 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// BOTONES -> se crean y se añaden a la lista de la escena
 	// Botón jugar
-
+	// 
+	// cleon says: refactorizad a función o morid.
 	marcos[0] = addGameObject();
 	marcos[0]->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - (3 * WIN_WIDTH / 10) - 10, WIN_HEIGHT * 4 / 8 - 88), Vector2D(0, 0), 190 * 2, 90 * 2);
 	marcos[0]->addComponent<Animator>(SDLApplication::getTexture("Marco"),

@@ -4,6 +4,8 @@
 
 #include "Node.h"
 #include "../core/SDLApplication.h"
+
+// cleon says: cuidado con las dependencias cruzadas. recordad los 800 errores de TPV. 800 errores == 800 gatitos menos.
 class BattleScene;
 class NodeButtonComponent;
 
@@ -27,6 +29,7 @@ private:
 	BattleNode(Vector2D const& pos);
 public:
 	virtual CallBack* loadNode() const;
+	// cleon says: MAAAAAALLLLLLLLLLLLLLLLLLLLL. igual a veces sí que es bueno tener miedo.
 	virtual list<battleType>::iterator* getIt() { return &type; }
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { return Node::getTextureKey() + to_string((int)*type); }

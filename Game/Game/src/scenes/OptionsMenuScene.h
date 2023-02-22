@@ -9,6 +9,8 @@ class OptionsMenuScene : public GameState {
 private:
 public:
 	OptionsMenuScene();
+
+	// cleon insists: static es mal
 	static void mainMenu();
 	static void toggleScreen();
 };
