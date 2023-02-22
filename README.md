@@ -124,7 +124,7 @@ El jugador comienza con un mazo de 4 cartas predefinido. Como máximo, se podrá
 
 Al comienzo de un combate, se robarán 4 cartas aleatorias del mazo y estas pasarán a formar parte de la mano, las cuales se usarán para el combate. Se van usando las cartas y, una vez consumidos todos los usos de una carta, esta es descartada y va a la pila de descartes. Cuando el jugador se queda sin cartas en la mano, roba 4 cartas del mazo. Si se intenta robar de un mazo vacío, la pila de descartes se baraja, se vuelve a colocar en el lugar del mazo y el jugador roba de este. 
 
-![cardsLoop](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/gameLoop.png)
+![cardsLoop](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/gameLoop.png)
 
 **5. Objetos pasivos (Reliquias)**
 
@@ -188,43 +188,43 @@ A continuación se especificarán las características de los menús e interface
 
 El menú es claro y sencillo. Incluirá el título del juego y el nombre del estudio así como 4 botones:Jugar, Salir, Opciones y Albúm.
 
-![titleScreen]((https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/title.png))
+![titleScreen]((https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/title.png))
 
 **2. Opciones**
 
 En este menú, el jugador podrá cambiar los controles y ajustar el volumen a su gusto. Cuenta con una imagen donde se detallarán los controles y dos botones para subir y bajar el volumen representado con un porcentaje.
 
-![options](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/options.png)
+![options](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/options.png)
 
 **3. Albúm**
 
 Espacio donde se podrán encontrar las características de las cartas encontradas en las diferentes sesiones de juego. Se podrán visualizar de manera general todas y, para observarlas con más detalle, hará falta seleccionarlas.
 
-![album](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/album.png)
+![album](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/album.png)
 
 **4. Bucle de juego** 
 
 Tras presionar el botón _JUGAR_ en el menú principal, se generará un mapa aleatorio y se le presentará de la misma manera que en la imagen siguiente. Contiene 3 botones: uno para salir al menú principal, otro del Inventario del jugador y por último, el de opciones.
 
-![gameLoop](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/map.png)
+![gameLoop](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/map.png)
 
 ## **5. Inventario** 
 
 En esta sección el jugador podrá conocer los atributos tanto de sus cartas como de sus objetos encontrados en esta sesión de juego. Para moverse entre ambas opciones, se deberá seleccionar el botón correspondiente.
 
-![inventory3](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/inventory3.png)
+![inventory3](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/inventory3.png)
 
 Si no se selecciona ninguna carta simplemente se representarán aquellas que están formando el mazo del jugador y las que no.
 
-![inventory1](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/inventory1.png)
+![inventory1](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/inventory1.png)
 
 Si el jugador selecciona una carta que NO está en el mazo, le saldrán dos botones: uno para ver la información de la carta (a modo de _pop-up_) y otro para moverla al mazo. Al seleccionar la segunda opción el cursor se mueve a las cartas del mazo (con los límites en las cartas de color verde) y se debe escoger la carta por la que intercambiar la nueva (la de color amarillo).
 
-![inventory2](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/inventory2.png)
+![inventory2](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/inventory2.png)
 
 Si el jugador selecciona una carta que SÍ está en el mazo, le saldrán las mismas opciones en formato Botón salvo que ahora no se cambia una que no está presente por una que sí, sino una que sí estaba en el mazo se cambia por una que no.
 
-![objects](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/objects.png)
+![objects](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/objects.png)
 
 En el apartado de objetos se verán tanto el valor de las estadísticas del jugador (con un icono correspondiente y un valor numérico) como qué estadística del jugador aumenta cada objeto. Esto último ocurre cuando tienes el objeto seleccionado y se representa añadiendo una suma que indica cuánto contribuye el objeto al valor final de la estadística.
 
@@ -238,27 +238,27 @@ Durante el combate el HUD mostrará:
 * <span style="text-decoration:underline;">Mano:</span> se mostrarán en la zona inferior central las cartas de la mano. La seleccionada sobresaldrá más que el resto (ver imagen).
 * <span style="text-decoration:underline;">Descarte:</span> se mostrará la pila de descartes en la esquina inferior derecha.
 
-![HUD](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/hud.jpg)
+![HUD](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/hud.jpg)
 
 **7. Pausa**
 
 El jugador podrá pausar el juego cuando esté en una batalla. En esta pantalla tendrá la oportunidad de ver su inventario, los controles y acceso a las opciones. Existirá también un botón que permitirá salir al menú principal y guardar el estado de la sesión de juego para que la próxima vez el jugador pueda continuar donde lo dejó.
 
-![pause]((https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/pause.png)
+![pause]((https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/pause.png)
 
 **8. Tienda**
 
 Lugar donde el jugador podrá hacerse con hasta 4 nuevas cartas (una del pasado, una del presente, una del futuro y otra escogida al azar). El jugador podrá ver cuánto _oro _tiene para poder comprar las cartas, de las que podrá ver sus especificaciones al seleccionarlas. Una vez en modo vista completa de la carta podrá seleccionar si comprarla o no. Para acabar la fase de compra el jugador ha de clicar sobre un botón de _Siguiente_, que solicitará confirmación para acabar la compra.
 
-![tienda1](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/shop1.png)
+![tienda1](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/shop1.png)
 
-![tienda2]((https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/shop2.png))
+![tienda2]((https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/shop2.png))
 
 **9. Cofre**
 
 Aquí se entregará un objeto pasivo aleatorio al jugador. El jugador verá los atributos del objeto que le ha tocado. Tras esto, para avanzar al mapa debe seleccionar el botón _Siguiente_.
 
-![chest](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/chest.png)
+![chest](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/chest.png)
 
 ## **Estadísticas**
 
@@ -798,7 +798,7 @@ Las cartas son un invento del futuro que materializan armas y permiten usar habi
 
 **3. Paleta de colores**
 
-![palette](https://github.com/UCM-FDI-DISIA/nullptr/blob/Hito-1/docs/images/palette.png)
+![palette](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/palette.png)
 
 * <span style="text-decoration:underline;">Pasado:</span> Los colores en las zonas del pasado son verdes.
 
