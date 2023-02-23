@@ -34,6 +34,7 @@ void HealthComponent::die()
 	gObj->setAlive(false);
 }
 // Devuelve el valor actual de la vida
+// cleon says: mejor al .h con inline
 int HealthComponent::getLife()
 {
 	return lifePoints;

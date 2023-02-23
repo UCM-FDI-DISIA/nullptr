@@ -31,6 +31,7 @@ public:
 
 	virtual void update()
 	{
+		// cleon says: ejem...
 		for (int i = 0; i < target->size(); i++) {
 		// Comprueba si ha chocado con el objetivo
 			if (gObj->getComponent<ColliderComponent>()->

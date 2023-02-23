@@ -62,10 +62,6 @@ class PlayerData : public Singleton<PlayerData>
 		void addCardToLibrary(Card* newCard);
 		std::vector<Card*> getLibrary();
 		
-
-
-
-
 };
 
 inline PlayerData& pD() {

@@ -36,7 +36,7 @@ void CardComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->mouseWheelDown()) { switchActive(false); }
 	if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); } // cleon says: "else"s
 	if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
 	if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
 	if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
@@ -88,14 +88,14 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
-	srand(time(0));
+	srand(time(0)); // cleon says: esto se hace 1 vez por "exe", al principio del main.
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
 }
 
 void CardComponent::reshufflePile() {
 	//Semilla aleatoria, con tiempo del ordenador
-	srand(time(0));
+	srand(time(0)); // cleon says: esto se hace 1 vez por "exe", al principio del main.
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());

@@ -1,3 +1,5 @@
+// cleon says: don't be afraid. fuera 1 de los 2. confiad en vuestros instintos. padawans.
+
 #pragma once
 #ifndef RANGED_H_
 #define RANGED_H_

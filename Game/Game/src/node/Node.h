@@ -12,7 +12,7 @@ using namespace std;
 enum battleType;
 
 enum nodeState {
-	_LOCKED_NODE = 0,
+	_LOCKED_NODE = 0, // cleon says: "por si acaso" time
 	_UNLOCKED_NODE,
 	_COMPLETED_NODE
 };
@@ -26,7 +26,7 @@ private:
 
 	static vector<Node*> nodeMap;
 	static vector<Node*> initialNodes;
-	static vector<Node*>* unlockedNodes;
+	static vector<Node*>* unlockedNodes; // cleon says: hay demasiadas cosas extrañas aquí como para comentarlo.
 	
 	// Asigna el estado del nodo a bloqueado
 	void lock();
