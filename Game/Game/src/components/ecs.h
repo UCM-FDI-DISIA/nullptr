@@ -26,4 +26,9 @@ enum cmpId : cmpId_type {
 };
 constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 
+
+#include <functional>
+// Tipo de función que devuelve y recibe void, funciona también con funciones lambda con capturas
+using CallBack = std::function<void(void)>;
+
 #endif // !ECS_H_

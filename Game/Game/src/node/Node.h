@@ -4,15 +4,13 @@
 
 #include <iostream>
 #include <vector>
-#include <functional>
-#include "../scenes/MapScene.h"
 #include "../components/ButtonComponent.h"
 using namespace std;
 
 enum battleType;
 
 enum nodeState {
-	_LOCKED_NODE = 0, // cleon says: "por si acaso" time
+	_LOCKED_NODE,
 	_UNLOCKED_NODE,
 	_COMPLETED_NODE
 };
@@ -45,15 +43,13 @@ public:
 	// Cambia el estado a completado y desbloquea los siguientes nodos
 	void complete();
 	// Carga el nodo correspondiente
-	virtual CallBack* loadNode() const = 0;
+	virtual CallBack loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { return textureKey; }
 	// Devuelve la posición asignada al nodo
 	inline const Vector2D& getPosition() const { return position; }
 	// Devuelve un puntero al estado del nodo
-	inline const nodeState* getState() const { return &state; }
-	// Devuelve un iterador al tipo de batalla del nodo
-	virtual list<battleType>::iterator* getIt() { return nullptr; }
+	inline const nodeState& getState() const { return state; }
 
 	// MÉTODOS ESTÁTICOS
 	// Inicializa el mapa completo de Nodos

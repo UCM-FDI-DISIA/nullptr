@@ -10,7 +10,7 @@ class ShopNode : public Node {
 private:
 	ShopNode(Vector2D const& pos);
 public:
-	virtual CallBack* loadNode() const;
+	virtual CallBack loadNode() const;
 };
 
 #endif // !SHOPNODE_H_

@@ -9,7 +9,7 @@ class EventNode : public Node {
 private:
 	EventNode(Vector2D const& pos);
 public:
-	virtual CallBack* loadNode() const;
+	virtual CallBack loadNode() const;
 };
 
 #endif // !EVENTNODE_H_

@@ -10,7 +10,7 @@ class ChestNode : public Node {
 private:
 	ChestNode(Vector2D const& pos);
 public:
-	virtual CallBack* loadNode() const;
+	virtual CallBack loadNode() const;
 };
 
 #endif // !CHESTNODE_H_
