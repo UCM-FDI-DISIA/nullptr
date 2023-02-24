@@ -63,6 +63,7 @@ const float PLAYER_SPEED = 0.001;
 // ENEMIES
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
+const float ENEMY_SPEED = 0.0005;
 
 // BUTTONS ANIMATIONS
 const int BUTTON_SPRITE_WIDTH = 79;

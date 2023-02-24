@@ -15,7 +15,11 @@ public:
 	void receiveDamage(int damage);
 	void heal(int heal);
 	void die();
-	int getLife();
+	// Devuelve el valor actual de la vida
+	inline int getLife()
+	{
+		return lifePoints;
+	}
 	void multiplyLife(double multiplier);
 	/*void timeDamage()*/
 };

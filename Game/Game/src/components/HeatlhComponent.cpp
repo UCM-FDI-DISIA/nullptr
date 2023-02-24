@@ -33,12 +33,7 @@ void HealthComponent::die()
 	}
 	gObj->setAlive(false);
 }
-// Devuelve el valor actual de la vida
-// cleon says: mejor al .h con inline
-int HealthComponent::getLife()
-{
-	return lifePoints;
-}
+
 // Multiplica la vida maxima, que nunca cambia, por el multiplicador dado
 void HealthComponent::multiplyLife(double multiplier)
 {
