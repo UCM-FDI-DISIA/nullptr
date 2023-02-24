@@ -33,9 +33,9 @@ const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
 const string ONLOCKED = "OnLocked";
 const string ONCOMPLETED = "OnCompleted";
-const string SHUFFLING_CARDS = "ShufflingCards";
+const string SHCARTA = "SHCarta";
 const string IDLE = "Idle";
-const string REVERSE = "CardReverse";
+const string REVERSE = "Reverse";
 const string NUMBERS = "Numbers";
 
 // PLAYER ANIMATIONS
@@ -87,25 +87,25 @@ const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
 const int MAINMENU_BUTTON_WIDTH = 158;
 const int MAINMENU_BUTTON_HEIGHT = 36;
 // BUTTON KEYS
-const string PLAY = "PlayButton";
-const string OPTIONS = "OptionsButton";
-const string ALBUM = "AlbumButton";
-const string EXIT = "ExitButton";
+const string PLAY = "Jugar";
+const string OPTIONS = "Opciones";
+const string ALBUM = "Album";
+const string EXIT = "Salir";
 
 // FLOOR
-const string FLOOR_PAST = "BattleBackground";
+const string FLOOR_PAST = "FloorPast";
 const Vector2D FLOOR_PAST_POSITION = VECTOR_ZERO;
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 const int FLOOR_PAST_WIDTH = WIN_WIDTH * 2;
 const int FLOOR_PAST_HEIGHT = WIN_HEIGHT * 2;
 
 // LIFEBAR
-const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
-const Vector2D LIFEBAR_POSITION = { WIN_WIDTH - 213 * 2, 30 };
-const Vector2D LIFEBAR_VELOCITY = VECTOR_ZERO;
-const int LIFEBAR_WIDTH = 200;
-const int LIFEBAR_HEIGHT = 30;
+const string LIFE = "Life";
+const Vector2D LIFEFRAME_POSITION = { WIN_WIDTH - 213 * 2, 30 };
+const Vector2D LIFEFRAME_VELOCITY = VECTOR_ZERO;
+const int LIFEFRAME_WIDTH = 200;
+const int LIFEFRAME_HEIGHT = 30;
 const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
 const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
 const int LIFE_WIDTH = 213;

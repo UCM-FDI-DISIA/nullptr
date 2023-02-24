@@ -15,11 +15,11 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	vida = addGameObject();
 	barraVida = addGameObject();
 
-	barraVida->addComponent<Transform>(LIFEBAR_POSITION, LIFEBAR_VELOCITY, LIFEBAR_WIDTH, LIFEBAR_HEIGHT);
+	barraVida->addComponent<Transform>(LIFEFRAME_POSITION, LIFEFRAME_VELOCITY, LIFEFRAME_WIDTH, LIFEFRAME_HEIGHT);
 	vida->addComponent<Transform>(LIFE_POSITION, LIFE_VELOCITY, LIFE_WIDTH, LIFE_HEIGHT);
 	
-	barraVida->addComponent<Image>(SDLApplication::getTexture(LIFEBAR));
-	vida->addComponent<Image>(SDLApplication::getTexture(LIFEFRAME));
+	barraVida->addComponent<Image>(SDLApplication::getTexture(LIFEFRAME));
+	vida->addComponent<Image>(SDLApplication::getTexture(LIFE));
 
 	barraVida->getComponent<Image>()->attachToCamera();
 	vida->getComponent<Image>()->attachToCamera();
