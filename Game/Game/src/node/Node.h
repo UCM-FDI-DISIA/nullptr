@@ -4,7 +4,8 @@
 
 #include <iostream>
 #include <vector>
-#include "../components/ButtonComponent.h"
+#include "../components/ecs.h"
+#include "../data/constants.h"
 using namespace std;
 
 enum battleType;
@@ -24,7 +25,7 @@ private:
 
 	static vector<Node*> nodeMap;
 	static vector<Node*> initialNodes;
-	static vector<Node*>* unlockedNodes; // cleon says: hay demasiadas cosas extrañas aquí como para comentarlo.
+	static vector<Node*>& unlockedNodes; // cleon says: hay demasiadas cosas extrañas aquí como para comentarlo.
 	
 	// Asigna el estado del nodo a bloqueado
 	void lock();

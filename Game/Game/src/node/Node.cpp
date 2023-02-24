@@ -6,8 +6,8 @@
 #include "EventNode.h"
 
 vector<Node*> Node::nodeMap = vector<Node*>();
-vector<Node*>* Node::unlockedNodes = nullptr;
 vector<Node*> Node::initialNodes = vector<Node*>();
+vector<Node*>& Node::unlockedNodes = initialNodes;
 
 // Constructora, recibe la clave de la textura
 Node::Node(string tKey, Vector2D const& pos) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey), position(pos) {
@@ -30,11 +30,11 @@ void Node::unlock() {
 
 // Desbloquea los siguientes nodos y bloquea los nodos que estuvieran desbloqueados
 void Node::unlockNextNodes() {
-	for (Node* node : *unlockedNodes) {
+	for (Node* node : unlockedNodes) {
 		node->lock();
 	}
 
-	unlockedNodes = &nextNodes;
+	unlockedNodes = nextNodes;
 	for (Node* node : nextNodes) {
 		node->unlock();
 	}
@@ -61,9 +61,6 @@ void Node::complete() {
 
 // Inicializa el mapa completo de Nodos
 void Node::initializeNodeMap() {
-	// crear vector con los niveles iniciales y asignarlos al puntero de desbloqueados
-	unlockedNodes = &initialNodes;
-
 	// Crear los nodos (con unos iniciales desbloqueados)
 	(new BattleNode({NODE_LEVEL_X[0], NODE_LEVEL_Y[0]}))->unlock();
 	(new BattleNode({ NODE_LEVEL_X[1], NODE_LEVEL_Y[0] }))->unlock();
