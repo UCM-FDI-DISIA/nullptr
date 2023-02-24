@@ -4,15 +4,14 @@
 
 #include <iostream>
 #include <vector>
-#include <functional>
-#include "../scenes/MapScene.h"
-#include "../components/ButtonComponent.h"
+#include "../components/ecs.h"
+#include "../data/constants.h"
 using namespace std;
 
 enum battleType;
 
 enum nodeState {
-	_LOCKED_NODE = 0, // cleon says: "por si acaso" time
+	_LOCKED_NODE,
 	_UNLOCKED_NODE,
 	_COMPLETED_NODE
 };
@@ -24,9 +23,10 @@ private:
 	string textureKey;
 	Vector2D position;
 
+	// Mapa de todos los nodos
 	static vector<Node*> nodeMap;
 	static vector<Node*> initialNodes;
-	static vector<Node*>* unlockedNodes; // cleon says: hay demasiadas cosas extrañas aquí como para comentarlo.
+	static vector<Node*>& unlockedNodes; // cleon says: hay demasiadas cosas extrañas aquí como para comentarlo.
 	
 	// Asigna el estado del nodo a bloqueado
 	void lock();
@@ -44,16 +44,14 @@ public:
 	void addToNextNodes(Node* const& node);
 	// Cambia el estado a completado y desbloquea los siguientes nodos
 	void complete();
-	// Carga el nodo correspondiente
-	virtual CallBack* loadNode() const = 0;
+	// Devuelve un CallBack distinto para cada tipo de nodo
+	virtual CallBack loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { return textureKey; }
 	// Devuelve la posición asignada al nodo
 	inline const Vector2D& getPosition() const { return position; }
 	// Devuelve un puntero al estado del nodo
-	inline const nodeState* getState() const { return &state; }
-	// Devuelve un iterador al tipo de batalla del nodo
-	virtual list<battleType>::iterator* getIt() { return nullptr; }
+	inline const nodeState& getState() const { return state; }
 
 	// MÉTODOS ESTÁTICOS
 	// Inicializa el mapa completo de Nodos

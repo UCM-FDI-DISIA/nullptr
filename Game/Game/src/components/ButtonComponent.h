@@ -3,13 +3,11 @@
 #include "Transform.h"
 #include "../sdlutils/InputHandler.h"
 #include "../components/Animator.h"
-#include "../GameObjects/UI/Button.h"
 
 // Estados representados por números
 enum State { OnOut = 0, OnOver, OnClick };
 
 class SDLApplication;
-typedef void CallBack();
 
 class ButtonComponent : public Component {
 
@@ -18,7 +16,7 @@ protected:
 	SDLApplication* game;
 	
 	// Función a realizar
-	CallBack* function;
+	CallBack function;
 
 	// Estado del botón
 	int state;
@@ -33,7 +31,7 @@ protected:
 
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack* _f, SDLApplication* _g, GameObject* _frame = nullptr) :
+	ButtonComponent(CallBack _f, SDLApplication* _g, GameObject* _frame = nullptr) :
 		Component(), state(0), function(_f), game(_g), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
 
 	virtual void update();
