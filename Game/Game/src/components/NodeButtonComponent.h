@@ -9,7 +9,7 @@ class NodeButtonComponent : public ButtonComponent {
 private:
 	// Estados representados por números
 	enum State {
-		OnOut = 0,
+		OnOut,
 		OnOver,
 		OnClick, 
 		OnLocked,

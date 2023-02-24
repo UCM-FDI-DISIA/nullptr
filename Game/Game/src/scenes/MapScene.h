@@ -13,12 +13,6 @@ private:
 	vector<Node*> const& nodeMap;
 public:
 	MapScene();
-	// Abre la escena de shop
-	static void shop();
-	// Abre la escena de chest
-	static void chest();
-	// Vuelve a la escena de menú principal
-	static void exit();
 };
 
 #endif

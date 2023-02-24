@@ -8,8 +8,10 @@ class ShopScene;
 class ShopNode : public Node {
 	friend Node;
 private:
+	// Constructora, recibe posición del nodo en el mapa
 	ShopNode(Vector2D const& pos);
 public:
+	// Devuelve un CallBack que abre la escena de tienda
 	virtual CallBack loadNode() const;
 };
 

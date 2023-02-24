@@ -34,9 +34,9 @@ const string ONOVER = "OnOver";
 const string ONCLICK = "OnClick";
 const string ONLOCKED = "OnLocked";
 const string ONCOMPLETED = "OnCompleted";
-const string SHCARTA = "SHCarta";
+const string SHUFFLING_CARDS = "ShufflingCards";
 const string IDLE = "Idle";
-const string REVERSE = "Reverse";
+const string REVERSE = "CardReverse";
 const string NUMBERS = "Numbers";
 
 // PLAYER -----------------------------------------------------------------------------------------
@@ -94,25 +94,25 @@ const Vector2D MM_OPTIONSFRAME_BUTTON_POS = MM_OPTIONS_BUTTON_POS - Vector2D(48,
 const Vector2D MM_ALUBMFRAME_BUTTON_POS = MM_ALBUM_BUTTON_POS - Vector2D(48, 88);
 const Vector2D MM_EXITFRAME_BUTTON_POS = MM_EXIT_BUTTON_POS - Vector2D(48, 88);
 // BUTTON KEYS
-const string PLAY = "Jugar";
-const string OPTIONS = "Opciones";
-const string ALBUM = "Album";
-const string EXIT = "Salir";
+const string PLAY = "PlayButton";
+const string OPTIONS = "OptionsButton";
+const string ALBUM = "AlbumButton";
+const string EXIT = "ExitButton";
 
 // FLOOR -----------------------------------------------------------------------------------------
-const string FLOOR_PAST = "FloorPast";
+const string FLOOR_PAST = "BattleBackground";
 const Vector2D FLOOR_PAST_POSITION = VECTOR_ZERO;
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 const int FLOOR_PAST_WIDTH = WIN_WIDTH * 2;
 const int FLOOR_PAST_HEIGHT = WIN_HEIGHT * 2;
 
 // LIFEBAR ---------------------------------------------------------------------------------------
+const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
-const string LIFE = "Life";
-const Vector2D LIFEFRAME_POSITION = { WIN_WIDTH - 213 * 2, 30 };
-const Vector2D LIFEFRAME_VELOCITY = VECTOR_ZERO;
-const int LIFEFRAME_WIDTH = 200;
-const int LIFEFRAME_HEIGHT = 30;
+const Vector2D LIFEBAR_POSITION = { WIN_WIDTH - 213 * 2, 30 };
+const Vector2D LIFEBAR_VELOCITY = VECTOR_ZERO;
+const int LIFEBAR_WIDTH = 200;
+const int LIFEBAR_HEIGHT = 30;
 const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
 const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
 const int LIFE_WIDTH = 213;
