@@ -23,6 +23,7 @@ private:
 	string textureKey;
 	Vector2D position;
 
+	// Mapa de todos los nodos
 	static vector<Node*> nodeMap;
 	static vector<Node*> initialNodes;
 	static vector<Node*>& unlockedNodes; // cleon says: hay demasiadas cosas extrañas aquí como para comentarlo.
@@ -43,7 +44,7 @@ public:
 	void addToNextNodes(Node* const& node);
 	// Cambia el estado a completado y desbloquea los siguientes nodos
 	void complete();
-	// Carga el nodo correspondiente
+	// Devuelve un CallBack distinto para cada tipo de nodo
 	virtual CallBack loadNode() const = 0;
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { return textureKey; }
