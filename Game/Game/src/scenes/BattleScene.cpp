@@ -1,6 +1,6 @@
 #include "BattleScene.h"
-#include "../components/RangeBehavior.h"
-#include "../components/MeleeBehaviour.h"
+#include "../components/Enemy components/RangeBehavior.h"
+#include "../components/Enemy components/MeleeBehaviour.h"
 
 // Constructora
 BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {

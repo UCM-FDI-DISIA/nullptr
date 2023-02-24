@@ -3,9 +3,9 @@
 #define MAINMENUSCENE_H_
 
 #include "GameState.h"
-#include "../components/Transform.h"
-#include "../components/Image.h"
-#include "../components/Animator.h"
+#include "../components/General Components/Transform.h"
+#include "../components/General Components/Image.h"
+#include "../components/General Components/Animator.h"
 
 class MainMenuScene : public GameState {
 private:

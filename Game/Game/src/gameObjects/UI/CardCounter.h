@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../../components/CardComponent.h"
-#include "../../core/GameObject.h"
-#include "../../components/Animator.h"
+#include "../../components/Card Components/CardComponent.h"
+#include "../GameObject.h"
+#include "../../components/General Components/Animator.h"
 #include "../../core/SDLApplication.h"
 
 class CardCounter : public GameObject {

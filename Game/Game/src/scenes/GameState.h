@@ -3,8 +3,8 @@
 #define GAME_STATE_H_
 
 #include <list>
-#include "../core/GameObject.h"
-#include "../gameObjects/Camera.h"
+#include "../gameObjects/GameObject.h"
+#include "../gameObjects/General Objects/Camera.h"
 
 class SDLApplication;
 using namespace std;

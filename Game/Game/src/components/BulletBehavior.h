@@ -9,7 +9,7 @@ class BulletBehavior:public Component
 {
 private:
 	int damage;
-	vector<GameObject*>* target; // cleon says: adiós, gatitos. adiós.
+	vector<GameObject*>* target; // cleon says: adiós, gatitos. adiós. // E Rafa says: probablemente ni nos haga falta
 public:
 	static const int id = _BULLET_COMPONENT;
 	// Recibe un player que se mete en el vector target, que hace las veces de matriz de colision
@@ -29,7 +29,7 @@ public:
 	{
 		// cleon says: 1º: usad loops modernos (C++11).
 		// no uséis "vector" como un array.
-		
+		//E Rafa says : probablemente ni nos haga falta
 		// Comprueba si ha chocado con el objetivo y, si lo hace, le baja vidaç
 		for (int i = 0; i < target->size(); i++) {
 			if (gObj->getComponent<ColliderComponent>()->

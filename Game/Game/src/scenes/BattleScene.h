@@ -2,12 +2,11 @@
 #ifndef FUBATTLESCENE_H_
 #define FUBATTLESCENE_H_
 #include "GameState.h"
-#include "../gameObjects/Player.h"
-#include "../gameObjects/MeleeEnemy.h"
-#include "../gameObjects/RangedEnemy.h"
-#include "../gameObjects/RangedEnemy.h"
+#include "../gameObjects/Player Object/Player.h"
+#include "../gameObjects/Enemy Objects/MeleeEnemy.h"
+#include "../gameObjects/Enemy Objects/RangedEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
-#include "../node/BattleNode.h"
+#include "../gameObjects/Node Objects/Node.h"
 #include "../gameObjects/UI/HandUI.h"
 
 class HandUI;
