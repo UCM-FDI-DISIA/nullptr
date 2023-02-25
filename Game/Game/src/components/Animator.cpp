@@ -1,13 +1,13 @@
 #include "Animator.h"
 
-// Crea una animación nueva
+// Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	Animation newAnim = Animation(start, end, rate, _rep);
 	anims.insert({ key, newAnim });
 	currentFrame = start;
 }
 
-// Starts a new animation
+// Empieza una nueva animacion
 void Animator::play(string key) {
 	currentAnimKey = key;
 	currentAnimation = &anims[currentAnimKey];
@@ -16,17 +16,17 @@ void Animator::play(string key) {
 	startTime = SDL_GetTicks();
 }
 
-// Stops the current animation
+// Para la animacion actual
 void Animator::stop() {
 	currentAnimation = nullptr;
 }
 
-// Resumes the last animation played
+// Continua la ultima animacion
 void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }
 
-//
+// Actualiza el frame actual dependiendo del frameRate
 void Animator::update() {
 
 	if (currentAnimation != nullptr) {
@@ -50,7 +50,7 @@ void Animator::update() {
 	}
 }
 
-//
+// Renderiza el frame actual
 void Animator::render() const {
 	SDL_Rect srcRect;
 	srcRect.x = (currentFrame % cols) * fw;
