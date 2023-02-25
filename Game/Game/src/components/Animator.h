@@ -26,22 +26,35 @@ private:
 	string currentAnimKey;
 	Animation* currentAnimation;
 public:
+	// Identificador
 	static const int id = _ANIMATOR;
+
+	// Constructora
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
 		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), startTime(SDL_GetTicks()), currentAnimation(nullptr) { };
 
-	// Animaciones
+	// Crea una animacion nueva
 	void createAnim(string key, int start, int end, int rate, int _rep = 0);
+
+	// Empieza una nueva animacion
 	void play(string key);
+
+	// Para la animacion actual
 	void stop();
+
+	// Continua la ultima animacion
 	void resume();
 	
-	// Metodos esenciales
+	// Actualiza el frame actual dependiendo del frameRate
 	virtual void update();
+
+	// Renderiza el frame actual
 	virtual void render() const;
 
-	// Getters
+	// Devuelve el nombre de la animacion actual
 	inline string currentAnimationKey() { return currentAnimKey; }
+
+	// Devuelve el numero del frame actual
 	inline int getCurrentFrame() { return currentFrame; }
 };
 #endif // !ANIMATOR_H_

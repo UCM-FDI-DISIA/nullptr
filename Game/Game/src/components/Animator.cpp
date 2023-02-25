@@ -1,6 +1,6 @@
 #include "Animator.h"
 
-// Crea una animación nueva
+// Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	Animation newAnim = Animation(start, end, rate, _rep);
 	anims.insert({ key, newAnim });
@@ -26,7 +26,7 @@ void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }
 
-//
+// Actualiza el frame actual dependiendo del frameRate
 void Animator::update() {
 
 	if (currentAnimation != nullptr) {
@@ -50,7 +50,7 @@ void Animator::update() {
 	}
 }
 
-//
+// Renderiza el frame actual
 void Animator::render() const {
 	SDL_Rect srcRect;
 	srcRect.x = (currentFrame % cols) * fw;

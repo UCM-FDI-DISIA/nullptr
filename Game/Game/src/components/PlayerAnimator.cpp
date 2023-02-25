@@ -6,7 +6,12 @@
 	se pone la animacion adecuada
 */
 
-// Inicia el componente
+// Destructora
+PlayerAnimator::~PlayerAnimator() {
+	transform = nullptr;
+}
+
+// Inicializa el componente
 void PlayerAnimator::initComponent() {
 	Animator::initComponent();
 

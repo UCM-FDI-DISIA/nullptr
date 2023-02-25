@@ -16,7 +16,7 @@ GameOverScene::GameOverScene() {
 	//Creo el boton y su marco y los fijo a la camara
 	GameObject* marco = addGameObject();
 	marco->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 103, WIN_HEIGHT * 2 / 3 - 44), Vector2D(0, 0), 190, 90);
-	auto An = marco->addComponent<Animator>(SDLApplication::getTexture("Marco"),
+	auto An = marco->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"),
 		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	An->attachToCamera();
 
