@@ -18,6 +18,8 @@ Card::Card(int _damage, int _maxUses, int _mana, float _downtime, float _bulletS
 			case 2:
 				abilityText += _data[i];
 				break;
+				default:
+					break;
 			}
 		}
 		

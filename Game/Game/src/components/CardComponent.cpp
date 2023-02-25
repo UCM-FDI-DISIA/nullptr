@@ -35,11 +35,11 @@ void CardComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->mouseWheelDown()) { switchActive(false); }
-	if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); } // cleon says: "else"s
-	if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
+	else if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); }
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
 }
 
 //Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
