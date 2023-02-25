@@ -65,14 +65,16 @@ const float PLAYER_SPEED = 0.001;
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
+const int BULLET_ANGLE = 20;
 
 // BUTTONS ---------------------------------------------------------------------------------------
-// BUTTONS ANIMATIONS
+// BUTTONS DIMENSIONS
 const int BUTTON_SPRITE_WIDTH = 79;
 const int BUTTON_SPRITE_HEIGHT = 18;
 const int BUTTON_SPRITE_COLUMS = 2;
 const int BUTTON_SPRITE_ROWS = 6;
-const int BULLET_ANGLE = 20;
+const int BUTTON_FRAME_SPRITE_WIDTH = 95;
+const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
 // ANIMATIONS FRAMERATES
 const int ONCLICK_ONOUT_SPEED = 1;
 const int ONOVER_SPEED = 10;
@@ -81,11 +83,12 @@ const int ONOUT_ALL_FRAMES = 10;
 const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
-// BUTTON FRAMES
-const int BUTTON_FRAME_SPRITE_WIDTH = 95;
-const int BUTTON_FRAME_SPRITE_HEIGTH = 45;
-// BUTTONS POSITIONS
-const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - ((79 * 2) + (190 * 2)), WIN_HEIGHT * 4 / 8);
+// MAINMENU: BUTTONS POSITIONS AND DIMENSIONS
+const int MM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
+const int MM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
+const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 4;
+const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 4;
+const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - ((BUTTON_SPRITE_WIDTH * 2) + (BUTTON_FRAME_SPRITE_WIDTH * 4)), WIN_HEIGHT * 4 / 8);
 const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 3 - BUTTON_SPRITE_WIDTH, WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 + BUTTON_SPRITE_WIDTH * 2, WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 + (3 * WIN_WIDTH / 20), WIN_HEIGHT * 4 / 8);

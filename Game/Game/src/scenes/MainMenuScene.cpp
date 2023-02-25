@@ -33,13 +33,13 @@ MainMenuScene::MainMenuScene() : GameState() {
 }
 
 // Crear un botón especificado en la escena
-void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
+void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
 	// Crear marco
 	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), BUTTON_FRAME_SPRITE_WIDTH * 4, BUTTON_FRAME_SPRITE_HEIGTH * 4);
+	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 	
 	// Crear botón
 	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, key,
-		BUTTON_SPRITE_WIDTH * 4, BUTTON_SPRITE_HEIGHT * 4, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, frame);
+		MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, frame);
 }
