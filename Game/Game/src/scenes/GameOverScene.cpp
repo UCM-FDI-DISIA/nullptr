@@ -5,26 +5,29 @@
 GameOverScene::GameOverScene() {
 	//Creo el background
 	auto bc = addGameObject();
-	bc->addComponent<Transform>(Vector2D(0, 0), Vector2D(0, 0), WIN_WIDTH, WIN_HEIGHT);
+	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	auto i = bc->addComponent<Image>(SDLApplication::getTexture("GameOver"));
 	i->attachToCamera();
+
 	//Creo el objeto con la imagen del mensaje de muerte
 		GameObject * message = addGameObject();
-	message->addComponent<Transform>(Vector2D(MESSAGE_X, MESSAGE_Y), Vector2D(0, 0), MESSAGE_W, MESSAGE_H);
+	message->addComponent<Transform>(Vector2D(MESSAGE_X, MESSAGE_Y), Vector2D(), MESSAGE_W, MESSAGE_H);
 	auto im = message->addComponent<Image>(SDLApplication::getTexture("YouDied"));
 	im->attachToCamera();
-	//Creo el boton y su marco y los fijo a la camara
-	GameObject* marco = addGameObject();
-	marco->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 103, WIN_HEIGHT * 2 / 3 - 44), Vector2D(0, 0), 190, 90);
-	auto An = marco->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"),
-		BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
-	An->attachToCamera();
 
-	auto but = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT * 2 / 3),
-		EXIT, MAINMENU_BUTTON_WIDTH, MAINMENU_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, marco);
-	but->getComponent<Animator>()->attachToCamera();
+	//Creo el boton y su marco y los fijo a la camara
+	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 2, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 2, WIN_HEIGHT * 2 / 3) - Vector2D(48, 88),
+		[]() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
 }
 
-void GameOverScene::mainMenu() {
-	SDLApplication::newScene<MainMenuScene>();
+// Crear un bot�n especificado en la escena
+void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
+	// Crear marco
+	GameObject* frame = addGameObject();
+	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
+
+	// Crear bot�n
+	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, key,
+		MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS, frame);
 }
