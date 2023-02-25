@@ -2,7 +2,7 @@
 
 Card::Card(int _damage, int _maxUses, int _mana, float _downtime, float _bulletSpeed, std::string _data, Texture* _texture) :
 	damage(_damage), maxUses(_maxUses), remainingUses(_maxUses), mana(_mana), downtime(_downtime), bulletSpeed(_bulletSpeed), texture(_texture) {
-	//Procesamiento de _data con formato: "name$attackText&abilityText"
+	//Procesamiento de _data con formato: "name$attackText$abilityText"
 	int tS = 0;
 	for (int i = 0; i < _data.length(); i++) {
 		if (_data[i] == '$')
@@ -12,6 +12,7 @@ Card::Card(int _damage, int _maxUses, int _mana, float _downtime, float _bulletS
 			case 0:
 				name += _data[i];
 				break;
+				std::cout << name;
 			case 1:
 				attackText += _data[i];
 				break;

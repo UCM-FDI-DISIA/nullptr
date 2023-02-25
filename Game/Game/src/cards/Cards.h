@@ -4,7 +4,7 @@
 
 class GunCard : public Card {
 	public:
-		GunCard() : Card(10,6,35,0.5,0.005,"Pistola&Dispara de manera normal&Se disparan todas las balas como una escopeta", SDLApplication::getTexture("Pistol")) {};
+		GunCard() : Card(10,6,35,0.5,0.005,"Pistola$Dispara de manera normal&Se disparan todas las balas como una escopeta", SDLApplication::getTexture("Pistol")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

@@ -67,6 +67,7 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 
 //Mueve el puntero de la carta activa, dependiendo del valor de left lo mueve hacia la derecha o hacia la izquerda
 void CardComponent::switchActive(bool left) {
+	
 	if (left) {
 		--active;
 		where->changeUISelected(false, -1);
@@ -79,7 +80,7 @@ void CardComponent::switchActive(bool left) {
 
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
 void CardComponent::switchActive(int number) {
-	if (number >= 0 && number < hand.size()) {
+	if (number >= 1 && number < hand.size()) {
 		active = hand.begin();
 		std::advance(active, number);
 		where->changeUISelected(true, number);
@@ -88,14 +89,11 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
-	srand(time(0)); // cleon says: esto se hace 1 vez por "exe", al principio del main.
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
 }
 
 void CardComponent::reshufflePile() {
-	//Semilla aleatoria, con tiempo del ordenador
-	srand(time(0)); // cleon says: esto se hace 1 vez por "exe", al principio del main.
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
