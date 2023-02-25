@@ -37,9 +37,6 @@
     <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\Button.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\PlayerData.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
@@ -64,13 +61,6 @@
     <ClCompile Include="src\data\json\JSONValue.cpp">
       <Filter>Archivos de Dependecias\Data\json</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\components\Card Components\CardComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
     </ClCompile>
@@ -157,6 +147,18 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\Button.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\GameOverScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,17 +258,7 @@
     <ClInclude Include="src\data\json\JSONValue.h">
       <Filter>Archivos de Encabezado\Data\json</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\CardCounter.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\HandUI.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\Resource.h" />
-    <ClInclude Include="src\scenes\GameOverScene.h" />
-    <ClInclude Include="src\gameObjects\UI\Button.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\BulletBehavior.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
@@ -371,6 +363,18 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\HandUI.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\CardCounter.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\Button.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\GameOverScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -486,6 +490,12 @@
     </Filter>
     <Filter Include="Archivos de Dependecias\Objects\Player Objects">
       <UniqueIdentifier>{97b11a96-bdce-4d94-8376-b9cf3c3d2adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\UI Objects">
+      <UniqueIdentifier>{6e97ee8e-781c-45ea-a1be-dd645b445f00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\UI Objects">
+      <UniqueIdentifier>{69cd8b21-8e43-40dd-9c0f-969e8b359ad0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
