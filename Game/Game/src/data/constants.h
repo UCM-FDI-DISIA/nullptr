@@ -130,12 +130,21 @@ const int DOWN_OFFSET = WIN_HEIGHT - 6 * REVERSE_HEIGHT / 5;
 const int CARD_OFFSET_W = 2 * 2;
 const int CARD_OFFSET_H = 21 * 2;
 const int MAX_HAND_SIZE = 4;
-const string PISTOLA = "CPistola";
+// CARD DIMENSIONS
 const int CARD_WIDTH = 58;
-const int CARD_HEIGTH = 93;
-const int X_CARD_POS = WIN_WIDTH / 6 + LEFT_OFFSET / 2;
-const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 2;
-const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGTH / 2 - 60;
+const int CARD_HEIGHT = 93;
+// UI CARD DIMENSIONS
+const int UI_CARD_WIDTH = CARD_WIDTH * 4;
+const int UI_CARD_HEIGHT = CARD_HEIGHT * 4;
+// UI CARD POSITIONS
+const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2;
+const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - 60;
+const int BETWEEN_CARD_SPACE = CARD_WIDTH * 4 / 2;
+	// 4 CARDS IN HAND
+const int X1_4CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - UI_CARD_WIDTH - BETWEEN_CARD_SPACE;
+const int X2_4CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - BETWEEN_CARD_SPACE;
+const int X3_4CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + BETWEEN_CARD_SPACE;
+const int X4_4CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + UI_CARD_WIDTH + BETWEEN_CARD_SPACE;
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;

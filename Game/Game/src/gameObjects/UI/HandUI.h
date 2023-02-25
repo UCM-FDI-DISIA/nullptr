@@ -28,5 +28,10 @@ public:
 
 	// Descartar una carta
 	void discard(deque<Card*>::iterator discarded);
+
+	// Reposiciona las cartas según el número de cartas que quedan en la mano
+	void rearrangeThree();
+	void rearrangeTwo();
+	void rearrangeOne();
 };
 

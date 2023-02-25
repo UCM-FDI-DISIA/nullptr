@@ -82,6 +82,11 @@ public:
 		width_ = newWidth;
 	}
 
+	// Setea la rotacion
+	inline void setRotation(int _rotation) {
+		rotation_ = _rotation;
+	}
+
 	// Devuelve height
 	inline float getHeight() {
 		return height_;

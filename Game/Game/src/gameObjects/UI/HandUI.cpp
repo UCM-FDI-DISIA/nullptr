@@ -56,7 +56,10 @@ void HandUI::discard(deque<Card*>::iterator discarded) {
 	active = handUI.erase(aux);
 
 	// Si la mano no se ha vaciado, marcar la carta inicial
-	if (handUI.size() > 0) changeSelected(true, 0);
+	if (handUI.size() > 0) {
+		changeSelected(true, 0);
+		if (handUI.size() == 1) rearrangeOne();
+	}
 }
 
 // Crear las cartas de la UI según la mano del jugador, iniciando variables y posicionándolas correctamente
@@ -72,8 +75,10 @@ void HandUI::createUI() {
 		GameObject* card = new GameObject();
 
 		// Añadir transform, haciendo que la primera carta esté más alta que el resto; y la textura
-		if (i == 1) card->addComponent<Transform>(Vector2D(X_CARD_POS - CARD_WIDTH / 2, Y_CARD_POS_SELECTED), Vector2D(), CARD_WIDTH * 4, CARD_HEIGTH * 4, 0);
-		else card->addComponent<Transform>(Vector2D(X_CARD_POS * i - CARD_WIDTH / 2, Y_CARD_POS), Vector2D(), CARD_WIDTH * 4, CARD_HEIGTH * 4, 0);
+		if (i == 1) card->addComponent<Transform>(Vector2D(X1_4CARD_POS, Y_CARD_POS_SELECTED), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, -10);
+		else if (i == 2) card->addComponent<Transform>(Vector2D(X2_4CARD_POS, Y_CARD_POS), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, -5);
+		else if (i == 3) card->addComponent<Transform>(Vector2D(X3_4CARD_POS, Y_CARD_POS), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, 5);
+		else card->addComponent<Transform>(Vector2D(X4_4CARD_POS, Y_CARD_POS), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, 10);
 		card->addComponent<Image>(handPlayer[j]->getTexture());
 
 		// Añadir a la deque de la UI y marcar iteración
@@ -83,4 +88,18 @@ void HandUI::createUI() {
 
 	// Marcar como activa la primera carta
 	active = handUI.begin();
+}
+
+void HandUI::rearrangeThree() {
+
+}
+
+void HandUI::rearrangeTwo() {
+
+}
+
+// Posiciona la carta restante en el centro sin rotación
+void HandUI::rearrangeOne() {
+	(*active)->getComponent<Transform>()->setX(WIN_WIDTH / 2 - UI_CARD_WIDTH / 2);
+	(*active)->getComponent<Transform>()->setRotation(0);
 }
