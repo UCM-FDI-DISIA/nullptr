@@ -7,7 +7,7 @@ void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	currentFrame = start;
 }
 
-// Starts a new animation
+// Empieza una nueva animacion
 void Animator::play(string key) {
 	currentAnimKey = key;
 	currentAnimation = &anims[currentAnimKey];
@@ -16,12 +16,12 @@ void Animator::play(string key) {
 	startTime = SDL_GetTicks();
 }
 
-// Stops the current animation
+// Para la animacion actual
 void Animator::stop() {
 	currentAnimation = nullptr;
 }
 
-// Resumes the last animation played
+// Continua la ultima animacion
 void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }

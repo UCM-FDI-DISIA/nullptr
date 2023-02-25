@@ -1,7 +1,15 @@
 #include "PlayerAnimator.h"
 
+/*
+	Se crean animaciones preestablecidas del Player.
+	Dependiendo de la velocidad del Player de su Transform,
+	se pone la animacion adecuada
+*/
+
+// Inicia el componente
 void PlayerAnimator::initComponent() {
 	Animator::initComponent();
+
 	transform = gObj->getComponent<Transform>();
 	if (gStt != nullptr) {
 		createAnim(PLAYER_IDLE, PLAYER_IDLE_INITIAL_FRAME, PLAYER_IDLE_FINAL_FRAME, PLAYER_IDLE_FRAME_RATE, -1);
@@ -12,6 +20,7 @@ void PlayerAnimator::initComponent() {
 	}
 }
 
+// Actualiza la animacion del Player dependiendo de su velocidad
 void PlayerAnimator::update() {
 	Animator::update();
 

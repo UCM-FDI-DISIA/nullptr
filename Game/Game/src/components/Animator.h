@@ -30,19 +30,18 @@ public:
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
 		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), startTime(SDL_GetTicks()), currentAnimation(nullptr) { };
 
-	//Animaciones
-	void createAnim(string key,int start, int end, int rate, int _rep = 0);
+	// Animaciones
+	void createAnim(string key, int start, int end, int rate, int _rep = 0);
 	void play(string key);
 	void stop();
 	void resume();
 	
-	//Metodos esenciales
+	// Metodos esenciales
 	virtual void update();
 	virtual void render() const;
 
-	//Getters
+	// Getters
 	inline string currentAnimationKey() { return currentAnimKey; }
 	inline int getCurrentFrame() { return currentFrame; }
 };
-
 #endif // !ANIMATOR_H_

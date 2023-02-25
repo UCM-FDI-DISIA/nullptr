@@ -11,7 +11,9 @@ void CameraComponent::initComponent() {
 // Setea el objeto a seguir
 void CameraComponent::setFollowObject(GameObject* followObject_) {
 	followObjectTransform = followObject_->getComponent<Transform>();
-	followObjectInitialPosition = followObjectTransform->getInitialPosition();
+	if (followObjectTransform != nullptr) {
+		followObjectInitialPosition = followObjectTransform->getInitialPosition();
+	}
 }
 
 // Sigue la posicion del followObject
