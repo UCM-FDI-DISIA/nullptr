@@ -1,15 +1,18 @@
 #pragma once
 #include "../core/GameObject.h"
 #include "LifetimeComponent.h"
+#include "../core/SDLApplication.h"
 
 LifeTimeComponent::LifeTimeComponent(Uint32 lifespan)
 {
-	deathTime = SDL_GetTicks() + lifespan;
+	time = SDL_GetTicks();
+	deathTime = time + lifespan;
 }
 
 void LifeTimeComponent::update()
 {
-	if(SDL_GetTicks() > deathTime)
+	time += SDLApplication::instance()->getDeltaTime();
+	if(time > deathTime)
 	{
 		gObj->setAlive(false);
 	}

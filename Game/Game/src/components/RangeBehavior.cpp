@@ -28,7 +28,7 @@ void RangeBehavior::setDirectionTo() {
 }
 // Se trata de un ciclo de movimiento y parada
 void RangeBehavior::update() {
-	actualTime = SDL_GetTicks();
+	actualTime += SDLApplication::instance()->getDeltaTime();
 
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 	if (actualTime - elapsedTime > stopTime)

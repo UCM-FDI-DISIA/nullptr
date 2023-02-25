@@ -1,4 +1,5 @@
 #include "MeleeBehaviour.h"
+#include "../core/SDLApplication.h"
 
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
@@ -34,7 +35,7 @@ bool MeleeBehaviour::close() {
 }
 
 void MeleeBehaviour::update() {
-	actualTime = SDL_GetTicks();
+	actualTime += SDLApplication::instance()->getDeltaTime();
 
 	//Si ha estado cerca
 	if (close()) {

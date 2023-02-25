@@ -6,6 +6,7 @@ class LifeTimeComponent :
 private:
     //Duracion del gObj
     Uint32 deathTime;
+    Uint32 time;
 public:
     //Constructora. Determina el tick global en el que el gObj muere
     LifeTimeComponent(Uint32 lifespan);

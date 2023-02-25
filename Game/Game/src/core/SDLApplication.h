@@ -36,6 +36,9 @@ private:
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
 
+	Uint32 deltaTime = 0;
+	uint32_t startTime;
+
 public:
 	// Constructora
 	SDLApplication();
@@ -66,6 +69,10 @@ public:
 	static void popGameState();
 	// Cierra el juego
 	static void quitGame();
+
+	inline uint32_t getDeltaTime() { return SDL_GetTicks() - startTime; }
+
+	
 };
 #endif
 
