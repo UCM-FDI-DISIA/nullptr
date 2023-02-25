@@ -13,13 +13,20 @@ private:
 public:
 	// Identificador
 	static const int id = _CAMERACOMPONENT;
+
 	// Constructora
-	CameraComponent();
+	CameraComponent() : transform(nullptr), followObjectTransform(nullptr) {}
+
+	// Destructora
+	~CameraComponent();
+
 	// Inicializa el componente
 	virtual void initComponent();
+
+	// Sigue la posicion del followObject
+	virtual void update();
+
 	// Setea el objeto a seguir
 	void setFollowObject(GameObject* followObject_);
-	// Sigue la posicion del followObject
-	void update();
 };
 #endif // !CAMERA_COMPONENT_H_

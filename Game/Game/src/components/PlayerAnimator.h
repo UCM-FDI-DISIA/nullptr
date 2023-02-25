@@ -8,13 +8,20 @@ class PlayerAnimator : public Animator {
 private:
 	Transform* transform;
 public:
+	// Identificador
 	static const int id = _PLAYER_ANIMATOR;
-	
-	// Constructora
-	PlayerAnimator(Texture* _texture, int _w, int _h, int _r, int _c) : Animator(_texture, _w, _h, _r, _c), transform(nullptr) {} // Pasar los parametros del animator como constantes
 
-	// Metodos esenciales
+	// Constructora
+	PlayerAnimator(Texture* _texture, int _w, int _h, int _r, int _c) : 
+		Animator(_texture, _w, _h, _r, _c), transform(nullptr) {}
+
+	// Destructora
+	~PlayerAnimator();
+
+	// Inicializa el componente
 	virtual void initComponent();
+
+	// Actualiza la animacion del Player dependiendo de su velocidad
 	virtual void update();
 };
 #endif // !PLAYER_ANIMATOR_H_

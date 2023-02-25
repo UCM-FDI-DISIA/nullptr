@@ -9,7 +9,7 @@
 	tengan atachado la camara en su componente Image
 */
 
-// Constructora por defecto
+// Constructora
 Camera::Camera() : followObject(nullptr) {
 	transform = addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
 	cameraComponent = addComponent<CameraComponent>();
@@ -28,8 +28,11 @@ void Camera::startFollowObject(GameObject* followObject_) {
 }
 
 // Devuelve el followObject
-GameObject* Camera::getFollowObject() { return followObject; }
+GameObject* Camera::getFollowObject() { 
+	return followObject; 
+}
 
+// Devuelve la posicion de la camara
 Vector2D Camera::getOffset() const{
 	return transform->getPos();
 }
