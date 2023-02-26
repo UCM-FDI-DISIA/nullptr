@@ -17,18 +17,18 @@ public:
 
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, vector<GameObject*>* target) {
 		addComponent<BulletBehavior>(dmg, target);
-		addComponent<Transform>(pos, dir, 30, 30);
+		addComponent<Transform>(pos, dir * BULLET_SPEED, 30, 30);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
-		addComponent<LifeTimeComponent>(10000);
+		addComponent<LifeTimeComponent>(10);
 		addComponent<ColliderComponent>();
 	}
 
 	// desde aquí, llamad a la otra. o al revés.
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, GameObject* target) {
 		addComponent<BulletBehavior>(dmg, target);
-		addComponent<Transform>(pos, dir, 30, 30);
+		addComponent<Transform>(pos, dir * BULLET_SPEED, 30, 30);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
-		addComponent<LifeTimeComponent>(10000);
+		addComponent<LifeTimeComponent>(10);
 		addComponent<ColliderComponent>();
 	}
 };
