@@ -1,11 +1,11 @@
 #include "HandUI.h"
 
 void HandUI::initGameObject(CardComponent* _cComp) {
+	// Puntero al cardcomponent
 	cardComp = _cComp;
 
 	// Crear las cartas reflejadas por pantalla
 	createUI();
-	// NOTA: La propia clase CardComponent llama a la creación de la UI
 }
 
 // Renderizar los GameObjects del deque (de lo contrario solo se renderiza un objeto vacío)
@@ -56,7 +56,14 @@ void HandUI::discard(deque<Card*>::iterator discarded) {
 	active = handUI.erase(aux);
 
 	// Si la mano no se ha vaciado, marcar la carta inicial
-	if (handUI.size() > 0) changeSelected(true, 0);
+	if (handUI.size() > 0) {
+		changeSelected(true, 0);
+		switch (handUI.size()) {
+			case 1: rearrangeOne(); break;
+			case 2: rearrangeTwo(); break;
+			case 3: rearrangeThree(); break;
+		}
+	}
 }
 
 // Crear las cartas de la UI según la mano del jugador, iniciando variables y posicionándolas correctamente
@@ -65,22 +72,67 @@ void HandUI::createUI() {
 	handUI.clear();
 	handPlayer = cardComp->getHand();
 
-	// Crear las imagenes que se verán por pantalla
-	int i = 1;
-	for (int j = 0; j < MAX_HAND_SIZE; j++) {
-		// Crear objeto
-		GameObject* card = new GameObject();
-
-		// Añadir transform, haciendo que la primera carta esté más alta que el resto; y la textura
-		if (i == 1) card->addComponent<Transform>(Vector2D(X_CARD_POS - CARD_WIDTH / 2, Y_CARD_POS_SELECTED), Vector2D(), CARD_WIDTH * 4, CARD_HEIGTH * 4, 0);
-		else card->addComponent<Transform>(Vector2D(X_CARD_POS * i - CARD_WIDTH / 2, Y_CARD_POS), Vector2D(), CARD_WIDTH * 4, CARD_HEIGTH * 4, 0);
-		card->addComponent<Image>(handPlayer[j]->getTexture());
-
-		// Añadir a la deque de la UI y marcar iteración
-		handUI.push_back(card);
-		i++;
-	}
+	// Crear las 4 cartas con sus posiciones correspondientes
+	createCard(0, X1_4CARDS_POS, Y_CARD_POS_SELECTED, -10);
+	createCard(1, X2_4CARDS_POS, Y_CARD_POS, -5);
+	createCard(2, X3_4CARDS_POS, Y_CARD_POS, 5);
+	createCard(3, X4_4CARDS_POS, Y_CARD_POS, 10);
 
 	// Marcar como activa la primera carta
 	active = handUI.begin();
+}
+
+void HandUI::createCard(int i, int posX, int posY, int rotation) {
+	// Crear objeto
+	GameObject* card = new GameObject();
+
+	// Añadir transform con los valores correspondientes y la textura
+	card->addComponent<Transform>(Vector2D(posX, posY), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, rotation);
+	card->addComponent<Image>(handPlayer[i]->getTexture());
+
+	// Añadir a la deque de la UI
+	handUI.push_back(card);
+}
+
+// Posiciona las 3 cartas restantes de forma que una esté en medio sin rotación, y las otras a su alrededor ligeramente rotadas
+void HandUI::rearrangeThree() {
+	// Iterador para recorrer la mano y puntero a transform para posicionar
+	auto it = handUI.begin();
+	Transform* tr = nullptr;
+
+	// Primera carta
+	tr = (*it)->getComponent<Transform>();
+	tr->setX(X1_3CARDS_POS); tr->setRotation(-5);
+	it++;
+
+	// Segunda carta
+	tr = (*it)->getComponent<Transform>();
+	tr->setX(CENTERED_CARD_POS); tr->setRotation(0);
+	it++;
+
+	// Tercera carta
+	tr = (*it)->getComponent<Transform>();
+	tr->setX(X3_3CARDS_POS); tr->setRotation(5);
+}
+
+// Posiciona las 2 cartas restantes correctamente, ligeramente rotadas
+void HandUI::rearrangeTwo() {
+	// Iterador para recorrer la mano y puntero a transform para posicionar
+	auto it = handUI.begin();
+	Transform* tr = nullptr;
+
+	// Primera carta
+	tr = (*it)->getComponent<Transform>();
+	tr->setX(X2_4CARDS_POS); tr->setRotation(-5);
+	it++;
+
+	// Segunda carta
+	tr = (*it)->getComponent<Transform>();
+	tr->setX(X3_4CARDS_POS); tr->setRotation(5);
+}
+
+// Posiciona la carta restante en el centro sin rotación
+void HandUI::rearrangeOne() {
+	(*active)->getComponent<Transform>()->setX(CENTERED_CARD_POS);
+	(*active)->getComponent<Transform>()->setRotation(0);
 }
