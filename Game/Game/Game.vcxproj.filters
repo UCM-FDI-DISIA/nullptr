@@ -112,7 +112,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Card Objects\laserShades.cpp">
+    <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp">

@@ -244,7 +244,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
-    <ClCompile Include="src\gameObjects\Card Objects\laserShades.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
