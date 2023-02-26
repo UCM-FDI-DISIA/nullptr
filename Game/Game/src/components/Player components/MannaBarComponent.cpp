@@ -1,5 +1,5 @@
 #include "MannaBarComponent.h"
-#include "../scenes/BattleScene.h"
+#include "../../scenes/BattleScene.h"
 
 MannaBarComponent::MannaBarComponent(CardComponent* _info) : currentManna(0), info(_info), tr(nullptr) { }
 

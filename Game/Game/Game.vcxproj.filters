@@ -160,6 +160,9 @@
     <ClCompile Include="src\scenes\GameOverScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -372,6 +375,9 @@
     </ClInclude>
     <ClInclude Include="src\scenes\GameOverScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\MannaBarComponent.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

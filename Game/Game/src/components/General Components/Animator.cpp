@@ -1,5 +1,5 @@
 #include "Animator.h"
-#include "../core/SDLApplication.h"
+#include "../../core/SDLApplication.h"
 // Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	Animation newAnim = Animation(start, end, rate, _rep);

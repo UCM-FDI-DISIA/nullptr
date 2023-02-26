@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CardComponent.h"
+#include "../Card Components/CardComponent.h"
 
 class MannaBarComponent : public Component {
 private:

@@ -27,7 +27,7 @@ void RangeBehaviour::setDirectionTo() {
 	if (pos->getDistance(playerPos->getPos()) < safeDistance) pos->rotate(180);
 }
 // Se trata de un ciclo de movimiento y parada
-void RangeBehavior::update() {
+void RangeBehaviour::update() {
 	behaviorTime += SDLApplication::instance()->getDeltaTime();
 
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves

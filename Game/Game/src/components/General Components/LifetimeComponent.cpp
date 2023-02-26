@@ -1,7 +1,7 @@
 #pragma once
 #include "../../gameObjects/GameObject.h"
 #include "LifetimeComponent.h"
-#include "../core/SDLApplication.h"
+#include "../../core/SDLApplication.h"
 
 LifeTimeComponent::LifeTimeComponent(float lifeSpan): lifeSpan(lifeSpan) {
 }

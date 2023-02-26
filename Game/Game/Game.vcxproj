@@ -165,6 +165,7 @@
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
+    <ClInclude Include="src\components\Player components\MannaBarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
@@ -232,6 +233,7 @@
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
+    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
     <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
