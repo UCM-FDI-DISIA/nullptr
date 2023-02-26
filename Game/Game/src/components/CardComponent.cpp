@@ -81,7 +81,7 @@ void CardComponent::switchActive(bool left) {
 
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
 void CardComponent::switchActive(int number) {
-	if (number >= 1 && number < hand.size()) {
+	if (number >= 0 && number < hand.size()) {
 		active = hand.begin();
 		std::advance(active, number);
 		where->changeUISelected(true, number);
