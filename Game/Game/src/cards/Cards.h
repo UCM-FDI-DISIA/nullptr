@@ -12,14 +12,14 @@ class GunCard : public Card {
 
 class SwordCard : public Card {
 	public:
-		SwordCard() : Card(20, 5, 80, 2, 0.5, "Espada", "", "", SDLApplication::getTexture("Sword")) {};
+		SwordCard() : Card(20, 5, 80, 2, 0.5, "Espada", SDLApplication::getTexture("Sword")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class LaserShadesCard : public Card {
 	public:
-		LaserShadesCard() : Card(20, 5, 80, 2, 0.5, "Gafas Láser", "", "", SDLApplication::getTexture("LaserGlasses")) {};
+		LaserShadesCard() : Card(20, 5, 80, 2, 0.5, "Gafas LÃ¡ser", SDLApplication::getTexture("LaserGlasses")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
