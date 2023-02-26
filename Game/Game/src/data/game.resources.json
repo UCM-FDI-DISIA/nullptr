@@ -39,8 +39,7 @@
       { "id" : "LifeBar", "file" : "../Game/resources/images/Player/LifeBar_200x30.png" },
 
       { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
-      { "id" : "MeleEnemyW", "file" : "../Game/resources/images/Enemies/MeleEnemyW216x33.png" },
-      { "id" : "MeleEnemyA", "file" : "../Game/resources/images/Enemies/MeleenEmyA243x33.png" },
+      { "id" : "MeleEnemy", "file" : "../Game/resources/images/Enemies/MeleenEnemy243x66.png" },
       
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
