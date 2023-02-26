@@ -33,10 +33,13 @@ void SDLApplication::run() {
 
 
 
-	uint32_t frameTime, debugCounter;
+	uint32_t frameTime; double debugCounter;
 	startTime = SDL_GetTicks();
 	timeOffset = startTime;
 	debugCounter = 0;
+	
+	Uint64 NOW = SDL_GetPerformanceCounter();
+	Uint64 LAST = 0;
 	
 
 	
@@ -46,13 +49,14 @@ void SDLApplication::run() {
 		
 		frameTime = SDL_GetTicks() - startTime;
 		
-		
-		deltaTime = frameTime;
-
-		debugCounter += getDeltaTime();
-
-
 		update();
+		
+		LAST = NOW;
+		NOW = SDL_GetPerformanceCounter();
+
+		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
+
+		debugCounter += deltaTime;
 
 		if (frameTime >= DELAY_TIME) {
 			
@@ -61,7 +65,8 @@ void SDLApplication::run() {
 			render();
 		}
 		
-		std::cout << debugCounter << " " << SDL_GetTicks() << " " <<  SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
+		// Descomentar para analizar el deltaTime
+		// std::cout << deltaTime << " " << SDL_GetTicks() << " " <<  debugCounter << " " << SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
 		
 		handleInput();
 	}

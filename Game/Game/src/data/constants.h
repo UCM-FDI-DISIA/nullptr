@@ -60,7 +60,7 @@ const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 4;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
-const float PLAYER_SPEED = 50;
+const float PLAYER_SPEED = 200;
 
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 30 * 2;
@@ -70,7 +70,7 @@ const float ENEMY_SPEED = 50;
 
 // BULLETS ---------------------------------------------------------------------------------------
 
-const float BULLET_SPEED = 1.2f;
+const float BULLET_SPEED = 200;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS

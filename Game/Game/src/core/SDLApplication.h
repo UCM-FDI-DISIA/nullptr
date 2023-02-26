@@ -36,7 +36,7 @@ private:
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
 
-	Uint32 deltaTime = 0;
+	double deltaTime = 0.0;
 	Uint32 timeOffset = 0;
 	uint32_t startTime;
 
@@ -71,9 +71,9 @@ public:
 	// Cierra el juego
 	static void quitGame();
 
-	inline uint32_t getDeltaTime() { return deltaTime; }
+	inline double getDeltaTime() { return deltaTime; }
 	inline uint32_t getCurrentTime() { return SDL_GetTicks() - timeOffset; }
-	inline float getDeltaTimeSeconds() { return (float) getDeltaTime() / 1000.0f; }
+	inline double getDeltaTimeSeconds() { return getDeltaTime() / 1000.0; }
 
 	
 };

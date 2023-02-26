@@ -21,8 +21,8 @@ private:
 	int fw, fh, rows, cols;
 	int currentFrame;
 	int repetitions;
-	uint startTime;
-	uint currTime;
+	double startTime;
+	double currTime;
 	AnimationMap anims;
 	string currentAnimKey;
 	Animation* currentAnimation;

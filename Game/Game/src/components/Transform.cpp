@@ -43,5 +43,6 @@ void Transform::move() {
 
 //Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
-	position_ = position_ + (velocity_ * SDLApplication::instance()->getDeltaTimeSeconds());
+	double deltaTime = SDLApplication::instance()->getDeltaTimeSeconds();
+	position_ = position_ + (velocity_ * deltaTime);
 }

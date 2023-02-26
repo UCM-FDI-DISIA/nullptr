@@ -13,7 +13,7 @@ void Animator::play(string key) {
 	currentAnimation = &anims[currentAnimKey];
 	currentFrame = currentAnimation->startFrame;
 	repetitions = 0;
-	startTime = SDL_GetTicks();
+	startTime = SDLApplication::instance()->getCurrentTime();
 	currTime = startTime;
 }
 
@@ -46,10 +46,11 @@ void Animator::update() {
 
 			else currentFrame = currentAnimation->startFrame;
 
-			startTime = SDLApplication::instance()->getCurrentTime();
+			startTime -= (1000 / currentAnimation->frameRate);
+			currTime = startTime;
 		}
 	}
-
+	currTime += SDLApplication::instance()->getDeltaTime();
 }
 
 
