@@ -147,15 +147,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\components\BulletBehavior.h" />
     <ClInclude Include="src\components\Card Components\BulletBehavior.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
     <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
-    <ClInclude Include="src\components\Enemy components\EnemyBehavior.h" />
+    <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
-    <ClInclude Include="src\components\Enemy components\RangeBehavior.h" />
+    <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
     <ClInclude Include="src\components\General Components\ButtonComponent.h" />
     <ClInclude Include="src\components\General Components\CameraComponent.h" />
@@ -222,9 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
-    <ClCompile Include="src\components\Enemy components\EnemyBehavior.cpp" />
+    <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
-    <ClCompile Include="src\components\Enemy components\RangeBehavior.cpp" />
+    <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
@@ -245,7 +244,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
-    <ClCompile Include="src\gameObjects\Card Objects\laserShades.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />

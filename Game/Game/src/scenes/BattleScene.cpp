@@ -1,5 +1,5 @@
 #include "BattleScene.h"
-#include "../components/Enemy components/RangeBehavior.h"
+#include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
 
 // Constructora

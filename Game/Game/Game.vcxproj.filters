@@ -64,13 +64,13 @@
     <ClCompile Include="src\components\Card Components\CardComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Enemy components\EnemyBehavior.cpp">
+    <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Enemy components\RangeBehavior.cpp">
+    <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\General Components\Animator.cpp">
@@ -112,7 +112,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Card Objects\laserShades.cpp">
+    <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp">
@@ -259,9 +259,6 @@
       <Filter>Archivos de Encabezado\Data\json</Filter>
     </ClInclude>
     <ClInclude Include="src\Resource.h" />
-    <ClInclude Include="src\components\BulletBehavior.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Card Components\BulletBehavior.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
@@ -271,13 +268,13 @@
     <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Enemy components\EnemyBehavior.h">
+    <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Enemy components\RangeBehavior.h">
+    <ClInclude Include="src\components\Enemy components\RangeBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\Animator.h">

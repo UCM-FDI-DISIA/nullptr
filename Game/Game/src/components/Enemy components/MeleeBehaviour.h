@@ -1,7 +1,7 @@
 #pragma once
-#include "EnemyBehavior.h"
+#include "EnemyBehaviour.h"
 
-class MeleeBehaviour :public EnemyBehavior {
+class MeleeBehaviour :public EnemyBehaviour {
 private:
 	Vector2D initialDir;
 	bool hasBeenCloseToPlayer;

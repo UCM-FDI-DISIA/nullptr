@@ -13,8 +13,6 @@ class Bullet:public GameObject
 {
 public:
 
-	// cleon says: copy paste es muy mal
-
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, vector<GameObject*>* target) {
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);

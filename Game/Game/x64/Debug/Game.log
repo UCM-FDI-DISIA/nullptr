@@ -1,1 +1,304 @@
-﻿  Game.vcxproj -> C:\Users\pedro\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
+﻿  CardComponent.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\PlayerData.h(46,34): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\PlayerData.h(47,36): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\core\PlayerData.h(54,62): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.cpp(29,18): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.cpp(91,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.cpp(98,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  HeatlhComponent.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\HeatlhComponent.cpp(40,20): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\HeatlhComponent.cpp(42,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\HeatlhComponent.cpp(44,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(20,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  NodeButtonComponent.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  RangedEnemy.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(20,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+  BattleNode.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  Node.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+  BattleScene.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(20,1): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\scenes\BattleScene.cpp(11,110): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,const Vector2D&,const Vector2D&,const int&,const int&>(const Vector2D &,const Vector2D &,const int &,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  GameOverScene.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\scenes\GameOverScene.cpp(8,83): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\scenes\GameOverScene.cpp(13,103): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const int&,const int&>(Vector2D &&,Vector2D &&,const int &,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\scenes\GameOverScene.cpp(18,112): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,int,int>(Vector2D &&,Vector2D &&,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  ShopScene.cpp
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(61,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\data\constants.h(66,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(55,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(60,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(101,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(102,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(103,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(104,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(117,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(118,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(119,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(120,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(121,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(122,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(123,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(124,10): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(133,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\General Components\Transform.h(134,29): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(40,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\components\Enemy components\EnemyBehaviour.h(33,28): warning C4244: '=': conversión de 'Uint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  Generando código...
+  Game.vcxproj -> C:\Users\pedro\OneDrive\Documentos\FP2\nullptr\Game\x64\Debug\Game.exe

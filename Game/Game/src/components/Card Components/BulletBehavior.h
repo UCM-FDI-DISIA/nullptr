@@ -28,9 +28,9 @@ public:
 	virtual void update()
 	{
 		// cleon says: 1º: usad loops modernos (C++11).
-		// no uséis "vector" como un array.
+		// no uséis "vector" como un array. // Probalemente ni nos haga falta esto
 		
-		// Comprueba si ha chocado con el objetivo y, si lo hace, le baja vidaç
+		// Comprueba si ha chocado con el objetivo y, si lo hace, le baja vida
 		for (int i = 0; i < target->size(); i++) {
 			if (gObj->getComponent<ColliderComponent>()->
 				hasCollided((* target)[i]->getComponent<Transform>())) {
