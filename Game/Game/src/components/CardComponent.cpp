@@ -76,6 +76,7 @@ void CardComponent::switchActive(bool left) {
 			++active;
 			where->changeUISelected(false, 1);
 		}
+	}
 }
 
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
