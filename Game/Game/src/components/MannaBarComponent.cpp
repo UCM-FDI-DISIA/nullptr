@@ -1,15 +1,15 @@
 #include "MannaBarComponent.h"
 #include "../scenes/BattleScene.h"
 
-MannaBarComponent::MannaBarComponent() : currentManna(0), info(nullptr) { }
+MannaBarComponent::MannaBarComponent(CardComponent* _info) : currentManna(0), info(_info), tr(nullptr) { }
 
 void MannaBarComponent::initComponent() {
-	info = dynamic_cast<BattleScene*>(gStt)->getPlayer()->getComponent<CardComponent>();
+	//info = dynamic_cast<BattleScene*>(gStt)->getPlayer()->getComponent<CardComponent>();
 	currentManna = info->getMana();
 	tr = gObj->getComponent<Transform>();
 }
 
-void MannaBarComponent::update() {
+void MannaBarComponent::changeBar() {
 	//Si la cantidad de maná ha cambiado
 	if (info->getMana() != currentManna) {
 		//Calculo la diferencia y me guardo la longitud original de la barra

@@ -72,6 +72,10 @@ void BattleScene::OnPlayerDies() {
 	SDLApplication::newScene<GameOverScene>();
 }
 
+void BattleScene::OnManaChanges() {
+	barraMana->getComponent<MannaBarComponent>()->changeBar();
+}
+
 void BattleScene::createLifeBar() {
 	vida = addGameObject();
 	barraVida = addGameObject();
@@ -101,7 +105,7 @@ void BattleScene::createManaBar() {
 	barraMana->getComponent<Image>()->attachToCamera();
 	mana->getComponent<Image>()->attachToCamera();
 
-	barraMana->addComponent<MannaBarComponent>();
+	barraMana->addComponent<MannaBarComponent>(player->getComponent<CardComponent>());
 }
 
 // CAMBIOS DE UI

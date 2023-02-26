@@ -9,8 +9,8 @@ private:
 	int currentManna;
 public:
 	static const int id = _MANA_BAR_COMPONENT;
-	MannaBarComponent();
+	MannaBarComponent(CardComponent* _info);
 	
 	virtual void initComponent();
-	virtual void update();
+	void changeBar();
 };

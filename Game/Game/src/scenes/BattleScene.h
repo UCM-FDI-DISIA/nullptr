@@ -38,10 +38,7 @@ public:
 	void createLifeBar();
 	void createManaBar();
 	void OnPlayerDies();
-	/*void deleteEnemy(vector<GameObject*>::iterator _it) {
-		if (enemies.size() == 1) enemies.erase(enemies.begin());
-		else enemies.erase(prev(enemies.end())); 
-	}*/
+	void OnManaChanges();
 };
 
 #endif
