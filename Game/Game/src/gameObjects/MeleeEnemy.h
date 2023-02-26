@@ -7,12 +7,17 @@
 #include "../data/constants.h"
 #include "../components/Transform.h"
 #include "../components/Image.h"
-#include "../components/Animator.h"
+//#include "../components/Animator.h"
 #include "../scenes/GameState.h"
+#include "../components/EnemyAnimator.h"
 
 class SDLApplication;
 class MeleeEnemy :public GameObject
 {
+private:
+
+	PlayerAnimator* animator;
+
 public:
 	virtual void initGameObject(Vector2D pos, int life, Player* player);
 };

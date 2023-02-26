@@ -42,6 +42,8 @@ void MeleeBehaviour::update() {
 		if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
 			//Daña al jugador e informa de que ha atacado
 			player->getComponent<HealthComponent>()->receiveDamage(damage);
+			cout << "jaja funciona ";
+			Attack();
 			attacked = true;
 		}
 		//Si ha pasado suficiente tiempo para atacar
@@ -65,5 +67,28 @@ void MeleeBehaviour::update() {
 	pos->lookAt(playerPos->getPos());
 }
 
+// Permite al enemigo instanciar balas
+void MeleeBehaviour::Attack() {
 
+	/*Vector2D vel = playerPos->getPos() - pos->getPos();
+	if (vel.magnitude() != 0) {
+		vel = vel / vel.magnitude();
+		
+		if (shotPattern == 0) gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player); // El vel/500 es temporal para que funcione 
+		// Hasta que hagamos un deltaTime
+		else if (shotPattern == 1) {
+			vel = vel.rotate(BULLET_ANGLE);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			vel = vel.rotate(-2 * BULLET_ANGLE);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+		}
+		else if (shotPattern == 2) {
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			vel = vel.rotate(BULLET_ANGLE);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			vel = vel.rotate(-2 * BULLET_ANGLE);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+		}
+	}*/
+}
 

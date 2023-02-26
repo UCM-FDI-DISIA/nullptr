@@ -155,6 +155,9 @@
       <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\scenes\GameOverScene.cpp" />
+    <ClCompile Include="src\components\EnemyAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -359,7 +362,9 @@
     <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
-
+    </ClInclude>
+    <ClInclude Include="src\components\EnemyAnimator.h">
+      <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

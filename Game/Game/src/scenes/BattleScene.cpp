@@ -30,16 +30,15 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 
 	//Añadimos 2 enemigos de prueba
 	enemies.push_back(
-		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);
-	enemies.push_back(
 		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
 	);
+	/*enemies.push_back(
+		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
+	);*/
   
-
-	AnimatorInfo aI = AnimatorInfo(EXIT);
 	//Añadimo sun boton de salir
-	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10), aI);
+	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10),
+		EXIT, BUTTON_SPRITE_WIDTH * 4, BUTTON_SPRITE_HEIGHT * 4, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
 
 	MainMenu->getComponent<Animator>()->attachToCamera();
 

@@ -63,9 +63,35 @@ const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 0.001;
 
 // ENEMIES ---------------------------------------------------------------------------------------
-const int ENEMY_WIDTH = 30 * 2;
+const int ENEMY_WIDTH = 33 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
+// MELE ENEMY ANIMATIONS
+const string MELE_ENEMY = "MeleEnemy";
+const int MELE_ENEMY_SPRITE_WIDTH = 27;
+const int MELE_ENEMY_SPRITE_HEIGHT = 33;
+const int MELE_ENEMY_SPRITE_ROWS = 2;
+const int MELE_ENEMY_SPRITE_COLS = 9;
+
+const string MELE_ENEMY_ATACK = "MeleEnemyA";
+const int MELE_ENEMY_ATACK_INITIAL_FRAME = 9;
+const int MELE_ENEMY_ATACK_FINAL_FRAME = 17;
+const int MELE_ENEMY_ATACK_FRAME_RATE = 9;
+
+const string MELE_ENEMY_MOVE = "MeleEnemyM";
+const int MELE_ENEMY_MOVE_INITIAL_FRAME = 0;
+const int MELE_ENEMY_MOVE_FINAL_FRAME = 7;
+const int MELE_ENEMY_MOVE_FRAME_RATE = 8;
+
+// MELE ENEMY DIMENSIONS
+const float MELE_ENEMY_INITIAL_WIDTH = MELE_ENEMY_SPRITE_WIDTH * 4;
+const float MELE_ENEMY_INITIAL_HEIGHT = MELE_ENEMY_SPRITE_HEIGHT * 4;
+const Vector2D MELE_ENEMY_INITIAL_POSITION = { WIN_WIDTH / 2.0f - MELE_ENEMY_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - MELE_ENEMY_INITIAL_HEIGHT / 2 };
+const Vector2D MELE_ENEMY_INITIAL_VELOCITY = { 0.0f, 0.0f };
+const float MELE_ENEMY_INITIAL_ROTATION = 0;
+const float MELE_ENEMY_SPEED = 0.001;
+
+
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
