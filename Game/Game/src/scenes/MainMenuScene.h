@@ -10,11 +10,11 @@
 class MainMenuScene : public GameState {
 private:
 public:
+	// Constructora
 	MainMenuScene();
-	static void play();
-	static void options();
-	static void album();
-	static void exit();
+
+	// Crear un botón especificado en la escena
+	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };
 
 #endif

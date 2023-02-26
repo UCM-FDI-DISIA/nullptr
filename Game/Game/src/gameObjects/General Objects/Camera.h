@@ -12,15 +12,19 @@ private:
 	CameraComponent* cameraComponent;
 	GameObject* followObject;
 public:
-	// Constructor por defecto
+	// Constructora
 	Camera();
+
 	// Destructora
 	~Camera();
+
 	// Asigna el objeto a seguir
 	void startFollowObject(GameObject* followObject_);
+
 	// Devuelve el followObject
 	GameObject* getFollowObject();
 
+	// Devuelve la posicion de la camara
 	Vector2D getOffset() const;
 };
 #endif // !CAMERA_H_
