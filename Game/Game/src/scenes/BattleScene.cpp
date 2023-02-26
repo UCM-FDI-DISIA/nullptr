@@ -1,6 +1,7 @@
 #include "BattleScene.h"
 #include "../components/RangeBehavior.h"
 #include "../components/MeleeBehaviour.h"
+#include "../components/MannaBarComponent.h"
 
 // Constructora
 BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
@@ -10,23 +11,14 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	floor = addGameObject();
 	floor->addComponent<Transform>(FLOOR_PAST_POSITION, FLOOR_PAST_VELOCITY, FLOOR_PAST_WIDTH, FLOOR_PAST_HEIGHT);
 	floor->addComponent<Image>(SDLApplication::getTexture(FLOOR_PAST));
-	
-	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
-	vida = addGameObject();
-	barraVida = addGameObject();
-
-	barraVida->addComponent<Transform>(LIFEBAR_POSITION, LIFEBAR_VELOCITY, LIFEBAR_WIDTH, LIFEBAR_HEIGHT);
-	vida->addComponent<Transform>(LIFE_POSITION, LIFE_VELOCITY, LIFE_WIDTH, LIFE_HEIGHT);
-	
-	barraVida->addComponent<Image>(SDLApplication::getTexture(LIFEBAR));
-	vida->addComponent<Image>(SDLApplication::getTexture(LIFEFRAME));
-
-	barraVida->getComponent<Image>()->attachToCamera();
-	vida->getComponent<Image>()->attachToCamera();
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
+
+	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
+	createLifeBar();
+	createManaBar();
 
 	//Añadimos 2 enemigos de prueba
 	enemies.push_back(
@@ -78,6 +70,42 @@ vector<GameObject*>* BattleScene::getEnemies() {
 
 void BattleScene::OnPlayerDies() {
 	SDLApplication::newScene<GameOverScene>();
+}
+
+void BattleScene::OnManaChanges() {
+	barraMana->getComponent<MannaBarComponent>()->changeBar();
+}
+
+void BattleScene::createLifeBar() {
+	vida = addGameObject();
+	barraVida = addGameObject();
+
+
+	barraVida->addComponent<Transform>(LIFEBAR_POSITION, LIFEBAR_VELOCITY, BAR_WIDTH, BAR_HEIGHT);
+	vida->addComponent<Transform>(LIFE_POSITION, LIFE_VELOCITY, LIFE_WIDTH, LIFE_HEIGHT);
+
+	barraVida->addComponent<Image>(SDLApplication::getTexture(LIFEBAR));
+	vida->addComponent<Image>(SDLApplication::getTexture(LIFEFRAME));
+
+	barraVida->getComponent<Image>()->attachToCamera();
+	vida->getComponent<Image>()->attachToCamera();
+}
+
+void BattleScene::createManaBar() {
+	mana = addGameObject();
+	barraMana = addGameObject();
+
+
+	barraMana->addComponent<Transform>(MANABAR_POSITION, MANABAR_VELOCITY, BAR_WIDTH, BAR_HEIGHT);
+	mana->addComponent<Transform>(MANA_POSITION, MANA_VELOCITY, LIFE_WIDTH, LIFE_HEIGHT);
+
+	barraMana->addComponent<Image>(SDLApplication::getTexture(MANABAR));
+	mana->addComponent<Image>(SDLApplication::getTexture(MANAFRAME));
+
+	barraMana->getComponent<Image>()->attachToCamera();
+	mana->getComponent<Image>()->attachToCamera();
+
+	barraMana->addComponent<MannaBarComponent>(player->getComponent<CardComponent>());
 }
 
 // CAMBIOS DE UI

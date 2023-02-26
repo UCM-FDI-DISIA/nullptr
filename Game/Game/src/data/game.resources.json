@@ -36,7 +36,9 @@
       
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
+      { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
       { "id" : "LifeBar", "file" : "../Game/resources/images/Player/LifeBar_200x30.png" },
+      { "id" : "ManaBar", "file" : "../Game/resources/images/Player/ManaBar_200x30.png" },
 
       { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
       

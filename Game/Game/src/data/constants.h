@@ -117,14 +117,22 @@ const int FLOOR_PAST_HEIGHT = WIN_HEIGHT * 2;
 // LIFEBAR ---------------------------------------------------------------------------------------
 const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
+const string MANAFRAME = "LifeFrameFlipped";
+const string MANABAR = "ManaBar";
 const Vector2D LIFEBAR_POSITION = { WIN_WIDTH - 213 * 2, 30 };
 const Vector2D LIFEBAR_VELOCITY = VECTOR_ZERO;
-const int LIFEBAR_WIDTH = 200;
-const int LIFEBAR_HEIGHT = 30;
+const Vector2D MANABAR_POSITION = { WIN_WIDTH / 2 - 250, 30};
+const Vector2D MANABAR_VELOCITY = VECTOR_ZERO;
+const int BAR_WIDTH = 200;
+const int BAR_HEIGHT = 30;
 const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
 const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
+const Vector2D MANA_POSITION = { WIN_WIDTH / 2 - 250, 10 };
+const Vector2D MANA_VELOCITY = VECTOR_ZERO;
 const int LIFE_WIDTH = 213;
 const int LIFE_HEIGHT = 53;
+const int MANA_WIDTH = 213;
+const int MANA_HEIGHT = 53;
 
 // CARDS -----------------------------------------------------------------------------------------
 const int REVERSE_WIDTH = 58 * 2;
