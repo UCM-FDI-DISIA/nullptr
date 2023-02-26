@@ -35,7 +35,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 // Crear un botón especificado en la escena
 void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
+	AnimatorInfo aI = AnimatorInfo(key);
 
 	// Crear marco
 	GameObject* frame = addGameObject();

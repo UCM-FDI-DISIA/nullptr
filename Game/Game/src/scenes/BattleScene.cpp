@@ -37,7 +37,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	);
   
 
-	AnimatorInfo aI = AnimatorInfo(EXIT, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT, BUTTON_SPRITE_WIDTH, BUTTON_SPRITE_HEIGHT, BUTTON_SPRITE_ROWS, BUTTON_SPRITE_COLUMS);
+	AnimatorInfo aI = AnimatorInfo(EXIT);
 	//Añadimo sun boton de salir
 	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10), aI);
 
