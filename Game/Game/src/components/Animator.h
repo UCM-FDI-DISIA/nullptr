@@ -22,6 +22,7 @@ private:
 	int currentFrame;
 	int repetitions;
 	uint startTime;
+	uint currTime;
 	AnimationMap anims;
 	string currentAnimKey;
 	Animation* currentAnimation;

@@ -3,16 +3,13 @@
 #include "LifetimeComponent.h"
 #include "../core/SDLApplication.h"
 
-LifeTimeComponent::LifeTimeComponent(Uint32 lifespan)
-{
-	time = SDL_GetTicks();
-	deathTime = time + lifespan;
+LifeTimeComponent::LifeTimeComponent(float lifeSpan): lifeSpan(lifeSpan) {
 }
 
 void LifeTimeComponent::update()
 {
-	time += SDLApplication::instance()->getDeltaTime();
-	if(time > deathTime)
+	currentLifeDuration += SDLApplication::instance()->getDeltaTimeSeconds();
+	if(currentLifeDuration > lifeSpan)
 	{
 		gObj->setAlive(false);
 	}

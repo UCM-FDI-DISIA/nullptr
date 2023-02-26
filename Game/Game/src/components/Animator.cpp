@@ -14,6 +14,7 @@ void Animator::play(string key) {
 	currentFrame = currentAnimation->startFrame;
 	repetitions = 0;
 	startTime = SDL_GetTicks();
+	currTime = startTime;
 }
 
 // Para la animacion actual
@@ -30,7 +31,7 @@ void Animator::resume() {
 void Animator::update() {
 
 	if (currentAnimation != nullptr) {
-		if (SDL_GetTicks() - startTime >= (1000 / currentAnimation->frameRate)) {
+		if (currTime - startTime >= (1000 / currentAnimation->frameRate)) {
 
 			if (currentAnimation->repeat != repetitions) {
 				// Devuelve el siguiente frame a renderizar
@@ -45,10 +46,13 @@ void Animator::update() {
 
 			else currentFrame = currentAnimation->startFrame;
 
-			startTime = SDL_GetTicks();
+			startTime = SDLApplication::instance()->getCurrentTime();
 		}
 	}
+
 }
+
+
 
 // Renderiza el frame actual
 void Animator::render() const {
@@ -59,4 +63,6 @@ void Animator::render() const {
 	srcRect.h = fh;
 	
 	texture->render(srcRect, getRect(), 0, nullptr, flip);
+
+	
 }

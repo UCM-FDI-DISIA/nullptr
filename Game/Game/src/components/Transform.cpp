@@ -38,10 +38,10 @@ void Transform::unrotate() {
 
 //Actualiza la posicion con el vector de velocidad
 void Transform::move() {
-	position_ = position_ + velocity_ * SDLApplication::instance()->getDeltaTime();
+	position_ = position_ + (velocity_ * SDLApplication::instance()->getDeltaTimeSeconds());
 }
 
 //Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
-	position_ = position_ + velocity_;
+	position_ = position_ + (velocity_ * SDLApplication::instance()->getDeltaTimeSeconds());
 }
