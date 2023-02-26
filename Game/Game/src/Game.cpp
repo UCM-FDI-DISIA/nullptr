@@ -9,6 +9,7 @@ int main(int argc, char* argv[]) {
 	#endif
 
 	try {
+		srand(time(0));
 		SDLApplication::init();
 		SDLApplication::instance()->run();
 	} catch (const std::string& e) { // catch exceptions thrown as strings
