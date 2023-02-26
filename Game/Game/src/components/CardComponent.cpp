@@ -23,23 +23,23 @@ void CardComponent::initComponent() {
 	where = dynamic_cast<BattleScene*>(gStt);
 }
 
-//Reduce el tiempo de disparo TODO añadirle el delta Time
+//Reduce el tiempo de disparo TODO aÃ±adirle el delta Time
 void CardComponent::update() {
 	if (downTime > 0) {
 		downTime -= 0.1;
 	}
 }
 
-//Coge el imput del teclado y ratón y llama a los métodos necesarios
+//Coge el imput del teclado y ratÃ³n y llama a los mÃ©todos necesarios
 void CardComponent::handleInput() {
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getCenter(), InputHandler::instance()->getMousePos()); }
 	if (InputHandler::instance()->mouseWheelDown()) { switchActive(false); }
-	if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); } // cleon says: "else"s
-	if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
+	else if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
+	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); }
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
 }
 
 //Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
@@ -76,12 +76,11 @@ void CardComponent::switchActive(bool left) {
 			++active;
 			where->changeUISelected(false, 1);
 		}
-	}
 }
 
-//Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
+//Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea vÃ¡lido
 void CardComponent::switchActive(int number) {
-	if (number >= 0 && number < hand.size()) {
+	if (number >= 1 && number < hand.size()) {
 		active = hand.begin();
 		std::advance(active, number);
 		where->changeUISelected(true, number);
@@ -90,14 +89,11 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
-	srand(time(0)); // cleon says: esto se hace 1 vez por "exe", al principio del main.
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
 }
 
 void CardComponent::reshufflePile() {
-	//Semilla aleatoria, con tiempo del ordenador
-	srand(time(0)); // cleon says: esto se hace 1 vez por "exe", al principio del main.
 	//Copia y mezcla
 	pile.swap(deck);
 	random_shuffle(deck.begin(), deck.end());
@@ -119,13 +115,13 @@ void CardComponent::newHand() {
 	active = hand.begin();
 }
 
-//Añade la primera carta del mazo a la mano y la borra del mazo
+//AÃ±ade la primera carta del mazo a la mano y la borra del mazo
 void CardComponent::drawCard() {
 	hand.push_back(deck.back());
 	deck.pop_back();
 }
 
-//Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
+//AÃ±ade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacÃ­a
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
 	(*discarded)->resetUses();

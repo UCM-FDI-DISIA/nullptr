@@ -1,4 +1,5 @@
 #include "MeleeBehaviour.h"
+#include "../core/SDLApplication.h"
 
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehavior(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
@@ -34,7 +35,7 @@ bool MeleeBehaviour::close() {
 }
 
 void MeleeBehaviour::update() {
-	actualTime = SDL_GetTicks();
+	behaviorTime += SDLApplication::instance()->getDeltaTime();
 
 	//Si ha estado cerca
 	if (close()) {
@@ -45,18 +46,18 @@ void MeleeBehaviour::update() {
 			attacked = true;
 		}
 		//Si ha pasado suficiente tiempo para atacar
-		if (actualTime - elapsedTime > attackInterval)
+		if (behaviorTime > attackInterval)
 		{
 			attacked = false;
 			
 
 			//Reseteamos el contador
-			elapsedTime = SDL_GetTicks();
+			behaviorTime -= attackInterval;
 		}
 	}
 	else if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
-		if (actualTime - elapsedTime > stopTime) {
+		if (behaviorTime - elapsedTime > stopTime) {
 			pos->setVel(initialDir);
 			hasBeenCloseToPlayer = false;
 		}
