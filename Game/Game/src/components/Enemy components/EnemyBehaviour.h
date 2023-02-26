@@ -17,8 +17,8 @@ protected:
 	HealthComponent* playerLife;
 	Player* player;
 	float stopTime;
-	float elapsedTime;
-	float actualTime;
+	double elapsedTime;
+	double behaviorTime;
 	float attackInterval;
 	float speed;
 	int damage;
@@ -30,7 +30,7 @@ public:
 	EnemyBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : speed(spd), damage(dmg), stopTime(stop), attackInterval(attack) {
 		player = plyr;
 		playerPos = player->getComponent<Transform>();
-		actualTime = SDL_GetTicks();
+		behaviorTime = SDL_GetTicks();
     };
 
 	/*Funciones para borrar enemigos*/

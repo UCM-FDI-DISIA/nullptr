@@ -1,5 +1,5 @@
 #include "Animator.h"
-
+#include "../core/SDLApplication.h"
 // Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	Animation newAnim = Animation(start, end, rate, _rep);
@@ -13,7 +13,7 @@ void Animator::play(string key) {
 	currentAnimation = &anims[currentAnimKey];
 	currentFrame = currentAnimation->startFrame;
 	repetitions = 0;
-	startTime = SDL_GetTicks();
+	currTime = 0;
 }
 
 // Para la animacion actual
@@ -30,7 +30,7 @@ void Animator::resume() {
 void Animator::update() {
 
 	if (currentAnimation != nullptr) {
-		if (SDL_GetTicks() - startTime >= (1000 / currentAnimation->frameRate)) {
+		if (currTime >= (1000 / currentAnimation->frameRate)) {
 
 			if (currentAnimation->repeat != repetitions) {
 				// Devuelve el siguiente frame a renderizar
@@ -45,10 +45,14 @@ void Animator::update() {
 
 			else currentFrame = currentAnimation->startFrame;
 
-			startTime = SDL_GetTicks();
+			
+			currTime = 0;
 		}
 	}
+	currTime += SDLApplication::instance()->getDeltaTime();
 }
+
+
 
 // Renderiza el frame actual
 void Animator::render() const {
@@ -59,4 +63,6 @@ void Animator::render() const {
 	srcRect.h = fh;
 	
 	texture->render(srcRect, getRect(), 0, nullptr, flip);
+
+	
 }

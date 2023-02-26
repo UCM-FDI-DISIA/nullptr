@@ -8,4 +8,5 @@ void Player::initGameObject() {
 	cardComponent = addComponent<CardComponent>();
 	health = addComponent<HealthComponent>(100);
 	animator = addComponent<PlayerAnimator>(SDLApplication::getTexture(PLAYER), PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS);
+	
 }

@@ -27,20 +27,21 @@ void RangeBehaviour::setDirectionTo() {
 	if (pos->getDistance(playerPos->getPos()) < safeDistance) pos->rotate(180);
 }
 // Se trata de un ciclo de movimiento y parada
-void RangeBehaviour::update() {
-	actualTime = SDL_GetTicks();
+void RangeBehavior::update() {
+	behaviorTime += SDLApplication::instance()->getDeltaTime();
 
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
-	if (actualTime - elapsedTime > stopTime)
+	if (behaviorTime > stopTime)
 	{
 		pos->setVel(initialDirection);
+
 		// Si te has estado moviendo m�s tiempo de lo que deberia, vuelves al ciclo de parada
-		 if (actualTime - elapsedTime > stopTime + moveTime)
+		 if (behaviorTime > stopTime + moveTime)
 		{
 			setDirectionTo();
 			//pos->setVel(Vector2D(0, 0));
 			enemyAttack();
-			elapsedTime = actualTime;
+			behaviorTime -= stopTime + moveTime;
 		}
 	}
 }
@@ -51,20 +52,19 @@ void RangeBehaviour::enemyAttack() {
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
 		/*vel = vel * bulletSpedd;*/
-		if(shotPattern==0) gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player); // El vel/500 es temporal para que funcione 
-		// Hasta que hagamos un deltaTime
+		if(shotPattern==0) gStt->addGameObject<Bullet>(pos->getPos(), vel, damage, player);
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel, damage, player);
 			vel = vel.rotate(-2*BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel, damage, player);
 		}
 		else if (shotPattern == 2) {
-			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel, damage, player);
 			vel = vel.rotate(BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel, damage, player);
 			vel = vel.rotate(-2*BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(pos->getPos(), vel / 500, damage, player);
+			gStt->addGameObject<Bullet>(pos->getPos(), vel, damage, player);
 		}
 	}
 }

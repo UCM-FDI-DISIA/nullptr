@@ -14,7 +14,7 @@ class BattleScene : public GameState {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor, *decs,*vida, *barraVida;
+	GameObject* floor, *decs,*vida, *barraVida, *mana, *barraMana;
 	vector<GameObject*> enemies;
 	battleType type;
 	GameObject* deck;
@@ -25,18 +25,19 @@ public:
 	// Constructora
 	BattleScene(battleType t_);
 	static void mainMenu();
+	//Metodos virtuales
+	virtual void update();
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
 	vector<GameObject*>* getEnemies();
-	void OnPlayerDies();
-	virtual void update();
 	Player* getPlayer() { return player; };
-	void deleteEnemy(vector<GameObject*>::iterator _it) {
-		if (enemies.size() == 1) enemies.erase(enemies.begin());
-		else enemies.erase(prev(enemies.end())); 
-	}
+
+	void createLifeBar();
+	void createManaBar();
+	void OnPlayerDies();
+	void OnManaChanges();
 };
 
 #endif
