@@ -1,7 +1,7 @@
 #include "HeatlhComponent.h"
 #include"../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
-#include "../Enemy components/RangeBehavior.h"
+#include "../Enemy components/RangeBehaviour.h"
 #include "../Enemy components/MeleeBehaviour.h"
 
 // Al construirse, adopta el gameObject y su manager como propios
