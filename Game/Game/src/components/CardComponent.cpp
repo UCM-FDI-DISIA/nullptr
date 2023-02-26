@@ -67,13 +67,15 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 
 //Mueve el puntero de la carta activa, dependiendo del valor de left lo mueve hacia la derecha o hacia la izquerda
 void CardComponent::switchActive(bool left) {
-	if (left) {
-		--active;
-		where->changeUISelected(false, -1);
-	}
-	else {
-		++active;
-		where->changeUISelected(false, 1);
+	if (hand.size() > 1) {
+		if (left) {
+			--active;
+			where->changeUISelected(false, -1);
+		}
+		else {
+			++active;
+			where->changeUISelected(false, 1);
+		}
 	}
 }
 
