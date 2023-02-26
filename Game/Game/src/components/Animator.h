@@ -21,7 +21,6 @@ private:
 	int fw, fh, rows, cols;
 	int currentFrame;
 	int repetitions;
-	double startTime;
 	double currTime;
 	AnimationMap anims;
 	string currentAnimKey;
@@ -32,7 +31,7 @@ public:
 
 	// Constructora
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
-		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), startTime(SDL_GetTicks()), currentAnimation(nullptr) { };
+		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), currentAnimation(nullptr) { };
 
 	// Crea una animacion nueva
 	void createAnim(string key, int start, int end, int rate, int _rep = 0);

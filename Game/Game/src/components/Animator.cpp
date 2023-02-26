@@ -13,8 +13,7 @@ void Animator::play(string key) {
 	currentAnimation = &anims[currentAnimKey];
 	currentFrame = currentAnimation->startFrame;
 	repetitions = 0;
-	startTime = SDLApplication::instance()->getCurrentTime();
-	currTime = startTime;
+	currTime = 0;
 }
 
 // Para la animacion actual
@@ -31,7 +30,7 @@ void Animator::resume() {
 void Animator::update() {
 
 	if (currentAnimation != nullptr) {
-		if (currTime - startTime >= (1000 / currentAnimation->frameRate)) {
+		if (currTime >= (1000 / currentAnimation->frameRate)) {
 
 			if (currentAnimation->repeat != repetitions) {
 				// Devuelve el siguiente frame a renderizar
@@ -46,8 +45,8 @@ void Animator::update() {
 
 			else currentFrame = currentAnimation->startFrame;
 
-			startTime -= (1000 / currentAnimation->frameRate);
-			currTime = startTime;
+			
+			currTime = 0;
 		}
 	}
 	currTime += SDLApplication::instance()->getDeltaTime();
