@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector2D.h"
+#include "../core/Vector2D.h"
 
 /*
  *
@@ -16,8 +16,8 @@ public:
 
 	// checks if two boxed o1 and o2 collides, taking into account the rotation of both
 	static bool collidesWithRotation( //
-			const Vector2D &o1Pos, float o1Width, float o1Height, float o1Rot, //
-			const Vector2D &o2Pos, float o2Width, float o2Height, float o2Rot);
+			const Vector2D &o1Pos, float o1Width, float o1Height, float o1Rot, const Vector2D& o1Anch, //
+			const Vector2D &o2Pos, float o2Width, float o2Height, float o2Rot, const Vector2D& o2Anch);
 
 private:
 	Collisions() = delete;

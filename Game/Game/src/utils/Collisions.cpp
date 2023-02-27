@@ -1,9 +1,9 @@
 #include "Collisions.h"
 
-bool Collisions::collidesWithRotation(const Vector2D &o1Pos, float o1Width,
-		float o1Height, float o1Rot, const Vector2D &o2Pos, float o2Width,
-		float o2Height, float o2Rot) {
-	Vector2D Ac = o1Pos + Vector2D(o1Width / 2.0f, o1Height / 2.0f);
+bool Collisions::collidesWithRotation(
+	const Vector2D &o1Pos, float o1Width, float o1Height, float o1Rot, const Vector2D &o1Anch,
+	const Vector2D &o2Pos, float o2Width, float o2Height, float o2Rot, const Vector2D &o2Anch) {
+	Vector2D Ac = o1Pos + o1Anch;
 
 	float angleA = o1Rot;
 
@@ -18,7 +18,7 @@ bool Collisions::collidesWithRotation(const Vector2D &o1Pos, float o1Width,
 
 	float angleB = o2Rot;
 
-	Vector2D Bc = o2Pos + Vector2D(o2Width / 2.0f, o2Height / 2.0f);
+	Vector2D Bc = o2Pos + o2Anch;
 
 	Vector2D Blu = Bc
 			+ Vector2D(-o2Width / 2.0f, -o2Height / 2.0f).rotate(angleB);

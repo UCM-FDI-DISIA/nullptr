@@ -163,6 +163,9 @@
     <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\utils\Collisions.cpp">
+      <Filter>Archivos de Dependecias\sdlutils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -378,6 +381,9 @@
     </ClInclude>
     <ClInclude Include="src\components\Player components\MannaBarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Collisions.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
