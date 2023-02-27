@@ -32,14 +32,29 @@ void CardComponent::update() {
 
 //Coge el imput del teclado y ratón y llama a los métodos necesarios
 void CardComponent::handleInput() {
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT)) { attack(tr->getCenter(), InputHandler::instance()->getMousePos()); }
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) { ability(tr->getCenter(), InputHandler::instance()->getMousePos()); }
-	if (InputHandler::instance()->mouseWheelDown()) { switchActive(false); }
-	else if (InputHandler::instance()->mouseWheelUp()) { switchActive(true); }
-	if (InputHandler::instance()->isKeyJustDown(SDLK_1)) { switchActive(0); }
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_2)) { switchActive(1); }
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_3)) { switchActive(2); }
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) { switchActive(3); }
+	// Click izquierdo
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT))
+		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+
+	// Click derecho
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) 
+		ability(tr->getCenter(), InputHandler::instance()->getMousePos());
+
+	// Rueda del ratón
+	if (InputHandler::instance()->mouseWheelDown()) 
+		switchActive(false);
+	else if (InputHandler::instance()->mouseWheelUp()) 
+		switchActive(true);
+
+	// Téclas numéricas
+	if (InputHandler::instance()->isKeyJustDown(SDLK_1))
+		switchActive(0);
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_2))
+		switchActive(1);
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_3))
+		switchActive(2);
+	else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) 
+		switchActive(3);
 }
 
 //Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
@@ -54,26 +69,23 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 
 //Checkea el mana necesario y llama al metodo habilidad de la carta activa, descartandola y consumiendo mana
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
-		if ((*active)->getMana() <= mana) {
-			(*active)->ability(playerPos, mousePos, attackMult, where);
-			mana -= (*active)->getMana();
-			discardCard(active);
-			where->OnManaChanges();
-		}
-		else 
-		{
-			std::cout << "Necesitas manases adicionales" << endl;
-		}
+	if ((*active)->getMana() <= mana) {
+		(*active)->ability(playerPos, mousePos, attackMult, where);
+		mana -= (*active)->getMana();
+		discardCard(active);
+		where->OnManaChanges();
+	}
+	else std::cout << "Necesitas manases adicionales" << endl;
 }
 
 //Mueve el puntero de la carta activa, dependiendo del valor de left lo mueve hacia la derecha o hacia la izquerda
 void CardComponent::switchActive(bool left) {
 	if (hand.size() > 1) {
-		if (left) {
+		if (left && active != hand.begin()) {
 			--active;
 			where->changeUISelected(false, -1);
 		}
-		else {
+		else if (!left && active != prev(hand.end())) {
 			++active;
 			where->changeUISelected(false, 1);
 		}
