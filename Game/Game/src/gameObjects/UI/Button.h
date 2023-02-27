@@ -1,10 +1,10 @@
 #pragma once
 #include "../../components/ecs.h"
-#include "../../core/GameObject.h"
-#include "../../components/Transform.h"
-#include "../../components/Image.h"
-#include "../../components/ButtonComponent.h"
-#include "../../components/Animator.h"
+#include "../GameObject.h"
+#include "../../components/General Components/Transform.h"
+#include "../../components/General Components/Image.h"
+#include "../../components/General Components/ButtonComponent.h"
+#include "../../components/General Components/Animator.h"
 
 struct AnimatorInfo {
 	string key;

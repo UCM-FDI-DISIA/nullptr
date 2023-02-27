@@ -1,6 +1,6 @@
 #pragma once
 #include "../utils/Singleton.h"
-#include "../core/Card.h"
+#include "../gameObjects/Card Objects/Card.h"
 #include <vector>
 
 class Card;

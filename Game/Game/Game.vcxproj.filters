@@ -34,53 +34,11 @@
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Animator.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\ButtonComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\CameraComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\CardComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Image.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\PlayerMovementComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\Button.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Camera.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\Card.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cards\Gun.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Player.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cards\Sword.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Transform.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\PlayerData.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cards\LaserShades.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\scenes\GameState.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
@@ -90,27 +48,6 @@
     </ClCompile>
     <ClCompile Include="src\scenes\ShopScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\node\BattleNode.cpp">
-      <Filter>Archivos de Dependecias\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="src\node\ChestNode.cpp">
-      <Filter>Archivos de Dependecias\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="src\node\EventNode.cpp">
-      <Filter>Archivos de Dependecias\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="src\node\Node.cpp">
-      <Filter>Archivos de Dependecias\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="src\node\ShopNode.cpp">
-      <Filter>Archivos de Dependecias\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\HeatlhComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\LifetimeComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\sdlutils\SDLUtils.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
@@ -124,39 +61,107 @@
     <ClCompile Include="src\data\json\JSONValue.cpp">
       <Filter>Archivos de Dependecias\Data\json</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
+    <ClCompile Include="src\components\Card Components\CardComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\NodeButton.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
+    <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\NodeButtonComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\RangedEnemy.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
+    <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\MeleeEnemy.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
+    <ClCompile Include="src\components\General Components\Animator.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\EnemyBehavior.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\components\General Components\ButtonComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\RangeBehavior.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\components\General Components\CameraComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\MeleeBehaviour.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\components\General Components\HeatlhComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\Image.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\LifetimeComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\Transform.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Node Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player components\PlayerAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Card.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\General Objects\Camera.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Player Object\Player.cpp">
+      <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\Node.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
-      <Filter>Archivos de Dependecias\Objects</Filter>
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\PlayerAnimator.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\gameObjects\UI\CardCounter.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\scenes\GameOverScene.cpp" />
-    <ClCompile Include="src\components\MannaBarComponent.cpp">
-      <Filter>Archivos de Dependecias\Components</Filter>
+    <ClCompile Include="src\gameObjects\UI\Button.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\GameOverScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,43 +216,7 @@
     <ClInclude Include="src\targetver.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Bullet.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Camera.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Card.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\cards\Cards.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\GameObject.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Player.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\BulletBehavior.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\ButtonComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\CameraComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\CardComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\ColliderComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Component.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Transform.h">
       <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\Singleton.h">
@@ -264,33 +233,6 @@
     </ClInclude>
     <ClInclude Include="src\core\PlayerData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Animator.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\PlayerMovementComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\node\Node.h">
-      <Filter>Archivos de Encabezado\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="src\node\BattleNode.h">
-      <Filter>Archivos de Encabezado\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="src\node\ChestNode.h">
-      <Filter>Archivos de Encabezado\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="src\node\EventNode.h">
-      <Filter>Archivos de Encabezado\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="src\node\ShopNode.h">
-      <Filter>Archivos de Encabezado\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\HeatlhComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\LifetimeComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\Font.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
@@ -319,52 +261,123 @@
     <ClInclude Include="src\data\json\JSONValue.h">
       <Filter>Archivos de Encabezado\Data\json</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\CardCounter.h">
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\components\Card Components\BulletBehavior.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\CardComponent.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\RangeBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\Animator.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\ButtonComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\CameraComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\ColliderComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\HeatlhComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\Image.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\LifetimeComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\Transform.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Node Components\NodeButtonComponent.h">
+      <Filter>Archivos de Encabezado\Components\Node Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\PlayerAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\PlayerMovementComponent.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Bullet.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Card.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Cards.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Laser.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\General Objects\Camera.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Player Object\Player.h">
+      <Filter>Archivos de Encabezado\Objects\Player Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\GameObject.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\NodeButton.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
+    <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\NodeButtonComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
+    <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\SwordSlashBehaviour.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
+    <ClInclude Include="src\gameObjects\Node Objects\EventNode.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\SwordSpin.h">
-      <Filter>Archivos de Encabezado\Objects\CardAttacks</Filter>
+    <ClInclude Include="src\gameObjects\Node Objects\Node.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\SwordSlash.h">
-      <Filter>Archivos de Encabezado\Objects\CardAttacks</Filter>
+    <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\MeleeEnemy.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\RangedEnemy.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\EnemyBehavior.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\MeleeBehaviour.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\RangeBehavior.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
+    <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\HandUI.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\Resource.h" />
-    <ClInclude Include="src\components\PlayerAnimator.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
+    <ClInclude Include="src\gameObjects\UI\CardCounter.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\MannaBarComponent.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
+    <ClInclude Include="src\scenes\GameOverScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\MannaBarComponent.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -415,20 +428,77 @@
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Dependecias\Node">
-      <UniqueIdentifier>{a05e57fa-0108-4b7d-949c-96f6849be196}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Node">
-      <UniqueIdentifier>{55f4d9cb-7a16-42ae-b42e-ac84b0db3f84}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Encabezado\Data\json">
       <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Dependecias\Data\json">
       <UniqueIdentifier>{4272b9bf-8ad8-455b-87a9-713e5643df61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\CardAttacks">
-      <UniqueIdentifier>{2af54b70-dcdf-462a-a211-3bb0d4163525}</UniqueIdentifier>
+    <Filter Include="Archivos de Encabezado\Components\Card Components">
+      <UniqueIdentifier>{8ecff219-5e6c-4841-923e-47caa7b4a0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Enemy Components">
+      <UniqueIdentifier>{b1423583-74d8-4c20-83d4-58f7664197aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\General Components">
+      <UniqueIdentifier>{1f318ddd-3760-423e-9605-088e61e625dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Node Components">
+      <UniqueIdentifier>{ca68632a-df7d-4bd3-8495-0a0c381d006e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Player Components">
+      <UniqueIdentifier>{6c5a396b-9aac-4e04-9e0a-bc7074bc4c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Card Objects">
+      <UniqueIdentifier>{e6193d8b-dc31-44b7-9fec-e897e764e47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Enemy Objects">
+      <UniqueIdentifier>{44bf1df0-7de6-444b-927b-4c129ac1ef99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\General Objects">
+      <UniqueIdentifier>{2dfc764d-9cf8-4449-a800-cc1da2c3b61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Node Objects">
+      <UniqueIdentifier>{20406a48-ce7b-499f-8bd2-dda070d8f8bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Player Objects">
+      <UniqueIdentifier>{1bd0d13e-f0d2-4af4-8c55-b8758168cd46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Components\Cards Component">
+      <UniqueIdentifier>{94d1921a-c7ea-4c5d-82d9-ee84a2b8f233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Components\Enemy Components">
+      <UniqueIdentifier>{719b2c3c-2fd4-40c4-ae4a-93e63fbe6dce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Components\Node Components">
+      <UniqueIdentifier>{2f3247cb-0947-4d74-88a9-f767fb00ab91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Components\General Components">
+      <UniqueIdentifier>{772eb743-9066-4973-86e9-1d7bc3a8fbb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Components\Player Components">
+      <UniqueIdentifier>{61d8aba3-be30-4a9f-9430-2da68258d336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\Card Objects">
+      <UniqueIdentifier>{5d77c6c5-3d06-4363-be41-b69c4dd8d84f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\Enemy Objects">
+      <UniqueIdentifier>{b640e0fc-5e5f-4007-bc59-f89b9ed36616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\General Objects">
+      <UniqueIdentifier>{4ffd51e9-8d51-4b7f-879c-c34fc06aab79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\Node Objects">
+      <UniqueIdentifier>{23d681bf-cedf-41d9-9d47-bb2975f894d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\Player Objects">
+      <UniqueIdentifier>{97b11a96-bdce-4d94-8376-b9cf3c3d2adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\UI Objects">
+      <UniqueIdentifier>{6e97ee8e-781c-45ea-a1be-dd645b445f00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\UI Objects">
+      <UniqueIdentifier>{69cd8b21-8e43-40dd-9c0f-969e8b359ad0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

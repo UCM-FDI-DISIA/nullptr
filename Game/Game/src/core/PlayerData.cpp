@@ -1,5 +1,5 @@
 #include "PlayerData.h"
-#include "../cards/Cards.h"
+#include "../gameObjects/Card Objects/Cards.h"
 PlayerData::PlayerData() {
 	maxHP = 100;
 	currHP = maxHP;

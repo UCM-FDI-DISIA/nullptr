@@ -1,7 +1,7 @@
 #include "BattleScene.h"
-#include "../components/RangeBehavior.h"
-#include "../components/MeleeBehaviour.h"
-#include "../components/MannaBarComponent.h"
+#include "../components/Enemy components/RangeBehaviour.h"
+#include "../components/Enemy components/MeleeBehaviour.h"
+#include "../components/Player components/MannaBarComponent.h"
 
 // Constructora
 BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {

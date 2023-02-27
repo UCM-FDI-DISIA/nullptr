@@ -1,6 +1,6 @@
 #include "MainMenuScene.h"
 #include "../core/SDLApplication.h"
-#include "../core/GameObject.h"
+#include "../gameObjects/GameObject.h"
 
 MainMenuScene::MainMenuScene() : GameState() {
 	// Imagen de fondo

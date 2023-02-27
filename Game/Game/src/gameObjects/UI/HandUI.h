@@ -1,6 +1,6 @@
 #pragma once
 #include "../../core/SDLApplication.h"
-#include "../../core/GameObject.h"
+#include "../GameObject.h"
 
 class HandUI : public GameObject
 {
