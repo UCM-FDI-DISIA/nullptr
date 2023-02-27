@@ -12,7 +12,7 @@ public:
 		addComponent<Image>(SDLApplication::getTexture("Laser"));
 		addComponent<BulletBehavior>(damage, enemies);
 		addComponent<ColliderComponent>();
-		addComponent<LifeTimeComponent>(0.25);
+		addComponent<LifeTimeComponent>(0.08);
 	}
 private:
 	const float HEIGHT = 10;

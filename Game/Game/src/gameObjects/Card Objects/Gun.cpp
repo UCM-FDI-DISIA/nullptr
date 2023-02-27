@@ -8,7 +8,7 @@ void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	
 	dir = dir.normalize() * bulletSpeed;
 
-	where->addGameObject<Bullet>(playerPos, dir, damage* attackMult, where->getEnemies());
+	where->addGameObject<Bullet>(playerPos, dir, damage * attackMult, where->getEnemies());
 }
 
 //Se disparan todas las balas no usadas con una precisión de entre [-90,90] grados

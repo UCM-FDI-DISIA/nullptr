@@ -17,7 +17,7 @@ public:
 */
 	virtual void initGameObject(Vector2D playerPos, BattleScene* scene, int dmg) {
 		addComponent<Transform>(playerPos - Vector2D(100, 100), Vector2D(0, 0), 200, 200);
-		addComponent<LifeTimeComponent>(1);
+		addComponent<LifeTimeComponent>(.1);
 		addComponent<Image>(SDLApplication::getTexture("SwordSpin"));
 		addComponent<SwordSlashBehaviour>(dmg, scene->getEnemies());
 		addComponent<ColliderComponent>();
