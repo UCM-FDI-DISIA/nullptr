@@ -9,7 +9,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
   
 	// Quitar cuando se cree el mapa de combate
 	floor = addGameObject();
-	floor->addComponent<Transform>(FLOOR_PAST_POSITION, FLOOR_PAST_VELOCITY, FLOOR_PAST_WIDTH, FLOOR_PAST_HEIGHT);
+	floor->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, FLOOR_WIDTH, FLOOR_HEIGHT);
 	floor->addComponent<Image>(SDLApplication::getTexture(FLOOR_PAST));
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
