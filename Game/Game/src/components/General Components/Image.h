@@ -16,6 +16,7 @@ protected:
 	Transform* transform;
 	Transform* cameraTransform;
 	SDL_RendererFlip flip;
+	float scrollFactor;
 public:
 	static const int id = _IMAGE;
 	// Constructora
@@ -33,5 +34,7 @@ public:
 	void flipVertical();
 	// Desflipea la imagen
 	void flipNone();
+	// 
+	void setScrollFactor(float _factor);
 };
 #endif // !IMAGE_H_

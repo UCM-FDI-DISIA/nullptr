@@ -49,7 +49,11 @@
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
-      { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }
+      { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
+    
+      { "id" : "1", "file" : "../Game/resources/images/UI/BattleScene/1.png" }, 
+      { "id" : "2", "file" : "../Game/resources/images/UI/BattleScene/2.png" }, 
+      { "id" : "3", "file" : "../Game/resources/images/UI/BattleScene/3.png" }
     ],
     
     "messages" : [
