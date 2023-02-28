@@ -16,8 +16,6 @@ public:
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, vector<GameObject*>* target) {
 		addComponent<BulletBehavior>(dmg, target);
 
-
-
 		addComponent<Transform>(pos, dir * BULLET_SPEED, 30, 30);
 
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));

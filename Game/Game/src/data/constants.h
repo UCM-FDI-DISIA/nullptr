@@ -113,7 +113,7 @@ const string EXIT = "ExitButton";
 const string FLOOR_PAST = "BattleBackground";
 const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
-
+const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 // LIFEBAR ---------------------------------------------------------------------------------------
 const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
