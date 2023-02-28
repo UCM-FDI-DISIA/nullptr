@@ -3,7 +3,7 @@
 #include "../../scenes/GameState.h"
 
 // Constructor
-Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraTransform(nullptr), flip(SDL_FLIP_NONE) {}
+Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraTransform(nullptr), flip(SDL_FLIP_NONE), scrollFactor(1) {}
 
 // Inicializa el componente y asigna su puntero a transform
 void Image::initComponent() {
@@ -24,8 +24,8 @@ SDL_Rect Image::getRect() const{
 
 	if (cameraTransform != nullptr) {
 		//Dependiendo de la posición de la cámara
-		rect.x += cameraTransform->getRect().x;
-		rect.y += cameraTransform->getRect().y;
+		rect.x += cameraTransform->getRect().x * scrollFactor;
+		rect.y += cameraTransform->getRect().y * scrollFactor;
 	}
 	
 	return rect;
@@ -49,4 +49,10 @@ void Image::flipVertical() {
 
 void Image::flipNone() {
 	flip = SDL_FLIP_NONE;
+}
+
+void Image::setScrollFactor(float _factor) {
+	if (cameraTransform != nullptr) {
+		scrollFactor = _factor;
+	}
 }
