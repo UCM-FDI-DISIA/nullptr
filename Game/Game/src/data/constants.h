@@ -16,6 +16,8 @@ const Vector2D VECTOR_ZERO = { 0,0 };
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1920;
 const uint WIN_HEIGHT = 1080;
+const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
+const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 // FRAME TIMES ------------------------------------------------------------------------------------
@@ -109,11 +111,9 @@ const string EXIT = "ExitButton";
 
 // FLOOR -----------------------------------------------------------------------------------------
 const string FLOOR_PAST = "BattleBackground";
-const Vector2D FLOOR_PAST_POSITION = VECTOR_ZERO;
+const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sprite de suelo
+const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
-const int FLOOR_PAST_WIDTH = WIN_WIDTH * 2;
-const int FLOOR_PAST_HEIGHT = WIN_HEIGHT * 2;
-
 // LIFEBAR ---------------------------------------------------------------------------------------
 const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
