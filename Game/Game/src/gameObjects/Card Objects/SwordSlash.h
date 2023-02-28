@@ -18,13 +18,8 @@ public:
 */
 	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg) {
 		Vector2D slashVector = playerPos + dir * 100;
-<<<<<<< Updated upstream
-		addComponent<Transform>(slashVector, Vector2D(0, 0), 100, 100, slashVector.angle(playerPos));
-		addComponent<LifeTimeComponent>(.1);
-=======
 		addComponent<Transform>(slashVector - Vector2D(WIDTH / 2, HEIGHT / 2), Vector2D(0, 0), WIDTH, HEIGHT, Vector2D(1, 0).angle(dir));
-		addComponent<LifeTimeComponent>(1);
->>>>>>> Stashed changes
+		addComponent<LifeTimeComponent>(0.25);
 		addComponent<Image>(SDLApplication::getTexture("SwordSlash"));
 		addComponent<ColliderComponent>();
 		addComponent<SwordSlashBehaviour>(dmg, scene->getEnemies());
