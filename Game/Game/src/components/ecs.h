@@ -1,6 +1,7 @@
 #pragma once
 #ifndef ECS_H_
 #define ECS_H_
+
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
@@ -28,9 +29,7 @@ constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 
 
 #include <functional>
-class GameObject;
 // Tipo de función que devuelve y recibe void, funciona también con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
-using CollisionCallBack = std::function<void(GameObject*)>;
 
 #endif // !ECS_H_

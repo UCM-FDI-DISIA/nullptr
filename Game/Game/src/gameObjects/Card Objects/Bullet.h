@@ -17,8 +17,8 @@ public:
 		addComponent<BulletBehavior>(dmg, target);
 		addComponent<Transform>(pos, dir, 30, 30);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
-		addComponent<LifeTimeComponent>(10000); // Bajar, ahora son 10000 s
-		addComponent<ColliderComponent>(getComponent<BulletBehavior>()->getAttack()); // Recibe la función a realizar que esta almacenada en la bala
+		addComponent<LifeTimeComponent>(10000); // QUE ES ESTO Y QUIEN LO HA METIDO
+		addComponent<ColliderComponent>();
 	}
 
 	// desde aquí, llamad a la otra. o al revés.
