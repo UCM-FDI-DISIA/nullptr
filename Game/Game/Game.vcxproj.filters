@@ -379,6 +379,9 @@
     <ClInclude Include="src\components\Player components\MannaBarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\Enemy components\EnemyGenerator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">

@@ -153,6 +153,7 @@
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
+    <ClInclude Include="src\components\Enemy components\EnemyGenerator.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
