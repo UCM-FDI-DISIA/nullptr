@@ -14,20 +14,15 @@ private:
 
 	//Para saber la profundidad del jugador en el mapa de nodos,
 	// cuando sale de la escena este deberia aumentar en una unidad
-	int depth;
+	int depth, radius, nextSpawn, timePerWave;
 
 	//Para agregar los enemigos a la escena de combate
-	vector<GameObject*> enemies;
+	BattleScene* where;
 
-	//tiempo por oleada
-	float timePerWave;
-
-	//Para bajar el tiempo de la oleada en cada ejecucion para que aparezcan los enemigos mas rapido
-	float mult;
 
 public:
 	static const int id = _ENEMY_GEN;
-	EnemyGenerator(float time, float m, Player* pl, vector<GameObject*> enemigos):timePerWave(time), mult(m), player(pl), enemies(enemigos) {
+	EnemyGenerator(Player* pl, BattleScene* enemigos):player(pl), where(enemigos) {
 		playerPos = player->getComponent<Transform>();
 
 		//empezamos en profundidad 0
@@ -45,14 +40,6 @@ public:
 	//Nos quedamos con 50 sabiendo que las balas tambien son gObjs? Alomejor nos quitan el limite ns
 
 	//Mockup de posible oleada
-
-	void wave0() {
-		//Coger la posicion del player
-		Vector2D spawn = playerPos->getPos();
-
-		//Hacemos un for y añadimos 5 enemigos
-		for (int i = 0; i < 5; i++) {
-			
-		}
-	}
+	void nextWave();
+	void spawnWave(int melee, int ranged, int tank);
 };

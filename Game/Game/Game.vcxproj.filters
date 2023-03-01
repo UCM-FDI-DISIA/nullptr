@@ -163,6 +163,9 @@
     <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
