@@ -5,9 +5,9 @@ OptionsMenuScene::OptionsMenuScene() : GameState() {
 	cout << "Has entrado en la escena de Opciones" << endl;
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
+	addGameObject<Button>(_grp_GENERAL, mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
 	aI.key = OPTIONS;
-	addGameObject<Button>(toggleScreen, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 200), aI);
+	addGameObject<Button>(_grp_GENERAL, toggleScreen, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 200), aI);
 }
 
 void OptionsMenuScene::mainMenu() {

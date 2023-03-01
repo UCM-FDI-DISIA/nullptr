@@ -26,7 +26,16 @@ enum cmpId : cmpId_type {
 	_LAST_CMP_ID
 };
 constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
+using grpId_type = int;
+enum grpId : grpId_type {
+	_grp_GENERAL,
+	_grp_ENEMIES,
+	_grp_ENM_ATTACK,
+	_grp_PLYR_ATTACK,
 
+	_LAST_GRP_ID
+};
+constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 
 #include <functional>
 // Tipo de función que devuelve y recibe void, funciona también con funciones lambda con capturas

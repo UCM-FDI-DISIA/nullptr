@@ -25,8 +25,6 @@ public:
 	// Constructora
 	BattleScene(battleType t_);
 	static void mainMenu();
-	//Metodos virtuales
-	virtual void update();
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);

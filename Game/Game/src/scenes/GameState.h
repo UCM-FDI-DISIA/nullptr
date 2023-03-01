@@ -11,8 +11,8 @@ using namespace std;
 
 class GameState {
 protected:
-    vector<GameObject*> gObjs;
     Camera* camera = nullptr;
+    std::array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
 public:
     // Constructor
     GameState();
@@ -26,19 +26,19 @@ public:
     virtual void handleInput();
     // Borra todos los GameObject no vivos
 
-    void addGameObject(GameObject* object);
     void refresh();
     //Inserta un nuevo GameObject a la escena
     template<typename T = GameObject, typename ...Ts>
-    T* addGameObject(Ts&& ...args) {
+    T* addGameObject(grpId group,Ts&& ...args) {
         T* e = new T();
         e->setAlive(true);
         e->setContext(this);
         e->initGameObject(std::forward<Ts>(args)...);
-        gObjs.push_back(e);
+        entsByGroup_[group].push_back(e);
         return e;
     }
-
+    // Devuelve una lista con los objetos del grupo
+    inline const auto& getEntitiesByGroup(grpId_type gId);
     // Devuelve la camara
     Camera* getCamera() const;
 };
