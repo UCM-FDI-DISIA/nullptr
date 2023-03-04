@@ -51,19 +51,19 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 	//Hacemos un for y añadimos enemigos melee
 	for (int i = 0; i < wave[0]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
-		GameObject* enemy = where->addGameObject<MeleeEnemy>(10, player, spawnPos);
+		GameObject* enemy = where->addGameObject<MeleeEnemy>(spawnPos,10, player);
 		where->addEnemy(enemy);
 	}
 	//Hacemos un for y añadimos enemigos ranged
 	for (int i = 0; i < wave[1]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
-		GameObject* enemy = where->addGameObject<RangedEnemy>(10, player, spawnPos);
+		GameObject* enemy = where->addGameObject<MeleeEnemy>(spawnPos, 10, player);
 		where->addEnemy(enemy);
 	}
 	//Hacemos un for y añadimos enemigos tank
 	for (int i = 0; i < wave[2]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
-		GameObject* enemy = where->addGameObject<MeleeEnemy>(10, player, spawnPos);
+		GameObject* enemy = where->addGameObject<MeleeEnemy>(spawnPos, 10, player);
 		where->addEnemy(enemy);
 	}
 }
