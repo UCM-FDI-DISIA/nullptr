@@ -23,3 +23,10 @@ class LaserShadesCard : public Card {
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
+
+class PulgaCard : public Card {
+public:
+	PulgaCard() : Card(30, 2, 30, 5, 1, "Pulga", SDLApplication::getTexture("LaserGlasses")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};

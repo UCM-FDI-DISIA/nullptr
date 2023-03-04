@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\components\Card Components\BulletBehavior.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
+    <ClInclude Include="src\components\Card Components\ExplosionBehaviour.h" />
     <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
@@ -176,9 +177,11 @@
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\Bomb.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
     <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h" />
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h" />
@@ -222,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
+    <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
@@ -245,6 +249,7 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />

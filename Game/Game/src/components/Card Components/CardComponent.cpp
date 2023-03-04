@@ -23,10 +23,10 @@ void CardComponent::initComponent() {
 	where = dynamic_cast<BattleScene*>(gStt);
 }
 
-//Reduce el tiempo de disparo TODO añadirle el delta Time
+//Reduce el tiempo de disparo
 void CardComponent::update() {
 	if (downTime > 0) {
-		downTime -= 0.1;
+		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
 }
 

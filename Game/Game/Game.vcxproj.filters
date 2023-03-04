@@ -163,6 +163,12 @@
     <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -378,6 +384,15 @@
     </ClInclude>
     <ClInclude Include="src\components\Player components\MannaBarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Bomb.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\ExplosionBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Explosion.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
