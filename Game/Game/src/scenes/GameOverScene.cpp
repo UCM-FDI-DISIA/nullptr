@@ -4,13 +4,13 @@
 
 GameOverScene::GameOverScene() {
 	//Creo el background
-	auto bc = addGameObject(_grp_GENERAL);
+	auto bc = addGameObject();
 	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	auto i = bc->addComponent<Image>(SDLApplication::getTexture("GameOver"));
 	i->attachToCamera();
 
 	//Creo el objeto con la imagen del mensaje de muerte
-		GameObject * message = addGameObject(_grp_GENERAL);
+		GameObject * message = addGameObject();
 	message->addComponent<Transform>(Vector2D(MESSAGE_X, MESSAGE_Y), Vector2D(), MESSAGE_W, MESSAGE_H);
 	auto im = message->addComponent<Image>(SDLApplication::getTexture("YouDied"));
 	im->attachToCamera();
@@ -24,10 +24,10 @@ GameOverScene::GameOverScene() {
 void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
 	AnimatorInfo aI = AnimatorInfo(key);
 	// Crear marco
-	GameObject* frame = addGameObject(_grp_GENERAL);
+	GameObject* frame = addGameObject();
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
 	// Crear bot�n
-	addGameObject<Button>(_grp_GENERAL, _cb, SDLApplication::instance(), _bPos, aI, frame);
+	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
 }

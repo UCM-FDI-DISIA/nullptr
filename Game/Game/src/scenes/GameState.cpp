@@ -6,7 +6,7 @@ GameState::GameState() : entsByGroup_() {
     for (auto & grpEnts : entsByGroup_) {
         grpEnts.reserve(100); //Reserva espacio para cada lista
     }
-    camera = addGameObject<Camera>(_grp_GENERAL);
+    camera = addGameObject<Camera>();
 }
 
 // Destructor

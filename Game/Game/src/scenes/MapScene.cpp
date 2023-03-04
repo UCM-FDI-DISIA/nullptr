@@ -4,6 +4,6 @@
 
 MapScene::MapScene() : GameState(), nodeMap(Node::getNodeMap()) {
 	for (vector<Node*>::const_iterator node = nodeMap.begin(); node != nodeMap.end(); ++node) {
-		addGameObject<NodeButton>(_grp_GENERAL, node, (*node)->loadNode());
+		addGameObject<NodeButton>(node, (*node)->loadNode());
 	}
 }

@@ -27,15 +27,20 @@ public:
     // Borra todos los GameObject no vivos
 
     void refresh();
-    //Inserta un nuevo GameObject a la escena
+    //Inserta un nuevo GameObject a la escena indicando su grupo
     template<typename T = GameObject, typename ...Ts>
-    T* addGameObject(grpId group,Ts&& ...args) {
+    T* addGameObject(grpId group, Ts&& ...args) {
         T* e = new T();
         e->setAlive(true);
         e->setContext(this);
         e->initGameObject(std::forward<Ts>(args)...);
         entsByGroup_[group].push_back(e);
         return e;
+    }
+    //Inserta un nuevo GameObject a la escena en el grupo General
+    template<typename T = GameObject, typename ...Ts>
+    T* addGameObject(Ts&& ...args) {
+        return addGameObject<T>(_grp_GENERAL, std::forward<Ts>(args)...);
     }
     // Devuelve una lista con los objetos del grupo
     inline const auto& getEntitiesByGroup(grpId_type gId);

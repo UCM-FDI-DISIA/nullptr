@@ -8,12 +8,12 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
   
 	// Quitar cuando se cree el mapa de combate
-	floor = addGameObject(_grp_GENERAL);
+	floor = addGameObject();
 	floor->addComponent<Transform>(FLOOR_PAST_POSITION, FLOOR_PAST_VELOCITY, FLOOR_PAST_WIDTH, FLOOR_PAST_HEIGHT);
 	floor->addComponent<Image>(SDLApplication::getTexture(FLOOR_PAST));
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
-	player = addGameObject<Player>(_grp_GENERAL);
+	player = addGameObject<Player>();
 	camera->startFollowObject(player);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
@@ -31,7 +31,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	//Añadimo sun boton de salir
-	Button* MainMenu = addGameObject<Button>(_grp_GENERAL,mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10), aI);
+	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10), aI);
 
 	MainMenu->getComponent<Animator>()->attachToCamera();
 
@@ -39,11 +39,11 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	CardComponent* cardComp = player->getComponent<CardComponent>();
 
 	//Creamos los contadores de cartas y linkeamos el componente con el contador de mazo par ala animacion de barajar
-	auto gO = addGameObject<CardCounter>(_grp_GENERAL, true, cardComp);
-	addGameObject<CardCounter>(_grp_GENERAL, false, cardComp);
+	auto gO = addGameObject<CardCounter>(true, cardComp);
+	addGameObject<CardCounter>(false, cardComp);
 	cardComp->setCounter(gO);
 	//Añadimos el objeto que muestra la mano de cartas en la UI
-	hand = addGameObject<HandUI>(_grp_GENERAL, cardComp);
+	hand = addGameObject<HandUI>(cardComp);
 }
 
 void BattleScene::mainMenu() {
@@ -63,8 +63,8 @@ void BattleScene::OnManaChanges() {
 }
 
 void BattleScene::createLifeBar() {
-	vida = addGameObject(_grp_GENERAL);
-	barraVida = addGameObject(_grp_GENERAL);
+	vida = addGameObject();
+	barraVida = addGameObject();
 
 
 	barraVida->addComponent<Transform>(LIFEBAR_POSITION, LIFEBAR_VELOCITY, BAR_WIDTH, BAR_HEIGHT);
@@ -78,8 +78,8 @@ void BattleScene::createLifeBar() {
 }
 
 void BattleScene::createManaBar() {
-	mana = addGameObject(_grp_GENERAL);
-	barraMana = addGameObject(_grp_GENERAL);
+	mana = addGameObject();
+	barraMana = addGameObject();
 
 
 	barraMana->addComponent<Transform>(MANABAR_POSITION, MANABAR_VELOCITY, BAR_WIDTH, BAR_HEIGHT);
