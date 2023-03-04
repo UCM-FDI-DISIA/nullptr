@@ -1,4 +1,5 @@
 #include "NodeButton.h"
+#include "../../core/SDLApplication.h"
 
 void NodeButton::initGameObject(vector<Node*>::const_iterator nodeIt, CallBack _cb) {
 

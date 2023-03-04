@@ -6,7 +6,7 @@
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../gameObjects/Enemy Objects/RangedEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
-#include "../gameObjects/Node Objects/Node.h"
+#include "../gameObjects/Node Objects/BattleNode.h"
 #include "../gameObjects/UI/HandUI.h"
 
 class HandUI;

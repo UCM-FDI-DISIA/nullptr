@@ -189,6 +189,7 @@
     <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\EventNode.h" />
+    <ClInclude Include="src\gameObjects\Node Objects\Map.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Node.h" />
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
     <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h" />
@@ -254,6 +255,7 @@
     <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp" />
+    <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp" />

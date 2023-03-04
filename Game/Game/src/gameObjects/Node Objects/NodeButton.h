@@ -2,6 +2,7 @@
 #ifndef NODEBUTTON_H_
 #define NODEBUTTON_H_
 
+#include "../../gameObjects/GameObject.h"
 #include "../../components/Node Components/NodeButtonComponent.h"
 
 class NodeButton : public GameObject {

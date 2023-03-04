@@ -10,8 +10,6 @@ SDLApplication::SDLApplication() {
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
 
-	Node::initializeNodeMap();
-
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
 	exit = false;
@@ -20,7 +18,6 @@ SDLApplication::SDLApplication() {
 // Destructora
 SDLApplication::~SDLApplication() {
 	delete(gameStateMachine);
-	Node::clearNodeMap();
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
