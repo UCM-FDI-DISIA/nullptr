@@ -24,11 +24,14 @@ private:
 	void nextWave();
 	void spawnWave(const int wave[3]);
 
+    Vector2D checkPos(Vector2D pos, const int rad);
+
 
 public:
 	static const int id = _ENEMY_GEN;
 	EnemyGenerator(Player* pl, BattleScene* enemigos) :player(pl), playerPos(nullptr), where(enemigos), depth(0), nextSpawn(0), timePerWave(0), levelType(0) {};
 
+	
 	virtual void initComponent();
 	virtual void update();
 
