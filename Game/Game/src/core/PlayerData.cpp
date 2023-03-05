@@ -10,6 +10,8 @@ PlayerData::PlayerData() {
 	fireRateMult = 1;
 	attackMult = 1;
 
+	level = 5;
+
 	deck.push_back(new GunCard());
 
 	deck.push_back(new SpearCard());
