@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -183,8 +183,9 @@
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\GameObject.h" />
@@ -226,6 +227,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp" />
+    <ClCompile Include="src\components\Card Components\ThrownSpearBehaviour.h" />
     <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
@@ -252,6 +254,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />

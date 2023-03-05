@@ -30,3 +30,10 @@ public:
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
+
+class SpearCard : public Card {
+public:
+	SpearCard() : Card(15, 6, 15, 1/0.8, 0.5, "Lanza", SDLApplication::getTexture("Sword")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};

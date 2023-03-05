@@ -33,6 +33,8 @@
       { "id" : "SwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/SwordSlash_200x200.png" },
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
+      { "id" : "SpearThrust", "file" : "../Game/resources/images/Cards/CardEffects/SpearThrust_184x39.png" },
+
       
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
