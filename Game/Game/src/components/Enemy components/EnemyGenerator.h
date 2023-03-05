@@ -4,7 +4,6 @@
 #include "../../gameObjects/Player Object/Player.h"
 #include "../../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../../gameObjects/Enemy Objects/RangedEnemy.h"
-#include "../../gameObjects/Enemy Objects/TankEnemy.h"
 /*
 Objeto que se encarga de hacer los spawns de enemigos
 alrededor del jugador cogiendo la informacion necesaria 

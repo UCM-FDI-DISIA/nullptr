@@ -17,45 +17,50 @@ void MeleeBehaviour::initComponent() {
 }
 
 //Metodo para saber si el enemigo esta cerca del player
-void MeleeBehaviour::close() {
+bool MeleeBehaviour::close() {
 
 	//Si esta cerca del player
 	if (pos->getDistance(playerPos->getPos()) < attackDistance) {
 		//Si ya ha estado cerca del player
 		if (!hasBeenCloseToPlayer) {
 			//Setea elapsed time, velocidad a 0 y marca que ha estado cerca del player ya
-			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
+			elapsedTime = SDL_GetTicks();
 			pos->setVel(Vector2D(0, 0));
 			hasBeenCloseToPlayer = true;
 		}
+
+		return true; 
 	}
+	return false;
 }
 
 void MeleeBehaviour::update() {
-	elapsedTime = SDLApplication::instance()->getCurrentTime();
+	behaviorTime += SDLApplication::instance()->getDeltaTime();
 
-	close();
-	if (hasBeenCloseToPlayer) {
+	//Si ha estado cerca
+	if (close()) {
+		//Si no ha atacado y colisiona
+		if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
+			//Daña al jugador e informa de que ha atacado
+			player->getComponent<HealthComponent>()->receiveDamage(damage);
+			attacked = true;
+		}
+		//Si ha pasado suficiente tiempo para atacar
+		if (behaviorTime > attackInterval)
+		{
+			attacked = false;
+			
+
+			//Reseteamos el contador
+			behaviorTime -= attackInterval;
+		}
+	}
+	else if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
-		if (elapsedTime >= behaviorTime) {
+		if (behaviorTime - elapsedTime > stopTime) {
 			pos->setVel(initialDir);
 			hasBeenCloseToPlayer = false;
 		}
-	}
-
-	if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
-		//Daña al jugador e informa de que ha atacado
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
-		attacked = true;
-		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
-	}
-	//Si ha pasado suficiente tiempo para atacar
-	else if (elapsedTime>= attackInterval)
-	{
-		attacked = false;
-
-		//Reseteamos el contador
-		behaviorTime -= attackInterval;
 	}
 	
 	pos->lookAt(playerPos->getPos());

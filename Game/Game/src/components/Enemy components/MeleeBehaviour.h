@@ -12,5 +12,5 @@ public:
 	static const int id = _MELEE_BEHAVIOUR;
 	virtual void update();
 	virtual void initComponent();
-	void close();
+	bool close();
 };

@@ -33,11 +33,6 @@ public:
 		behaviorTime = SDL_GetTicks();
     };
 
-	virtual void initComponent(){
-		pos = gObj->getComponent<Transform>();
-		assert(pos != nullptr);
-	}
-
 	/*Funciones para borrar enemigos*/
 
 	//Setea la posicion en el vector de enemigos
