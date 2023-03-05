@@ -116,7 +116,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
 		spawnPos = checkPos(spawnPos, RANGED_RADIUS);
 		//CAMBIAR POR RANGED ENEMY CUANDO FUNCIONE BIEN EL LIFETIME COMPONENT
-		GameObject* enemy = where->addGameObject<MeleeEnemy>(spawnPos, 10, player);
+		GameObject* enemy = where->addGameObject<TankEnemy>(spawnPos, 10, player);
 		where->addEnemy(enemy);
 	}
 	//Hacemos un for y añadimos enemigos tank
@@ -125,7 +125,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 		spawnPos = checkPos(spawnPos, TANK_RADIUS);
 
 		//CAMBIAR POR TANK ENEMY CUANDO EXISTA
-		GameObject* enemy = where->addGameObject<MeleeEnemy>(spawnPos, 10, player);
+		GameObject* enemy = where->addGameObject<TankEnemy>(spawnPos, 10, player);
 		where->addEnemy(enemy);
 	}
 }

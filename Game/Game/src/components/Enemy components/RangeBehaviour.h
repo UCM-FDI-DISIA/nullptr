@@ -16,7 +16,7 @@ private:
 	bool stopped = false;
 	int shotPattern = 0;
 public:
-	static const int id = _RANGE_BEHAVIOR;
+	static const int id = _RANGE_BEHAVIOUR;
 
 	RangeBehaviour(float spd, float safDist, float stptime, float mvTime,
 		int dmg, int atck, Player* plyr);
