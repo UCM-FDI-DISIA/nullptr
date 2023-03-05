@@ -10,7 +10,7 @@ void PlayerMovementComponent::initComponent() {
 void PlayerMovementComponent::handleInput() {
 	Vector2D vel(0, 0);
 	Vector2D pos =transform->getPos();
-	if (pos.getX()>0&&InputHandler::instance()->isKeyDown(SDLK_a)) {
+	if (pos.getX()>PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_a)) {
 		vel = vel + Vector2D(-1, 0);
 	}
 	if (pos.getX()<FLOOR_WIDTH-PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_d)) {

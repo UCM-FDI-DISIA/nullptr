@@ -53,9 +53,10 @@
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
     
-      { "id" : "1", "file" : "../Game/resources/images/UI/BattleScene/1.png" }, 
-      { "id" : "2", "file" : "../Game/resources/images/UI/BattleScene/2.png" }, 
-      { "id" : "3", "file" : "../Game/resources/images/UI/BattleScene/3.png" }
+      { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
+      { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
+      { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
+      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" }
     ],
     
     "messages" : [

@@ -12,7 +12,8 @@ class NodeButtonComponent;
 enum battleType {
 	_PASTBATTLE,
 	_PRESENTBATTLE,
-	_FUTUREBATTLE
+	_FUTUREBATTLE,
+	_BOSSBATTLE
 };
 
 class BattleNode : public Node {
