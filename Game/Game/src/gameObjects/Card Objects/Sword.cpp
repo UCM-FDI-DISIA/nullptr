@@ -1,6 +1,6 @@
 #include "Cards.h"
 #include "../../sdlutils/Texture.h"
-#include "../Card Objects/Hitbox.h"
+#include "../Card Objects/SwordSlash.h"
 #include "../Card Objects/SwordSpin.h"
 
 #include <iostream>

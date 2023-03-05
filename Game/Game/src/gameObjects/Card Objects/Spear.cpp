@@ -1,5 +1,5 @@
 #include "Cards.h"
-#include "Hitbox.h"
+#include "SwordSlash.h"
 #include "ThrownSpear.h"
 
 void SpearCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
