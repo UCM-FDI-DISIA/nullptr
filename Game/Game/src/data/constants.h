@@ -70,6 +70,16 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const float ENEMY_SPEED = 50;
 
+const float MELEE_ENEMY_COOLDOWN = 500;
+
+// TANK ENEMY
+const float TANK_SPEED = 35;
+const int TANK_ATTACK_DAMAGE = 1;
+const int TANK_LIFE = 60;
+const float TANK_STOP_TIME = 500;
+const float TANK_ATTACK_DISTANCE = 200;
+const float TANK_ATTACK_TIME = 3000;
+
 // BULLETS ---------------------------------------------------------------------------------------
 
 const float BULLET_SPEED = 200;

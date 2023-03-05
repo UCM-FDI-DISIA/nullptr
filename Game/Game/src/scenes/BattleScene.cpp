@@ -30,19 +30,23 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
 
-	enemyGenerator = addGameObject();
-	enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	//enemyGenerator = addGameObject();
+	//enemyGenerator->addComponent<EnemyGenerator>(player, this);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
 	createLifeBar();
 	createManaBar();
 
 	//Añadimos 2 enemigos de prueba
-	enemies.push_back(
+	/*enemies.push_back(
 		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);
-	enemies.push_back(
+	);*/
+	/*enemies.push_back(
 		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
+	);*/
+
+	enemies.push_back(
+		addGameObject<TankEnemy>(VECTOR_ZERO, 50, player)
 	);
   
 
