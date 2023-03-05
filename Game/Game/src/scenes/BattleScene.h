@@ -8,6 +8,7 @@
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
 #include "../gameObjects/UI/HandUI.h"
+#include "../components/Enemy components/EnemyGenerator.h"
 
 class HandUI;
 class BattleScene : public GameState {
@@ -19,6 +20,7 @@ private:
 	GameObject* floor3;
 	GameObject* mana;
 	GameObject* barraMana;
+	GameObject* enemyGenerator;
 
 	vector<GameObject*> enemies;
 	battleType type;
@@ -37,6 +39,7 @@ public:
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
 	vector<GameObject*>* getEnemies();
+	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
 	Player* getPlayer() { return player; };
 
 	void createLifeBar();

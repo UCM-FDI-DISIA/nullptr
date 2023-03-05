@@ -8,6 +8,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
   
 	// Quitar cuando se cree el mapa de combate
+	
 
 	floor1 = addGameObject();
 	floor1->addComponent<Transform>(Vector2D(50,50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH,FLOOR_HEIGHT);
@@ -28,6 +29,9 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
+
+	enemyGenerator = addGameObject();
+	enemyGenerator->addComponent<EnemyGenerator>(player, this);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
 	createLifeBar();
