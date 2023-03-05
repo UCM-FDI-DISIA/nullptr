@@ -40,18 +40,17 @@ const int* EnemyGenerator::calcWave() {
 
 Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 	
-	//variables a borrar cuando sepamos la constante
-	int x = 1500, y = 1500;
-
-    if (pos.getX() < x && pos.getX() > 0 && pos.getY() < y && pos.getY() > 0) {
+	//Si no esta fuera
+    if (pos.getX() < FLOOR_WIDTH - ENEMY_WIDTH && pos.getX() > ENEMY_WIDTH && pos.getY() < FLOOR_HEIGHT - ENEMY_HEIGHT && pos.getY() > ENEMY_HEIGHT) {
 		return pos;
 	}
-	if (pos.getX() > x ) {
-		if (pos.getY() > y) {
+
+	if (pos.getX() > FLOOR_WIDTH - ENEMY_WIDTH) {
+		if (pos.getY() > FLOOR_HEIGHT - ENEMY_HEIGHT) {
 			//esquina inferior derecha 90-180
 			return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(90 + rand() % 90) * rad);
 		}
-		if (pos.getY() < 0) {
+		if (pos.getY() < ENEMY_HEIGHT) {
 			//esquina superior derecha 180-270
 			return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(180 + rand() % 90) * rad);
 			
@@ -61,12 +60,12 @@ Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 		return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(90 + rand() % 180) * rad);
 	}
 
-	if (pos.getX() < 0) {
-		if (pos.getY() > y) {
+	if (pos.getX() < ENEMY_WIDTH) {
+		if (pos.getY() > FLOOR_HEIGHT - ENEMY_HEIGHT) {
 			// esquina inferior izquierda 0-90
 			return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate( rand() % 90) * rad);
 		}
-		if (pos.getY() < 0) {
+		if (pos.getY() < ENEMY_HEIGHT) {
 			//esquina superior izquierda 270-360
 			return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(270 + rand() % 90) * rad);
 		}
@@ -75,7 +74,7 @@ Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 		return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(270 + rand() % 180) * rad);
 	}
 
-	if (pos.getY() < 0) {
+	if (pos.getY() < ENEMY_HEIGHT) {
 		//pared superior 180-360
 		return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(180 + rand() % 180) * rad);
 		
