@@ -61,6 +61,12 @@ public:
 		T* scene = new T(std::forward<Ts>(args)...);
 		SDLApplication::instance()->gameStateMachine->changeState(scene);
 	}
+
+	template<typename T, typename ...Ts>
+	static void pushNewScene(Ts&& ...args) {
+		T* scene = new T(std::forward<Ts>(args)...);
+		SDLApplication::instance()->gameStateMachine->pushState(scene);
+	}
 	
 	// Pausa el juego
 	static void pauseGame();

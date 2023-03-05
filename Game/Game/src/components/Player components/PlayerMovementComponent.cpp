@@ -1,5 +1,6 @@
 #include "PlayerMovementComponent.h"
 #include "../../sdlutils/InputHandler.h"
+#include "../../core/SDLApplication.h"
 
 PlayerMovementComponent::PlayerMovementComponent() :transform(nullptr){}
 
@@ -26,6 +27,10 @@ void PlayerMovementComponent::handleInput() {
 	vel = vel / vel.magnitude();
 	vel = vel * playerSpeed;
 	transform->setVel(vel);
+
+	if (InputHandler::instance()->isKeyJustDown(SDLK_ESCAPE)) {
+		SDLApplication::pauseGame();
+	}
 }
 
 void PlayerMovementComponent::setPlayerSpeed(int newSpeed) {

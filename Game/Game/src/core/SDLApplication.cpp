@@ -95,7 +95,7 @@ void SDLApplication::handleInput() {
 Texture* SDLApplication::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
 
 // Pausa el juego
-void SDLApplication::pauseGame() { /*_game->gameStateMachine->pushState(new PauseMenuState(_game));*/ }
+void SDLApplication::pauseGame() { SDLApplication::instance()->gameStateMachine->pushState(new PauseMenuScene()); }
 
 // Reanuda el juego
 void SDLApplication::resumeGame() { SDLApplication::popGameState(); }

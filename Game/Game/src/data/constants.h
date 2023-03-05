@@ -114,11 +114,27 @@ const Vector2D MM_PLAYFRAME_BUTTON_POS = MM_PLAY_BUTTON_POS - Vector2D(48, 88);
 const Vector2D MM_OPTIONSFRAME_BUTTON_POS = MM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
 const Vector2D MM_ALUBMFRAME_BUTTON_POS = MM_ALBUM_BUTTON_POS - Vector2D(48, 88);
 const Vector2D MM_EXITFRAME_BUTTON_POS = MM_EXIT_BUTTON_POS - Vector2D(48, 88);
+// PAUSEMENU: BUTTON POSITIONS AND DIMENSIONS
+const int PM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
+const int PM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
+const int PM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 4;
+const int PM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 4;
+const Vector2D PM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT / 2);
+const Vector2D PM_INVENTORY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 8);
+const Vector2D PM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 6 / 8);
+const Vector2D PM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 7 / 8);
+const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - Vector2D(48, 88);
+
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
 const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
+const string RESUME = "ResumeButton";
+const string INVENTORY = "InventoryButton";
 
 // FLOOR -----------------------------------------------------------------------------------------
 const string FLOOR_PAST = "BattleBackground";
