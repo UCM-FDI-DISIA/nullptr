@@ -163,8 +163,16 @@
     <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
+
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\ThrownSpearBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -328,7 +336,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h">
+    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h">
@@ -382,8 +390,13 @@
     <ClInclude Include="src\components\Player components\MannaBarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
+
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

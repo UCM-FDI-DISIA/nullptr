@@ -1,6 +1,6 @@
 #include "Cards.h"
 #include "../../sdlutils/Texture.h"
-#include "../Card Objects/SwordSlash.h"
+#include "../Card Objects/Hitbox.h"
 #include "../Card Objects/SwordSpin.h"
 
 #include <iostream>
@@ -10,7 +10,7 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();	
 
-	where->addGameObject<SwordSlash>(playerPos, dir, where, damage * attackMult);
+	where->addGameObject<Hitbox>(playerPos, dir, where, damage * attackMult, SDLApplication::getTexture("SwordSlash"));
 
 }
 

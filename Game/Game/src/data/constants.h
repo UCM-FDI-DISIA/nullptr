@@ -73,6 +73,7 @@ const float ENEMY_SPEED = 50;
 // BULLETS ---------------------------------------------------------------------------------------
 
 const float BULLET_SPEED = 200;
+const float THROWN_SPEAR_SPEED = 600;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
