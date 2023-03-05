@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\components\Card Components\BulletBehavior.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
+    <ClInclude Include="src\components\Card Components\ConfuseBehaviour.h" />
     <ClInclude Include="src\components\Card Components\ExplosionBehaviour.h" />
     <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h" />
     <ClInclude Include="src\components\Component.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\FlashBang.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h" />

@@ -20,7 +20,7 @@ public:
 		addComponent<ColliderComponent>();
 	}
 private:
-	const float HEIGHT = 30;
-	const float WIDTH = 30;
+	const float HEIGHT = 16;
+	const float WIDTH = 16;
 };
 

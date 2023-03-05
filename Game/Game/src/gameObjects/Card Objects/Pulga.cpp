@@ -1,5 +1,7 @@
 #include "Cards.h"
 #include "Bomb.h"
+#include "FlashBang.h"
+
 
 void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
@@ -12,5 +14,5 @@ void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 void PulgaCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
-
+	where->addGameObject<FlashBang>(playerPos, where, remainingUses);
 }
