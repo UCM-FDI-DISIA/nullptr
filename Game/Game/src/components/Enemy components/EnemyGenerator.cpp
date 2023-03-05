@@ -38,13 +38,17 @@ const int* EnemyGenerator::calcWave() {
 	}
 }
 
+
+//Funcion que comprueba que la posicion de spawn es correcta
+//Reduce el circulo de spawn dependiendo de donde se salga el enemigo spawneado
 Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 	
-	//Si no esta fuera
+	//Si no esta fuera de los limites del mapa
     if (pos.getX() < FLOOR_WIDTH - ENEMY_WIDTH && pos.getX() > ENEMY_WIDTH && pos.getY() < FLOOR_HEIGHT - ENEMY_HEIGHT && pos.getY() > ENEMY_HEIGHT) {
 		return pos;
 	}
 
+	//Si esta fuera por la derecha
 	if (pos.getX() > FLOOR_WIDTH - ENEMY_WIDTH) {
 		if (pos.getY() > FLOOR_HEIGHT - ENEMY_HEIGHT) {
 			//esquina inferior derecha 90-180
@@ -60,6 +64,7 @@ Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 		return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(90 + rand() % 180) * rad);
 	}
 
+	//Si esta fuera por la izquierda
 	if (pos.getX() < ENEMY_WIDTH) {
 		if (pos.getY() > FLOOR_HEIGHT - ENEMY_HEIGHT) {
 			// esquina inferior izquierda 0-90
@@ -74,12 +79,14 @@ Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 		return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(270 + rand() % 180) * rad);
 	}
 
+	//Si esta fuera por abajo
 	if (pos.getY() < ENEMY_HEIGHT) {
 		//pared superior 180-360
 		return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(180 + rand() % 180) * rad);
 		
 	}
 
+	//Si esta fuera por arriba
 	//pared inferior 0-180 
 	return Vector2D(playerPos->getCenter() + Vector2D(1, 0).rotate(rand() % 180) * rad);
 	

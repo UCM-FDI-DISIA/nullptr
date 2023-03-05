@@ -4,6 +4,13 @@
 #include "../../gameObjects/Player Object/Player.h"
 #include "../../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../../gameObjects/Enemy Objects/RangedEnemy.h"
+/*
+Objeto que se encarga de hacer los spawns de enemigos
+alrededor del jugador cogiendo la informacion necesaria 
+de una matriz en constantes para saber que oleadas 
+hacer aparecer
+*/
+
 
 //Hay que buscar una manera de pasar esto entre escenas y que se guarde
 class EnemyGenerator : public Component {
@@ -12,8 +19,9 @@ private:
 	Transform* playerPos;
 	Player* player;
 
-	//Para saber la profundidad del jugador en el mapa de nodos,
-	// cuando sale de la escena este deberia aumentar en una unidad
+	//Para saber el nivel de dificultad Depth
+	//Para saber el tipo de nivel levelType
+	
 	int depth, nextSpawn, timePerWave, levelType;
 
 	//Para agregar los enemigos a la escena de combate
