@@ -12,28 +12,28 @@ class GunCard : public Card {
 
 class SwordCard : public Card {
 	public:
-		SwordCard() : Card(20, 5, 80, 2, "Espada", SDLApplication::getTexture("Sword")) {};
+		SwordCard() : Card(20, 5, 80, 0.5, "Espada", SDLApplication::getTexture("Sword")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class LaserShadesCard : public Card {
 	public:
-		LaserShadesCard() : Card(20, 5, 80, 2, "Gafas Láser", SDLApplication::getTexture("LaserGlasses")) {};
+		LaserShadesCard() : Card(20, 5, 80, 1, "Gafas Láser", SDLApplication::getTexture("LaserGlasses")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class PulgaCard : public Card {
 public:
-	PulgaCard() : Card(30, 2, 30, 5, "Pulga", SDLApplication::getTexture("LaserGlasses")) {};
+	PulgaCard() : Card(30, 2, 30, 1.5, "Pulga", SDLApplication::getTexture("LaserGlasses")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class SpearCard : public Card {
 public:
-	SpearCard() : Card(15, 6, 15, 1/0.8, "Lanza", SDLApplication::getTexture("Sword")) {};
+	SpearCard() : Card(15, 6, 15, 0.75, "Lanza", SDLApplication::getTexture("Sword")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
