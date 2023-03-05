@@ -7,11 +7,11 @@
 
 class Laser : public GameObject {
 public:
-	void initGameObject(Vector2D pos, float rotation, int damage, vector<GameObject*>* enemies) {
+	void initGameObject(Vector2D pos, float rotation, int damage, grpId group) {
 		addComponent<Transform>(pos, Vector2D(0,0), Vector2D(0, HEIGHT / 2), WIDTH, HEIGHT, rotation);
 		addComponent<Image>(SDLApplication::getTexture("Laser"));
-		addComponent<BulletBehavior>(damage, enemies);
-		addComponent<ColliderComponent>();
+		addComponent<BulletBehavior>(damage);
+		addComponent<ColliderComponent>(getComponent<BulletBehavior>()->bulletAttack(), group);
 		addComponent<LifeTimeComponent>(0.25);
 	}
 private:

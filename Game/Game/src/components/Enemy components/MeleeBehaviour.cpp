@@ -40,10 +40,8 @@ void MeleeBehaviour::update() {
 	//Si ha estado cerca
 	if (close()) {
 		//Si no ha atacado y colisiona
-		if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
-			//Daña al jugador e informa de que ha atacado
-			player->getComponent<HealthComponent>()->receiveDamage(damage);
-			attacked = true;
+		if (!attacked) {
+			gObj->getComponent<ColliderComponent>()->hasCollided();
 		}
 		//Si ha pasado suficiente tiempo para atacar
 		if (behaviorTime > attackInterval)
@@ -64,6 +62,15 @@ void MeleeBehaviour::update() {
 	}
 	
 	pos->lookAt(playerPos->getPos());
+}
+CallBackCol MeleeBehaviour::meleeAttack()
+{
+	return [&](GameObject* gameObject)
+	{
+		//Daña al jugador e informa de que ha atacado
+		player->getComponent<HealthComponent>()->receiveDamage(damage);
+		attacked = true;
+	};
 }
 
 

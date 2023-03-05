@@ -32,6 +32,7 @@ enum grpId : grpId_type {
 	_grp_ENEMIES,
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
+	_grp_PLAYER,
 
 	_LAST_GRP_ID
 };
@@ -40,5 +41,7 @@ constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 #include <functional>
 // Tipo de función que devuelve y recibe void, funciona también con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
+class GameObject;
+using CallBackCol = std::function<void(GameObject*)>;
 
 #endif // !ECS_H_

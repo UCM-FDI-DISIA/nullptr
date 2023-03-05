@@ -1,4 +1,90 @@
-﻿  GameState.cpp
+﻿  CardComponent.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(46,34): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(47,36): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(54,62): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.cpp(29,18): warning C4305: '-=': truncamiento de 'double' a 'float'
+  SwordSlashBehaviour.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  EnemyBehaviour.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  MeleeBehaviour.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  RangeBehaviour.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Enemy components\RangeBehaviour.cpp(7,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(18): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  Animator.cpp
 C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
@@ -14,4 +100,792 @@ C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\C
 C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
-  Game.vcxproj -> C:\Users\pedro\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe
+  ColliderComponent.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  HeatlhComponent.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\HeatlhComponent.cpp(40,20): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\HeatlhComponent.cpp(42,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\HeatlhComponent.cpp(44,27): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(18): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  LifetimeComponent.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\LifetimeComponent.cpp(11,72): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+  Transform.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.cpp(49,86): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.cpp(55,39): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  NodeButtonComponent.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  MannaBarComponent.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Player components\MannaBarComponent.cpp(17,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Player components\MannaBarComponent.cpp(21,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Player components\MannaBarComponent.cpp(25,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Player components\MannaBarComponent.cpp(27,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  PlayerData.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(46,34): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(47,36): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\core\PlayerData.h(54,62): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  SDLApplication.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\SDLUtils.h(48): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\SDLUtils.h(195): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  Game.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\Game.cpp(12,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Bullet.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(18): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  Card.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  Gun.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Gun.cpp(17,104): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Gun.cpp(17,92): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(18): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\GameState.h(36,43): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Gun.cpp(11): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameState::addGameObject<Bullet,Vector2D&,Vector2D&,float,grpId>(grpId,Vector2D &,Vector2D &,float &&,grpId &&)" que se está compilando
+          with
+          [
+              T=Bullet
+          ]
+  LaserShades.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\LaserShades.cpp(14,18): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Laser.h(15): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<LifeTimeComponent,double>(double &&)" que se está compilando
+          with
+          [
+              T=LifeTimeComponent
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\GameState.h(36,43): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\LaserShades.cpp(8): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameState::addGameObject<Laser,Vector2D&,float&,float,grpId>(grpId,Vector2D &,float &,float &&,grpId &&)" que se está compilando
+          with
+          [
+              T=Laser
+          ]
+  Sword.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\SwordSlash.h(21): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D,int,int,float>(Vector2D &,Vector2D &&,int &&,int &&,float &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\GameState.h(36,43): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Sword.cpp(29): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameState::addGameObject<SwordSlash,Vector2D&,Vector2D&,BattleScene*&,float>(grpId,Vector2D &,Vector2D &,BattleScene *&,float &&)" que se está compilando
+          with
+          [
+              T=SwordSlash
+          ]
+  Generando código...
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.cpp(45): warning C4715: 'Card::getCard': no todas las rutas de acceso de control devuelven un valor
+  Compilando...
+  MeleeEnemy.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Enemy Objects\MeleeEnemy.cpp(5): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D,const int&,const int&,int>(Vector2D &,Vector2D &&,const int &,const int &,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+  RangedEnemy.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(18): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+  BattleNode.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  ChestNode.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  EventNode.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Node.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  NodeButton.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\NodeButton.cpp(5): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,const Vector2D&,const Vector2D&,const int&,const int&>(const Vector2D &,const Vector2D &,const int &,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  ShopNode.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Player.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  Button.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\UI\Button.cpp(7): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,const Vector2D&,int&,int&>(Vector2D &,const Vector2D &,int &,int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  CardCounter.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\UI\CardCounter.cpp(12): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,int,const int&>(Vector2D &&,Vector2D &&,int &&,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+  HandUI.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\UI\HandUI.cpp(90,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\UI\HandUI.cpp(90,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\UI\HandUI.cpp(90): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const int&,const int&,int&>(Vector2D &&,Vector2D &&,const int &,const int &,int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+  AlbumScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  ChestScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  BattleScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Bullet.h(18): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D&,Vector2D&,int,int>(Vector2D &,Vector2D &,int &&,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\BattleScene.cpp(12): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,const Vector2D&,const Vector2D&,const int&,const int&>(const Vector2D &,const Vector2D &,const int &,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  GameOverScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\GameOverScene.cpp(8): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\GameOverScene.cpp(14): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const int&,const int&>(Vector2D &&,Vector2D &&,const int &,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  GameState.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  InventoryScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  MainMenuScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\MainMenuScene.cpp(8): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,Vector2D,Vector2D,const uint&,const uint&>(Vector2D &&,Vector2D &&,const uint &,const uint &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\GameObject.h(45,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\scenes\MainMenuScene.cpp(13): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameObject::addComponent<Transform,const Vector2D&,Vector2D,const int&,const int&>(const Vector2D &,Vector2D &&,const int &,const int &)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  MapScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  Generando código...
+  Compilando...
+  OptionsMenuScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  PauseMenuScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  ShopScene.cpp
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(60,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(65,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(90,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(109,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(110,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(111,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(112,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(120,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\General Components\Transform.h(121,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Card Objects\Card.h(37,30): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\components\Card Components\CardComponent.h(50,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\pedro\Documents\GitHub\nullptr\Game\Game\src\gameObjects\Node Objects\Node.h(60,36): warning C4114: el mismo calificador de tipo se ha utilizado más de una vez
+  Generando código...
+SwordSlashBehaviour.obj : error LNK2019: símbolo externo "public: class std::vector<class GameObject *,class std::allocator<class GameObject *> > const & __cdecl GameState::getEntitiesByGroup(int)" (?getEntitiesByGroup@GameState@@QEAAAEBV?$vector@PEAVGameObject@@V?$allocator@PEAVGameObject@@@std@@@std@@H@Z) sin resolver al que se hace referencia en la función "public: __cdecl SwordSlashBehaviour::SwordSlashBehaviour(int,enum grpId)" (??0SwordSlashBehaviour@@QEAA@HW4grpId@@@Z)
+ColliderComponent.obj : error LNK2001: símbolo externo "public: class std::vector<class GameObject *,class std::allocator<class GameObject *> > const & __cdecl GameState::getEntitiesByGroup(int)" (?getEntitiesByGroup@GameState@@QEAAAEBV?$vector@PEAVGameObject@@V?$allocator@PEAVGameObject@@@std@@@std@@H@Z) sin resolver
+C:\Users\pedro\Documents\GitHub\nullptr\Game\x64\Debug\Game.exe : fatal error LNK1120: 1 externos sin resolver

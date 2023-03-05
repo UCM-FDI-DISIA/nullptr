@@ -13,7 +13,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	floor->addComponent<Image>(SDLApplication::getTexture(FLOOR_PAST));
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
-	player = addGameObject<Player>();
+	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
@@ -48,10 +48,6 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
-}
-
-vector<GameObject*>* BattleScene::getEnemies() {
-	return &enemies;
 }
 
 void BattleScene::OnPlayerDies() {

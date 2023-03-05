@@ -223,12 +223,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
+    <ClCompile Include="src\components\Card Components\SwordSlashBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
     <ClCompile Include="src\components\General Components\HeatlhComponent.cpp" />
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />

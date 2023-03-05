@@ -21,7 +21,7 @@ public:
 		addComponent<Transform>(slashVector, Vector2D(0, 0), 100, 100, slashVector.angle(playerPos));
 		addComponent<LifeTimeComponent>(1);
 		addComponent<Image>(SDLApplication::getTexture("SwordSlash"));
-		addComponent<ColliderComponent>();
-		addComponent<SwordSlashBehaviour>(dmg, scene->getEnemies());
+		addComponent<SwordSlashBehaviour>(dmg, _grp_ENEMIES);
+		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(),_grp_ENEMIES);
 	}
 };

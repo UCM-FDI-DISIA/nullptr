@@ -166,6 +166,12 @@
     <ClCompile Include="src\utils\Collisions.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\ColliderComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\SwordSlashBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">

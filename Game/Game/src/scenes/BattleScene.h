@@ -29,7 +29,6 @@ public:
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
-	vector<GameObject*>* getEnemies();
 	Player* getPlayer() { return player; };
 
 	void createLifeBar();

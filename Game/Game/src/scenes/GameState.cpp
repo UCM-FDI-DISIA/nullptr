@@ -68,6 +68,6 @@ void GameState::refresh() {
 Camera* GameState::getCamera() const { return camera; }
 
 // Devuelve una lista con el grupo seleccionado
-inline const auto& GameState:: getEntitiesByGroup(grpId_type gId) {
+inline const vector<GameObject*>& GameState:: getEntitiesByGroup(grpId_type gId) {
     return entsByGroup_[gId];
 }
