@@ -180,7 +180,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h" />
     <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
