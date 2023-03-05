@@ -5,6 +5,7 @@
 void ExplosionBehaviour::initComponent()
 {
 	tr = gObj->getComponent<Transform>();
+	target = scene->getEnemies();
 }
 
 void ExplosionBehaviour::update()
@@ -14,5 +15,13 @@ void ExplosionBehaviour::update()
 	{
 		scene->addGameObject<Explosion>(tr->getCenter(),scene, damage);
 		gObj->setAlive(false);
+	}
+
+	for (int i = 0; i < target->size(); i++) {
+		if (gObj->getComponent<ColliderComponent>()->
+			hasCollided((*target)[i]->getComponent<Transform>())) {
+			scene->addGameObject<Explosion>(tr->getCenter(), scene, damage);
+			gObj->setAlive(false);
+		}
 	}
 }

@@ -5,7 +5,7 @@ void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 {
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
-	dir = dir.normalize() * bulletSpeed;
+	dir = dir.normalize();
 
 	where->addGameObject<Bomb>(playerPos, dir, damage * attackMult, where);
 }

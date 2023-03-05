@@ -24,8 +24,4 @@ public:
 		addComponent<ColliderComponent>();
 		addComponent<SwordSlashBehaviour>(dmg, scene->getEnemies());
 	}
-
-private:
-	const float HEIGHT = 100;
-	const float WIDTH = 50;
 };

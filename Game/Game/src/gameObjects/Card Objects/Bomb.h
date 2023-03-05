@@ -14,7 +14,7 @@ class Bomb :public GameObject
 public:
 
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, BattleScene* where) {
-		addComponent<Transform>(pos - Vector2D(WIDTH / 2, HEIGHT / 2), dir, HEIGHT, WIDTH);
+		addComponent<Transform>(pos - Vector2D(WIDTH / 2, HEIGHT / 2), dir * BULLET_SPEED, HEIGHT, WIDTH);
 		addComponent<ExplosionBehaviour>(dmg, where, 3);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
 		addComponent<ColliderComponent>();

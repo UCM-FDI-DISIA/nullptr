@@ -168,6 +168,7 @@
     </ClCompile>
     <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -397,6 +398,8 @@
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Explosion.h">
+          <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
