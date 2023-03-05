@@ -331,7 +331,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h">
+    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h">
