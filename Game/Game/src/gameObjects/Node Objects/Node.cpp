@@ -1,12 +1,9 @@
 #include "Node.h"
 
-#include "BattleNode.h"
-#include "ShopNode.h"
-#include "ChestNode.h"
-#include "EventNode.h"
+#include "Map.h"
 
 // Constructora, recibe la clave de la textura
-Node::Node(string tKey, Vector2D const& pos) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey), position(pos) {}
+Node::Node(string tKey, Vector2D const& pos, CallBack _load) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey), position(pos), load(_load) {}
 
 // Asigna el estado del nodo a bloqueado
 void Node::lock() {
@@ -48,4 +45,11 @@ void Node::setNextNodes(vector<Node*> const& nNodes) {
 // Añade el nodo recibido a los siguientes nodos
 void Node::addToNextNodes(Node* const& node) {
 	nextNodes.push_back(node);
+}
+
+CallBack Node::loadNode() {
+	return [&](){
+		map().setCurrentNode(this);
+		load();
+	};
 }

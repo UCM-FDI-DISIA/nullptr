@@ -206,6 +206,7 @@
     <ClInclude Include="src\scenes\InventoryScene.h" />
     <ClInclude Include="src\scenes\MainMenuScene.h" />
     <ClInclude Include="src\scenes\MapScene.h" />
+    <ClInclude Include="src\scenes\NodeScene.h" />
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
@@ -271,6 +272,7 @@
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
     <ClCompile Include="src\scenes\MainMenuScene.cpp" />
     <ClCompile Include="src\scenes\MapScene.cpp" />
+    <ClCompile Include="src\scenes\NodeScene.cpp" />
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />

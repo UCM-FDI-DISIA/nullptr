@@ -66,6 +66,10 @@ void SDLApplication::run() {
 		// std::cout << deltaTime << " " << SDL_GetTicks() << " " <<  debugCounter << " " << SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
 		
 		handleInput();
+
+		if (ih().closeWindowEvent()) {
+			exit = true;
+		}
 	}
 	gameStateMachine->clearStates();
 }

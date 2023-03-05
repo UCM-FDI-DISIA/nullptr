@@ -20,10 +20,11 @@ private:
 	vector<Node*> nextNodes;
 	string textureKey;
 	Vector2D position;
+	CallBack load;
 
 public:
 	// Constructora, recibe la clave de la textura
-	Node(string tKey, Vector2D const& pos);
+	Node(string tKey, Vector2D const& pos, CallBack _load);
 	// Asigna el estado del nodo a bloqueado
 	void lock();
 	// Asigna el estado del nodo a desbloqueado
@@ -37,7 +38,7 @@ public:
 	// Añade el nodo recibido a los siguientes nodos
 	void addToNextNodes(Node* const& node);
 	// Devuelve un CallBack distinto para cada tipo de nodo
-	virtual CallBack loadNode() const = 0;
+	CallBack loadNode();
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { return textureKey; }
 	// Devuelve la posición asignada al nodo

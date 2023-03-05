@@ -1,7 +1,7 @@
 #include "ShopScene.h"
 #include "../core/SDLApplication.h"
 
-ShopScene::ShopScene() : GameState() {
+ShopScene::ShopScene() : NodeScene() {
 	cout << "Has entrado en la escena de Tienda" << endl;
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);

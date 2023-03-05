@@ -4,7 +4,7 @@
 #include "../components/Player components/MannaBarComponent.h"
 
 // Constructora
-BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
+BattleScene::BattleScene(battleType t_) : NodeScene(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
   
 	// Quitar cuando se cree el mapa de combate
@@ -59,9 +59,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	hand = addGameObject<HandUI>(cardComp);
 }
 void BattleScene::update() {
-	for (GameObject* gObj : gObjs) {
-		gObj->update();
-	}
+	NodeScene::update();
 	auto it = enemies.begin();
 	while (it != enemies.end())
 	{

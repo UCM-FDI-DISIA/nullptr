@@ -1,7 +1,7 @@
 #pragma once
 #ifndef FUBATTLESCENE_H_
 #define FUBATTLESCENE_H_
-#include "GameState.h"
+#include "NodeScene.h"
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../gameObjects/Enemy Objects/RangedEnemy.h"
@@ -10,7 +10,7 @@
 #include "../gameObjects/UI/HandUI.h"
 
 class HandUI;
-class BattleScene : public GameState {
+class BattleScene : public NodeScene {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado

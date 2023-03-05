@@ -1,7 +1,7 @@
 #include "ChestScene.h"
 #include "../core/SDLApplication.h"
 
-ChestScene::ChestScene() : GameState() {
+ChestScene::ChestScene() : NodeScene() {
 	cout << "Has entrado en la escena de Cofre" << endl;
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);

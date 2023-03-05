@@ -185,8 +185,30 @@ const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
 
 // NODOS -----------------------------------------------------------------------------------------
-const float NODE_LEVEL_X[3] = { WIN_WIDTH / 7, WIN_WIDTH / 7 * 3, WIN_WIDTH / 7 * 5 };
-const float NODE_LEVEL_Y[3] = { WIN_HEIGHT / 7 * 5, WIN_HEIGHT / 7 * 3, WIN_HEIGHT / 7 };
+const Vector2D NODE_POSITIONS[22] = {
+	Vector2D(0, 0),
+	Vector2D(5, 5),
+	Vector2D(10, 10),
+	Vector2D(15, 15),
+	Vector2D(20, 20),
+	Vector2D(25, 25),
+	Vector2D(30, 30),
+	Vector2D(35, 35),
+	Vector2D(40, 40),
+	Vector2D(45, 45),
+	Vector2D(50, 50),
+	Vector2D(55, 55),
+	Vector2D(65, 65),
+	Vector2D(70, 70),
+	Vector2D(75, 75),
+	Vector2D(80, 80),
+	Vector2D(90, 90),
+	Vector2D(95, 95),
+	Vector2D(100, 100),
+	Vector2D(105, 105),
+	Vector2D(110, 110),
+	Vector2D(115, 115)};
+
 const int NODE_WIDTH = 50;
 const int NODE_HEIGHT = 50;
 
