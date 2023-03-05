@@ -31,17 +31,43 @@ SDLApplication::~SDLApplication() {
 void SDLApplication::run() {
 	gameStateMachine->pushState(new MainMenuScene());
 
-	uint32_t startTime, frameTime;
+
+
+	uint32_t frameTime; double debugCounter;
 	startTime = SDL_GetTicks();
+	timeOffset = startTime;
+	debugCounter = 0;
+	
+	Uint64 NOW = SDL_GetPerformanceCounter();
+	Uint64 LAST = 0;
+	
+
+	
 
 	while (!exit) {
 		InputHandler::instance()->refresh();
+		
 		frameTime = SDL_GetTicks() - startTime;
+		
 		update();
+		
+		LAST = NOW;
+		NOW = SDL_GetPerformanceCounter();
+
+		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
+
+		debugCounter += deltaTime;
+
 		if (frameTime >= DELAY_TIME) {
+			
 			startTime = SDL_GetTicks();
+			
 			render();
 		}
+		
+		// Descomentar para analizar el deltaTime
+		// std::cout << deltaTime << " " << SDL_GetTicks() << " " <<  debugCounter << " " << SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
+		
 		handleInput();
 	}
 	gameStateMachine->clearStates();
@@ -79,3 +105,5 @@ void SDLApplication::popGameState() { SDLApplication::instance()->gameStateMachi
 
 // Cierra el juego
 void SDLApplication::quitGame() { SDLApplication::instance()->exit = true; }
+
+

@@ -60,13 +60,20 @@ const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 4;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
-const float PLAYER_SPEED = 0.001;
+const float PLAYER_SPEED = 200;
 
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 33 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
-// MELE ENEMY ANIMATIONS
+const float ENEMY_SPEED = 50;
+
+// BULLETS ---------------------------------------------------------------------------------------
+
+const float BULLET_SPEED = 200;
+
+
+// MELE ENEMY ANIMATIONS ---------------------------------------------------------------------------------------
 const string MELE_ENEMY = "MeleeEnemy";
 const int MELEE_ENEMY_SPRITE_WIDTH = 26;
 const int MELEE_ENEMY_SPRITE_HEIGHT = 33;
@@ -90,8 +97,6 @@ const Vector2D MELEE_ENEMY_INITIAL_POSITION = { WIN_WIDTH / 2.0f - MELEE_ENEMY_I
 const Vector2D MELEE_ENEMY_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float MELEE_ENEMY_INITIAL_ROTATION = 0;
 const float MELEE_ENEMY_SPEED = 0.001;
-
-
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS

@@ -1,5 +1,6 @@
 #include "Transform.h"
 #include <iostream>
+#include "../core/SDLApplication.h"
 
 //Constructora por defecto
 Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), width_(0), height_(0), rotation_(0), anchorPoint_(nullptr) {}
@@ -37,10 +38,11 @@ void Transform::unrotate() {
 
 //Actualiza la posicion con el vector de velocidad
 void Transform::move() {
-	position_ = position_ + velocity_;
+	position_ = position_ + (velocity_ * SDLApplication::instance()->getDeltaTimeSeconds());
 }
 
 //Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
-	position_ = position_ + velocity_;
+	double deltaTime = SDLApplication::instance()->getDeltaTimeSeconds();
+	position_ = position_ + (velocity_ * deltaTime);
 }
