@@ -10,7 +10,7 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();	
 
-	where->addGameObject<SwordSlash>(playerPos, dir, where, damage * attackMult);
+	where->addGameObject<Hitbox>(playerPos, dir, where, damage * attackMult, SDLApplication::getTexture("SwordSlash"));
 
 }
 
