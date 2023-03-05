@@ -21,6 +21,7 @@ enum cmpId : cmpId_type {
 	_SWORD_BEHAVIOUR,
 	_LIFETIME,
 	_MANA_BAR_COMPONENT,
+	_EXPLOSION_BEHAVIOUR,
 	_ENEMY_GEN,
 	// ... (compoment ids)
 
@@ -31,7 +32,7 @@ constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 
 
 #include <functional>
-// Tipo de función que devuelve y recibe void, funciona también con funciones lambda con capturas
+// Tipo de funciï¿½n que devuelve y recibe void, funciona tambiï¿½n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
 
 #endif // !ECS_H_

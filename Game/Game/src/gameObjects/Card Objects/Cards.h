@@ -4,7 +4,7 @@
 
 class GunCard : public Card {
 	public:
-		GunCard() : Card(10, 6, 35, 0.5, 1, "Pistola$Dispara de manera normal&Se disparan todas las balas como una escopeta", 
+		GunCard() : Card(10, 6, 35, 0.5, "Pistola$Dispara de manera normal&Se disparan todas las balas como una escopeta", 
 			SDLApplication::getTexture("Pistol")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
@@ -12,23 +12,28 @@ class GunCard : public Card {
 
 class SwordCard : public Card {
 	public:
-		SwordCard() : Card(20, 5, 80, 2, 0.5, "Espada", SDLApplication::getTexture("Sword")) {};
+		SwordCard() : Card(20, 5, 80, 0.5, "Espada", SDLApplication::getTexture("Sword")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class LaserShadesCard : public Card {
 	public:
-		LaserShadesCard() : Card(20, 5, 80, 2, 0.5, "Gafas Láser", SDLApplication::getTexture("LaserGlasses")) {};
+		LaserShadesCard() : Card(20, 5, 80, 1, "Gafas Láser", SDLApplication::getTexture("LaserGlasses")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
-class SpearCard : public Card {
+class PulgaCard : public Card {
 public:
-	SpearCard() : Card(15, 6, 15, 1/0.8, 0.5, "Lanza", SDLApplication::getTexture("Sword")) {};
+	PulgaCard() : Card(30, 2, 30, 1.5, "Pulga", SDLApplication::getTexture("LaserGlasses")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
 
-
+class SpearCard : public Card {
+public:
+	SpearCard() : Card(15, 6, 15, 0.75, "Lanza", SDLApplication::getTexture("Sword")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

@@ -13,7 +13,7 @@ void SpearCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 {
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
-	dir = dir.normalize() * bulletSpeed;
+	dir = dir.normalize();
 
 	where->addGameObject<ThrownSpear>(playerPos, dir, damage * attackMult, where->getEnemies());
 }

@@ -41,11 +41,11 @@ class PlayerData : public Singleton<PlayerData>
 	public:
 
 		inline int getMaxMana() { return maxMana; }
-		inline int getCurrMana() { return maxMana; }
-		inline int getMaxHP() { return maxMana; }
-		inline int getCurrHP() { return maxMana; }
-		inline float getAttackMult() { return maxMana; }
-		inline float getFireRateMult() { return maxMana; }
+		inline int getCurrMana() { return currMana; }
+		inline int getMaxHP() { return maxHP; }
+		inline int getCurrHP() { return currHP; }
+		inline float getAttackMult() { return attackMult; }
+		inline float getFireRateMult() { return fireRateMult; }
 		inline int getLevel() { return level; }
 
 
@@ -54,7 +54,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline void setMaxHP(int maxHP) { this->maxHP = maxHP; }
 		inline void setCurrHP(int currHP) { this->currHP = currHP; }
 		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
-		inline void setFireRateMult(float fireRateMult) { this->maxMana = fireRateMult; }
+		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
 		inline void setLevel(int level) { this->level = level; }
 
 

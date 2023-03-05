@@ -12,29 +12,29 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SpearCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SpearCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SpearCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SpearCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
 }
 
