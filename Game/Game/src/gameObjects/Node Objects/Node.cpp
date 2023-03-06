@@ -43,7 +43,7 @@ void Node::setNextNodes(vector<Node*> const& nNodes) {
 }
 
 // Añade el nodo recibido a los siguientes nodos
-void Node::addToNextNodes(Node* const& node) {
+void Node::addToNextNodes(Node* node) {
 	nextNodes.push_back(node);
 }
 

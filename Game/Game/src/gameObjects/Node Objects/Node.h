@@ -36,7 +36,7 @@ public:
 	// Asigna los siguientes nodos
 	void setNextNodes(vector<Node*> const& nNodes);
 	// Añade el nodo recibido a los siguientes nodos
-	void addToNextNodes(Node* const& node);
+	void addToNextNodes(Node* node);
 	// Devuelve un CallBack distinto para cada tipo de nodo
 	CallBack loadNode();
 	// Devuelve la clave de la textura del nodo
