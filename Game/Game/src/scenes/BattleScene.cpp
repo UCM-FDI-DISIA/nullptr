@@ -5,33 +5,25 @@
 
 // Constructora
 BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
+
 	cout << "Has entrado en la escena de Batalla" << endl;
-  
-	// Quitar cuando se cree el mapa de combate
+
+	//Suelo
+	floor = addGameObject();
+	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
+	//Selección de textura
 	switch (type) {
-		//Pasado
-	case 0:
-		floorPast = addGameObject();
-		floorPast->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-		floorPast->addComponent<Image>(SDLApplication::getTexture("PastFloor"));
+	case _PASTBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("PastFloor"));
 		break;
-		//Presente
-	case 1:
-		floorPresent = addGameObject();
-		floorPresent->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-		floorPresent->addComponent<Image>(SDLApplication::getTexture("PresentFloor"));
+	case _PRESENTBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("PresentFloor"));
 		break;
-		//Futuro
-	case 2:
-		floorFuture = addGameObject();
-		floorFuture->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-		floorFuture->addComponent<Image>(SDLApplication::getTexture("FutureFloor"));
+	case _FUTUREBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("FutureFloor"));
 		break;
-		//Boss
-	case 3:
-		floorBoss = addGameObject();
-		floorBoss->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-		floorBoss->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
+	case _BOSSBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
 		break;
 	}
 

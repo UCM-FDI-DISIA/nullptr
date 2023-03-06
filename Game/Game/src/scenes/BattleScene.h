@@ -8,6 +8,7 @@
 #include "../gameObjects/Enemy Objects/TankEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
+#include "../gameObjects/Node Objects/BattleNode.h"
 #include "../gameObjects/UI/HandUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 
@@ -16,7 +17,7 @@ class BattleScene : public GameState {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floorPast, *floorPresent, *floorFuture, *floorBoss, *decs,*vida, *barraVida;
+	GameObject* floor, *decs,*vida, *barraVida;
 	GameObject* mana;
 	GameObject* barraMana;
 	GameObject* enemyGenerator;
