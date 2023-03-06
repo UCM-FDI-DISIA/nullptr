@@ -14,12 +14,10 @@ class ThrownSpear :public GameObject
 public:
 
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, grpId group) {
-		addComponent<ThrownSpearBehaviour>(dmg);
-
 		addComponent<Transform>(pos, dir * THROWN_SPEAR_SPEED, 100, 30, Vector2D(1, 0).angle(dir));
-
 		addComponent<Image>(SDLApplication::getTexture("SpearThrust"));
-		addComponent<LifeTimeComponent>(10); // QUE ES ESTO Y QUIEN LO HA METIDO
+		addComponent<LifeTimeComponent>(10);
+		addComponent<ThrownSpearBehaviour>(dmg);
 		addComponent<ColliderComponent>(getComponent<ThrownSpearBehaviour>()->spearAttack(), group);
 	}
 };

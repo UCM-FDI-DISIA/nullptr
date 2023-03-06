@@ -12,7 +12,7 @@ void ExplosionBehaviour::update()
 	currentLifeDuration += SDLApplication::instance()->getDeltaTimeSeconds();
 	if (currentLifeDuration > lifeSpan)
 	{
-		scene->addGameObject<Explosion>(tr->getCenter(),scene, damage, _grp_ENEMIES);
+		scene->addGameObject<Explosion>(_grp_PLYR_ATTACK, tr->getCenter(), scene, damage, target);
 		gObj->setAlive(false);
 	}
 	gObj->getComponent<ColliderComponent>()->hasCollided();
@@ -20,7 +20,7 @@ void ExplosionBehaviour::update()
 CallBackCol ExplosionBehaviour::explosionAttack()
 {
 	return [&](GameObject* gameObject) {
-		scene->addGameObject<Explosion>(tr->getCenter(), scene, damage,_grp_ENEMIES);
+		scene->addGameObject<Explosion>(_grp_PLYR_ATTACK, tr->getCenter(), scene, damage, target);
 		gObj->setAlive(false);
 	};
 }

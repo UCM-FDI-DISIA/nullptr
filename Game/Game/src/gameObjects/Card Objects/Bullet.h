@@ -13,10 +13,10 @@ class Bullet:public GameObject
 {
 public:
 	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, grpId trgt) {
-		addComponent<BulletBehavior>(dmg);
 		addComponent<Transform>(pos, dir * BULLET_SPEED, 30, 30);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
-		addComponent<LifeTimeComponent>(10); // QUE ES ESTO Y QUIEN LO HA METIDO
+		addComponent<LifeTimeComponent>(10);
+		addComponent<BulletBehavior>(dmg);
 		addComponent<ColliderComponent>(getComponent<BulletBehavior>()->bulletAttack(),trgt);
 	}
 

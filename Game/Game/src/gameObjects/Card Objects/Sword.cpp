@@ -10,13 +10,13 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();	
 
-	where->addGameObject<Hitbox>(playerPos, dir, where, damage * attackMult, SDLApplication::getTexture("SwordSlash"));
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, playerPos, dir, where, damage * attackMult, SDLApplication::getTexture("SwordSlash"), _grp_ENEMIES);
 
 }
 
 // Crea un gObj Spin en el centro del jugador
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	
-	where->addGameObject<SwordSpin>(_grp_PLYR_ATTACK, playerPos, where, damage * remainingUses * attackMult);
+	where->addGameObject<SwordSpin>(_grp_PLYR_ATTACK, playerPos, where, damage * remainingUses * attackMult, _grp_ENEMIES);
 
 }

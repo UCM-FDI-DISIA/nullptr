@@ -8,11 +8,11 @@
 
 class Laser : public GameObject {
 public:
-	void initGameObject(Vector2D pos, float rotation, int damage, grpId group) {
+	void initGameObject(Vector2D pos, float rotation, int dmg, grpId trgt) {
 		addComponent<Transform>(pos, Vector2D(0,0), Vector2D(0, HEIGHT / 2), WIDTH, HEIGHT, rotation);
 		addComponent<Image>(SDLApplication::getTexture("Laser"));
-		addComponent<BulletBehavior>(damage);
-		addComponent<ColliderComponent>(getComponent<BulletBehavior>()->bulletAttack(), group);
+		addComponent<SwordSlashBehaviour>(dmg, trgt);
+		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(), trgt);
 		addComponent<LifeTimeComponent>(0.08);
 	}
 private:

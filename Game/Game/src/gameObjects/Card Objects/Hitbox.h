@@ -16,12 +16,12 @@ public:
 	Cuando colisiona POR PRIMERA VEZ con un enemigo, el enemigo recibe da�o
 	Desaparece a los 60 milisegundos
 */
-	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg, Texture* texture) {
+	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg, Texture* texture, grpId trgt) {
 		Vector2D slashVector = playerPos + dir * 100;
 		addComponent<Transform>(slashVector - Vector2D(texture->width() / 2, texture->height() / 2), Vector2D(0, 0), texture->width(), texture->height(), Vector2D(1, 0).angle(dir));
-		addComponent<LifeTimeComponent>(0.25);
+		addComponent<LifeTimeComponent>(0.06);
 		addComponent<Image>(texture);
-		addComponent<SwordSlashBehaviour>(dmg, _grp_ENEMIES);
-		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(),_grp_ENEMIES);
+		addComponent<SwordSlashBehaviour>(dmg, trgt);
+		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(), trgt);
 	}
 };

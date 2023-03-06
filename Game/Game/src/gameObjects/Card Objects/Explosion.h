@@ -11,12 +11,12 @@
 
 class Explosion : public GameObject {
 public:
-	virtual void initGameObject(Vector2D pos, BattleScene* scene, int dmg, grpId group) {
+	virtual void initGameObject(Vector2D pos, BattleScene* scene, int dmg, grpId trgt) {
 		addComponent<Transform>(pos - Vector2D(WIDTH / 2, HEIGHT / 2), Vector2D(0, 0), WIDTH, HEIGHT);
 		addComponent<LifeTimeComponent>(0.5);
 		addComponent<Image>(SDLApplication::getTexture("Laser"));
-		addComponent<SwordSlashBehaviour>(dmg, group);
-		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(), group);
+		addComponent<SwordSlashBehaviour>(dmg, trgt);
+		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(), trgt);
 		
 	}
 
