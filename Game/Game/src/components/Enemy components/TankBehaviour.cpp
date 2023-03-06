@@ -56,11 +56,9 @@ void TankBehaviour::setDirectionTo() {
 void TankBehaviour::enemyAttack() {
 	elapsedTime = SDLApplication::instance()->getCurrentTime();
 
-	if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
+	if (!attacked) {
 		//Daña al jugador e informa de que ha atacado
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
-		attacked = true;
-		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
+		gObj->getComponent<ColliderComponent>()->hasCollided();
 	}
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime >= attackInterval)
@@ -70,4 +68,12 @@ void TankBehaviour::enemyAttack() {
 		//Reseteamos el contador
 		behaviorTime -= attackInterval;
 	}
+}
+CallBackCol TankBehaviour::tankAttack()
+{
+	return [&](GameObject* player) {
+		player->getComponent<HealthComponent>()->receiveDamage(damage);
+		attacked = true;
+		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
+	};
 }

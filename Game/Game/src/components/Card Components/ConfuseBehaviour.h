@@ -8,34 +8,36 @@ class ConfuseBehaviour : public Component {
 
 private:
 	float duration;
-	vector<GameObject*>* target;
+	grpId myGroup;
 	vector<bool> hitRegistry;
+	int actualObject;
 public:
 	static const int id = _SWORD_BEHAVIOUR;
 	// Recibe un vector de enemigos con los que debera colisionar la bala del player y crea el vector de colisionados del mismo tamaño
-	ConfuseBehaviour(float drt, vector<GameObject*>* Target)
+	ConfuseBehaviour(float drt, grpId group)
 	{
-		target = Target;
-		hitRegistry.assign((*Target).size(), false);
+		myGroup = group;
 		duration = drt;
+		actualObject = 0;
+	}
+	virtual void initComponent()
+	{
+		hitRegistry.assign(gStt->getEntitiesByGroup(myGroup).size(), false);
 	}
 
-	virtual void update()
+	CallBackCol confuseAttack()
 	{
-		// cleon says: ejem...
-		for (int i = 0; i < target->size(); i++) {
-			// Comprueba si ha chocado con el objetivo
-			if (gObj->getComponent<ColliderComponent>()->
-				hasCollided((*target)[i]->getComponent<Transform>())) {
-				//Comprueba si ya ha colisionado anteriormente con el mismo objeto
-				if (!hitRegistry[i]) {
-					cout << "hizo damages" << endl;
-					//Confunde al oponente
-					//(*target)[i]->getComponent<StatusComponent>()->confuse(duration);
-					hitRegistry[i] = true;
-				}
-
+		return [&](GameObject* gameObject)
+		{
+			//Comprueba si ya ha colisionado anteriormente con el mismo objeto
+			if (!hitRegistry[actualObject]) {
+				cout << "hizo damages" << endl;
+				//Confunde al oponente
+				//(*target)[i]->getComponent<StatusComponent>()->confuse(duration);
+				hitRegistry[actualObject] = true;
 			}
-		}
+			actualObject++;
+			if (actualObject >= hitRegistry.size()) actualObject = 0;
+		};
 	}
 };

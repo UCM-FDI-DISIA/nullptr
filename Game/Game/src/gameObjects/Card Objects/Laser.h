@@ -4,6 +4,7 @@
 #include "../../components/General Components/Image.h"
 #include "../../components/Card Components/SwordSlashBehaviour.h"
 #include "../../components/General Components/LifetimeComponent.h"
+#include "../../components/Card Components/BulletBehavior.h"
 
 class Laser : public GameObject {
 public:

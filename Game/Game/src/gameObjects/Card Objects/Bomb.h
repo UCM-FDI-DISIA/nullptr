@@ -13,11 +13,11 @@ class Bomb :public GameObject
 {
 public:
 
-	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, BattleScene* where) {
+	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, BattleScene* where, grpId group) {
 		addComponent<Transform>(pos - Vector2D(WIDTH / 2, HEIGHT / 2), dir * BULLET_SPEED, HEIGHT, WIDTH);
 		addComponent<ExplosionBehaviour>(dmg, where, 3);
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
-		addComponent<ColliderComponent>();
+		addComponent<ColliderComponent>(getComponent<ExplosionBehaviour>()->explosionAttack(),group);
 	}
 private:
 	const float HEIGHT = 16;

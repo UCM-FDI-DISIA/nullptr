@@ -2,9 +2,17 @@
 #include "../../scenes/GameState.h"
 SwordSlashBehaviour:: SwordSlashBehaviour(int dmg, grpId Target)
 {
-	hitRegistry.assign(gStt->getEntitiesByGroup(Target).size(), false);
+	myGroup = Target;
 	damage = dmg;
 	actualObject = 0;
+}
+void SwordSlashBehaviour::initComponent()
+{
+	hitRegistry.assign(gStt->getEntitiesByGroup(myGroup).size(), false);
+}
+void SwordSlashBehaviour:: update()
+{
+	gObj->getComponent<ColliderComponent>()->hasCollided();
 }
 // Función a realizar cuando choca
 CallBackCol SwordSlashBehaviour::swordAttack()

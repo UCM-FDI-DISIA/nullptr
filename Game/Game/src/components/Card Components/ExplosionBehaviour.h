@@ -19,4 +19,5 @@ public:
     //Checkea que haya pasado el tiempo establecido o que el game object haya impactado y elimina el gObj creando una explosion en caso positivo
     void update();
     void initComponent();
+    CallBackCol explosionAttack();
 };

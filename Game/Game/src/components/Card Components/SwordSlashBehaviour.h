@@ -9,12 +9,14 @@ class SwordSlashBehaviour : public Component {
 
 private:
 	int damage;
+	grpId myGroup;
 	vector<bool> hitRegistry;
 	int actualObject;
 public:
 	static const int id = _SWORD_BEHAVIOUR;
 	// Recibe un vector de enemigos con los que debera colisionar la bala del player y crea el vector de colisionados del mismo tamaño
 	SwordSlashBehaviour(int dmg, grpId Target);
-
+	virtual void initComponent();
+	virtual void update();
 	CallBackCol swordAttack();
 };
