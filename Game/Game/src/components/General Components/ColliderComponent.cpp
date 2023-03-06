@@ -8,10 +8,11 @@ ColliderComponent::ColliderComponent(CallBackCol myFunct, grpId list)
 }
 void ColliderComponent::initComponent()
 {
-	others = gStt->getEntitiesByGroup(myId);
+	
 }
 // Comprueba la colisión del objeto con la lista de colisionados
 void ColliderComponent::hasCollided() {
+	others = gStt->getEntitiesByGroup(myId);
 	for (GameObject* other : others) {
 		Transform* otherTr = other->getComponent<Transform>();
 		Vector2D& pos1 = gObj->getComponent<Transform>()->getPos();
