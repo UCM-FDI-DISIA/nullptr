@@ -14,8 +14,8 @@ using uint = unsigned int;
 const Vector2D VECTOR_ZERO = { 0,0 };
 
 // WINDOW ----------------------------------------------------------------------------------------
-const uint WIN_WIDTH = 1920;
-const uint WIN_HEIGHT = 1080;
+const uint WIN_WIDTH = 1280;
+const uint WIN_HEIGHT = 720;
 const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
@@ -102,18 +102,15 @@ const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
 // MAINMENU: BUTTONS POSITIONS AND DIMENSIONS
-const int MM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
-const int MM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
-const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 4;
-const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 4;
-const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - ((BUTTON_SPRITE_WIDTH * 2) + (BUTTON_FRAME_SPRITE_WIDTH * 4)), WIN_HEIGHT * 4 / 8);
-const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 3 - BUTTON_SPRITE_WIDTH, WIN_HEIGHT * 5.5 / 8);
-const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 + BUTTON_SPRITE_WIDTH * 2, WIN_HEIGHT * 5.5 / 8);
-const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 + (3 * WIN_WIDTH / 20), WIN_HEIGHT * 4 / 8);
-const Vector2D MM_PLAYFRAME_BUTTON_POS = MM_PLAY_BUTTON_POS - Vector2D(48, 88);
-const Vector2D MM_OPTIONSFRAME_BUTTON_POS = MM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
-const Vector2D MM_ALUBMFRAME_BUTTON_POS = MM_ALBUM_BUTTON_POS - Vector2D(48, 88);
-const Vector2D MM_EXITFRAME_BUTTON_POS = MM_EXIT_BUTTON_POS - Vector2D(48, 88);
+const int MM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
+const int MM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 3;
+const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
+const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
+const Vector2D FRAME_OFFSET = Vector2D(36, 66);
+const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5, WIN_HEIGHT * 0.5);
+const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
+const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
+const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
@@ -125,6 +122,7 @@ const string FLOOR_PAST = "BattleBackground";
 const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+
 // LIFEBAR ---------------------------------------------------------------------------------------
 const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
@@ -146,24 +144,29 @@ const int MANA_WIDTH = 213;
 const int MANA_HEIGHT = 53;
 
 // CARDS -----------------------------------------------------------------------------------------
-const int REVERSE_WIDTH = 58 * 2;
-const int REVERSE_HEIGHT = 93 * 2;
+const int MAX_HAND_SIZE = 4;
+// CARD REVERSE DIMENSIONS
+const int REVERSE_WIDTH = 58;
+const int REVERSE_HEIGHT = 93;
+// UI CARD COUNTER DIMENSIONS
+const int BS_REVERSE_WIDTH = REVERSE_WIDTH * 1.5;
+const int BS_REVERSE_HEIGHT = REVERSE_HEIGHT * 1.5;
+// UI CARD COUNTER POS
 const int RIGHT_OFFSET = 5 * REVERSE_WIDTH / 4;
-const int LEFT_OFFSET = REVERSE_WIDTH / 4;
-const int DOWN_OFFSET = WIN_HEIGHT - 6 * REVERSE_HEIGHT / 5;
+const int LEFT_OFFSET = REVERSE_WIDTH / 2;
+const int DOWN_OFFSET = WIN_HEIGHT - REVERSE_HEIGHT * 1.75;
 const int CARD_OFFSET_W = 2 * 2;
 const int CARD_OFFSET_H = 21 * 2;
-const int MAX_HAND_SIZE = 4;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
 // UI CARD DIMENSIONS
-const int UI_CARD_WIDTH = CARD_WIDTH * 4;
-const int UI_CARD_HEIGHT = CARD_HEIGHT * 4;
+const int UI_CARD_WIDTH = CARD_WIDTH * 3;
+const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;
 // UI CARD POSITIONS
 const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2;
 const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - 60;
-const int BETWEEN_CARD_SPACE = CARD_WIDTH * 4 / 2;
+const int BETWEEN_CARD_SPACE = CARD_WIDTH * 3 / 2;
 const int CENTERED_CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2; // Usada para 3 y 1 cartas en mano
 	// 4 CARDS IN HAND
 const int X1_4CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - UI_CARD_WIDTH - BETWEEN_CARD_SPACE;
@@ -183,9 +186,9 @@ const int NUM_RENDER_W = NUMBERS_WIDTH / 5 * 2;
 const int NUM_RENDER_H = NUMBERS_HEIGHT / 5 * 2;
 
 // LOGO ------------------------------------------------------------------------------------------
-const int LOGO_WIDTH = 576;
-const int LOGO_HEIGHT = 403;
-const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 7};
+const int LOGO_WIDTH = 404;
+const int LOGO_HEIGHT = 284;
+const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 8};
 const int LOGO_ROWS = 1;
 const int LOGO_COLUMNS = 4;
 const int LOGO_FRAME_WIDTH = 200;
@@ -225,7 +228,7 @@ const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 4;
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
-const Vector2D STUDIO_POSITION = { WIN_WIDTH / 9 - STUDIO_WIDTH / 2, WIN_HEIGHT - WIN_HEIGHT / 10 - 10 };
+const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 26, WIN_HEIGHT - WIN_HEIGHT / 7.6);
 
 // MESSAGE ---------------------------------------------------------------------------------------
 const int MESSAGE_W = 300;
