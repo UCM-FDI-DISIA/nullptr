@@ -17,9 +17,10 @@ public:
 	{
 		damage = dmg;
 	}
-
+	// Función que se realiza cuando choca
 	CallBackCol bulletAttack()
 	{
+		// Baja la vida del objetivo y se destruye
 		return [&](GameObject* trgt) {
 			trgt->getComponent<HealthComponent>()->receiveDamage(damage);
 			gObj->setAlive(false); // Al colisionar, la bala se destruye

@@ -3,10 +3,14 @@
 
 ColliderComponent::ColliderComponent(CallBackCol myFunct, grpId list)
 {
-	others = gStt->getEntitiesByGroup(list);
+	myId = list;
 	funct = myFunct;
 }
-
+void ColliderComponent::initComponent()
+{
+	others = gStt->getEntitiesByGroup(myId);
+}
+// Comprueba la colisión del objeto con la lista de colisionados
 void ColliderComponent::hasCollided() {
 	for (GameObject* other : others) {
 		Transform* otherTr = other->getComponent<Transform>();
@@ -21,6 +25,7 @@ void ColliderComponent::hasCollided() {
 		float rot2 = otherTr->getRotation();
 		Vector2D anch2 = otherTr->getAnchorPoint();
 
+		// Si colisiona, realiza la función
 		if (Collisions::collidesWithRotation(pos1, width1, height1, rot1, anch1,
 			pos2, width2, height2, rot2, anch2))
 		{

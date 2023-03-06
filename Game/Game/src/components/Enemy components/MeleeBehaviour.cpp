@@ -63,6 +63,7 @@ void MeleeBehaviour::update() {
 	
 	pos->lookAt(playerPos->getPos());
 }
+// Función a realizar en colision
 CallBackCol MeleeBehaviour::meleeAttack()
 {
 	return [&](GameObject* gameObject)

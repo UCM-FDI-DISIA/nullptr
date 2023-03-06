@@ -9,9 +9,11 @@ class ColliderComponent : public Component
 private:
 	vector<GameObject*> others;
 	CallBackCol funct;
+	grpId myId;
 public:
 	static const int id = _COLLIDER_COMPONENT;
 	//Devuelve un booleano de colision entre el objeto y el objetivo
 	ColliderComponent(CallBackCol myFunct, grpId list);
+	virtual void initComponent();
 	void hasCollided();
 };

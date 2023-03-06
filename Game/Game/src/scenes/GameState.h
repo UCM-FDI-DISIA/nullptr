@@ -42,8 +42,11 @@ public:
     T* addGameObject(Ts&& ...args) {
         return addGameObject<T>(_grp_GENERAL, std::forward<Ts>(args)...);
     }
-    // Devuelve una lista con los objetos del grupo
-    inline const vector<GameObject*>& getEntitiesByGroup(grpId_type gId);
+    // Devuelve una lista con el grupo seleccionado
+    inline const vector<GameObject*>& getEntitiesByGroup(grpId_type gId) {
+        return entsByGroup_[gId];
+    }
+
     // Devuelve la camara
     Camera* getCamera() const;
 };

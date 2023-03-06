@@ -6,7 +6,7 @@ SwordSlashBehaviour:: SwordSlashBehaviour(int dmg, grpId Target)
 	damage = dmg;
 	actualObject = 0;
 }
-
+// Función a realizar cuando choca
 CallBackCol SwordSlashBehaviour::swordAttack()
 {
 	return [&](GameObject* trgt) {
