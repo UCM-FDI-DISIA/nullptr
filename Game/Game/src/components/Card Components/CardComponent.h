@@ -52,5 +52,7 @@ class CardComponent : public Component {
 		int getMana() { return mana; }
 		void setAutomatic(bool value) { automatic = value; }
 		void setLocked(bool value) { locked = value; }
+		bool getAutomatic() { return automatic; }
+		bool getLocked() { return locked; }
 };
 
