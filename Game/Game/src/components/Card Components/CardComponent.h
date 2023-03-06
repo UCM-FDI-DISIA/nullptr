@@ -31,7 +31,6 @@ class CardComponent : public Component {
 		void newHand();
 		void drawCard();
 		void discardCard(deque<Card*>::iterator discarded);
-		void animation();
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
@@ -51,9 +50,7 @@ class CardComponent : public Component {
 		int getPileSize() { return pile.size(); }
 		deque<Card*> getHand() { return hand; }
 		int getMana() { return mana; }
-		void setAutomatic() { automatic = true; }
-		void removeAutomatic() { automatic = false; }
-		void lock() { locked = true; }
-		void unlock() { locked = false; }
+		void setAutomatic(bool value) { automatic = value; }
+		void setLocked(bool value) { locked = value; }
 };
 

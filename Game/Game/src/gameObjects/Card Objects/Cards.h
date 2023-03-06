@@ -40,7 +40,7 @@ public:
 
 class SMGCard : public Card {
 public:
-	SMGCard() : Card(3, 40, 60, 0.3, "SMG", SDLApplication::getTexture("SMG")) {};
+	SMGCard() : Card(3, 40, 60, SMG_CADENCE, "SMG", SDLApplication::getTexture("SMG")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

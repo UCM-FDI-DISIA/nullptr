@@ -28,15 +28,17 @@ void CardComponent::update() {
 	if (downTime > 0) {
 		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
-	
+	//Si estás en automatic y en el último uso, se desbloquea la carta y se desactiva el auto
 	if (automatic && (*active)->getUses() == 1) {
 		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
 		discardCard(active);
 		automatic = false;
 		locked = false;
 	}
-	else if (automatic)
-			attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+	//Si estás en automatic ataca
+	else if (automatic) {
+		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+	}
 }
 
 //Coge el imput del teclado y ratón y llama a los métodos necesarios
@@ -150,7 +152,7 @@ void CardComponent::drawCard() {
 //Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
-	(*discarded)->resetUses();
+	(*discarded)->resetCard();
 	where->discardUI(discarded);
 	active = hand.erase(discarded);
 	if (active != hand.begin())

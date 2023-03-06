@@ -29,7 +29,7 @@ class Card
 		//Se gasta un uso
 		void use() { remainingUses -= 1;}
 		//Se reinician sus usos respecto a los máximos
-		void resetUses() { remainingUses = maxUses;}
+		void resetCard() { remainingUses = maxUses;}
 		
 
 		// Getters
