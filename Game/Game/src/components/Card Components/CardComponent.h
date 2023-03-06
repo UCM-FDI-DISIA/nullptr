@@ -21,9 +21,10 @@ class CardComponent : public Component {
 		deque<Card*>::iterator active;
 		GameObject *card;
 		CardCounter* _myCounter;
-		float downTime, attackMult, fireRateMult;
+		long double downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
+		bool locked = false, automatic = false;
 
 		void initDeck();
 		void reshufflePile();
@@ -50,5 +51,9 @@ class CardComponent : public Component {
 		int getPileSize() { return pile.size(); }
 		deque<Card*> getHand() { return hand; }
 		int getMana() { return mana; }
+		void setAutomatic() { automatic = true; }
+		void removeAutomatic() { automatic = false; }
+		void lock() { locked = true; }
+		void unlock() { locked = false; }
 };
 

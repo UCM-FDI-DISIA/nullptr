@@ -28,6 +28,14 @@ void CardComponent::update() {
 	if (downTime > 0) {
 		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
+	
+	if (automatic && (*active)->getUses() == 1) {
+		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+		automatic = false;
+		locked = false;
+	}
+	else if (automatic)
+			attack(tr->getCenter(), InputHandler::instance()->getMousePos());
 }
 
 //Coge el imput del teclado y ratón y llama a los métodos necesarios
@@ -37,24 +45,26 @@ void CardComponent::handleInput() {
 		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
 
 	// Click derecho
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) 
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT))
 		ability(tr->getCenter(), InputHandler::instance()->getMousePos());
 
-	// Rueda del ratón
-	if (InputHandler::instance()->mouseWheelDown()) 
-		switchActive(false);
-	else if (InputHandler::instance()->mouseWheelUp()) 
-		switchActive(true);
+	if (!locked) {
+		// Rueda del ratón
+		if (InputHandler::instance()->mouseWheelDown())
+			switchActive(false);
+		else if (InputHandler::instance()->mouseWheelUp())
+			switchActive(true);
 
-	// Téclas numéricas
-	if (InputHandler::instance()->isKeyJustDown(SDLK_1))
-		switchActive(0);
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_2))
-		switchActive(1);
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_3))
-		switchActive(2);
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) 
-		switchActive(3);
+		// Téclas numéricas
+		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
+			switchActive(0);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_2))
+			switchActive(1);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_3))
+			switchActive(2);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_4))
+			switchActive(3);
+	}
 }
 
 //Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
@@ -72,7 +82,8 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	if ((*active)->getMana() <= mana) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
-		discardCard(active);
+		if ((*active)->getUses() == 0)
+			discardCard(active);
 		where->OnManaChanges();
 	}
 	else std::cout << "Necesitas manases adicionales" << endl;
