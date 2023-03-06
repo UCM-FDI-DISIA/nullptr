@@ -1,6 +1,6 @@
 #include"ColliderComponent.h"
 #include "../../scenes/GameState.h"
-
+// Recibe una función a realizar cuando los objetos chocan y una lista de objetos con los que chocan
 ColliderComponent::ColliderComponent(CallBackCol myFunct, grpId list)
 {
 	myId = list;
