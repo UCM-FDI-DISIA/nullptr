@@ -21,7 +21,7 @@ class CardComponent : public Component {
 		deque<Card*>::iterator active;
 		GameObject *card;
 		CardCounter* _myCounter;
-		long double downTime, attackMult, fireRateMult;
+		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
 		bool locked = false, automatic = false;

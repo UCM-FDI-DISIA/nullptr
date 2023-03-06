@@ -31,6 +31,7 @@ void CardComponent::update() {
 	
 	if (automatic && (*active)->getUses() == 1) {
 		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+		discardCard(active);
 		automatic = false;
 		locked = false;
 	}

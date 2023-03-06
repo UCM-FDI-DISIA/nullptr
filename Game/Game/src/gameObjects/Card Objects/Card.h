@@ -8,6 +8,7 @@ enum CardId
 	gun = 0,
 	sword,
 	laserShades,
+	smg,
 };
 class BattleScene;
 class Card
@@ -34,7 +35,7 @@ class Card
 		// Getters
 		int getUses() { return remainingUses; }
 		int getMana() { return mana; }
-		int getDownTime() { return downtime; }
+		float getDownTime() { return downtime; }
 		Texture* getTexture() { return texture; }
 };
 

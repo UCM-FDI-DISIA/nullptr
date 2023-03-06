@@ -14,6 +14,7 @@ void SMGCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 
 //Se disparan todas las balas
 void SMGCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+	downtime /= 2;
 	CardComponent* component = where->getPlayer()->getComponent<CardComponent>();
 	component->lock();
 	component->setAutomatic();
