@@ -13,5 +13,5 @@ public:
 	virtual void update();
 	virtual void initComponent();
 	CallBackCol meleeAttack();
-	bool close();
+	void close();
 };

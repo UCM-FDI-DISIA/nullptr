@@ -8,25 +8,35 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
   
 	// Quitar cuando se cree el mapa de combate
-	floor = addGameObject();
-	floor->addComponent<Transform>(FLOOR_PAST_POSITION, FLOOR_PAST_VELOCITY, FLOOR_PAST_WIDTH, FLOOR_PAST_HEIGHT);
-	floor->addComponent<Image>(SDLApplication::getTexture(FLOOR_PAST));
+	
+
+	floor1 = addGameObject();
+	floor1->addComponent<Transform>(Vector2D(50,50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH,FLOOR_HEIGHT);
+	floor1->addComponent<Image>(SDLApplication::getTexture("1"));
+	floor1->getComponent<Image>()->setScrollFactor(0.5);
+
+	floor2 = addGameObject();
+	floor2->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
+	floor2->addComponent<Image>(SDLApplication::getTexture("2"));
+	floor2->getComponent<Image>()->setScrollFactor(0.25);
+
+	floor3 = addGameObject();
+	floor3->addComponent<Transform>(Vector2D(50, 150), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
+	floor3->addComponent<Image>(SDLApplication::getTexture("3"));
+	floor3->getComponent<Image>()->setScrollFactor(0.20);
+
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);
 
+	enemyGenerator = addGameObject();
+	enemyGenerator->addComponent<EnemyGenerator>(player, this);
+
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
 	createLifeBar();
 	createManaBar();
 
-	//Añadimos 2 enemigos de prueba
-	enemies.push_back(
-		addGameObject<RangedEnemy>(_grp_ENEMIES, VECTOR_ZERO, 50, player)
-	);
-	enemies.push_back(
-		addGameObject<MeleeEnemy>(_grp_ENEMIES, VECTOR_ZERO, 50, player)
-	);
   
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
@@ -76,7 +86,6 @@ void BattleScene::createLifeBar() {
 void BattleScene::createManaBar() {
 	mana = addGameObject();
 	barraMana = addGameObject();
-
 
 	barraMana->addComponent<Transform>(MANABAR_POSITION, MANABAR_VELOCITY, BAR_WIDTH, BAR_HEIGHT);
 	mana->addComponent<Transform>(MANA_POSITION, MANA_VELOCITY, LIFE_WIDTH, LIFE_HEIGHT);

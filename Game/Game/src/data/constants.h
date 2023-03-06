@@ -16,6 +16,8 @@ const Vector2D VECTOR_ZERO = { 0,0 };
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1920;
 const uint WIN_HEIGHT = 1080;
+const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
+const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 // FRAME TIMES ------------------------------------------------------------------------------------
@@ -68,9 +70,20 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const float ENEMY_SPEED = 50;
 
+const float MELEE_ENEMY_COOLDOWN = 500;
+
+// TANK ENEMY
+const float TANK_SPEED = 35;
+const int TANK_ATTACK_DAMAGE = 1;
+const int TANK_LIFE = 60;
+const float TANK_STOP_TIME = 500;
+const float TANK_ATTACK_DISTANCE = 200;
+const float TANK_ATTACK_TIME = 3000;
+
 // BULLETS ---------------------------------------------------------------------------------------
 
 const float BULLET_SPEED = 200;
+const float THROWN_SPEAR_SPEED = 600;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
@@ -109,11 +122,9 @@ const string EXIT = "ExitButton";
 
 // FLOOR -----------------------------------------------------------------------------------------
 const string FLOOR_PAST = "BattleBackground";
-const Vector2D FLOOR_PAST_POSITION = VECTOR_ZERO;
+const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sprite de suelo
+const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
-const int FLOOR_PAST_WIDTH = WIN_WIDTH * 2;
-const int FLOOR_PAST_HEIGHT = WIN_HEIGHT * 2;
-
 // LIFEBAR ---------------------------------------------------------------------------------------
 const string LIFEBAR = "LifeBar";
 const string LIFEFRAME = "LifeFrame";
@@ -221,4 +232,72 @@ const int MESSAGE_W = 300;
 const int MESSAGE_H = 200;
 const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
+
+//ENEMY GENERATOR---------------------------------------------------------------------------------
+
+const int MELEE_RADIUS = 500;
+const int RANGED_RADIUS = 800;
+const int TANK_RADIUS = 600;
+
+const int STARTING_TIME_PER_WAVE = 15000;
+
+//SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
+//LOS VALORES GUARDADOS SON LAS PROBABILIDADES DE OLEADAS EN ORDEN
+//LOS PORCENTAJES SON ACUMULATIVOS PARA REDUCIR OPERACIONES (ej, si son 15%, 50%, 35%, se guardarian como {15, 65, 100})
+const int STARTING_SPAWNS[7][3] = {
+	{100, 100, 100},
+	{85, 95, 100},
+	{70, 90, 100},
+	{0, 100, 100},
+	{40, 80, 100},
+	{0, 0, 100},
+	{25, 75, 100}
+};
+
+//SPAWNS DE OLEADAS PARA EL RESTO DE NODOS
+//HAY UN TOTAL DE 7 TIPOS DE OLEADAS, PARA MAS INFORMACION CONSULTAR EXCEL EN LA CARPETA DE PROYECTOS
+const int STANDARD_SPAWNS[30][7] = {
+	{50, 80, 100, 100, 100, 100, 100},
+	{46, 75, 94, 97, 97, 99, 100},
+	{42, 70, 88, 94, 94, 98, 100},
+	{38, 65, 82, 91, 91, 97, 100},
+	{34, 60, 76, 88, 88, 96, 100},
+	{0, 0, 0, 100, 100, 100, 100},
+	{30, 55, 70, 85, 85, 95, 100},
+	{28, 52, 66, 82, 82, 94, 100},
+	{26, 49, 62, 79, 79, 93, 100},
+	{24, 46, 58, 76, 76, 92, 100},
+	{22, 43, 54, 73, 73, 91, 100},
+	{0, 0, 0, 0, 0, 100, 100},
+	{21, 40, 50, 69, 70, 90, 100},
+	{19, 37, 47, 66, 68, 90, 100},
+	{17, 34, 44, 62, 65, 89, 100},
+	{15, 31, 41, 51, 55, 81, 100},
+	{13, 28, 38, 48, 53, 81, 100},
+	{0, 0, 0, 0, 0, 0, 100},
+	{11, 25, 35, 50, 56, 85, 100},
+	{9, 22, 32, 47, 54, 84, 100},
+	{7, 19, 29, 44, 52, 83, 100},
+	{5, 16, 26, 41, 50, 82, 100},
+	{3, 13, 23, 38, 48, 81, 100},
+	{0, 0, 0, 0, 100, 100, 100},
+	{2, 10, 19, 34, 46, 80, 100},
+	{0, 6, 14, 29, 43, 78, 100},
+	{0, 4, 11, 24, 40, 76, 100},
+	{0, 2, 8, 19, 37, 74, 100},
+	{0, 0, 5, 14, 34, 72, 100},
+	{0, 0, 0, 0, 30, 70, 100}
+};
+
+//OLEADAS
+const int WAVES[7][3] = {
+	{8, 0, 0},
+	{5, 3, 0},
+	{0, 8, 0},
+	{6, 0, 1},
+	{0, 0, 4},
+	{4, 2, 1},
+	{0, 4, 2}
+};
+
 #endif

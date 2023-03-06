@@ -2,7 +2,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../components/General Components/Transform.h"
 #include "../../components/General Components/Image.h"
-#include "../../components/Card Components/BulletBehavior.h"
+#include "../../components/Card Components/SwordSlashBehaviour.h"
 #include "../../components/General Components/LifetimeComponent.h"
 
 class Laser : public GameObject {
@@ -12,7 +12,7 @@ public:
 		addComponent<Image>(SDLApplication::getTexture("Laser"));
 		addComponent<BulletBehavior>(damage);
 		addComponent<ColliderComponent>(getComponent<BulletBehavior>()->bulletAttack(), group);
-		addComponent<LifeTimeComponent>(0.25);
+		addComponent<LifeTimeComponent>(0.08);
 	}
 private:
 	const float HEIGHT = 10;

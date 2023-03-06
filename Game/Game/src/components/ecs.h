@@ -14,12 +14,15 @@ enum cmpId : cmpId_type {
 	_ANIMATOR,
 	_PLAYER_ANIMATOR,
 	_MELEE_BEHAVIOUR,
-	_RANGE_BEHAVIOR,
+	_RANGE_BEHAVIOUR,
+	_TANK_BEHAVIOUR,
 	_COLLIDER_COMPONENT,
 	_BULLET_COMPONENT,
 	_SWORD_BEHAVIOUR,
 	_LIFETIME,
 	_MANA_BAR_COMPONENT,
+	_EXPLOSION_BEHAVIOUR,
+	_ENEMY_GEN,
 	// ... (compoment ids)
 
 	// do not remove this
@@ -39,7 +42,7 @@ enum grpId : grpId_type {
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 
 #include <functional>
-// Tipo de función que devuelve y recibe void, funciona también con funciones lambda con capturas
+// Tipo de funciï¿½n que devuelve y recibe void, funciona tambiï¿½n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
 class GameObject;
 using CallBackCol = std::function<void(GameObject*)>;

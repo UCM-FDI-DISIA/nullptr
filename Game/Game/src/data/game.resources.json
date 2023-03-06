@@ -33,6 +33,9 @@
       { "id" : "SwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/SwordSlash_200x200.png" },
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
+      { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
+      { "id" : "SpearThrust", "file" : "../Game/resources/images/Cards/CardEffects/SpearThrust_184x39.png" },
+
       
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
@@ -49,7 +52,11 @@
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
-      { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }
+      { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
+    
+      { "id" : "1", "file" : "../Game/resources/images/UI/BattleScene/1.png" }, 
+      { "id" : "2", "file" : "../Game/resources/images/UI/BattleScene/2.png" }, 
+      { "id" : "3", "file" : "../Game/resources/images/UI/BattleScene/3.png" }
     ],
     
     "messages" : [

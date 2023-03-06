@@ -10,29 +10,31 @@ PlayerData::PlayerData() {
 	fireRateMult = 1;
 	attackMult = 1;
 
-	deck.push_back(new GunCard());
+	level = 5;
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new GunCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
 
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new PulgaCard());
+
+	deck.push_back(new PulgaCard());
 
 }
 

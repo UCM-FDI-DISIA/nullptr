@@ -16,10 +16,14 @@ public:
 	Desaparece a los 60 milisegundos
 */
 	virtual void initGameObject(Vector2D playerPos, BattleScene* scene, int dmg) {
-		addComponent<Transform>(playerPos - Vector2D(100, 100), Vector2D(0, 0), 200, 200);
+		addComponent<Transform>(playerPos - Vector2D(WIDTH /2, HEIGHT /2), Vector2D(0, 0), WIDTH, HEIGHT);
 		addComponent<LifeTimeComponent>(1);
 		addComponent<Image>(SDLApplication::getTexture("SwordSpin"));
 		addComponent<SwordSlashBehaviour>(dmg, _grp_ENEMIES);
 		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(),_grp_ENEMIES);
 	}
+
+private:
+	const float HEIGHT = 200;
+	const float WIDTH = 200;
 };

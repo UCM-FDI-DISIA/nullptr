@@ -9,18 +9,18 @@
 
 
 
-class SwordSlash : public GameObject {
+class Hitbox : public GameObject {
 public:
 	/*
-	Imagen de ataque circular en arco en la dirección que apunta el jugador
-	Cuando colisiona POR PRIMERA VEZ con un enemigo, el enemigo recibe daño
+	Imagen de ataque circular en arco en la direcciï¿½n que apunta el jugador
+	Cuando colisiona POR PRIMERA VEZ con un enemigo, el enemigo recibe daï¿½o
 	Desaparece a los 60 milisegundos
 */
-	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg) {
+	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg, Texture* texture) {
 		Vector2D slashVector = playerPos + dir * 100;
-		addComponent<Transform>(slashVector, Vector2D(0, 0), 100, 100, slashVector.angle(playerPos));
-		addComponent<LifeTimeComponent>(1);
-		addComponent<Image>(SDLApplication::getTexture("SwordSlash"));
+		addComponent<Transform>(slashVector - Vector2D(texture->width() / 2, texture->height() / 2), Vector2D(0, 0), texture->width(), texture->height(), Vector2D(1, 0).angle(dir));
+		addComponent<LifeTimeComponent>(0.25);
+		addComponent<Image>(texture);
 		addComponent<SwordSlashBehaviour>(dmg, _grp_ENEMIES);
 		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(),_grp_ENEMIES);
 	}
