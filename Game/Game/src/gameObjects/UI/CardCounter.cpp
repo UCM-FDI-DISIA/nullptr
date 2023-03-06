@@ -32,8 +32,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
-	int width = NUMBERS_WIDTH / 6 * 2;
-	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), width, NUM_RENDER_H);
+	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), NUM_RENDER_W, NUM_RENDER_H);
 	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture(NUMBERS),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	decAnim->attachToCamera();
 	createAnims(decAnim);
@@ -41,7 +40,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 
 	//Creamos el objeto de las unidades: con sus componentes y sus animaciones
 	unids = new GameObject();
-	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), width, NUM_RENDER_H);
+	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W + 5, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), NUM_RENDER_W, NUM_RENDER_H);
 	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture(NUMBERS), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
