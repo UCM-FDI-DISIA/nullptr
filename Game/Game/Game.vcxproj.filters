@@ -411,6 +411,7 @@
     </ClInclude>
     <ClInclude Include="src\utils\Collisions.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
+      </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Bomb.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
