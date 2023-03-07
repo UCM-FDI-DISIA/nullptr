@@ -17,6 +17,7 @@
       { "id" : "AlbumButton", "file" : "../Game/resources/images/UI/MainMenuScene/AlbumButton_spritesheet_79x18.png" },
       { "id" : "ExitButton", "file" : "../Game/resources/images/UI/MainMenuScene/ExitButton_spritesheet_79x18.png" },
       { "id" : "ResumeButton", "file" : "../Game/resources/images/UI/MainMenuScene/ResumeButton_spritesheet_79x18.png" },
+      { "id" : "InventoryButton", "file" : "../Game/resources/images/UI/MainMenuScene/InventoryButton_spritesheet_79x18.png" },
       
       { "id" : "GameOver", "file" : "../Game/resources/images/UI/BattleScene/GameOver/GameOverBackground_2360x1640.png" },
       { "id" : "YouDied", "file" : "../Game/resources/images/UI/BattleScene/GameOver/YouDiedMessage_300x200.png" },
