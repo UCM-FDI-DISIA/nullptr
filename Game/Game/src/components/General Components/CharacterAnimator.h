@@ -28,6 +28,10 @@ public:
 	// Devuelve si la acción del jugador es movimiento, siempre se coprueba justo antes de idling
 	virtual bool moving();
 
+	// Devuelve si la animación actual es la de ataque
+	inline bool playingAttack() {
+		return isCurrentAnimation(CHARACTER_ATTACK_KEY) && isPlaying();
+	}
 
 	// Si el jugador se mueve a la izquierda hace flip horizontal y viceversa
 	void adjustDirection();

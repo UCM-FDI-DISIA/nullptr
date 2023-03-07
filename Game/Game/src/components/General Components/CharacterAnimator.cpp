@@ -17,7 +17,7 @@ void CharacterAnimator::update() {
 
 // Inicia una nueva animación si es diferente a la actual
 bool CharacterAnimator::playDiff(string key) {
-	if (currentAnimationKey() != key) {
+	if (!isCurrentAnimation(key) || !isPlaying()) {
 		play(key);
 		return true;
 	}

@@ -55,5 +55,20 @@ public:
 
 	// Devuelve el numero del frame actual
 	inline int getCurrentFrame() { return currentFrame; }
+
+	// Devuelve si la animación actual está corriendo
+	inline bool isPlaying() {
+		return currentAnimation != nullptr && repetitions != currentAnimation->repeat;
+	}
+
+	// Devuelve si la animación actual se ha completado
+	inline bool animationComplete() {
+		return currentAnimation != nullptr && repetitions == currentAnimation->repeat;
+	}
+
+	// Devuelve si la animación actual es la introducida
+	inline bool isCurrentAnimation(string key) {
+		return currentAnimKey == key;
+	}
 };
 #endif // !ANIMATOR_H_

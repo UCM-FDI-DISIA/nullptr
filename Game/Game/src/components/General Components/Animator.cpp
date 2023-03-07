@@ -39,7 +39,7 @@ void Animator::update() {
 
 			if (currentAnimation->repeat != repetitions) {
 				// Devuelve el siguiente frame a renderizar
-				currentFrame = currentAnimation->startFrame + ((currentFrame + 1) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
+				currentFrame = currentAnimation->startFrame + ((currentFrame + 1 - currentAnimation->startFrame) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
 
 				// Si ha terminado una iteracion de la animacion, se le resta una repeticion
 				if (currentFrame == currentAnimation->endFrame) {
