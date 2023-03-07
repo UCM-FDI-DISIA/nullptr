@@ -28,16 +28,15 @@ void CardComponent::update() {
 	if (downTime > 0) {
 		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
-	//Si estás en automatic y en el último uso, se desbloquea la carta y se desactiva el auto
-	if (automatic && (*active)->getUses() == 1) {
+	//Si estás en automatic atacas
+	if (automatic){
 		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
-		discardCard(active);
-		automatic = false;
-		locked = false;
-	}
-	//Si estás en automatic ataca
-	else if (automatic) {
-		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+		//Si es el último uso se desbloquea la carta y desactiva el automatic
+		if ((*active)->getUses() == 1) {
+			discardCard(active);
+			automatic = false;
+			locked = false;
+		}
 	}
 }
 
