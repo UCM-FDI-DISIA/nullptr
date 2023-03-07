@@ -190,6 +190,9 @@
     <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">

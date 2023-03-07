@@ -24,13 +24,13 @@ class CardComponent : public Component {
 		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
+		bool locked = false, automatic = false;
 
 		void initDeck();
 		void reshufflePile();
 		void newHand();
 		void drawCard();
 		void discardCard(deque<Card*>::iterator discarded);
-		void animation();
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
@@ -50,5 +50,9 @@ class CardComponent : public Component {
 		int getPileSize() { return pile.size(); }
 		deque<Card*> getHand() { return hand; }
 		int getMana() { return mana; }
+		void setAutomatic(bool value) { automatic = value; }
+		void setLocked(bool value) { locked = value; }
+		bool getAutomatic() { return automatic; }
+		bool getLocked() { return locked; }
 };
 

@@ -8,6 +8,7 @@ enum CardId
 	gun = 0,
 	sword,
 	laserShades,
+	smg,
 };
 class BattleScene;
 class Card
@@ -28,13 +29,13 @@ class Card
 		//Se gasta un uso
 		void use() { remainingUses -= 1;}
 		//Se reinician sus usos respecto a los máximos
-		void resetUses() { remainingUses = maxUses;}
+		void resetCard() { remainingUses = maxUses;}
 		
 
 		// Getters
 		int getUses() { return remainingUses; }
 		int getMana() { return mana; }
-		int getDownTime() { return downtime; }
+		float getDownTime() { return downtime; }
 		Texture* getTexture() { return texture; }
 };
 

@@ -16,4 +16,5 @@ void SpearCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 	dir = dir.normalize();
 
 	where->addGameObject<ThrownSpear>(playerPos, dir, damage * attackMult, where->getEnemies());
+	remainingUses = 0;
 }

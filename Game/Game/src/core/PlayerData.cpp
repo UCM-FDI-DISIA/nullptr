@@ -12,13 +12,13 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
-	deck.push_back(new PulgaCard());
+	deck.push_back(new SMGCard());
 
-	deck.push_back(new PulgaCard());
+	deck.push_back(new SMGCard());
 
-	deck.push_back(new PulgaCard());
+	deck.push_back(new SMGCard());
 
-	deck.push_back(new PulgaCard());
+	deck.push_back(new SMGCard());
 
 	deck.push_back(new PulgaCard());
 
