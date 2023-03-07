@@ -31,6 +31,15 @@ void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }
 
+// Inicia una nueva animación si es diferente a la actual
+bool Animator::playDiff(string key) {
+	if (!isCurrentAnimation(key) || !isPlaying()) {
+		play(key);
+		return true;
+	}
+	return false;
+}
+
 // Actualiza el frame actual dependiendo del frameRate
 void Animator::update() {
 

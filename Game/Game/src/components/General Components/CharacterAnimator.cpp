@@ -15,16 +15,7 @@ void CharacterAnimator::update() {
 }
 
 
-// Inicia una nueva animación si es diferente a la actual
-bool CharacterAnimator::playDiff(string key) {
-	if (!isCurrentAnimation(key) || !isPlaying()) {
-		play(key);
-		return true;
-	}
-	return false;
-}
-
-// Actualiza a la animación correspondiente, devuelve si ha cambiado de animación o no
+// Actualiza a la animación correspondiente a la acción actual, devuelve si ha cambiado de animación o no
 bool CharacterAnimator::updatePlayingAnimation() {
 	for (auto& action : actions) {
 		if (action.second()) return playDiff(action.first);

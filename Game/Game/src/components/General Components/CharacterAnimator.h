@@ -2,7 +2,9 @@
 #include "Animator.h"
 class CharacterAnimator : public Animator {
 private:
+	// Indica si se quiere que el sprite haga flip dependiendo de su dirección
 	bool wantToAdjustDirection;
+	// Guarda keys de animaciones con la condición sobre la que se ejecutará dicha animación
 	unordered_map<string, BoolCallBack> actions;
 public:
 	// Constructora, recibe animaciones de idle y movimiento
@@ -11,9 +13,7 @@ public:
 	virtual void update();
 
 
-	// Inicia una nueva animación si es diferente a la actual
-	bool playDiff(string key);
-	// Actualiza a la animación correspondiente, devuelve si ha cambiado de animación o no
+	// Actualiza a la animación correspondiente a la acción actual, devuelve si ha cambiado de animación o no
 	virtual bool updatePlayingAnimation();
 
 
@@ -35,7 +35,7 @@ public:
 
 	// Si el jugador se mueve a la izquierda hace flip horizontal y viceversa
 	void adjustDirection();
-	// Asigna si quiere que el sprite haga flip en función de su dirección
+	// Asigna si se quiere que el sprite haga flip dependiendo de su dirección
 	inline void setWantToAdjustDirection(bool want) {
 		wantToAdjustDirection = want;
 	}

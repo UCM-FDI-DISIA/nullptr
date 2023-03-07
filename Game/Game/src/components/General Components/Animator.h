@@ -1,17 +1,8 @@
 #pragma once
-#ifndef ANIMATOR_H_
-#define ANIMATOR_H_
 
 #include "Image.h"
 #include <unordered_map>
 
-/*struct Animation {
-	int startFrame, endFrame;
-	int frameRate;
-	int repeat;
-	Animation() {}
-	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
-};*/
 
 using AnimationMap = unordered_map<string, Animation>;
 
@@ -44,6 +35,9 @@ public:
 	// Continua la ultima animacion
 	void resume();
 	
+	// Inicia una nueva animación si es diferente a la actual
+	bool playDiff(string key);
+
 	// Actualiza el frame actual dependiendo del frameRate
 	virtual void update();
 
@@ -71,4 +65,3 @@ public:
 		return currentAnimKey == key;
 	}
 };
-#endif // !ANIMATOR_H_

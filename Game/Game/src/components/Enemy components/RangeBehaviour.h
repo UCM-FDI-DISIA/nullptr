@@ -6,7 +6,6 @@
 
 // Esta clase define el comportamiento del enemigo a distancia
 // Se mueve por un tiempo determinado y se queda parado otro
-class SDLApplication;
 class RangeBehaviour :public EnemyBehaviour
 {
 private:

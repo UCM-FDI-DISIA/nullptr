@@ -38,7 +38,6 @@ void RangeBehaviour::update() {
 		 if (behaviorTime > stopTime + moveTime) {
 			setDirectionTo();
 			//pos->setVel(Vector2D(0, 0));
-			//enemyAttack();
 			attacking = true; // comienza la animación de ataque
 			behaviorTime -= stopTime + moveTime;
 		 }
