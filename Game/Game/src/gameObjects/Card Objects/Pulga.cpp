@@ -15,4 +15,5 @@ void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 void PulgaCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
 	where->addGameObject<FlashBang>(playerPos, where, remainingUses);
+	remainingUses=0;
 }
