@@ -160,7 +160,7 @@
     <ClCompile Include="src\scenes\GameOverScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
+    <ClCompile Include="src\components\Player components\BarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp">
@@ -183,6 +183,9 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp">
       <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -397,7 +400,7 @@
     <ClInclude Include="src\scenes\GameOverScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Player components\MannaBarComponent.h">
+    <ClInclude Include="src\components\Player components\BarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Bomb.h">
@@ -426,6 +429,9 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h">
       <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\StatisticsUI.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

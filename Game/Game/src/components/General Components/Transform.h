@@ -111,6 +111,17 @@ public:
 		return rect;
 	}
 
+	// Devuelve un rectangulo SDL con un factor que cambia el width devuelto
+	inline SDL_Rect getFactoredRect(float srcRectRelativeWidth) {
+		SDL_Rect rect;
+		rect.x = position_.getX();
+		rect.y = position_.getY();
+		rect.w = width_ * srcRectRelativeWidth;
+		rect.h = height_;
+
+		return rect;
+	}
+
 	//Devuelve un rectangulo rotado de SDL
 	inline SDL_Rect getRotatedRect() {
 

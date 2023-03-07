@@ -1,5 +1,6 @@
 #include "Animator.h"
 #include "../../core/SDLApplication.h"
+
 // Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 	Animation newAnim = Animation(start, end, rate, _rep);
@@ -59,10 +60,9 @@ void Animator::render() const {
 	SDL_Rect srcRect;
 	srcRect.x = (currentFrame % cols) * fw;
 	srcRect.y = ((currentFrame / cols) % rows) * fh;
-	srcRect.w = fw;
+	srcRect.w = fw * srcRectRelativeWidth;
 	srcRect.h = fh;
 	
-	texture->render(srcRect, getRect(), 0, nullptr, flip);
-
-	
+	if (srcRectRelativeWidth == 1) texture->render(srcRect, getRect(), 0, nullptr, flip);
+	else texture->render(srcRect, getFactoredRect(srcRectRelativeWidth), 0, nullptr, flip);
 }

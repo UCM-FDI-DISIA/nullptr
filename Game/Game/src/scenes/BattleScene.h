@@ -9,44 +9,55 @@
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
 #include "../gameObjects/UI/HandUI.h"
+#include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 
+class StatisticsUI;
 class HandUI;
 class BattleScene : public GameState {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor1, *decs,*vida, *barraVida;
+	GameObject* floor1, * decs;
 	GameObject* floor2;
 	GameObject* floor3;
-	GameObject* mana;
-	GameObject* barraMana;
+
+	// Generador de enemigos
 	GameObject* enemyGenerator;
 
 	vector<GameObject*> enemies;
 	battleType type;
 	GameObject* deck;
 	GameObject* pile;
+
+	// - UI -
+	// Frame superior de vida, maná y éter
+	StatisticsUI* statistics;
 	// Puntero a la mano del jugador en la UI
 	HandUI* hand = nullptr;
+
 public:
 	// Constructora
 	BattleScene(battleType t_);
-	static void mainMenu();
+
 	//Metodos virtuales
 	virtual void update();
+
+	// Getters
+	inline vector<GameObject*>* getEnemies() { return &enemies; };
+	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
+	Player* getPlayer() { return player; };
+
+	// - UI -
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
-	vector<GameObject*>* getEnemies();
-	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
-	Player* getPlayer() { return player; };
-
-	void createLifeBar();
-	void createManaBar();
+	// Barras de vida y mana
+	void OnManaChanges(float value);
+	void OnHealthChanges(float value);
 	void OnPlayerDies();
-	void OnManaChanges();
+	void OnPlayerDamage(float value);
 };
 
 #endif

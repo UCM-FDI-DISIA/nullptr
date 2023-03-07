@@ -22,7 +22,6 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// Botón jugar
 	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY);
-	// createButton(MM_PLAY_BUTTON_POS, MM_PLAYFRAME_BUTTON_POS, []() { SDLApplication::newScene<MapScene>(); }, PLAY);	
 
 	// Botón options
 	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<OptionsMenuScene>(); }, OPTIONS);

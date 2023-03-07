@@ -13,9 +13,12 @@ HealthComponent::HealthComponent(int life)
 // Resta el daño a la vida actual y si baja de 0, mata al objeto
 void HealthComponent::receiveDamage(int damage)
 {
-	cout << "ouch" << endl;
 	lifePoints -= damage;
 	if (lifePoints <= 0) die();
+	else {
+		auto sc = dynamic_cast<BattleScene*>(gStt);
+		sc->OnPlayerDamage(lifePoints);
+	}
 }
 // Cura al objeto el valor puesto
 void HealthComponent::heal(int heal)

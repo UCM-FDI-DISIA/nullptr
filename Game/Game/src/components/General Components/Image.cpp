@@ -31,6 +31,19 @@ SDL_Rect Image::getRect() const{
 	return rect;
 }
 
+//Devuelve el rect dependiendo de la cámara
+SDL_Rect Image::getFactoredRect(float srcRectRelativeWidth) const {
+	SDL_Rect rect = transform->getFactoredRect(srcRectRelativeWidth);
+
+	//if (cameraTransform != nullptr) {
+	//	//Dependiendo de la posición de la cámara
+	//	rect.x += cameraTransform->getRect().x * scrollFactor;
+	//	rect.y += cameraTransform->getRect().y * scrollFactor;
+	//}
+
+	return rect;
+}
+
 
 // Hace que el GameObject se renderice en función a la ventana, no a la cámara
 void Image::attachToCamera() {

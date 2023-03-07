@@ -25,6 +25,8 @@ private:
 	AnimationMap anims;
 	string currentAnimKey;
 	Animation* currentAnimation;
+	float srcRectRelativeWidth = 1;
+
 public:
 	// Identificador
 	static const int id = _ANIMATOR;
@@ -50,6 +52,13 @@ public:
 
 	// Renderiza el frame actual
 	virtual void render() const;
+
+	// Settea el valor para el cambio del tamaño del srcRect
+	inline void setSrcRectRelativeWidth(float rw) {
+		if (rw > 1) rw = 1;
+		else if (rw < 0) rw = 0;
+		srcRectRelativeWidth = rw;
+	}
 
 	// Devuelve el nombre de la animacion actual
 	inline string currentAnimationKey() { return currentAnimKey; }

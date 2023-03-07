@@ -20,7 +20,7 @@ enum cmpId : cmpId_type {
 	_BULLET_COMPONENT,
 	_SWORD_BEHAVIOUR,
 	_LIFETIME,
-	_MANA_BAR_COMPONENT,
+	_BAR_COMPONENT,
 	_EXPLOSION_BEHAVIOUR,
 	_ENEMY_GEN,
 	// ... (compoment ids)

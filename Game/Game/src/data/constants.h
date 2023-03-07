@@ -123,17 +123,24 @@ const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sp
 const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
+// STATISTICS FRAME
+const string UI_STATISTICS = "statisticsFrame";
+const int UI_STATISTICS_WIDTH = 250;
+const int UI_STATISTICS_HEIGHT = 28;
+const Vector2D UI_STATISTICS_POSITION = Vector2D(WIN_WIDTH / 2 - UI_STATISTICS_WIDTH * 2.5 / 2, 0);
+const string UI_ETHER_METER = "etherMeter";
+const int UI_ETHER_WIDTH = 44;
+const int UI_ETHER_HEIGHT = 26;
+const Vector2D UI_ETHER_POSITION = Vector2D(WIN_WIDTH / 2 - UI_ETHER_WIDTH * 2.5 / 2 - 1, 0);
 // LIFEBAR ---------------------------------------------------------------------------------------
-const string LIFEBAR = "LifeBar";
+const string LIFEBAR = "lifeBar";
 const string LIFEFRAME = "LifeFrame";
 const string MANAFRAME = "LifeFrameFlipped";
-const string MANABAR = "ManaBar";
-const Vector2D LIFEBAR_POSITION = { WIN_WIDTH - 213 * 2, 30 };
-const Vector2D LIFEBAR_VELOCITY = VECTOR_ZERO;
-const Vector2D MANABAR_POSITION = { WIN_WIDTH / 2 - 250, 30};
-const Vector2D MANABAR_VELOCITY = VECTOR_ZERO;
-const int BAR_WIDTH = 200;
-const int BAR_HEIGHT = 30;
+const string MANABAR = "manaBar";
+const Vector2D LIFEBAR_POSITION = Vector2D(WIN_WIDTH - 295 * 2, 15);
+const Vector2D MANABAR_POSITION = Vector2D(WIN_WIDTH / 2 - 258, 15);
+const int BAR_WIDTH = 83;
+const int BAR_HEIGHT = 10;
 const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
 const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
 const Vector2D MANA_POSITION = { WIN_WIDTH / 2 - 250, 10 };
