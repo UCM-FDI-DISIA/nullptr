@@ -184,6 +184,15 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp">
       <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\CharacterAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -426,6 +435,12 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h">
       <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\CharacterAnimator.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

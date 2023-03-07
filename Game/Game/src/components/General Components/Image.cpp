@@ -8,6 +8,7 @@ Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraT
 // Inicializa el componente y asigna su puntero a transform
 void Image::initComponent() {
 	transform = gObj->getComponent<Transform>();
+	assert(transform != nullptr);
 	if (gStt != nullptr) {
 		cameraTransform = gStt->getCamera()->getComponent<Transform>();
 	}

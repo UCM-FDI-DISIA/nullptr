@@ -14,4 +14,5 @@ void LaserShadesCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 		float rotation = i * 360 / remainingUses;
 		where->addGameObject<Laser>(playerPos, rotation, damage * attackMult, where->getEnemies());
 	}
+	remainingUses = 0;
 }

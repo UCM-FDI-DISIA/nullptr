@@ -13,7 +13,7 @@ void PlayerMovementComponent::handleInput() {
 	Vector2D pos =transform->getPos();
 
 	// Izquierda
-	if (pos.getX()>0&&InputHandler::instance()->isKeyDown(SDLK_a)) {
+	if (pos.getX()>PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_a)) {
 		vel = vel + Vector2D(-1, 0);
 	}
 	// Derecha
