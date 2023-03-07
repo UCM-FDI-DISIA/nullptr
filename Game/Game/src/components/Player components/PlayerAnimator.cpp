@@ -5,12 +5,7 @@
 	Dependiendo de la velocidad del Player de su Transform,
 	se pone la animacion adecuada
 */
-
-// Destructora
-PlayerAnimator::~PlayerAnimator() {
-	transform = nullptr;
-}
-
+/*
 // Inicializa el componente
 void PlayerAnimator::initComponent() {
 	Animator::initComponent();
@@ -24,26 +19,4 @@ void PlayerAnimator::initComponent() {
 		play(PLAYER_IDLE);
 	}
 }
-
-// Actualiza la animacion del Player dependiendo de su velocidad
-void PlayerAnimator::update() {
-	Animator::update();
-
-	if (transform != nullptr) {
-		if (transform->getVel().getX() < 0 || transform->getVel().getX() > 0 || transform->getVel().getY() < 0 || transform->getVel().getY() > 0) {
-			if (currentAnimationKey() != PLAYER_MOVE) {
-				play(PLAYER_MOVE);
-			}
-		}
-		else if (currentAnimationKey() != PLAYER_IDLE) {
-			play(PLAYER_IDLE);
-		}
-
-		if (transform->getVel().getX() > 0) {
-			flipNone();
-		}
-		else if (transform->getVel().getX() < 0) {
-			flipHorizontal();
-		}		
-	}
-}
+*/

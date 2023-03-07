@@ -1,27 +1,16 @@
 #pragma once
 #ifndef PLAYER_ANIMATOR_H_
 #define PLAYER_ANIMATOR_H_
-#include "../General Components/Animator.h"
+#include "../General Components/CharacterAnimator.h"
 #include "../../gameObjects/GameObject.h"
 
-class PlayerAnimator : public Animator {
-private:
-	Transform* transform;
+class PlayerAnimator : public CharacterAnimator {
 public:
-	// Identificador
-	static const int id = _PLAYER_ANIMATOR;
 
 	// Constructora
 	PlayerAnimator(Texture* _texture, int _w, int _h, int _r, int _c) : 
-		Animator(_texture, _w, _h, _r, _c), transform(nullptr) {}
-
-	// Destructora
-	~PlayerAnimator();
-
-	// Inicializa el componente
-	virtual void initComponent();
-
-	// Actualiza la animacion del Player dependiendo de su velocidad
-	virtual void update();
+		CharacterAnimator(_texture, _w, _h, _r, _c, 
+			Animation(PLAYER_IDLE_INITIAL_FRAME, PLAYER_IDLE_FINAL_FRAME, PLAYER_IDLE_FRAME_RATE, -1),
+			Animation(PLAYER_MOVE_INITIAL_FRAME, PLAYER_MOVE_FINAL_FRAME, PLAYER_MOVE_FRAME_RATE, -1)) {}
 };
 #endif // !PLAYER_ANIMATOR_H_

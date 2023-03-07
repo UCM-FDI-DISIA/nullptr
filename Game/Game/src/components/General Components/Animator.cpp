@@ -1,10 +1,15 @@
 #include "Animator.h"
 #include "../../core/SDLApplication.h"
+
+
+void Animator::createAnim(string key, Animation anim) {
+	anims.insert({ key, anim });
+	currentFrame = anim.startFrame;
+}
+
 // Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
-	Animation newAnim = Animation(start, end, rate, _rep);
-	anims.insert({ key, newAnim });
-	currentFrame = start;
+	createAnim(key, Animation(start, end, rate, _rep));
 }
 
 // Empieza una nueva animacion
@@ -48,8 +53,8 @@ void Animator::update() {
 			
 			currTime = 0;
 		}
+		currTime += SDLApplication::instance()->getDeltaTime();
 	}
-	currTime += SDLApplication::instance()->getDeltaTime();
 }
 
 

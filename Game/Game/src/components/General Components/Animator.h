@@ -5,13 +5,13 @@
 #include "Image.h"
 #include <unordered_map>
 
-struct Animation {
+/*struct Animation {
 	int startFrame, endFrame;
 	int frameRate;
 	int repeat;
 	Animation() {}
 	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
-};
+};*/
 
 using AnimationMap = unordered_map<string, Animation>;
 
@@ -26,13 +26,12 @@ private:
 	string currentAnimKey;
 	Animation* currentAnimation;
 public:
-	// Identificador
-	static const int id = _ANIMATOR;
-
 	// Constructora
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
-		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), repetitions(0), currentAnimation(nullptr) { };
+		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), currTime(0), repetitions(0), currentAnimation(nullptr) { };
 
+	// Crea una animacion nueva
+	void createAnim(string key, Animation anim);
 	// Crea una animacion nueva
 	void createAnim(string key, int start, int end, int rate, int _rep = 0);
 

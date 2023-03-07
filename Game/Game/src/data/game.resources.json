@@ -43,6 +43,7 @@
       { "id" : "ManaBar", "file" : "../Game/resources/images/Player/ManaBar_200x30.png" },
 
       { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
+      { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
       
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
