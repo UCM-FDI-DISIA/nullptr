@@ -56,12 +56,14 @@ public:
 	// Devuelve la Texture pedida
 	static Texture* getTexture(TextureName texture);
 
+	// Inicializa una nueva escena y la mete en la máquina de estados borrando la anterior
 	template<typename T, typename ...Ts>
 	static void newScene(Ts&& ...args) {
 		T* scene = new T(std::forward<Ts>(args)...);
 		SDLApplication::instance()->gameStateMachine->changeState(scene);
 	}
 
+	// Inicializa una nueva escena y la mete en la máquina de estados encima de la anterior
 	template<typename T, typename ...Ts>
 	static void pushNewScene(Ts&& ...args) {
 		T* scene = new T(std::forward<Ts>(args)...);
