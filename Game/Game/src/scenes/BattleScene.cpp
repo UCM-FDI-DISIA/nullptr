@@ -47,7 +47,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	);*/
 
 	enemies.push_back(
-		addGameObject<TankEnemy>(VECTOR_ZERO, 50, player)
+		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
 	);
   
 
