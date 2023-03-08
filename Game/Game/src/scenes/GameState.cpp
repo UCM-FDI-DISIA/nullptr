@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState() : gObjs(), camera(addGameObject<Camera>()) { 
+GameState::GameState() : gObjs(), camera(addGameObject<Camera>()), pointer(new Pointer()) { 
     gObjs.reserve(100);
 }
 
@@ -12,12 +12,16 @@ GameState::~GameState() {
         delete(gObj);
         gObj = nullptr;
     }
+
+    delete pointer;
+    pointer = nullptr;
 }
 
 // Actualiza los objetos de la escena
 void GameState::update() {
     for (GameObject* gObj : gObjs) {
         gObj->update();
+        pointer->update();
     }
 
     refresh();
@@ -27,6 +31,7 @@ void GameState::update() {
 void GameState::render() const {
     for (GameObject* gObj : gObjs) {
         gObj->render();
+        pointer->render();
     }
 }
 

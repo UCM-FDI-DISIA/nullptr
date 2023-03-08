@@ -1,6 +1,4 @@
 #pragma once
-#ifndef PLAYER_H_
-#define PLAYER_H_
 #include "../GameObject.h"
 #include "../../data/constants.h"
 #include "../../components/General Components/Transform.h"
@@ -21,4 +19,3 @@ public:
 	// Crea los componentes del jugador
 	virtual void initGameObject();
 };
-#endif //!PLAYER_H_

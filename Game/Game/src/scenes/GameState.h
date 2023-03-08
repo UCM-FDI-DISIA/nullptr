@@ -1,10 +1,8 @@
 #pragma once
-#ifndef GAME_STATE_H_
-#define GAME_STATE_H_
-
-#include <list>
+#include <vector>
 #include "../gameObjects/GameObject.h"
 #include "../gameObjects/General Objects/Camera.h"
+#include "../gameObjects/General Objects/Pointer.h"
 
 class SDLApplication;
 using namespace std;
@@ -12,7 +10,8 @@ using namespace std;
 class GameState {
 protected:
     vector<GameObject*> gObjs;
-    Camera* camera = nullptr;
+    Camera* camera;
+    Pointer* pointer;
 public:
     // Constructor
     GameState();
@@ -42,4 +41,3 @@ public:
     // Devuelve la camara
     Camera* getCamera() const;
 };
-#endif

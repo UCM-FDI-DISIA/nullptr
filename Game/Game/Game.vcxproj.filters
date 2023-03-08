@@ -193,6 +193,12 @@
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\PointerComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -441,6 +447,12 @@
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\General Objects\Pointer.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

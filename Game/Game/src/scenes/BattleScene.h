@@ -1,6 +1,4 @@
 #pragma once
-#ifndef FUBATTLESCENE_H_
-#define FUBATTLESCENE_H_
 #include "GameState.h"
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
@@ -47,5 +45,3 @@ public:
 	void OnPlayerDies();
 	void OnManaChanges();
 };
-
-#endif

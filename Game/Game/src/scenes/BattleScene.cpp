@@ -46,10 +46,9 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
 	);*/
 
-	enemies.push_back(
+	/*enemies.push_back(
 		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);
-  
+	);*/
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	//Añadimo sun boton de salir
@@ -66,10 +65,14 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cardComp->setCounter(gO);
 	//Añadimos el objeto que muestra la mano de cartas en la UI
 	hand = addGameObject<HandUI>(cardComp);
+
+	// El puntero sigue al player
+	pointer->setFollowObject(player);
 }
 void BattleScene::update() {
 	for (GameObject* gObj : gObjs) {
 		gObj->update();
+		pointer->update();
 	}
 	auto it = enemies.begin();
 	while (it != enemies.end())
@@ -82,6 +85,7 @@ void BattleScene::update() {
 	}
 	refresh();
 }
+
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
 }
