@@ -8,12 +8,12 @@ private:
 	int lifePoints;
 	int maxLife;
 	int modifiedMaxLife;
-	bool player;
+	bool invincibility;
 	float invTime;
 	float time;
 public:
 	static const int id = _HEALTH;
-	HealthComponent(int Maxlife, bool player = false);
+	HealthComponent(int Maxlife, bool invincibility = false);
 	//Delete del padre
 	void receiveDamage(int damage);
 	virtual void update();

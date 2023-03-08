@@ -6,10 +6,10 @@
 
 // Al construirse, adopta el gameObject y su manager como propios
 // También define la vida máxima del objeto
-HealthComponent::HealthComponent(int life, bool Player)
+HealthComponent::HealthComponent(int life, bool Invincibility)
 {
 	maxLife = modifiedMaxLife = lifePoints = life;
-	player = Player;
+	invincibility = Invincibility;
 	invTime = 1000;
 }
 // Resta el daño a la vida actual y si baja de 0, mata al objeto
@@ -19,7 +19,7 @@ void HealthComponent::receiveDamage(int damage)
 	if (time >= invTime) {
 		lifePoints -= damage;
 		cout << lifePoints <<endl;
-		if (player) {
+		if (invincibility) {
 			time = 0;
 			cout << "Invencible" << endl;
 		}
