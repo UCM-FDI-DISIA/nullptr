@@ -17,7 +17,7 @@ private:
 
 public:
 	// Constructora, recibe posición del nodo en el mapa
-	BattleNode(Vector2D const& pos);
+	BattleNode(Vector2D const& pos, battleType _t = battleType(sdlutils().rand().nextInt(0, 3)));
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { return Node::getTextureKey() + to_string((int)type); }
 };

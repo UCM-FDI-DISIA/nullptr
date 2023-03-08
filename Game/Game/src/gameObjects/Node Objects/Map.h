@@ -26,7 +26,7 @@ private:
 	// Añade un nuevo nodo al mapa y a los nodos iniciales
 	template<typename T>
 	Node* addToInitialNodes(string name, Vector2D pos) {
-		Node*& n = addNode<T>(name, pos);
+		Node* n = addNode<T>(name, pos);
 		n->unlock();
 		initialNodes.push_back(n);
 		return n;
@@ -37,6 +37,7 @@ private:
 		else if (type == "shop") return addNode<ShopNode>(name, pos);
 		else if (type == "chest") return addNode<ChestNode>(name, pos);
 		else if (type == "event") return addNode<EventNode>(name, pos);
+		else if (type == "start") return addToInitialNodes<BattleNode>(name, pos);
 	}
 
 	// Constructora

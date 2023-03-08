@@ -2,7 +2,7 @@
   "map" : [
     {
         "name": "level1",
-        "type": "battle",
+        "type": "start",
         "height": 0,
         "next": ["chest1"]
     },
