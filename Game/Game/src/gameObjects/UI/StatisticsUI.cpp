@@ -59,7 +59,6 @@ void StatisticsUI::initGameObject(int life, int mana) {
 
 		etherCounter.push_back(number);
 	}
-	OnEtherChanges(100);
 }
 
 // Crea la barra de vida

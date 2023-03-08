@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Card Components/CardComponent.h"
-#include "../General Components/HeatlhComponent.h"
+#include "../General Components/HealthComponent.h"
 
 class BarComponent : public Component {
 private:

@@ -50,26 +50,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	cardComp->setCounter(gO);
 	// Añadimos el objeto que muestra la mano de cartas en la UI
 	hand = addGameObject<HandUI>(cardComp);
-}
-
-void BattleScene::update() {
-	for (GameObject* gObj : gObjs) {
-		gObj->update();
-	}
-	auto it = enemies.begin();
-	while (it != enemies.end())
-	{
-		if ((*it)->isAlive() == false) {
-			auto itAux = it;
-			it = enemies.erase(itAux);
-		}
-		else it++;
-	}
-	refresh();
-
-void BattleScene::mainMenu() {
-	SDLApplication::newScene<MainMenuScene>();
-}
+};
 
 void BattleScene::OnPlayerDies() {
 	SDLApplication::newScene<GameOverScene>();

@@ -19,9 +19,10 @@ class BattleScene : public GameState {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor, *decs,*vida, *barraVida;
+	GameObject* floor, * decs;
 
 	// Generador de enemigos
+	vector<GameObject*> enemies;
 	GameObject* enemyGenerator;
 	battleType type;
 	GameObject* deck;
@@ -36,9 +37,6 @@ private:
 public:
 	// Constructora
 	BattleScene(battleType t_);
-
-	//Metodos virtuales
-	virtual void update();
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };
