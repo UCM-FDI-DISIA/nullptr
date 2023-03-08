@@ -18,9 +18,13 @@ void Bow::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Battle
 //Se disparan todas las flechas
 void Bow::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 
-	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
+	for (int i = 0; i < remainingUses; i++) {
+		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset() - Vector2D(rand() % 90, rand() % 90));
 
-	dir = dir.normalize();
-	where->addGameObject<Bullet>(playerPos, dir, 5* remainingUses * attackMult, where->getEnemies());
+		dir = dir.normalize();
+
+		where->addGameObject<Bullet>(playerPos, dir, 5 * remainingUses * attackMult, where->getEnemies());
+	}
 	remainingUses = 0;
+
 }
