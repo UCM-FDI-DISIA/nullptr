@@ -1,10 +1,15 @@
 #include "Animator.h"
 #include "../../core/SDLApplication.h"
+
+
+void Animator::createAnim(string key, Animation anim) {
+	anims.insert({ key, anim });
+	currentFrame = anim.startFrame;
+}
+
 // Crea una animacion nueva
 void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
-	Animation newAnim = Animation(start, end, rate, _rep);
-	anims.insert({ key, newAnim });
-	currentFrame = start;
+	createAnim(key, Animation(start, end, rate, _rep));
 }
 
 // Empieza una nueva animacion
@@ -26,6 +31,15 @@ void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }
 
+// Inicia una nueva animación si es diferente a la actual
+bool Animator::playDiff(string key) {
+	if (!isCurrentAnimation(key) || !isPlaying()) {
+		play(key);
+		return true;
+	}
+	return false;
+}
+
 // Actualiza el frame actual dependiendo del frameRate
 void Animator::update() {
 
@@ -34,7 +48,7 @@ void Animator::update() {
 
 			if (currentAnimation->repeat != repetitions) {
 				// Devuelve el siguiente frame a renderizar
-				currentFrame = currentAnimation->startFrame + ((currentFrame + 1) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
+				currentFrame = currentAnimation->startFrame + ((currentFrame + 1 - currentAnimation->startFrame) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
 
 				// Si ha terminado una iteracion de la animacion, se le resta una repeticion
 				if (currentFrame == currentAnimation->endFrame) {
@@ -48,8 +62,8 @@ void Animator::update() {
 			
 			currTime = 0;
 		}
+		currTime += SDLApplication::instance()->getDeltaTime();
 	}
-	currTime += SDLApplication::instance()->getDeltaTime();
 }
 
 

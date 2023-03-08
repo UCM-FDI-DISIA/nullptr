@@ -41,10 +41,21 @@ enum grpId : grpId_type {
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 
+// Animaciones
+struct Animation {
+	int startFrame, endFrame;
+	int frameRate;
+	int repeat;
+	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0) {}
+	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
+};
+
+
 #include <functional>
 // Tipo de funci�n que devuelve y recibe void, funciona tambi�n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
 class GameObject;
 using CallBackCol = std::function<void(GameObject*)>;
+using BoolCallBack = std::function<bool(void)>;
 
 #endif // !ECS_H_

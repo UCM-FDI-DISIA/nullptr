@@ -17,8 +17,9 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 
 	deck.push_back(new LaserShadesCard());
+	deck.push_back(new SMGCard());
 
-	deck.push_back(new PulgaCard());
+	deck.push_back(new SMGCard());
 
 	deck.push_back(new SpearCard());
 
@@ -27,8 +28,10 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 
 	deck.push_back(new LaserShadesCard());
+	
+	deck.push_back(new SMGCard());
 
-	deck.push_back(new PulgaCard());
+	deck.push_back(new SMGCard());
 
 	deck.push_back(new SpearCard());
 

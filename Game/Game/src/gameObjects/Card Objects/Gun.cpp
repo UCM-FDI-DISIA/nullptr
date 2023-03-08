@@ -19,4 +19,5 @@ void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 
 		where->addGameObject<Bullet>(_grp_PLYR_ATTACK, playerPos, dir, damage * attackMult, _grp_ENEMIES);
 	}
+	remainingUses = 0;
 }

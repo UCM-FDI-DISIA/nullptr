@@ -18,5 +18,5 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	
 	where->addGameObject<SwordSpin>(_grp_PLYR_ATTACK, playerPos, where, damage * remainingUses * attackMult, _grp_ENEMIES);
-
+	remainingUses = 0;
 }
