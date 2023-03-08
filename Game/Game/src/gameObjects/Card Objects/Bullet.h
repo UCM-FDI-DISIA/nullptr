@@ -12,21 +12,12 @@
 class Bullet:public GameObject
 {
 public:
-
-	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, vector<GameObject*>* target) {
-		addComponent<BulletBehavior>(dmg, target);
-
+	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, grpId trgt) {
 		addComponent<Transform>(pos, dir * BULLET_SPEED, 30, 30);
-
 		addComponent<Image>(SDLApplication::getTexture("Bullet"));
-		addComponent<LifeTimeComponent>(10); // QUE ES ESTO Y QUIEN LO HA METIDO
-		addComponent<ColliderComponent>();
+		addComponent<LifeTimeComponent>(10);
+		addComponent<BulletBehavior>(dmg);
+		addComponent<ColliderComponent>(getComponent<BulletBehavior>()->bulletAttack(),trgt);
 	}
 
-	// desde aquí, llamad a la otra. o al revés.
-	virtual void initGameObject(Vector2D pos, Vector2D dir, int dmg, GameObject* target) {
-		vector<GameObject*>* targets = new vector<GameObject*>();
-		targets->push_back(target);
-		initGameObject(pos, dir, dmg, targets);
-	}
 };

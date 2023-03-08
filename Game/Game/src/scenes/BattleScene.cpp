@@ -28,27 +28,15 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	}
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
-	player = addGameObject<Player>();
+	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);
 
-	//enemyGenerator = addGameObject();
-	//enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	enemyGenerator = addGameObject();
+	enemyGenerator->addComponent<EnemyGenerator>(player, this);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
 	createLifeBar();
 	createManaBar();
-
-	//Añadimos 2 enemigos de prueba
-	/*enemies.push_back(
-		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);*/
-	/*enemies.push_back(
-		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
-	);*/
-
-	enemies.push_back(
-		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);
   
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
@@ -67,27 +55,9 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	//Añadimos el objeto que muestra la mano de cartas en la UI
 	hand = addGameObject<HandUI>(cardComp);
 }
-void BattleScene::update() {
-	for (GameObject* gObj : gObjs) {
-		gObj->update();
-	}
-	auto it = enemies.begin();
-	while (it != enemies.end())
-	{
-		if ((*it)->isAlive() == false) {
-			auto itAux = it;
-			it = enemies.erase(itAux);
-		}
-		else it++;
-	}
-	refresh();
-}
+
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
-}
-
-vector<GameObject*>* BattleScene::getEnemies() {
-	return &enemies;
 }
 
 void BattleScene::OnPlayerDies() {

@@ -21,8 +21,6 @@ private:
 	GameObject* mana;
 	GameObject* barraMana;
 	GameObject* enemyGenerator;
-
-	vector<GameObject*> enemies;
 	battleType type;
 	GameObject* deck;
 	GameObject* pile;
@@ -32,14 +30,10 @@ public:
 	// Constructora
 	BattleScene(battleType t_);
 	static void mainMenu();
-	//Metodos virtuales
-	virtual void update();
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
-	vector<GameObject*>* getEnemies();
-	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
 	Player* getPlayer() { return player; };
 
 	void createLifeBar();
