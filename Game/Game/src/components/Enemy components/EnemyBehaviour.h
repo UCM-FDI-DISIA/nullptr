@@ -2,7 +2,7 @@
 #include "../Component.h"
 #include "../General Components/Transform.h"
 #include "../General Components/ColliderComponent.h"
-#include "../General Components/HeatlhComponent.h"
+#include "../General Components/HealthComponent.h"
 #include "../../gameObjects/Player Object/Player.h"
 
 // Clase abstracta que junta la logica común del comportamiento enemigo como su posición,

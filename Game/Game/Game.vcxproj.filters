@@ -82,7 +82,7 @@
     <ClCompile Include="src\components\General Components\CameraComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\General Components\HeatlhComponent.cpp">
+    <ClCompile Include="src\components\General Components\HealthComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\General Components\Image.cpp">
@@ -163,6 +163,15 @@
     <ClCompile Include="src\components\Player components\BarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\utils\Collisions.cpp">
+      <Filter>Archivos de Dependecias\sdlutils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\ColliderComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\SwordSlashBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -186,6 +195,14 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp">
       <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    <ClCompile Include="src\components\General Components\CharacterAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -316,7 +333,7 @@
     <ClInclude Include="src\components\General Components\ColliderComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\HeatlhComponent.h">
+    <ClInclude Include="src\components\General Components\HealthComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\Image.h">
@@ -403,6 +420,9 @@
     <ClInclude Include="src\components\Player components\BarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\Collisions.h">
+      <Filter>Archivos de Encabezado\sdlutils</Filter>
+    </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Bomb.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
@@ -432,6 +452,11 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h">
       <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+    <ClInclude Include="src\components\General Components\CharacterAnimator.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

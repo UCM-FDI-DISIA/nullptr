@@ -8,6 +8,8 @@
 #include <SDL.h>
 #include <iostream>
 #include "../core/Vector2D.h"
+#include "../components/ecs.h"
+
 using namespace std;
 using uint = unsigned int;
 
@@ -19,6 +21,9 @@ const uint WIN_HEIGHT = 720;
 const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
+
+const int PIXEL_WIDTH = WIN_WIDTH / 544;
+const int PIXEL_HEIGHT = WIN_HEIGHT / 306;
 
 // FRAME TIMES ------------------------------------------------------------------------------------
 const double FRAME_TIME = 30;
@@ -41,6 +46,11 @@ const string IDLE = "Idle";
 const string REVERSE = "CardReverse";
 const string NUMBERS = "Numbers";
 
+// CHARACTER ANIMATOR -----------------------------------------------------------------------------
+const string CHARACTER_IDLE_KEY = "charaIdle";
+const string CHARACTER_MOVE_KEY = "charaMove";
+const string CHARACTER_ATTACK_KEY = "charaAttack";
+
 // PLAYER -----------------------------------------------------------------------------------------
 // PLAYER ANIMATIONS
 const string PLAYER = "Player";
@@ -48,8 +58,6 @@ const int PLAYER_SPRITE_WIDTH = 17;
 const int PLAYER_SPRITE_HEIGHT = 30;
 const int PLAYER_SPRITE_ROWS = 2;
 const int PLAYER_SPRITE_COLS = 8;
-const string PLAYER_IDLE = "PlayerIdle";
-const string PLAYER_MOVE = "PlayerMove";
 const int PLAYER_IDLE_INITIAL_FRAME = 0;
 const int PLAYER_IDLE_FINAL_FRAME = 7;
 const int PLAYER_IDLE_FRAME_RATE = 10;
@@ -70,7 +78,24 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const float ENEMY_SPEED = 50;
 
+// MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;
+
+// RANGED ENEMY
+const string RANGED_ENEMY_TEXTURE_KEY = "RangedEnemy";
+const int RANGED_ENEMY_SPRITE_WIDTH = 32;
+const int RANGED_ENEMY_SPRITE_HEIGHT = 32;
+const int RANGED_ENEMY_SPRITE_ROWS = 2;
+const int RANGED_ENEMY_SPRITE_COLS = 11;
+
+const int RANGED_ENEMY_WIDTH = RANGED_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int RANGED_ENEMY_HEIGHT = RANGED_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
+
+const Animation RANGED_ENEMY_IDLE_ANIMATION(0, 4, 10, -1);
+const Animation RANGED_ENEMY_MOVEMENT_ANIMATION(14, 21, 10, -1);
+const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
+
+const int RANGED_ATTACK_ANIM_DELAY = 670;
 
 // TANK ENEMY
 const float TANK_SPEED = 35;
@@ -111,16 +136,30 @@ const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2
 const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
+// PAUSEMENU: BUTTON POSITIONS AND DIMENSIONS
+const int PM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
+const int PM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
+const int PM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 4;
+const int PM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 4;
+const Vector2D PM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT / 2);
+const Vector2D PM_INVENTORY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 8);
+const Vector2D PM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 6 / 8);
+const Vector2D PM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 7 / 8);
+const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - Vector2D(48, 88);
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
 const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
+const string RESUME = "ResumeButton";
+const string INVENTORY = "InventoryButton";
 
 // FLOOR -----------------------------------------------------------------------------------------
-const string FLOOR_PAST = "BattleBackground";
-const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sprite de suelo
-const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
+const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
+const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
@@ -191,6 +230,8 @@ const int LEFT_OFFSET = REVERSE_WIDTH / 2;
 const int DOWN_OFFSET = WIN_HEIGHT - REVERSE_HEIGHT * 1.75;
 const int CARD_OFFSET_W = 2 * 6;
 const int CARD_OFFSET_H = 21 * 1.5;
+//CARD DATA
+const float SMG_CADENCE = 0.3;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;

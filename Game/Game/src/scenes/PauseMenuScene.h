@@ -7,6 +7,7 @@ class PauseMenuScene : public GameState {
 private:
 public:
 	PauseMenuScene();
+	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };
 
 #endif

@@ -11,12 +11,12 @@
 
 class FlashBang : public GameObject {
 public:
-	virtual void initGameObject(Vector2D pos, BattleScene* scene, float duration) {
+	virtual void initGameObject(Vector2D pos, BattleScene* scene, float duration, grpId group) {
 		addComponent<Transform>(pos - Vector2D(WIDTH / 2, HEIGHT / 2), Vector2D(0, 0), WIDTH, HEIGHT);
 		addComponent<LifeTimeComponent>(0.5);
 		addComponent<Image>(SDLApplication::getTexture("FlashBang"));
-		addComponent<ColliderComponent>();
-		addComponent<ConfuseBehaviour>(duration, scene->getEnemies());
+		addComponent<ConfuseBehaviour>(duration, group);
+		addComponent<ColliderComponent>(getComponent<ConfuseBehaviour>()->confuseAttack(), group);
 	}
 
 private:

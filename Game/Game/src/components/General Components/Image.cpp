@@ -8,22 +8,23 @@ Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraT
 // Inicializa el componente y asigna su puntero a transform
 void Image::initComponent() {
 	transform = gObj->getComponent<Transform>();
+	assert(transform != nullptr);
 	if (gStt != nullptr) {
 		cameraTransform = gStt->getCamera()->getComponent<Transform>();
 	}
 }
 
-// Dibuja en pantalla la textura en el rectángulo del transform
+// Dibuja en pantalla la textura en el rectï¿½ngulo del transform
 void Image::render() const {
-	texture->render(getRect(), transform->getRotation(), transform->getAnchorPoint());
+	texture->render(getRect(), transform->getRotation(),transform->getAnchorPointSDL());
 }
 
-//Devuelve el rect dependiendo de la cámara
+//Devuelve el rect dependiendo de la cï¿½mara
 SDL_Rect Image::getRect() const{
 	SDL_Rect rect = transform->getRect();
 
 	if (cameraTransform != nullptr) {
-		//Dependiendo de la posición de la cámara
+		//Dependiendo de la posiciï¿½n de la cï¿½mara
 		rect.x += cameraTransform->getRect().x * scrollFactor;
 		rect.y += cameraTransform->getRect().y * scrollFactor;
 	}
@@ -31,12 +32,12 @@ SDL_Rect Image::getRect() const{
 	return rect;
 }
 
-//Devuelve el rect dependiendo de la cámara
+//Devuelve el rect dependiendo de la cï¿½mara
 SDL_Rect Image::getFactoredRect(float srcRectRelativeWidth, float srcRectRelativeHeight) const {
 	SDL_Rect rect = transform->getFactoredRect(srcRectRelativeWidth, srcRectRelativeHeight);
 
 	//if (cameraTransform != nullptr) {
-	//	//Dependiendo de la posición de la cámara
+	//	//Dependiendo de la posiciï¿½n de la cï¿½mara
 	//	rect.x += cameraTransform->getRect().x * scrollFactor;
 	//	rect.y += cameraTransform->getRect().y * scrollFactor;
 	//}
@@ -45,7 +46,7 @@ SDL_Rect Image::getFactoredRect(float srcRectRelativeWidth, float srcRectRelativ
 }
 
 
-// Hace que el GameObject se renderice en función a la ventana, no a la cámara
+// Hace que el GameObject se renderice en funciï¿½n a la ventana, no a la cï¿½mara
 void Image::attachToCamera() {
 	cameraTransform = nullptr;
 }

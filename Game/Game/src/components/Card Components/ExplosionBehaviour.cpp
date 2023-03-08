@@ -5,7 +5,6 @@
 void ExplosionBehaviour::initComponent()
 {
 	tr = gObj->getComponent<Transform>();
-	target = scene->getEnemies();
 }
 
 void ExplosionBehaviour::update()
@@ -13,15 +12,14 @@ void ExplosionBehaviour::update()
 	currentLifeDuration += SDLApplication::instance()->getDeltaTimeSeconds();
 	if (currentLifeDuration > lifeSpan)
 	{
-		scene->addGameObject<Explosion>(tr->getCenter(),scene, damage);
+		scene->addGameObject<Explosion>(_grp_PLYR_ATTACK, tr->getCenter(), scene, damage, target);
 		gObj->setAlive(false);
 	}
-
-	for (int i = 0; i < target->size(); i++) {
-		if (gObj->getComponent<ColliderComponent>()->
-			hasCollided((*target)[i]->getComponent<Transform>())) {
-			scene->addGameObject<Explosion>(tr->getCenter(), scene, damage);
-			gObj->setAlive(false);
-		}
-	}
+}
+CallBackCol ExplosionBehaviour::explosionAttack()
+{
+	return [&](GameObject* gameObject) {
+		scene->addGameObject<Explosion>(_grp_PLYR_ATTACK, tr->getCenter(), scene, damage, target);
+		gObj->setAlive(false);
+	};
 }

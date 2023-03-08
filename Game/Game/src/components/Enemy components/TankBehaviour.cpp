@@ -10,9 +10,13 @@ void TankBehaviour::initComponent() {
 	
 	// Rota hacia la direccion del jugador
 	pos->lookAt(playerPos->getPos());
+
+	elapsedTime = 0;
 }
 
 void TankBehaviour::update() {
+	
+	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	
 	// Si llega a estar a X distancia del jugador y no esta atacando...
 	if (!attacking&& pos->getDistance(playerPos->getPos()) <= TANK_ATTACK_DISTANCE ) {
@@ -20,7 +24,7 @@ void TankBehaviour::update() {
 		attacking = true;
 
 		//Cogemos el tiempo actual mas el tiempo de parar  
-		stop = SDLApplication::instance()->getCurrentTime() + stopTime;
+		stop = elapsedTime + stopTime;
 	}
 
 	setDirectionTo();
@@ -37,16 +41,16 @@ void TankBehaviour::setDirectionTo() {
 	// Se para
 	else if (attacking && !chargingAttack) {
 		pos->setVel(VECTOR_ZERO);
-		if (stop <= SDLApplication::instance()->getCurrentTime()) {
+		if (stop <= elapsedTime) {
 			// Se lanza al jugador en su direccion en linea recta durante X segundos  
 			pos->setVel(Vector2D(0, PLAYER_SPEED * 1.5f));
 			// Coge la direccion del jugador antes de lanzarse
 			pos->lookAt(playerPos->getPos());
 			chargingAttack = true;
-			attackingTime = SDLApplication::instance()->getCurrentTime() + TANK_ATTACK_TIME;
+			attackingTime = elapsedTime + TANK_ATTACK_TIME;
 		}
 	}
-	else if (attacking && chargingAttack && attackingTime <= SDLApplication::instance()->getCurrentTime()) {
+	else if (attacking && chargingAttack && attackingTime <= elapsedTime) {
 		attacking = false;
 		chargingAttack = false;
 		pos->setVel(Vector2D(0, TANK_SPEED));
@@ -54,13 +58,12 @@ void TankBehaviour::setDirectionTo() {
 }
 
 void TankBehaviour::enemyAttack() {
-	elapsedTime = SDLApplication::instance()->getCurrentTime();
+	
 
-	if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
-		//Daña al jugador e informa de que ha atacado
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
+	if (!attacked) {
+		//Daï¿½a al jugador e informa de que ha atacado
 		attacked = true;
-		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
+		attackInterval = elapsedTime + MELEE_ENEMY_COOLDOWN;
 	}
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime >= attackInterval)
@@ -70,4 +73,12 @@ void TankBehaviour::enemyAttack() {
 		//Reseteamos el contador
 		behaviorTime -= attackInterval;
 	}
+}
+CallBackCol TankBehaviour::tankAttack()
+{
+	return [&](GameObject* player) {
+		player->getComponent<HealthComponent>()->receiveDamage(damage);
+		attacked = true;
+		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
+	};
 }

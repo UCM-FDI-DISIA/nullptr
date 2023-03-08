@@ -39,6 +39,8 @@ Card Card::getCard(CardId type) {
 		return SwordCard();
 	case laserShades:
 		return LaserShadesCard();
+	case smg:
+		return SMGCard();
 	default:
 		break;
 	}

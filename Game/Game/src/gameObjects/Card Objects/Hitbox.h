@@ -12,16 +12,16 @@
 class Hitbox : public GameObject {
 public:
 	/*
-	Imagen de ataque circular en arco en la dirección que apunta el jugador
-	Cuando colisiona POR PRIMERA VEZ con un enemigo, el enemigo recibe daño
+	Imagen de ataque circular en arco en la direcciï¿½n que apunta el jugador
+	Cuando colisiona POR PRIMERA VEZ con un enemigo, el enemigo recibe daï¿½o
 	Desaparece a los 60 milisegundos
 */
-	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg, Texture* texture) {
+	virtual void initGameObject(Vector2D playerPos, Vector2D dir, BattleScene* scene, int dmg, Texture* texture, grpId trgt) {
 		Vector2D slashVector = playerPos + dir * 100;
 		addComponent<Transform>(slashVector - Vector2D(texture->width() / 2, texture->height() / 2), Vector2D(0, 0), texture->width(), texture->height(), Vector2D(1, 0).angle(dir));
-		addComponent<LifeTimeComponent>(0.25);
+		addComponent<LifeTimeComponent>(0.06);
 		addComponent<Image>(texture);
-		addComponent<ColliderComponent>();
-		addComponent<SwordSlashBehaviour>(dmg, scene->getEnemies());
+		addComponent<SwordSlashBehaviour>(dmg, trgt);
+		addComponent<ColliderComponent>(getComponent<SwordSlashBehaviour>()->swordAttack(), trgt);
 	}
 };

@@ -28,6 +28,16 @@ void CardComponent::update() {
 	if (downTime > 0) {
 		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
+	//Si estás en automatic atacas
+	if (automatic){
+		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+		//Si es el último uso se desbloquea la carta y desactiva el automatic
+		if ((*active)->getUses() == 1) {
+			discardCard(active);
+			automatic = false;
+			locked = false;
+		}
+	}
 }
 
 //Coge el imput del teclado y ratón y llama a los métodos necesarios
@@ -37,24 +47,26 @@ void CardComponent::handleInput() {
 		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
 
 	// Click derecho
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT)) 
+	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT))
 		ability(tr->getCenter(), InputHandler::instance()->getMousePos());
 
-	// Rueda del ratón
-	if (InputHandler::instance()->mouseWheelDown()) 
-		switchActive(false);
-	else if (InputHandler::instance()->mouseWheelUp()) 
-		switchActive(true);
+	if (!locked) {
+		// Rueda del ratón
+		if (InputHandler::instance()->mouseWheelDown())
+			switchActive(false);
+		else if (InputHandler::instance()->mouseWheelUp())
+			switchActive(true);
 
-	// Téclas numéricas
-	if (InputHandler::instance()->isKeyJustDown(SDLK_1))
-		switchActive(0);
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_2))
-		switchActive(1);
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_3))
-		switchActive(2);
-	else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) 
-		switchActive(3);
+		// Téclas numéricas
+		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
+			switchActive(0);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_2))
+			switchActive(1);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_3))
+			switchActive(2);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_4))
+			switchActive(3);
+	}
 }
 
 //Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
@@ -72,8 +84,11 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	if ((*active)->getMana() <= mana) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
-		discardCard(active);
 		where->OnManaChanges(mana);
+		if ((*active)->getUses() == 0) {
+			where->discardUI(active);
+			discardCard(active);
+		}
 	}
 	else std::cout << "Necesitas manases adicionales" << endl;
 }
@@ -138,7 +153,7 @@ void CardComponent::drawCard() {
 //Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
-	(*discarded)->resetUses();
+	(*discarded)->resetCard();
 	where->discardUI(discarded);
 	active = hand.erase(discarded);
 	if (active != hand.begin())
