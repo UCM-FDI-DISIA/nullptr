@@ -430,6 +430,9 @@
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h">
       <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\HelanigColud.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
