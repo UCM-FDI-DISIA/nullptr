@@ -36,6 +36,7 @@ void ColliderComponent::hasCollided() {
 		{
 			// Si colisiona, realiza la función
 			funct(other);
+
 		}
 	}
 }

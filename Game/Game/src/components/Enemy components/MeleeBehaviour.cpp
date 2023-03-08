@@ -32,7 +32,7 @@ void MeleeBehaviour::close() {
 }
 
 void MeleeBehaviour::update() {
-	elapsedTime = SDLApplication::instance()->getCurrentTime();
+	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	close();
 	if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
@@ -42,9 +42,7 @@ void MeleeBehaviour::update() {
 		}
 	}
 
-	if (!attacked) {
-		gObj->getComponent<ColliderComponent>()->hasCollided();
-	}
+	
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime>= attackInterval)
 	{
