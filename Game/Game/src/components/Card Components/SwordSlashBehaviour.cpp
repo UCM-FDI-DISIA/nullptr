@@ -16,7 +16,6 @@ CallBackCol SwordSlashBehaviour::swordAttack()
 	return [&](GameObject* trgt) {
 		//Comprueba si ya ha colisionado anteriormente con el mismo objeto
 		if (!hitRegistry[actualObject]) {
-			cout << "hizo damages" << endl;
 			//Hace el daño y lo añade a la lista de ya colisionados
 			trgt->getComponent<HealthComponent>()->receiveDamage(damage);
 			hitRegistry[actualObject] = true;
