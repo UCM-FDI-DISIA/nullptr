@@ -186,6 +186,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\DamageArea.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
     <ClInclude Include="src\gameObjects\Card Objects\FlashBang.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />

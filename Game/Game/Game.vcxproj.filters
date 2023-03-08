@@ -445,6 +445,9 @@
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\DamageArea.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
