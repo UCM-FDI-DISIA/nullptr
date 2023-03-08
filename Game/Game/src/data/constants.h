@@ -194,6 +194,7 @@ const int CARD_OFFSET_H = 21 * 2;
 const int MAX_HAND_SIZE = 4;
 //CARD DATA
 const float SMG_CADENCE = 0.3;
+const float BOW_CADENCE = 0.5;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
