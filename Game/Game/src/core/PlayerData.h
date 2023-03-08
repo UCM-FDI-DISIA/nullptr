@@ -34,24 +34,28 @@ class PlayerData : public Singleton<PlayerData>
 
 	float attackMult, fireRateMult;
 	
+	int level;
 
 	PlayerData();
 
 	public:
 
-		int getMaxMana() { return maxMana; }
-		int getCurrMana() { return maxMana; }
-		int getMaxHP() { return maxMana; }
-		int getCurrHP() { return maxMana; }
-		float getAttackMult() { return maxMana; }
-		float getFireRateMult() { return maxMana; }
+		inline int getMaxMana() { return maxMana; }
+		inline int getCurrMana() { return currMana; }
+		inline int getMaxHP() { return maxHP; }
+		inline int getCurrHP() { return currHP; }
+		inline float getAttackMult() { return attackMult; }
+		inline float getFireRateMult() { return fireRateMult; }
+		inline int getLevel() { return level; }
 
-		void setMaxMana(int maxMana) { this->maxMana = maxMana; }
-		void setCurrMana(int currMana) { this->currMana = currMana; }
-		void setMaxHP(int maxHP) { this->maxHP = maxHP; }
-		void setCurrHP(int currHP) { this->currHP = currHP; }
-		void setAttackMult(float attackMult) { this->attackMult = attackMult; }
-		void setFireRateMult(float fireRateMult) { this->maxMana = fireRateMult; }
+
+		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
+		inline void setCurrMana(int currMana) { this->currMana = currMana; }
+		inline void setMaxHP(int maxHP) { this->maxHP = maxHP; }
+		inline void setCurrHP(int currHP) { this->currHP = currHP; }
+		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
+		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
+		inline void setLevel(int level) { this->level = level; }
 
 
 		void getDataFromJSON();

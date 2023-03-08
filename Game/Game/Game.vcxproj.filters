@@ -163,6 +163,36 @@
     <ClCompile Include="src\components\Player components\MannaBarComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\ThrownSpearBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\CharacterAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -325,7 +355,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Laser.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSlash.h">
+    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h">
@@ -378,6 +408,39 @@
     </ClInclude>
     <ClInclude Include="src\components\Player components\MannaBarComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Bomb.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\ExplosionBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Explosion.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\EnemyGenerator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\FlashBang.h">
+      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\ConfuseBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\TankBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\CharacterAnimator.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

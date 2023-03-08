@@ -6,7 +6,6 @@
 
 // Esta clase define el comportamiento del enemigo a distancia
 // Se mueve por un tiempo determinado y se queda parado otro
-class SDLApplication;
 class RangeBehaviour :public EnemyBehaviour
 {
 private:
@@ -15,8 +14,11 @@ private:
 	float moveTime = 0;
 	bool stopped = false;
 	int shotPattern = 0;
+
+	bool attacking;
+	float attackDelay, attackTime;
 public:
-	static const int id = _RANGE_BEHAVIOR;
+	static const int id = _RANGE_BEHAVIOUR;
 
 	RangeBehaviour(float spd, float safDist, float stptime, float mvTime,
 		int dmg, int atck, Player* plyr);
@@ -24,5 +26,8 @@ public:
 	void setDirectionTo();
 	virtual void update();
 	void enemyAttack();
+
+	// Devuelve si el enemigo está en acción de ataque
+	inline bool isAttacking() { return attacking; }
 };
 

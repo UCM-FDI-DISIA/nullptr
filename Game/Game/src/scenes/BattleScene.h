@@ -5,20 +5,22 @@
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../gameObjects/Enemy Objects/RangedEnemy.h"
+#include "../gameObjects/Enemy Objects/TankEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
+#include "../gameObjects/Node Objects/Node.h"
 #include "../gameObjects/Node Objects/BattleNode.h"
 #include "../gameObjects/UI/HandUI.h"
+#include "../components/Enemy components/EnemyGenerator.h"
 
 class HandUI;
 class BattleScene : public NodeScene {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor1, *decs,*vida, *barraVida;
-	GameObject* floor2;
-	GameObject* floor3;
+	GameObject* floor, *decs,*vida, *barraVida;
 	GameObject* mana;
 	GameObject* barraMana;
+	GameObject* enemyGenerator;
 
 	vector<GameObject*> enemies;
 	battleType type;
@@ -37,6 +39,7 @@ public:
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
 	vector<GameObject*>* getEnemies();
+	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
 	Player* getPlayer() { return player; };
 
 	void createLifeBar();

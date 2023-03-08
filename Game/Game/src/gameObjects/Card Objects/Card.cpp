@@ -1,7 +1,7 @@
 #include "../Card Objects/Cards.h"
 
-Card::Card(int _damage, int _maxUses, int _mana, float _downtime, float _bulletSpeed, std::string _data, Texture* _texture) :
-	damage(_damage), maxUses(_maxUses), remainingUses(_maxUses), mana(_mana), downtime(_downtime), bulletSpeed(_bulletSpeed), texture(_texture) {
+Card::Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _data, Texture* _texture) :
+	damage(_damage), maxUses(_maxUses), remainingUses(_maxUses), mana(_mana), downtime(_downtime), texture(_texture) {
 	//Procesamiento de _data con formato: "name$attackText$abilityText"
 	int tS = 0;
 	for (int i = 0; i < _data.length(); i++) {
@@ -39,6 +39,8 @@ Card Card::getCard(CardId type) {
 		return SwordCard();
 	case laserShades:
 		return LaserShadesCard();
+	case smg:
+		return SMGCard();
 	default:
 		break;
 	}

@@ -6,39 +6,47 @@
 // Constructora
 BattleScene::BattleScene(battleType t_) : NodeScene(), type(t_) {
 	cout << "Has entrado en la escena de Batalla" << endl;
-  
-	// Quitar cuando se cree el mapa de combate
 
-	floor1 = addGameObject();
-	floor1->addComponent<Transform>(Vector2D(50,50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH,FLOOR_HEIGHT);
-	floor1->addComponent<Image>(SDLApplication::getTexture("1"));
-	floor1->getComponent<Image>()->setScrollFactor(0.5);
-
-	floor2 = addGameObject();
-	floor2->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-	floor2->addComponent<Image>(SDLApplication::getTexture("2"));
-	floor2->getComponent<Image>()->setScrollFactor(0.25);
-
-	floor3 = addGameObject();
-	floor3->addComponent<Transform>(Vector2D(50, 150), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-	floor3->addComponent<Image>(SDLApplication::getTexture("3"));
-	floor3->getComponent<Image>()->setScrollFactor(0.20);
-
+	//Suelo
+	floor = addGameObject();
+	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
+	//Selección de textura
+	switch (type) {
+	case _PASTBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("PastFloor"));
+		break;
+	case _PRESENTBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("PresentFloor"));
+		break;
+	case _FUTUREBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("FutureFloor"));
+		break;
+	case _BOSSBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
+		break;
+	}
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>();
 	camera->startFollowObject(player);
+
+	//enemyGenerator = addGameObject();
+	//enemyGenerator->addComponent<EnemyGenerator>(player, this);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
 	createLifeBar();
 	createManaBar();
 
 	//Añadimos 2 enemigos de prueba
+	/*enemies.push_back(
+		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
+	);*/
+	/*enemies.push_back(
+		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
+	);*/
+
 	enemies.push_back(
 		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);
-	enemies.push_back(
-		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
 	);
   
 
