@@ -16,8 +16,10 @@ void HealthComponent::receiveDamage(int damage)
 	lifePoints -= damage;
 	if (lifePoints <= 0) die();
 	else {
-		auto sc = dynamic_cast<BattleScene*>(gStt);
-		sc->OnPlayerDamage(lifePoints);
+		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) { 
+			auto sc = dynamic_cast<BattleScene*>(gStt); 
+			sc->OnPlayerDamage(lifePoints); 
+		}
 	}
 }
 // Cura al objeto el valor puesto

@@ -59,7 +59,8 @@
       { "id": "statisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
       { "id": "etherMeter", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeter_44x26.png" },
       { "id": "lifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
-      { "id": "manaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" }
+      { "id": "manaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
+      { "id": "statisticsNumbers", "file" :  "../Game/resources/images/UI/StatisticsNumbers_9x18.png" }
     ],
     
     "messages" : [

@@ -63,6 +63,7 @@ void Animator::render() const {
 	srcRect.w = fw * srcRectRelativeWidth;
 	srcRect.h = fh;
 	
-	if (srcRectRelativeWidth == 1) texture->render(srcRect, getRect(), 0, nullptr, flip);
-	else texture->render(srcRect, getFactoredRect(srcRectRelativeWidth), 0, nullptr, flip);
+	// Si debo renderizar menos del ancho de la textura original
+	if (srcRectRelativeWidth < 1) texture->render(srcRect, getFactoredRect(srcRectRelativeWidth), 0, nullptr, flip);
+	else texture->render(srcRect, getRect(), 0, nullptr, flip);
 }

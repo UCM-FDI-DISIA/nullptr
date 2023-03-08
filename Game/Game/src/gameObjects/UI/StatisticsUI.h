@@ -14,6 +14,10 @@ private:
 	GameObject* manaBar;
 	GameObject* healthBar;
 
+	// Contadores
+	vector<GameObject*> lifeCounter;
+	vector<GameObject*> manaCounter;
+
 	float fullMana;
 	float fullLife;
 

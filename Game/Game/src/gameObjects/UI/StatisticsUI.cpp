@@ -17,8 +17,47 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	createLifeBar(life);
 	createManaBar(mana);
 
+	// Inicialización de vida
 	fullLife = life;
 	fullMana = mana;
+
+	int cents = fullLife / 100;
+	int dec = (fullLife - cents * 100) / 10;
+	int unid = (fullLife - cents * 100 - dec * 10);
+
+	// Crear los numeros de vida
+	for (int i = 0; i < 7; i++) {
+		GameObject* number = new GameObject();
+		number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 + 60 + (12 * i), 46), Vector2D(), 9, 18, 0);
+		
+		auto anim = number->addComponent<Animator>(SDLApplication::getTexture("statisticsNumbers"), 9, 18, 6, 2);
+		for (int j = 0; j < 11; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+		if (i == 0 || i == 4) anim->play(to_string(cents));
+		else if (i == 1 || i == 5) anim->play(to_string(dec));
+		else if (i == 2 || i == 6) anim->play(to_string(unid));
+		else if (i == 3) anim->play(to_string(10));
+
+		lifeCounter.push_back(number);
+	}
+
+	cents = fullMana / 100;
+	dec = (fullMana - cents * 100) / 10;
+	unid = (fullMana - cents * 100 - dec * 10);
+
+	// Crear los numeros de maná
+	for (int i = 0; i < 7; i++) {
+		GameObject* number = new GameObject();
+		number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 140 + (12 * i), 46), Vector2D(), 9, 18, 0);
+
+		auto anim = number->addComponent<Animator>(SDLApplication::getTexture("statisticsNumbers"), 9, 18, 6, 2);
+		for (int j = 0; j < 11; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+		if (i == 0 || i == 4) anim->play(to_string(cents));
+		else if (i == 1 || i == 5) anim->play(to_string(dec));
+		else if (i == 2 || i == 6) anim->play(to_string(unid));
+		else if (i == 3) anim->play(to_string(10));
+
+		manaCounter.push_back(number);
+	}
 }
 
 // Crea la barra de vida
@@ -57,6 +96,8 @@ void StatisticsUI::render() const {
 	healthBar->render();
 	manaBar->render();
 	etherMeter->render();
+	for (int i = 0; i < 7; i++) lifeCounter[i]->render();
+	for (int i = 0; i < 7; i++) manaCounter[i]->render();
 }
 
 void StatisticsUI::OnHealthChanges(float value) {
