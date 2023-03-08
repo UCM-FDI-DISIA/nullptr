@@ -32,6 +32,7 @@ void ColliderComponent::hasCollided() {
 			pos2, width2, height2, rot2, anch2))
 		{
 			funct(other);
+
 		}
 	}
 }

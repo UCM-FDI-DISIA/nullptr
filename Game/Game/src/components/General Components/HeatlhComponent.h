@@ -8,11 +8,15 @@ private:
 	int lifePoints;
 	int maxLife;
 	int modifiedMaxLife;
+	bool player;
+	float invTime;
+	float time;
 public:
 	static const int id = _HEALTH;
-	HealthComponent(int Maxlife);
+	HealthComponent(int Maxlife, bool player = false);
 	//Delete del padre
 	void receiveDamage(int damage);
+	virtual void update();
 	void heal(int heal);
 	void die();
 	// Devuelve el valor actual de la vida
