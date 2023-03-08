@@ -1,7 +1,7 @@
 #pragma once
 #include "../Component.h"
 #include "../General Components/ColliderComponent.h"
-#include "../General Components/HeatlhComponent.h"
+#include "../General Components/HealthComponent.h"
 #include <vector>
 
 // Este componente maneja el comportamiento de los objetos Slash creados, 

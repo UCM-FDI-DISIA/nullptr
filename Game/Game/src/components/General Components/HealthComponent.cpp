@@ -1,4 +1,4 @@
-#include "HeatlhComponent.h"
+#include "HealthComponent.h"
 #include"../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"

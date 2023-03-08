@@ -82,7 +82,7 @@
     <ClCompile Include="src\components\General Components\CameraComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\General Components\HeatlhComponent.cpp">
+    <ClCompile Include="src\components\General Components\HealthComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\General Components\Image.cpp">
@@ -331,7 +331,7 @@
     <ClInclude Include="src\components\General Components\ColliderComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\HeatlhComponent.h">
+    <ClInclude Include="src\components\General Components\HealthComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\Image.h">
@@ -420,7 +420,7 @@
     </ClInclude>
     <ClInclude Include="src\utils\Collisions.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
-      </ClInclude>
+    </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Bomb.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>

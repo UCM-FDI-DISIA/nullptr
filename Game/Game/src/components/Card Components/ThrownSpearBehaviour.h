@@ -2,7 +2,7 @@
 #pragma once
 #include "../Component.h"
 #include "../General Components/ColliderComponent.h"
-#include "../General Components/HeatlhComponent.h"
+#include "../General Components/HealthComponent.h"
 #include "../../gameObjects/GameObject.h"
 #include <vector>
 
