@@ -15,6 +15,7 @@ private:
 	GameObject* statistics;
 
 	// Indicador de éter
+	GameObject* etherMeterFrame;
 	GameObject* etherMeter;
 	// Barras de vida y maná
 	GameObject* manaBar;
@@ -23,6 +24,7 @@ private:
 	// Contadores
 	vector<GameObject*> lifeCounter;
 	vector<GameObject*> manaCounter;
+	vector<GameObject*> etherCounter;
 
 	float fullMana;
 	float fullLife;
@@ -36,18 +38,21 @@ public:
 	virtual void update();
 
 	// Números de maná y vida
-	void createNumberAnims(GameObject* obj, int value, int i);
+	void createNumberAnims(GameObject* obj, int value, int i, bool isBar = true);
 
 	// Crear las barras de mana y de vida
 	void createLifeBar(int value);
 	void createManaBar(int value);
+	void createEtherMeter();
 
 	// Métodos para cambios en las barras anteriores
 	void OnManaChanges(float value);
 	void OnHealthChanges(float value);
+	void OnEtherChanges(float value);
 	void changeNumbers(vector<GameObject*> vect, int value);
 
 	// Cálculos
 	tuple<cents, decs, unids> getUnits(int value);
 	void changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value);
+	void changeAnimatorSrcRelativeHeight(GameObject* bar, float maxValue, float value);
 };

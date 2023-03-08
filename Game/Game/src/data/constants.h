@@ -123,32 +123,59 @@ const float FLOOR_WIDTH = 750*WIN_WIDTH_PER_PIXEL; //Dimension horizontal del sp
 const float FLOOR_HEIGHT = 500 * WIN_HEIGHT_PER_PIXEL; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
-// STATISTICS FRAME
-const string UI_STATISTICS = "statisticsFrame";
-const int UI_STATISTICS_WIDTH = 250;
-const int UI_STATISTICS_HEIGHT = 28;
-const Vector2D UI_STATISTICS_POSITION = Vector2D(WIN_WIDTH / 2 - UI_STATISTICS_WIDTH * 2.5 / 2, 0);
-const string UI_ETHER_METER = "etherMeter";
-const int UI_ETHER_WIDTH = 44;
-const int UI_ETHER_HEIGHT = 26;
-const Vector2D UI_ETHER_POSITION = Vector2D(WIN_WIDTH / 2 - UI_ETHER_WIDTH * 2.5 / 2 - 1, 0);
-// LIFEBAR ---------------------------------------------------------------------------------------
+// STATISTICS FRAME ------------------------------------------------------------------------------
+// KEY ANIMATIONS
+const string STATISTICS = "statisticsFrame";
 const string LIFEBAR = "lifeBar";
-const string LIFEFRAME = "LifeFrame";
-const string MANAFRAME = "LifeFrameFlipped";
 const string MANABAR = "manaBar";
-const Vector2D LIFEBAR_POSITION = Vector2D(WIN_WIDTH - 295 * 2, 15);
-const Vector2D MANABAR_POSITION = Vector2D(WIN_WIDTH / 2 - 258, 15);
+const string ETHER_METER_FRAME = "etherMeterFrame";
+const string THER_METER = "etherMeter";
+// STATISTICS
+const int STATISTICS_WIDTH = 250;
+const int STATISTICS_HEIGHT = 28;
+const int UI_STATISTICS_WIDTH = 250 * 2.5;
+const int UI_STATISTICS_HEIGHT = 28 * 2.5;
+const Vector2D UI_STATISTICS_POSITION = Vector2D(WIN_WIDTH / 2 - UI_STATISTICS_WIDTH / 2, 0);
+// BARS
 const int BAR_WIDTH = 83;
 const int BAR_HEIGHT = 10;
-const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
-const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
-const Vector2D MANA_POSITION = { WIN_WIDTH / 2 - 250, 10 };
-const Vector2D MANA_VELOCITY = VECTOR_ZERO;
-const int LIFE_WIDTH = 213;
-const int LIFE_HEIGHT = 53;
-const int MANA_WIDTH = 213;
-const int MANA_HEIGHT = 53;
+const int UI_BAR_WIDTH = 83 * 2.5;
+const int UI_BAR_HEIGHT = 10 * 2.5;
+const int BAR_ROWS = 4;
+const int BAR_COLUMNS = 3;
+const int BAR_START = 0;
+const int BAR_END = 10;
+const int BAR_FRAMERATE = 7;
+	// Lifebar
+const Vector2D LIFEBAR_POSITION = Vector2D(WIN_WIDTH - 295 * 2, 15);
+	// Manabar
+const Vector2D MANABAR_POSITION = Vector2D(WIN_WIDTH / 2 - 258, 15);
+// ETHER
+const int ETHER_FRAME_WIDTH = 44;
+const int ETHER_FRAME_HEIGHT = 26;
+const int UI_ETHER_FRAME_WIDTH = ETHER_FRAME_WIDTH * 2.5 + 1;
+const int UI_ETHER_FRAME_HEIGHT = ETHER_FRAME_HEIGHT * 2.5;
+const Vector2D UI_ETHER_FRAME_POSITION = Vector2D(WIN_WIDTH / 2 - UI_ETHER_FRAME_WIDTH / 2, 0);
+const int ETHER_WIDTH = 40;
+const int ETHER_HEIGHT = 22;
+const int UI_ETHER_WIDTH = 40 * 2.5 + 1;
+const int UI_ETHER_HEIGHT = 22 * 2.5;
+const Vector2D UI_ETHER_POSITION = Vector2D(WIN_WIDTH / 2 - ETHER_WIDTH * 2.5 / 2, 5);
+const int MAX_ETHER = 100;
+const int ETHER_ROWS = 4;
+const int ETHER_COLUMNS = 2;
+const int ETHER_START = 0;
+const int ETHER_END = 7;
+const int ETHER_FRAMERATE = 8;
+// COUNTERS
+const int N_LIFE_COUNTER = 7;
+const int N_MANA_COUNTER = 7;
+const int N_ETHER_COUNTER = 4;
+const int N_NUMBERS = 12;
+const int ST_NUMBERS_WIDTH = 9;
+const int ST_NUMBERS_HEIGHT = 18;
+const int ST_NUMBERS_ROWS = 6;
+const int ST_NUMBERS_COLUMNS = 2;
 
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;

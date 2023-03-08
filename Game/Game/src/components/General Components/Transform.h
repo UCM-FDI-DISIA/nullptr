@@ -112,12 +112,12 @@ public:
 	}
 
 	// Devuelve un rectangulo SDL con un factor que cambia el width devuelto
-	inline SDL_Rect getFactoredRect(float srcRectRelativeWidth) {
+	inline SDL_Rect getFactoredRect(float srcRectRelativeWidth, float srcRectRelativeHeight) {
 		SDL_Rect rect;
 		rect.x = position_.getX();
 		rect.y = position_.getY();
 		rect.w = width_ * srcRectRelativeWidth;
-		rect.h = height_;
+		rect.h = height_ * srcRectRelativeHeight;
 
 		return rect;
 	}

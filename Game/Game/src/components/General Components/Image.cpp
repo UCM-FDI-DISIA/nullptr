@@ -15,7 +15,7 @@ void Image::initComponent() {
 
 // Dibuja en pantalla la textura en el rectángulo del transform
 void Image::render() const {
-	texture->render(getRect(), transform->getRotation(),transform->getAnchorPoint());
+	texture->render(getRect(), transform->getRotation(), transform->getAnchorPoint());
 }
 
 //Devuelve el rect dependiendo de la cámara
@@ -32,8 +32,8 @@ SDL_Rect Image::getRect() const{
 }
 
 //Devuelve el rect dependiendo de la cámara
-SDL_Rect Image::getFactoredRect(float srcRectRelativeWidth) const {
-	SDL_Rect rect = transform->getFactoredRect(srcRectRelativeWidth);
+SDL_Rect Image::getFactoredRect(float srcRectRelativeWidth, float srcRectRelativeHeight) const {
+	SDL_Rect rect = transform->getFactoredRect(srcRectRelativeWidth, srcRectRelativeHeight);
 
 	//if (cameraTransform != nullptr) {
 	//	//Dependiendo de la posición de la cámara

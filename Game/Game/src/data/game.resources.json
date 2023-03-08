@@ -57,10 +57,11 @@
       { "id" : "3", "file" : "../Game/resources/images/UI/BattleScene/3.png" },
 
       { "id": "statisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
-      { "id": "etherMeter", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeter_44x26.png" },
+      { "id": "etherMeterFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeterFrame_44x26.png" },
+      { "id": "etherMeter", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeter_40x22.png" },
       { "id": "lifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
       { "id": "manaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
-      { "id": "statisticsNumbers", "file" :  "../Game/resources/images/UI/StatisticsNumbers_9x18.png" }
+      { "id": "statisticsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/StatisticsNumbers_9x18.png" }
     ],
     
     "messages" : [

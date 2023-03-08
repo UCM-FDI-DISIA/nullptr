@@ -26,7 +26,7 @@ public:
 	// Dibuja en pantalla la textura en el rectángulo del transform
 	virtual void render() const;
 	virtual SDL_Rect getRect() const;
-	virtual SDL_Rect getFactoredRect(float srcRectRelativeWidth) const;
+	virtual SDL_Rect getFactoredRect(float srcRectRelativeWidth, float srcRectRelativeHeight) const;
 	// Hace que el GameObject se renderice en función a la ventana, no a la cámara
 	void attachToCamera();
 	// Flipea la imagen horizontalmente
