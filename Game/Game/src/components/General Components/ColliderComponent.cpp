@@ -6,9 +6,10 @@ ColliderComponent::ColliderComponent(CallBackCol myFunct, grpId list)
 	myId = list;
 	funct = myFunct;
 }
-void ColliderComponent::initComponent()
+
+void ColliderComponent::update()
 {
-	
+	hasCollided();
 }
 // Comprueba la colisión del objeto con la lista de colisionados
 void ColliderComponent::hasCollided() {

@@ -1,3 +1,4 @@
+
 #pragma once
 #include "../Component.h"
 #include "../General Components/ColliderComponent.h"
@@ -17,6 +18,7 @@ public:
 	{
 		damage = dmg;
 	}
+
 	CallBackCol spearAttack()
 	{
 		return [&](GameObject* gameObject)

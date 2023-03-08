@@ -14,6 +14,6 @@ public:
 	static const int id = _COLLIDER_COMPONENT;
 	//Devuelve un booleano de colision entre el objeto y el objetivo
 	ColliderComponent(CallBackCol myFunct, grpId list);
-	virtual void initComponent();
+	virtual void update();
 	void hasCollided();
 };

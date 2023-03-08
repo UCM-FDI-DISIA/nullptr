@@ -17,6 +17,5 @@ public:
 	// Recibe un vector de enemigos con los que debera colisionar la bala del player y crea el vector de colisionados del mismo tamaño
 	SwordSlashBehaviour(int dmg, grpId Target);
 	virtual void initComponent();
-	virtual void update();
 	CallBackCol swordAttack();
 };

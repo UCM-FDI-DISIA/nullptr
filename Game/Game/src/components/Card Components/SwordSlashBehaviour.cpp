@@ -10,10 +10,6 @@ void SwordSlashBehaviour::initComponent()
 {
 	hitRegistry.assign(gStt->getEntitiesByGroup(myGroup).size(), false);
 }
-void SwordSlashBehaviour:: update()
-{
-	gObj->getComponent<ColliderComponent>()->hasCollided();
-}
 // Función a realizar cuando choca
 CallBackCol SwordSlashBehaviour::swordAttack()
 {

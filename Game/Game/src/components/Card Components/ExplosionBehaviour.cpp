@@ -15,7 +15,6 @@ void ExplosionBehaviour::update()
 		scene->addGameObject<Explosion>(_grp_PLYR_ATTACK, tr->getCenter(), scene, damage, target);
 		gObj->setAlive(false);
 	}
-	gObj->getComponent<ColliderComponent>()->hasCollided();
 }
 CallBackCol ExplosionBehaviour::explosionAttack()
 {

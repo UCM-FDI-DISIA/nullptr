@@ -17,10 +17,6 @@ public:
 	{
 		damage = dmg;
 	}
-	virtual void update()
-	{
-		gObj->getComponent<ColliderComponent>()->hasCollided();
-	}
 	// Función que se realiza cuando choca
 	CallBackCol bulletAttack()
 	{
