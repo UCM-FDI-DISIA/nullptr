@@ -4,6 +4,7 @@
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
+	// ... (compoment ids)
 	_TRANSFORM = 0,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
@@ -16,10 +17,12 @@ enum cmpId : cmpId_type {
 	_MELEE_BEHAVIOUR,
 	_RANGE_BEHAVIOR,
 	_COLLIDER_COMPONENT,
-	_BULLET_COMPONENT,
-	_SWORD_BEHAVIOUR,
+	_HITBOX_DAMAGE_COMPONENT,
+	_HITBOX_STATUS_COMPONENT,
+	_HITBOX_EXPLOSION_COMPONENT,
 	_LIFETIME,
-	// ... (compoment ids)
+	_MANA_BAR_COMPONENT,
+	_ENEMY_GEN,
 
 	// do not remove this
 	_LAST_CMP_ID
