@@ -23,7 +23,6 @@ protected:
 	float speed;
 	int damage;
 	vector<GameObject*>::iterator posVector;
-	// AttackComponent* attack (cuando este cerca del player, envia un mensaje para atacar)
 public:
 	
 	//Constructora para la herencia

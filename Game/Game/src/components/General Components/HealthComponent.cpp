@@ -26,6 +26,9 @@ void HealthComponent::receiveDamage(int damage)
 	}
 	if (lifePoints <= 0) die();
 }
+void HealthComponent::initComponent() {
+	onDeath = gObj->getComponent<OnDeath>();
+}
 void HealthComponent::update()
 {
 	time += SDLApplication::instance()->getDeltaTime();
@@ -40,6 +43,7 @@ void HealthComponent::heal(int heal)
 // En el caso del jugador, termina la partida
 void HealthComponent::die()
 {
+	onDeath->death();
 	auto sc = dynamic_cast<BattleScene*>(gStt);
 	if (gObj->hasComponent<CardComponent>()) {
 		sc->OnPlayerDies();

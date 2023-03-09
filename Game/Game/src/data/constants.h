@@ -1,4 +1,5 @@
 
+
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
@@ -182,6 +183,12 @@ const int LIFE_WIDTH = 213;
 const int LIFE_HEIGHT = 53;
 const int MANA_WIDTH = 213;
 const int MANA_HEIGHT = 53;
+
+//MANA -------------------------------------------------------------------------------------------
+const int MANA_H = 10;
+const int MANA_W = 10;
+const int MANA_OFFSET = 10;
+const int MANA_VALUE = 5;
 
 // CARDS -----------------------------------------------------------------------------------------
 const int REVERSE_WIDTH = 58 * 2;

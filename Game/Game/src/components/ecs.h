@@ -23,6 +23,7 @@ enum cmpId : cmpId_type {
 	_MANA_BAR_COMPONENT,
 	_EXPLOSION_BEHAVIOUR,
 	_ENEMY_GEN,
+	_ON_DEATH,
 	// ... (compoment ids)
 
 	// do not remove this
