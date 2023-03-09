@@ -4,7 +4,7 @@ PlayerData::PlayerData() {
 	maxHP = 100;
 	currHP = maxHP;
 
-	maxMana = 100;
+	maxMana = 10000;
 	currMana = maxMana;
 
 	fireRateMult = 1;
@@ -21,18 +21,8 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 
 	deck.push_back(new LaserShadesCard());
-	deck.push_back(new SMGCard());
 
-	deck.push_back(new SMGCard());
-
-	deck.push_back(new SpearCard());
-
-	deck.push_back(new GunCard());
-
-	deck.push_back(new SwordCard());
-
-	deck.push_back(new SpearCard());
-
+	deck.push_back(new PulgaCard());
 }
 
 void PlayerData::getDataFromJSON()

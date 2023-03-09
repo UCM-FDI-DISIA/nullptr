@@ -1,13 +1,13 @@
 #pragma once
-#include "../Component.h"
 #include "../General Components/Transform.h"
 #include "../../utils/Collisions.h"
+#include "../Card Components/HitboxComponent.h"
 #include <vector>
 class GameObject;
 class ColliderComponent : public Component
 {
 private:
-	vector <CallBackCol> functions;
+	vector <HitboxComponent*> functions;
 	grpId target;
 public:
 	static const int id = _COLLIDER_COMPONENT;
@@ -15,5 +15,5 @@ public:
 	ColliderComponent(grpId list);
 	virtual void update();
 	void hasCollided();
-	void addFunction(CallBackCol funct);
+	void addFunction(HitboxComponent* funct);
 };

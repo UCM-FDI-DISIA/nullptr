@@ -8,14 +8,14 @@ void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 	dir = dir.normalize();
 
-	Hitbox::HitboxData data = {playerPos, dir * BULLET_SPEED, Vector2D(data.width / 2, data.height / 2), 16, 16, 0, "Bullet", _grp_ENEMIES};
+	Hitbox::HitboxData data = {playerPos, dir * BULLET_SPEED, 0, 16, 16, "Bullet", _grp_ENEMIES};
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 3, where, data);
 }
 
 void PulgaCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
-	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, Vector2D(data.width / 2, data.height / 2), 800, 800, 0, "FlashBang", _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "FlashBang", _grp_ENEMIES };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, remainingUses, HitboxStatusComponent::CONFUSED, 0.5, data);
 }

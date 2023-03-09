@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
@@ -253,6 +255,7 @@
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />

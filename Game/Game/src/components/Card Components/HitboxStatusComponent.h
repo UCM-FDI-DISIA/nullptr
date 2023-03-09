@@ -1,12 +1,12 @@
 #pragma once
-#include "../Component.h"
+#include "HitboxStatusComponent.h"
 #include "../General Components/ColliderComponent.h"
 #include "../../gameObjects/GameObject.h"
 #include <vector>
 
 
 // Este componente maneja el comportamiento de los objetos Slash creados, 
-class HitboxStatusComponent : public Component {
+class HitboxStatusComponent : public HitboxComponent {
 public:
 	enum Status {
 		CONFUSED,
@@ -19,17 +19,17 @@ public:
 
 	inline void initComponent() override
 	{
-		gObj->getComponent<ColliderComponent>()->addFunction(statusFunction());
+		gObj->getComponent<ColliderComponent>()->addFunction(this);
 	}
+
+	void hitboxFunction(GameObject* trgt) override
+	{
+		//trgt->getComponent<StatusComponent>()->confuse(duration);
+	}
+
 
 private:
 	float duration;
 	Status status;
 
-	CallBackCol statusFunction()
-	{
-		return [&](GameObject* trgt) {
-			//trgt->getComponent<StatusComponent>()->confuse(duration);
-		};
-	}
 };

@@ -8,7 +8,7 @@ void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	
 	dir = dir.normalize();
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, Vector2D(data.width / 2, data.height / 2), 30, 30, 0, "Bullet", _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_ENEMIES };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
 
@@ -21,7 +21,7 @@ void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 
 		dir = dir.normalize();
 
-		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, Vector2D(data.width / 2, data.height / 2), 30, 30, 0, "Bullet", _grp_ENEMIES };
+		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_ENEMIES };
 
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
 	}

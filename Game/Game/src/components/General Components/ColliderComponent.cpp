@@ -8,10 +8,10 @@ ColliderComponent::ColliderComponent(grpId id)
 
 void ColliderComponent::update()
 {
-	hasCollided();
+	if (functions.size() > 0) hasCollided();
 }
 
-void ColliderComponent::addFunction(CallBackCol function) {
+void ColliderComponent::addFunction(HitboxComponent* function) {
 	functions.push_back(function);
 }
 
@@ -38,8 +38,7 @@ void ColliderComponent::hasCollided() {
 											 pos2, width2, height2, rot2, anch2))
 		{
 			// Si colisiona, realiza la funci�n
-			for(CallBackCol function : functions) function;
-
+			for(HitboxComponent* function : functions) function->hitboxFunction(other);
 		}
 	}
 }

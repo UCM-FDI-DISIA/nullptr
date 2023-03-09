@@ -14,8 +14,9 @@ void MeleeBehaviour::initComponent() {
 	hasBeenCloseToPlayer = false;
 	attacked = false;
 	elapsedTime = SDL_GetTicks();
-	gObj->getComponent<ColliderComponent>()->addFunction(meleeAttack());
+	gObj->getComponent<ColliderComponent>()->addFunction(this);
 }
+
 
 //Metodo para saber si el enemigo esta cerca del player
 void MeleeBehaviour::close() {
@@ -55,15 +56,13 @@ void MeleeBehaviour::update() {
 	
 	pos->lookAt(playerPos->getPos());
 }
+
 // Funci�n a realizar en colision
-CallBackCol MeleeBehaviour::meleeAttack()
+void MeleeBehaviour::hitboxFunction(GameObject* player)
 {
-	return [&](GameObject* gameObject)
-	{
 		//Da�a al jugador e informa de que ha atacado
 		player->getComponent<HealthComponent>()->receiveDamage(damage);
 		attacked = true;
-	};
 }
 
 
