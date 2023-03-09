@@ -147,11 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\components\Card Components\BulletBehavior.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
-    <ClInclude Include="src\components\Card Components\ConfuseBehaviour.h" />
-    <ClInclude Include="src\components\Card Components\ExplosionBehaviour.h" />
-    <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h" />
+    <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
@@ -182,16 +181,9 @@
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
     <ClInclude Include="src\framework.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Bomb.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\FlashBang.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h" />
@@ -234,9 +226,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
-    <ClCompile Include="src\components\Card Components\SwordSlashBehaviour.cpp" />
-    <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp" />
-    <ClCompile Include="src\components\Card Components\ThrownSpearBehaviour.h" />
     <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
@@ -263,7 +252,6 @@
     <ClCompile Include="src\data\json\JSON.cpp" />
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
