@@ -27,7 +27,7 @@ public:
 	virtual void update();
 	void enemyAttack();
 
-	// Devuelve si el enemigo está en acción de ataque
+	// Devuelve si el enemigo estï¿½ en acciï¿½n de ataque
 	inline bool isAttacking() { return attacking; }
 };
 

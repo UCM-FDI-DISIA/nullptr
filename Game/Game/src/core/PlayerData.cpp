@@ -1,30 +1,16 @@
 #include "PlayerData.h"
-#include "../cards/Cards.h"
+#include "../gameObjects/Card Objects/Cards.h"
 PlayerData::PlayerData() {
 	maxHP = 100;
 	currHP = maxHP;
 
-	maxMana = INT_MAX;
+	maxMana = 100;
 	currMana = maxMana;
 
 	fireRateMult = 1;
 	attackMult = 1;
 
-	deck.push_back(new GunCard());
-
-	deck.push_back(new SwordCard());
-
-	deck.push_back(new LaserShadesCard());
-
-	deck.push_back(new SwordCard());
-
-	deck.push_back(new GunCard());
-
-	deck.push_back(new GunCard());
-
-	deck.push_back(new SwordCard());
-
-	deck.push_back(new LaserShadesCard());
+	level = 5;
 
 	deck.push_back(new SMGCard());
 
@@ -35,6 +21,15 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 
 	deck.push_back(new LaserShadesCard());
+	deck.push_back(new SMGCard());
+
+	deck.push_back(new SMGCard());
+
+	deck.push_back(new SpearCard());
+
+	deck.push_back(new GunCard());
+
+	deck.push_back(new SwordCard());
 
 	deck.push_back(new SpearCard());
 

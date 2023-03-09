@@ -6,5 +6,7 @@ class SDLApplication;
 class GameOverScene : public GameState {
 public:
 	GameOverScene();
-	static void mainMenu();
+	
+	// Crear un botón especificado en la escena
+	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };

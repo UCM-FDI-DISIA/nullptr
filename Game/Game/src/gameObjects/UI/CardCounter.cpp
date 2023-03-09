@@ -16,9 +16,9 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	if (_ref)
 	{
 		//SI soy mazo debo enseñar la animacion de barajear
-		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHCARTA), 90, 93, 1, 5);
+		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHUFFLING_CARDS), 90, 93, 1, 5);
 		anim->attachToCamera();
-		anim->createAnim(SHCARTA, 0, 4, 5, 1);
+		anim->createAnim(SHUFFLING_CARDS, 0, 4, 5, 1);
 		anim->createAnim(IDLE, 0, 0, 1, 1);
 		anim->play(IDLE);
 	}
@@ -118,5 +118,5 @@ void CardCounter::createAnims(Animator* &_anim) {
 
 //Metodo para reproducir la animacion de barajar el mazo
 void CardCounter::showShuffle() {
-	if (amIDeck) { getComponent<Animator>()->play(SHCARTA); }
+	if (amIDeck) { getComponent<Animator>()->play(SHUFFLING_CARDS); }
 }
