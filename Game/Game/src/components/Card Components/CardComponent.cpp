@@ -86,7 +86,6 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		mana -= (*active)->getMana();
 		where->OnManaChanges(mana);
 		if ((*active)->getUses() == 0) {
-			where->discardUI(active);
 			discardCard(active);
 		}
 	}
