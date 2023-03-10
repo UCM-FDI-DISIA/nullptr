@@ -12,7 +12,8 @@ using namespace std;
 class GameState {
 protected:
     Camera* camera = nullptr;
-    std::array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
+    array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
+
 public:
     // Constructor
     GameState();

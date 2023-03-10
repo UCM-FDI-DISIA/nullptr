@@ -16,6 +16,9 @@ private:
 	AnimationMap anims;
 	string currentAnimKey;
 	Animation* currentAnimation;
+	float srcRectRelativeWidth = 1;
+	float srcRectRelativeHeight = 1;
+
 public:
 	// Constructora
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
@@ -43,6 +46,20 @@ public:
 
 	// Renderiza el frame actual
 	virtual void render() const;
+
+	// Settea el valor para el cambio del tamaño del srcRect
+	inline void setSrcRectRelativeWidth(float rw) {
+		if (rw > 1) rw = 1;
+		else if (rw < 0) rw = 0;
+		srcRectRelativeWidth = rw;
+	}
+
+	// Settea el valor para el cambio del tamaño del srcRect
+	inline void setSrcRectRelativeHeight(float rh) {
+		if (rh > 1) rh = 1;
+		else if (rh < 0) rh = 0;
+		srcRectRelativeHeight = rh;
+	}
 
 	// Devuelve el nombre de la animacion actual
 	inline string currentAnimationKey() { return currentAnimKey; }
