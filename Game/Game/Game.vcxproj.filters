@@ -64,9 +64,6 @@
     <ClCompile Include="src\components\Card Components\CardComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp">
-      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
@@ -191,7 +188,7 @@
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp">
-      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -343,9 +340,6 @@
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
-      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h">
       <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
@@ -421,11 +415,11 @@
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Card Components\HitboxComponent.h">
-      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Explosive.h">
       <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

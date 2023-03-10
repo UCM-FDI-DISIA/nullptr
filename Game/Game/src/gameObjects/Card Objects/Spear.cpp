@@ -19,4 +19,6 @@ void SpearCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 	Hitbox::HitboxData data = { playerPos, dir * THROWN_SPEAR_SPEED, rotation, 100, 30, "SpearThrust", _grp_ENEMIES };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, true, 10, data);
+
+	remainingUses = 0;
 }

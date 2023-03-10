@@ -1,9 +1,8 @@
 #pragma once
-#include "HitboxComponent.h"
+#include "../Component.h"
 #include "../../gameObjects/Card Objects/Hitbox.h"
-#include "../../core/SDLApplication.h"
 
-class HitboxExplosionComponent :  public HitboxComponent
+class HitboxExplosionComponent :  public Component
 {
 private:
     //Duracion del gObj
@@ -23,16 +22,7 @@ public:
 	void initComponent()
 	{
 		tr = gObj->getComponent<Transform>();
-		if(contact) gObj->getComponent<ColliderComponent>()->addFunction(this);
-	}
-
-	void hitboxFunction(GameObject* trgt) override
-	{
-		Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, 250, 250, "Bullet", _grp_ENEMIES };
-
-		scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 0.25, data);
-
-		gObj->setAlive(false);
+		if(contact) gObj->getComponent<ColliderComponent>()->addFunction(explosionFunction());
 	}
 
 
@@ -50,4 +40,16 @@ public:
 			gObj->setAlive(false);
 		}
 	}
+
+	CallBackCol explosionFunction()
+	{
+		return [&](GameObject* trgt) {
+			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, 250, 250, "Bullet", _grp_ENEMIES };
+
+			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 0.25, data);
+
+			gObj->setAlive(false);
+		};
+	}
+
 };

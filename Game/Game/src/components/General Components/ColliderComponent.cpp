@@ -11,7 +11,7 @@ void ColliderComponent::update()
 	if (functions.size() > 0) hasCollided();
 }
 
-void ColliderComponent::addFunction(HitboxComponent* function) {
+void ColliderComponent::addFunction(CallBackCol function) {
 	functions.push_back(function);
 }
 
@@ -38,7 +38,7 @@ void ColliderComponent::hasCollided() {
 											 pos2, width2, height2, rot2, anch2))
 		{
 			// Si colisiona, realiza la funci�n
-			for(HitboxComponent* function : functions) function->hitboxFunction(other);
+			for(CallBackCol function : functions) function(other);
 		}
 	}
 }

@@ -14,7 +14,7 @@ void TankBehaviour::initComponent() {
 
 	elapsedTime = 0;
 
-	gObj->getComponent<ColliderComponent>()->addFunction(this);
+	gObj->getComponent<ColliderComponent>()->addFunction(tankAttack());
 }
 
 void TankBehaviour::update() {
@@ -78,9 +78,11 @@ void TankBehaviour::enemyAttack() {
 	}
 }
 
-void TankBehaviour::hitboxFunction(GameObject* player)
+CallBackCol TankBehaviour::tankAttack()
 {
+	return [&](GameObject* player) {
 		player->getComponent<HealthComponent>()->receiveDamage(damage);
 		attacked = true;
 		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
+	};
 }

@@ -20,5 +20,6 @@ public:
 	void setDirectionTo();
 
 	void enemyAttack();
-	void hitboxFunction(GameObject* player);
+
+	CallBackCol tankAttack();
 };

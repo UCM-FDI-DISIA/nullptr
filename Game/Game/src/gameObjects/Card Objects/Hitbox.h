@@ -19,28 +19,28 @@ public:
 		grpId trgt;
 	};
 
-	virtual void initGameObject(HitboxData data, Vector2D anch = Vector2D(-1,-1)) {
+	void initGameObject(HitboxData data, Vector2D anch = Vector2D(-1,-1)) {
 		if (anch.getX() == -1) anch = Vector2D(data.width / 2, data.height / 2);
 		addComponent<Transform>(data.pos - Vector2D(data.width/2, data.height/2), data.vel, anch, data.width, data.height, data.rot);
 		addComponent<Image>(SDLApplication::getTexture(data.texture));
 		addComponent<ColliderComponent>(data.trgt);
 	}
 
-	virtual void initGameObject(int dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
 		addComponent<HitboxDamageComponent>(dmg, isDestroyed, knockBack);
 	}
 
-	virtual void initGameObject(float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
 		addComponent<HitboxStatusComponent>(stts, drtn);
 	}
 
-	virtual void initGameObject(int dmg, bool isDestroyed, bool knockBack, float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
 	{
 		initGameObject(dmg, isDestroyed, knockBack, lifetime, data, anch);
 		addComponent<HitboxStatusComponent>(stts, drtn);

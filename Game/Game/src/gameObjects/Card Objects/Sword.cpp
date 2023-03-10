@@ -20,4 +20,5 @@ void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.1, data);
 
+	remainingUses = 0;
 }

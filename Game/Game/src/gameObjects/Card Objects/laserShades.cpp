@@ -27,5 +27,6 @@ void LaserShadesCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.08, data, Vector2D(0, data.height / 2));
 	}
+
 	remainingUses = 0;
 }

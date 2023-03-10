@@ -6,7 +6,7 @@
 
 
 // Este componente maneja el comportamiento de los objetos Slash creados, 
-class HitboxStatusComponent : public HitboxComponent {
+class HitboxStatusComponent : public Component {
 public:
 	enum Status {
 		CONFUSED,
@@ -19,14 +19,15 @@ public:
 
 	inline void initComponent() override
 	{
-		gObj->getComponent<ColliderComponent>()->addFunction(this);
+		gObj->getComponent<ColliderComponent>()->addFunction(statusFunction());
 	}
 
-	void hitboxFunction(GameObject* trgt) override
-	{
-		//trgt->getComponent<StatusComponent>()->confuse(duration);
+	CallBackCol statusFunction() {
+		return [&](GameObject* trgt)
+		{
+			//trgt->getComponent<StatusComponent>()->confuse(duration);
+		};
 	}
-
 
 private:
 	float duration;

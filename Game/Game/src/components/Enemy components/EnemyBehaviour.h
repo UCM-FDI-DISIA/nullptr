@@ -1,5 +1,5 @@
 #pragma once
-#include "../Card Components/HitboxComponent.h"
+#include "../Component.h"
 #include "../General Components/Transform.h"
 #include "../General Components/HealthComponent.h"
 #include "../../gameObjects/Player Object/Player.h"
@@ -7,7 +7,7 @@
 // Clase abstracta que junta la logica común del comportamiento enemigo como su posición,
 // la del jugador y su velocidad
 
-class EnemyBehaviour: public HitboxComponent
+class EnemyBehaviour: public Component
 {
 protected:
 	Transform* pos;
