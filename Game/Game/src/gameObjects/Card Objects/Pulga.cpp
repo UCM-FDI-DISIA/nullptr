@@ -9,11 +9,10 @@ void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 	dir = dir.normalize();
 
-	where->addGameObject<Bomb>(playerPos, dir, damage * attackMult, where);
+	where->addGameObject<Bomb>(_grp_PLYR_ATTACK, playerPos, dir, damage * attackMult, where, _grp_ENEMIES);
 }
 
 void PulgaCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
-	where->addGameObject<FlashBang>(playerPos, where, remainingUses);
-	remainingUses=0;
+	where->addGameObject<FlashBang>(_grp_PLYR_ATTACK, playerPos, where, remainingUses, _grp_ENEMIES);
 }

@@ -6,7 +6,7 @@
 #include "../../components/Player components/PlayerMovementComponent.h"
 #include "../../scenes/GameState.h"
 #include "../../components/Card Components/CardComponent.h"
-#include "../../components/General Components/HeatlhComponent.h"
+#include "../../components/General Components/HealthComponent.h"
 
 class Player : public GameObject {
 private:

@@ -28,11 +28,11 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	}
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
-	player = addGameObject<Player>();
+	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);
 
-	//enemyGenerator = addGameObject();
-	//enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	enemyGenerator = addGameObject();
+	enemyGenerator->addComponent<EnemyGenerator>(player, this);
 
 	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
 	createLifeBar();
@@ -69,6 +69,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	// El puntero sigue al player
 	pointer->setFollowObject(player);
 }
+
 void BattleScene::update() {
 	for (GameObject* gObj : gObjs) {
 		gObj->update();
@@ -88,10 +89,6 @@ void BattleScene::update() {
 
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
-}
-
-vector<GameObject*>* BattleScene::getEnemies() {
-	return &enemies;
 }
 
 void BattleScene::OnPlayerDies() {
