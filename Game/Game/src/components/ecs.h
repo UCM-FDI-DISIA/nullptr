@@ -37,8 +37,8 @@ enum grpId : grpId_type {
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
-	_grp_HUD,
-	_grp_POINTER,
+	
+	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
 	_LAST_GRP_ID
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;

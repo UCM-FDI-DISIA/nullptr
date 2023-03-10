@@ -67,7 +67,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	hand = addGameObject<HandUI>(cardComp);
 
 	// El puntero sigue al player
-	pointer->setFollowObject(player);
+	pointer->getComponent<PointerComponent>()->setFollowObject(player);
 }
 
 void BattleScene::mainMenu() {
