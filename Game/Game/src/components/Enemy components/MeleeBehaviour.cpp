@@ -38,21 +38,19 @@ void MeleeBehaviour::update() {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 		if (elapsedTime >= behaviorTime) {
 			pos->setVel(initialDir);
-			attacked = true;
+			attacked = false;
 			hasBeenCloseToPlayer = false;
 		}
-	}
 
-	
+	}
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime>= attackInterval)
 	{
-		attacked = true;
+		//attacked = true;
 		meleeAttack();
 		//Reseteamos el contador
 		behaviorTime -= attackInterval;
 	}
-	
 	pos->lookAt(playerPos->getPos());
 }
 // Funci�n a realizar en colision
