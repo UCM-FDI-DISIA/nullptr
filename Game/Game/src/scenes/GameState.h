@@ -11,7 +11,7 @@ class GameState {
 protected:
     Camera* camera;
     Pointer* pointer;
-    std::array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
+    array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
 public:
     // Constructor
     GameState();
