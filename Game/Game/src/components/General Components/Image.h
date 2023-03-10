@@ -14,10 +14,11 @@ class Image : public Component {
 protected:
 	Texture* texture;
 	Transform* transform;
-	Transform* cameraTransform;
+	//Transform* cameraTransform;
 	SDL_RendererFlip flip;
 	float scrollFactor;
 public:
+	Transform* cameraTransform;
 	static const int id = _IMAGE;
 	// Constructora
 	Image(Texture* _texture);

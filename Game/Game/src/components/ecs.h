@@ -7,6 +7,7 @@ enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
+	_POINTERCOMPONENT,
 	_CARDCOMPONENT,
 	_HEALTH,
 	_CAMERACOMPONENT,
@@ -36,10 +37,9 @@ enum grpId : grpId_type {
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
-
-	// La UI siempre debe ser la última en renderizarse!
+	
 	_grp_UI,
-
+	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
 	// do not remove this
 	_LAST_GRP_ID
 };
