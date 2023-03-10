@@ -9,7 +9,7 @@ SDLApplication::SDLApplication() {
 	window = utils->window();
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
-	//utils->hideCursor();
+	utils->hideCursor();
 
 	Node::initializeNodeMap();
 

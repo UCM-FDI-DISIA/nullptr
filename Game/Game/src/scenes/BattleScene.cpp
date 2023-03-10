@@ -70,23 +70,6 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	pointer->setFollowObject(player);
 }
 
-void BattleScene::update() {
-	for (GameObject* gObj : gObjs) {
-		gObj->update();
-		pointer->update();
-	}
-	auto it = enemies.begin();
-	while (it != enemies.end())
-	{
-		if ((*it)->isAlive() == false) {
-			auto itAux = it;
-			it = enemies.erase(itAux);
-		}
-		else it++;
-	}
-	refresh();
-}
-
 void BattleScene::mainMenu() {
 	SDLApplication::newScene<MainMenuScene>();
 }

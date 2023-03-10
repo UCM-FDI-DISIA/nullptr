@@ -7,7 +7,7 @@ GameState::GameState() : entsByGroup_() {
         grpEnts.reserve(100); //Reserva espacio para cada lista
     }
     camera = addGameObject<Camera>();
-    pointer = addGameObject<Pointer>();
+    pointer = addGameObject<Pointer>(_grp_POINTER);
 }
 
 // Destructor
@@ -16,9 +16,6 @@ GameState::~GameState() {
         for (auto e : group)
             delete e;
     }
-
-    delete pointer;
-    pointer = nullptr;
 }
 
 // Actualiza los objetos de la escena
@@ -27,7 +24,6 @@ void GameState::update() {
         for (auto e : group) {
             e->update();
         }
-        pointer->update();
     }
 
     refresh();
@@ -39,15 +35,15 @@ void GameState::render() const {
         for (auto e : group) {
             e->render();
         }
-        pointer->render();
     }
 }
 
 // Maneja el evento actual
 void GameState::handleInput() {
     for (auto& group : entsByGroup_) {
-        for (auto e : group)
+        for (auto e : group) {
             e->handleInput();
+        }
     }
 }
 
