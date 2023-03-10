@@ -145,10 +145,10 @@ const Vector2D PM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH 
 const Vector2D PM_INVENTORY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 8);
 const Vector2D PM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 6 / 8);
 const Vector2D PM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 7 / 8);
-const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - Vector2D(48, 88);
-const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - Vector2D(48, 88);
-const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
-const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - Vector2D(48, 88);
+const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - FRAME_OFFSET;
+const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - FRAME_OFFSET;
+const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - FRAME_OFFSET;
+const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
@@ -164,12 +164,14 @@ const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
-const string STATISTICS = "statisticsFrame";
-const string LIFEBAR = "lifeBar";
-const string MANABAR = "manaBar";
-const string ETHER_METER_FRAME = "etherMeterFrame";
-const string ETHER_METER = "etherMeter";
-const string ETHER_ANIM = "ether";
+const string STATISTICS = "StatisticsFrame";
+const string LIFEBAR = "LifeBar";
+const string MANABAR = "ManaBar";
+const string ETHER_METER_FRAME = "EtherMeterFrame";
+const string ETHER_METER = "EtherMeter";
+const string STATISTICS_NUMBERS = "StatisticsNumbers";
+const string ETHER_ANIM = "Ether";
+
 // STATISTICS
 const int STATISTICS_WIDTH = 250;
 const int STATISTICS_HEIGHT = 28;

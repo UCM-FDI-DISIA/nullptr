@@ -7,6 +7,9 @@ class StatisticsUI : public GameObject {
 private:
 	// Objeto
 	GameObject* statistics;
+	
+	// Vector de objetos
+	vector<GameObject*> objs;
 
 	// Indicador de éter
 	GameObject* etherMeterFrame;

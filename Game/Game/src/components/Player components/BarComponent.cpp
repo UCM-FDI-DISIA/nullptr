@@ -86,5 +86,5 @@ void BarComponent::changeAnimatorSrcRelativeHeight(GameObject* meter, float maxV
 
 // Devuelve en 0.XX el valor del factor que usar en el animator
 float BarComponent::getFactored(float maxValue, float value) {
-	return (100 * value) / (maxValue * 100);
+	return value / maxValue;
 }

@@ -5,11 +5,13 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	statistics = new GameObject();
 	statistics->addComponent<Transform>(UI_STATISTICS_POSITION, Vector2D(), UI_STATISTICS_WIDTH, UI_STATISTICS_HEIGHT);
 	statistics->addComponent<Image>(SDLApplication::getTexture(STATISTICS))->attachToCamera();
+	objs.push_back(statistics);
 
 	// Medidor de éter
 	etherMeterFrame = new GameObject();
 	etherMeterFrame->addComponent<Transform>(UI_ETHER_FRAME_POSITION, Vector2D(), UI_ETHER_FRAME_WIDTH, UI_ETHER_FRAME_HEIGHT);
 	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(ETHER_METER_FRAME))->attachToCamera();
+	objs.push_back(etherMeterFrame);
 
 	// Crear barras de vida
 	createLifeBar(life);
@@ -29,8 +31,9 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 + 60 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
 		createNumberAnims(number, fullLife, i);
 
-		// Añadir a su vector
+		// Añadir a los vectores
 		lifeCounter.push_back(number);
+		objs.push_back(number);
 	}
 
 	// Crear los numeros de maná
@@ -44,6 +47,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 
 		// Añadir a su vector
 		manaCounter.push_back(number);
+		objs.push_back(number);
 	}
 
 	for (int i = 0; i < N_ETHER_COUNTER; i++) {
@@ -56,6 +60,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		createNumberAnims(number, 0, i, false);
 
 		etherCounter.push_back(number);
+		objs.push_back(number);
 	}
 }
 
@@ -75,6 +80,9 @@ void StatisticsUI::createLifeBar(int value) {
 
 	// Componente de barra
 	healthBar->addComponent<BarComponent>(value);
+
+	// Añadir al vector
+	objs.push_back(healthBar);
 }
 
 // Crea la barra de mana
@@ -94,6 +102,9 @@ void StatisticsUI::createManaBar(int value) {
 
 	// Componente de barra
 	manaBar->addComponent<BarComponent>(value);
+
+	// Añadir al vector
+	objs.push_back(manaBar);
 }
 
 // Crea el medidor de eter
@@ -113,25 +124,19 @@ void StatisticsUI::createEtherMeter() {
 	// Componente de barra
 	auto barComp = healthBar->addComponent<BarComponent>();
 	barComp->changeAnimatorSrcRelativeHeight(etherMeter, MAX_ETHER, 0);
+
+	// Añadir al vector
+	objs.push_back(etherMeter);
 }
 
 // Llama al update de los distintos GameObjects
 void StatisticsUI::update() {
-	healthBar->update();
-	manaBar->update();
-	etherMeter->update();
+	for (GameObject* g : objs) g->update();
 }
 
 // Renderizar los distintos GameObjects
 void StatisticsUI::render() const {
-	statistics->render();
-	healthBar->render();
-	manaBar->render();
-	etherMeterFrame->render();
-	etherMeter->render();
-	for (int i = 0; i < N_LIFE_COUNTER; i++) lifeCounter[i]->render();
-	for (int i = 0; i < N_MANA_COUNTER; i++) manaCounter[i]->render();
-	for (int i = 0; i < N_ETHER_COUNTER; i++) etherCounter[i]->render();
+	for (GameObject* g : objs) g->render();
 }
 
 // Al cambiar la vida, actualizar componentes
@@ -155,7 +160,7 @@ void StatisticsUI::createNumberAnims(GameObject* obj, int value, int i, bool isB
 	tuple<cents, decs, unids> units = healthBar->getComponent<BarComponent>()->getUnits(value);
 
 	// Añadir animator y crear animaciones
-	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture("statisticsNumbers"), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, ST_NUMBERS_ROWS, ST_NUMBERS_COLUMNS);
+	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture(STATISTICS_NUMBERS), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, ST_NUMBERS_ROWS, ST_NUMBERS_COLUMNS);
 	for (int j = 0; j < N_NUMBERS; j++) anim->createAnim(to_string(j), j, j, 1, 0);
 	
 	if (isBar) {
