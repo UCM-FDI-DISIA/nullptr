@@ -2,12 +2,6 @@
 #include "../../core/SDLApplication.h"
 #include "../GameObject.h"
 #include "../../components/Player components/BarComponent.h"
-#include <tuple>
-
-// Tipos propios
-using decs = int;
-using cents = int;
-using unids = int;
 
 class StatisticsUI : public GameObject {
 private:
@@ -46,13 +40,7 @@ public:
 	void createEtherMeter();
 
 	// Métodos para cambios en las barras anteriores
-	void OnManaChanges(float value);
-	void OnHealthChanges(float value);
-	void OnEtherChanges(float value);
-	void changeNumbers(vector<GameObject*> vect, int value);
-
-	// Cálculos
-	tuple<cents, decs, unids> getUnits(int value);
-	void changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value);
-	void changeAnimatorSrcRelativeHeight(GameObject* bar, float maxValue, float value);
+	void onManaChanges(float value);
+	void onHealthChanges(float value);
+	void onEtherChanges(float value);
 };

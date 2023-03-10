@@ -37,6 +37,10 @@ enum grpId : grpId_type {
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
 
+	// La UI siempre debe ser la última en renderizarse!
+	_grp_UI,
+
+	// do not remove this
 	_LAST_GRP_ID
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;

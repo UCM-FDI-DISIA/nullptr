@@ -31,8 +31,11 @@ private:
 	// - UI -
 	// Frame superior de vida, man� y �ter
 	StatisticsUI* statistics;
+	// Puntero a los contadores de cartas
+	CardCounter* cardContLeft;
+	CardCounter* cardContRight;
 	// Puntero a la mano del jugador en la UI
-	HandUI* hand = nullptr;
+	HandUI* hand;
 
 public:
 	// Constructora
@@ -43,6 +46,10 @@ public:
 	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
 	Player* getPlayer() { return player; };
 
+	// Efectos sobre el jugador
+	void OnPlayerDies();
+	void OnPlayerDamage(float value);
+
 	// - UI -
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
@@ -50,11 +57,9 @@ public:
 	void recreateUI();
 
 	// Barras de vida y mana
-	void OnManaChanges(float value);
-	void OnHealthChanges(float value);
-
-	void OnPlayerDies();
-	void OnPlayerDamage(float value);
+	void onManaChanges(float value);
+	void onHealthChanges(float value);
+	void onEtherChanges(float value);
 };
 
 #endif

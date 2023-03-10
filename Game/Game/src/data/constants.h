@@ -168,7 +168,8 @@ const string STATISTICS = "statisticsFrame";
 const string LIFEBAR = "lifeBar";
 const string MANABAR = "manaBar";
 const string ETHER_METER_FRAME = "etherMeterFrame";
-const string THER_METER = "etherMeter";
+const string ETHER_METER = "etherMeter";
+const string ETHER_ANIM = "ether";
 // STATISTICS
 const int STATISTICS_WIDTH = 250;
 const int STATISTICS_HEIGHT = 28;
@@ -186,7 +187,7 @@ const int BAR_START = 0;
 const int BAR_END = 10;
 const int BAR_FRAMERATE = 7;
 	// Lifebar
-const Vector2D LIFEBAR_POSITION = Vector2D(WIN_WIDTH - 295 * 2, 15);
+const Vector2D LIFEBAR_POSITION = Vector2D(WIN_WIDTH - 295 * 2 + 1, 15);
 	// Manabar
 const Vector2D MANABAR_POSITION = Vector2D(WIN_WIDTH / 2 - 258, 15);
 // ETHER

@@ -2,24 +2,36 @@
 
 #include "../Card Components/CardComponent.h"
 #include "../General Components/HealthComponent.h"
+#include <tuple>
+
+// Tipos propios
+using decs = int;
+using cents = int;
+using unids = int;
 
 class BarComponent : public Component {
 private:
 	Transform* tr;
 	int currentCuantity;
-	bool isLifeBar;
 
 public:
 	static const int id = _BAR_COMPONENT;
 
 	// Constructoras
-	BarComponent(bool _isLifeBar, int _currentCuantity);
+	BarComponent(int _currentCuantity = 0);
 	
 	// Inicializar componentes
 	virtual void initComponent();
 
-	// Cambios de barra
-	void changeBar(int changeValue);
-	void processManaChange(int cuantity);
-	void processLifeChange(int cuantity);
+	// Métodos para cambios en las barras anteriores
+	void onManaChanges(float value, float maxValue, vector<GameObject*>& myNumbers);
+	void onHealthChanges(float value, float maxValue, vector<GameObject*>& myNumbers);
+	void onEtherChanges(float value, vector<GameObject*>& myNumbers);
+	void changeNumbers(vector<GameObject*>& vect, int value);
+
+	// Cálculos
+	tuple<cents, decs, unids> getUnits(int value);
+	float getFactored(float maxValue, float value);
+	void changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value);
+	void changeAnimatorSrcRelativeHeight(GameObject* bar, float maxValue, float value);
 };

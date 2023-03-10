@@ -32,24 +32,26 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	enemyGenerator->addComponent<EnemyGenerator>(player, this);
 	
 	// - UI -
-	// Añadimos un boton de salir
-	AnimatorInfo aI = AnimatorInfo(EXIT);
-	Button* MainMenu = addGameObject<Button>([]() {	SDLApplication::newScene<MainMenuScene>(); }, SDLApplication::instance(), Vector2D(), aI);
-	MainMenu->getComponent<Animator>()->attachToCamera();
-
 	// Nos guardamos una referencia al componente de cartas del player
 	CardComponent* cardComp = player->getComponent<CardComponent>();
 	HealthComponent* healthComp = player->getComponent<HealthComponent>();
 
 	// Añadimos el de estadísitcas
-	statistics = addGameObject<StatisticsUI>(healthComp->getLife(), cardComp->getMana());
+	hand = nullptr;
+	cardContLeft = nullptr;
+	cardContRight = nullptr;
+	if (cardComp != nullptr) {
+		statistics = nullptr;
+		if (healthComp != nullptr) statistics = addGameObject<StatisticsUI>(_grp_UI, healthComp->getLife(), cardComp->getMana());
+		
+		// Creamos los contadores de cartas y linkeamos el componente con el contador de mazo par ala animacion de barajar
+		cardContLeft = addGameObject<CardCounter>(_grp_UI, true, cardComp);
+		cardContRight = addGameObject<CardCounter>(_grp_UI, false, cardComp);
+		cardComp->setCounter(cardContLeft);
 
-	// Creamos los contadores de cartas y linkeamos el componente con el contador de mazo par ala animacion de barajar
-	auto gO = addGameObject<CardCounter>(true, cardComp);
-	addGameObject<CardCounter>(false, cardComp);
-	cardComp->setCounter(gO);
-	// Añadimos el objeto que muestra la mano de cartas en la UI
-	hand = addGameObject<HandUI>(cardComp);
+		// Añadimos el objeto que muestra la mano de cartas en la UI
+		hand = addGameObject<HandUI>(_grp_UI, cardComp);
+	}
 };
 
 void BattleScene::OnPlayerDies() {
@@ -57,32 +59,36 @@ void BattleScene::OnPlayerDies() {
 }
 
 void BattleScene::OnPlayerDamage(float value) {
-	OnHealthChanges(value);
+	onHealthChanges(value);
 }
 
 // CAMBIOS DE UI
 // Lamar a cambiar la carta seleccionada de la UI
 void BattleScene::changeUISelected(bool key, int number) {
-	hand->changeSelected(key, number);
+	if (hand != nullptr) hand->changeSelected(key, number);
 }
 
 // Llamar a borrar una carta de la UI
 void BattleScene::discardUI(deque<Card*>::iterator discarded) {
-	hand->discard(discarded);
+	if (hand != nullptr) hand->discard(discarded);
 }
 
 // Llamar a la creaci�n de la UI
 void BattleScene::recreateUI() {
-	hand->createUI();
+	if (hand != nullptr) hand->createUI();
 }
 
 // Llamar al cambio del valor de maná
-void BattleScene::OnManaChanges(float value) {
-	//manaBar->getComponent<BarComponent>()->changeBar();
-	statistics->OnManaChanges(value);
+void BattleScene::onManaChanges(float value) {
+	if (statistics != nullptr) statistics->onManaChanges(value);
 }
 
-void BattleScene::OnHealthChanges(float value) {
-	//healthBar->getComponent<BarComponent>()->changeBar();
-	statistics->OnHealthChanges(value);
+// Llamar al cambio del valor de maná
+void BattleScene::onHealthChanges(float value) {
+	if (statistics != nullptr) statistics->onHealthChanges(value);
+}
+
+// Llamar al cambio del valor de éter
+void BattleScene::onEtherChanges(float value) {
+	if (statistics != nullptr) statistics->onEtherChanges(value);
 }
