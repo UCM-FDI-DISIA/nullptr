@@ -6,6 +6,7 @@
 
 class PointerComponent : public Component {
 private:
+	GameState* gStt;
 	Transform* pointerTransform;
 	Transform* followObjectTransform;
 	float radius;
@@ -13,7 +14,7 @@ public:
 	// Identificador
 	static const int id = _POINTERCOMPONENT;
 	// Constructora
-	PointerComponent();
+	PointerComponent(GameState* gStt_);
 	// Inicializa el componente
 	void initComponent();
 	// Actualiza la posicion del puntero dependiendo de la posicion del cursor
@@ -36,5 +37,4 @@ public:
 	inline float getRadius() {
 		return radius;
 	}
-
 };

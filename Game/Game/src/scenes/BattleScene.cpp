@@ -31,28 +31,6 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	enemyGenerator = addGameObject();
 	enemyGenerator->addComponent<EnemyGenerator>(player, this);
 
-	//Añadimos la barra de vida y su marco (con sus componentes y los anclamos a la camara)
-	createLifeBar();
-	createManaBar();
-
-	//Añadimos 2 enemigos de prueba
-	/*enemies.push_back(
-		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);*/
-	/*enemies.push_back(
-		addGameObject<MeleeEnemy>(VECTOR_ZERO, 50, player)
-	);*/
-
-	/*enemies.push_back(
-		addGameObject<RangedEnemy>(VECTOR_ZERO, 50, player)
-	);*/
-
-	AnimatorInfo aI = AnimatorInfo(EXIT);
-	//Añadimos un boton de salir
-	Button* MainMenu = addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(BUTTON_FRAME_SPRITE_WIDTH + 10, BUTTON_SPRITE_HEIGHT + 10), aI);
-
-	MainMenu->getComponent<Animator>()->attachToCamera();
-	
 	// - UI -
 	// Nos guardamos una referencia al componente de cartas del player
 	CardComponent* cardComp = player->getComponent<CardComponent>();
@@ -88,7 +66,7 @@ void BattleScene::OnPlayerDamage(float value) {
 }
 
 // CAMBIOS DE UI
-// Lamar a cambiar la carta seleccionada de la UI
+// Llamar a cambiar la carta seleccionada de la UI
 void BattleScene::changeUISelected(bool key, int number) {
 	if (hand != nullptr) hand->changeSelected(key, number);
 }
