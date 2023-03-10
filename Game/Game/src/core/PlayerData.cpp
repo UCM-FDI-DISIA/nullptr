@@ -13,7 +13,7 @@ PlayerData::PlayerData() {
 	level = 5;
 
 	deck.push_back(new Bow());
-
+	
 	deck.push_back(new Bow());
 
 	deck.push_back(new Bow());

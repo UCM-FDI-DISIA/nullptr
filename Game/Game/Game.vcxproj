@@ -165,13 +165,13 @@
     <ClInclude Include="src\components\General Components\CameraComponent.h" />
     <ClInclude Include="src\components\General Components\CharacterAnimator.h" />
     <ClInclude Include="src\components\General Components\ColliderComponent.h" />
-    <ClInclude Include="src\components\General Components\HeatlhComponent.h" />
+    <ClInclude Include="src\components\General Components\HealthComponent.h" />
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
-    <ClInclude Include="src\components\Player components\MannaBarComponent.h" />
+    <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
@@ -208,6 +208,7 @@
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
+    <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
@@ -230,10 +231,12 @@
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
+    <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
+    <ClCompile Include="src\components\Card Components\SwordSlashBehaviour.cpp" />
     <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp" />
     <ClCompile Include="src\components\Card Components\ThrownSpearBehaviour.h" />
     <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
@@ -245,13 +248,14 @@
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp" />
-    <ClCompile Include="src\components\General Components\HeatlhComponent.cpp" />
+    <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
-    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp" />
+    <ClCompile Include="src\components\Player components\BarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
     <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
@@ -284,6 +288,7 @@
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
+    <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
@@ -298,6 +303,7 @@
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\utils\Collisions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

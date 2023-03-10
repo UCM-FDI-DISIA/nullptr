@@ -12,7 +12,7 @@ void SMGCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 
 	dir = dir.normalize();
 
-	where->addGameObject<Bullet>(playerPos, dir, damage * attackMult, where->getEnemies());
+	where->addGameObject<Bullet>(playerPos, dir, damage * attackMult, _grp_ENEMIES);
 }
 
 //Se disparan todas las balas

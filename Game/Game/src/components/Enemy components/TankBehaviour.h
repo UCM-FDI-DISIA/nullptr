@@ -20,4 +20,5 @@ public:
 	void setDirectionTo();
 
 	void enemyAttack();
+	CallBackCol tankAttack();
 };
