@@ -20,6 +20,6 @@ public:
 	}
 
 private:
-	const float HEIGHT = 300;
-	const float WIDTH = 300;
+	const float HEIGHT = 600;
+	const float WIDTH = 600;
 };

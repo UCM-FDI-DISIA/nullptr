@@ -20,7 +20,6 @@ void Bow::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Battle
 void Bow::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset() - Vector2D(rand() % 90, rand() % 90));
-
 		dir = dir.normalize();
 		where->addGameObject<DamageArea>(mousePos, where, damage * attackMult, int(remainingUses / 2));
 
