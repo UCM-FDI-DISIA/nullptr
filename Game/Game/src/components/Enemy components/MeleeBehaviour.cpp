@@ -29,16 +29,18 @@ void MeleeBehaviour::close() {
 			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
 			pos->setVel(Vector2D(0, 0));
 			hasBeenCloseToPlayer = true;
-			//attacked = true;
+			attacking = true;
+			attacked = true;
 		}
 	}
 }
 
 void MeleeBehaviour::update() {
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
-	close();
 	attacking = false;
 	attacked = false;
+	close();
+
 
 	if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
@@ -47,6 +49,7 @@ void MeleeBehaviour::update() {
 			pos->setVel(initialDir);
 			hasBeenCloseToPlayer = false;
 		}
+
 	}
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime>= attackInterval)
