@@ -31,7 +31,7 @@ public:
     T* addGameObject(grpId group, Ts&& ...args) {
         T* e = new T();
         e->setAlive(true);
-        e->setContext(this);
+        e->setContext(this, group);
         e->initGameObject(std::forward<Ts>(args)...);
         entsByGroup_[group].push_back(e);
         return e;

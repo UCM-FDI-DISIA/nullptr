@@ -35,7 +35,6 @@ PlayerData::PlayerData() {
 	deck.push_back(new Assault_Rifle());
 
 	deck.push_back(new Assault_Rifle());
-
 }
 
 void PlayerData::getDataFromJSON()

@@ -14,11 +14,12 @@ class GameObject {
 protected:
 	bool alive;
 	GameState* gStt;
+	grpId group;
 	std::vector<Component*> currCmps;
 	std::array<Component*, maxComponentId> cmps;
 public:
 	// Constructor
-	GameObject() : gStt(nullptr), cmps(), currCmps(), alive(true) {
+	GameObject() : gStt(nullptr), cmps(), currCmps(), alive(true), group(grpId::_grp_GENERAL) {
 		currCmps.reserve(maxComponentId);
 	}
 	// Destructor
@@ -32,7 +33,7 @@ public:
 		}
 	}
 	// Asigna el Manager del GameObject
-	inline void setContext(GameState* _gStt) { gStt = _gStt; }
+	inline void setContext(GameState* _gStt, grpId _group) { gStt = _gStt; group = _group; }
 	// Inicializa el GameObject tras tener el contexto
 	virtual void initGameObject() {}
 	// Devuelve si el GameObject está vivo
@@ -73,6 +74,10 @@ public:
 	template<typename T>
 	inline bool hasComponent() {
 		return cmps[T::id] != nullptr;
+	}
+	// Devuelve el grupo al que pertenece el gameObject
+	inline grpId getGroup() {
+		return group;
 	}
 	// Actualiza el GameObject
 	virtual void update() {
