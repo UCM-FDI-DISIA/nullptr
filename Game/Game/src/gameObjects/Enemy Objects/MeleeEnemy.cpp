@@ -7,4 +7,6 @@ void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<MeleeBehaviour>(1000, ENEMY_SPEED, 50, 30, 1000, player);
 	addComponent<ColliderComponent>(getComponent<MeleeBehaviour>()->meleeAttack(),_grp_PLAYER);
 	addComponent<HealthComponent>(life);
+	Mana* mana;
+	addComponent<OnDeath>(mana, nullptr, 1, 1);
 }

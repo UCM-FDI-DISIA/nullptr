@@ -189,6 +189,8 @@ const int MANA_H = 10;
 const int MANA_W = 10;
 const int MANA_OFFSET = 10;
 const int MANA_VALUE = 5;
+const string MANA_NAME = "Mana";
+const int MANA_COLUMS = 2;
 
 // CARDS -----------------------------------------------------------------------------------------
 const int REVERSE_WIDTH = 58 * 2;

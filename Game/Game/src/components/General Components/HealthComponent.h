@@ -1,9 +1,10 @@
 #pragma once
 #include "../Component.h"
-#include "../Enemy components/OnDeath.h"
+
 
 // Este componente sirve para manejar todos los eventos relacionados con la vida del objeto
 // Como su muerte o su curación
+class OnDeath;
 class HealthComponent : public Component {
 private:
 	int lifePoints;

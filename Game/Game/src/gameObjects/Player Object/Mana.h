@@ -8,14 +8,7 @@
 class Mana :public GameObject {
 
 public:
-	Mana(Vector2D pos) {
-		addComponent<Transform>(pos+ (Vector2D(1, 0).rotate(rand() % 360) * MANA_OFFSET), VECTOR_ZERO, MANA_H, MANA_W, 0);
-		addComponent<ColliderComponent>();
-		addComponent<Animator>();
-	}
+	Mana(Vector2D pos);
 
-	inline void pickMana() {
-		PlayerData* pD = PlayerData::instance();
-		pD->setCurrMana(pD->getCurrMana()+MANA_VALUE);
-	}
+	CallBack pickMana();
 };

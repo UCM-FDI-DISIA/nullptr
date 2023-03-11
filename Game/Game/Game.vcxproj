@@ -235,6 +235,7 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Mana.cpp" />
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Card Components\SwordSlashBehaviour.cpp" />
     <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp" />

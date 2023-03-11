@@ -9,6 +9,7 @@
 #include "../../components/General Components/Image.h"
 #include "../../components/General Components/Animator.h"
 #include "../../scenes/GameState.h"
+#include "../Player Object/Mana.h"
 
 class SDLApplication;
 class MeleeEnemy :public GameObject
