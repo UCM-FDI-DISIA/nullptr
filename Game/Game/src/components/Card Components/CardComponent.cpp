@@ -93,7 +93,7 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
 		if((*active)->getUses() <= 0) discardCard(active);
-		where->OnManaChanges();
+		where->onManaChanges(mana);
 	}
 	else std::cout << "Necesitas manases adicionales" << endl;
 }
