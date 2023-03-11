@@ -14,7 +14,7 @@ private:
 public:
 	// Llama al constructor del padre con las animaciones correspondientes y añade la de ataque
 	MeleeEnemyAnimator();
-	// Recoge un puntero a RangeBehaviour
+	// Recoge un puntero a MeleeBehaviour
 	void initComponent();
 };
 
