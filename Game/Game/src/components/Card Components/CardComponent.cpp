@@ -25,7 +25,11 @@ void CardComponent::initComponent() {
 
 //Reduce el tiempo de disparo
 void CardComponent::update() {
-	mana = PlayerData::instance()->getCurrMana();
+	if (mana != PlayerData::instance()->getCurrMana()) {
+		where->onManaChanges(mana);
+		mana = PlayerData::instance()->getCurrMana();
+	}
+	
 	if (downTime > 0) {
 		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}

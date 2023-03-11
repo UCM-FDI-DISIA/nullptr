@@ -10,8 +10,16 @@ void Mana::initGameObject(Vector2D pos){
 CallBackCol Mana::pickMana(){
 	
 	return[&](GameObject* gameobject) {
+		
 		PlayerData* pD = PlayerData::instance();
-		pD->setCurrMana(pD->getCurrMana() + MANA_VALUE);
+		if (pD->getCurrMana() < pD->getMaxMana()) {
+			pD->setCurrMana(pD->getCurrMana() + MANA_VALUE);
+		}
+		
+		else {
+			pD->setCurrMana(pD->getMaxMana());
+		}
+		std::cout <<pD->getCurrMana();
 	};
 }
 
