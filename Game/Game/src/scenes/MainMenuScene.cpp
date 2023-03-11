@@ -10,7 +10,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// Logo del juego
 	GameObject* logo = addGameObject();
-	logo->addComponent<Transform>(LOGO_POSITION, Vector2D(), LOGO_WIDTH, LOGO_HEIGHT);
+	logo->addComponent<Transform>(LOGO_POSITION, Vector2D(), 404, 284);
 	Animator* a = logo->addComponent<Animator>(SDLApplication::getTexture("GameLogo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
 	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
 	a->play(LOGO_ANIM_KEY);
@@ -21,27 +21,26 @@ MainMenuScene::MainMenuScene() : GameState() {
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
 	// Botón jugar
-	createButton(MM_PLAY_BUTTON_POS, MM_PLAYFRAME_BUTTON_POS, []() { SDLApplication::newScene<MapScene>(); }, PLAY);	
+	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY);
 
 	// Botón options
-	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::newScene<OptionsMenuScene>(); }, OPTIONS);
+	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<OptionsMenuScene>(); }, OPTIONS);
 
 	// Botón album
-	createButton(MM_ALBUM_BUTTON_POS, MM_ALUBMFRAME_BUTTON_POS, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
+	createButton(MM_ALBUM_BUTTON_POS, MM_ALBUM_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
 
 	// Botón salir
-	createButton(MM_EXIT_BUTTON_POS, MM_EXITFRAME_BUTTON_POS, []() { SDLApplication::instance()->quitGame(); }, EXIT);
+	createButton(MM_EXIT_BUTTON_POS, MM_EXIT_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
 }
 
-// Crear un botón especificado en la escena
-void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
+// Crear un bot�n especificado en la escena
+void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
 	AnimatorInfo aI = AnimatorInfo(key);
-
 	// Crear marco
 	GameObject* frame = addGameObject();
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-	
-	// Crear botón
+
+	// Crear bot�n
 	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
 }

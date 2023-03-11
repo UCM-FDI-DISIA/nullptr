@@ -7,6 +7,7 @@ enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
+	_POINTERCOMPONENT,
 	_CARDCOMPONENT,
 	_HEALTH,
 	_CAMERACOMPONENT,
@@ -20,7 +21,7 @@ enum cmpId : cmpId_type {
 	_BULLET_COMPONENT,
 	_SWORD_BEHAVIOUR,
 	_LIFETIME,
-	_MANA_BAR_COMPONENT,
+	_BAR_COMPONENT,
 	_EXPLOSION_BEHAVIOUR,
 	_ENEMY_GEN,
 	// ... (compoment ids)
@@ -29,7 +30,20 @@ enum cmpId : cmpId_type {
 	_LAST_CMP_ID
 };
 constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
-
+using grpId_type = int;
+enum grpId : grpId_type {
+	_grp_GENERAL,
+	_grp_ENEMIES,
+	_grp_ENM_ATTACK,
+	_grp_PLYR_ATTACK,
+	_grp_PLAYER,
+	
+	_grp_UI,
+	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
+	// do not remove this
+	_LAST_GRP_ID
+};
+constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 
 // Animaciones
 struct Animation {
@@ -44,6 +58,8 @@ struct Animation {
 #include <functional>
 // Tipo de funci�n que devuelve y recibe void, funciona tambi�n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
+class GameObject;
+using CallBackCol = std::function<void(GameObject*)>;
 using BoolCallBack = std::function<bool(void)>;
 
 #endif // !ECS_H_

@@ -43,8 +43,8 @@ Texture::Texture(SDL_Renderer *renderer, const std::string &fileName) {
 	SDL_FreeSurface(surface);
 }
 
-//Texture::Texture(SDL_Renderer *renderer, const std::string &text,
-//		const Font &font, const SDL_Color &fgColor) {
+//Texture::Texture(SDL_Renderer* renderer, const std::string& text,
+//	const Font& font, const SDL_Color& fgColor) {
 //	constructFromText(renderer, text, font, &fgColor);
 //}
 
@@ -53,14 +53,14 @@ Texture::Texture(SDL_Renderer *renderer, const std::string &fileName) {
 //	constructFromText(renderer, text, font, &fgColor, &bgColor);
 //}
 
-//void Texture::constructFromText(SDL_Renderer *renderer, const std::string &text,
-//		const Font &font, const SDL_Color *fgColor, const SDL_Color *bgColor) {
+//void Texture::constructFromText(SDL_Renderer* renderer, const std::string& text,
+//	const Font& font, const SDL_Color* fgColor, const SDL_Color* bgColor) {
 //	assert(renderer != nullptr);
 //
-//	SDL_Surface *textSurface =
-//			bgColor == nullptr ?
-//					font.renderText(text, *fgColor) :
-//					font.renderText(text, *fgColor, *bgColor);
+//	SDL_Surface* textSurface =
+//		bgColor == nullptr ?
+//		font.renderText(text, *fgColor) :
+//		font.renderText(text, *fgColor, *bgColor);
 //
 //	if (textSurface == nullptr)
 //		throw "Couldn't create surface for text: " + text;

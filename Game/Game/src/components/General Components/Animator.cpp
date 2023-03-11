@@ -1,7 +1,6 @@
 #include "Animator.h"
 #include "../../core/SDLApplication.h"
 
-
 void Animator::createAnim(string key, Animation anim) {
 	anims.insert({ key, anim });
 	currentFrame = anim.startFrame;
@@ -31,7 +30,7 @@ void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }
 
-// Inicia una nueva animación si es diferente a la actual
+// Inicia una nueva animaciï¿½n si es diferente a la actual
 bool Animator::playDiff(string key) {
 	if (!isCurrentAnimation(key) || !isPlaying()) {
 		play(key);
@@ -73,10 +72,13 @@ void Animator::render() const {
 	SDL_Rect srcRect;
 	srcRect.x = (currentFrame % cols) * fw;
 	srcRect.y = ((currentFrame / cols) % rows) * fh;
-	srcRect.w = fw;
-	srcRect.h = fh;
+	srcRect.w = fw * srcRectRelativeWidth;
+	srcRect.h = fh * srcRectRelativeHeight;
 	
-	texture->render(srcRect, getRect(), 0, nullptr, flip);
-
-	
+	// Si debo renderizar menos del ancho de la textura original
+	if (srcRectRelativeWidth < 1 || srcRectRelativeHeight < 1) {
+		texture->render(srcRect, getFactoredRect(srcRectRelativeWidth, srcRectRelativeHeight),
+			transform->getRotation(), nullptr, flip);
+	}
+	else texture->render(srcRect, getRect(), transform->getRotation(), nullptr, flip);
 }
