@@ -9,7 +9,7 @@ private:
 	int damage;
     float lifeSpan;
     float currentLifeDuration;
-	bool contact;
+	bool contact; //Si explota al contacto
     BattleScene* scene;
     grpId target;
 	Transform* tr;
@@ -19,6 +19,7 @@ public:
     HitboxExplosionComponent(int dmg, float lifeSpan, bool cntct, BattleScene* scn, grpId trgt) : damage(dmg), lifeSpan(lifeSpan), currentLifeDuration(0), scene(scn), target(trgt), tr(nullptr), contact(cntct) {}
     static const int id = _HITBOX_EXPLOSION_COMPONENT;
 
+	// Se le añade al colider la funcion de explosion
 	void initComponent()
 	{
 		tr = gObj->getComponent<Transform>();
@@ -41,6 +42,7 @@ public:
 		}
 	}
 
+	//Funcion que se llama al colisionar, elimina el gObj creando una explosion
 	CallBackCol explosionFunction()
 	{
 		return [&](GameObject* trgt) {
