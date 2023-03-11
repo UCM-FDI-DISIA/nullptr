@@ -42,7 +42,7 @@
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
 
-      { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleenEnemy32x32.png" },
+      { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
       { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
       
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },

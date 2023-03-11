@@ -13,6 +13,7 @@ void MeleeBehaviour::initComponent() {
 	pos->lookAt(playerPos->getPos());
 	hasBeenCloseToPlayer = false;
 	attacked = false;
+	attacking = false;
 	elapsedTime = SDL_GetTicks();
 }
 
@@ -27,6 +28,7 @@ void MeleeBehaviour::close() {
 			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
 			pos->setVel(Vector2D(0, 0));
 			hasBeenCloseToPlayer = true;
+			attacked = true;
 		}
 	}
 }
@@ -34,11 +36,13 @@ void MeleeBehaviour::close() {
 void MeleeBehaviour::update() {
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	close();
+	attacking = false;
 	if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 		if (elapsedTime >= behaviorTime) {
 			pos->setVel(initialDir);
-			//attacked = false;
+			attacked = true;
+
 			hasBeenCloseToPlayer = false;
 		}
 
@@ -47,7 +51,6 @@ void MeleeBehaviour::update() {
 	else if (elapsedTime>= attackInterval)
 	{
 		attacked = true;
-		meleeAttack();
 		//Reseteamos el contador
 		behaviorTime -= attackInterval;
 	}
@@ -58,9 +61,10 @@ CallBackCol MeleeBehaviour::meleeAttack()
 {
 	return [&](GameObject* gameObject)
 	{
+		attacking = true;
 		//Da�a al jugador e informa de que ha atacado
 		player->getComponent<HealthComponent>()->receiveDamage(damage);
-		if(!attacked) attacked = true;
+		//if(!attacked) attacked = true; no esto es mio 
 	};
 }
 
