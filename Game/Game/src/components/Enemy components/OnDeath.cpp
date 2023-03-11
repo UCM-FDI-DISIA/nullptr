@@ -9,6 +9,6 @@ void OnDeath::death() {
 		
 	}
 	for (int i = 0; i < numMana; i++) {
-		GameObject* mana = where->addGameObject<Mana>(_grp_PLAYER, enemyData->getPos());
+		GameObject* mana = where->addGameObject<Mana>(_grp_MANA, enemyData->getPos());
 	}
 }

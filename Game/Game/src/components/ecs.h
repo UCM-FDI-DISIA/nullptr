@@ -38,7 +38,7 @@ enum grpId : grpId_type {
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
-	
+	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
 	// do not remove this
