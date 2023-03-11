@@ -30,7 +30,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 	// Generador de enemigos
 	enemyGenerator = addGameObject();
 	enemyGenerator->addComponent<EnemyGenerator>(player, this);
-	
+
 	// - UI -
 	// Nos guardamos una referencia al componente de cartas del player
 	CardComponent* cardComp = player->getComponent<CardComponent>();
@@ -52,6 +52,9 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 		// Añadimos el objeto que muestra la mano de cartas en la UI
 		hand = addGameObject<HandUI>(_grp_UI, cardComp);
 	}
+
+	// El puntero sigue al player
+	pointer->getComponent<PointerComponent>()->setFollowObject(player);
 };
 
 void BattleScene::OnPlayerDies() {
@@ -63,7 +66,7 @@ void BattleScene::OnPlayerDamage(float value) {
 }
 
 // CAMBIOS DE UI
-// Lamar a cambiar la carta seleccionada de la UI
+// Llamar a cambiar la carta seleccionada de la UI
 void BattleScene::changeUISelected(bool key, int number) {
 	if (hand != nullptr) hand->changeSelected(key, number);
 }
