@@ -59,6 +59,12 @@ void CardComponent::handleInput() {
 		else if (InputHandler::instance()->mouseWheelUp())
 			switchActive(true);
 
+		// Teclas Q y E
+		if (InputHandler::instance()->isKeyJustDown(SDLK_e))
+			switchActive(false);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_q))
+			switchActive(true);
+
 		// Téclas numéricas
 		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
 			switchActive(0);

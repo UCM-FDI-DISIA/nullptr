@@ -30,7 +30,7 @@ public:
 	Transform(Vector2D pos, Vector2D vel, Vector2D anch, float w = 0, float h = 0, float r = 0);
 	virtual ~Transform();
 
-	// Devuelve la posición
+	// Devuelve la posiciï¿½n
 	inline Vector2D& getPos() {
 		return position_;
 	};
@@ -50,7 +50,7 @@ public:
 	};
 
 
-	// Setea posición		
+	// Setea posiciï¿½n		
 	inline void setPos(Vector2D newPos) {
 		position_ = newPos;
 	};
@@ -110,6 +110,17 @@ public:
 		rect.y = position_.getY();
 		rect.w = width_;
 		rect.h = height_;
+
+		return rect;
+	}
+
+	// Devuelve un rectangulo SDL con un factor que cambia el width devuelto
+	inline SDL_Rect getFactoredRect(float srcRectRelativeWidth, float srcRectRelativeHeight) {
+		SDL_Rect rect;
+		rect.x = position_.getX();
+		rect.y = position_.getY();
+		rect.w = width_ * srcRectRelativeWidth;
+		rect.h = height_ * srcRectRelativeHeight;
 
 		return rect;
 	}

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef CAMERA_H_
-#define CAMERA_H_
 #include "../GameObject.h"
 #include "../../core/Vector2D.h"
 #include "../../components/General Components/Transform.h"
@@ -27,4 +25,3 @@ public:
 	// Devuelve la posicion de la camara
 	Vector2D getOffset() const;
 };
-#endif // !CAMERA_H_
