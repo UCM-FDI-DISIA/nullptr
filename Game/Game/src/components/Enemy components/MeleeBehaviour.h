@@ -15,6 +15,7 @@ public:
 	static const int id = _MELEE_BEHAVIOUR;
 	virtual void update();
 	CallBackCol meleeAttack();
+	void enemyAttack();
 	virtual void initComponent();
 	void close();
 	// Devuelve si el enemigo está en acción de ataque

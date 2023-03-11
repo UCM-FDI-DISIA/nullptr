@@ -1,5 +1,6 @@
 #include "MeleeBehaviour.h"
 #include "../../core/SDLApplication.h"
+#include "../../gameObjects/Card Objects/Hitbox.h"
 
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehaviour(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
@@ -69,11 +70,24 @@ CallBackCol MeleeBehaviour::meleeAttack()
 	{
 		attacking = true;
 		attacked = true;
+		enemyAttack();
 		//Da�a al jugador e informa de que ha atacado
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
+
 
 	};
 }
 
 
+
+void MeleeBehaviour::enemyAttack() {
+	Vector2D vel = playerPos->getPos() - pos->getPos();
+	if (vel.magnitude() != 0) {
+		vel = vel / vel.magnitude();
+		Vector2D attackPos = pos->getPos() + vel * 100;
+		float rotation = Vector2D(1, 0).angle(vel);
+		Hitbox::HitboxData data = { attackPos, VECTOR_ZERO, rotation, 200, 100, "SwordSlash", _grp_PLAYER };
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+		//player->getComponent<HealthComponent>()->receiveDamage(0);
+	}
+}
 
