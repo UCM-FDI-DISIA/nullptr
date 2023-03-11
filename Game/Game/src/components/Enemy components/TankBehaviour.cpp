@@ -4,6 +4,7 @@
 TankBehaviour::TankBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : EnemyBehaviour(spd, dmg, stop, attack, plyr), transform(nullptr), attacking(false), attacked(false), chargingAttack(false),  stop(stopTime), attackingTime(TANK_ATTACK_TIME) {}
 
 void TankBehaviour::initComponent() {
+
 	pos = gObj->getComponent<Transform>();
 	// Establece la velocidad
 	pos->setVel(Vector2D(0, speed));
@@ -12,6 +13,8 @@ void TankBehaviour::initComponent() {
 	pos->lookAt(playerPos->getPos());
 
 	elapsedTime = 0;
+
+	gObj->getComponent<ColliderComponent>()->addFunction(tankAttack());
 }
 
 void TankBehaviour::update() {
@@ -74,6 +77,7 @@ void TankBehaviour::enemyAttack() {
 		behaviorTime -= attackInterval;
 	}
 }
+
 CallBackCol TankBehaviour::tankAttack()
 {
 	return [&](GameObject* player) {

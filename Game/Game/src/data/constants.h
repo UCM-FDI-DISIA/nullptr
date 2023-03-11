@@ -72,6 +72,12 @@ const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
 
+// POINTER -----------------------------------------------------------------------------------------
+const string POINTER = "Pointer";
+const int POINTER_WIDTH = 20;
+const int POINTER_HEIGHT = 20;
+const float POINTER_DEFAULT_RADIUS = 100.0f;
+
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
