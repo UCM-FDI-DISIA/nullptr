@@ -15,6 +15,7 @@ void EnemyGenerator::update() {
 	}
 }
 
+
 const int* EnemyGenerator::calcWave() {
 	bool startingSpawns;
 	switch (levelType)
@@ -108,7 +109,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 		
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
 		spawnPos = checkPos(spawnPos, MELEE_RADIUS);
-		GameObject* enemy = where->addGameObject<MeleeEnemy>(_grp_ENEMIES,spawnPos,10, player);
+		GameObject* enemy = where->addGameObject<MeleeEnemy>(_grp_ENEMIES,spawnPos,10, player, where);
 	}
 	//Hacemos un for y añadimos enemigos ranged
 	for (int i = 0; i < wave[1]; i++) {

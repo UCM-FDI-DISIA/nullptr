@@ -8,7 +8,8 @@
 class Mana :public GameObject {
 
 public:
-	Mana(Vector2D pos);
+	
+	virtual void initGameObject(Vector2D pos);
 
 	CallBackCol pickMana();
 };

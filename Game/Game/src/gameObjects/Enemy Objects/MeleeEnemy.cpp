@@ -1,13 +1,14 @@
 #include "MeleeEnemy.h"
 #include "../../core/SDLApplication.h"
 
-void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player) {
+void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player, BattleScene* where) {
 	addComponent<Transform>(pos, Vector2D(0,0), ENEMY_WIDTH, ENEMY_HEIGHT, 0);
 	addComponent<Image>(SDLApplication::getTexture("Enemy"));
 
 	addComponent<MeleeBehaviour>(1000, ENEMY_SPEED, 50, 30, 1000, player);
 	addComponent<ColliderComponent>(getComponent<MeleeBehaviour>()->meleeAttack(),_grp_PLAYER);
+	addComponent<OnDeath>(3, 1, where);
 	addComponent<HealthComponent>(life);
-	Mana* mana;
-	addComponent<OnDeath>(mana, nullptr, 3, 1);
+	
+	
 }
