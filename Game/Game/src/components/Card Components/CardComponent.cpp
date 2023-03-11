@@ -57,6 +57,12 @@ void CardComponent::handleInput() {
 		else if (InputHandler::instance()->mouseWheelUp())
 			switchActive(true);
 
+		// Teclas Q y E
+		if (InputHandler::instance()->isKeyJustDown(SDLK_e))
+			switchActive(false);
+		else if (InputHandler::instance()->isKeyJustDown(SDLK_q))
+			switchActive(true);
+
 		// Téclas numéricas
 		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
 			switchActive(0);
@@ -84,9 +90,10 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	if ((*active)->getMana() <= mana) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
-		if ((*active)->getUses() == 0)
+		where->onManaChanges(mana);
+		if ((*active)->getUses() == 0) {
 			discardCard(active);
-		where->OnManaChanges();
+		}
 	}
 	else std::cout << "Necesitas manases adicionales" << endl;
 }

@@ -169,10 +169,11 @@
     <ClInclude Include="src\components\General Components\HealthComponent.h" />
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
+    <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
-    <ClInclude Include="src\components\Player components\MannaBarComponent.h" />
+    <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h" />
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
+    <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
     <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\EventNode.h" />
@@ -209,6 +211,7 @@
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
+    <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
@@ -255,9 +258,10 @@
     <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
+    <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
-    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp" />
+    <ClCompile Include="src\components\Player components\BarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
     <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
@@ -279,6 +283,7 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
+    <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp" />
@@ -289,6 +294,7 @@
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
+    <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
