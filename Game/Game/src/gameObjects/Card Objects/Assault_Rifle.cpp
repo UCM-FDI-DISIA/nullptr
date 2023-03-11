@@ -12,7 +12,7 @@ void Assault_Rifle::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 		dir = dir.normalize();
 
 		playerPos = playerPos - dir * ASSAULT_RIFLE_BURST;
-		where->addGameObject<Bullet>(playerPos , dir, damage * attackMult, where->getEnemies());
+		where->addGameObject<Bullet>(_grp_PLYR_ATTACK, playerPos, dir, damage * attackMult, _grp_ENEMIES);
 	}
 }
 
@@ -21,6 +21,6 @@ void Assault_Rifle::ability(Vector2D playerPos, Vector2D mousePos, float attackM
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
 	dir = dir.normalize();
+	where->addGameObject<Bomb>(_grp_PLYR_ATTACK, playerPos, dir, 50 * (remainingUses / 8), where, _grp_ENEMIES);
 
-	where->addGameObject<Bomb>(playerPos, dir, 50*(remainingUses/8) * attackMult, where);
 }
