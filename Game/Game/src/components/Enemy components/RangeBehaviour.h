@@ -1,6 +1,6 @@
 #pragma once
 #include "EnemyBehaviour.h"
-#include "../../gameObjects/Card Objects/Bullet.h"
+#include "../../gameObjects/Card Objects/Hitbox.h"
 #include "../../scenes/BattleScene.h"
 #include "../../core/SDLApplication.h"
 
@@ -27,7 +27,7 @@ public:
 	virtual void update();
 	void enemyAttack();
 
-	// Devuelve si el enemigo está en acción de ataque
+	// Devuelve si el enemigo estï¿½ en acciï¿½n de ataque
 	inline bool isAttacking() { return attacking; }
 };
 

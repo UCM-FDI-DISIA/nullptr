@@ -42,15 +42,17 @@ void CardComponent::update() {
 
 //Coge el imput del teclado y ratón y llama a los métodos necesarios
 void CardComponent::handleInput() {
-	// Click izquierdo
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT))
-		attack(tr->getCenter(), InputHandler::instance()->getMousePos());
-
-	// Click derecho
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT))
-		ability(tr->getCenter(), InputHandler::instance()->getMousePos());
 
 	if (!locked) {
+
+		// Click izquierdo
+		if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT))
+			attack(tr->getCenter(), InputHandler::instance()->getMousePos());
+
+		// Click derecho
+		if (InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT))
+			ability(tr->getCenter(), InputHandler::instance()->getMousePos());
+
 		// Rueda del ratón
 		if (InputHandler::instance()->mouseWheelDown())
 			switchActive(false);
@@ -90,10 +92,8 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	if ((*active)->getMana() <= mana) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
-		where->onManaChanges(mana);
-		if ((*active)->getUses() == 0) {
-			discardCard(active);
-		}
+		if((*active)->getUses() <= 0) discardCard(active);
+		where->OnManaChanges();
 	}
 	else std::cout << "Necesitas manases adicionales" << endl;
 }
