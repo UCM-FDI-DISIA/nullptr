@@ -38,7 +38,7 @@ void MeleeBehaviour::update() {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 		if (elapsedTime >= behaviorTime) {
 			pos->setVel(initialDir);
-			attacked = false;
+			//attacked = false;
 			hasBeenCloseToPlayer = false;
 		}
 
@@ -46,7 +46,7 @@ void MeleeBehaviour::update() {
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime>= attackInterval)
 	{
-		//attacked = true;
+		attacked = true;
 		meleeAttack();
 		//Reseteamos el contador
 		behaviorTime -= attackInterval;
@@ -60,7 +60,7 @@ CallBackCol MeleeBehaviour::meleeAttack()
 	{
 		//Da�a al jugador e informa de que ha atacado
 		player->getComponent<HealthComponent>()->receiveDamage(damage);
-		attacked = true;
+		if(!attacked) attacked = true;
 	};
 }
 
