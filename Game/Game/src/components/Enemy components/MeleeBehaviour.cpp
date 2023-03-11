@@ -15,7 +15,9 @@ void MeleeBehaviour::initComponent() {
 	attacked = false;
 	attacking = false;
 	elapsedTime = SDL_GetTicks();
+	gObj->getComponent<ColliderComponent>()->addFunction(meleeAttack());
 }
+
 
 //Metodo para saber si el enemigo esta cerca del player
 void MeleeBehaviour::close() {
@@ -56,6 +58,7 @@ void MeleeBehaviour::update() {
 	pos->lookAt(playerPos->getPos());
 
 }
+
 // Funci�n a realizar en colision
 CallBackCol MeleeBehaviour::meleeAttack()
 {
