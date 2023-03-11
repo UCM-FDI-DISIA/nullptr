@@ -6,6 +6,7 @@
 #include "../GameObject.h"
 #include "../../data/constants.h"
 #include "../../components/General Components/Transform.h"
+#include "../../components/Enemy components/OnDeath.h"
 #include "../../components/General Components/Image.h"
 #include "../../components/General Components/Animator.h"
 #include "../../scenes/GameState.h"

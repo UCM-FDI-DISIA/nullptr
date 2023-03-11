@@ -1,4 +1,4 @@
-#include "../Game/src/gameObjects/Player Object/Mana.h"
+﻿#include "../Game/src/gameObjects/Player Object/Mana.h"
 #include "../Game/src/core/SDLApplication.h"
 
 Mana::Mana(Vector2D pos){
@@ -7,9 +7,17 @@ Mana::Mana(Vector2D pos){
 	addComponent<Animator>(SDLApplication::getTexture(MANA_NAME), MANA_W, MANA_H, 1, MANA_COLUMS);
 }
 
-CallBack Mana::pickMana(){
-	PlayerData* pD = PlayerData::instance();
-	pD->setCurrMana(pD->getCurrMana() + MANA_VALUE);
-	return[&]() {
+CallBackCol Mana::pickMana(){
+	
+	return[&](GameObject* gameobject) {
+		PlayerData* pD = PlayerData::instance();
+		pD->setCurrMana(pD->getCurrMana() + MANA_VALUE);
 	};
 }
+
+#include <functional>
+// Tipo de funci�n que devuelve y recibe void, funciona tambi�n con funciones lambda con capturas
+using CallBack = std::function<void(void)>;
+class GameObject;
+using CallBackCol = std::function<void(GameObject*)>;
+using BoolCallBack = std::function<bool(void)>;

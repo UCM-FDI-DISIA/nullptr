@@ -10,5 +10,5 @@ class Mana :public GameObject {
 public:
 	Mana(Vector2D pos);
 
-	CallBack pickMana();
+	CallBackCol pickMana();
 };
