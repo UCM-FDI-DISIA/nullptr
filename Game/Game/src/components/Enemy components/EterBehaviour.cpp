@@ -17,11 +17,11 @@ void EterBehaviour::update()
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	if (elapsedTime >= floorTime)
 	{
-		dir.rotate(myTransform->getVel().angle(dest - myTransform->getPos()) > 0 ? 1.0f : -1.0f);
+		dir = dir.rotate(myTransform->getVel().angle(dest - myTransform->getPos()) > 0 ? 0.01f : -0.01f);
 		speeding += 0.1;
-		myTransform->setVel(dir);
+		myTransform->setVel(dir*speeding);
 	}
-	if (myTransform->getPos().getX() == dest.getX() && myTransform->getPos().getY() == dest.getY())
+	if ((myTransform->getPos().getX() <= dest.getX()+ 30 && myTransform->getPos().getX() >= dest.getX() - 30) && myTransform->getPos().getY() <= dest.getY())
 	{
 		gObj->setAlive(false);
 		// Avisar al contador de eter tambien

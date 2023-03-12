@@ -13,6 +13,7 @@ private:
 	Vector2D dest;
 	Vector2D dir;
 public:
+	static const int id = _ETER;
 	EterBehaviour(float groundTime);
 	virtual void initComponent();
 	virtual void update();
