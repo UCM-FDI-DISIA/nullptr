@@ -155,6 +155,7 @@
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h" />
+    <ClInclude Include="src\components\Enemy components\EterBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h" />
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
@@ -231,6 +233,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
+    <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp" />
@@ -266,6 +269,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />

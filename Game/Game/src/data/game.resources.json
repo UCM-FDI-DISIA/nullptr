@@ -46,7 +46,8 @@
 
       { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
       { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
-      
+      { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
+
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
