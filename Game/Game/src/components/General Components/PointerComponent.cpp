@@ -44,6 +44,8 @@ void PointerComponent::update() {
 	}
 	// Si no tiene objeto a seguir funciona como cursor normal
 	else {
-		pointerTransform->setPos(getMousePos() - Vector2D(POINTER_WIDTH/2, 0));
+		// Rotacion
+		pointerTransform->setRotation(POINTER_NORMAL_INCLINATION);
+		pointerTransform->setPos(getMousePos() + Vector2D(POINTER_HEIGHT / 2 * tan(POINTER_NORMAL_INCLINATION), 0));
 	}
 }

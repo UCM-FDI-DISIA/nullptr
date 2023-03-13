@@ -12,7 +12,6 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
-	deck.push_back(new Assault_Rifle());
 
 	deck.push_back(new Assault_Rifle());
 
@@ -35,6 +34,9 @@ PlayerData::PlayerData() {
 	deck.push_back(new Assault_Rifle());
 
 	deck.push_back(new Assault_Rifle());
+
+	deck.push_back(new Assault_Rifle());
+
 }
 
 void PlayerData::getDataFromJSON()
