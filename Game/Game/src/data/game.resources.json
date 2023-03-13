@@ -6,6 +6,8 @@
     ],
     
     "images" : [
+      { "id" : "null", "file" : "../Game/resources/images/Null_Img.png" },
+
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
