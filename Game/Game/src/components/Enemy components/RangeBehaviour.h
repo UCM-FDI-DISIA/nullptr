@@ -18,7 +18,7 @@ private:
 	bool attacking;
 	float attackDelay, attackTime;
 public:
-	static const int id = _RANGE_BEHAVIOUR;
+	static const int id = _ENEMY_BEHAVIOUR;
 
 	RangeBehaviour(float spd, float safDist, float stptime, float mvTime,
 		int dmg, int atck, Player* plyr);
