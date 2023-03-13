@@ -184,10 +184,6 @@
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\DamageArea.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\FlashBang.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
@@ -261,7 +257,6 @@
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
-    <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />

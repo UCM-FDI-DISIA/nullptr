@@ -114,6 +114,7 @@ const float TANK_ATTACK_TIME = 3000;
 // BULLETS ---------------------------------------------------------------------------------------
 
 const float BULLET_SPEED = 200;
+const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
 
 // BUTTONS ---------------------------------------------------------------------------------------

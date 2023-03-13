@@ -180,7 +180,7 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp">
       <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
@@ -198,6 +198,9 @@
     </ClCompile>
     <ClCompile Include="src\components\General Components\PointerComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -411,7 +414,7 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h">
       <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\CharacterAnimator.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
