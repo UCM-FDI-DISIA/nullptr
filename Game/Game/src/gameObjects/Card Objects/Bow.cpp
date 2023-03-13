@@ -4,7 +4,7 @@
 #include "Hitbox.h"
 
 //Se crea una bala en la posición del jugador y se dirige hacia el cursor
-void Bow::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+void BowCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	//Comprobación de que la cadencia no ha sido modificada previamente
 	if (downtime != BOW_CADENCE) downtime = BOW_CADENCE;
 
@@ -19,7 +19,7 @@ void Bow::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Battle
 }
 
 //Se disparan todas las flechas
-void Bow::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+void BowCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset() - Vector2D(rand() % 90, rand() % 90));
 		dir = dir.normalize();
@@ -30,7 +30,7 @@ void Bow::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, Battl
 		float size = 100 + remainingUses * 15;
 		string sprite = "Bullet";
 
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 3, size, size, sprite, where, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 2, size, size, sprite, where, data);
 
 
 	remainingUses = 0;

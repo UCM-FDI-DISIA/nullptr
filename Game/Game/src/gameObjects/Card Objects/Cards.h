@@ -23,9 +23,9 @@ class LaserShadesCard : public Card {
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
-class Bow : public Card {
+class BowCard : public Card {
 public:
-	Bow() : Card(15, 12, 60, 0.5, "Arco", SDLApplication::getTexture("LaserGlasses")) {};
+	BowCard() : Card(15, 12, 60, 0.5, "Arco", SDLApplication::getTexture("LaserGlasses")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
