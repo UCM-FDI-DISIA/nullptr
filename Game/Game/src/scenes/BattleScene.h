@@ -7,7 +7,6 @@
 #include "../gameObjects/Enemy Objects/TankEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
-#include "../gameObjects/Node Objects/BattleNode.h"
 #include "../gameObjects/UI/HandUI.h"
 #include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
@@ -23,7 +22,7 @@ private:
 	// Generador de enemigos
 	vector<GameObject*> enemies;
 	GameObject* enemyGenerator;
-	battleType type;
+	BattleType type;
 	GameObject* deck;
 	GameObject* pile;
 
@@ -38,7 +37,7 @@ private:
 
 public:
 	// Constructora
-	BattleScene(battleType t_);
+	BattleScene(BattleType t_);
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };

@@ -3,7 +3,7 @@
 #include "../components/Enemy components/MeleeBehaviour.h"
 
 // Constructora
-BattleScene::BattleScene(battleType t_) : NodeScene(), type(t_) { 
+BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) { 
 	//Suelo
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);

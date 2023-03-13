@@ -3,7 +3,7 @@
 #define NODEBUTTONCOMPONENT_H_
 
 #include "../General Components/ButtonComponent.h"
-#include "../../gameObjects/Node Objects/BattleNode.h"
+#include "../../gameObjects/Node Objects/Node.h"
 
 class NodeButtonComponent : public ButtonComponent {
 private:

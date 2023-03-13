@@ -3,7 +3,8 @@
 #include "Map.h"
 
 // Constructora, recibe la clave de la textura
-Node::Node(string tKey, Vector2D const& pos, CallBack _load) : state(_LOCKED_NODE), nextNodes(), textureKey(tKey), position(pos), load(_load) {}
+Node::Node(Needs n, string tKey, CallBack _load, NodeType t, BattleType bt) : 
+	needed(n), textureKey(tKey), load(_load), state(_LOCKED_NODE), type(t), bType(bt) {}
 
 // Asigna el estado del nodo a bloqueado
 void Node::lock() {
@@ -37,14 +38,14 @@ void Node::unlockNextNodes(vector<Node*>& unlockedNodes) {
 	}
 }
 
-// Asigna los siguientes nodos
-void Node::setNextNodes(vector<Node*> const& nNodes) {
-	nextNodes = nNodes;
-}
-
 // Añade el nodo recibido a los siguientes nodos
-void Node::addToNextNodes(Node* node) {
+void Node::addToNextNodes(Node* node, int ind) {
 	nextNodes.push_back(node);
+	nextInd.push_back(ind);
+	++contNext;
+
+	// Hay una cierta probabilidad de que ese enlace cuente como doble (si es así no se podrá enlazar a ningún nodo más)
+	if (contNext < 2 && sdlutils().rand().nextInt(0, 20) < 3) contNext++;
 }
 
 CallBack Node::loadNode() {
@@ -52,4 +53,21 @@ CallBack Node::loadNode() {
 		map().setCurrentNode(this);
 		load();
 	};
+}
+
+
+// Comprueba si el nodo conecta con el indice introducido
+bool Node::conectsWith(int ind) {
+	for (int i = 0; i < nextInd.size(); ++i) {
+		if (nextInd[i] == ind) return true;
+	}
+	return false;
+}
+
+// Por si hace falta generar la altura de nuevo
+// Elimina todos los enlaces con nodos siguientes
+void Node::clearLinks() {
+	nextNodes.clear();
+	nextInd.clear();
+	contNext = 0;
 }

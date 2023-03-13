@@ -3,7 +3,7 @@
 
 void NodeButton::initGameObject(Node* nodeIt, CallBack _cb) {
 
-	addComponent<Transform>(nodeIt->getPosition(), VECTOR_ZERO, NODE_WIDTH, NODE_HEIGHT);
+	addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, NODE_WIDTH, NODE_HEIGHT);
 	Animator* animator = addComponent<Animator>(SDLApplication::getTexture(nodeIt->getTextureKey()), NODE_FRAME_WIDTH, NODE_FRAME_HEIGHT, NODE_FRAME_ROWS, NODE_FRAME_COLUMNS);
 	addComponent<NodeButtonComponent>(_cb, nodeIt->getState());
 
