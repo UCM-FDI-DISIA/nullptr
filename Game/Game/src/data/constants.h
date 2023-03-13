@@ -18,8 +18,8 @@ const Vector2D VECTOR_ZERO = { 0,0 };
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1280;
 const uint WIN_HEIGHT = 720;
-const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
-const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
+const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
+const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 const int PIXEL_WIDTH = WIN_WIDTH / 544;
@@ -77,6 +77,7 @@ const string POINTER = "Pointer";
 const int POINTER_WIDTH = 20;
 const int POINTER_HEIGHT = 20;
 const float POINTER_DEFAULT_RADIUS = 100.0f;
+const float POINTER_NORMAL_INCLINATION = -25.0f;
 
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 30 * 2;
