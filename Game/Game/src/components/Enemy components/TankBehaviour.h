@@ -2,7 +2,7 @@
 #include "EnemyBehaviour.h"
 #include "../../core/SDLApplication.h"
 
-class TankBehaviour : public EnemyBehaviour {
+class TankBehaviour : public EnemyBehaviour{
 private: 
 	Transform* transform;
 	bool attacking, chargingAttack, attacked;
@@ -20,4 +20,6 @@ public:
 	void setDirectionTo();
 
 	void enemyAttack();
+
+	CallBackCol tankAttack();
 };

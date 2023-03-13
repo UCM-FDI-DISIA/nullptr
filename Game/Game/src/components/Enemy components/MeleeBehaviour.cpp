@@ -14,7 +14,9 @@ void MeleeBehaviour::initComponent() {
 	hasBeenCloseToPlayer = false;
 	attacked = false;
 	elapsedTime = SDL_GetTicks();
+	gObj->getComponent<ColliderComponent>()->addFunction(meleeAttack());
 }
+
 
 //Metodo para saber si el enemigo esta cerca del player
 void MeleeBehaviour::close() {
@@ -32,8 +34,7 @@ void MeleeBehaviour::close() {
 }
 
 void MeleeBehaviour::update() {
-	elapsedTime = SDLApplication::instance()->getCurrentTime();
-
+	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	close();
 	if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
@@ -43,12 +44,7 @@ void MeleeBehaviour::update() {
 		}
 	}
 
-	if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
-		//Daña al jugador e informa de que ha atacado
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
-		attacked = true;
-		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
-	}
+	
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime>= attackInterval)
 	{
@@ -59,6 +55,17 @@ void MeleeBehaviour::update() {
 	}
 	
 	pos->lookAt(playerPos->getPos());
+}
+
+// Funciï¿½n a realizar en colision
+CallBackCol MeleeBehaviour::meleeAttack()
+{
+	return [&](GameObject* gameObject)
+	{
+		//Daï¿½a al jugador e informa de que ha atacado
+		player->getComponent<HealthComponent>()->receiveDamage(damage);
+		attacked = true;
+	};
 }
 
 

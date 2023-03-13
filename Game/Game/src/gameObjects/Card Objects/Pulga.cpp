@@ -1,6 +1,5 @@
 #include "Cards.h"
-#include "Bomb.h"
-#include "FlashBang.h"
+#include "Hitbox.h"
 
 
 void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
@@ -9,10 +8,16 @@ void PulgaCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 	dir = dir.normalize();
 
-	where->addGameObject<Bomb>(playerPos, dir, damage * attackMult, where);
+	Hitbox::HitboxData data = {playerPos, dir * BULLET_SPEED, 0, 16, 16, "Bullet", _grp_ENEMIES};
+
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 3, where, data);
 }
 
 void PulgaCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
-	where->addGameObject<FlashBang>(playerPos, where, remainingUses);
+	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "FlashBang", _grp_ENEMIES };
+
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, remainingUses, HitboxStatusComponent::CONFUSED, 0.5, data);
+
+	remainingUses = 0;
 }

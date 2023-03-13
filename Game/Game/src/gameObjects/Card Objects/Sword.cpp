@@ -1,22 +1,24 @@
 #include "Cards.h"
 #include "../../sdlutils/Texture.h"
 #include "../Card Objects/Hitbox.h"
-#include "../Card Objects/SwordSpin.h"
 
-#include <iostream>
-
-// Crea un gObj Slash en la dirección que apunta el jugador
+// Crea un gObj Slash en la direcciï¿½n que apunta el jugador
 void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-	
-	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();	
+	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
+	float rotation = Vector2D(1, 0).angle(dir);
 
-	where->addGameObject<Hitbox>(playerPos, dir, where, damage * attackMult, SDLApplication::getTexture("SwordSlash"));
+	Hitbox::HitboxData data = {playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "SwordSlash", _grp_ENEMIES};
+
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);
 
 }
 
 // Crea un gObj Spin en el centro del jugador
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	
-	where->addGameObject<SwordSpin>(playerPos, where, damage * remainingUses * attackMult);
+	Hitbox::HitboxData data = {playerPos, VECTOR_ZERO, 0, 300, 300, "SwordSpin", _grp_ENEMIES};
 
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.1, data);
+
+	remainingUses = 0;
 }

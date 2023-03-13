@@ -1,23 +1,29 @@
 #include "Cards.h"
 #include "../../sdlutils/Texture.h"
-#include "../Card Objects/Bullet.h"
+#include "../Card Objects/Hitbox.h"
 
-//Se crea una bala en la posición del jugador y se dirige hacia el cursor
+//Se crea una bala en la posiciï¿½n del jugador y se dirige hacia el cursor
 void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 	
 	dir = dir.normalize();
 
-	where->addGameObject<Bullet>(playerPos, dir, damage * attackMult, where->getEnemies());
+	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_ENEMIES };
+
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+
 }
 
-//Se disparan todas las balas no usadas con una precisión de entre [-90,90] grados
+//Se disparan todas las balas no usadas con una precisiï¿½n de entre [-90,90] grados
 void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	for (int i = 0; i < remainingUses; i++) {
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset() - Vector2D(rand() % 90,rand() % 90));
 
 		dir = dir.normalize();
 
-		where->addGameObject<Bullet>(playerPos, dir, damage * attackMult, where->getEnemies());
+		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_ENEMIES };
+
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
 	}
+	remainingUses = 0;
 }

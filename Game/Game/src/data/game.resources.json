@@ -10,7 +10,6 @@
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
-      { "id" : "BattleBackground", "file" : "../Game/resources/images/UI/BattleScene/BattleBackground_4012x4012.png"},
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
@@ -18,6 +17,7 @@
       { "id" : "AlbumButton", "file" : "../Game/resources/images/UI/MainMenuScene/AlbumButton_spritesheet_79x18.png" },
       { "id" : "ExitButton", "file" : "../Game/resources/images/UI/MainMenuScene/ExitButton_spritesheet_79x18.png" },
       { "id" : "ResumeButton", "file" : "../Game/resources/images/UI/MainMenuScene/ResumeButton_spritesheet_79x18.png" },
+      { "id" : "InventoryButton", "file" : "../Game/resources/images/UI/MainMenuScene/InventoryButton_spritesheet_79x18.png" },
       
       { "id" : "GameOver", "file" : "../Game/resources/images/UI/BattleScene/GameOver/GameOverBackground_2360x1640.png" },
       { "id" : "YouDied", "file" : "../Game/resources/images/UI/BattleScene/GameOver/YouDiedMessage_300x200.png" },
@@ -25,7 +25,9 @@
       { "id" : "Pistol", "file" : "../Game/resources/images/Cards/PistolCard_58x93.png" },
       { "id" : "Sword", "file" : "../Game/resources/images/Cards/SwordCard_58x93.png" },
       { "id" : "LaserGlasses", "file" : "../Game/resources/images/Cards/LaserGlassesCard_58x93.png" },
+
       { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
+      { "id" : "SMG", "file": "../Game/resources/images/Cards/SMGCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
@@ -41,10 +43,11 @@
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
-      { "id" : "LifeBar", "file" : "../Game/resources/images/Player/LifeBar_200x30.png" },
-      { "id" : "ManaBar", "file" : "../Game/resources/images/Player/ManaBar_200x30.png" },
+
+      { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
 
       { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
+      { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
       
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
@@ -54,10 +57,18 @@
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
-    
-      { "id" : "1", "file" : "../Game/resources/images/UI/BattleScene/1.png" }, 
-      { "id" : "2", "file" : "../Game/resources/images/UI/BattleScene/2.png" }, 
-      { "id" : "3", "file" : "../Game/resources/images/UI/BattleScene/3.png" }
+
+      { "id": "StatisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
+      { "id": "EtherMeterFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeterFrame_44x26.png" },
+      { "id": "EtherMeter", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeter_40x22.png" },
+      { "id": "LifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
+      { "id": "ManaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
+      { "id": "StatisticsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/StatisticsNumbers_9x18.png" },
+      
+      { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
+      { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
+      { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
+      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" }
     ],
     
     "messages" : [
