@@ -11,6 +11,7 @@ class HitboxStatusComponent : public Component {
 private:
 	float duration;
 	StatusComponent::status status;
+	unordered_set<GameObject*> hitRegistry; //Set que registra los choques anteriores
 
 public:
 
@@ -25,8 +26,11 @@ public:
 
 	CallBackCol statusFunction() {
 		return [&](GameObject* trgt)
-		{
-			trgt->getComponent<StatusComponent>()->applyStatus(status, duration);
+		{			
+			if (hitRegistry.count(trgt) == 0) {
+				trgt->getComponent<StatusComponent>()->applyStatus(status, duration);
+				hitRegistry.insert(trgt);
+			}
 		};
 	}
 };
