@@ -104,12 +104,21 @@ const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 const int RANGED_ATTACK_ANIM_DELAY = 670;
 
 // TANK ENEMY
+const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
+const int TANK_ENEMY_SPRITE_WIDTH = 40;
+const int TANK_ENEMY_SPRITE_HEIGHT = 40;
+const int TANK_ENEMY_SPRITE_ROWS = 5;
+const int TANK_ENEMY_SPRITE_COLS = 4;
+
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 1;
 const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
 const float TANK_ATTACK_TIME = 3000;
+const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
+const Animation TANK_ENEMY_MOVEMENT_ANIMATION(15, 19, 21, -1);
+const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 14, 21, -1);
 
 // BULLETS ---------------------------------------------------------------------------------------
 
