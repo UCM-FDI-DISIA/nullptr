@@ -156,6 +156,7 @@
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
+    <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
@@ -232,6 +233,7 @@
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
+    <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
