@@ -1,5 +1,6 @@
 #include "MeleeBehaviour.h"
 #include "../../core/SDLApplication.h"
+#include "../../gameObjects/Card Objects/Hitbox.h"
 
 MeleeBehaviour::MeleeBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehaviour(spd, dmg, stopT, attack, player) {
 	attackDistance = atkDist;
@@ -13,12 +14,14 @@ void MeleeBehaviour::initComponent() {
 	pos->lookAt(playerPos->getPos());
 	hasBeenCloseToPlayer = false;
 	attacked = false;
+	attacking = false;
 	elapsedTime = SDL_GetTicks();
+	gObj->getComponent<ColliderComponent>()->addFunction(meleeAttack());
 }
+
 
 //Metodo para saber si el enemigo esta cerca del player
 void MeleeBehaviour::close() {
-
 	//Si esta cerca del player
 	if (pos->getDistance(playerPos->getPos()) < attackDistance) {
 		//Si ya ha estado cerca del player
@@ -27,39 +30,64 @@ void MeleeBehaviour::close() {
 			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
 			pos->setVel(Vector2D(0, 0));
 			hasBeenCloseToPlayer = true;
+			attacking = true;
+			attacked = true;
 		}
 	}
 }
 
 void MeleeBehaviour::update() {
-	elapsedTime = SDLApplication::instance()->getCurrentTime();
-
+	elapsedTime += SDLApplication::instance()->getDeltaTime();
+	attacking = false;
+	attacked = false;
 	close();
+
+
 	if (hasBeenCloseToPlayer) {
 		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 		if (elapsedTime >= behaviorTime) {
+
 			pos->setVel(initialDir);
 			hasBeenCloseToPlayer = false;
 		}
-	}
 
-	if (!attacked && gObj->getComponent<ColliderComponent>()->hasCollided(player->getComponent<Transform>())) {
-		//Daña al jugador e informa de que ha atacado
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
-		attacked = true;
-		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
 	}
 	//Si ha pasado suficiente tiempo para atacar
 	else if (elapsedTime>= attackInterval)
 	{
-		attacked = false;
-
 		//Reseteamos el contador
 		behaviorTime -= attackInterval;
 	}
-	
+
 	pos->lookAt(playerPos->getPos());
+
+}
+
+// Funciï¿½n a realizar en colision
+CallBackCol MeleeBehaviour::meleeAttack()
+{
+	return [&](GameObject* gameObject)
+	{
+		attacking = true;
+		attacked = true;
+		enemyAttack();
+		//Daï¿½a al jugador e informa de que ha atacado
+
+
+	};
 }
 
 
+
+void MeleeBehaviour::enemyAttack() {
+	Vector2D vel = playerPos->getPos() - pos->getPos();
+	if (vel.magnitude() != 0) {
+		vel = vel / vel.magnitude();
+		Vector2D attackPos = pos->getPos() + vel * 100;
+		float rotation = Vector2D(1, 0).angle(vel);
+		Hitbox::HitboxData data = { attackPos, VECTOR_ZERO, rotation, 200, 100, "null", _grp_PLAYER };
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+		//player->getComponent<HealthComponent>()->receiveDamage(0);
+	}
+}
 

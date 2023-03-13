@@ -147,16 +147,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\components\Card Components\BulletBehavior.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
-    <ClInclude Include="src\components\Card Components\ConfuseBehaviour.h" />
-    <ClInclude Include="src\components\Card Components\ExplosionBehaviour.h" />
-    <ClInclude Include="src\components\Card Components\SwordSlashBehaviour.h" />
+    <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
+    <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
@@ -165,13 +165,14 @@
     <ClInclude Include="src\components\General Components\CameraComponent.h" />
     <ClInclude Include="src\components\General Components\CharacterAnimator.h" />
     <ClInclude Include="src\components\General Components\ColliderComponent.h" />
-    <ClInclude Include="src\components\General Components\HeatlhComponent.h" />
+    <ClInclude Include="src\components\General Components\HealthComponent.h" />
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
+    <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
-    <ClInclude Include="src\components\Player components\MannaBarComponent.h" />
+    <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
@@ -182,21 +183,16 @@
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
     <ClInclude Include="src\framework.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Bomb.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Bullet.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Explosion.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\FlashBang.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Laser.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\SwordSpin.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\ThrownSpear.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h" />
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
+    <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
     <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\EventNode.h" />
@@ -208,6 +204,7 @@
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
+    <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
@@ -231,28 +228,29 @@
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
+    <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
-    <ClCompile Include="src\components\Card Components\ExplosionBehaviour.cpp" />
-    <ClCompile Include="src\components\Card Components\ThrownSpearBehaviour.h" />
-    <ClCompile Include="src\components\Enemy components\EnemyBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
+    <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp" />
-    <ClCompile Include="src\components\General Components\HeatlhComponent.cpp" />
+    <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
+    <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
-    <ClCompile Include="src\components\Player components\MannaBarComponent.cpp" />
+    <ClCompile Include="src\components\Player components\BarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
     <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
@@ -262,8 +260,8 @@
     <ClCompile Include="src\data\json\JSON.cpp" />
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\gameObjects\Card Objects\Bullet.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
@@ -274,6 +272,7 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
+    <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp" />
@@ -285,6 +284,7 @@
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
+    <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
@@ -300,6 +300,7 @@
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\utils\Collisions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

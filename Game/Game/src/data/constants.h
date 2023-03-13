@@ -16,8 +16,10 @@ using uint = unsigned int;
 const Vector2D VECTOR_ZERO = { 0,0 };
 
 // WINDOW ----------------------------------------------------------------------------------------
-const uint WIN_WIDTH = 1920;
-const uint WIN_HEIGHT = 1080;
+const uint WIN_WIDTH = 1280;
+const uint WIN_HEIGHT = 720;
+const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
+const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 const int PIXEL_WIDTH = WIN_WIDTH / 544;
@@ -70,6 +72,12 @@ const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
 
+// POINTER -----------------------------------------------------------------------------------------
+const string POINTER = "Pointer";
+const int POINTER_WIDTH = 20;
+const int POINTER_HEIGHT = 20;
+const float POINTER_DEFAULT_RADIUS = 100.0f;
+
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
@@ -78,6 +86,18 @@ const float ENEMY_SPEED = 50;
 
 // MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;
+const string MELEE_ENEMY_TEXTURE_KEY = "MeleeEnemy";
+const int MELEE_ENEMY_SPRITE_WIDTH = 32;
+const int MELEE_ENEMY_SPRITE_HEIGHT = 32;
+const int MELEE_ENEMY_SPRITE_ROWS = 2;
+const int MELEE_ENEMY_SPRITE_COLS = 12;
+
+const int MELEE_ENEMY_WIDTH = MELEE_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int MELEE_ENEMY_HEIGHT = MELEE_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
+
+const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
+const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
+const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
 
 // RANGED ENEMY
 const string RANGED_ENEMY_TEXTURE_KEY = "RangedEnemy";
@@ -125,18 +145,15 @@ const int ONONVER_START_FRAME = 0;
 const int ONOVER_END_FRAME = 9;
 const int ONCLICK_ALL_FRAMES = 11;
 // MAINMENU: BUTTONS POSITIONS AND DIMENSIONS
-const int MM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
-const int MM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
-const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 4;
-const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 4;
-const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - ((BUTTON_SPRITE_WIDTH * 2) + (BUTTON_FRAME_SPRITE_WIDTH * 4)), WIN_HEIGHT * 4 / 8);
-const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 3 - BUTTON_SPRITE_WIDTH, WIN_HEIGHT * 5.5 / 8);
-const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 + BUTTON_SPRITE_WIDTH * 2, WIN_HEIGHT * 5.5 / 8);
-const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 + (3 * WIN_WIDTH / 20), WIN_HEIGHT * 4 / 8);
-const Vector2D MM_PLAYFRAME_BUTTON_POS = MM_PLAY_BUTTON_POS - Vector2D(48, 88);
-const Vector2D MM_OPTIONSFRAME_BUTTON_POS = MM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
-const Vector2D MM_ALUBMFRAME_BUTTON_POS = MM_ALBUM_BUTTON_POS - Vector2D(48, 88);
-const Vector2D MM_EXITFRAME_BUTTON_POS = MM_EXIT_BUTTON_POS - Vector2D(48, 88);
+const int MM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
+const int MM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 3;
+const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
+const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
+const Vector2D FRAME_OFFSET = Vector2D(36, 66);
+const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5, WIN_HEIGHT * 0.5);
+const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
+const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
+const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
 // PAUSEMENU: BUTTON POSITIONS AND DIMENSIONS
 const int PM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
 const int PM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
@@ -146,11 +163,10 @@ const Vector2D PM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH 
 const Vector2D PM_INVENTORY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 8);
 const Vector2D PM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 6 / 8);
 const Vector2D PM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (PM_BUTTON_WIDTH / 2), WIN_HEIGHT * 7 / 8);
-const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - Vector2D(48, 88);
-const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - Vector2D(48, 88);
-const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - Vector2D(48, 88);
-const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - Vector2D(48, 88);
-
+const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - FRAME_OFFSET;
+const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - FRAME_OFFSET;
+const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - FRAME_OFFSET;
+const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
@@ -163,47 +179,90 @@ const string INVENTORY = "InventoryButton";
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
-// LIFEBAR ---------------------------------------------------------------------------------------
+
+// STATISTICS FRAME ------------------------------------------------------------------------------
+// KEY ANIMATIONS
+const string STATISTICS = "StatisticsFrame";
 const string LIFEBAR = "LifeBar";
-const string LIFEFRAME = "LifeFrame";
-const string MANAFRAME = "LifeFrameFlipped";
 const string MANABAR = "ManaBar";
-const Vector2D LIFEBAR_POSITION = { WIN_WIDTH - 213 * 2, 30 };
-const Vector2D LIFEBAR_VELOCITY = VECTOR_ZERO;
-const Vector2D MANABAR_POSITION = { WIN_WIDTH / 2 - 250, 30};
-const Vector2D MANABAR_VELOCITY = VECTOR_ZERO;
-const int BAR_WIDTH = 200;
-const int BAR_HEIGHT = 30;
-const Vector2D LIFE_POSITION = { WIN_WIDTH - 213 * 2 - 13, 10 };
-const Vector2D LIFE_VELOCITY = VECTOR_ZERO;
-const Vector2D MANA_POSITION = { WIN_WIDTH / 2 - 250, 10 };
-const Vector2D MANA_VELOCITY = VECTOR_ZERO;
-const int LIFE_WIDTH = 213;
-const int LIFE_HEIGHT = 53;
-const int MANA_WIDTH = 213;
-const int MANA_HEIGHT = 53;
+const string ETHER_METER_FRAME = "EtherMeterFrame";
+const string ETHER_METER = "EtherMeter";
+const string STATISTICS_NUMBERS = "StatisticsNumbers";
+const string ETHER_ANIM = "Ether";
+
+// STATISTICS
+const int STATISTICS_WIDTH = 250;
+const int STATISTICS_HEIGHT = 28;
+const int UI_STATISTICS_WIDTH = 250 * 2.5;
+const int UI_STATISTICS_HEIGHT = 28 * 2.5;
+const Vector2D UI_STATISTICS_POSITION = Vector2D(WIN_WIDTH / 2 - UI_STATISTICS_WIDTH / 2, 0);
+// BARS
+const int BAR_WIDTH = 83;
+const int BAR_HEIGHT = 10;
+const int UI_BAR_WIDTH = 83 * 2.5;
+const int UI_BAR_HEIGHT = 10 * 2.5;
+const int BAR_ROWS = 4;
+const int BAR_COLUMNS = 3;
+const int BAR_START = 0;
+const int BAR_END = 10;
+const int BAR_FRAMERATE = 7;
+	// Lifebar
+const Vector2D LIFEBAR_POSITION = Vector2D(WIN_WIDTH - 295 * 2 + 1, 15);
+	// Manabar
+const Vector2D MANABAR_POSITION = Vector2D(WIN_WIDTH / 2 - 258, 15);
+// ETHER
+const int ETHER_FRAME_WIDTH = 44;
+const int ETHER_FRAME_HEIGHT = 26;
+const int UI_ETHER_FRAME_WIDTH = ETHER_FRAME_WIDTH * 2.5 + 1;
+const int UI_ETHER_FRAME_HEIGHT = ETHER_FRAME_HEIGHT * 2.5;
+const Vector2D UI_ETHER_FRAME_POSITION = Vector2D(WIN_WIDTH / 2 - UI_ETHER_FRAME_WIDTH / 2, 0);
+const int ETHER_WIDTH = 40;
+const int ETHER_HEIGHT = 22;
+const int UI_ETHER_WIDTH = 40 * 2.5 + 1;
+const int UI_ETHER_HEIGHT = 22 * 2.5;
+const Vector2D UI_ETHER_POSITION = Vector2D(WIN_WIDTH / 2 - ETHER_WIDTH * 2.5 / 2, 5);
+const int MAX_ETHER = 100;
+const int ETHER_ROWS = 4;
+const int ETHER_COLUMNS = 2;
+const int ETHER_START = 0;
+const int ETHER_END = 7;
+const int ETHER_FRAMERATE = 8;
+// COUNTERS
+const int N_LIFE_COUNTER = 7;
+const int N_MANA_COUNTER = 7;
+const int N_ETHER_COUNTER = 4;
+const int N_NUMBERS = 12;
+const int ST_NUMBERS_WIDTH = 9;
+const int ST_NUMBERS_HEIGHT = 18;
+const int ST_NUMBERS_ROWS = 6;
+const int ST_NUMBERS_COLUMNS = 2;
 
 // CARDS -----------------------------------------------------------------------------------------
-const int REVERSE_WIDTH = 58 * 2;
-const int REVERSE_HEIGHT = 93 * 2;
-const int RIGHT_OFFSET = 5 * REVERSE_WIDTH / 4;
-const int LEFT_OFFSET = REVERSE_WIDTH / 4;
-const int DOWN_OFFSET = WIN_HEIGHT - 6 * REVERSE_HEIGHT / 5;
-const int CARD_OFFSET_W = 2 * 2;
-const int CARD_OFFSET_H = 21 * 2;
 const int MAX_HAND_SIZE = 4;
+// CARD REVERSE DIMENSIONS
+const int REVERSE_WIDTH = 58;
+const int REVERSE_HEIGHT = 93;
+// UI CARD COUNTER DIMENSIONS
+const int BS_REVERSE_WIDTH = REVERSE_WIDTH * 1.5;
+const int BS_REVERSE_HEIGHT = REVERSE_HEIGHT * 1.5;
+// UI CARD COUNTER POS
+const int RIGHT_OFFSET = 5 * REVERSE_WIDTH / 4;
+const int LEFT_OFFSET = REVERSE_WIDTH / 2;
+const int DOWN_OFFSET = WIN_HEIGHT - REVERSE_HEIGHT * 1.75;
+const int CARD_OFFSET_W = 2 * 6;
+const int CARD_OFFSET_H = 21 * 1.5;
 //CARD DATA
 const float SMG_CADENCE = 0.3;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
 // UI CARD DIMENSIONS
-const int UI_CARD_WIDTH = CARD_WIDTH * 4;
-const int UI_CARD_HEIGHT = CARD_HEIGHT * 4;
+const int UI_CARD_WIDTH = CARD_WIDTH * 3;
+const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;
 // UI CARD POSITIONS
 const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2;
 const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - 60;
-const int BETWEEN_CARD_SPACE = CARD_WIDTH * 4 / 2;
+const int BETWEEN_CARD_SPACE = CARD_WIDTH * 3 / 2;
 const int CENTERED_CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2; // Usada para 3 y 1 cartas en mano
 	// 4 CARDS IN HAND
 const int X1_4CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - UI_CARD_WIDTH - BETWEEN_CARD_SPACE;
@@ -219,13 +278,13 @@ const int NUMBERS_WIDTH = 130;
 const int NUMBERS_HEIGHT = 250;
 const int NUMBERS_SPRITE_COLUMS = 2;
 const int NUMBERS_SPRITE_ROWS = 5;
-const int NUM_RENDER_W = NUMBERS_WIDTH / 5 * 2;
-const int NUM_RENDER_H = NUMBERS_HEIGHT / 5 * 2;
+const int NUM_RENDER_W = NUMBERS_WIDTH / 4;
+const int NUM_RENDER_H = NUMBERS_HEIGHT / 3;
 
 // LOGO ------------------------------------------------------------------------------------------
-const int LOGO_WIDTH = 576;
-const int LOGO_HEIGHT = 403;
-const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 7};
+const int LOGO_WIDTH = 404;
+const int LOGO_HEIGHT = 284;
+const Vector2D LOGO_POSITION = {WIN_WIDTH / 2 - LOGO_WIDTH / 2, WIN_HEIGHT / 8};
 const int LOGO_ROWS = 1;
 const int LOGO_COLUMNS = 4;
 const int LOGO_FRAME_WIDTH = 200;
@@ -287,7 +346,7 @@ const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 4;
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
-const Vector2D STUDIO_POSITION = { WIN_WIDTH / 9 - STUDIO_WIDTH / 2, WIN_HEIGHT - WIN_HEIGHT / 10 - 10 };
+const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 26, WIN_HEIGHT - WIN_HEIGHT / 7.6);
 
 // MESSAGE ---------------------------------------------------------------------------------------
 const int MESSAGE_W = 300;

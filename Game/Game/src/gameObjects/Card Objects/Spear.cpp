@@ -1,20 +1,24 @@
 #include "Cards.h"
 #include "Hitbox.h"
-#include "ThrownSpear.h"
 
 void SpearCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
+	float rotation = Vector2D(1, 0).angle(dir);
 
-	where->addGameObject<Hitbox>(playerPos, dir, where, damage * attackMult, SDLApplication::getTexture("SpearThrust"));
+	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 100, 30, "SpearThrust", _grp_ENEMIES };
+
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);
 }
 
 void SpearCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
-	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
+	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
+	float rotation = Vector2D(1, 0).angle(dir);
 
-	dir = dir.normalize();
+	Hitbox::HitboxData data = { playerPos, dir * THROWN_SPEAR_SPEED, rotation, 100, 30, "SpearThrust", _grp_ENEMIES };
 
-	where->addGameObject<ThrownSpear>(playerPos, dir, damage * attackMult, where->getEnemies());
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, true, 10, data);
+
 	remainingUses = 0;
 }

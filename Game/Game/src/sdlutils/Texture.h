@@ -8,7 +8,7 @@
 #include <cassert>
 #include <iostream>
 
-//#include "Font.h"
+#include "Font.h"
 
 class Texture {
 public:
