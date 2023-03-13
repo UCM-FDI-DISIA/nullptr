@@ -127,6 +127,7 @@ const float TANK_ATTACK_TIME = 3000;
 // BULLETS ---------------------------------------------------------------------------------------
 
 const float BULLET_SPEED = 200;
+const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
 
 // BUTTONS ---------------------------------------------------------------------------------------
@@ -253,7 +254,9 @@ const int DOWN_OFFSET = WIN_HEIGHT - REVERSE_HEIGHT * 1.75;
 const int CARD_OFFSET_W = 2 * 6;
 const int CARD_OFFSET_H = 21 * 1.5;
 //CARD DATA
+const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
+
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
