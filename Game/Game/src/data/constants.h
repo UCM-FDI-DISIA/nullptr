@@ -18,8 +18,8 @@ const Vector2D VECTOR_ZERO = { 0,0 };
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1280;
 const uint WIN_HEIGHT = 720;
-const float WIN_WIDTH_PER_PIXEL=WIN_WIDTH/544;
-const float WIN_HEIGHT_PER_PIXEL=WIN_HEIGHT/306;
+const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
+const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 const int PIXEL_WIDTH = WIN_WIDTH / 544;
@@ -77,6 +77,7 @@ const string POINTER = "Pointer";
 const int POINTER_WIDTH = 20;
 const int POINTER_HEIGHT = 20;
 const float POINTER_DEFAULT_RADIUS = 100.0f;
+const float POINTER_NORMAL_INCLINATION = -25.0f;
 
 // ENEMIES ---------------------------------------------------------------------------------------
 const int ENEMY_WIDTH = 30 * 2;
@@ -86,6 +87,18 @@ const float ENEMY_SPEED = 50;
 
 // MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;
+const string MELEE_ENEMY_TEXTURE_KEY = "MeleeEnemy";
+const int MELEE_ENEMY_SPRITE_WIDTH = 32;
+const int MELEE_ENEMY_SPRITE_HEIGHT = 32;
+const int MELEE_ENEMY_SPRITE_ROWS = 2;
+const int MELEE_ENEMY_SPRITE_COLS = 12;
+
+const int MELEE_ENEMY_WIDTH = MELEE_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int MELEE_ENEMY_HEIGHT = MELEE_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
+
+const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
+const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
+const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
 
 // RANGED ENEMY
 const string RANGED_ENEMY_TEXTURE_KEY = "RangedEnemy";
