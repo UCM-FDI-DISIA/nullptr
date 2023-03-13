@@ -20,7 +20,6 @@ PlayerData::PlayerData() {
 
 	deck.push_back(new PulgaCard());
 
-	deck.push_back(new PulgaCard());
 }
 
 void PlayerData::getDataFromJSON()
