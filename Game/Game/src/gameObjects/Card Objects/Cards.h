@@ -49,9 +49,9 @@ public:
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
-class Assault_RifleCard : public Card {
+class  AssaultRifleCard : public Card {
 public:
-	Assault_RifleCard() : Card(5, 8, 20, 0.8, "Rifle de asalto", SDLApplication::getTexture("SMG")) {};
+	 AssaultRifleCard() : Card(5, 8, 20, 0.8, "Rifle de asalto", SDLApplication::getTexture("SMG")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

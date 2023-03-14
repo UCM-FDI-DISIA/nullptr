@@ -3,7 +3,7 @@
 #include "../Card Objects/Hitbox.h"
 
 //Se crea una bala en la posición del jugador y se dirige hacia el cursor
-void Assault_RifleCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+void  AssaultRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	for (int i = 0; i < 4 ; i++) {
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
@@ -18,7 +18,7 @@ void Assault_RifleCard::attack(Vector2D playerPos, Vector2D mousePos, float atta
 }
 
 //Se disparan todas las balas
-void Assault_RifleCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+void  AssaultRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 	dir = dir.normalize();
 
