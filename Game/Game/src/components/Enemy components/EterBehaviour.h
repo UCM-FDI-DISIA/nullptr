@@ -7,6 +7,7 @@ class EterBehaviour: public Component
 {
 private:
 	Transform* myTransform;
+	Transform* plyr;
 	float speeding;
 	float floorTime;
 	float elapsedTime;
