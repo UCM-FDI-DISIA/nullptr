@@ -1,7 +1,7 @@
 #pragma once
 #include "Animator.h"
 class CharacterAnimator : public Animator {
-private:
+protected:
 	// Indica si se quiere que el sprite haga flip dependiendo de su dirección
 	bool wantToAdjustDirection;
 	// Guarda keys de animaciones con la condición sobre la que se ejecutará dicha animación
