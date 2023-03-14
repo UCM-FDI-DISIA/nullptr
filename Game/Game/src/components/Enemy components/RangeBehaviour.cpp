@@ -5,8 +5,8 @@
 RangeBehaviour::RangeBehaviour(float spd, float safDist, float stptime, float mvTime, 
 	int dmg, int atck, Player* plyr) :
 	EnemyBehaviour(spd, dmg, stptime, atck, plyr), 
-	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)), 
-	attacking(false), attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
+	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)),
+	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
 
 
 void RangeBehaviour::initComponent() {

@@ -2,19 +2,19 @@
 #include "../../sdlutils/SDLUtils.h"
 #include "../../sdlutils/InputHandler.h"
 #include "../General Components/CharacterAnimator.h"
-#include "RangeBehaviour.h"
-class RangedEnemyAnimator : public CharacterAnimator {
+#include "EnemyBehaviour.h"
+class EnemyAnimator: public CharacterAnimator
+{
 private:
-	RangeBehaviour* bhvr_;
-
+	EnemyBehaviour* _bhvr = nullptr;
+public:
 	// Determina cuándo el enemigo está atacando
 	inline bool attacking() {
-		return bhvr_->isAttacking() || playingAttack();
+		return _bhvr->isAttacking() || playingAttack();
 	}
 public:
 	// Llama al constructor del padre con las animaciones correspondientes y añade la de ataque
-	RangedEnemyAnimator();
+	EnemyAnimator(EnemyBehaviour* enmyBhvr, string txtr_key, int sprtW, int sprtH, int rws, int cols, Animation idle, Animation mvment, Animation atck);
 	// Recoge un puntero a RangeBehaviour
 	void initComponent();
 };
-
