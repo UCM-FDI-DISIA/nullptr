@@ -39,7 +39,7 @@
 
       
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
-      { "id" : "NewPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
+      { "id" : "newPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
       { "id" : "LifeBar", "file" : "../Game/resources/images/Player/LifeBar_200x30.png" },
