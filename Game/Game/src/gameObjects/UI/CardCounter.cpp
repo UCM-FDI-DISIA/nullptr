@@ -9,14 +9,15 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Me guardo el Transform del objeto principal (para ajustar los numeros de acorde)
 	Transform* trP;
 	// Si soy el contador de cartas del mazo me coloco a la izquierda
-	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), 196, REVERSE_HEIGHT);
+	int right = WIN_WIDTH - 2 * REVERSE_WIDTH;
+	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
-	else trP = addComponent<Transform>(Vector2D(WIN_WIDTH - RIGHT_OFFSET, DOWN_OFFSET), Vector2D(0, 0), REVERSE_WIDTH, REVERSE_HEIGHT);
+	else trP = addComponent<Transform>(Vector2D(right, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
 
 	if (_ref)
 	{
 		//SI soy mazo debo enseñar la animacion de barajear
-		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHUFFLING_CARDS), 90, 93, 1, 5);
+		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHUFFLING_CARDS), 58, 93, 1, 5);
 		anim->attachToCamera();
 		anim->createAnim(SHUFFLING_CARDS, 0, 4, 5, 1);
 		anim->createAnim(IDLE, 0, 0, 1, 1);
@@ -31,7 +32,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
-	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(0, 0), NUM_RENDER_W, NUM_RENDER_H);
+	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), NUM_RENDER_W, NUM_RENDER_H);
 	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture(NUMBERS),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	decAnim->attachToCamera();
 	createAnims(decAnim);
@@ -39,7 +40,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 
 	//Creamos el objeto de las unidades: con sus componentes y sus animaciones
 	unids = new GameObject();
-	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(0, 0), NUM_RENDER_W, NUM_RENDER_H);
+	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W + 5, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), NUM_RENDER_W, NUM_RENDER_H);
 	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture(NUMBERS), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
@@ -50,7 +51,6 @@ void CardCounter::update() {
 
 	//Si soy mazo debo actualizar mis componentes para que se vea la animacion
 	if (amIDeck) GameObject::update();
-
 
 	//Si cuento las cartas del mazo
 	if (amIDeck) {

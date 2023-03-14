@@ -16,18 +16,19 @@ GameOverScene::GameOverScene() {
 	im->attachToCamera();
 
 	//Creo el boton y su marco y los fijo a la camara
-	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 2, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 2, WIN_HEIGHT * 2 / 3) - Vector2D(48, 88),
+	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3) - FRAME_OFFSET,
 		[]() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
 }
 
-// Crear un bot�n especificado en la escena
-void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
+// Crear un botón especificado en la escena
+void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
 	AnimatorInfo aI = AnimatorInfo(key);
+
 	// Crear marco
 	GameObject* frame = addGameObject();
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
-	// Crear bot�n
+	// Crear botón
 	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
 }

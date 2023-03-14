@@ -1,18 +1,17 @@
 #pragma once
-#ifndef GAME_STATE_H_
-#define GAME_STATE_H_
-
-#include <list>
+#include <vector>
 #include "../gameObjects/GameObject.h"
 #include "../gameObjects/General Objects/Camera.h"
+#include "../gameObjects/General Objects/Pointer.h"
 
 class SDLApplication;
 using namespace std;
 
 class GameState {
 protected:
-    Camera* camera = nullptr;
-    std::array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
+    Camera* camera;
+    Pointer* pointer;
+    array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
 public:
     // Constructor
     GameState();
@@ -32,7 +31,7 @@ public:
     T* addGameObject(grpId group, Ts&& ...args) {
         T* e = new T();
         e->setAlive(true);
-        e->setContext(this);
+        e->setContext(this, group);
         e->initGameObject(std::forward<Ts>(args)...);
         entsByGroup_[group].push_back(e);
         return e;
@@ -50,4 +49,3 @@ public:
     // Devuelve la camara
     Camera* getCamera() const;
 };
-#endif

@@ -58,20 +58,27 @@ void RangeBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
+		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
 		/*vel = vel * bulletSpedd;*/
-		if(shotPattern==0) gStt->addGameObject<Bullet>(_grp_ENM_ATTACK, pos->getPos(), vel, damage,_grp_PLAYER);
+		if (shotPattern == 0) {
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(_grp_ENM_ATTACK, pos->getPos(), vel, damage, _grp_PLAYER);
+			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(_grp_ENM_ATTACK, pos->getPos(), vel, damage, _grp_PLAYER);
+			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 		else if (shotPattern == 2) {
-			gStt->addGameObject<Bullet>(_grp_ENM_ATTACK, pos->getPos(), vel, damage, _grp_PLAYER);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(_grp_ENM_ATTACK, pos->getPos(), vel, damage, _grp_PLAYER);
+			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
-			gStt->addGameObject<Bullet>(_grp_ENM_ATTACK, pos->getPos(), vel, damage, _grp_PLAYER);
+			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 	}
 }

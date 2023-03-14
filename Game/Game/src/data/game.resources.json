@@ -6,6 +6,8 @@
     ],
     
     "images" : [
+      { "id" : "null", "file" : "../Game/resources/images/Null_Img.png" },
+
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
@@ -42,10 +44,11 @@
       { "id" : "newPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
-      { "id" : "LifeBar", "file" : "../Game/resources/images/Player/LifeBar_200x30.png" },
-      { "id" : "ManaBar", "file" : "../Game/resources/images/Player/ManaBar_200x30.png" },
 
-      { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
+      { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
+
+      { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
+
       { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
       
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
@@ -56,7 +59,14 @@
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
-    
+
+      { "id": "StatisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
+      { "id": "EtherMeterFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeterFrame_44x26.png" },
+      { "id": "EtherMeter", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeter_40x22.png" },
+      { "id": "LifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
+      { "id": "ManaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
+      { "id": "StatisticsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/StatisticsNumbers_9x18.png" },
+      
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },

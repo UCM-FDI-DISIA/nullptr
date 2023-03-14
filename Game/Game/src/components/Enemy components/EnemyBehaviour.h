@@ -1,7 +1,6 @@
 #pragma once
 #include "../Component.h"
 #include "../General Components/Transform.h"
-#include "../General Components/ColliderComponent.h"
 #include "../General Components/HealthComponent.h"
 #include "../../gameObjects/Player Object/Player.h"
 

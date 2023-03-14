@@ -4,9 +4,11 @@
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
+	// ... (compoment ids)
 	_TRANSFORM = 0,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
+	_POINTERCOMPONENT,
 	_CARDCOMPONENT,
 	_HEALTH,
 	_CAMERACOMPONENT,
@@ -17,13 +19,12 @@ enum cmpId : cmpId_type {
 	_RANGE_BEHAVIOUR,
 	_TANK_BEHAVIOUR,
 	_COLLIDER_COMPONENT,
-	_BULLET_COMPONENT,
-	_SWORD_BEHAVIOUR,
+	_HITBOX_DAMAGE_COMPONENT,
+	_HITBOX_STATUS_COMPONENT,
+	_HITBOX_EXPLOSION_COMPONENT,
 	_LIFETIME,
-	_MANA_BAR_COMPONENT,
-	_EXPLOSION_BEHAVIOUR,
+	_BAR_COMPONENT,
 	_ENEMY_GEN,
-	// ... (compoment ids)
 
 	// do not remove this
 	_LAST_CMP_ID
@@ -36,7 +37,10 @@ enum grpId : grpId_type {
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
-
+	
+	_grp_UI,
+	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
+	// do not remove this
 	_LAST_GRP_ID
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
