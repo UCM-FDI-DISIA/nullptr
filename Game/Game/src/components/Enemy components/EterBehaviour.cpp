@@ -1,10 +1,11 @@
 #include "EterBehaviour.h"
 
-EterBehaviour::EterBehaviour(float groundTime)
+EterBehaviour::EterBehaviour(float groundTime, Transform* player)
 {
 	floorTime = groundTime;
 	elapsedTime = 0;
 	speeding = 0;
+	plyr = player;
 	dest = Vector2D(WIN_WIDTH / 2, 0);
 	dir = Vector2D(0, 1);
 }
@@ -14,6 +15,7 @@ void EterBehaviour::initComponent()
 }
 void EterBehaviour::update()
 {
+	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() + WIN_HEIGHT / 2);
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	if (elapsedTime >= floorTime)
 	{

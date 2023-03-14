@@ -14,7 +14,7 @@ private:
 	Vector2D dir;
 public:
 	static const int id = _ETER;
-	EterBehaviour(float groundTime);
+	EterBehaviour(float groundTime,Transform* player);
 	virtual void initComponent();
 	virtual void update();
 };

@@ -7,5 +7,5 @@ class SpacialEter :public GameObject
 {
 
 public:
-	virtual void initGameObject(int x, int y);
+	virtual void initGameObject(int x, int y, Transform* player);
 };
