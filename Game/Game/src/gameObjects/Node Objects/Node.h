@@ -44,7 +44,7 @@ class Node {
 private:
 	nodeState state;
 	string textureKey;
-	CallBack load;
+	function<void(BattleType)> load;
 
 	vector<Node*> nextNodes;
 	vector<int> nextInd;
@@ -55,7 +55,7 @@ private:
 	Needs needed;
 public:
 	// Constructora, recibe la clave de la textura
-	Node(Needs n, string tKey, CallBack _load, NodeType t, BattleType bt = BattleType::_NONE);
+	Node(Needs n, string tKey, function<void(BattleType)> _load, NodeType t, BattleType bt = BattleType::_NONE);
 	// Asigna el estado del nodo a bloqueado
 	void lock();
 	// Asigna el estado del nodo a desbloqueado

@@ -18,7 +18,7 @@ private:
 	Node* currentNode; // Nodo actual
 
 	string nodeTextureKeys[NodeType::None];
-	CallBack nodeLoads[NodeType::None];
+	function<void(BattleType)> nodeLoads[NodeType::None];
 
 	// Constructora
 	Map();

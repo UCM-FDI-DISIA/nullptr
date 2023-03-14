@@ -1,4 +1,5 @@
 #include "Map.h"
+#include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr) {
@@ -7,7 +8,9 @@ Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(ve
 	nodeTextureKeys[NodeType::Battle] = BATTLE_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Shop] = SHOP_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Chest] = CHEST_NODE_TEXTURE_KEY;
-	//nodeLoads[NodeType::None];
+	nodeLoads[NodeType::Battle] = [](BattleType t) { SDLApplication::instance()->newScene<BattleScene>(t); };
+	nodeLoads[NodeType::Chest] = [](BattleType t) { SDLApplication::instance()->newScene<ChestScene>(); };
+	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->newScene<ShopScene>(); };
 
 	nodeMap[0][1] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
 	nodeMap[1][1] = new Node(Needs(Chest, 0, false), nodeTextureKeys[Chest], nodeLoads[Chest], Chest);
@@ -17,7 +20,6 @@ Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(ve
 
 	generateLevel(nodeMap, 4);
 	//initMap("../Game/src/data/game.map.json");
-	cout << "eoue" << endl;
 
 
 	// TODO: asignar los siguientes de los iniciales y añadir los 2 últimos, preferblemente desde json

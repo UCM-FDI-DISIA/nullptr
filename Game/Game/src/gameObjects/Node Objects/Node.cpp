@@ -3,7 +3,7 @@
 #include "Map.h"
 
 // Constructora, recibe la clave de la textura
-Node::Node(Needs n, string tKey, CallBack _load, NodeType t, BattleType bt) : 
+Node::Node(Needs n, string tKey, function<void(BattleType)> _load, NodeType t, BattleType bt) :
 	needed(n), textureKey(tKey), load(_load), state(_LOCKED_NODE), type(t), bType(bt) {}
 
 // Asigna el estado del nodo a bloqueado
@@ -51,7 +51,7 @@ void Node::addToNextNodes(Node* node, int ind) {
 CallBack Node::loadNode() {
 	return [&](){
 		map().setCurrentNode(this);
-		load();
+		load(bType);
 	};
 }
 
