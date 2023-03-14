@@ -200,6 +200,8 @@
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
     <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h" />
     <ClInclude Include="src\gameObjects\Player Object\Player.h" />
+    <ClInclude Include="src\gameObjects\Relics Objects\Hoverboard.h" />
+    <ClInclude Include="src\gameObjects\Relics Objects\Relic.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
@@ -278,6 +280,8 @@
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp" />
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
+    <ClCompile Include="src\gameObjects\Relics Objects\Hoverboard.cpp" />
+    <ClCompile Include="src\gameObjects\Relics Objects\Relic.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />

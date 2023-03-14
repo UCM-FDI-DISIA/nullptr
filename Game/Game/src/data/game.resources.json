@@ -69,7 +69,9 @@
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
-      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" }
+      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
+    
+      { "id" :  "Hoverboard", "file" :  "../Game/resources/images/Objects/Hoverboard_32x32.png" }
     ],
     
     "messages" : [

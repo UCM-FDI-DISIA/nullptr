@@ -202,248 +202,260 @@
     <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Relics Objects\Hoverboard.cpp">
+      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Relics Objects\Relic.cpp">
+      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de Encabezado</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\core\SDLApplication.h">
-      <Filter>Archivos de Encabezado</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\AlbumScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\BattleScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\ChestScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\GameState.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\MainMenuScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\MapScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\OptionsMenuScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\PauseMenuScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\ShopScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\InputHandler.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Image.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\framework.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\core\Vector2D.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\Texture.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\targetver.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Component.h">
-      <Filter>Archivos de Encabezado\Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\Singleton.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\InventoryScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\data\constants.h">
-      <Filter>Archivos de Encabezado\Data</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\ecs.h">
-      <Filter>Archivos de Encabezado\Data</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\core\PlayerData.h">
-      <Filter>Archivos de Encabezado\Data</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\Font.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\SoundEffect.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\macros.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\Music.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\RandomNumberGenerator.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\SDLUtils.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\VirtualTimer.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\data\json\JSON.h">
-      <Filter>Archivos de Encabezado\Data\json</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data\json</Filter>
     </ClInclude>
     <ClInclude Include="src\data\json\JSONValue.h">
-      <Filter>Archivos de Encabezado\Data\json</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data\json</Filter>
     </ClInclude>
     <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h">
-      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\Animator.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\ButtonComponent.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\CameraComponent.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\ColliderComponent.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\HealthComponent.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\Image.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\LifetimeComponent.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\Transform.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h">
-      <Filter>Archivos de Encabezado\Components\Node Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Node Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Player components\PlayerAnimator.h">
-      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h">
-      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Card.h">
-      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h">
-      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h">
-      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h">
-      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\General Objects\Camera.h">
-      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Player Object\Player.h">
-      <Filter>Archivos de Encabezado\Objects\Player Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Player Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\GameObject.h">
-      <Filter>Archivos de Encabezado\Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\EventNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\Node.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\HandUI.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\CardCounter.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\Button.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\GameOverScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Player components\BarComponent.h">
-      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\Collisions.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h">
-      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\CharacterAnimator.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h">
-      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h">
-      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h">
-      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Explosive.h">
-      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Card Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
-      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h">
-      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\PointerComponent.h">
-      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Relics Objects\Hoverboard.h">
+      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Relics Objects\Relic.h">
+      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -455,29 +467,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Archivos de Encabezado">
-      <UniqueIdentifier>{13fba392-d123-496c-8854-de57954d27e2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Dependecias">
       <UniqueIdentifier>{9cf036a2-d742-4dd4-958e-9cd2872e2b71}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Recursos">
       <UniqueIdentifier>{970d0ee3-c997-4785-a092-1a473795c8f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Scenes">
-      <UniqueIdentifier>{54d04c08-6b5c-4291-b199-69c5c29bec23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\sdlutils">
-      <UniqueIdentifier>{7412cf90-abc1-428d-a185-401b1f5eb675}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects">
-      <UniqueIdentifier>{fedd1f1f-a95c-492c-aa00-2a43ca31ef06}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components">
-      <UniqueIdentifier>{f4a51f0e-9cd0-4261-a82e-66807bcdcb77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Data">
-      <UniqueIdentifier>{0f7d1b63-081f-4359-883e-15f41cdf434a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Dependecias\Scenes">
       <UniqueIdentifier>{4ce9f7e6-1b5d-4fcb-ac67-0443e0d2b35d}</UniqueIdentifier>
@@ -494,41 +488,8 @@
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Encabezado\Data\json">
-      <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Dependecias\Data\json">
       <UniqueIdentifier>{4272b9bf-8ad8-455b-87a9-713e5643df61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Card Components">
-      <UniqueIdentifier>{8ecff219-5e6c-4841-923e-47caa7b4a0a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Enemy Components">
-      <UniqueIdentifier>{b1423583-74d8-4c20-83d4-58f7664197aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\General Components">
-      <UniqueIdentifier>{1f318ddd-3760-423e-9605-088e61e625dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Node Components">
-      <UniqueIdentifier>{ca68632a-df7d-4bd3-8495-0a0c381d006e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Player Components">
-      <UniqueIdentifier>{6c5a396b-9aac-4e04-9e0a-bc7074bc4c05}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Card Objects">
-      <UniqueIdentifier>{e6193d8b-dc31-44b7-9fec-e897e764e47a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Enemy Objects">
-      <UniqueIdentifier>{44bf1df0-7de6-444b-927b-4c129ac1ef99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\General Objects">
-      <UniqueIdentifier>{2dfc764d-9cf8-4449-a800-cc1da2c3b61f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Node Objects">
-      <UniqueIdentifier>{20406a48-ce7b-499f-8bd2-dda070d8f8bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Player Objects">
-      <UniqueIdentifier>{1bd0d13e-f0d2-4af4-8c55-b8758168cd46}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Dependecias\Components\Cards Component">
       <UniqueIdentifier>{94d1921a-c7ea-4c5d-82d9-ee84a2b8f233}</UniqueIdentifier>
@@ -563,8 +524,62 @@
     <Filter Include="Archivos de Dependecias\Objects\UI Objects">
       <UniqueIdentifier>{6e97ee8e-781c-45ea-a1be-dd645b445f00}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\UI Objects">
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado">
+      <UniqueIdentifier>{13fba392-d123-496c-8854-de57954d27e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Scenes">
+      <UniqueIdentifier>{54d04c08-6b5c-4291-b199-69c5c29bec23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\sdlutils">
+      <UniqueIdentifier>{7412cf90-abc1-428d-a185-401b1f5eb675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects">
+      <UniqueIdentifier>{fedd1f1f-a95c-492c-aa00-2a43ca31ef06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Card Objects">
+      <UniqueIdentifier>{e6193d8b-dc31-44b7-9fec-e897e764e47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Enemy Objects">
+      <UniqueIdentifier>{44bf1df0-7de6-444b-927b-4c129ac1ef99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\General Objects">
+      <UniqueIdentifier>{2dfc764d-9cf8-4449-a800-cc1da2c3b61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Node Objects">
+      <UniqueIdentifier>{20406a48-ce7b-499f-8bd2-dda070d8f8bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\Player Objects">
+      <UniqueIdentifier>{1bd0d13e-f0d2-4af4-8c55-b8758168cd46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Objects\UI Objects">
       <UniqueIdentifier>{69cd8b21-8e43-40dd-9c0f-969e8b359ad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components">
+      <UniqueIdentifier>{f4a51f0e-9cd0-4261-a82e-66807bcdcb77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Card Components">
+      <UniqueIdentifier>{8ecff219-5e6c-4841-923e-47caa7b4a0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components">
+      <UniqueIdentifier>{b1423583-74d8-4c20-83d4-58f7664197aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\General Components">
+      <UniqueIdentifier>{1f318ddd-3760-423e-9605-088e61e625dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Node Components">
+      <UniqueIdentifier>{ca68632a-df7d-4bd3-8495-0a0c381d006e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Player Components">
+      <UniqueIdentifier>{6c5a396b-9aac-4e04-9e0a-bc7074bc4c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data">
+      <UniqueIdentifier>{0f7d1b63-081f-4359-883e-15f41cdf434a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data\json">
+      <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Objects\Relics Objects">
+      <UniqueIdentifier>{e14519fa-a7ce-443f-b1f0-c8d91b84f403}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -574,7 +589,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="src\data\game.resources.json">
-      <Filter>Archivos de Encabezado\Data</Filter>
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>
 </Project>
