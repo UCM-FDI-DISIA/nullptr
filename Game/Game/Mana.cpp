@@ -19,7 +19,7 @@ CallBackCol Mana::pickMana(){
 		else {
 			pD->setCurrMana(pD->getMaxMana());
 		}
-		std::cout <<pD->getCurrMana();
+		setAlive(false);
 	};
 }
 
