@@ -256,6 +256,7 @@ const int CARD_OFFSET_H = 21 * 1.5;
 //CARD DATA
 const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
+const float ASSAULT_RIFLE_BURST = 10;
 
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
