@@ -25,9 +25,6 @@ PlayerAnimator::PlayerAnimator(Texture* _texture, int _w, int _h, int _r, int _c
 		return isPlaying("skillIdle") || !moving() && InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT);
 		});
 
-
-
-
 }
 
 
