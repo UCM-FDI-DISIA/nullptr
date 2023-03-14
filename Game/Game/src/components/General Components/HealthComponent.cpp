@@ -3,6 +3,7 @@
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"
 #include "../Enemy components/MeleeBehaviour.h"
+#include "../Enemy components/OnDeath.h"
 
 // Al construirse, adopta el gameObject y su manager como propios
 // Tambi�n define la vida m�xima del objeto
@@ -33,6 +34,9 @@ void HealthComponent::receiveDamage(int damage)
 		}
 	}
 }
+void HealthComponent::initComponent() {
+	onDeath = gObj->getComponent<OnDeath>();
+}
 
 void HealthComponent::update()
 {
@@ -50,6 +54,10 @@ void HealthComponent::heal(int heal)
 // En el caso del jugador, termina la partida
 void HealthComponent::die()
 {
+
+	if(onDeath!=nullptr)
+	onDeath->death();
+
 	auto sc = dynamic_cast<BattleScene*>(gStt);
 	if (gObj->hasComponent<CardComponent>()) {
 		sc->OnPlayerDies();
