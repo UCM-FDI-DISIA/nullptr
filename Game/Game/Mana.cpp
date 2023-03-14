@@ -13,7 +13,7 @@ CallBackCol Mana::pickMana(){
 	return[&](GameObject* gameobject) {
 		
 		PlayerData* pD = PlayerData::instance();
-		if (pD->getCurrMana() < pD->getMaxMana()) {
+		if (pD->getCurrMana()+MANA_VALUE <= pD->getMaxMana()) {
 			pD->setCurrMana(pD->getCurrMana() + MANA_VALUE);
 		}
 		
