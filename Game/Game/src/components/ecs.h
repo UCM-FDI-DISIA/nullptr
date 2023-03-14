@@ -4,6 +4,7 @@
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
+	// ... (compoment ids)
 	_TRANSFORM = 0,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
@@ -18,11 +19,11 @@ enum cmpId : cmpId_type {
 	_RANGE_BEHAVIOUR,
 	_TANK_BEHAVIOUR,
 	_COLLIDER_COMPONENT,
-	_BULLET_COMPONENT,
-	_SWORD_BEHAVIOUR,
+	_HITBOX_DAMAGE_COMPONENT,
+	_HITBOX_STATUS_COMPONENT,
+	_HITBOX_EXPLOSION_COMPONENT,
 	_LIFETIME,
 	_BAR_COMPONENT,
-	_EXPLOSION_BEHAVIOUR,
 	_ENEMY_GEN,
 	_ON_DEATH,
 	// ... (compoment ids)
