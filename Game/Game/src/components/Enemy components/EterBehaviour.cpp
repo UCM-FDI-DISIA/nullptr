@@ -16,8 +16,6 @@ void EterBehaviour::initComponent()
 void EterBehaviour::update()
 {
 	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() - WIN_HEIGHT / 2);
-	string coordenates = to_string(dest.getX())+ " " + to_string(dest.getY());
-	cout << coordenates << endl;
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	if (elapsedTime >= floorTime)
 	{
