@@ -16,16 +16,18 @@ void EterBehaviour::initComponent()
 void EterBehaviour::update()
 {
 	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() - WIN_HEIGHT / 2);
+	string coordenates = to_string(dest.getX())+ " " + to_string(dest.getY());
+	cout << coordenates << endl;
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	if (elapsedTime >= floorTime)
 	{
-		dir = dir.rotate(myTransform->getVel().angle(dest - myTransform->getPos()) > 0 ? 0.01f : -0.01f);
-		speeding += 0.1;
+		dir = dir.rotate(myTransform->getVel().angle(dest - myTransform->getPos()) > 0 ? 0.3f : -0.3f);
+		speeding += 0.5;
 		myTransform->setVel(dir*speeding);
 	}
 	if ((myTransform->getPos().getX() <= dest.getX()+ 30 && myTransform->getPos().getX() >= dest.getX() - 30) && myTransform->getPos().getY() <= dest.getY())
 	{
 		gObj->setAlive(false);
-		// Avisar al contador de eter tambien
+		dynamic_cast<BattleScene*>(gStt)->onEtherChanges(ETHER_VALUE);
 	}
 }
