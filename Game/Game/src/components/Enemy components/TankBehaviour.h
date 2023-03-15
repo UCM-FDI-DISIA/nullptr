@@ -8,7 +8,7 @@ private:
 	bool attacking, chargingAttack, attacked;
 	float stop, attackingTime;
 public:
-	static const int id = _TANK_BEHAVIOUR;
+	static const int id = _ENEMY_BEHAVIOUR;
 
 	// Constructora
 	TankBehaviour(float spd, int dmg, float stop, float attack, Player* plyr);

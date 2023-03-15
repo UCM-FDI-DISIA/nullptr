@@ -37,30 +37,31 @@ void MeleeBehaviour::close() {
 }
 
 void MeleeBehaviour::update() {
-	elapsedTime += SDLApplication::instance()->getDeltaTime();
-	attacking = false;
-	attacked = false;
-	close();
-
-
-	if (hasBeenCloseToPlayer) {
-		// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
-		if (elapsedTime >= behaviorTime) {
-
-			pos->setVel(initialDir);
-			hasBeenCloseToPlayer = false;
+	if (confused) {
+		pos->setVel(Vector2D(rand(), rand()).normalize() * speed);
+	}
+	else {
+		elapsedTime += SDLApplication::instance()->getDeltaTime();
+		close();
+		if (hasBeenCloseToPlayer) {
+			// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
+			if (elapsedTime >= behaviorTime) {
+				pos->setVel(initialDir);
+				hasBeenCloseToPlayer = false;
+			}
 		}
 
-	}
-	//Si ha pasado suficiente tiempo para atacar
-	else if (elapsedTime>= attackInterval)
-	{
-		//Reseteamos el contador
-		behaviorTime -= attackInterval;
-	}
+		//Si ha pasado suficiente tiempo para atacar
+		else if (elapsedTime >= attackInterval)
+		{
+			attacked = false;
 
-	pos->lookAt(playerPos->getPos());
+			//Reseteamos el contador
+			behaviorTime -= attackInterval;
+		}
 
+		pos->lookAt(playerPos->getPos());
+	}
 }
 
 // Funci�n a realizar en colision

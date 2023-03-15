@@ -205,6 +205,9 @@
     <ClCompile Include="src\components\General Components\PointerComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\StatusComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -459,6 +462,9 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\Player Object\Mana.h">
       <Filter>Archivos de Encabezado\Objects\Player Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\StatusComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>

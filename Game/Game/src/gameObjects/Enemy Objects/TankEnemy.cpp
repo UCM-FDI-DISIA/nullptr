@@ -1,5 +1,5 @@
 #include "TankEnemy.h"
-
+#include "../../components/General Components/StatusComponent.h"
 void TankEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<Transform>(pos, Vector2D(0, 0), ENEMY_WIDTH, ENEMY_HEIGHT, 0);
 	addComponent<Image>(SDLApplication::getTexture("Player"));
@@ -9,4 +9,6 @@ void TankEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	ColliderComponent* collider=addComponent<ColliderComponent>(_grp_PLAYER);
 	collider->addFunction(getComponent<TankBehaviour>()->tankAttack());
 	addComponent<HealthComponent>(life);
+	addComponent<ColliderComponent>(_grp_PLAYER);
+	addComponent<StatusComponent>();
 }
