@@ -453,7 +453,7 @@
     </ClInclude>
     <ClInclude Include="src\components\General Components\StatusComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
-    </ClCompile>
+    </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
