@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ECS_H_
-#define ECS_H_
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
@@ -54,12 +52,9 @@ struct Animation {
 	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
 };
 
-
 #include <functional>
 // Tipo de funci�n que devuelve y recibe void, funciona tambi�n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
 class GameObject;
 using CallBackCol = std::function<void(GameObject*)>;
 using BoolCallBack = std::function<bool(void)>;
-
-#endif // !ECS_H_

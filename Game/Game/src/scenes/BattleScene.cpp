@@ -22,7 +22,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 		floor->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
 		break;
 	}
-	
+
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);

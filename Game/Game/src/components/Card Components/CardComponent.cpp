@@ -1,5 +1,5 @@
 #include "CardComponent.h"
-#include "../../core/PlayerData.h"
+#include "../../data/PlayerData.h"
 #include "../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
 #include "../../sdlutils/InputHandler.h"

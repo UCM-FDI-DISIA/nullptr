@@ -16,7 +16,8 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 		width_(width), //
 		height_(height), //
 		//fontsAccessWrapper_(fonts_, "Fonts Table"), //
-		imagesAccessWrapper_(images_, "Images Table")//, //
+		imagesAccessWrapper_(images_, "Images Table"), //
+		relicsAccessWrapper_(relics_, "Relics Table")
 		//msgsAccessWrapper_(msgs_, "Messages Table"), //
 		//soundsAccessWrapper_(sounds_, "Sounds Table"), //
 		//musicsAccessWrapper_(musics_, "Musics Table") ///
@@ -179,6 +180,40 @@ void SDLUtils::loadResources(std::string filename) {
 			}
 		} else {
 			throw "'images' is not an array in '" + filename + "'";
+		}
+	}
+
+	// load relics
+	jValue = root["relics"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			relics_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto& v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string description = vObj["description"]->AsString();
+					std::string era = vObj["era"]->AsString();
+					std::string health = vObj["health"]->AsString();
+					std::string movementVelocity = vObj["movementVelocity"]->AsString();
+					std::string cadency = vObj["cadency"]->AsString();
+					std::string mana = vObj["mana"]->AsString();
+					std::string attack = vObj["attack"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading relic info with id: " << key << std::endl;
+#endif
+					Relic relicStruct(description, era, stoi(health), stoi(movementVelocity), stoi(cadency), stoi(mana), stoi(attack));
+					
+					relics_.emplace(key, relicStruct);
+				}
+				else {
+					throw "'relics' array in '" + filename
+						+ "' includes and invalid value";
+				}
+			}
+		}
+		else {
+			throw "'relics' is not an array in '" + filename + "'";
 		}
 	}
 

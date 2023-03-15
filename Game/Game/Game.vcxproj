@@ -176,12 +176,13 @@
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
-    <ClInclude Include="src\core\PlayerData.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
     <ClInclude Include="src\core\Vector2D.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
+    <ClInclude Include="src\data\PlayerData.h" />
+    <ClInclude Include="src\data\RelicData.h" />
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
@@ -200,8 +201,6 @@
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
     <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h" />
     <ClInclude Include="src\gameObjects\Player Object\Player.h" />
-    <ClInclude Include="src\gameObjects\Relics Objects\Hoverboard.h" />
-    <ClInclude Include="src\gameObjects\Relics Objects\Relic.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
@@ -254,11 +253,11 @@
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
     <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
-    <ClCompile Include="src\core\PlayerData.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\data\json\JSON.cpp" />
     <ClCompile Include="src\data\json\JSONValue.cpp" />
+    <ClCompile Include="src\data\PlayerData.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
@@ -280,8 +279,6 @@
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp" />
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
-    <ClCompile Include="src\gameObjects\Relics Objects\Hoverboard.cpp" />
-    <ClCompile Include="src\gameObjects\Relics Objects\Relic.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />

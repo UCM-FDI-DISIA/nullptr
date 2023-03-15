@@ -37,9 +37,6 @@
     <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\PlayerData.cpp">
-      <Filter>Archivos de Dependecias\Data</Filter>
-    </ClCompile>
     <ClCompile Include="src\scenes\GameState.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
@@ -202,11 +199,8 @@
     <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Relics Objects\Hoverboard.cpp">
-      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Relics Objects\Relic.cpp">
-      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
+    <ClCompile Include="src\data\PlayerData.cpp">
+      <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -274,9 +268,6 @@
       <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\ecs.h">
-      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\PlayerData.h">
       <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\Font.h">
@@ -451,11 +442,11 @@
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Relics Objects\Hoverboard.h">
-      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
+    <ClInclude Include="src\data\PlayerData.h">
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Relics Objects\Relic.h">
-      <Filter>Archivos de Dependecias\Objects\Relics Objects</Filter>
+    <ClInclude Include="src\data\RelicData.h">
+      <Filter>Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -577,9 +568,6 @@
     </Filter>
     <Filter Include="Archivos de Dependecias\sdlutils\Archivos de Encabezado\Data\json">
       <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Dependecias\Objects\Relics Objects">
-      <UniqueIdentifier>{e14519fa-a7ce-443f-b1f0-c8d91b84f403}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
