@@ -5,5 +5,8 @@ void TankEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<Image>(SDLApplication::getTexture("Player"));
 	addComponent<ColliderComponent>(_grp_PLAYER);
 	addComponent<TankBehaviour>(TANK_SPEED, TANK_ATTACK_DAMAGE, TANK_STOP_TIME, TANK_ATTACK_TIME, player);
+	addComponent<OnDeath>(3, 1);
+	ColliderComponent* collider=addComponent<ColliderComponent>(_grp_PLAYER);
+	collider->addFunction(getComponent<TankBehaviour>()->tankAttack());
 	addComponent<HealthComponent>(life);
 }
