@@ -26,14 +26,14 @@ class LaserShadesCard : public Card {
 
 class PulgaCard : public Card {
 public:
-	PulgaCard() : Card(30, 2, 30, 1.5, "Pulga", SDLApplication::getTexture("LaserGlasses")) {};
+	PulgaCard() : Card(30, 2, 30, 1.5, "Pulga", SDLApplication::getTexture("Tick")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult ,BattleScene* where );
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class SpearCard : public Card {
 public:
-	SpearCard() : Card(15, 6, 15, 0.75, "Lanza", SDLApplication::getTexture("Sword")) {};
+	SpearCard() : Card(15, 6, 15, 0.75, "Lanza", SDLApplication::getTexture("Spear")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
