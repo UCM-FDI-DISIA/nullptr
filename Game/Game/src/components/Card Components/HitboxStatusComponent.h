@@ -10,7 +10,8 @@ class HitboxStatusComponent : public Component {
 public:
 	enum Status {
 		CONFUSED,
-		BURNED
+		BURNED,
+		NONE
 	};
 
 	static const int id = _HITBOX_STATUS_COMPONENT;

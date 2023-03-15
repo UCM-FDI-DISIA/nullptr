@@ -214,6 +214,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -460,6 +463,7 @@
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
