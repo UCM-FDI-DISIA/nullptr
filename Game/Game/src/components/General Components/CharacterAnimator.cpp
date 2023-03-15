@@ -33,7 +33,7 @@ void CharacterAnimator::addAction(string key, Animation anim, BoolCallBack cb) {
 }
 // Añade animación de ataque que iniciará cuando el callback pasado devuelva true
 void CharacterAnimator::addAttack(Animation anim, BoolCallBack cb) {
-	addAction(CHARACTER_ATTACK_KEY, anim, cb);
+	addAction(CHARACTER_ATTACK_IDLE_KEY, anim, cb);
 }
 
 

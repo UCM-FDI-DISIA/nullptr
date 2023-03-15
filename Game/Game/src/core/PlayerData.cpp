@@ -12,24 +12,30 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
-  deck.push_back(new BowCard());
-	
-	deck.push_back(new BowCard());
 
-	deck.push_back(new BowCard());
+	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new BowCard());
+	deck.push_back(new  AssaultRifleCard());
 
-  deck.push_back(new SwordCard());
+	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new BowCard());
+	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new SwordCard());
+	deck.push_back(new  AssaultRifleCard());
 
+	deck.push_back(new  AssaultRifleCard());
+
+	deck.push_back(new  AssaultRifleCard());
+
+	deck.push_back(new  AssaultRifleCard());
+
+	deck.push_back(new  AssaultRifleCard());
+
+	deck.push_back(new  AssaultRifleCard());
 
 }
 
