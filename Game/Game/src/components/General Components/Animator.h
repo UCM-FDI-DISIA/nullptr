@@ -81,4 +81,9 @@ public:
 	inline bool isCurrentAnimation(string key) {
 		return currentAnimKey == key;
 	}
+
+	//Devuelve si la animacion introducida esta siendo reproducida
+	bool isPlaying(string key) {
+		return isCurrentAnimation(key) && isPlaying();
+	}
 };
