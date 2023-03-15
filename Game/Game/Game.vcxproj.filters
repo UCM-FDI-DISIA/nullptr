@@ -205,6 +205,9 @@
     <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">

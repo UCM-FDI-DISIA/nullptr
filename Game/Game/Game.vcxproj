@@ -267,6 +267,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />

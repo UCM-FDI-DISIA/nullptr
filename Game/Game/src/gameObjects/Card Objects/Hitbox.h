@@ -37,7 +37,7 @@ public:
 	}
 
 	//Constructor de hitbox que aflige estados alterados, se le añade un lifetime component
-	void initGameObject(float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(float heal,float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
