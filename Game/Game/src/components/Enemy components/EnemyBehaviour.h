@@ -4,7 +4,7 @@
 #include "../General Components/HealthComponent.h"
 #include "../../gameObjects/Player Object/Player.h"
 
-// Clase abstracta que junta la logica común del comportamiento enemigo como su posición,
+// Clase abstracta que junta la logica comÃºn del comportamiento enemigo como su posiciÃ³n,
 // la del jugador y su velocidad
 
 class EnemyBehaviour: public Component
@@ -24,6 +24,7 @@ protected:
 	vector<GameObject*>::iterator posVector;
 	bool confused;
 	// AttackComponent* attack (cuando este cerca del player, envia un mensaje para atacar)
+
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
 

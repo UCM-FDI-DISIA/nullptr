@@ -15,6 +15,7 @@ void EnemyGenerator::update() {
 	}
 }
 
+
 const int* EnemyGenerator::calcWave() {
 	bool startingSpawns;
 	switch (levelType)
