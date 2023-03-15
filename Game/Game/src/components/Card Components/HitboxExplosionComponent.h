@@ -40,7 +40,7 @@ public:
 
 			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, _grp_ENEMIES };
 
-			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 0.25, stts,2, data);
+			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
 
 			gObj->setAlive(false);
 		}
@@ -52,7 +52,7 @@ public:
 		return [&](GameObject* trgt) {
 			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, _grp_ENEMIES };
 
-			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 0.25, data);
+			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
 
 			gObj->setAlive(false);
 		};
