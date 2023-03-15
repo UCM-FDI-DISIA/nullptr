@@ -9,11 +9,10 @@ class OnDeath : public Component {
 private:
 	Transform* enemyTransform;
 	int numMana, numEter;
-	GameState* where;
 public:
 	static const int id = _ON_DEATH;
 
-	OnDeath( int numMana, int numEter, GameState* batalla): numMana(numMana), numEter(numEter), where(batalla){};
+	OnDeath( int numMana, int numEter): numMana(numMana), numEter(numEter){};
 
 	virtual void initComponent();
 	void death();
