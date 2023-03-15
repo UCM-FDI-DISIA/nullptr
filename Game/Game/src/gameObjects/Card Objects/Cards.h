@@ -16,9 +16,9 @@ class SwordCard : public Card {
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
-class Torch : public Card {
+class TorchCard : public Card {
 public:
-	Torch() : Card(20, 10, 50, 0.67, "Antorcha", SDLApplication::getTexture("Torch")) {};
+	TorchCard() : Card(20, 10, 50, 0.67, "Antorcha", SDLApplication::getTexture("Torch")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

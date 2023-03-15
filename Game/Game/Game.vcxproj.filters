@@ -215,7 +215,7 @@
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
-          <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
@@ -468,6 +468,10 @@
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
