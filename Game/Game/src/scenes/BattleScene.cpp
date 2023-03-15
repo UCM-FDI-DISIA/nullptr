@@ -58,6 +58,7 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 };
 
 void BattleScene::OnPlayerDies() {
+	PlayerData::instance()->resetMana();
 	SDLApplication::newScene<GameOverScene>();
 }
 

@@ -25,6 +25,8 @@ enum cmpId : cmpId_type {
 	_LIFETIME,
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
+	_ON_DEATH,
+	// ... (compoment ids)
 
 	// do not remove this
 	_LAST_CMP_ID
@@ -37,7 +39,7 @@ enum grpId : grpId_type {
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
-	
+	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
 	// do not remove this

@@ -52,6 +52,9 @@
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
+      { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
+
+
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
 
       { "id": "StatisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
