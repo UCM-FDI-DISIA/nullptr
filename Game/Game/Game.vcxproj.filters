@@ -190,6 +190,12 @@
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Enemy components\OnDeath.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Mana.cpp">
+      <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp">
       <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
@@ -199,6 +205,9 @@
     <ClCompile Include="src\components\General Components\PointerComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\StatusComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -206,6 +215,9 @@
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
+          <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
@@ -427,6 +439,9 @@
     <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\Enemy components\OnDeath.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
@@ -445,7 +460,10 @@
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h">
       <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\PointerComponent.h">
+    <ClInclude Include="src\gameObjects\Player Object\Mana.h">
+      <Filter>Archivos de Encabezado\Objects\Player Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\StatusComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">

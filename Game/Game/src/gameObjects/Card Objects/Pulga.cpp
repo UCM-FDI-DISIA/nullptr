@@ -17,7 +17,7 @@ void PulgaCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 {
 	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "FlashBang", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK,0, remainingUses, HitboxStatusComponent::CONFUSED, 0.5, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, remainingUses, StatusComponent::CONFUSED, 0.5, data);
 
 	remainingUses = 0;
 }

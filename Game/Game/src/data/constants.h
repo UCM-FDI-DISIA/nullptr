@@ -1,4 +1,5 @@
 
+
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
@@ -49,24 +50,48 @@ const string NUMBERS = "Numbers";
 // CHARACTER ANIMATOR -----------------------------------------------------------------------------
 const string CHARACTER_IDLE_KEY = "charaIdle";
 const string CHARACTER_MOVE_KEY = "charaMove";
-const string CHARACTER_ATTACK_KEY = "charaAttack";
+const string CHARACTER_ATTACK_IDLE_KEY = "charaAttackIdle";
+const string CHARACTER_ATTACK_MOVE_KEY = "charaAttackMove";
+const string CHARACTER_SKILL_IDLE_KEY = "charaSkillIdle";
+const string CHARACTER_SKILL_MOVE_KEY = "charaSkillMove";
 
 // PLAYER -----------------------------------------------------------------------------------------
 // PLAYER ANIMATIONS
-const string PLAYER = "Player";
-const int PLAYER_SPRITE_WIDTH = 17;
-const int PLAYER_SPRITE_HEIGHT = 30;
-const int PLAYER_SPRITE_ROWS = 2;
+const string PLAYER = "newPlayer";
+const int PLAYER_SPRITE_WIDTH = 32;
+const int PLAYER_SPRITE_HEIGHT = 32;
+const int PLAYER_SPRITE_ROWS = 6;
 const int PLAYER_SPRITE_COLS = 8;
+
+//PLAYER IDLE ANIM
 const int PLAYER_IDLE_INITIAL_FRAME = 0;
 const int PLAYER_IDLE_FINAL_FRAME = 7;
 const int PLAYER_IDLE_FRAME_RATE = 10;
+//PLAYER MOVE ANIM
 const int PLAYER_MOVE_INITIAL_FRAME = 8;
-const int PLAYER_MOVE_FINAL_FRAME = 14;
+const int PLAYER_MOVE_FINAL_FRAME = 15;
 const int PLAYER_MOVE_FRAME_RATE = 10;
+//PLAYER SKILL IDLE ANIM
+const int PLAYER_SKILL_IDLE_INITIAL_FRAME = 16;
+const int PLAYER_SKILL_IDLE_FINAL_FRAME = 23;
+const int PLAYER_SKILL_IDLE_FRAME_RATE = 12;
+//PLAYER SKILL MOVE ANIM
+const int PLAYER_SKILL_MOVE_INITIAL_FRAME = 24;
+const int PLAYER_SKILL_MOVE_FINAL_FRAME = 31;
+const int PLAYER_SKILL_MOVE_FRAME_RATE = 12;
+//PLAYER ATTACK IDLE ANIM
+const int PLAYER_ATTACK_IDLE_INITIAL_FRAME = 32;
+const int PLAYER_ATTACK_IDLE_FINAL_FRAME = 39;
+const int PLAYER_ATTACK_IDLE_FRAME_RATE = 12;
+//PLAYER ATTACK MOVE ANIM
+const int PLAYER_ATTACK_MOVE_INITIAL_FRAME = 40;
+const int PLAYER_ATTACK_MOVE_FINAL_FRAME = 47;
+const int PLAYER_ATTACK_MOVE_FRAME_RATE = 12;
+
+
 // PLAYER DIMENSIONS
-const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 4;
-const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 4;
+const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
+const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
@@ -129,6 +154,10 @@ const float TANK_ATTACK_TIME = 3000;
 const float BULLET_SPEED = 200;
 const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
+
+// STATUS ---------------------------------------------------------------------------------------
+
+const int BURN_DAMAGE = 3;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
@@ -239,6 +268,14 @@ const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
 
+//MANA -------------------------------------------------------------------------------------------
+const int MANA_H = 10;
+const int MANA_W = 10;
+const int MANA_OFFSET = 10;
+const int MANA_VALUE = 5;
+const string MANA_NAME = "Mana";
+const int MANA_COLUMS = 2;
+
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;
 // CARD REVERSE DIMENSIONS
@@ -256,6 +293,7 @@ const int CARD_OFFSET_H = 21 * 1.5;
 //CARD DATA
 const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
+const float ASSAULT_RIFLE_BURST = 10;
 
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;

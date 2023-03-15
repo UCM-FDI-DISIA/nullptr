@@ -4,6 +4,8 @@
 
 // Constructora
 BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {  
+	//Mana
+	PlayerData::instance()->resetMana();
 	//Suelo
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
