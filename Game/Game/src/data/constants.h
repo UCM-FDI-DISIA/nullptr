@@ -295,53 +295,35 @@ const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
 
 // NODOS -----------------------------------------------------------------------------------------
-const Vector2D NODE_POSITIONS[22] = {
-	Vector2D(0, WIN_HEIGHT / 2),
-	Vector2D(5 * 9, WIN_HEIGHT / 2),
-	Vector2D(10 * 9, WIN_HEIGHT / 2),
-	Vector2D(15 * 9, WIN_HEIGHT / 2),
-	Vector2D(20 * 9, WIN_HEIGHT / 2),
-	Vector2D(25 * 9, WIN_HEIGHT / 2),
-	Vector2D(30 * 9, WIN_HEIGHT / 2),
-	Vector2D(35 * 9, WIN_HEIGHT / 2),
-	Vector2D(40 * 9, WIN_HEIGHT / 2),
-	Vector2D(45 * 9, WIN_HEIGHT / 2),
-	Vector2D(50 * 9, WIN_HEIGHT / 2),
-	Vector2D(55 * 9, WIN_HEIGHT / 2),
-	Vector2D(65 * 9, WIN_HEIGHT / 2),
-	Vector2D(70 * 9, WIN_HEIGHT / 2),
-	Vector2D(75 * 9, WIN_HEIGHT / 2),
-	Vector2D(80 * 9, WIN_HEIGHT / 2),
-	Vector2D(90 * 9, WIN_HEIGHT / 2),
-	Vector2D(95 * 9, WIN_HEIGHT / 2),
-	Vector2D(100 * 9, WIN_HEIGHT / 2),
-	Vector2D(105 * 9, WIN_HEIGHT / 2),
-	Vector2D(110 * 9, WIN_HEIGHT / 2),
-	Vector2D(115 * 9, WIN_HEIGHT / 2)};
+const int HEIGHT = 17;
 
-const int NODE_WIDTH = 50;
-const int NODE_HEIGHT = 50;
+const int NODE_POSITIONS_X[5] = { WIN_WIDTH / 6, WIN_WIDTH / 6 * 2, WIN_WIDTH / 6 * 3, WIN_WIDTH / 6 * 4, WIN_WIDTH / 6 * 5 };
+const int NODE_POSITION_Y = 20 * PIXEL_HEIGHT;
+
 
 const string BATTLE_NODE_TEXTURE_KEY = "BattleNode";
 const string SHOP_NODE_TEXTURE_KEY = "ShopNode";
 const string CHEST_NODE_TEXTURE_KEY = "ChestNode";
 const string EVENT_NODE_TEXTURE_KEY = "EventNode";
 
-const int NODE_FRAME_WIDTH = 1;
-const int NODE_FRAME_HEIGHT = 1;
-const int NODE_FRAME_ROWS = 1;
-const int NODE_FRAME_COLUMNS = 5;
+const int NODE_FRAME_WIDTH = 32;
+const int NODE_FRAME_HEIGHT = 32;
+const int NODE_FRAME_ROWS = 6;
+const int NODE_FRAME_COLUMNS = 3;
+
+const int NODE_WIDTH = NODE_FRAME_WIDTH * PIXEL_WIDTH;
+const int NODE_HEIGHT = NODE_FRAME_HEIGHT * PIXEL_HEIGHT;
 
 const int NODE_BUTTON_ONOUT_START_FRAME = 0;
 const int NODE_BUTTON_ONOUT_END_FRAME = 0;
-const int NODE_BUTTON_ONOVER_START_FRAME = 1;
-const int NODE_BUTTON_ONOVER_END_FRAME = 1;
-const int NODE_BUTTON_ONCLICK_START_FRAME = 2;
-const int NODE_BUTTON_ONCLICK_END_FRAME = 2;
-const int NODE_BUTTON_ONLOCKED_START_FRAME = 3;
-const int NODE_BUTTON_ONLOCKED_END_FRAME = 3;
-const int NODE_BUTTON_ONCOMPLETED_START_FRAME = 4;
-const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 4;
+const int NODE_BUTTON_ONOVER_START_FRAME = 2;
+const int NODE_BUTTON_ONOVER_END_FRAME = 14;
+const int NODE_BUTTON_ONCLICK_START_FRAME = 1;
+const int NODE_BUTTON_ONCLICK_END_FRAME = 1;
+const int NODE_BUTTON_ONLOCKED_START_FRAME = 15;
+const int NODE_BUTTON_ONLOCKED_END_FRAME = 15;
+const int NODE_BUTTON_ONCOMPLETED_START_FRAME = 16;
+const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 17;
 
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;

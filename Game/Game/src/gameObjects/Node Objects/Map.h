@@ -6,7 +6,7 @@
 
 const int MAX_NODES = 3;
 const int MAX_SIG = 2;
-const int HEIGHT = 17;
+//const int HEIGHT = 17;
 
 class Map : public Singleton<Map> {
 	friend Singleton<Map>;
@@ -16,6 +16,8 @@ private:
 	vector<Node*> initialNodes;
 	vector<Node*>& unlockedNodes;
 	Node* currentNode; // Nodo actual
+
+	vector<int> nodesPerHeight;
 
 	string nodeTextureKeys[NodeType::None];
 	function<void(BattleType)> nodeLoads[NodeType::None];
@@ -51,6 +53,8 @@ public:
 	void completeCurrentNode();
 	// Devuelve una referencia constante al mapa de nodos
 	inline vector<vector<Node*>> const& getNodeMap() { return nodeMap; }
+	// Devuelve una referencia constante al mapa de nodos
+	inline vector<int> const& getNodesPerWidth() { return nodesPerHeight; }
 };
 // Referencia a la instancia del mapa
 inline Map& map() { return *Map::instance(); }

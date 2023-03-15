@@ -2,7 +2,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
 
-Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr) {
+Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	// Crear el mapa de nodos
 	// Crear los nodos (con unos iniciales desbloqueados)
 	nodeTextureKeys[NodeType::Battle] = BATTLE_NODE_TEXTURE_KEY;
@@ -13,16 +13,44 @@ Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(ve
 	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->newScene<ShopScene>(); };
 
 	nodeMap[0][1] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
+	initialNodes.push_back(nodeMap[0][1]);
+	++nodesPerHeight[0];
+	
 	nodeMap[1][1] = new Node(Needs(Chest, 0, false), nodeTextureKeys[Chest], nodeLoads[Chest], Chest);
+	++nodesPerHeight[1];
+	nodeMap[0][1]->addToNextNodes(nodeMap[1][1], 1);
+
 	nodeMap[2][0] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
+	++nodesPerHeight[2];
+	nodeMap[1][1]->addToNextNodes(nodeMap[2][0], 0);
 	nodeMap[2][2] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
+	++nodesPerHeight[2];
+	nodeMap[1][1]->addToNextNodes(nodeMap[2][2], 2);
+	
 	nodeMap[3][1] = new Node(Needs(Shop, 0, false), nodeTextureKeys[Shop], nodeLoads[Shop], Shop);
+	++nodesPerHeight[3];
+	nodeMap[2][0]->addToNextNodes(nodeMap[3][1], 1);
+	nodeMap[2][2]->addToNextNodes(nodeMap[3][1], 1);
 
 	generateLevel(nodeMap, 4);
 	//initMap("../Game/src/data/game.map.json");
 
+	nodeMap[HEIGHT - 2][1] = new Node(Needs(Chest, 0, false), nodeTextureKeys[Chest], nodeLoads[Chest], Chest, BattleType(rand() % _NONE));
+	++nodesPerHeight[HEIGHT - 2];
+	nodeMap[HEIGHT - 1][1] = new Node(Needs(Battle, 0, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, _BOSSBATTLE);
+	++nodesPerHeight[HEIGHT - 1];
 
+	for (int i = 0; i < MAX_NODES; ++i) {
+		if (nodeMap[HEIGHT - 3][i] != nullptr) nodeMap[HEIGHT - 3][i]->addToNextNodes(nodeMap[HEIGHT - 2][1], i);
+	}
+
+	nodeMap[HEIGHT - 2][1]->addToNextNodes(nodeMap[HEIGHT - 1][1], 1);
 	// TODO: asignar los siguientes de los iniciales y añadir los 2 últimos, preferblemente desde json
+
+
+	for (Node* n : unlockedNodes) {
+		n->unlock();
+	}
 }
 
 Map::~Map() {
@@ -220,7 +248,6 @@ bool Map::lookForPrevious(vector<vector<Node*>> m, int alt, int ind) {
 void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 	if (k < HEIGHT - 2) {
 		// Contador de nodos generados y vector de la nodos requeridos de la altura anterior
-		int nodeCont = 0;
 		vector<Needs> ns = getNeeds(m[k - 1]);
 
 		// Se generan el mínimo número de nodos de un nivel con sus tipos requeridos
@@ -230,7 +257,7 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 				if (ns[i].type == Battle) m[k][i] = new Node(ns[i], nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
 				else m[k][i] = new Node(ns[i], nodeTextureKeys[ns[i].type], nodeLoads[ns[i].type], ns[i].type);
 
-				nodeCont++;
+				++nodesPerHeight[k];
 			}
 		}
 
@@ -242,16 +269,19 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 					if (m[k][1] == nullptr) copy++;
 					copy++;
 					m[k][i] = new Node(m[k][copy]->getNeeded(), nodeTextureKeys[m[k][copy]->getType()], nodeLoads[m[k][copy]->getType()], m[k][copy]->getType(), BattleType(rand() % _NONE));
+					++nodesPerHeight[k];
 				}
 				else if (copy == 2) {
 					if (m[k][1] == nullptr) copy--;
 					copy--;
 					m[k][i] = new Node(m[k][copy]->getNeeded(), nodeTextureKeys[m[k][copy]->getType()], nodeLoads[m[k][copy]->getType()], m[k][copy]->getType(), BattleType(rand() % _NONE));
+					++nodesPerHeight[k];
 				}
 				else {
 					if (m[k][0] != nullptr) copy--;
 					else copy++;
 					m[k][i] = new Node(m[k][copy]->getNeeded(), nodeTextureKeys[m[k][copy]->getType()], nodeLoads[m[k][copy]->getType()], m[k][copy]->getType(), BattleType(rand() % _NONE));
+					++nodesPerHeight[k];
 				}
 			}
 		}
@@ -266,6 +296,7 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 			if (m[k][i] != nullptr && !lookForPrevious(m, k, i)) {
 				delete m[k][i];
 				m[k][i] = nullptr;
+				--nodesPerHeight[k];
 			}
 		}
 
@@ -281,6 +312,7 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 				if (m[k][i] != nullptr) {
 					delete m[k][i];
 					m[k][i] = nullptr;
+					--nodesPerHeight[k];
 				}
 				if (m[k - 1][i] != nullptr) m[k - 1][i]->clearLinks();
 			}
@@ -289,7 +321,7 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 		}
 
 		// Llamada recursiva para la proxima altura
-		generateLevel(m, k + 1);
+		else generateLevel(m, k + 1);
 	}
 }
 
