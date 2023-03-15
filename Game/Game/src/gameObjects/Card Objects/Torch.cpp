@@ -10,15 +10,15 @@ void Torch::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Batt
 	float rotation = Vector2D(1, 0).angle(dir);
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "SwordSlash", _grp_ENEMIES };
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage, false, false, 5 , HitboxStatusComponent::Status::BURNED, 0.06, data);
+	//where->addGameObject<Hitbox>(_grp_PLYR_ATTACK,damage, false, false, 5 , HitboxStatusComponent::Status::BURNED, 0, 0.06, data);
 }
 
 // Crea un gObj cura en el centro del jugador
 void Torch::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+	float heal = 50;//esto no tiene que estar asi pero es un apaño rapido 
+	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "FlashBang", _grp_PLAYER };
 
-	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "FlashBang", _grp_ENEMIES };
-
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK,2, remainingUses, HitboxStatusComponent::HEALING, 0.5, data);
+	//where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 2, remainingUses, HitboxStatusComponent::HEALING, heal, 0.06, data);
 
 	remainingUses = 0;
 
