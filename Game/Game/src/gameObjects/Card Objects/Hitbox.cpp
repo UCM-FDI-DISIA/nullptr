@@ -3,8 +3,8 @@
 #include "../../components/Card Components/HitboxExplosionComponent.h"
 
 //Constructor de hitbox que crea una explosion
-void Hitbox::initGameObject(int dmg, bool contact, float lifetime, BattleScene* scene, HitboxData data, Vector2D anch)
+void Hitbox::initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height,string sprite, BattleScene* scene, HitboxData data, Vector2D anch)
 {
 	initGameObject(data, anch);
-	addComponent<HitboxExplosionComponent>(dmg, lifetime, contact, scene, data.trgt);
+	addComponent<HitboxExplosionComponent>(dmg, lifetime, stts, contact, width, height, sprite, scene, data.trgt);
 }

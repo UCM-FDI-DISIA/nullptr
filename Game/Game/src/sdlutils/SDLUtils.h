@@ -121,6 +121,11 @@ public:
 		SDL_ShowCursor(0);
 	}
 
+// keep the cursor inside the boundaries of the window
+	inline void focusMouseOnWindow() {
+		SDL_SetWindowGrab(window(), SDL_TRUE);
+	}
+
 // All resource maps can be modified from outside, this way you can store
 // your own dynamically. Be careful when modifying them!
 

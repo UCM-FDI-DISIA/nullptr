@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.35.32215:TargetPlatformVersion=10.0.19041.0:
+Debug|x64|C:\Users\User\Desktop\Programacion\nullptr\Game\|
+=======
 PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.33.31629:TargetPlatformVersion=10.0.19041.0:
-Debug|x64|C:\Users\pedro\Documents\GitHub\nullptr\Game\|
+Debug|x64|C:\Users\49leg\Documents\GitHub\nullptr\Game\|
+>>>>>>> Hito-2
