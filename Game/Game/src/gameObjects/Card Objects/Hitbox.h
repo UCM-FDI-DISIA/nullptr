@@ -52,5 +52,5 @@ public:
 	}
 
 	//Constructor de hitbox que crea una explosion
-	void initGameObject(int dmg, bool contact, float lifetime, HitboxStatusComponent::Status stts, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1));
+	void initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1));
 };

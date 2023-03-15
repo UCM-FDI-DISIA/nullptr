@@ -8,7 +8,7 @@ private:
     //Duracion del gObj
 	int damage;
     float lifeSpan;
-	HitboxStatusComponent::Status stts;
+	StatusComponent::status stts;
     float currentLifeDuration;
 	bool contact; //Si explota al contacto
 	float  width;//tamaño explosion
@@ -20,7 +20,7 @@ private:
 
 public:
     //Constructora. Determina el tick global en el que el gObj muere, la escena en la que se instancia la explosion y el daño que hace esta
-    HitboxExplosionComponent(int dmg, float lifeSpan, HitboxStatusComponent::Status stts, bool cntct, float  wdth, float hght,string sprt,  BattleScene* scn, grpId trgt) : damage(dmg), lifeSpan(lifeSpan), currentLifeDuration(0), width(wdth), height(hght), sprite(sprt), scene(scn), target(trgt), tr(nullptr), contact(cntct) {}
+    HitboxExplosionComponent(int dmg, float lifeSpan, StatusComponent::status stts, bool cntct, float  wdth, float hght,string sprt,  BattleScene* scn, grpId trgt) : damage(dmg), lifeSpan(lifeSpan), currentLifeDuration(0), width(wdth), height(hght), sprite(sprt), scene(scn), target(trgt), tr(nullptr), contact(cntct) {}
     static const int id = _HITBOX_EXPLOSION_COMPONENT;
 
 	// Se le añade al colider la funcion de explosion

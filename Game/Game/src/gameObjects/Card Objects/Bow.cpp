@@ -27,7 +27,7 @@ void BowCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 		float size = 100 + remainingUses * 15;
 		string sprite = "Bullet";
 
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 2, HitboxStatusComponent::NONE, size, size, sprite, where, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 2, StatusComponent::NONE, size, size, sprite, where, data);
 
 
 	remainingUses = 0;

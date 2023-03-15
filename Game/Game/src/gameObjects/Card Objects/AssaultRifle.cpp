@@ -26,7 +26,7 @@ void  AssaultRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float att
 	float size = 250;
 	string sprite = "Bullet";
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 50 * (remainingUses / 8), false, 2, HitboxStatusComponent::NONE, size, size, sprite, where, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 50 * (remainingUses / 8), false, 2, StatusComponent::NONE, size, size, sprite, where, data);
 
 
 	remainingUses = 0;
