@@ -202,7 +202,7 @@ void SDLUtils::loadResources(std::string filename) {
 #ifdef _DEBUG
 					std::cout << "Loading relic info with id: " << key << std::endl;
 #endif
-					Relic relicStruct(description, era, stoi(health), stoi(movementVelocity), stoi(cadency), stoi(mana), stoi(attack));
+					Relic relicStruct(&images().at(key), description, era, stoi(health), stoi(movementVelocity), stoi(cadency), stoi(mana), stoi(attack));
 					
 					relics_.emplace(key, relicStruct);
 				}
