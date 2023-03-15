@@ -1,4 +1,6 @@
 #include "MeleeEnemy.h"
+#include "../../core/SDLApplication.h"
+#include "../../components/General Components/StatusComponent.h"
 #include "../../components/Enemy components/MeleeBehaviour.h"
 #include "../../components/Enemy components/MeleeEnemyAnimator.h"
 #include "../../scenes/BattleScene.h"
@@ -12,5 +14,6 @@ void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<MeleeBehaviour>(1000, ENEMY_SPEED, 20, MELEE_ENEMY_WIDTH * 1.5, 1000, player);
 	addComponent<OnDeath>(3, 1, player->getComponent<Transform>());
 	addComponent<HealthComponent>(life);
+	addComponent<StatusComponent>();
 	addComponent<MeleeEnemyAnimator>();
 }

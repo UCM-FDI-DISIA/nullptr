@@ -155,6 +155,10 @@ const float BULLET_SPEED = 200;
 const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
 
+// STATUS ---------------------------------------------------------------------------------------
+
+const int BURN_DAMAGE = 3;
+
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
 const int BUTTON_SPRITE_WIDTH = 79;
