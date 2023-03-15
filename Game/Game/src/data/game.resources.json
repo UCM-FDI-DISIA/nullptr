@@ -50,12 +50,12 @@
 
       { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
       
-      { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/Nodo_Pasado_32x32.png" },
-      { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/Nodo_Presente_32x32.png" },
-      { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/Nodo_Futuro_32x32.png" },
-      { "id" : "BattleNode4", "file" : "../Game/resources/images/UI/MapScene/Nodo_Futuro_32x32.png" },
-      { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
-      { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/Nodo_Cofre_32x32.png" },
+      { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/PastNode_32x32.png" },
+      { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/PresentNode_32x32.png" },
+      { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
+      { "id" : "BattleNode4", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
+      { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/ShopNode_32x32.png" },
+      { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
