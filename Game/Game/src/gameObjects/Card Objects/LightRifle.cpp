@@ -21,7 +21,7 @@ void  LightRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 	float size = 250;
 	string sprite = "Bullet";
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 2, StatusComponent::NONE, 250, 250, "Bullet", where, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 2, StatusComponent::BURNED, 250, 250, "Bullet", where, data);
 
 
 
