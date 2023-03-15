@@ -117,8 +117,8 @@ const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
 const float TANK_ATTACK_TIME = 3000;
 const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
-const Animation TANK_ENEMY_MOVEMENT_ANIMATION(15, 19, 21, -1);
-const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 14, 21, -1);
+const Animation TANK_ENEMY_MOVEMENT_ANIMATION(15, 19, 10, -1);
+const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 14, 5, 1);
 
 // BULLETS ---------------------------------------------------------------------------------------
 
