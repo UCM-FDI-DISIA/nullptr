@@ -15,7 +15,7 @@ void EterBehaviour::initComponent()
 }
 void EterBehaviour::update()
 {
-	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() + WIN_HEIGHT / 2);
+	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() - WIN_HEIGHT / 2);
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	if (elapsedTime >= floorTime)
 	{
