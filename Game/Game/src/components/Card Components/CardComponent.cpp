@@ -26,7 +26,6 @@ void CardComponent::initComponent() {
 //Reduce el tiempo de disparo
 void CardComponent::update() {
 	if (mana != PlayerData::instance()->getCurrMana()) {
-		where->onManaChanges(mana);
 		mana = PlayerData::instance()->getCurrMana();
 	}
 	

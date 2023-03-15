@@ -7,13 +7,13 @@
 
 class OnDeath : public Component {
 private:
-	Transform* enemyData;
+	Transform* enemyTransform;
 	int numMana, numEter;
-	BattleScene* where;
+	GameState* where;
 public:
 	static const int id = _ON_DEATH;
 
-	OnDeath( int numMana, int numEter, BattleScene* batalla): numMana(numMana), numEter(numEter), where(batalla){};
+	OnDeath( int numMana, int numEter, GameState* batalla): numMana(numMana), numEter(numEter), where(batalla){};
 
 	virtual void initComponent();
 	void death();

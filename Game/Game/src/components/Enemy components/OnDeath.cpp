@@ -1,7 +1,7 @@
 #include "OnDeath.h"
 
 void OnDeath::initComponent() {
-	enemyData = gObj->getComponent<Transform>();
+	enemyTransform = gObj->getComponent<Transform>();
 }
 
 void OnDeath::death() {
@@ -9,6 +9,6 @@ void OnDeath::death() {
 		
 	}
 	for (int i = 0; i < numMana; i++) {
-		GameObject* mana = where->addGameObject<Mana>(_grp_MANA, enemyData->getPos());
+		GameObject* mana = where->addGameObject<Mana>(_grp_MANA, enemyTransform->getPos());
 	}
 }
