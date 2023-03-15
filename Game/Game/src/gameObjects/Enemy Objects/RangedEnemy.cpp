@@ -1,6 +1,7 @@
 #include "RangedEnemy.h"
 #include "../../components/Enemy components/RangeBehaviour.h"
 #include "../../components/Enemy components/RangedEnemyAnimator.h"
+#include "../../components/General Components/StatusComponent.h"
 #include "../../scenes/BattleScene.h"
 
 void RangedEnemy::initGameObject(Vector2D pos,int life, Player* player) {
@@ -9,4 +10,6 @@ void RangedEnemy::initGameObject(Vector2D pos,int life, Player* player) {
 	addComponent<OnDeath>(3, 1);
 	addComponent<HealthComponent>(life);
 	addComponent<RangedEnemyAnimator>();
+	addComponent<ColliderComponent>(_grp_PLAYER);
+	addComponent<StatusComponent>();
 }
