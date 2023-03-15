@@ -1,7 +1,7 @@
 #pragma once
 #include "Animator.h"
 class CharacterAnimator : public Animator {
-private:
+protected:
 	// Indica si se quiere que el sprite haga flip dependiendo de su dirección
 	bool wantToAdjustDirection;
 	// Guarda keys de animaciones con la condición sobre la que se ejecutará dicha animación
@@ -30,7 +30,7 @@ public:
 
 	// Devuelve si la animación actual es la de ataque
 	inline bool playingAttack() {
-		return isCurrentAnimation(CHARACTER_ATTACK_KEY) && isPlaying();
+		return isCurrentAnimation(CHARACTER_ATTACK_IDLE_KEY) && isPlaying();
 	}
 
 	// Si el jugador se mueve a la izquierda hace flip horizontal y viceversa
