@@ -16,7 +16,7 @@ private:
 public:
 
 	static const int id = _HITBOX_STATUS_COMPONENT;
-	// Recibe un grupo de objetos con el que debe colisionar la hitbox, y una duración y un estado que debe aplicar
+	// Recibe un grupo de objetos con el que debe colisionar la hitbox, y una duraciï¿½n y un estado que debe aplicar
 	HitboxStatusComponent(StatusComponent::status stts, float drt) : duration(drt), status(stts)	{}
 
 	inline void initComponent() override

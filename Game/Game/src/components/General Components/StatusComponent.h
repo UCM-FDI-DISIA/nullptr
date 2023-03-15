@@ -10,6 +10,7 @@
 class StatusComponent : public Component {
 public:
 	enum status {
+		NONE,
 		CONFUSED,
 		BURNED,
 		LAST_STATUS

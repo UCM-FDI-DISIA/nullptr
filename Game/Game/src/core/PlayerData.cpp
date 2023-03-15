@@ -12,29 +12,30 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
-	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  LightRifleCard());
+
+	deck.push_back(new  LightRifleCard());
 
 }
 
