@@ -13,8 +13,10 @@ GameState::GameState() : entsByGroup_() {
 // Destructor
 GameState::~GameState() {
     for (auto& group : entsByGroup_) {
-        for (auto e : group)
+        for (auto& e : group) {
             delete e;
+            e = nullptr;
+        }
     }
 }
 

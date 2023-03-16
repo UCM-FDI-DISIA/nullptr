@@ -6,9 +6,11 @@
 #include "../components/General Components/Transform.h"
 #include "../components/General Components/Image.h"
 #include "../components/General Components/Animator.h"
+#include "../components/General Components/TextComponent.h"
 
 class MainMenuScene : public GameState {
 private:
+	TextComponent* textComp;
 public:
 	// Constructora
 	MainMenuScene();

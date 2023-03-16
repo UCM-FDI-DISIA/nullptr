@@ -39,6 +39,14 @@ PlayerData::PlayerData() {
 
 }
 
+PlayerData::~PlayerData() {
+	for (auto& card : deck) {
+		delete card;
+		card = nullptr;
+	}
+	deck.clear();
+}
+
 void PlayerData::getDataFromJSON()
 {
 	throw "Sin implementar lololo";

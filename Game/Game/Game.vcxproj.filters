@@ -220,6 +220,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\TextComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -470,6 +473,9 @@
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\General Components\TextComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">

@@ -20,6 +20,10 @@ MainMenuScene::MainMenuScene() : GameState() {
 	estudio->addComponent<Transform>(STUDIO_POSITION, Vector2D(), STUDIO_WIDTH, STUDIO_HEIGTH);
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
+	GameObject* text = addGameObject();
+	text->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO);
+	textComp = text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), "MAMAHUEVASO");
+
 	// Botón jugar
 	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY);
 
@@ -31,6 +35,8 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// Botón salir
 	createButton(MM_EXIT_BUTTON_POS, MM_EXIT_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
+
+
 }
 
 // Crear un bot�n especificado en la escena
@@ -43,4 +49,6 @@ void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 
 	// Crear bot�n
 	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
+
+	(*textComp) += string("O");
 }

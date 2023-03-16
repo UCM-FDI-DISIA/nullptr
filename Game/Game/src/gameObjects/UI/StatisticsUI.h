@@ -29,6 +29,7 @@ private:
 public:
 	// Inicializar objeto
 	void initGameObject(int life, int mana);
+	~StatisticsUI();
 
 	// Métodos virtuales
 	virtual void render() const;

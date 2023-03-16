@@ -8,6 +8,15 @@ void HandUI::initGameObject(CardComponent* _cComp) {
 	createUI();
 }
 
+
+HandUI::~HandUI() {
+	for (auto& gobj : handUI) {
+		delete gobj;
+		gobj = nullptr;
+	}
+}
+
+
 // Renderizar los GameObjects del deque (de lo contrario solo se renderiza un objeto vacío)
 void HandUI::render() const {
 	for (int i = 0; i < handUI.size(); i++) {

@@ -64,6 +64,13 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	}
 }
 
+StatisticsUI::~StatisticsUI() {
+	for (auto& gobj : objs) {
+		delete gobj;
+		gobj = nullptr;
+	}
+}
+
 // Crea la barra de vida
 void StatisticsUI::createLifeBar(int value) {
 	// Añadir el objeto
