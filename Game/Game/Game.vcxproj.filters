@@ -479,7 +479,7 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
-    </ClInclude>
+    
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
