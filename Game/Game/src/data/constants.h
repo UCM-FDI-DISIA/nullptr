@@ -1,4 +1,5 @@
 
+
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
@@ -151,8 +152,13 @@ const float TANK_ATTACK_TIME = 3000;
 // BULLETS ---------------------------------------------------------------------------------------
 
 const float BULLET_SPEED = 200;
+const float LIGHT_BULLET_SPEED = 800;
 const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
+
+// STATUS ---------------------------------------------------------------------------------------
+
+const int BURN_DAMAGE = 3;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
@@ -262,6 +268,14 @@ const int ST_NUMBERS_WIDTH = 9;
 const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
+
+//MANA -------------------------------------------------------------------------------------------
+const int MANA_H = 10;
+const int MANA_W = 10;
+const int MANA_OFFSET = 10;
+const int MANA_VALUE = 5;
+const string MANA_NAME = "Mana";
+const int MANA_COLUMS = 2;
 
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;

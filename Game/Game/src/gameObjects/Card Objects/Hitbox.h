@@ -37,7 +37,7 @@ public:
 	}
 
 	//Constructor de hitbox que aflige estados alterados, se le añade un lifetime component
-	void initGameObject(float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(float drtn, StatusComponent::status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
@@ -45,12 +45,12 @@ public:
 	}
 
 	//Constructor de hitbox que aflige estatus y causa daño, se le añade un lifetime component
-	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float drtn, HitboxStatusComponent::Status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float drtn, StatusComponent::status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
 	{
 		initGameObject(dmg, isDestroyed, knockBack, lifetime, data, anch);
 		addComponent<HitboxStatusComponent>(stts, drtn);
 	}
 
 	//Constructor de hitbox que crea una explosion
-	void initGameObject(int dmg, bool contact, float lifetime, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1));
+	void initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1));
 };
