@@ -25,6 +25,7 @@ enum cmpId : cmpId_type {
 	_LIFETIME,
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
+	_CHEST_COMPONENT,
 
 	// do not remove this
 	_LAST_CMP_ID

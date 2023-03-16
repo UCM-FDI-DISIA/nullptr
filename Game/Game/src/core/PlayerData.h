@@ -2,6 +2,8 @@
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
 #include <vector>
+#include <list>
+#include <string>
 
 class Card;
 class PlayerData : public Singleton<PlayerData>
@@ -26,6 +28,9 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
+	
+	//Lista con todas las reliquias disponibles, saca su key del mapa
+	std::vector<std::string> avlbRelics;
 
 	int maxMana;
 	int maxHP;
@@ -62,7 +67,12 @@ class PlayerData : public Singleton<PlayerData>
 		void setDataToJSON();
 
 		std::vector<Card*> getDeck();
+		std::vector<std::string> getAvailableItems();
+
 		void setDeck(std::vector<Card*> newDeck);
+		void setAvailableItems(std::vector<std::string> newItems);
+		int getRelic(std::string key);
+
 		void addCardToLibrary(Card* newCard);
 		std::vector<Card*> getLibrary();
 		

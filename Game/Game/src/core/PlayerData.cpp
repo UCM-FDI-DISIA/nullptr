@@ -54,9 +54,17 @@ std::vector<Card*> PlayerData::getDeck()
 	return deck;
 }
 
+std::vector<std::string> PlayerData::getAvailableItems() {
+	return avlbRelics;
+}
+
 void PlayerData::setDeck(std::vector<Card*> newDeck)
 {
 	deck = newDeck;
+}
+
+void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
+	avlbRelics = newItems;
 }
 
 void PlayerData::addCardToLibrary(Card* newCard)

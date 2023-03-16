@@ -171,6 +171,7 @@
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\Node Components\ChestComponent.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
     <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
@@ -247,6 +248,7 @@
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
+    <ClCompile Include="src\components\Node Components\ChestComponent.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
     <ClCompile Include="src\components\Player components\BarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
