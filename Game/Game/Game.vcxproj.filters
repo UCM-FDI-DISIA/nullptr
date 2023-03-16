@@ -213,6 +213,7 @@
     </ClCompile>
     <ClCompile Include="src\data\PlayerData.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
