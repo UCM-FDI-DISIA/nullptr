@@ -1,6 +1,7 @@
 #pragma once
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
+#include "../data/RelicData.h"
 #include <vector>
 #include <list>
 #include <string>
@@ -29,8 +30,11 @@ class PlayerData : public Singleton<PlayerData>
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
 	
-	//Lista con todas las reliquias disponibles, saca su key del mapa
+	//Vector con todas las reliquias disponibles, saca su key del mapa
 	std::vector<std::string> avlbRelics;
+
+	//Vector con las reliquias que tiene el jugador
+	std::vector<Relic*> myRelics;
 
 	int maxMana;
 	int maxHP;
@@ -69,12 +73,13 @@ class PlayerData : public Singleton<PlayerData>
 
 		std::vector<Card*> getDeck();
 		std::vector<std::string> getAvailableItems();
+		
 
 		void setDeck(std::vector<Card*> newDeck);
 		void setAvailableItems(std::vector<std::string> newItems);
-		int getRelic(std::string key);
 
 		void addCardToLibrary(Card* newCard);
+		void addRelic(Relic* relic);
 		std::vector<Card*> getLibrary();
 		
 };

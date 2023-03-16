@@ -7,9 +7,6 @@
     <ClCompile Include="src\core\GameStateMachine.cpp">
       <Filter>Archivos de Dependecias</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\SDLApplication.cpp">
-      <Filter>Archivos de Dependecias</Filter>
-    </ClCompile>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
@@ -223,12 +220,12 @@
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\SDLApplication.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de Encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -479,7 +476,9 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
-    
+    <ClInclude Include="src\core\SDLApplication.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
@@ -600,6 +599,12 @@
     </Filter>
     <Filter Include="Archivos de Encabezado\Data\json">
       <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Dependecias\Core">
+      <UniqueIdentifier>{63ea1796-0add-4ff6-8800-c9ab9ed0e692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Core">
+      <UniqueIdentifier>{98992aa9-64df-4604-9431-33c2e4038671}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

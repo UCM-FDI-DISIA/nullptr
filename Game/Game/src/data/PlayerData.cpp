@@ -72,6 +72,10 @@ void PlayerData::addCardToLibrary(Card* newCard)
 	library.push_back(newCard);
 }
 
+void PlayerData::addRelic(Relic* relic) {
+	myRelics.push_back(relic);
+}
+
 std::vector<Card*> PlayerData::getLibrary()
 {
 	return library;

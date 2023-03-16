@@ -26,9 +26,20 @@ public:
 
 	static const int id = _TRANSFORM;
 	Transform();
+	Transform(Transform* other);
 	Transform(Vector2D pos, Vector2D vel, float w = 0, float h = 0, float r = 0);
 	Transform(Vector2D pos, Vector2D vel, Vector2D anch, float w = 0, float h = 0, float r = 0);
 	virtual ~Transform();
+
+	Transform operator =(Transform* other) {
+		this->initialPosition_ = other->initialPosition_;
+		this->position_ = other->initialPosition_;
+		this->velocity_ = other->velocity_;
+		this->anchorPoint_ = other->anchorPoint_;
+		this->width_ = other->width_;
+		this->height_ = other->height_;
+		this->rotation_ = other->rotation_;
+	}
 
 	// Devuelve la posici�n
 	inline Vector2D& getPos() {

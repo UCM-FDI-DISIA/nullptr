@@ -1,7 +1,9 @@
 #pragma once
 #include "../Component.h"
 #include "../General Components/Transform.h"
-#include "../../core/PlayerData.h"
+#include "../../data/PlayerData.h"
+#include "../../data/RelicData.h"
+#include "../../core/SDLApplication.h"
 #include "../../gameObjects/GameObject.h"
 #include <list>
 #include <string>
