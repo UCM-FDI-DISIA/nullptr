@@ -220,6 +220,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -473,6 +476,7 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
