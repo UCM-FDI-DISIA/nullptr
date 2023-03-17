@@ -3,28 +3,28 @@
 // Texto negro sin fondo en una línea
 TextComponent::TextComponent (Font* _f, std::string _text) :
 	Image(&texture),
-	font(_f), text(_text), color(build_sdlcolor("0x000000")), wrapped(false),
+	font(_f), text(_text), color(build_sdlcolor("0x000000")), wrapped(false), originalWidth(0),
 	texture(sdlutils().renderer(), text, *font, color) {
 }
 
 // Texto negro sin fondo ajustado a una anchura
 TextComponent::TextComponent(Font* _f, std::string _text, bool _wrapped) :
 	Image(&texture),
-	font(_f), text(_text), color(build_sdlcolor("0x000000")), wrapped(_wrapped),
+	font(_f), text(_text), color(build_sdlcolor("0x000000")), wrapped(_wrapped), originalWidth(0),
 	texture(sdlutils().renderer(), text, *font, color, 1) {
 }
 
 // Texto con color personalizado sin fondo en una línea
 TextComponent::TextComponent(Font* _f, std::string _text, SDL_Color _color) :
 	Image(&texture),
-	font(_f), text(_text), color(_color), wrapped(false),
+	font(_f), text(_text), color(_color), wrapped(false), originalWidth(0),
 	texture(sdlutils().renderer(), text, *font, color) {
 }
 
 // Texto con color personalizado sin fondo ajustado a una anchura
 TextComponent::TextComponent(Font* _f, std::string _text, SDL_Color _color, bool _wrapped) :
 	Image(&texture),
-	font(_f), text(_text), color(_color), wrapped(_wrapped),
+	font(_f), text(_text), color(_color), wrapped(_wrapped), originalWidth(0),
 	texture(sdlutils().renderer(), text, *font, color, 1) {}
 
 
@@ -45,10 +45,10 @@ void TextComponent::initComponent() {
 // Recarga la textura tras actualizaciones
 void TextComponent::reloadTexture() {
 	transform->setHeight(transform->getHeight() / texture.height());
-	if (wrapped) {
+	if (wrapped) { // si se ajusta al ancho del transform lo indica a la textura
 		texture = Texture(sdlutils().renderer(), text, *font, color, transform->getWidth());
 	}
-	else {
+	else { // si es en una sola línea ajusta el ancho del transform al texto
 		transform->setWidth(transform->getWidth() / texture.width());
 		texture = Texture(sdlutils().renderer(), text, *font, color);
 		transform->setWidth(transform->getWidth() * texture.width());

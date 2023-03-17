@@ -20,10 +20,6 @@ MainMenuScene::MainMenuScene() : GameState() {
 	estudio->addComponent<Transform>(STUDIO_POSITION, Vector2D(), STUDIO_WIDTH, STUDIO_HEIGTH);
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
-	GameObject* text = addGameObject();
-	text->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, 200);
-	textComp = text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), "MAMAHUEVASO", true);
-
 	// Botón jugar
 	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY);
 

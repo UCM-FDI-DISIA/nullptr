@@ -26,12 +26,6 @@ public:
 	// Ajusta el transform al texto
 	virtual void initComponent();
 
-	virtual void handleInput() {
-		if (InputHandler::instance()->isKeyJustDown(SDLK_p)) {
-			setWrapped(!wrapped);
-		}
-	}
-
 	// Recarga la textura tras actualizaciones
 	void reloadTexture();
 
