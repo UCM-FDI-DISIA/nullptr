@@ -107,18 +107,18 @@ const int RANGED_ATTACK_ANIM_DELAY = 670;
 const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
 const int TANK_ENEMY_SPRITE_WIDTH = 40;
 const int TANK_ENEMY_SPRITE_HEIGHT = 40;
-const int TANK_ENEMY_SPRITE_ROWS = 5;
-const int TANK_ENEMY_SPRITE_COLS = 4;
+const int TANK_ENEMY_SPRITE_ROWS = 6;
+const int TANK_ENEMY_SPRITE_COLS = 5;
 
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 1;
 const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
-const float TANK_ATTACK_TIME = 3000;
+const float TANK_ATTACK_TIME = 2000;
 const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
-const Animation TANK_ENEMY_MOVEMENT_ANIMATION(15, 19, 10, -1);
-const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 14, 5, 1);
+const Animation TANK_ENEMY_MOVEMENT_ANIMATION(21, 25, 10, -1);
+const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 20, 10, 1);
 
 // BULLETS ---------------------------------------------------------------------------------------
 
@@ -387,7 +387,7 @@ const int STANDARD_SPAWNS[30][7] = {
 
 //OLEADAS
 const int WAVES[7][3] = {
-	{8, 0, 0},
+	{0, 0, 8},
 	{5, 3, 0},
 	{0, 8, 0},
 	{6, 0, 1},
