@@ -445,7 +445,7 @@ const int STANDARD_SPAWNS[30][7] = {
 
 //OLEADAS
 const int WAVES[7][3] = {
-	{0, 0, 8},
+	{8, 0, 0},
 	{5, 3, 0},
 	{0, 8, 0},
 	{6, 0, 1},

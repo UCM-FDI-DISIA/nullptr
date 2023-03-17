@@ -160,7 +160,6 @@
     <ClInclude Include="src\components\Enemy components\EterBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\OnDeath.h" />
-    <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
@@ -244,7 +243,6 @@
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\OnDeath.cpp" />
-    <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
