@@ -15,7 +15,7 @@ void TorchCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 // Crea un gObj cura en el centro del jugador
 void TorchCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "HealArea", _grp_PLAYER };
+	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 400, 800, "HealArea", _grp_PLAYER };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 5, 0.5, data, 6);
 

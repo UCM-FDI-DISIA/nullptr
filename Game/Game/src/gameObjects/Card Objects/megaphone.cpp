@@ -27,7 +27,7 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 
         Hitbox::HitboxData data = { startPos, VECTOR_ZERO, spriteRotation, 50 * i, 100 * i, "Sound", _grp_ENEMIES };
 
-        where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+        where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 0.5, data);
     }
 }
 
@@ -35,16 +35,10 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 
 //Se disparan todas las balas
 void  MegaphoneCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
-	dir = dir.normalize();
+    Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 3, 3, "HealArea", _grp_PLAYER };
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 16, 16, "Bullet", _grp_ENEMIES };
-	float size = 250;
-	string sprite = "Bullet";
+    where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 6* remainingUses, 0.5, data, 0.1);
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 50 * (remainingUses / 8), false, 2, StatusComponent::NONE, size, size, sprite, where, data);
-
-
-	remainingUses = 0;
+    remainingUses = 0;
 
 }
