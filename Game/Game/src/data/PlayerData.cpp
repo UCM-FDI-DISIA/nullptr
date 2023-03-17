@@ -12,30 +12,24 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
-	deck.push_back(new  AssaultRifleCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  BowCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new  BowCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new TorchCard());
+	
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  AssaultRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  AssaultRifleCard());
-
-	deck.push_back(new  AssaultRifleCard());
-
-	deck.push_back(new  AssaultRifleCard());
-
-	deck.push_back(new  AssaultRifleCard());
-
+	deck.push_back(new TorchCard());
 }
 
 void PlayerData::getDataFromJSON()
