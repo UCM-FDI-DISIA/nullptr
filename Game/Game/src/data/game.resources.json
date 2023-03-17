@@ -7,6 +7,7 @@
     
     "images" : [
       { "id" : "null", "file" : "../Game/resources/images/Null_Img.png" },
+      { "id" : "HealArea", "file" : "../Game/resources/images/Cards/CardEffects/HealArea_51x51.png" },
 
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
@@ -27,7 +28,10 @@
       { "id" : "Pistol", "file" : "../Game/resources/images/Cards/PistolCard_58x93.png" },
       { "id" : "Sword", "file" : "../Game/resources/images/Cards/SwordCard_58x93.png" },
       { "id" : "LaserGlasses", "file" : "../Game/resources/images/Cards/LaserGlassesCard_58x93.png" },
+
+      { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
       { "id" : "SMG", "file": "../Game/resources/images/Cards/SMGCard_58x93.png"},
+      { "id" : "Bow", "file": "../Game/resources/images/Cards/BowCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
@@ -67,7 +71,9 @@
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
-      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" }
+      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
+
+      { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" }
     ],
     
     "messages" : [
@@ -82,6 +88,19 @@
   
     "musics" : [
       { "id" : "beat", "file" : "resources/sound/beat.wav" }
+    ],
+
+    "relics" : [
+      {
+        "id": "Hoverboard",
+        "description": "Este invento del futuro mejora la movilidad de los ciudadanos",
+        "era": "F",
+        "health": "0",
+        "movementVelocity": "25",
+        "cadency": "0",
+        "mana": "20",
+        "attack": "0"
+      }
     ]
   
   }

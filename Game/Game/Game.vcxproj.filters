@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -36,9 +36,6 @@
     </ClCompile>
     <ClCompile Include="src\core\Vector2D.cpp">
       <Filter>Archivos de Dependecias\sdlutils</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\PlayerData.cpp">
-      <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
     <ClCompile Include="src\scenes\GameState.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
@@ -214,6 +211,9 @@
     <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\data\PlayerData.cpp">
+      <Filter>Archivos de Dependecias\Data</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -222,6 +222,9 @@
     </ClCompile>
     <ClCompile Include="src\components\General Components\TextComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,9 +292,6 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\components\ecs.h">
-      <Filter>Archivos de Encabezado\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\PlayerData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\Font.h">
@@ -472,10 +472,17 @@
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\data\PlayerData.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\RelicData.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\TextComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
@@ -486,29 +493,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Archivos de Encabezado">
-      <UniqueIdentifier>{13fba392-d123-496c-8854-de57954d27e2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Dependecias">
       <UniqueIdentifier>{9cf036a2-d742-4dd4-958e-9cd2872e2b71}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Recursos">
       <UniqueIdentifier>{970d0ee3-c997-4785-a092-1a473795c8f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Scenes">
-      <UniqueIdentifier>{54d04c08-6b5c-4291-b199-69c5c29bec23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\sdlutils">
-      <UniqueIdentifier>{7412cf90-abc1-428d-a185-401b1f5eb675}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects">
-      <UniqueIdentifier>{fedd1f1f-a95c-492c-aa00-2a43ca31ef06}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components">
-      <UniqueIdentifier>{f4a51f0e-9cd0-4261-a82e-66807bcdcb77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Data">
-      <UniqueIdentifier>{0f7d1b63-081f-4359-883e-15f41cdf434a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Dependecias\Scenes">
       <UniqueIdentifier>{4ce9f7e6-1b5d-4fcb-ac67-0443e0d2b35d}</UniqueIdentifier>
@@ -525,41 +514,8 @@
     <Filter Include="Archivos de Dependecias\Data">
       <UniqueIdentifier>{e4fa3ad6-36cd-48d2-a0f1-a03df32fba0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de Encabezado\Data\json">
-      <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de Dependecias\Data\json">
       <UniqueIdentifier>{4272b9bf-8ad8-455b-87a9-713e5643df61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Card Components">
-      <UniqueIdentifier>{8ecff219-5e6c-4841-923e-47caa7b4a0a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Enemy Components">
-      <UniqueIdentifier>{b1423583-74d8-4c20-83d4-58f7664197aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\General Components">
-      <UniqueIdentifier>{1f318ddd-3760-423e-9605-088e61e625dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Node Components">
-      <UniqueIdentifier>{ca68632a-df7d-4bd3-8495-0a0c381d006e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Components\Player Components">
-      <UniqueIdentifier>{6c5a396b-9aac-4e04-9e0a-bc7074bc4c05}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Card Objects">
-      <UniqueIdentifier>{e6193d8b-dc31-44b7-9fec-e897e764e47a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Enemy Objects">
-      <UniqueIdentifier>{44bf1df0-7de6-444b-927b-4c129ac1ef99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\General Objects">
-      <UniqueIdentifier>{2dfc764d-9cf8-4449-a800-cc1da2c3b61f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Node Objects">
-      <UniqueIdentifier>{20406a48-ce7b-499f-8bd2-dda070d8f8bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de Encabezado\Objects\Player Objects">
-      <UniqueIdentifier>{1bd0d13e-f0d2-4af4-8c55-b8758168cd46}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de Dependecias\Components\Cards Component">
       <UniqueIdentifier>{94d1921a-c7ea-4c5d-82d9-ee84a2b8f233}</UniqueIdentifier>
@@ -594,8 +550,59 @@
     <Filter Include="Archivos de Dependecias\Objects\UI Objects">
       <UniqueIdentifier>{6e97ee8e-781c-45ea-a1be-dd645b445f00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de Encabezado">
+      <UniqueIdentifier>{13fba392-d123-496c-8854-de57954d27e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Scenes">
+      <UniqueIdentifier>{54d04c08-6b5c-4291-b199-69c5c29bec23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\sdlutils">
+      <UniqueIdentifier>{7412cf90-abc1-428d-a185-401b1f5eb675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects">
+      <UniqueIdentifier>{fedd1f1f-a95c-492c-aa00-2a43ca31ef06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Card Objects">
+      <UniqueIdentifier>{e6193d8b-dc31-44b7-9fec-e897e764e47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Enemy Objects">
+      <UniqueIdentifier>{44bf1df0-7de6-444b-927b-4c129ac1ef99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\General Objects">
+      <UniqueIdentifier>{2dfc764d-9cf8-4449-a800-cc1da2c3b61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Node Objects">
+      <UniqueIdentifier>{20406a48-ce7b-499f-8bd2-dda070d8f8bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Objects\Player Objects">
+      <UniqueIdentifier>{1bd0d13e-f0d2-4af4-8c55-b8758168cd46}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Archivos de Encabezado\Objects\UI Objects">
       <UniqueIdentifier>{69cd8b21-8e43-40dd-9c0f-969e8b359ad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components">
+      <UniqueIdentifier>{f4a51f0e-9cd0-4261-a82e-66807bcdcb77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Card Components">
+      <UniqueIdentifier>{8ecff219-5e6c-4841-923e-47caa7b4a0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Enemy Components">
+      <UniqueIdentifier>{b1423583-74d8-4c20-83d4-58f7664197aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\General Components">
+      <UniqueIdentifier>{1f318ddd-3760-423e-9605-088e61e625dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Node Components">
+      <UniqueIdentifier>{ca68632a-df7d-4bd3-8495-0a0c381d006e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Components\Player Components">
+      <UniqueIdentifier>{6c5a396b-9aac-4e04-9e0a-bc7074bc4c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Data">
+      <UniqueIdentifier>{0f7d1b63-081f-4359-883e-15f41cdf434a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Data\json">
+      <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

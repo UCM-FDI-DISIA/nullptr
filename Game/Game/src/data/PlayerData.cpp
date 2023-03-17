@@ -13,30 +13,23 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new  BowCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new  BowCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new TorchCard());
+	
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new TorchCard());
 
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
+	deck.push_back(new TorchCard());
 }
 
 PlayerData::~PlayerData() {

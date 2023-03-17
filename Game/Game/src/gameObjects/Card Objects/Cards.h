@@ -16,6 +16,12 @@ class SwordCard : public Card {
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
+class TorchCard : public Card {
+public:
+	TorchCard() : Card(20, 10, 50, 0.67, "Antorcha", SDLApplication::getTexture("Torch")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
 
 class LaserShadesCard : public Card {
 	public:
@@ -25,7 +31,7 @@ class LaserShadesCard : public Card {
 };
 class BowCard : public Card {
 public:
-	BowCard() : Card(15, 12, 60, 0.5, "Arco", SDLApplication::getTexture("LaserGlasses")) {};
+	BowCard() : Card(15, 12, 60, 0.5, "Arco", SDLApplication::getTexture("Bow")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

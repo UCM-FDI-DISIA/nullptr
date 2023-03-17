@@ -92,6 +92,9 @@ void SDLApplication::handleInput() {
 // Devuelve la Texture pedida
 Texture* SDLApplication::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
 
+// Devuelve la Reliquia pedida
+Relic* SDLApplication::getRelic(TextureName texture) { return &SDLUtils::instance()->relics().at(texture); }
+
 // Pausa el juego
 void SDLApplication::pauseGame() { SDLApplication::instance()->gameStateMachine->pushState(new PauseMenuScene()); }
 
