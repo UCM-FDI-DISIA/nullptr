@@ -3,7 +3,7 @@
 #include "../../components/General Components/Transform.h"
 #include "../../components/General Components/ColliderComponent.h"
 #include "../../components/General Components/Animator.h"
-#include "../../core/PlayerData.h"
+#include "../../data/PlayerData.h"
 
 class Mana :public GameObject {
 

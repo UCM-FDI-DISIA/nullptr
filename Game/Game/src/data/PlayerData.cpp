@@ -12,6 +12,15 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
+
+	deck.push_back(new TorchCard());
+
+	deck.push_back(new TorchCard());
+
+	deck.push_back(new TorchCard());
+
+	deck.push_back(new TorchCard());
+	
 	deck.push_back(new TorchCard());
 
 	deck.push_back(new TorchCard());

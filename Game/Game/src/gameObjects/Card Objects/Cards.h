@@ -61,3 +61,9 @@ public:
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
+class  LightRifleCard: public Card {
+public:
+	LightRifleCard() : Card(7, 20, 55, 0.2, "Rifle de luz", SDLApplication::getTexture("SMG")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
