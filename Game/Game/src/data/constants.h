@@ -154,7 +154,6 @@ const string SWORD_SLASH = "SwordSlash";
 const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
 const string SOWND_ATTACK = "Sound";
-const string HEAL_AREA = "HealArea";
 const string BULLET= "Bullet";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
