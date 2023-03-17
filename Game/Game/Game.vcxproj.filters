@@ -223,7 +223,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Card Objects\megaphone.cpp">
+    <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
