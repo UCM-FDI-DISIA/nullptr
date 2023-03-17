@@ -17,7 +17,6 @@ void  AssaultRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float atta
 	}
 }
 
-//Se disparan todas las balas
 void  AssaultRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 	dir = dir.normalize();

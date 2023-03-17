@@ -270,6 +270,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\megaphone.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
