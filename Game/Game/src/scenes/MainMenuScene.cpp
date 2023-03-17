@@ -45,6 +45,4 @@ void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 
 	// Crear bot�n
 	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
-
-	(*textComp) += string("O");
 }

@@ -10,7 +10,6 @@
 
 class MainMenuScene : public GameState {
 private:
-	TextComponent* textComp;
 public:
 	// Constructora
 	MainMenuScene();
