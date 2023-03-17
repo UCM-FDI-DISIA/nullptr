@@ -1,5 +1,5 @@
 #include "EnemyGenerator.h"
-#include "../../core/PlayerData.h"
+#include "../../data/PlayerData.h"
 
 void EnemyGenerator::initComponent() {
 	int level = PlayerData::instance()->getLevel();
@@ -14,6 +14,7 @@ void EnemyGenerator::update() {
 		nextWave();
 	}
 }
+
 
 const int* EnemyGenerator::calcWave() {
 	bool startingSpawns;

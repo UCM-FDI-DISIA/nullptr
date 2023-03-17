@@ -23,9 +23,12 @@ protected:
 	int damage;
 	bool attacking;
 	vector<GameObject*>::iterator posVector;
+	bool confused;
 	// AttackComponent* attack (cuando este cerca del player, envia un mensaje para atacar)
+
 public:
-	
+	static const int id = _ENEMY_BEHAVIOUR;
+
 	//Constructora para la herencia
 	EnemyBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : speed(spd), damage(dmg), stopTime(stop), attackInterval(attack), attacking(false) {
 		player = plyr;
@@ -43,5 +46,7 @@ public:
 	void setEnemyPosition(vector<GameObject*>::iterator _it) { posVector = _it; }
 	// Devuelve si el enemigo est� en acci�n de ataque
 	inline bool isAttacking() { return attacking; }
+	void setConfusion(bool cnf) {confused = cnf;}
+	bool isConfused() { return confused; }
 };
 

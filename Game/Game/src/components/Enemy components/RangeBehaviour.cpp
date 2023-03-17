@@ -11,19 +11,22 @@ RangeBehaviour::RangeBehaviour(float spd, float safDist, float stptime, float mv
 
 void RangeBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
-	pos->setVel(Vector2D(ENEMY_SPEED, ENEMY_SPEED)); // El 0.0005 es temporal hasta que hagamos la velocidad bien
-	                                       // Es un valor adecuado para que el movimiento funcione
+	pos->setVel(Vector2D(ENEMY_SPEED, ENEMY_SPEED));
 	initialDirection = pos->getVel();
 	setDirectionTo();
 }
 // Se encarga de comprobar si el enemigo est� dentro o fuera del radio de peligro
 // Dependiendo de eso, se dirije al jugador o se aleja de �l
 void RangeBehaviour::setDirectionTo() {
-	
-	//Si no, vuelve a ir hacia �l
-    pos->lookAt(playerPos->getPos());
-	//Si estas dentro del rango de peligro, da media vuelta para salir de �l
-	if (pos->getDistance(playerPos->getPos()) < safeDistance) pos->rotate(180);
+	if (confused) {
+		pos->setVel(Vector2D(rand(), rand()).normalize() * speed);
+	}
+	else {
+		//Si no, vuelve a ir hacia �l
+		pos->lookAt(playerPos->getPos());
+		//Si estas dentro del rango de peligro, da media vuelta para salir de �l
+		if (pos->getDistance(playerPos->getPos()) < safeDistance) pos->rotate(180);
+	}
 }
 // Se trata de un ciclo de movimiento y parada
 void RangeBehaviour::update() {
@@ -42,14 +45,15 @@ void RangeBehaviour::update() {
 			behaviorTime -= stopTime + moveTime;
 		 }
 	}
-
-	if (attacking) {
-		if (attackDelay < attackTime) {
-			attackTime = 0;
-			attacking = false;
-			enemyAttack(); // ataca coincidiendo con la animación
+	if (!confused) {
+		if (attacking) {
+			if (attackDelay < attackTime) {
+				attackTime = 0;
+				attacking = false;
+				enemyAttack(); // ataca coincidiendo con la animación
+			}
+			else attackTime += SDLApplication::instance()->getDeltaTime();
 		}
-		else attackTime += SDLApplication::instance()->getDeltaTime();
 	}
 }
 

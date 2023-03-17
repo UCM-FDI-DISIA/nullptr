@@ -3,19 +3,21 @@
 #include "../General Components/ColliderComponent.h"
 #include "../../gameObjects/GameObject.h"
 #include <vector>
+#include "../General Components/StatusComponent.h"
 
 
 // Este componente maneja el comportamiento de los objetos Slash creados, 
 class HitboxStatusComponent : public Component {
+private:
+	float duration;
+	StatusComponent::status status;
+	unordered_set<GameObject*> hitRegistry; //Set que registra los choques anteriores
+
 public:
-	enum Status {
-		CONFUSED,
-		BURNED
-	};
 
 	static const int id = _HITBOX_STATUS_COMPONENT;
-	// Recibe un grupo de objetos con el que debe colisionar la hitbox, y una duración y un estado que debe aplicar
-	HitboxStatusComponent(Status stts, float drt) : duration(drt), status(stts)	{}
+	// Recibe un grupo de objetos con el que debe colisionar la hitbox, y una duraciï¿½n y un estado que debe aplicar
+	HitboxStatusComponent(StatusComponent::status stts, float drt) : duration(drt), status(stts)	{}
 
 	inline void initComponent() override
 	{
@@ -24,13 +26,11 @@ public:
 
 	CallBackCol statusFunction() {
 		return [&](GameObject* trgt)
-		{
-			//trgt->getComponent<StatusComponent>()->confuse(duration);
+		{			
+			if (hitRegistry.count(trgt) == 0) {
+				trgt->getComponent<StatusComponent>()->applyStatus(status, duration);
+				hitRegistry.insert(trgt);
+			}
 		};
 	}
-
-private:
-	float duration;
-	Status status;
-
 };
