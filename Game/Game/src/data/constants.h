@@ -276,7 +276,10 @@ const int MANA_OFFSET = 10;
 const int MANA_VALUE = 5;
 const string MANA_NAME = "Mana";
 const int MANA_COLUMS = 2;
-
+// ETHER ------------------------------------------------------------------------------------------
+const int ETHER_H = 20;
+const int ETHER_W = 20;
+const int ETHER_VALUE = 5;
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;
 // CARD REVERSE DIMENSIONS
