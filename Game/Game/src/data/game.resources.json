@@ -31,6 +31,7 @@
 
       { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
       { "id" : "SMG", "file": "../Game/resources/images/Cards/SMGCard_58x93.png"},
+      { "id" : "Bow", "file": "../Game/resources/images/Cards/BowCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
