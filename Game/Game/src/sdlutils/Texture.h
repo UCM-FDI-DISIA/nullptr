@@ -29,8 +29,16 @@ public:
 			const SDL_Color &fgColor);
 
 	// Construct from text with background
-	Texture(SDL_Renderer *renderer, const std::string &text, const Font &font,
-			const SDL_Color &fgColor, const SDL_Color &bgColor);
+	Texture(SDL_Renderer* renderer, const std::string& text, const Font& font,
+			const SDL_Color& fgColor, const SDL_Color& bgColor);
+	
+	// Construct from wrapped text
+	Texture(SDL_Renderer* renderer, const std::string& text, const Font& font,
+			const SDL_Color& fgColor, float width);
+	
+	// Construct from wrapped text with background
+	Texture(SDL_Renderer* renderer, const std::string& text, const Font& font,
+			const SDL_Color& fgColor, const SDL_Color& bgColor, float width);
 
 
 	virtual ~Texture() {
@@ -101,9 +109,11 @@ public:
 private:
 
 	// Construct from text
-	void constructFromText(SDL_Renderer *renderer, const std::string &text,
-			const Font &font, const SDL_Color *fgColor,
-			const SDL_Color *bgColor = nullptr);
+	void constructFromText(SDL_Renderer* renderer, const std::string& text,
+		const Font& font, const SDL_Color* fgColor,
+		const SDL_Color* bgColor = nullptr, float width = -1);
+	void constructFromText(SDL_Renderer* renderer, const std::string& text,
+		const Font& font, const SDL_Color* fgColor, float width);
 
 	SDL_Texture *texture_;
 	SDL_Renderer *renderer_;

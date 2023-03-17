@@ -30,6 +30,8 @@ public:
 	virtual SDL_Rect getFactoredRect(float srcRectRelativeWidth, float srcRectRelativeHeight) const;
 	// Hace que el GameObject se renderice en función a la ventana, no a la cámara
 	void attachToCamera();
+	// Hace que el GameObject se renderice en función a la cámara, no a la ventana
+	void dettachFromCamera();
 	// Flipea la imagen horizontalmente
 	void flipHorizontal();
 	// Flipea la imagen verticalmente
