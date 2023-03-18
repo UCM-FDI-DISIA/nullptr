@@ -116,20 +116,12 @@ void MapScene::createConections(vector<Node*> nodes, int numN) {
 				// QUINTO CASO: DIFERENTE NUMERO DE NODOS Y SE UNEN DISTINTAS POSICIONES 
 				else if (maxIndSig != numN && nodes[i]->conectsWith(j) && i != j) {
 					switch (i - j) {
-						// UNION 0 -> 2
-						case 2:
-
-						break;
 						// UNION 0->1 || 1->2
 						case 1:
 
 						break;
 						// UNION 1->0 || 2->1
 						case -1:
-
-						break;
-						// UNION 2->0
-						case -2:
 
 						break;
 					}
