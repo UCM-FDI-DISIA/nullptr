@@ -8,5 +8,5 @@ ShopScene::ShopScene() : NodeScene() {
 	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
 }
 void ShopScene::mainMenu() {
-	SDLApplication::newScene<MapScene>();
+	SDLApplication::returnToMapScene();
 }

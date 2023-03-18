@@ -306,6 +306,8 @@ const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
 
 // NODOS -----------------------------------------------------------------------------------------
+const string NODE_MAP_JSON_ROOT = "../Game/src/data/game.map.json";
+
 const int HEIGHT = 17;
 
 const string BATTLE_NODE_TEXTURE_KEY = "BattleNode";

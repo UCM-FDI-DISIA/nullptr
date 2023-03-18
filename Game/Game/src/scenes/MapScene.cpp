@@ -14,16 +14,16 @@ MapScene::MapScene() {
 			if (node != nullptr) { 
 				switch (nodesPerHeight[i]) {
 				case 1:
-					addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[2], WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[2], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
 					break;
 				case 2:
-					if (j == 0) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[1], WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					else addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[3], WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					if (j == 0) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[1], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					else addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[3], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
 					break;
 				case 3:
-					if (j == 0) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[0], WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					else if (j == 1) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[2], WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					else addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[4], WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					if (j == 0) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[0], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					else if (j == 1) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[2], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					else addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[4], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
 					break;
 				}
 
@@ -33,7 +33,7 @@ MapScene::MapScene() {
 		++i;
 	}
 
-	camera->getComponent<Transform>()->setPos(Vector2D(0,  - (int) WIN_HEIGHT / 2));
+	camera->getComponent<Transform>()->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
 
 	// BOTONES
 	// Botón options
@@ -62,5 +62,5 @@ void MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string
 void MapScene::moveCamera() {
 	Transform* tr = camera->getComponent<Transform>();
 	float prevY = tr->getY();
-	tr->setY(prevY + NODE_POSITION_Y + NODE_HEIGHT);
+	tr->setY(prevY + NODE_POSITION_Y);
 }

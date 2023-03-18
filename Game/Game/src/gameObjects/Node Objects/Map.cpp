@@ -4,63 +4,42 @@
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	//createMap();
+	initTextureKeys();
+	initNodeLoads();
 }
 
-void Map::createMap() {
-	// Crear el mapa de nodos
-	// Crear los nodos (con unos iniciales desbloqueados)
+// Inicializa el array de claves de las texturas de los nodos
+void Map::initTextureKeys() {
 	nodeTextureKeys[NodeType::Battle] = BATTLE_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Shop] = SHOP_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Chest] = CHEST_NODE_TEXTURE_KEY;
+}
+
+// Inicializa el array de CallBacks de los nodos
+void Map::initNodeLoads() {
 	nodeLoads[NodeType::Battle] = [](BattleType t) { SDLApplication::instance()->pushNewScene<BattleScene>(t); };
 	nodeLoads[NodeType::Chest] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ChestScene>(); };
 	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ShopScene>(); };
+}
 
-	nodeMap[0][1] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
-	initialNodes.push_back(nodeMap[0][1]);
-	++nodesPerHeight[0];
-
-	nodeMap[1][1] = new Node(Needs(Chest, 0, false), nodeTextureKeys[Chest], nodeLoads[Chest], Chest);
-	++nodesPerHeight[1];
-	nodeMap[0][1]->addToNextNodes(nodeMap[1][1], 1);
-
-	nodeMap[2][0] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
-	++nodesPerHeight[2];
-	nodeMap[1][1]->addToNextNodes(nodeMap[2][0], 0);
-	nodeMap[2][2] = new Node(Needs(Battle, 3, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, BattleType(rand() % _NONE));
-	++nodesPerHeight[2];
-	nodeMap[1][1]->addToNextNodes(nodeMap[2][2], 2);
-
-	nodeMap[3][1] = new Node(Needs(Shop, 0, false), nodeTextureKeys[Shop], nodeLoads[Shop], Shop);
-	++nodesPerHeight[3];
-	nodeMap[2][0]->addToNextNodes(nodeMap[3][1], 1);
-	nodeMap[2][2]->addToNextNodes(nodeMap[3][1], 1);
-
-	generateLevel(nodeMap, 4);
-	//initMap("../Game/src/data/game.map.json");
-
-	nodeMap[HEIGHT - 2][1] = new Node(Needs(Chest, 0, false), nodeTextureKeys[Chest], nodeLoads[Chest], Chest, BattleType(rand() % _NONE));
-	++nodesPerHeight[HEIGHT - 2];
-	nodeMap[HEIGHT - 1][1] = new Node(Needs(Battle, 0, false), nodeTextureKeys[Battle], nodeLoads[Battle], Battle, _BOSSBATTLE);
-	++nodesPerHeight[HEIGHT - 1];
-
-	for (int i = 0; i < MAX_NODES; ++i) {
-		if (nodeMap[HEIGHT - 3][i] != nullptr) nodeMap[HEIGHT - 3][i]->addToNextNodes(nodeMap[HEIGHT - 2][1], i);
+// Crea el mapa
+void Map::createMap() {
+	initMap(NODE_MAP_JSON_ROOT);
+	for (Node* n : unlockedNodes) {
+		n->lock();
 	}
-
-	nodeMap[HEIGHT - 2][1]->addToNextNodes(nodeMap[HEIGHT - 1][1], 1);
-	// TODO: asignar los siguientes de los iniciales y añadir los 2 últimos, preferblemente desde json
-
-
+	unlockedNodes = initialNodes;
 	for (Node* n : unlockedNodes) {
 		n->unlock();
 	}
 }
 
+// Destructora
 Map::~Map() {
 	clearMap();
 }
 
+// Limpia el mapa
 void Map::clearMap() {
 	// Borrar el mapa de nodos
 	for (auto& height : nodeMap) {
@@ -69,6 +48,10 @@ void Map::clearMap() {
 			node = nullptr;
 		}
 	}
+	for (auto& n : nodesPerHeight) {
+		n = 0;
+	}
+	initialNodes.clear();
 }
 
 // Hay ciertos nodos que son compatibles bajo unas condiciones, este método tiene una probabilidad de juntar dos nodos que cumplan esas condiciones
@@ -253,8 +236,8 @@ bool Map::lookForPrevious(vector<vector<Node*>> m, int alt, int ind) {
 
 
 // Genera los nodos en la altura indicada, se llama recursivamente hasta llegar al final del arbol
-void Map::generateLevel(vector<vector<Node*>>& m, int k) {
-	if (k < HEIGHT - 2) {
+void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
+	if (k < maxHeight) {
 		// Contador de nodos generados y vector de la nodos requeridos de la altura anterior
 		vector<Needs> ns = getNeeds(m[k - 1]);
 
@@ -272,17 +255,29 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 				if (copy == 0) {
 					if (m[k][1] == nullptr) copy++;
 					copy++;
-					addNode(k, i, m[k][copy]->getNeeded());
+					Needs n = m[k][copy]->getNeeded();
+					if (n.type != Battle) {
+						n.type = (sdlutils().rand().nextInt(0, 2)) ? Chest : Shop;
+					}
+					addNode(k, i, n);
 				}
 				else if (copy == 2) {
 					if (m[k][1] == nullptr) copy--;
 					copy--;
-					addNode(k, i, m[k][copy]->getNeeded());
+					Needs n = m[k][copy]->getNeeded();
+					if (n.type != Battle) {
+						n.type = (sdlutils().rand().nextInt(0, 2)) ? Chest : Shop;
+					}
+					addNode(k, i, n);
 				}
 				else {
 					if (m[k][0] != nullptr) copy--;
 					else copy++;
-					addNode(k, i, m[k][copy]->getNeeded());
+					Needs n = m[k][copy]->getNeeded();
+					if (n.type != Battle) {
+						n.type = (sdlutils().rand().nextInt(0, 2)) ? Chest : Shop;
+					}
+					addNode(k, i, n);
 				}
 			}
 		}
@@ -314,19 +309,20 @@ void Map::generateLevel(vector<vector<Node*>>& m, int k) {
 				if (m[k - 1][i] != nullptr) m[k - 1][i]->clearLinks();
 			}
 			// Llamada recursiva sin aumentar la altura
-			generateLevel(m, k);
+			generateLevel(m, maxHeight, k);
 		}
 
 		// Llamada recursiva para la proxima altura
-		else generateLevel(m, k + 1);
+		else generateLevel(m, maxHeight, k + 1);
 	}
 }
 
 
 // Añade un nodo al mapa en la posición indicada con las condiciones indicadas
-void Map::addNode(int height, int pos, Needs n) {
-	nodeMap[height][pos] = new Node(n, nodeTextureKeys[n.type], nodeLoads[n.type], n.type, BattleType(rand() % _NONE));
+Node* Map::addNode(int height, int pos, Needs n, BattleType bt) {
+	nodeMap[height][pos] = new Node(n, nodeTextureKeys[n.type], nodeLoads[n.type], n.type, bt);
 	++nodesPerHeight[height];
+	return nodeMap[height][pos];
 }
 // Borra el nodo en la posición dada
 void Map::eraseNode(int height, int pos) {
@@ -335,11 +331,8 @@ void Map::eraseNode(int height, int pos) {
 	--nodesPerHeight[height];
 }
 
+// Inicializa el mapa de nodos a partir de un JSON
 void Map::initMap(string filename) {
-	/*// TODO check the correctness of values and issue a corresponding
-	// exception. Now we just do some simple checks, and assume input
-	// is correct.
-
 	// Load JSON configuration file. We use a unique pointer since we
 	// can exit the method in different ways, this way we guarantee that
 	// it is always deleted
@@ -355,28 +348,43 @@ void Map::initMap(string filename) {
 	JSONObject root = jValueRoot->AsObject();
 	JSONValue* jValue = nullptr;
 
-	// TODO improve syntax error checks below, now we do not check
-	//      validity of keys with values as sting or integer
-
-	unordered_map<pair<int, int>, JSONArray> nexts;
+	// struct para guardar la posición de un nodo con un JSONArray de las posiciones de sus siguientes
+	struct nextsnodes { 
+		int height, pos; JSONArray arr; 
+		nextsnodes(int h, int p, JSONArray a) : height(h), pos(p), arr(a) {}
+	};
+	vector<nextsnodes> nexts;
 
 	// load fonts
 	jValue = root["map"];
 	if (jValue != nullptr) {
 		if (jValue->IsArray()) {
-			nodeMap.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
 			for (auto &v : jValue->AsArray()) {
 				if (v->IsObject()) {
+					// Leer la información de cada nodo
 					JSONObject vObj = v->AsObject();
 					int height = static_cast<int>(vObj["height"]->AsNumber());
 					int pos = static_cast<int>(vObj["pos"]->AsNumber());
-					std::string type = vObj["height"]->AsNumber();
+					std::string type = vObj["type"]->AsString();
 					JSONArray next = vObj["next"]->AsArray();
 #ifdef _DEBUG
-					std::cout << "Loading node with id: " << name << std::endl;
+					std::cout << "Loading node with id: " << type << height << pos << std::endl;
 #endif
-					addNode(Needs(type, 0, false), height, pos);
-					nexts[{height, pos}] = next;
+					// Crear los nodos en función de las condiciones leídas
+					if (type == "start")  {
+						initialNodes.push_back(addNode(height, pos, Needs(Battle, 0, false)));
+					}
+					else if (type == "boss")  {
+						addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
+					}
+					else  {
+						addNode(height, pos, Needs((type == "battle") ?
+							Battle : ((type == "chest") ?
+								Chest : ((type == "shop") ?
+									Shop : None)), 0, false));
+					}
+					// Guardar la posición del nodo creado con las posiciones de sus siguientes
+					nexts.push_back(nextsnodes(height, pos, next));
 
 				} else {
 					throw "'node' array in '" + filename
@@ -384,35 +392,53 @@ void Map::initMap(string filename) {
 				}
 			}
 
-			for (auto nodePos : nexts) {
-				for (auto next : next.second) {
-					if (next.size() == 0) {
-						generateHeight(nodeMap, get<0>(nodePos.first));
-						
-					}
-					else {
-						int h = static_cast<int>(next[0]);
-						if (h == -1) return;
-						int p = static_cast<int>(next[1]);
-						nodeMap[get<0>(nodePos.first)][get<1>(nodePos.first)]->addToNextNodes(nodeMap[h][p]);
+			// Una vez creados todos los nodos del JSON, se les asignan sus siguientes
+			for (auto& nn : nexts) {
+				// Solo añade siguientes al nodo si el array tiene elementos
+				if (nn.arr.size() > 0) {
+					// Por cada elemento del array de siguientes
+					for (auto& nest : nn.arr) {
+						// Si no es un número, es un array con la posición de su siguiente
+						if (!nest->IsNumber()) {
+							JSONArray arrr = nest->AsArray();
+							int h = static_cast<int>(arrr[1]->AsNumber());
+							int p = static_cast<int>(arrr[0]->AsNumber());
+							nodeMap[nn.height][nn.pos]->addToNextNodes(nodeMap[h][p], p);
+						}
+						// Si es un número, es la altura hasta la que hay que generar nodos aleatorios
+						else {
+							int levels = static_cast<int>(nest->AsNumber());
+							generateLevel(nodeMap, levels, nn.height + 1);
+							// Una vez generados todos los nodos,
+							// asigna como siguientes a la última altura generada todos los nodos de la siguiente
+							for (Node* node : nodeMap[levels - 1]) {
+								if (node != nullptr) {
+									for (int i = 0; i < MAX_NODES; ++i) {
+										if (nodeMap[levels][i] != nullptr) node->addToNextNodes(nodeMap[levels][i], i);
+									}
+								}
+							}
+						}
 					}
 				}
 			}
-			
 		} else {
 			throw "'node' is not an array in '" + filename + "'";
 		}
-	}*/
+	}
 }
 
+// Asigna el nodo actual
 void Map::setCurrentNode(Node* node) {
 	currentNode = node;
 }
 
+// Completa el nodo actual
 void Map::completeCurrentNode() {
 	currentNode->complete(unlockedNodes);
 }
 
+// Borra el mapa actual y crea uno nuevo
 void Map::reloadMap() {
 	clearMap();
 	createMap();

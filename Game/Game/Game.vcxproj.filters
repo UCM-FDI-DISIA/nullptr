@@ -556,5 +556,8 @@
     <None Include="src\data\game.resources.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
+    <None Include="src\data\game.map.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
   </ItemGroup>
 </Project>

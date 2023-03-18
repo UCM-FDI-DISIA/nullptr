@@ -25,6 +25,12 @@ private:
 	// Constructora
 	Map();
 
+	// Inicializa el array de claves de las texturas de los nodos
+	void initTextureKeys();
+	// Inicializa el array de CallBacks de los nodos
+	void initNodeLoads();
+	// Inicializa el mapa de nodos a partir de un JSON
+	void initMap(string filename);
 	// Crea el mapa
 	void createMap();
 
@@ -47,16 +53,14 @@ private:
 	// Recorre la altura anterior a la indicada para buscar nodos anteriores a aquel con el índice pasado
 	bool lookForPrevious(vector<vector<Node*>> m, int alt, int ind);
 	// Genera los nodos en la altura indicada, se llama recursivamente hasta llegar al final del arbol
-	void generateLevel(vector<vector<Node*>>& m, int k);
+	void generateLevel(vector<vector<Node*>>& m, int maxHeight, int k);
 	// Añade un nodo al mapa en la posición indicada con las condiciones indicadas
-	void addNode(int height, int pos, Needs n);
+	Node* addNode(int height, int pos, Needs n, BattleType bt = BattleType(rand() % _NONE));
 	// Borra el nodo en la posición dada
 	void eraseNode(int height, int pos);
 public:
 	// Destructora
 	~Map();
-	// Inicializa el mapa de nodos
-	void initMap(string filename);
 	// Asigna el nodo actual
 	void setCurrentNode(Node* node);
 	// Devuelve el nodo actual
@@ -67,7 +71,7 @@ public:
 	inline vector<vector<Node*>> const& getNodeMap() { return nodeMap; }
 	// Devuelve una referencia constante al mapa de nodos
 	inline vector<int> const& getNodesPerWidth() { return nodesPerHeight; }
-	// Crea un mapa nuevo
+	// Borra el mapa actual y crea uno nuevo
 	void reloadMap();
 };
 // Referencia a la instancia del mapa
