@@ -82,6 +82,8 @@ public:
 	inline BattleType getBattleType() { return bType; }
 	// Devuelve las necesidades del nodo para haberse creado
 	inline Needs getNeeded() { return needed; }
+	// Devuelve el vector de indices de siguientes
+	inline vector<int> getNextInd() { return nextInd; }
 	// Devuelve el número de nodos siguientes
 	inline int getNextCount() { return contNext; }
 	// Comprueba si el nodo conecta con el indice introducido

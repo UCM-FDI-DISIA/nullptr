@@ -12,4 +12,7 @@ public:
 
 	// Mover la camara a la altura de los siguientes al current
 	void moveCamera();
+
+	// Creamos el enlace entre nodos
+	void createConections(vector<Node*> nodes, int numN);
 };
