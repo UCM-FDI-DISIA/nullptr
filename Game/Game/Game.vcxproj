@@ -73,10 +73,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)libs\SDL2-2.26.2\include;$(SolutionDir)libs\SDL2_image-2.6.2\include;$(SolutionDir)libs\SDL2_mixer-2.6.2\include;$(SolutionDir)libs\SDL2_ttf-2.20.1\include;$(SolutionDir)libs\box2d-2.4.1\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(LibraryPath)</LibraryPath>
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)libs\SDL2-2.26.2\include;$(SolutionDir)libs\SDL2_image-2.6.2\include;$(SolutionDir)libs\SDL2_mixer-2.6.2\include;$(SolutionDir)libs\SDL2_ttf-2.20.1\include;$(SolutionDir)libs\box2d-2.4.1\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(LibraryPath)</LibraryPath>
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,7 +132,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,7 +151,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -173,6 +181,7 @@
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
+    <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
@@ -257,6 +266,7 @@
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
+    <ClCompile Include="src\components\General Components\TextComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
     <ClCompile Include="src\components\Player components\BarComponent.cpp" />

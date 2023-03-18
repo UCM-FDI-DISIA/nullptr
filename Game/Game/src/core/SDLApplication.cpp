@@ -23,10 +23,6 @@ SDLApplication::SDLApplication() {
 SDLApplication::~SDLApplication() {
 	delete(gameStateMachine);
 	Node::clearNodeMap();
-
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 }
 
 // Ejecuta el juego

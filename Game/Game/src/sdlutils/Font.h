@@ -53,6 +53,18 @@ public:
 		return TTF_RenderUTF8_Shaded(font_, text.c_str(), fgColor, bgColor);
 	}
 
+	inline SDL_Surface* renderText(const std::string &text,
+			SDL_Color fgColor, float width) const {
+		assert(font_ != nullptr);
+		return TTF_RenderText_Solid_Wrapped(font_, text.c_str(), fgColor, width);
+	}
+
+	inline SDL_Surface* renderText(const std::string &text, SDL_Color fgColor,
+			SDL_Color bgColor, float width) const {
+		assert(font_ != nullptr);
+		return TTF_RenderText_Shaded_Wrapped(font_, text.c_str(), fgColor, bgColor, width);
+	}
+
 private:
 	TTF_Font *font_;
 }

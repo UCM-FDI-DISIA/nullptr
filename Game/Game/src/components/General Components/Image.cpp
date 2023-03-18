@@ -9,9 +9,7 @@ Image::Image(Texture* _texture) : texture(_texture), transform(nullptr), cameraT
 void Image::initComponent() {
 	transform = gObj->getComponent<Transform>();
 	assert(transform != nullptr);
-	if (gStt != nullptr) {
-		cameraTransform = gStt->getCamera()->getComponent<Transform>();
-	}
+	dettachFromCamera();
 }
 
 // Dibuja en pantalla la textura en el rect�ngulo del transform
@@ -49,6 +47,14 @@ SDL_Rect Image::getFactoredRect(float srcRectRelativeWidth, float srcRectRelativ
 // Hace que el GameObject se renderice en funci�n a la ventana, no a la c�mara
 void Image::attachToCamera() {
 	cameraTransform = nullptr;
+}
+
+
+// Hace que el GameObject se renderice en función a la cámara, no a la ventana
+void Image::dettachFromCamera() {
+	if (gStt != nullptr) {
+		cameraTransform = gStt->getCamera()->getComponent<Transform>();
+	}
 }
 
 // Flipea la imagen horizontalmente
