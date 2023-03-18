@@ -105,6 +105,14 @@ void SDLApplication::resumeGame() { SDLApplication::popGameState(); }
 // Elimina el estado en la cima de la pila
 void SDLApplication::popGameState() { SDLApplication::instance()->gameStateMachine->popState(); }
 
+//
+void SDLApplication::returnToMapScene() {
+	popGameState();
+	MapScene* ms = dynamic_cast<MapScene*>(SDLApplication::instance()->gameStateMachine->currentState());
+	assert(ms != nullptr);
+	ms->moveCamera();
+}
+
 // Cierra el juego
 void SDLApplication::quitGame() { SDLApplication::instance()->exit = true; }
 

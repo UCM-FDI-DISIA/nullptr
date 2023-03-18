@@ -17,7 +17,7 @@ GameOverScene::GameOverScene() {
 
 	//Creo el boton y su marco y los fijo a la camara
 	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3) - FRAME_OFFSET,
-		[]() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+		[]() { SDLApplication::returnToMapScene(); }, EXIT);
 }
 
 // Crear un botón especificado en la escena

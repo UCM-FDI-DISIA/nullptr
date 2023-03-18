@@ -124,22 +124,10 @@
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp">
       <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
@@ -202,6 +190,8 @@
     <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
+    <ClCompile Include="src\scenes\NodeScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -367,22 +357,10 @@
     <ClInclude Include="src\gameObjects\GameObject.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\EventNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\Node.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\HandUI.h">
@@ -445,6 +423,8 @@
     <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\Node Objects\Map.h" />
+    <ClInclude Include="src\scenes\NodeScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">

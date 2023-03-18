@@ -28,6 +28,8 @@ public:
 
 	// Ejecuta el callback del botón si este está disponible
 	virtual void onClick();
+
+	virtual bool isOver(int mouseX, int mouseY);
 };
 
 #endif // !NODEBUTTONCOMPONENT_H_

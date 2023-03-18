@@ -35,6 +35,14 @@ public:
 		return position_;
 	};
 
+	inline float getX() {
+		return position_.getX();
+	}
+
+	inline float getY() {
+		return position_.getY();
+	}
+
 	// Devuelve la velocidad
 	inline Vector2D& getVel() {
 		return velocity_;

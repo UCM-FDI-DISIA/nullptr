@@ -193,13 +193,9 @@
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\EventNode.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Map.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Node.h" />
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h" />
     <ClInclude Include="src\gameObjects\Player Object\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
@@ -273,13 +269,9 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp" />
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />

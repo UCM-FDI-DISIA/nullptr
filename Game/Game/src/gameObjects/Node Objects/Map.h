@@ -25,6 +25,12 @@ private:
 	// Constructora
 	Map();
 
+	// Crea el mapa
+	void createMap();
+
+	// Limpia el mapa
+	void clearMap();
+	
 	// Hay ciertos nodos que son compatibles bajo unas condiciones, este método tiene una probabilidad de juntar dos nodos que cumplan esas condiciones
 	void lookForCompatibles(Needs& n1, Needs& n2);
 	// Recibe las condiciones con las que se creó un nodo y devuelve las condiciones que necesita para su siguiente nodo
@@ -42,6 +48,10 @@ private:
 	bool lookForPrevious(vector<vector<Node*>> m, int alt, int ind);
 	// Genera los nodos en la altura indicada, se llama recursivamente hasta llegar al final del arbol
 	void generateLevel(vector<vector<Node*>>& m, int k);
+	// Añade un nodo al mapa en la posición indicada con las condiciones indicadas
+	void addNode(int height, int pos, Needs n);
+	// Borra el nodo en la posición dada
+	void eraseNode(int height, int pos);
 public:
 	// Destructora
 	~Map();
@@ -49,12 +59,16 @@ public:
 	void initMap(string filename);
 	// Asigna el nodo actual
 	void setCurrentNode(Node* node);
+	// Devuelve el nodo actual
+	inline Node* getCurrentNode() { return currentNode; }
 	// Completa el nodo actual
 	void completeCurrentNode();
 	// Devuelve una referencia constante al mapa de nodos
 	inline vector<vector<Node*>> const& getNodeMap() { return nodeMap; }
 	// Devuelve una referencia constante al mapa de nodos
 	inline vector<int> const& getNodesPerWidth() { return nodesPerHeight; }
+	// Crea un mapa nuevo
+	void reloadMap();
 };
 // Referencia a la instancia del mapa
 inline Map& map() { return *Map::instance(); }

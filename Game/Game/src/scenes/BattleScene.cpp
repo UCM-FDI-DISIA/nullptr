@@ -58,7 +58,9 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 };
 
 void BattleScene::OnPlayerDies() {
-	SDLApplication::newScene<GameOverScene>();
+	/*SDLApplication::newScene<GameOverScene>();*/
+	SDLApplication::popGameState();
+	SDLApplication::pushNewScene<GameOverScene>();
 }
 
 void BattleScene::OnPlayerDamage(float value) {

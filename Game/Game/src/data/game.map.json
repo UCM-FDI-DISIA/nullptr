@@ -1,130 +1,46 @@
 {
   "map" : [
     {
-        "name": "level1",
-        "type": "start",
         "height": 0,
-        "next": ["chest1"]
+        "pos": 1,
+        "type": "start",
+        "next": [[1, 1]]
     },
     {
-        "name": "chest1",
-        "type": "chest",
         "height": 1,
-        "next": [ "level2a", "level2b" ]
+        "pos": 1,
+        "type": "chest",
+        "next": [ [0, 2], [2, 2] ]
     },
     {
-        "name": "level2a",
-        "type": "battle",
         "height": 2,
-        "next": [ "shop1" ]
-    },
-    {
-        "name": "level2b",
+        "pos": 0,
         "type": "battle",
-        "height": 2,
-        "next": ["shop1"]
+        "next": [ [3, 1] ]
     },
     {
-        "name": "shop1",
-        "type": "shop",
+        "height": 2,
+        "pos": 2,
+        "type": "battle",
+        "next": [[3, 1]]
+    },
+    {
         "height": 3,
-        "next": [ "level3a", "level3b" ]
-    },
-    {
-        "name": "level3a",
-        "type": "battle",
-        "height": 4,
-        "next": [ "level4" ]
-    },
-    {
-        "name": "level3b",
-        "type": "battle",
-        "height": 4,
-        "next": [ "level4" ]
-    },
-    {
-        "name": "level4",
-        "type": "battle",
-        "height": 5,
-        "next": [ "level5" ]
-    },
-    {
-        "name": "level5",
-        "type": "battle",
-        "height": 6,
-        "next": [ "shop2", "chest2" ]
-    },
-    {
-        "name": "shop2",
+        "pos": 1,
         "type": "shop",
-        "height": 7,
-        "next": [ "level6" ]
+        "next": [ [] ]
     },
     {
-        "name": "chest2",
-        "type": "chest",
-        "height": 7,
-        "next": [ "level6" ]
-    },
-    {
-        "name": "level6",
-        "type": "battle",
-        "height": 8,
-        "next": [ "level7" ]
-    },
-    {
-        "name": "level7",
-        "type": "battle",
-        "height": 9,
-        "next": [ "level8a", "level8b" ]
-    },
-    {
-        "name": "level8a",
-        "type": "battle",
-        "height": 10,
-        "next": [ "shop3" ]
-    },
-    {
-        "name": "level8b",
-        "type": "battle",
-        "height": 10,
-        "next": [ "chest3" ]
-    },
-    {
-        "name": "shop3",
-        "type": "shop",
-        "height": 11,
-        "next": [ "level9" ]
-    },
-    {
-        "name": "chest3",
-        "type": "chest",
-        "height": 11,
-        "next": [ "level9" ]
-    },
-    {
-        "name": "level9",
-        "type": "battle",
-        "height": 12,
-        "next": [ "level10" ]
-    },
-    {
-        "name": "level10",
-        "type": "battle",
-        "height": 13,
-        "next": [ "bossChest" ]
-    },
-    {
-        "name": "bossChest",
-        "type": "chest",
-        "height": 14,
-        "next": [ "bossBattle" ]
-    },
-    {
-        "name": "bossBattle",
-        "type": "battle",
         "height": 15,
-        "next": []
+        "pos": 1,
+        "type": "chest",
+        "next": [ [1, 16] ]
+    },
+    {
+        "height": 16,
+        "pos": 1,
+        "type": "boss",
+        "next": [ [-1] ]
     }
   ]
 }

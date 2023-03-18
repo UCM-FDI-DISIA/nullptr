@@ -7,4 +7,6 @@ class NodeButton : public GameObject {
 public:
 	// Añade los componentes al botón y crea sus animaciones
 	virtual void initGameObject(Node* nodeIt, CallBack _cb, Vector2D pos);
+
+	
 };
