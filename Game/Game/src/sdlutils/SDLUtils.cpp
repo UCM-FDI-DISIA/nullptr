@@ -15,8 +15,9 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 		windowTitle_(windowTitle), //
 		width_(width), //
 		height_(height), //
-		//fontsAccessWrapper_(fonts_, "Fonts Table"), //
-		imagesAccessWrapper_(images_, "Images Table")//, //
+		fontsAccessWrapper_(fonts_, "Fonts Table"), //
+		imagesAccessWrapper_(images_, "Images Table"), //
+		relicsAccessWrapper_(relics_, "Relics Table")
 		//msgsAccessWrapper_(msgs_, "Messages Table"), //
 		//soundsAccessWrapper_(sounds_, "Sounds Table"), //
 		//musicsAccessWrapper_(musics_, "Musics Table") ///
@@ -81,12 +82,12 @@ void SDLUtils::closeWindow() {
 
 void SDLUtils::initSDLExtensions() {
 
-//#ifdef _DEBUG
-	//std::cout << "Initializing SDL_ttf" << std::endl;
-//#endif
+#ifdef _DEBUG
+	std::cout << "Initializing SDL_ttf" << std::endl;
+#endif
 	// initialize SDL_ttf
-	//int ttfInit_r = TTF_Init();
-	//assert(ttfInit_r == 0);
+	int ttfInit_r = TTF_Init();
+	assert(ttfInit_r == 0);
 
 #ifdef _DEBUG
 	std::cout << "Initializing SDL_img" << std::endl;
@@ -133,30 +134,30 @@ void SDLUtils::loadResources(std::string filename) {
 	//      validity of keys with values as sting or integer
 
 	// load fonts
-//	jValue = root["fonts"];
-//	if (jValue != nullptr) {
-//		if (jValue->IsArray()) {
-//			fonts_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
-//			for (auto &v : jValue->AsArray()) {
-//				if (v->IsObject()) {
-//					JSONObject vObj = v->AsObject();
-//					std::string key = vObj["id"]->AsString();
-//					std::string file = vObj["file"]->AsString();
-//					uint8_t size =
-//							static_cast<uint8_t>(vObj["size"]->AsNumber());
-//#ifdef _DEBUG
-//					std::cout << "Loading font with id: " << key << std::endl;
-//#endif
-//					fonts_.emplace(key, Font(file, size));
-//				} else {
-//					throw "'fonts' array in '" + filename
-//							+ "' includes and invalid value";
-//				}
-//			}
-//		} else {
-//			throw "'fonts' is not an array in '" + filename + "'";
-//		}
-//	}
+	jValue = root["fonts"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			fonts_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto &v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string file = vObj["file"]->AsString();
+					uint8_t size =
+							static_cast<uint8_t>(vObj["size"]->AsNumber());
+#ifdef _DEBUG
+					std::cout << "Loading font with id: " << key << std::endl;
+#endif
+					fonts_.emplace(key, Font(file, size));
+				} else {
+					throw "'fonts' array in '" + filename
+							+ "' includes and invalid value";
+				}
+			}
+		} else {
+			throw "'fonts' is not an array in '" + filename + "'";
+		}
+	}
 
 	// load images
 	jValue = root["images"];
@@ -179,6 +180,40 @@ void SDLUtils::loadResources(std::string filename) {
 			}
 		} else {
 			throw "'images' is not an array in '" + filename + "'";
+		}
+	}
+
+	// load relics
+	jValue = root["relics"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			relics_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto& v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string description = vObj["description"]->AsString();
+					std::string era = vObj["era"]->AsString();
+					std::string health = vObj["health"]->AsString();
+					std::string movementVelocity = vObj["movementVelocity"]->AsString();
+					std::string cadency = vObj["cadency"]->AsString();
+					std::string mana = vObj["mana"]->AsString();
+					std::string attack = vObj["attack"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading relic info with id: " << key << std::endl;
+#endif
+					Relic relicStruct(&images().at(key), description, era, stoi(health), stoi(movementVelocity), stoi(cadency), stoi(mana), stoi(attack));
+					
+					relics_.emplace(key, relicStruct);
+				}
+				else {
+					throw "'relics' array in '" + filename
+						+ "' includes and invalid value";
+				}
+			}
+		}
+		else {
+			throw "'relics' is not an array in '" + filename + "'";
 		}
 	}
 
@@ -276,10 +311,10 @@ void SDLUtils::closeSDLExtensions() {
 	//sounds_.clear();
 	//msgs_.clear();
 	images_.clear();
-	//fonts_.clear();
+	fonts_.clear();
 
 	//Mix_Quit(); // quit SDL_mixer
-	//IMG_Quit(); // quit SDL_image
-	//TTF_Quit(); // quit SDL_ttf
+	IMG_Quit(); // quit SDL_image
+	TTF_Quit(); // quit SDL_ttf
 }
 

@@ -1,12 +1,13 @@
 {
     "fonts" : [
-      { "id" : "ARIAL16", "file" : "resources/fonts/ARIAL.ttf", "size": 16 },
-      { "id" : "ARIAL24", "file" : "resources/fonts/ARIAL.ttf", "size": 24 },
-      { "id" : "ARIAL48", "file" : "resources/fonts/ARIAL.ttf", "size": 48 }
+      { "id" : "ARIAL16", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 16 },
+      { "id" : "ARIAL24", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 24 },
+      { "id" : "ARIAL48", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 48 }
     ],
     
     "images" : [
       { "id" : "null", "file" : "../Game/resources/images/Null_Img.png" },
+      { "id" : "HealArea", "file" : "../Game/resources/images/Cards/CardEffects/HealArea_51x51.png" },
 
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
@@ -27,7 +28,10 @@
       { "id" : "Pistol", "file" : "../Game/resources/images/Cards/PistolCard_58x93.png" },
       { "id" : "Sword", "file" : "../Game/resources/images/Cards/SwordCard_58x93.png" },
       { "id" : "LaserGlasses", "file" : "../Game/resources/images/Cards/LaserGlassesCard_58x93.png" },
+
+      { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
       { "id" : "SMG", "file": "../Game/resources/images/Cards/SMGCard_58x93.png"},
+      { "id" : "Bow", "file": "../Game/resources/images/Cards/BowCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
@@ -38,18 +42,16 @@
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
       { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
       { "id" : "SpearThrust", "file" : "../Game/resources/images/Cards/CardEffects/SpearThrust_184x39.png" },
-
-      
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
+      { "id" : "newPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
-
       { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
-
       { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
 
+      { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
       { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
-      
+
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/PastNode_32x32.png" },
       { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/PresentNode_32x32.png" },
       { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
@@ -57,6 +59,8 @@
       { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/ShopNode_32x32.png" },
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
+
+
       { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
       { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
       { "id" : "FarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_427x50.png" },
@@ -64,6 +68,10 @@
       { "id" : "ReverseMidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_213x50.png" },
       { "id" : "ReverseFarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_427x50.png" },
       { "id" : "ReverseLongNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_640x50.png" },
+      
+      { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
+      { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
+
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
 
@@ -77,7 +85,9 @@
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
-      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" }
+      { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
+
+      { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" }
     ],
     
     "messages" : [
@@ -92,6 +102,19 @@
   
     "musics" : [
       { "id" : "beat", "file" : "resources/sound/beat.wav" }
+    ],
+
+    "relics" : [
+      {
+        "id": "Hoverboard",
+        "description": "Este invento del futuro mejora la movilidad de los ciudadanos",
+        "era": "F",
+        "health": "0",
+        "movementVelocity": "25",
+        "cadency": "0",
+        "mana": "20",
+        "attack": "0"
+      }
     ]
   
   }

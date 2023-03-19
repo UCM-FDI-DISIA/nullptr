@@ -3,7 +3,9 @@
 #include "../components/Enemy components/MeleeBehaviour.h"
 
 // Constructora
-BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) { 
+BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
+	//Mana
+	PlayerData::instance()->resetMana();
 	//Suelo
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
@@ -22,7 +24,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 		floor->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
 		break;
 	}
-	
+
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);

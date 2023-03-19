@@ -16,7 +16,7 @@ private:
 public:
 	// Constructora
 	virtual void initGameObject(CardComponent* _cComp);
-
+	virtual ~HandUI();
 	// Métodos virtuales
 	virtual void render() const;
 

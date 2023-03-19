@@ -10,6 +10,7 @@ SDLApplication::SDLApplication() {
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
 	utils->hideCursor();
+	utils->focusMouseOnWindow();
 
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
@@ -19,10 +20,6 @@ SDLApplication::SDLApplication() {
 // Destructora
 SDLApplication::~SDLApplication() {
 	delete(gameStateMachine);
-
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 }
 
 // Ejecuta el juego
@@ -95,6 +92,9 @@ void SDLApplication::handleInput() {
 
 // Devuelve la Texture pedida
 Texture* SDLApplication::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
+
+// Devuelve la Reliquia pedida
+Relic* SDLApplication::getRelic(TextureName texture) { return &SDLUtils::instance()->relics().at(texture); }
 
 // Pausa el juego
 void SDLApplication::pauseGame() { SDLApplication::instance()->gameStateMachine->pushState(new PauseMenuScene()); }

@@ -39,9 +39,10 @@ class PlayerData : public Singleton<PlayerData>
 	PlayerData();
 
 	public:
-
+		virtual ~PlayerData();
 		inline int getMaxMana() { return maxMana; }
 		inline int getCurrMana() { return currMana; }
+		inline void resetMana() { currMana = maxMana; }
 		inline int getMaxHP() { return maxHP; }
 		inline int getCurrHP() { return currHP; }
 		inline float getAttackMult() { return attackMult; }

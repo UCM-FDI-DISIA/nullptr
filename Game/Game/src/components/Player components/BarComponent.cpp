@@ -32,7 +32,7 @@ void BarComponent::onManaChanges(float value, float maxValue, vector<GameObject*
 			//tr->setWidth(prevW + (dif * 2));
 			//Me guardo la coordenada en X original y seteo una nueva en consecuencia al cambio
 			int prevX = tr->getPos().getX();
-			tr->setX(prevX - (dif * 2 - 3));
+			tr->setX(prevX - (dif * 2));
 			currentCuantity = value;
 		}
 	}

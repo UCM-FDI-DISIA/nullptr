@@ -22,7 +22,7 @@ void TankBehaviour::update() {
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	
 	// Si llega a estar a X distancia del jugador y no esta atacando...
-	if (!attacking&& pos->getDistance(playerPos->getPos()) <= TANK_ATTACK_DISTANCE ) {
+	if (!confused && !attacking&& pos->getDistance(playerPos->getPos()) <= TANK_ATTACK_DISTANCE ) {
 		//Empezamos el ataque
 		attacking = true;
 
@@ -35,9 +35,11 @@ void TankBehaviour::update() {
 }
 
 void TankBehaviour::setDirectionTo() {
-
+	if (confused) {
+		pos->setVel(Vector2D(rand(),rand()).normalize() * TANK_SPEED);
+	}
     //Si no esta atacando
-	if (!attacking) {
+	else if (!attacking) {
 		// Persigue al jugador
 		pos->lookAt(playerPos->getPos());
 	}

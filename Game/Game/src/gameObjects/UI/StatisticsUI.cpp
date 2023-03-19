@@ -21,6 +21,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	// Inicialización de vida
 	fullLife = life;
 	fullMana = mana;
+	actualEther = 0;
 
 	// Crear los numeros de vida
 	for (int i = 0; i < N_LIFE_COUNTER; i++) {
@@ -61,6 +62,13 @@ void StatisticsUI::initGameObject(int life, int mana) {
 
 		etherCounter.push_back(number);
 		objs.push_back(number);
+	}
+}
+
+StatisticsUI::~StatisticsUI() {
+	for (auto& gobj : objs) {
+		delete gobj;
+		gobj = nullptr;
 	}
 }
 
@@ -122,7 +130,7 @@ void StatisticsUI::createEtherMeter() {
 	anim->play(ETHER_ANIM);
 
 	// Componente de barra
-	auto barComp = healthBar->addComponent<BarComponent>();
+	auto barComp = etherMeter->addComponent<BarComponent>();
 	barComp->changeAnimatorSrcRelativeHeight(etherMeter, MAX_ETHER, 0);
 
 	// Añadir al vector
@@ -151,7 +159,8 @@ void StatisticsUI::onManaChanges(float value) {
 
 // Al cambiar el éter, actualizar componentes
 void StatisticsUI::onEtherChanges(float value) {
-	etherMeter->getComponent<BarComponent>()->onEtherChanges(value, etherCounter);
+	actualEther += value;
+	etherMeter->getComponent<BarComponent>()->onEtherChanges(actualEther, etherCounter);
 }
 
 // Crear los números de la interfaz

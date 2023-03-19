@@ -1,5 +1,5 @@
 #include "CardComponent.h"
-#include "../../core/PlayerData.h"
+#include "../../data/PlayerData.h"
 #include "../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
 #include "../../sdlutils/InputHandler.h"
@@ -25,6 +25,10 @@ void CardComponent::initComponent() {
 
 //Reduce el tiempo de disparo
 void CardComponent::update() {
+	if (mana != PlayerData::instance()->getCurrMana()) {
+		mana = PlayerData::instance()->getCurrMana();
+	}
+	
 	if (downTime > 0) {
 		downTime -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
@@ -92,6 +96,7 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	if ((*active)->getMana() <= mana) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
+		PlayerData::instance()->setCurrMana(mana);
 		if((*active)->getUses() <= 0) discardCard(active);
 		where->onManaChanges(mana);
 	}

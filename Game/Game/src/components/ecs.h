@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ECS_H_
-#define ECS_H_
 
 using cmpId_type = int;
 enum cmpId : cmpId_type {
@@ -11,13 +9,12 @@ enum cmpId : cmpId_type {
 	_POINTERCOMPONENT,
 	_CARDCOMPONENT,
 	_HEALTH,
+	_STATUS,
 	_CAMERACOMPONENT,
 	_BUTTON,
 	_ANIMATOR,
 	_PLAYER_ANIMATOR,
-	_MELEE_BEHAVIOUR,
-	_RANGE_BEHAVIOUR,
-	_TANK_BEHAVIOUR,
+	_ENEMY_BEHAVIOUR,
 	_COLLIDER_COMPONENT,
 	_HITBOX_DAMAGE_COMPONENT,
 	_HITBOX_STATUS_COMPONENT,
@@ -25,6 +22,9 @@ enum cmpId : cmpId_type {
 	_LIFETIME,
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
+	_ETER,
+	_ON_DEATH,
+	// ... (compoment ids)
 
 	// do not remove this
 	_LAST_CMP_ID
@@ -37,7 +37,8 @@ enum grpId : grpId_type {
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
-	
+	_grp_RELICS,
+	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
 	// do not remove this
@@ -54,12 +55,9 @@ struct Animation {
 	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
 };
 
-
 #include <functional>
 // Tipo de funci�n que devuelve y recibe void, funciona tambi�n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
 class GameObject;
 using CallBackCol = std::function<void(GameObject*)>;
 using BoolCallBack = std::function<bool(void)>;
-
-#endif // !ECS_H_

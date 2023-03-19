@@ -55,6 +55,8 @@ public:
 	void handleInput();
 	// Devuelve la Texture pedida
 	static Texture* getTexture(TextureName texture);
+	// Devuelve la Reliquia pedida
+	static Relic* getRelic(TextureName texture);
 
 	// Inicializa una nueva escena y la mete en la máquina de estados borrando la anterior
 	template<typename T, typename ...Ts>
