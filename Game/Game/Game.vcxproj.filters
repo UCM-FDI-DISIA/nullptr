@@ -207,7 +207,7 @@
     </ClCompile>
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
-     <ClCompile/>
+     </ClCompile>
     <ClCompile Include="src\components\General Components\StatusComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
