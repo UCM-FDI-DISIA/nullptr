@@ -57,6 +57,13 @@
       { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/ShopNode_32x32.png" },
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
+      { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
+      { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
+      { "id" : "FarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_427x50.png" },
+      { "id" : "LongNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_640x50.png" },
+      { "id" : "ReverseMidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_213x50.png" },
+      { "id" : "ReverseFarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_427x50.png" },
+      { "id" : "ReverseLongNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_640x50.png" },
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
 

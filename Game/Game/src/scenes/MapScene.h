@@ -14,5 +14,5 @@ public:
 	void moveCamera();
 
 	// Creamos el enlace entre nodos
-	void createConections(vector<Node*> nodes, int numN);
+	void createConections(vector<vector<Node*>> const& nodes, vector<vector<Vector2D>> const& nodesPos, vector<int> const& nodesPerHeight, int alt);
 };

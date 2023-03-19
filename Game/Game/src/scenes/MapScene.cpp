@@ -7,30 +7,36 @@ MapScene::MapScene() {
 	map().reloadMap();
 	vector<vector<Node*>> const& nodeMap = map().getNodeMap();
 	vector<int> const& nodesPerHeight = map().getNodesPerWidth();
+
+	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
+	vector<vector<Vector2D>> nodesPositions(HEIGHT);
+
 	int i = 0;
 	for (auto& height : nodeMap) {
 		int j = 0;
 		for (Node* node : height) {
+			Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * i);
 			if (node != nullptr) { 
 				switch (nodesPerHeight[i]) {
 				case 1:
-					addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[2], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					
+					pos.setX(NODE_POSITIONS_X[2]);
 					break;
 				case 2:
-					if (j == 0) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[1], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					else addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[3], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					if (j == 0) pos.setX(NODE_POSITIONS_X[1]);
+					else pos.setX(NODE_POSITIONS_X[3]);
 					break;
 				case 3:
-					if (j == 0) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[0], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					else if (j == 1) addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[2], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
-					else addGameObject<NodeButton>(node, node->loadNode(), Vector2D(NODE_POSITIONS_X[4], (int)WIN_HEIGHT - NODE_DISTANCE - NODE_POSITION_Y * i));
+					if (j == 0) pos.setX(NODE_POSITIONS_X[0]);
+					else if (j == 1) pos.setX(NODE_POSITIONS_X[2]);
+					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-
+				addGameObject<NodeButton>(node, node->loadNode(), pos);
 				++j;
 			}
+			nodesPositions[i].push_back(pos);
 		}
+		if (i > 0) createConections(nodeMap, nodesPositions, nodesPerHeight, i);
 		++i;
 	}
 
@@ -66,67 +72,250 @@ void MapScene::moveCamera() {
 	tr->setY(prevY + NODE_POSITION_Y);
 }
 
-void MapScene::createConections(vector<Node*> nodes, int numN) {
-	// Miro cuantos nodos hay en la siguiente altura
-	int maxIndSig = 0;
-	for (int i = 0; i < MAX_NODES; i++) {
-		auto c = nodes[i]->getNextInd();
-		for (int j = 0; j < c.size(); j++) {
-			if (j > maxIndSig) maxIndSig = j;
-		}
-	}
+void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vector<Vector2D>> const& nodesPos, vector<int> const& nodesPerHeight, int alt) {
+	int iIndNode = 0;
+	for (int i = 0; i < nodes[alt - 1].size(); i++) {
+		if (nodes[alt - 1][i] != nullptr) {
+			int jIndNode = 0;
+			for (int j = 0; j < nodes[alt].size(); ++j) {
+				if (nodes[alt][j] != nullptr) {
+					if (nodes[alt - 1][i]->conectsWith(j)) {
+						GameObject* conection = addGameObject();
+						string key = "";
+						Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * alt + NODE_HEIGHT);
+						
+						if (nodesPerHeight[alt - 1] == 1) {
+							if (nodesPerHeight[alt] == 1) {
+								/*conectar POS 2 con POS 2*/
+								key = "StraightNodeConection";
+								pos.setX(NODE_POSITIONS_X[2]);
+							}
+							else if (nodesPerHeight[alt] == 2) {
+								if (jIndNode == 0) {
+									/*conectar POS 2 con POS 1*/
+									key = "ReverseMidNodeConection";
+									pos.setX(NODE_POSITIONS_X[1]);
+								}
+								else /*if (jIndNode == 1)*/ {
+									/*conectar POS 2 con POS 3*/
+									key = "MidNodeConection";
+									pos.setX(NODE_POSITIONS_X[2]);
+								}
+							}
+							else /*if (nodesPerHeight[alt] == 3)*/ {
+								if (jIndNode == 0) {
+									/*conectar POS 2 con POS 0*/
+									key = "ReverseFarNodeConection";
+									pos.setX(NODE_POSITIONS_X[2]);
+								}
+								else if (jIndNode == 1) {
+									/*conectar POS 2 con POS 2*/
+									key = "StraightNodeConection";
+									pos.setX(NODE_POSITIONS_X[2]);
+								}
+								else /*if (jIndNode == 2)*/ {
+									/*conectar POS 2 con POS 4*/
+									key = "FarNodeConection";
+									pos.setX(NODE_POSITIONS_X[2]);
+								}
+							}
+						}
+						else if (nodesPerHeight[alt - 1] == 2) {
+							if (iIndNode == 0) {
+								if (nodesPerHeight[alt] == 1) {
+									/*conectar POS 1 con POS 2*/
+									key = "MidNodeConection";
+									pos.setX(NODE_POSITIONS_X[1]);
+								}
+								else if (nodesPerHeight[alt] == 2) {
+									if (jIndNode == 0) {
+										/*conectar POS 1 con POS 1*/
+										key = "StraightNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+									else /*if (jIndNode == 1)*/ {
+										/*conectar POS 1 con POS 3*/
+										key = "FarNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+								}
+								else /*if (nodesPerHeight[alt] == 3)*/ {
+									if (jIndNode == 0) {
+										/*conectar POS 1 con POS 0*/
+										key = "ReverseMidNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+									else if (jIndNode == 1) {
+										/*conectar POS 1 con POS 2*/
+										key = "MidNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+									else /*if (jIndNode == 2)*/ {
+										/*conectar POS 1 con POS 4*/
+										key = "LongNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+								}
+							}
+							else /*if (iIndNode == 1)*/ {
+								if (nodesPerHeight[alt] == 1) {
+									/*conectar POS 3 con POS 2*/
+									key = "ReverseMidNodeConection";
+									pos.setX(NODE_POSITIONS_X[2]);
+								}
+								else if (nodesPerHeight[alt] == 2) {
+									if (jIndNode == 0) {
+										/*conectar POS 3 con POS 1*/
+										key = "ReverseFarNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+									else /*if (jIndNode == 1)*/ {
+										/*conectar POS 3 con POS 3*/
+										key = "StraightNodeConection";
+										pos.setX(NODE_POSITIONS_X[3]);
+									}
+								}
+								else /*if (nodesPerHeight[alt] == 3)*/ {
+									if (jIndNode == 0) {
+										/*conectar POS 3 con POS 0*/
+										key = "ReverseLongNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+									else if (jIndNode == 1) {
+										/*conectar POS 3 con POS 2*/
+										key = "ReverseMidNodeConection";
+										pos.setX(NODE_POSITIONS_X[2]);
+									}
+									else /*if (jIndNode == 2)*/ {
+										/*conectar POS 3 con POS 4*/
+										key = "MidNodeConection";
+										pos.setX(NODE_POSITIONS_X[3]);
+									}
+								}
+							}
+						}
+						else /*if (nodesPerHeight[alt - 1] == 3)*/ {
+							if (iIndNode == 0) {
+								if (nodesPerHeight[alt] == 1) {
+									/*conectar POS 0 con POS 2*/
+									key = "FarNodeConection";
+									pos.setX(NODE_POSITIONS_X[0]);
+								}
+								else if (nodesPerHeight[alt] == 2) {
+									if (jIndNode == 0) {
+										/*conectar POS 0 con POS 1*/
+										key = "MidNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+									else /*if (jIndNode == 1)*/ {
+										/*conectar POS 0 con POS 3*/
+										key = "LongNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+								}
+								else /*if (nodesPerHeight[alt] == 3)*/ {
+									if (jIndNode == 0) {
+										/*conectar POS 0 con POS 0*/
+										key = "StraightNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+									else /*if (jIndNode == 1)*/ {
+										/*conectar POS 0 con POS 2*/
+										key = "FarNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+									// CASO IMPOSIBLE
+									// else /*if (jIndNode == 2)*/ {
+									// 	/*conectar POS 0 con POS 4*/
+									// }
+								}
+							}
+							else if (iIndNode == 1) {
+								if (nodesPerHeight[alt] == 1) {
+									/*conectar POS 2 con POS 2*/
+									key = "StraightNodeConection";
+									pos.setX(NODE_POSITIONS_X[2]);
+								}
+								else if (nodesPerHeight[alt] == 2) {
+									if (jIndNode == 0) {
+										/*conectar POS 2 con POS 1*/
+										key = "ReverseMidNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+									else /*if (jIndNode == 1)*/ {
+										/*conectar POS 2 con POS 3*/
+										key = "MidNodeConection";
+										pos.setX(NODE_POSITIONS_X[2]);
+									}
+								}
+								else /*if (nodesPerHeight[alt] == 3)*/ {
+									if (jIndNode == 0) {
+										/*conectar POS 2 con POS 0*/
+										key = "ReverseFarNodeConection";
+										pos.setX(NODE_POSITIONS_X[0]);
+									}
+									else if (jIndNode == 1) {
+										/*conectar POS 2 con POS 2*/
+										key = "StraightNodeConection";
+										pos.setX(NODE_POSITIONS_X[2]);
+									}
+									else /*if (jIndNode == 2)*/ {
+										/*conectar POS 2 con POS 4*/
+										key = "FarNodeConection";
+										pos.setX(NODE_POSITIONS_X[2]);
+									}
+								}
+							}
+							else /*if (iIndNode == 2)*/ {
+								if (nodesPerHeight[alt] == 1) {
+									/*conectar POS 4 con POS 2*/
+									key = "ReverseFarNodeConection";
+										pos.setX(NODE_POSITIONS_X[2]);
+								}
+								else if (nodesPerHeight[alt] == 2) {
+									if (jIndNode == 0) {
+										/*conectar POS 4 con POS 1*/
+										key = "ReverseLongNodeConection";
+										pos.setX(NODE_POSITIONS_X[1]);
+									}
+									else /*if (jIndNode == 1)*/ {
+										/*conectar POS 4 con POS 3*/
+										key = "ReverseMidNodeConection";
+										pos.setX(NODE_POSITIONS_X[3]);
+									}
+								}
+								else /*if (nodesPerHeight[alt] == 3)*/ {
+									// CASO IMPOSIBLE
+									// if (jIndNode == 0) {
+									// 	/*conectar POS 4 con POS 0*/
+									// }
+									/*else */if (jIndNode == 1) {
+										/*conectar POS 4 con POS 2*/
+										key = "ReverseFarNodeConection";
+										pos.setX(NODE_POSITIONS_X[2]);
+									}
+									else /*if (jIndNode == 2)*/ {
+										/*conectar POS 4 con POS 4*/
+										key = "StraightNodeConection";
+										pos.setX(NODE_POSITIONS_X[4]);
+									}
+								}
+							}
+						}
+						float w;
+						if (key == "StraightNodeConection") w = 6;
+						else if (key == "MidNodeConection" || key == "ReverseMidNodeConection") w = 213;
+						else if (key == "FarNodeConection" || key == "ReverseFarNodeConection") w = 427;
+						else w = 640;
 
-	// Creo conexiones recorriendo los nodos de la altura (hay 5 casos)
-	for (int i = 0; i < MAX_NODES; i++) {
-		for (int j = 0; j < maxIndSig; j++) {
-			if (nodes[i] != nullptr) {
-				// PRIMER CASO: MISMO NUMERO DE NODOS Y SE UNEN MISMAS POSICIONES
-				if (maxIndSig == numN && nodes[i]->conectsWith(j) && i == j) {
-
-				}
-				// SEGUNDO CASO: DISTINTO NUMERO DE NODOS (por diferencia de uno) Y SE UNEN MISMAS POSICIONES
-				else if (maxIndSig - numN == 1 && nodes[i]->conectsWith(j) && i == j) {
-
-				}
-				// TERCER CASO: DISTINTO NUMERO DE NODOS (por diferencia de 2) Y SE UNEN MISMAS POSICIONES
-				else if (maxIndSig - numN == 2 && nodes[i]->conectsWith(j) && i == j) {
-
-				}
-				// CUARTO CASO: MISMO NUMERO DE NODOS Y SE UNEN DISTINTAS POSICIONES
-				else if (maxIndSig == numN && nodes[i]->conectsWith(j) && i != j) {
-					switch (i - j) {
-						// UNION 0 -> 2
-						case 2:
-							
-						break;
-						// UNION 0->1 || 1->2
-						case 1:
-
-						break; 
-						// UNION 1->0 || 2->1
-						case -1:
-
-						break; 
-						// UNION 2->0
-						case -2:
-
-						break;
+						pos.setX(pos.getX() + NODE_WIDTH / 2);
+						conection->addComponent<Transform>(pos, VECTOR_ZERO, w, NODE_DISTANCE);
+						conection->addComponent<Image>(&sdlutils().images().at(key));
 					}
-				}
-				// QUINTO CASO: DIFERENTE NUMERO DE NODOS Y SE UNEN DISTINTAS POSICIONES 
-				else if (maxIndSig != numN && nodes[i]->conectsWith(j) && i != j) {
-					switch (i - j) {
-						// UNION 0->1 || 1->2
-						case 1:
-
-						break;
-						// UNION 1->0 || 2->1
-						case -1:
-
-						break;
-					}
+					++jIndNode;
 				}
 			}
-		}
+			++iIndNode;
+		}		
 	}
 }
