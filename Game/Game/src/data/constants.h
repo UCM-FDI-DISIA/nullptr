@@ -148,13 +148,25 @@ const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
 const float TANK_ATTACK_TIME = 3000;
+// NAMES SPRITES ---------------------------------------------------------------------------------------
+const string HEAL_AREA = "HealArea";
+const string SWORD_SLASH = "SwordSlash";
+const string SWORD_SPIN = "SwordSpin";
+const string SPEAR_THRUST = "SpearThrust";
+const string SOWND_ATTACK = "Sound";
+const string BULLET= "Bullet";
+const string FLASH_BANG = "FlashBang";
+const string LASER = "Laser";
+// SIZE SPRITES ---------------------------------------------------------------------------------------
+
+
 
 // BULLETS ---------------------------------------------------------------------------------------
-
 const float BULLET_SPEED = 200;
 const float LIGHT_BULLET_SPEED = 800;
 const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
+const float TORCH_SIZE_HEAL = 400;
 
 // STATUS ---------------------------------------------------------------------------------------
 

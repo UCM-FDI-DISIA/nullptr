@@ -7,7 +7,7 @@ void  LightRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float attack
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 		dir = dir.normalize();
 
-		Hitbox::HitboxData data = { playerPos, dir * LIGHT_BULLET_SPEED, 0, 30, 30, "Bullet", _grp_ENEMIES };
+		Hitbox::HitboxData data = { playerPos, dir * LIGHT_BULLET_SPEED, 0, 30, 30, BULLET, _grp_ENEMIES };
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
 }
 
@@ -16,7 +16,7 @@ void  LightRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 	dir = dir.normalize();
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 16, 16, "Bullet", _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 16, 16, BULLET, _grp_ENEMIES };
 
 	float size = 100 + 20 * remainingUses;
 
