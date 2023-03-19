@@ -148,6 +148,7 @@ const int TANK_ENEMY_SPRITE_HEIGHT = 40;
 const int TANK_ENEMY_SPRITE_ROWS = 6;
 const int TANK_ENEMY_SPRITE_COLS = 5;
 
+const int TANK_WIDTH = 120;
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 1;
 const int TANK_LIFE = 60;
