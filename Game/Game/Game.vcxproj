@@ -217,7 +217,6 @@
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
-    <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
