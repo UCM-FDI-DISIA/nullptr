@@ -13,7 +13,6 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-<<<<<<< Updated upstream
 	deck.push_back(new  MegaphoneCard());
 
 	deck.push_back(new  MegaphoneCard());
@@ -39,25 +38,6 @@ PlayerData::~PlayerData() {
 		card = nullptr;
 	}
 	deck.clear();
-=======
-	deck.push_back(new  RiotShieldCard());
-
-	deck.push_back(new  RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-	
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
->>>>>>> Stashed changes
 }
 
 void PlayerData::getDataFromJSON()
