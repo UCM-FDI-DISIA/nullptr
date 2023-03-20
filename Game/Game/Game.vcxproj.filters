@@ -178,9 +178,6 @@
     <ClCompile Include="src\components\Enemy components\OnDeath.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
-    <ClCompile Include="Mana.cpp">
-      <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp">
       <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
@@ -228,6 +225,9 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\Map.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Player Object\Mana.cpp">
+      <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

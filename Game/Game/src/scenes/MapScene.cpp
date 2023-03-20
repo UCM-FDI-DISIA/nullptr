@@ -308,7 +308,7 @@ void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vecto
 						else if (key == "FarNodeConection" || key == "ReverseFarNodeConection") w = 427;
 						else w = 640;
 
-						pos.setX(pos.getX() + NODE_WIDTH / 2);
+						pos.setX(pos.getX() + CONECTION_OFFSET);
 						conection->addComponent<Transform>(pos, VECTOR_ZERO, w, NODE_DISTANCE);
 						conection->addComponent<Image>(&sdlutils().images().at(key));
 					}

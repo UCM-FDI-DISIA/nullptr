@@ -243,7 +243,6 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Mana.cpp" />
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
@@ -298,6 +297,7 @@
     <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
+    <ClCompile Include="src\gameObjects\Player Object\Mana.cpp" />
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
