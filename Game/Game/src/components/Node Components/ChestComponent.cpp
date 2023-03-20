@@ -18,10 +18,10 @@ void ChestComponent::gacha() {
 	PlayerData::instance()->addRelic(item);
 	
 	//Assign item (añadir sprite a la escena y vivir feliz)
-	GameObject* sprite;
+	GameObject* sprite = gStt->addGameObject(_grp_GENERAL);
 	sprite->addComponent<Transform>(spawnPos);
 	sprite->addComponent<Image>(item->texture);
-	gStt->addGameObject(_grp_GENERAL, sprite);
+	
 	
 	//Borrar del vector
 	auto it = aux.begin();
