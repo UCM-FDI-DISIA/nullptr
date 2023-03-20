@@ -288,6 +288,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Riot_Shield.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />

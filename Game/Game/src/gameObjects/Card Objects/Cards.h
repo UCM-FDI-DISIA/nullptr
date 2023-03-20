@@ -22,7 +22,12 @@ public:
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
-
+class RiotShieldCard : public Card {
+public:
+	RiotShieldCard() : Card(3, 5, 10, 0.6, "Antorcha", SDLApplication::getTexture("Torch")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
 class LaserShadesCard : public Card {
 	public:
 		LaserShadesCard() : Card(20, 5, 80, 1, "Gafas Láser", SDLApplication::getTexture("LaserGlasses")) {};

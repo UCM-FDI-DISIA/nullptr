@@ -232,7 +232,11 @@
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp">
+=======
+    <ClCompile Include="src\gameObjects\Card Objects\Riot_Shield.cpp">
+>>>>>>> Stashed changes
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
