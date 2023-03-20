@@ -12,8 +12,6 @@ SDLApplication::SDLApplication() {
 	utils->hideCursor();
 	utils->focusMouseOnWindow();
 
-	Node::initializeNodeMap();
-
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
 	exit = false;
@@ -22,7 +20,6 @@ SDLApplication::SDLApplication() {
 // Destructora
 SDLApplication::~SDLApplication() {
 	delete(gameStateMachine);
-	Node::clearNodeMap();
 }
 
 // Ejecuta el juego
@@ -67,6 +64,10 @@ void SDLApplication::run() {
 		// std::cout << deltaTime << " " << SDL_GetTicks() << " " <<  debugCounter << " " << SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
 		
 		handleInput();
+
+		if (ih().closeWindowEvent()) {
+			exit = true;
+		}
 	}
 	gameStateMachine->clearStates();
 }
@@ -103,6 +104,14 @@ void SDLApplication::resumeGame() { SDLApplication::popGameState(); }
 
 // Elimina el estado en la cima de la pila
 void SDLApplication::popGameState() { SDLApplication::instance()->gameStateMachine->popState(); }
+
+//
+void SDLApplication::returnToMapScene() {
+	popGameState();
+	MapScene* ms = dynamic_cast<MapScene*>(SDLApplication::instance()->gameStateMachine->currentState());
+	assert(ms != nullptr);
+	ms->moveCamera();
+}
 
 // Cierra el juego
 void SDLApplication::quitGame() { SDLApplication::instance()->exit = true; }

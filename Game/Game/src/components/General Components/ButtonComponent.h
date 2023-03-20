@@ -39,7 +39,7 @@ public:
 	virtual void initComponent();
 
 	// Comprueba si las coordenadas introducidas están sobre el mouse
-	bool isOver(int mouseX, int mouseY);
+	virtual bool isOver(int mouseX, int mouseY);
 	// Ejecuta el callback
 	virtual void onClick();
 	// Actualiza la animación del botón según el estado

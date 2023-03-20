@@ -3,7 +3,7 @@
 #define NODEBUTTONCOMPONENT_H_
 
 #include "../General Components/ButtonComponent.h"
-#include "../../gameObjects/Node Objects/BattleNode.h"
+#include "../../gameObjects/Node Objects/Node.h"
 
 class NodeButtonComponent : public ButtonComponent {
 private:
@@ -28,6 +28,8 @@ public:
 
 	// Ejecuta el callback del botón si este está disponible
 	virtual void onClick();
+
+	virtual bool isOver(int mouseX, int mouseY);
 };
 
 #endif // !NODEBUTTONCOMPONENT_H_
