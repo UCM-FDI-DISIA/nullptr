@@ -73,3 +73,9 @@ public:
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
+class  RiotShieldCard : public Card {
+public:
+	RiotShieldCard() : Card(7, 5, 60, 0.5, "Rifle de luz", SDLApplication::getTexture("SMG")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};

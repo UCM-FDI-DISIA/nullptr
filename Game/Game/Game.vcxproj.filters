@@ -207,7 +207,7 @@
     </ClCompile>
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
-     </ClCompile>
+    </ClCompile>
     <ClCompile Include="src\components\General Components\StatusComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
@@ -233,6 +233,9 @@
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\RiotShield.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
