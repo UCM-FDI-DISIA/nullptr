@@ -11,10 +11,48 @@ ChestScene::ChestScene() : GameState() {
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
 
-	GameObject* Gacha = addGameObject(_grp_GENERAL);
-	Gacha->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
-	Gacha->addComponent<Image>(SDLApplication::getTexture("GachaChest"));
-	Gacha->addComponent<Button>([&](){gacha();}, SDLApplication::instance());
+	AnimatorInfo chestAI = AnimatorInfo("GachaChest",
+		SDLApplication::getTexture("GachaChest")->width(),
+		SDLApplication::getTexture("GachaChest")->height(),
+		46,
+		26,
+		1, 7);
+
+	GameObject* gachaChest = addGameObject(_grp_GENERAL);
+	gachaChest->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
+	auto anim2 = gachaChest->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI.fw, chestAI.fh, chestAI.rows, chestAI.cols);
+	
+	anim2->createAnim(ONOUT, 0, 0, ONCLICK_ONOUT_SPEED, -1);
+	anim2->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
+	anim2->createAnim(ONCLICK, 0, 6, ONCLICK_ONOUT_SPEED, 1);
+	
+	anim2->play(ONOUT);
+	
+	GameObject* gachaButton = addGameObject();
+	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI.w, chestAI.h);
+	
+	
+	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI.fw, chestAI.fh, chestAI.rows, chestAI.cols);
+	
+	anim->createAnim(ONOUT, 0, 0, ONCLICK_ONOUT_SPEED, -1);
+	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
+	anim->createAnim(ONCLICK, 0, 6, ONCLICK_ONOUT_SPEED, 1);
+
+	anim->play(ONOUT);
+	
+	gachaButton->addComponent<ButtonComponent>([&]() {gacha(); }, SDLApplication::instance(), gachaChest);
+	
+	/*
+	AnimatorInfo aI = AnimatorInfo(key);
+	// Crear marco
+	GameObject* frame = addGameObject();
+	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
+
+	// Crear boton
+	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
+	
+	*/
 	
 }
 
