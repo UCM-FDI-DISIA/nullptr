@@ -9,6 +9,7 @@ private:
 public:
 	ChestScene();
 	static void mainMenu();
+	void gacha();
 };
 
 #endif
