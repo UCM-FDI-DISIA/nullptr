@@ -56,8 +56,6 @@ void Animator::update() {
 				}
 			}
 
-			else currentFrame = currentAnimation->startFrame;
-
 			
 			currTime = 0;
 		}

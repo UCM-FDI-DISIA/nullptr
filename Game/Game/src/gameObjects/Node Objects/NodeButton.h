@@ -1,13 +1,12 @@
 #pragma once
-#ifndef NODEBUTTON_H_
-#define NODEBUTTON_H_
 
+#include "../../gameObjects/GameObject.h"
 #include "../../components/Node Components/NodeButtonComponent.h"
 
 class NodeButton : public GameObject {
 public:
 	// Añade los componentes al botón y crea sus animaciones
-	virtual void initGameObject(vector<Node*>::const_iterator nodeIt, CallBack _cb);
-};
+	virtual void initGameObject(Node* nodeIt, CallBack _cb, Vector2D pos);
 
-#endif // !NODEBUTTON_H_
+	
+};

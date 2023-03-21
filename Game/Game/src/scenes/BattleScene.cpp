@@ -3,7 +3,7 @@
 #include "../components/Enemy components/MeleeBehaviour.h"
 
 // Constructora
-BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {  
+BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	//Mana
 	PlayerData::instance()->resetMana();
 	//Suelo
@@ -60,7 +60,9 @@ BattleScene::BattleScene(battleType t_) : GameState(), type(t_) {
 };
 
 void BattleScene::OnPlayerDies() {
-	SDLApplication::newScene<GameOverScene>();
+	/*SDLApplication::newScene<GameOverScene>();*/
+	SDLApplication::popGameState();
+	SDLApplication::pushNewScene<GameOverScene>();
 }
 
 void BattleScene::OnPlayerDamage(float value) {

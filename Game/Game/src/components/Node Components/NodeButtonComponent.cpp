@@ -1,4 +1,5 @@
 #include "NodeButtonComponent.h"
+#include "../../scenes/GameState.h"
 
 // Constructora que recibe un iterador al tipo de  batalla, un callback y un puntero al estado del nodo
 NodeButtonComponent::NodeButtonComponent(CallBack _f, nodeState const& _nState) :
@@ -27,4 +28,14 @@ void NodeButtonComponent::onClick() {
 	if (!(state == OnLocked || state == OnCompleted)) {
 		ButtonComponent::onClick();
 	}
+}
+
+bool NodeButtonComponent::isOver(int mouseX, int mouseY) {
+	SDL_Rect r = gObj->getComponent<Animator>()->getRect();
+
+	return (mouseX >= r.x && mouseX < r.x+r.w) && (mouseY >= r.y && mouseY < r.y + r.h);
+
+	/*Transform* cTr = gStt->getCamera()->getComponent<Transform>();
+	return (mouseX >= (tr->getPos().getX() - cTr->getX()) && mouseX < (tr->getPos().getX() - cTr->getX()) + tr->getWidth()) &&
+		(mouseY >= (tr->getPos().getY() - cTr->getY()) && mouseY < (tr->getPos().getY() - cTr->getY()) + tr->getHeight());*/
 }

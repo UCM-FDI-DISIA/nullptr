@@ -1,18 +1,18 @@
 #pragma once
-#ifndef MAPSCENE_H_
-#define MAPSCENE_H_
 
 #include "GameState.h"
-
-class Node;
-class GameState;
-class SDLApplication;
+#include "../gameObjects/Node Objects/Map.h"
 
 class MapScene : public GameState {
-private:
-	vector<Node*> const& nodeMap;
 public:
 	MapScene();
-};
 
-#endif
+	// Crear un botón especificado en la escena
+	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
+
+	// Mover la camara a la altura de los siguientes al current
+	void moveCamera();
+
+	// Creamos el enlace entre nodos
+	void createConections(vector<vector<Node*>> const& nodes, vector<vector<Vector2D>> const& nodesPos, vector<int> const& nodesPerHeight, int alt);
+};
