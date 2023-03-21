@@ -69,13 +69,13 @@ public:
 };
 class  MegaphoneCard : public Card {
 public:
-	MegaphoneCard() : Card(7, 5, 60, 0.5, "Rifle de luz", SDLApplication::getTexture("SMG")) {};
+	MegaphoneCard() : Card(7, 5, 60, 0.5, "Megafono", SDLApplication::getTexture("SMG")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class  RiotShieldCard : public Card {
 public:
-	RiotShieldCard() : Card(7, 5, 60, 0.5, "Rifle de luz", SDLApplication::getTexture("SMG")) {};
+	RiotShieldCard() : Card(3, 5, 10, 0.6, "Escudo Antidisturbios", SDLApplication::getTexture("Sword")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };

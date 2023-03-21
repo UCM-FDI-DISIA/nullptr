@@ -57,4 +57,14 @@ public:
 	void initGameObject(int healing, float cooldown, HitboxData data, float lifetime, Vector2D anch = Vector2D(-1, -1));
 
 	void initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1));
+
+	// Constructor de hitbox que no causa daño ni inflige estados alterados, se le añade un lifetime component
+	void initGameObject(float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1)) {
+		initGameObject(data, anch);
+		addComponent<LifeTimeComponent>(lifetime);
+		addComponent<ColliderComponent>(data.trgt); 
+	}
+
+
+
 };

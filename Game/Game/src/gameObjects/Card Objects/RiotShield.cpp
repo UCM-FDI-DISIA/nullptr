@@ -3,7 +3,7 @@
 #include "../Card Objects/Hitbox.h"
 #include <iostream>
 
-// Crea un gObj Slash en la direcci�n que apunta el jugador
+// Crea un gObj Slash en la dirección que apunta el jugador
 void RiotShieldCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
@@ -14,11 +14,25 @@ void RiotShieldCard::attack(Vector2D playerPos, Vector2D mousePos, float attackM
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);;
 }
 
-// Crea un gObj cura en el centro del jugador
+// Crea un gObj proteger al jugador
+// Crea un gObj para proteger al jugador
 void RiotShieldCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 800, 800, "HealArea", _grp_PLAYER };
+	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
+	float rotation = Vector2D(1, 0).angle(dir);
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 5, 0.5, data, 6);
+	Hitbox::HitboxData data = { playerPos + dir * 50, dir * SHIELD_SPEED, rotation, 200, 100, "SwordSlash", _grp_ENM_ATTACK };
+
+	auto shield = where->addGameObject<Hitbox>(0.5, data);
+
+	auto shieldTransform = shield->getComponent<Transform>();
+	auto playerTransform = where->getPlayer()->getComponent<Transform>();
+
+	auto shieldCollider = shield->getComponent<ColliderComponent>();
+	shieldCollider->addFunction(std::bind(&RiotShieldCard::destroyBullet, this, std::placeholders::_1));
+
+
+	//shield->addComponent<FollowComponent>(playerTransform);
 
 	remainingUses = 0;
 }
+

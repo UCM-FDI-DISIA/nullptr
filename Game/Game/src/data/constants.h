@@ -108,6 +108,7 @@ const float POINTER_NORMAL_INCLINATION = -25.0f;
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
+const int SHIELD_SPEED = 20;
 const float ENEMY_SPEED = 50;
 
 // MELEE ENEMY
