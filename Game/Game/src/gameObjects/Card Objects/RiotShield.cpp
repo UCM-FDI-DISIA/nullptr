@@ -25,7 +25,7 @@ void RiotShieldCard::ability(Vector2D playerPos, Vector2D mousePos, float attack
 
     auto shield = where->addGameObject<CustomHitbox>();
     shield->initCustomHitbox(data);
-    shield->addComponent<LifeTimeComponent>(3.0f);
+    shield->addComponent<LifeTimeComponent>(remainingUses*1.0f);
 
 	auto shieldTransform = shield->getComponent<Transform>();
 	auto playerTransform = where->getPlayer()->getComponent<Transform>();
