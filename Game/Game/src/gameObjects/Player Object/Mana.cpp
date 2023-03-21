@@ -1,6 +1,6 @@
-﻿#include "../Game/src/gameObjects/Player Object/Mana.h"
-#include "../Game/src/core/SDLApplication.h"
-#include "../Game/src/components/ecs.h"
+﻿#include "Mana.h"
+#include "../../core/SDLApplication.h"
+#include "../../components/ecs.h"
 
 void Mana::initGameObject(Vector2D pos){
 	addComponent<Transform>(pos + (Vector2D(1, 0).rotate(rand() % 360) * MANA_OFFSET), VECTOR_ZERO, MANA_H, MANA_W, 0);

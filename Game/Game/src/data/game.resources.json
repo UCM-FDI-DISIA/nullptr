@@ -52,15 +52,25 @@
 
       { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
       { "id" : "RangedEnemy", "file" : "../Game/resources/images/Enemies/RangedEnemy_32x32.png" },
-      { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
 
-      { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
-      { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
-      { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
-      { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
-      { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
+      { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/PastNode_32x32.png" },
+      { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/PresentNode_32x32.png" },
+      { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
+      { "id" : "BattleNode4", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
+      { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/ShopNode_32x32.png" },
+      { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
+
+      { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
+      { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
+      { "id" : "FarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_427x50.png" },
+      { "id" : "LongNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_640x50.png" },
+      { "id" : "ReverseMidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_213x50.png" },
+      { "id" : "ReverseFarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_427x50.png" },
+      { "id" : "ReverseLongNodeConection", "file" : "../Game/resources/images/UI/MapScene/Reverse_Node_Conection_640x50.png" },
+      
+      { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
       { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
 
 

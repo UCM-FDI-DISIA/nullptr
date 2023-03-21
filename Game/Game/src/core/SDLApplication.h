@@ -78,6 +78,8 @@ public:
 	static void resumeGame();
 	// Elimina el estado en la cima de la pila
 	static void popGameState();
+	// Borra los estados de la gsm hasta volver a MapScene y mueve la camara
+	static void returnToMapScene();
 	// Cierra el juego
 	static void quitGame();
 

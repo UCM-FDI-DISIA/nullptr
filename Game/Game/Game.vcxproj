@@ -209,19 +209,15 @@
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\EventNode.h" />
+    <ClInclude Include="src\gameObjects\Node Objects\Map.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Node.h" />
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h" />
     <ClInclude Include="src\gameObjects\Player Object\Mana.h" />
     <ClInclude Include="src\gameObjects\Player Object\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
-    <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
@@ -230,6 +226,7 @@
     <ClInclude Include="src\scenes\InventoryScene.h" />
     <ClInclude Include="src\scenes\MainMenuScene.h" />
     <ClInclude Include="src\scenes\MapScene.h" />
+    <ClInclude Include="src\scenes\NodeScene.h" />
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
@@ -247,7 +244,6 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Mana.cpp" />
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
@@ -301,12 +297,10 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp" />
+    <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp" />
+    <ClCompile Include="src\gameObjects\Player Object\Mana.cpp" />
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
@@ -320,6 +314,7 @@
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
     <ClCompile Include="src\scenes\MainMenuScene.cpp" />
     <ClCompile Include="src\scenes\MapScene.cpp" />
+    <ClCompile Include="src\scenes\NodeScene.cpp" />
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
@@ -336,6 +331,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\data\game.map.json" />
     <None Include="src\data\game.resources.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

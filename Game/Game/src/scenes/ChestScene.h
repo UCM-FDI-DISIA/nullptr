@@ -2,9 +2,9 @@
 #ifndef CHESTSCENE_H_
 #define CHETSSCENE_H_
 
-#include "GameState.h"
+#include "NodeScene.h"
 
-class ChestScene : public GameState {
+class ChestScene : public NodeScene {
 private:
 public:
 	ChestScene();
