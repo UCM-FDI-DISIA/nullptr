@@ -3,8 +3,7 @@
 #include "../../data/constants.h"
 #include "../../components/Enemy components/TankBehaviour.h"
 #include "../../components/General Components/Transform.h"
-#include "../../components/General Components/Image.h"
-#include "../../components/General Components/Animator.h"
+#include "../../components/Enemy components/EnemyAnimator.h"
 #include "../../core/SDLApplication.h"
 
 class TankEnemy : public GameObject {

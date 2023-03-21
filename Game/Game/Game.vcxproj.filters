@@ -169,9 +169,6 @@
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp">
-      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -187,6 +184,9 @@
     <ClCompile Include="src\components\General Components\PointerComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Enemy components\EnemyAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp">
       <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
     </ClCompile>
@@ -198,9 +198,6 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
-      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\data\PlayerData.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
@@ -429,9 +426,6 @@
     <ClInclude Include="src\components\General Components\CharacterAnimator.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Enemy components\OnDeath.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
@@ -459,7 +453,7 @@
     <ClInclude Include="src\components\General Components\StatusComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
+    <ClInclude Include="src\components\Enemy components\EnemyAnimator.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h">
