@@ -64,7 +64,8 @@ public:
 		addComponent<LifeTimeComponent>(lifetime);
 		addComponent<ColliderComponent>(data.trgt); 
 	}
-
+	// Agrega este método predeterminado a la clase Hitbox
+	void initGameObject() {}
 
 
 };

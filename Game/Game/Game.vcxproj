@@ -199,6 +199,7 @@
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
@@ -282,6 +283,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp" />

@@ -1,4 +1,4 @@
-#include "RangeBehaviour.h"
+	#include "RangeBehaviour.h"
 
 // Esta clase maneja el comportamiento de los enemigos a distancia
 // Como su movimento y su habilidad para atacar

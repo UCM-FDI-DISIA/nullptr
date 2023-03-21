@@ -78,4 +78,5 @@ public:
 	RiotShieldCard() : Card(3, 5, 10, 0.6, "Escudo Antidisturbios", SDLApplication::getTexture("Sword")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	void checkCollisionWithBullets(GameObject* shield, BattleScene* where);
 };
