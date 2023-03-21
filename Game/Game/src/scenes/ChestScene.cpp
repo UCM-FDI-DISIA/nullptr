@@ -40,7 +40,7 @@ ChestScene::ChestScene() : GameState() {
 
 	anim->play(ONOUT);
 	
-	gachaButton->addComponent<ButtonComponent>([&]() {gacha(); }, SDLApplication::instance(), gachaChest);
+	gachaButton->addComponent<ButtonComponent>([&]() {gacha(gachaChest); }, SDLApplication::instance(), gachaChest);
 	
 	/*
 	AnimatorInfo aI = AnimatorInfo(key);
@@ -60,32 +60,37 @@ void ChestScene::mainMenu() {
 	SDLApplication::newScene<MapScene>();
 }
 
-void ChestScene::gacha() {
+void ChestScene::gacha(GameObject* obj) {
 	//Sacamos el vector de reliquias disponibles
 	std::vector<std::string> aux = PlayerData::instance()->getAvailableItems();
 
-	//Sacamos un random entre 0 y su maximo
-	int Rand = rand() % aux.size();
+	if (aux.size() > 0) {
+		cout << "Entraste" << "\n";
+		//Sacamos un random entre 0 y su maximo
+		int Rand = rand() % aux.size();
 
-	//Sacamos la reliquia con la key que nos dan
-	Relic* item = SDLApplication::instance()->getRelic(aux[Rand]);
+		//Sacamos la reliquia con la key que nos dan
+		Relic* item = SDLApplication::instance()->getRelic(aux[Rand]);
 
-	//Asignarsela al jugador
-	PlayerData::instance()->addRelic(item);
+		//Asignarsela al jugador
+		PlayerData::instance()->addRelic(item);
 
-	//Assign item (añadir sprite a la escena y vivir feliz)
-	GameObject* sprite = addGameObject(_grp_GENERAL);
-	sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
-	sprite->addComponent<Image>(item->texture);
+		//Assign item (añadir sprite a la escena y vivir feliz)
+		GameObject* sprite = addGameObject(_grp_GENERAL);
+		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
+		sprite->addComponent<Image>(item->texture);
 
-	cout << item->description << "\n";
+		cout << item->description << "\n";
 
 
-	//Borrar del vector
-	auto it = aux.begin();
-	std::advance(it, Rand);
-	aux.erase(it);
+		//Borrar del vector
+		auto it = aux.begin();
+		std::advance(it, Rand);
+		aux.erase(it);
 
-	//Setear la nueva lista de items a player data
-	PlayerData::instance()->setAvailableItems(aux);
+		//Setear la nueva lista de items a player data
+		PlayerData::instance()->setAvailableItems(aux);
+		obj->removeComponent<ButtonComponent>();
+	}
+	
 }

@@ -37,6 +37,10 @@ PlayerData::PlayerData() {
 
 	deck.push_back(new  LightRifleCard());
 
+	//Pa probar
+	avlbRelics.push_back("Hoverboard");
+	
+
 }
 
 void PlayerData::getDataFromJSON()
