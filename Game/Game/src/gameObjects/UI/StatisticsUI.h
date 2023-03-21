@@ -25,6 +25,7 @@ private:
 
 	float fullMana;
 	float fullLife;
+	float actualEther;
 
 public:
 	// Inicializar objeto
