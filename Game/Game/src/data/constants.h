@@ -158,7 +158,6 @@ const float TANK_ATTACK_TIME = 2000;
 const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
 const Animation TANK_ENEMY_MOVEMENT_ANIMATION(21, 25, 10, -1);
 const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 20, 10, 1);
-const float TANK_ATTACK_TIME = 3000;
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";
