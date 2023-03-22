@@ -2,7 +2,9 @@
 #include "../core/SDLApplication.h"
 
 InventoryScene::InventoryScene() : GameState() {
-
+	// Llamamos a Player data para pillar la info de las cartas que se tienen
+	auto info = PlayerData::instance()->getInventoryInfo();
+	
 }
 
 // Crear un bot�n especificado en la escena

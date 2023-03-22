@@ -17,13 +17,17 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
+	// Añadimos al vector de informacion las cartas que tiene el jugador de este tipo y las que están de ellas en el mazo
+	inventory.push_back(InventoryInfo(3, 3, new SwordCard()));
+
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
+	inventory.push_back(InventoryInfo(3, 3, new GunCard()));
+
 	deck.push_back(new LaserShadesCard());
 	deck.push_back(new LaserShadesCard());
-
-
+	inventory.push_back(InventoryInfo(2, 2, new LaserShadesCard()));
 }
 
 PlayerData::~PlayerData() {

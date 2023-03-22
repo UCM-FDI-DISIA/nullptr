@@ -2,12 +2,15 @@
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
 #include <vector>
-#include <map>
 
 struct InventoryInfo {
+	
 	int cuantity = 0;
 	int cuantityDeck = 0;
 	Card* card;
+
+	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { }
+	InventoryInfo(int c, int cd, Card* ca) : cuantity(c), cuantityDeck(cd), card(ca) { }
 };
 
 class Card;
@@ -33,7 +36,7 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
-	std::map<string, InventoryInfo> inventory;
+	std::vector<InventoryInfo> inventory;
 	
 	int maxMana;
 	int maxHP;
@@ -56,7 +59,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getAttackMult() { return attackMult; }
 		inline float getFireRateMult() { return fireRateMult; }
 		inline int getLevel() { return level; }
-
+		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
 
 		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
 		inline void setCurrMana(int currMana) { this->currMana = currMana; }
