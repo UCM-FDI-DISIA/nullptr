@@ -28,6 +28,7 @@ public:
 	void onHealthChanges(float value, float maxValue, vector<GameObject*>& myNumbers);
 	void onEtherChanges(float value, vector<GameObject*>& myNumbers);
 	void changeNumbers(vector<GameObject*>& vect, int value);
+	void changeEtherNumbers(GameObject* num, int value);
 
 	// Cálculos
 	tuple<cents, decs, unids> getUnits(int value);

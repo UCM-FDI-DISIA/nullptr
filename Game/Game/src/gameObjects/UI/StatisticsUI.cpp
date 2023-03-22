@@ -51,6 +51,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		objs.push_back(number);
 	}
 
+	// Crear los números de éter
 	for (int i = 0; i < N_ETHER_COUNTER; i++) {
 		// Crear el objeto
 		GameObject* number = new GameObject();
@@ -63,6 +64,8 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		etherCounter.push_back(number);
 		objs.push_back(number);
 	}
+	// Componente de salida
+	etherMeter->addComponent<ChargedPortalComponent>(etherCounter);
 }
 
 StatisticsUI::~StatisticsUI() {
@@ -139,12 +142,14 @@ void StatisticsUI::createEtherMeter() {
 
 // Llama al update de los distintos GameObjects
 void StatisticsUI::update() {
-	for (GameObject* g : objs) g->update();
+	for (GameObject* g : objs) 
+		if (g->isAlive()) g->update();
 }
 
 // Renderizar los distintos GameObjects
 void StatisticsUI::render() const {
-	for (GameObject* g : objs) g->render();
+	for (GameObject* g : objs) 
+		if (g->isAlive()) g->render();
 }
 
 // Al cambiar la vida, actualizar componentes
@@ -159,8 +164,15 @@ void StatisticsUI::onManaChanges(float value) {
 
 // Al cambiar el éter, actualizar componentes
 void StatisticsUI::onEtherChanges(float value) {
+	// Sumar éter y trampear si excede el límite
 	actualEther += value;
+	if (actualEther >= ETHER_LIMIT) actualEther = ETHER_LIMIT;
+
+	// Transmitir información a la barra
 	etherMeter->getComponent<BarComponent>()->onEtherChanges(actualEther, etherCounter);
+
+	// Activar la posibilidad de salir si se ha completado al 100% la barra
+	if (actualEther >= 100) etherMeter->getComponent<ChargedPortalComponent>()->activateExit();
 }
 
 // Crear los números de la interfaz

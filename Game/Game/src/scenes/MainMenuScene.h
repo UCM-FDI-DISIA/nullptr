@@ -1,7 +1,4 @@
 #pragma once
-#ifndef MAINMENUSCENE_H_
-#define MAINMENUSCENE_H_
-
 #include "GameState.h"
 #include "../components/General Components/Transform.h"
 #include "../components/General Components/Image.h"
@@ -16,5 +13,3 @@ public:
 	// Crear un botón especificado en la escena
 	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };
-
-#endif

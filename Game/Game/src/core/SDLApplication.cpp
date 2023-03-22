@@ -115,5 +115,3 @@ void SDLApplication::returnToMapScene() {
 
 // Cierra el juego
 void SDLApplication::quitGame() { SDLApplication::instance()->exit = true; }
-
-
