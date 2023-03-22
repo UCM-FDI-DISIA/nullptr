@@ -80,3 +80,9 @@ public:
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	void checkCollisionWithBullets(GameObject* shield, BattleScene* where);
 };
+class  CheatGunCard : public Card {
+public:
+	CheatGunCard() : Card(6, 6, 25, 0.5, "Cheat Gun", SDLApplication::getTexture("Pistol")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};

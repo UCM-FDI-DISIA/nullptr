@@ -13,23 +13,12 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  RiotShieldCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
 
-	deck.push_back(new  RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-	
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
 }
 
 PlayerData::~PlayerData() {
