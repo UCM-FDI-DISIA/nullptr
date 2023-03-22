@@ -229,6 +229,12 @@
     <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\RiotShield.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -488,6 +494,9 @@
     </ClInclude>
     <ClInclude Include="src\components\General Components\ChargedPortalComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
