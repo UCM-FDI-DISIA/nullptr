@@ -1,12 +1,15 @@
 #pragma once
-#ifndef INVENTORYSCENE_H_
-#define INVENTORYSCENE_H_
-
 #include "GameState.h"
+#include <vector>
+
 class InventoryScene : public GameState {
 private:
+	
 public:
 	InventoryScene();
+
+	// Crear un botón especificado en la escena
+	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };
 
-#endif
+// ola

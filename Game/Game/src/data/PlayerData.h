@@ -2,6 +2,13 @@
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
 #include <vector>
+#include <map>
+
+struct InventoryInfo {
+	int cuantity = 0;
+	int cuantityDeck = 0;
+	Card* card;
+};
 
 class Card;
 class PlayerData : public Singleton<PlayerData>
@@ -26,7 +33,8 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
-
+	std::map<string, InventoryInfo> inventory;
+	
 	int maxMana;
 	int maxHP;
 	int currHP;
