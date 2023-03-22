@@ -24,6 +24,7 @@ enum cmpId : cmpId_type {
 	_ENEMY_GEN,
 	_ETER,
 	_ON_DEATH,
+	_CHARGED_PORTAL,
 	// ... (compoment ids)
 
 	// do not remove this

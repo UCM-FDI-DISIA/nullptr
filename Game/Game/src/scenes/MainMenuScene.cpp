@@ -31,8 +31,6 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// Botón salir
 	createButton(MM_EXIT_BUTTON_POS, MM_EXIT_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
-
-
 }
 
 // Crear un bot�n especificado en la escena

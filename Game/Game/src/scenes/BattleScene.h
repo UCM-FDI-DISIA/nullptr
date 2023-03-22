@@ -53,7 +53,6 @@ public:
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
-
 	// Barras de vida y mana
 	void onManaChanges(float value);
 	void onHealthChanges(float value);
