@@ -18,8 +18,8 @@ void ChargedPortalComponent::update() {
 				deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();
 				brComp->changeEtherNumbers(countDownNumber, 5 - (int)deltaTime);
 
-				// Salir al menú principal si han pasad 5 secs
-				if (deltaTime > 5.6) SDLApplication::returnToMapScene();
+				// Salir al menú principal si han pasad 5.6 secs (5 de mostrar del 5 al 1 y 0.6 del 0)
+				if (deltaTime > COUNTDOWN_TIME) SDLApplication::returnToMapScene();
 			}
 		}
 	}

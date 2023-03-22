@@ -293,6 +293,7 @@ const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
 const Vector2D UI_COUNTDOWN_ETHER_POS = Vector2D(WIN_WIDTH / 2 - (ST_NUMBERS_WIDTH * 1.8 + 6) / 2, 9);
+const float COUNTDOWN_TIME = 5.6f;
 
 //MANA -------------------------------------------------------------------------------------------
 const int MANA_H = 10;
