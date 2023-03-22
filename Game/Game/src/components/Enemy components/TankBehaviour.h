@@ -5,7 +5,7 @@
 class TankBehaviour : public EnemyBehaviour{
 private: 
 	Transform* transform;
-	bool attacking, chargingAttack, attacked;
+	bool startAttack, chargingAttack, attacked;
 	float stop, attackingTime;
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
