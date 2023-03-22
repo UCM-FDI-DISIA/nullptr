@@ -226,6 +226,9 @@
     <ClCompile Include="src\gameObjects\Player Object\Mana.cpp">
       <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -482,6 +485,9 @@
     </ClInclude>
     <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\ChargedPortalComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -173,6 +173,7 @@
     <ClInclude Include="src\components\General Components\Animator.h" />
     <ClInclude Include="src\components\General Components\ButtonComponent.h" />
     <ClInclude Include="src\components\General Components\CameraComponent.h" />
+    <ClInclude Include="src\components\General Components\ChargedPortalComponent.h" />
     <ClInclude Include="src\components\General Components\CharacterAnimator.h" />
     <ClInclude Include="src\components\General Components\ColliderComponent.h" />
     <ClInclude Include="src\components\General Components\HealthComponent.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp" />
     <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp" />
     <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
