@@ -276,6 +276,7 @@
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
     <ClCompile Include="src\data\Album.cpp" />
+    <ClCompile Include="src\data\CardsDataContainer.cpp" />
     <ClCompile Include="src\data\json\JSON.cpp" />
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\data\PlayerData.cpp" />

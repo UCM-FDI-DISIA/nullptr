@@ -1,4 +1,4 @@
-
+#pragma once
 
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar

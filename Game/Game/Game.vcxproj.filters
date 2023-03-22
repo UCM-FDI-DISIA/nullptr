@@ -235,6 +235,12 @@
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp">
       <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\data\CardsDataContainer.cpp">
+      <Filter>Archivos de Dependecias\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\Album.cpp">
+      <Filter>Archivos de Dependecias\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -498,6 +504,15 @@
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h">
       <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
+    <ClInclude Include="src\data\CardsDataContainer.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\CardData.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\Album.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
@@ -630,6 +645,9 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
     <None Include="src\data\game.map.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
+    <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>
