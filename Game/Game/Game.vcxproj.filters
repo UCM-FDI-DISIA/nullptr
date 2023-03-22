@@ -118,22 +118,10 @@
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp">
       <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp">
-      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp">
@@ -178,17 +166,11 @@
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp">
-      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Enemy components\OnDeath.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Mana.cpp">
-      <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp">
       <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
@@ -199,14 +181,20 @@
     <ClCompile Include="src\components\General Components\PointerComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Enemy components\EnemyAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\components\General Components\StatusComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp">
-      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\data\PlayerData.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
@@ -225,6 +213,33 @@
     </ClCompile>
     <ClCompile Include="src\gameObjects\UI\ClickableChest.cpp">
       <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\TextComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\NodeScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Node Objects\Map.cpp">
+      <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Player Object\Mana.cpp">
+      <Filter>Archivos de Dependecias\Objects\Player Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\RiotShield.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -318,7 +333,6 @@
     <ClInclude Include="src\data\json\JSONValue.h">
       <Filter>Archivos de Encabezado\Data\json</Filter>
     </ClInclude>
-    <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
@@ -385,22 +399,10 @@
     <ClInclude Include="src\gameObjects\GameObject.h">
       <Filter>Archivos de Encabezado\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\EventNode.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\Node.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h">
-      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\HandUI.h">
@@ -436,9 +438,6 @@
     <ClInclude Include="src\components\General Components\CharacterAnimator.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h">
-      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Enemy components\OnDeath.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
@@ -466,7 +465,13 @@
     <ClInclude Include="src\components\General Components\StatusComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h">
+    <ClInclude Include="src\components\Enemy components\EnemyAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\EterBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Node Components\ChestComponent.h">
@@ -484,6 +489,27 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\ClickableChest.h">
       <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\TextComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\NodeScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Node Objects\Map.h">
+      <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\ChargedPortalComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -620,6 +646,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="src\data\game.resources.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
+    <None Include="src\data\game.map.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>

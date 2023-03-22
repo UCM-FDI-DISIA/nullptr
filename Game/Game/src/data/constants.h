@@ -109,6 +109,7 @@ const float POINTER_NORMAL_INCLINATION = -25.0f;
 const int ENEMY_WIDTH = 30 * 2;
 const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
+const int SHIELD_SPEED = 20;
 const float ENEMY_SPEED = 50;
 
 // MELEE ENEMY
@@ -143,19 +144,41 @@ const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 const int RANGED_ATTACK_ANIM_DELAY = 670;
 
 // TANK ENEMY
+const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
+const int TANK_ENEMY_SPRITE_WIDTH = 40;
+const int TANK_ENEMY_SPRITE_HEIGHT = 40;
+const int TANK_ENEMY_SPRITE_ROWS = 6;
+const int TANK_ENEMY_SPRITE_COLS = 5;
+
+const int TANK_WIDTH = 120;
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 1;
 const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
-const float TANK_ATTACK_TIME = 3000;
+const float TANK_ATTACK_TIME = 2000;
+const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
+const Animation TANK_ENEMY_MOVEMENT_ANIMATION(21, 25, 10, -1);
+const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 20, 10, 1);
+// NAMES SPRITES ---------------------------------------------------------------------------------------
+const string HEAL_AREA = "HealArea";
+const string SWORD_SLASH = "SwordSlash";
+const string SWORD_SPIN = "SwordSpin";
+const string SPEAR_THRUST = "SpearThrust";
+const string SOWND_ATTACK = "Sound";
+const string BULLET= "Bullet";
+const string FLASH_BANG = "FlashBang";
+const string LASER = "Laser";
+// SIZE SPRITES ---------------------------------------------------------------------------------------
+
+
 
 // BULLETS ---------------------------------------------------------------------------------------
-
 const float BULLET_SPEED = 200;
 const float LIGHT_BULLET_SPEED = 800;
 const float ARROW_SPEED = 150;
 const float THROWN_SPEAR_SPEED = 600;
+const float TORCH_SIZE_HEAL = 400;
 
 // STATUS ---------------------------------------------------------------------------------------
 
@@ -204,6 +227,17 @@ const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
 const int CHEST_BUTTON_WIDTH = 100;
 const int CHEST_BUTTON_HEIGHT = 50;
 
+// MAPSCENE: BUTTON POSITIONS AND DIMENSIONS
+const int MS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
+const int MS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 3;
+const int MS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
+const int MS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
+const Vector2D MS_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 8 - (MS_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 6);
+const Vector2D MS_INVENTORY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (MS_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 6);
+const Vector2D MS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH * 7 / 8 - (MS_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 6);
+const Vector2D MS_OPTIONSFRAME_BUTTON_POS = MS_OPTIONS_BUTTON_POS - FRAME_OFFSET;
+const Vector2D MS_INVENTORYFRAME_BUTTON_POS = MS_INVENTORY_BUTTON_POS - FRAME_OFFSET;
+const Vector2D MS_EXITFRAME_BUTTON_POS = MS_EXIT_BUTTON_POS - FRAME_OFFSET;
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
@@ -264,6 +298,7 @@ const int ETHER_COLUMNS = 2;
 const int ETHER_START = 0;
 const int ETHER_END = 7;
 const int ETHER_FRAMERATE = 8;
+const int ETHER_LIMIT = 999;
 // COUNTERS
 const int N_LIFE_COUNTER = 7;
 const int N_MANA_COUNTER = 7;
@@ -273,6 +308,8 @@ const int ST_NUMBERS_WIDTH = 9;
 const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
+const Vector2D UI_COUNTDOWN_ETHER_POS = Vector2D(WIN_WIDTH / 2 - (ST_NUMBERS_WIDTH * 1.8 + 6) / 2, 9);
+const float COUNTDOWN_TIME = 5.6f;
 
 //MANA -------------------------------------------------------------------------------------------
 const int MANA_H = 10;
@@ -281,7 +318,10 @@ const int MANA_OFFSET = 10;
 const int MANA_VALUE = 5;
 const string MANA_NAME = "Mana";
 const int MANA_COLUMS = 2;
-
+// ETHER ------------------------------------------------------------------------------------------
+const int ETHER_H = 20;
+const int ETHER_W = 20;
+const int ETHER_VALUE = 5;
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;
 // CARD REVERSE DIMENSIONS
@@ -346,31 +386,43 @@ const int LOGO_END_FRAME = 3;
 const int LOGO_FRAME_RATE = 4;
 
 // NODOS -----------------------------------------------------------------------------------------
-const float NODE_LEVEL_X[3] = { WIN_WIDTH / 7, WIN_WIDTH / 7 * 3, WIN_WIDTH / 7 * 5 };
-const float NODE_LEVEL_Y[3] = { WIN_HEIGHT / 7 * 5, WIN_HEIGHT / 7 * 3, WIN_HEIGHT / 7 };
-const int NODE_WIDTH = 50;
-const int NODE_HEIGHT = 50;
+const string NODE_MAP_JSON_ROOT = "../Game/src/data/game.map.json";
+
+const int HEIGHT = 17;
 
 const string BATTLE_NODE_TEXTURE_KEY = "BattleNode";
 const string SHOP_NODE_TEXTURE_KEY = "ShopNode";
 const string CHEST_NODE_TEXTURE_KEY = "ChestNode";
 const string EVENT_NODE_TEXTURE_KEY = "EventNode";
 
-const int NODE_FRAME_WIDTH = 1;
-const int NODE_FRAME_HEIGHT = 1;
-const int NODE_FRAME_ROWS = 1;
-const int NODE_FRAME_COLUMNS = 5;
+const int NODE_FRAME_WIDTH = 32;
+const int NODE_FRAME_HEIGHT = 32;
+const int NODE_FRAME_ROWS = 6;
+const int NODE_FRAME_COLUMNS = 3;
+
+const int NODE_WIDTH = NODE_FRAME_WIDTH * PIXEL_WIDTH;
+const int NODE_HEIGHT = NODE_FRAME_HEIGHT * PIXEL_HEIGHT;
+const int NODE_DISTANCE = 50;
+const int CONECTION_OFFSET = NODE_WIDTH / 2 - 3;
+
+const int NODE_POSITIONS_X[5] = {
+	WIN_WIDTH / 6 - NODE_WIDTH / 2,
+	WIN_WIDTH / 6 * 2 - NODE_WIDTH / 2,
+	WIN_WIDTH / 6 * 3 - NODE_WIDTH / 2,
+	WIN_WIDTH / 6 * 4 - NODE_WIDTH / 2,
+	WIN_WIDTH / 6 * 5 - NODE_WIDTH / 2 };
+const int NODE_POSITION_Y = NODE_DISTANCE + NODE_HEIGHT;
 
 const int NODE_BUTTON_ONOUT_START_FRAME = 0;
 const int NODE_BUTTON_ONOUT_END_FRAME = 0;
-const int NODE_BUTTON_ONOVER_START_FRAME = 1;
-const int NODE_BUTTON_ONOVER_END_FRAME = 1;
-const int NODE_BUTTON_ONCLICK_START_FRAME = 2;
-const int NODE_BUTTON_ONCLICK_END_FRAME = 2;
-const int NODE_BUTTON_ONLOCKED_START_FRAME = 3;
-const int NODE_BUTTON_ONLOCKED_END_FRAME = 3;
-const int NODE_BUTTON_ONCOMPLETED_START_FRAME = 4;
-const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 4;
+const int NODE_BUTTON_ONOVER_START_FRAME = 2;
+const int NODE_BUTTON_ONOVER_END_FRAME = 14;
+const int NODE_BUTTON_ONCLICK_START_FRAME = 1;
+const int NODE_BUTTON_ONCLICK_END_FRAME = 1;
+const int NODE_BUTTON_ONLOCKED_START_FRAME = 15;
+const int NODE_BUTTON_ONLOCKED_END_FRAME = 15;
+const int NODE_BUTTON_ONCOMPLETED_START_FRAME = 16;
+const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 17;
 
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;

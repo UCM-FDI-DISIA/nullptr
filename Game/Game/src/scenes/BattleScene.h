@@ -1,19 +1,19 @@
 #pragma once
-#include "GameState.h"
+
+#include "NodeScene.h"
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../gameObjects/Enemy Objects/RangedEnemy.h"
 #include "../gameObjects/Enemy Objects/TankEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
-#include "../gameObjects/Node Objects/BattleNode.h"
 #include "../gameObjects/UI/HandUI.h"
 #include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 
 class StatisticsUI;
 class HandUI;
-class BattleScene : public GameState {
+class BattleScene : public NodeScene {
 private:
 	Player* player;
 	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
@@ -22,7 +22,7 @@ private:
 	// Generador de enemigos
 	vector<GameObject*> enemies;
 	GameObject* enemyGenerator;
-	battleType type;
+	BattleType type;
 	GameObject* deck;
 	GameObject* pile;
 
@@ -37,7 +37,7 @@ private:
 
 public:
 	// Constructora
-	BattleScene(battleType t_);
+	BattleScene(BattleType t_);
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };
@@ -53,7 +53,6 @@ public:
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
-
 	// Barras de vida y mana
 	void onManaChanges(float value);
 	void onHealthChanges(float value);

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../checkML.h"
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	// ... (compoment ids)
@@ -23,7 +23,9 @@ enum cmpId : cmpId_type {
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
 	_CHEST_COMPONENT,
+	_ETER,
 	_ON_DEATH,
+	_CHARGED_PORTAL,
 	// ... (compoment ids)
 
 	// do not remove this

@@ -1,7 +1,7 @@
 #include "ChestScene.h"
 #include "../core/SDLApplication.h"
 
-ChestScene::ChestScene() : GameState() {
+ChestScene::ChestScene() : NodeScene() {
 	cout << "Has entrado en la escena de Cofre" << endl;
 
 	GameObject* background = addGameObject(_grp_GENERAL);

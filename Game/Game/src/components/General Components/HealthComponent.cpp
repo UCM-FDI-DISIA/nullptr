@@ -46,8 +46,10 @@ void HealthComponent::update()
 // Cura al objeto el valor puesto
 void HealthComponent::heal(int heal)
 {
-	if (lifePoints + heal <= modifiedMaxLife) lifePoints += heal;
+	if (lifePoints + heal <= modifiedMaxLife) 
+		lifePoints += heal;
 	else lifePoints = modifiedMaxLife;
+	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
 }
 
 // Al llegar la vida a 0, el objetose dispone a morir

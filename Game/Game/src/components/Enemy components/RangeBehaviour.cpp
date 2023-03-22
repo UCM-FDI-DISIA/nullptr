@@ -1,18 +1,17 @@
-#include "RangeBehaviour.h"
+	#include "RangeBehaviour.h"
 
 // Esta clase maneja el comportamiento de los enemigos a distancia
 // Como su movimento y su habilidad para atacar
 RangeBehaviour::RangeBehaviour(float spd, float safDist, float stptime, float mvTime, 
 	int dmg, int atck, Player* plyr) :
 	EnemyBehaviour(spd, dmg, stptime, atck, plyr), 
-	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)), 
-	attacking(false), attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
+	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)),
+	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
 
 
 void RangeBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
-	pos->setVel(Vector2D(ENEMY_SPEED, ENEMY_SPEED)); // El 0.0005 es temporal hasta que hagamos la velocidad bien
-	                                       // Es un valor adecuado para que el movimiento funcione
+	pos->setVel(Vector2D(ENEMY_SPEED, ENEMY_SPEED));
 	initialDirection = pos->getVel();
 	setDirectionTo();
 }

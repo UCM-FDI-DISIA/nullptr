@@ -73,10 +73,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)libs\SDL2-2.26.2\include;$(SolutionDir)libs\SDL2_image-2.6.2\include;$(SolutionDir)libs\SDL2_mixer-2.6.2\include;$(SolutionDir)libs\SDL2_ttf-2.20.1\include;$(SolutionDir)libs\box2d-2.4.1\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(LibraryPath)</LibraryPath>
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)libs\SDL2-2.26.2\include;$(SolutionDir)libs\SDL2_image-2.6.2\include;$(SolutionDir)libs\SDL2_mixer-2.6.2\include;$(SolutionDir)libs\SDL2_ttf-2.20.1\include;$(SolutionDir)libs\box2d-2.4.1\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(LibraryPath)</LibraryPath>
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\libs\SDL2-2.26.2\include</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,7 +132,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,27 +151,29 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h" />
+    <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\Enemy components\EnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h" />
+    <ClInclude Include="src\components\Enemy components\EterBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\MeleeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\OnDeath.h" />
-    <ClInclude Include="src\components\Enemy components\MeleeEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
-    <ClInclude Include="src\components\Enemy components\RangedEnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
     <ClInclude Include="src\components\General Components\ButtonComponent.h" />
     <ClInclude Include="src\components\General Components\CameraComponent.h" />
+    <ClInclude Include="src\components\General Components\ChargedPortalComponent.h" />
     <ClInclude Include="src\components\General Components\CharacterAnimator.h" />
     <ClInclude Include="src\components\General Components\ColliderComponent.h" />
     <ClInclude Include="src\components\General Components\HealthComponent.h" />
@@ -171,6 +181,7 @@
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
+    <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\ChestComponent.h" />
@@ -189,20 +200,19 @@
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
+    <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h" />
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\BattleNode.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\ChestNode.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\EventNode.h" />
+    <ClInclude Include="src\gameObjects\Node Objects\Map.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Node.h" />
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
-    <ClInclude Include="src\gameObjects\Node Objects\ShopNode.h" />
     <ClInclude Include="src\gameObjects\Player Object\Mana.h" />
     <ClInclude Include="src\gameObjects\Player Object\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
@@ -210,7 +220,6 @@
     <ClInclude Include="src\gameObjects\UI\ClickableChest.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
-    <ClInclude Include="src\Resource.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
@@ -219,6 +228,7 @@
     <ClInclude Include="src\scenes\InventoryScene.h" />
     <ClInclude Include="src\scenes\MainMenuScene.h" />
     <ClInclude Include="src\scenes\MapScene.h" />
+    <ClInclude Include="src\scenes\NodeScene.h" />
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
@@ -236,18 +246,18 @@
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Mana.cpp" />
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
+    <ClCompile Include="src\components\Enemy components\EnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
+    <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\MeleeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\OnDeath.cpp" />
-    <ClCompile Include="src\components\Enemy components\MeleeEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
-    <ClCompile Include="src\components\Enemy components\RangedEnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
+    <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp" />
     <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp" />
     <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
@@ -255,6 +265,7 @@
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
+    <ClCompile Include="src\components\General Components\TextComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
     <ClCompile Include="src\components\Node Components\ChestComponent.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
@@ -271,25 +282,28 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Pulga.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Gun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LaserShades.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\RiotShield.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\SMG.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\BattleNode.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\ChestNode.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\EventNode.cpp" />
+    <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
-    <ClCompile Include="src\gameObjects\Node Objects\ShopNode.cpp" />
+    <ClCompile Include="src\gameObjects\Player Object\Mana.cpp" />
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
@@ -304,6 +318,7 @@
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
     <ClCompile Include="src\scenes\MainMenuScene.cpp" />
     <ClCompile Include="src\scenes\MapScene.cpp" />
+    <ClCompile Include="src\scenes\NodeScene.cpp" />
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
@@ -320,6 +335,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\data\game.map.json" />
     <None Include="src\data\game.resources.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../Component.h"
 #include "../General Components/Transform.h"
 #include "../General Components/HealthComponent.h"
@@ -21,6 +21,7 @@ protected:
 	float attackInterval;
 	float speed;
 	int damage;
+	bool attacking;
 	vector<GameObject*>::iterator posVector;
 	bool confused;
 	// AttackComponent* attack (cuando este cerca del player, envia un mensaje para atacar)
@@ -29,7 +30,7 @@ public:
 	static const int id = _ENEMY_BEHAVIOUR;
 
 	//Constructora para la herencia
-	EnemyBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : speed(spd), damage(dmg), stopTime(stop), attackInterval(attack) {
+	EnemyBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : speed(spd), damage(dmg), stopTime(stop), attackInterval(attack), attacking(false) {
 		player = plyr;
 		playerPos = player->getComponent<Transform>();
 		behaviorTime = SDL_GetTicks();
@@ -40,14 +41,11 @@ public:
 		assert(pos != nullptr);
 	}
 
-	/*Funciones para borrar enemigos*/
 
 	//Setea la posicion en el vector de enemigos
 	void setEnemyPosition(vector<GameObject*>::iterator _it) { posVector = _it; }
-
-	//Devuelve la posicion del enemigo en el vector
-	vector<GameObject*>::iterator getEnemyPos() { return posVector; }
-
+	// Devuelve si el enemigo est� en acci�n de ataque
+	inline bool isAttacking() { return attacking; }
 	void setConfusion(bool cnf) {confused = cnf;}
 	bool isConfused() { return confused; }
 };

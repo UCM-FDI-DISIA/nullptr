@@ -17,6 +17,7 @@ void Button::initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, A
 
 // Crea las animaciones esenciales de un bot�n: OnClick, OnOver y Idle
 void Button::createButtonAnimations(Animator* animator) {
+	animator->attachToCamera();
 	animator->createAnim(ONOUT, ONOUT_ALL_FRAMES, ONOUT_ALL_FRAMES, ONCLICK_ONOUT_SPEED, -1);
 	animator->createAnim(ONOVER, ONONVER_START_FRAME, ONOVER_END_FRAME, ONOVER_SPEED, -1);
 	animator->createAnim(ONCLICK, ONCLICK_ALL_FRAMES, ONCLICK_ALL_FRAMES, ONCLICK_ONOUT_SPEED, -1);

@@ -65,6 +65,11 @@ void BarComponent::changeNumbers(vector<GameObject*>& vect, int value) {
 	vect[2]->getComponent<Animator>()->play(to_string(get<2>(units)));
 }
 
+// Cambia el valor de los números activan su animación correspondiente
+void BarComponent::changeEtherNumbers(GameObject* num, int value) {
+	num->getComponent<Animator>()->play(to_string(value));
+}
+
 // Devuelve una tupla con el valor de las centenas, las decenas y las unidades
 tuple<cents, decs, unids> BarComponent::getUnits(int value) {
 	int cents = value / 100;

@@ -16,6 +16,12 @@ class SwordCard : public Card {
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
+class TorchCard : public Card {
+public:
+	TorchCard() : Card(20, 10, 50, 0.67, "Antorcha", SDLApplication::getTexture("Torch")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
 
 class LaserShadesCard : public Card {
 	public:
@@ -25,20 +31,20 @@ class LaserShadesCard : public Card {
 };
 class BowCard : public Card {
 public:
-	BowCard() : Card(15, 12, 60, 0.5, "Arco", SDLApplication::getTexture("LaserGlasses")) {};
+	BowCard() : Card(15, 12, 60, 0.5, "Arco", SDLApplication::getTexture("Bow")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class PulgaCard : public Card {
 public:
-	PulgaCard() : Card(30, 2, 30, 1.5, "Pulga", SDLApplication::getTexture("LaserGlasses")) {};
+	PulgaCard() : Card(30, 2, 30, 1.5, "Pulga", SDLApplication::getTexture("Tick")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult ,BattleScene* where );
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class SpearCard : public Card {
 public:
-	SpearCard() : Card(15, 6, 15, 0.75, "Lanza", SDLApplication::getTexture("Sword")) {};
+	SpearCard() : Card(15, 6, 15, 0.75, "Lanza", SDLApplication::getTexture("Spear")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
@@ -60,4 +66,17 @@ public:
 	LightRifleCard() : Card(7, 20, 55, 0.2, "Rifle de luz", SDLApplication::getTexture("SMG")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
+class  MegaphoneCard : public Card {
+public:
+	MegaphoneCard() : Card(7, 5, 60, 0.5, "Megafono", SDLApplication::getTexture("SMG")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
+class  RiotShieldCard : public Card {
+public:
+	RiotShieldCard() : Card(3, 5, 10, 0.6, "Escudo Antidisturbios", SDLApplication::getTexture("Sword")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	void checkCollisionWithBullets(GameObject* shield, BattleScene* where);
 };

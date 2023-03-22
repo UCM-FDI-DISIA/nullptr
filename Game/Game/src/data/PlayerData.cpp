@@ -13,34 +13,35 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new  RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new  RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new RiotShieldCard());
+	
+	deck.push_back(new RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new RiotShieldCard());
 
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
-
-	deck.push_back(new  LightRifleCard());
+	deck.push_back(new RiotShieldCard());
+}
 
 	//Pa probar
 	avlbRelics.push_back("Hoverboard");
 	
 
+PlayerData::~PlayerData() {
+	for (auto& card : deck) {
+		delete card;
+		card = nullptr;
+	}
+	deck.clear();
 }
 
 void PlayerData::getDataFromJSON()

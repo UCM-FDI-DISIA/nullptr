@@ -1,0 +1,46 @@
+{
+  "map" : [
+    {
+        "height": 0,
+        "pos": 1,
+        "type": "start",
+        "next": [[1, 1]]
+    },
+    {
+        "height": 1,
+        "pos": 1,
+        "type": "chest",
+        "next": [ [0, 2], [2, 2] ]
+    },
+    {
+        "height": 2,
+        "pos": 0,
+        "type": "battle",
+        "next": [ [1, 3] ]
+    },
+    {
+        "height": 2,
+        "pos": 2,
+        "type": "battle",
+        "next": [[1, 3]]
+    },
+    {
+        "height": 3,
+        "pos": 1,
+        "type": "shop",
+        "next": [ 15 ]
+    },
+    {
+        "height": 15,
+        "pos": 1,
+        "type": "chest",
+        "next": [ [1, 16] ]
+    },
+    {
+        "height": 16,
+        "pos": 1,
+        "type": "boss",
+        "next": [ ]
+    }
+  ]
+}
