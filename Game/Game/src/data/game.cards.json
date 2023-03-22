@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Pistola",
+    "attackText": "Dispara de manera normal",
+    "abilityText": "Se disparan todas las balas como una escopeta",
+    "damage": 10,
+    "maxUses": 6,
+    "mana": 35,
+    "downTime": 0.5,
+    "textureKey": "Pistol"
+  },
+  {
+    "name": "Espada",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 20,
+    "maxUses": 5,
+    "mana": 80,
+    "downTime": 0.5,
+    "textureKey": "Sword"
+  },
+  {
+    "name": "Antorcha",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 20,
+    "maxUses": 10,
+    "mana": 50,
+    "downTime": 0.67,
+    "textureKey": "Torch"
+  },
+  {
+    "name": "Gafas Láser",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 20,
+    "maxUses": 5,
+    "mana": 80,
+    "downTime": 1,
+    "textureKey": "LaserGlasses"
+  },
+  {
+    "name": "Arco",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 15,
+    "maxUses": 12,
+    "mana": 60,
+    "downTime": 0.5,
+    "textureKey": "Bow"
+  },
+  {
+    "name": "Pulga",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 30,
+    "maxUses": 2,
+    "mana": 30,
+    "downTime": 1.5,
+    "textureKey": "Tick"
+  },
+  {
+    "name": "Lanza",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 15,
+    "maxUses": 6,
+    "mana": 15,
+    "downTime": 0.75,
+    "textureKey": "Spear"
+  },
+  {
+    "name": "SMG",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 3,
+    "maxUses": 40,
+    "mana": 60,
+    "downTime": 0.3,
+    "textureKey": "SMG"
+  },
+  {
+    "name": "Rifle de asalto",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 5,
+    "maxUses": 8,
+    "mana": 20,
+    "downTime": 0.8,
+    "textureKey": "SMG"
+  },
+  {
+    "name": "Rifle de luz",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 7,
+    "maxUses": 20,
+    "mana": 55,
+    "downTime": 0.2,
+    "textureKey": "SMG"
+  },
+  {
+    "name": "Megafono",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 7,
+    "maxUses": 5,
+    "mana": 60,
+    "downTime": 0.5,
+    "textureKey": "SMG"
+  },
+  {
+    "name": "Escudo Antidisturbios",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 3,
+    "maxUses": 5,
+    "mana": 10,
+    "downTime": 0.6,
+    "textureKey": "SMG"
+  }
+
+]
