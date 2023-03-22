@@ -223,6 +223,9 @@
     <ClCompile Include="src\core\SDLApplication.cpp">
       <Filter>Archivos de Dependecias\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\ClickableChest.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -478,6 +481,9 @@
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\ClickableChest.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

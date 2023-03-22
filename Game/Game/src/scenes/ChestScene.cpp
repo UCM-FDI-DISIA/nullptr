@@ -18,18 +18,9 @@ ChestScene::ChestScene() : GameState() {
 		26,
 		1, 7);
 
-	GameObject* gachaChest = addGameObject(_grp_GENERAL);
-	gachaChest->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
-	auto anim2 = gachaChest->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI.fw, chestAI.fh, chestAI.rows, chestAI.cols);
 	
-	anim2->createAnim(ONOUT, 0, 0, ONCLICK_ONOUT_SPEED, -1);
-	anim2->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
-	anim2->createAnim(ONCLICK, 0, 6, ONCLICK_ONOUT_SPEED, 1);
-	
-	anim2->play(ONOUT);
-	
-	GameObject* gachaButton = addGameObject();
-	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI.w, chestAI.h);
+	GameObject* gachaButton = addGameObject(_grp_GENERAL);
+	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI.fw, chestAI.fh);
 	
 	
 	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI.fw, chestAI.fh, chestAI.rows, chestAI.cols);
@@ -38,9 +29,7 @@ ChestScene::ChestScene() : GameState() {
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
 	anim->createAnim(ONCLICK, 0, 6, ONCLICK_ONOUT_SPEED, 1);
 
-	anim->play(ONOUT);
-	
-	gachaButton->addComponent<ButtonComponent>([&]() {gacha(gachaChest); }, SDLApplication::instance(), gachaChest);
+	gachaButton->addComponent<ButtonComponent>([&]() {gacha(gachaButton); }, SDLApplication::instance());
 	
 	/*
 	AnimatorInfo aI = AnimatorInfo(key);
@@ -62,6 +51,7 @@ void ChestScene::mainMenu() {
 
 void ChestScene::gacha(GameObject* obj) {
 	//Sacamos el vector de reliquias disponibles
+	std::cout << "CLICK!\n";
 	std::vector<std::string> aux = PlayerData::instance()->getAvailableItems();
 
 	if (aux.size() > 0) {

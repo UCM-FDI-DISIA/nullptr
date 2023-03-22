@@ -1,5 +1,4 @@
 #pragma once
-#include "../../components/ecs.h"
 #include "../GameObject.h"
 #include "../../components/General Components/Transform.h"
 #include "../../components/General Components/Image.h"
@@ -8,12 +7,16 @@
 #include "../../data/constants.h"
 
 
-class Button : public GameObject {
+
+class ClickableChest : public GameObject {
+
 private:
 public:
 	// Añade los componentes al botón y crea sus animaciones
-	virtual void initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame = nullptr);
+	virtual void initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, AnimatorInfo _animInfo);
 
 	// Crear animaciones
 	void createButtonAnimations(Animator* animator);
+
+
 };

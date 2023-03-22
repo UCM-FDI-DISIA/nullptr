@@ -16,6 +16,7 @@ using uint = unsigned int;
 
 const Vector2D VECTOR_ZERO = { 0,0 };
 
+
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1280;
 const uint WIN_HEIGHT = 720;
@@ -448,5 +449,21 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
+
+//STRUCTS
+
+struct AnimatorInfo {
+	string key;
+	int w, h;
+	int fw, fh;
+	int rows, cols;
+	//Con constantes para botones genéricos
+	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
+		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }
+	//Con parámetros específicos
+	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r, int _c) :
+		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
+};
+
 
 #endif

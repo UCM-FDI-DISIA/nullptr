@@ -6,10 +6,13 @@
 
 class ChestScene : public GameState {
 private:
+
 public:
 	ChestScene();
 	static void mainMenu();
 	void gacha(GameObject* obj);
+
+	
 };
 
 #endif
