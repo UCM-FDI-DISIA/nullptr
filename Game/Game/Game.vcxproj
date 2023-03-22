@@ -202,6 +202,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
@@ -291,6 +292,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />

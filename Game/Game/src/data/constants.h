@@ -159,6 +159,21 @@ const float TANK_ATTACK_TIME = 2000;
 const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
 const Animation TANK_ENEMY_MOVEMENT_ANIMATION(21, 25, 10, -1);
 const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 20, 10, 1);
+
+// BOSS ENEMY
+const float BOSS_ENEMY_COOLDOWN = 500;
+const string BOSS_ENEMY_TEXTURE_KEY = "MeleeEnemy";
+const int BOSS_ENEMY_SPRITE_WIDTH = 32;
+const int BOSS_ENEMY_SPRITE_HEIGHT = 32;
+const int BOSS_ENEMY_SPRITE_ROWS = 2;
+const int BOSS_ENEMY_SPRITE_COLS = 12;
+
+const int BOSS_ENEMY_WIDTH = BOSS_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH * 2;
+const int BOSS_ENEMY_HEIGHT = BOSS_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT * 2;
+
+const Animation BOSS_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
+const Animation BOSS_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
+const Animation BOSS_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";

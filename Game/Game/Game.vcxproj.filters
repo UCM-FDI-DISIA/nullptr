@@ -235,6 +235,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp">
       <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -497,6 +500,9 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h">
       <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
