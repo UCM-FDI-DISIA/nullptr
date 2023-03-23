@@ -42,6 +42,6 @@ void PlayerMovementComponent::handleInput() {
 	}
 }
 
-void PlayerMovementComponent::setPlayerSpeed(int newSpeed) {
+void PlayerMovementComponent::setPlayerSpeed(float newSpeed) {
 	playerSpeed = newSpeed;
 }
