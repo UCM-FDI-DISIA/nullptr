@@ -75,4 +75,4 @@ public:
 	void reloadMap();
 };
 // Referencia a la instancia del mapa
-inline Map& map() { return *Map::instance(); }
+inline Map& gameMap() { return *Map::instance(); }

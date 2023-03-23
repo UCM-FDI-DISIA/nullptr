@@ -191,6 +191,9 @@
     <ClInclude Include="src\core\GameStateMachine.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
     <ClInclude Include="src\core\Vector2D.h" />
+    <ClInclude Include="src\data\Album.h" />
+    <ClInclude Include="src\data\CardData.h" />
+    <ClInclude Include="src\data\CardsDataContainer.h" />
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
@@ -272,6 +275,8 @@
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
+    <ClCompile Include="src\data\Album.cpp" />
+    <ClCompile Include="src\data\CardsDataContainer.cpp" />
     <ClCompile Include="src\data\json\JSON.cpp" />
     <ClCompile Include="src\data\json\JSONValue.cpp" />
     <ClCompile Include="src\data\PlayerData.cpp" />
@@ -331,6 +336,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\data\game.cards.json" />
     <None Include="src\data\game.map.json" />
     <None Include="src\data\game.resources.json" />
   </ItemGroup>

@@ -4,9 +4,9 @@
 
 MapScene::MapScene() {
 	// MAPA
-	map().reloadMap();
-	vector<vector<Node*>> const& nodeMap = map().getNodeMap();
-	vector<int> const& nodesPerHeight = map().getNodesPerWidth();
+	gameMap().reloadMap();
+	vector<vector<Node*>> const& nodeMap = gameMap().getNodeMap();
+	vector<int> const& nodesPerHeight = gameMap().getNodesPerWidth();
 
 	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
 	vector<vector<Vector2D>> nodesPositions(HEIGHT);
