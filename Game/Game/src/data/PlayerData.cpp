@@ -28,8 +28,15 @@ PlayerData::PlayerData() {
 	deck.push_back(new RiotShieldCard());
 	
 	
-	//Pa probar
-	avlbRelics.push_back("Hoverboard");
+	
+	//Carga de todas las reliquias
+
+	for (auto& var : sdlutils().relics().map_)
+	{
+		avlbRelics.push_back(var.first);
+	}
+
+
 }
 
 	
