@@ -1,11 +1,13 @@
 #include "PlayerMovementComponent.h"
 #include "../../sdlutils/InputHandler.h"
 #include "../../core/SDLApplication.h"
+#include "../../data/PlayerData.h"
 
 PlayerMovementComponent::PlayerMovementComponent() :transform(nullptr){}
 
 void PlayerMovementComponent::initComponent() {
 	transform = gObj->getComponent<Transform>();
+	playerSpeed = PlayerData::instance()->getPlayerMoveSpeed();
 }
 
 void PlayerMovementComponent::handleInput() {

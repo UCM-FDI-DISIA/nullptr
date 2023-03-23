@@ -42,6 +42,30 @@ PlayerData::~PlayerData() {
 	deck.clear();
 }
 
+void PlayerData::defaultPlayerStats()
+{
+	setMaxMana(100);
+	setMaxHP(100);
+	setCurrHP(100);
+	setAttackMult(1);
+	setFireRateMult(1);
+	playerSpeed = PLAYER_SPEED;
+}
+
+void PlayerData::updatePlayerStats()
+{
+	//para no duplicar los efectos de las reliquias, se resetean las estadísticas del jugador
+	defaultPlayerStats();
+
+	for (auto relic : myRelics) {
+		maxMana += relic->mana;
+		maxHP += relic->health;
+		attackMult += relic->attackMult;
+		fireRateMult += relic->cadencyMult;
+		playerSpeed += relic->movementVelocity;
+	}
+}
+
 void PlayerData::getDataFromJSON()
 {
 	throw "Sin implementar lololo";

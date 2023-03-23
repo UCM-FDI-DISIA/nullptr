@@ -40,6 +40,7 @@ class PlayerData : public Singleton<PlayerData>
 	int maxHP;
 	int currHP;
 	int currMana;
+	float playerSpeed;
 
 	float attackMult, fireRateMult;
 	
@@ -56,6 +57,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline int getCurrHP() { return currHP; }
 		inline float getAttackMult() { return attackMult; }
 		inline float getFireRateMult() { return fireRateMult; }
+		inline float getPlayerMoveSpeed() { return playerSpeed; }
 		inline int getLevel() { return level; }
 
 
@@ -66,7 +68,9 @@ class PlayerData : public Singleton<PlayerData>
 		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
 		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
 		inline void setLevel(int level) { this->level = level; }
-
+		inline void getPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
+		void defaultPlayerStats();
+		void updatePlayerStats();
 
 		void getDataFromJSON();
 		void setDataToJSON();
