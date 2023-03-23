@@ -13,27 +13,25 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  RiotShieldCard());
+	deck.push_back(new  SwordCard());
+	
+	deck.push_back(new  SwordCard());
+	
+	deck.push_back(new  SwordCard());
+	
+	deck.push_back(new  SwordCard());
+	
+	deck.push_back(new  SwordCard());
 
-	deck.push_back(new  RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
+	deck.push_back(new  GunCard());
 
 	deck.push_back(new RiotShieldCard());
 	
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-}
-
+	
 	//Pa probar
 	avlbRelics.push_back("Hoverboard");
+}
+
 	
 
 PlayerData::~PlayerData() {
