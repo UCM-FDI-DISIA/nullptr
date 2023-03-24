@@ -7,12 +7,10 @@
 
 // Al construirse, adopta el gameObject y su manager como propios
 // Tambi�n define la vida m�xima del objeto
-HealthComponent::HealthComponent(int life, bool Invincibility)
-{
-	maxLife = modifiedMaxLife = lifePoints = life;
-	invincibility = Invincibility;
-	invTime = 1000;
-}
+HealthComponent::HealthComponent(int life, bool Invincibility) :
+	maxLife(life), modifiedMaxLife(life), lifePoints(life), 
+	invincibility(Invincibility), invTime(1000), time(0),
+	onDeath(nullptr) {}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
 void HealthComponent::receiveDamage(int damage)

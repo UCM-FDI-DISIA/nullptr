@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../checkML.h"
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	// ... (compoment ids)

@@ -8,9 +8,6 @@ int main(int argc, char* argv[]) {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); // Check Memory Leaks
 #endif
 
-	cout << argv[0];
-	//cin.get();
-
 	try {
 		srand(time(0));
 		SDLApplication::init();

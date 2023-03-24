@@ -21,6 +21,8 @@ private:
 	Vector2D anchorPoint_;
 	float width_;
 	float height_;
+
+	SDL_Point point;
 	float rotation_;
 public:
 
@@ -135,10 +137,9 @@ public:
 
 	//Devuelve el punto de anclaje
 	inline SDL_Point* getAnchorPointSDL() {
-		SDL_Point* point = new SDL_Point;
-		point->x = anchorPoint_.getX();
-		point->y = anchorPoint_.getY();
-		return point;
+		point.x = anchorPoint_.getX();
+		point.y = anchorPoint_.getY();
+		return &point;
 	};
 
 
