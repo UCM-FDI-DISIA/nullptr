@@ -2,6 +2,14 @@
 #include "../../core/SDLApplication.h"
 #include "../GameObject.h"
 
+struct UICard {
+	GameObject* card;
+	pair<GameObject*, GameObject*> ammoNumber;
+	vector<GameObject*> ammoBlocks;
+
+	UICard() : card(nullptr) {};
+};
+
 class HandUI : public GameObject
 {
 private:
@@ -9,9 +17,9 @@ private:
 	CardComponent* cardComp = nullptr;
 
 	// Deque con la mano del jugador e iterador con la carta activa
-	deque<GameObject*> handUI;
+	deque<UICard*> handUI;
 	deque<Card*> handPlayer;
-	deque<GameObject*>::iterator active;
+	deque<UICard*>::iterator active;
 
 public:
 	// Constructora
@@ -34,5 +42,7 @@ public:
 	void rearrangeThree();
 	void rearrangeTwo();
 	void rearrangeOne();
+
+	void createNumberAnims(GameObject* obj, int value);
 };
 

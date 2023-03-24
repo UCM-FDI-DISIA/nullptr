@@ -20,14 +20,21 @@ HandUI::~HandUI() {
 // Renderizar los GameObjects del deque (de lo contrario solo se renderiza un objeto vacío)
 void HandUI::render() const {
 	for (int i = 0; i < handUI.size(); i++) {
-		if (handUI[i] != nullptr) handUI[i]->render();
+		if (handUI[i] != nullptr) {
+			auto object = handUI[i];
+			object->card->render();
+			object->ammoNumber.first->render();
+			object->ammoNumber.second->render();
+			/*for (int i = 0; i < dynamic_cast<Card*>(object->card)->getUses(); i++) 
+				object->ammoBlocks[i]->render();*/
+		}
 	}
 }
 
 // Cambia la carta seleccionada, deseleccionando la anterior
 void HandUI::changeSelected(bool key, int number) {
 	// Deseleccionar la carta anterior, volviendo a su posición original si no es esta llamada debida a un descarte
-	if (active != handUI.end()) (*active)->getComponent<Transform>()->setY(Y_CARD_POS);
+	if (active != handUI.end()) (*active)->card->getComponent<Transform>()->setY(Y_CARD_POS);
 
 	// Si se ha cambiado pulsando teclas
 	if (key) {
@@ -44,7 +51,7 @@ void HandUI::changeSelected(bool key, int number) {
 	}
 
 	// Seleccionar la carta escogida
-	(*active)->getComponent<Transform>()->setY(Y_CARD_POS_SELECTED);
+	(*active)->card->getComponent<Transform>()->setY(Y_CARD_POS_SELECTED);
 }
 
 // Borrar la carta correspondiente
@@ -92,15 +99,48 @@ void HandUI::createUI() {
 }
 
 void HandUI::createCard(int i, int posX, int posY, int rotation) {
-	// Crear objeto
-	GameObject* card = new GameObject();
+	// Crear estructura
+	UICard* newCard = new UICard(); 
 
-	// Añadir transform con los valores correspondientes y la textura
-	card->addComponent<Transform>(Vector2D(posX, posY), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, rotation);
-	card->addComponent<Image>(handPlayer[i]->getTexture());
+	// Crear la carta y añadirle sus componentes image y tansform
+	newCard->card = new GameObject();
+	newCard->card->addComponent<Transform>(Vector2D(posX, posY), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, rotation);
+	newCard->card->addComponent<Image>(handPlayer[i]->getTexture());
+
+	// Crear números
+	Vector2D posDecs;
+	Vector2D posUnits;
+
+	switch (i) {
+		case 0:
+			posDecs = Vector2D(posX - 4, posY + 31);
+			posUnits = Vector2D(posX + 6, posY + 29);
+			break;
+		case 1:
+			posDecs = Vector2D(posX + 5, posY + 23);
+			posUnits = Vector2D(posX + 15, posY + 22.5);
+			break;
+		case 2:
+			posDecs = Vector2D(posX + 26, posY + 12); 
+			posUnits = Vector2D(posX + 36, posY + 13);
+			break;
+		case 3:
+			posDecs = Vector2D(posX + 36, posY + 7);
+			posUnits = Vector2D(posX + 46, posY + 9);
+			break;
+	}
+
+	auto decs = new GameObject();
+	decs->addComponent<Transform>(posDecs, Vector2D(), 10, 15, rotation);
+	createNumberAnims(decs, 1);
+	auto units = new GameObject();
+	units->addComponent<Transform>(posUnits, Vector2D(), 10, 15, rotation);
+	createNumberAnims(units, 1);
+	newCard->ammoNumber.first = decs;
+	newCard->ammoNumber.second = units;
 
 	// Añadir a la deque de la UI
-	handUI.push_back(card);
+	handUI.push_back(newCard);
 }
 
 // Posiciona las 3 cartas restantes de forma que una esté en medio sin rotación, y las otras a su alrededor ligeramente rotadas
@@ -110,17 +150,17 @@ void HandUI::rearrangeThree() {
 	Transform* tr = nullptr;
 
 	// Primera carta
-	tr = (*it)->getComponent<Transform>();
+	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X1_3CARDS_POS); tr->setRotation(-5);
 	it++;
 
 	// Segunda carta
-	tr = (*it)->getComponent<Transform>();
+	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(CENTERED_CARD_POS); tr->setRotation(0);
 	it++;
 
 	// Tercera carta
-	tr = (*it)->getComponent<Transform>();
+	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X3_3CARDS_POS); tr->setRotation(5);
 }
 
@@ -131,17 +171,26 @@ void HandUI::rearrangeTwo() {
 	Transform* tr = nullptr;
 
 	// Primera carta
-	tr = (*it)->getComponent<Transform>();
+	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X2_4CARDS_POS); tr->setRotation(-5);
 	it++;
 
 	// Segunda carta
-	tr = (*it)->getComponent<Transform>();
+	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X3_4CARDS_POS); tr->setRotation(5);
 }
 
 // Posiciona la carta restante en el centro sin rotación
 void HandUI::rearrangeOne() {
-	(*active)->getComponent<Transform>()->setX(CENTERED_CARD_POS);
-	(*active)->getComponent<Transform>()->setRotation(0);
+	(*active)->card->getComponent<Transform>()->setX(CENTERED_CARD_POS);
+	(*active)->card->getComponent<Transform>()->setRotation(0);
+}
+
+// Crear los números de la interfaz
+void HandUI::createNumberAnims(GameObject* obj, int value) {
+	// Añadir animator y crear animaciones
+	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture(STATISTICS_NUMBERS), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, ST_NUMBERS_ROWS, ST_NUMBERS_COLUMNS);
+	for (int j = 0; j < N_NUMBERS; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+	
+	anim->play(to_string(value));
 }
