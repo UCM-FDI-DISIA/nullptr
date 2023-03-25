@@ -69,7 +69,7 @@ void ChestScene::gacha(GameObject* obj) {
 
 		//Assign item (añadir sprite a la escena y vivir feliz)
 		GameObject* sprite = addGameObject(_grp_GENERAL);
-		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + (26 * 5 / 2), (WIN_HEIGHT / 4) + 150 + (46 * 5 / 2)), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
+		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + (26 * 5 / 2), (WIN_HEIGHT / 4) + (46 * 5 / 2)), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
 		sprite->addComponent<Image>(item->texture);
 
 		cout << item->description << "\n";

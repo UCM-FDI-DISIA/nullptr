@@ -220,7 +220,6 @@
     <ClInclude Include="src\gameObjects\Player Object\Player.h" />
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
-    <ClInclude Include="src\gameObjects\UI\ClickableChest.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
@@ -312,7 +311,6 @@
     <ClCompile Include="src\gameObjects\Player Object\Player.cpp" />
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
-    <ClCompile Include="src\gameObjects\UI\ClickableChest.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
     <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
