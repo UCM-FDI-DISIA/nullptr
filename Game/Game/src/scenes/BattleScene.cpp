@@ -85,6 +85,10 @@ void BattleScene::recreateUI() {
 	if (hand != nullptr) hand->createUI();
 }
 
+void BattleScene::changeAmmoUI(deque<Card*>::iterator used) {
+	if (hand != nullptr) hand->changeAmmo(used);
+}
+
 // Llamar al cambio del valor de maná
 void BattleScene::onManaChanges(float value) {
 	if (statistics != nullptr) statistics->onManaChanges(value);

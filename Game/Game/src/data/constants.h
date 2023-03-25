@@ -355,6 +355,33 @@ const int X4_4CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + UI_CARD_WIDTH + BE
 	// 3 CARDS IN HAND
 const int X1_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - BETWEEN_CARD_SPACE * 2;
 const int X3_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + BETWEEN_CARD_SPACE * 2;
+// UI AMMO NUMBERS DIMENSIONS
+const int UI_AMMO_NUMBERS_WIDTH = 10;
+const int UI_AMMO_NUMBERS_HEIGHT = 15;
+	// 1ST CARD
+const int X1_XOFFSET_DECS = -4;
+const int X1_YOFFSET_DECS = 31;
+const int X1_XOFFSET_UNITS = 6;
+const int X1_YOFFSET_UNITS = 29;
+	// 2ND CARD
+const int X2_XOFFSET_DECS = 6;
+const int X2_YOFFSET_DECS = 24;
+const int X2_XOFFSET_UNITS = 16;
+const float X2_YOFFSET_UNITS = 23.5;
+	// 3RD CARD
+const int X3_XOFFSET_DECS = 26;
+const int X3_YOFFSET_DECS = 12;
+const int X3_XOFFSET_UNITS = 36;
+const int X3_YOFFSET_UNITS = 13;
+	// 4RD CARD
+const int X4_XOFFSET_DECS = 36;
+const int X4_YOFFSET_DECS = 8;
+const int X4_XOFFSET_UNITS = 46;
+const int X4_YOFFSET_UNITS = 10;
+	// CENTERED CARD
+const int XC_XOFFSET_DECS = 15;
+const int XC_XOFFSET_UNITS = 26;
+const int XC_YOFFSET = 18;
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;

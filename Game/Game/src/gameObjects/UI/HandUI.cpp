@@ -25,7 +25,7 @@ void HandUI::render() const {
 			object->card->render();
 			object->ammoNumber.first->render();
 			object->ammoNumber.second->render();
-			/*for (int i = 0; i < dynamic_cast<Card*>(object->card)->getUses(); i++) 
+			/*for (int i = 0; i < object->ammo; i++) 
 				object->ammoBlocks[i]->render();*/
 		}
 	}
@@ -34,7 +34,13 @@ void HandUI::render() const {
 // Cambia la carta seleccionada, deseleccionando la anterior
 void HandUI::changeSelected(bool key, int number) {
 	// Deseleccionar la carta anterior, volviendo a su posición original si no es esta llamada debida a un descarte
-	if (active != handUI.end()) (*active)->card->getComponent<Transform>()->setY(Y_CARD_POS);
+	if (active != handUI.end()) {
+		(*active)->card->getComponent<Transform>()->setY(Y_CARD_POS);
+		auto trDecs = (*active)->ammoNumber.first->getComponent<Transform>();
+		auto trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
+		trDecs->setY(trDecs->getY() + 60);
+		trUnits->setY(trUnits->getY() + 60);
+	}
 
 	// Si se ha cambiado pulsando teclas
 	if (key) {
@@ -52,23 +58,16 @@ void HandUI::changeSelected(bool key, int number) {
 
 	// Seleccionar la carta escogida
 	(*active)->card->getComponent<Transform>()->setY(Y_CARD_POS_SELECTED);
+	auto trDecs = (*active)->ammoNumber.first->getComponent<Transform>();
+	auto trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
+	trDecs->setY(trDecs->getY() - 60);
+	trUnits->setY(trUnits->getY() - 60);
 }
 
 // Borrar la carta correspondiente
 void HandUI::discard(deque<Card*>::iterator discarded) {
-	// Busqueda de la carta correspondiente. Aux: iterador que referencia al mazo de la UI, para saber cual borrar
-	int i = 0;
-	auto aux = handUI.begin();
-	handPlayer = cardComp->getHand();
-	bool discard = false;
-	while (i < handPlayer.size() && !discard) {
-		// Si la carta es la buscada, en aux ya debe de estar la carta de la UI, se sale del bucle
-		if (handPlayer[i] == *discarded) discard = true;
-		// ... de lo contrario, continuar iterando comprobando si es la siguiente carta de la UI
-		else { i++; aux++; }
-	}
-
-	// Borrar carta y asignar la nueva activa
+	// Buscar y borrar carta y asignar la nueva activa
+	auto aux = searchCard(discarded);
 	active = handUI.erase(aux);
 
 	// Si la mano no se ha vaciado, marcar la carta inicial
@@ -80,6 +79,17 @@ void HandUI::discard(deque<Card*>::iterator discarded) {
 			case 3: rearrangeThree(); break;
 		}
 	}
+}
+
+// Reduce la munición
+void HandUI::changeAmmo(deque<Card*>::iterator used) {
+	// Buscar y reducir su munición
+	auto aux = searchCard(used);
+	(*aux)->ammo--;
+
+	// Mostrar número correcto
+	(*aux)->ammoNumber.first->getComponent<Animator>()->play(to_string((*aux)->ammo / 10));
+	(*aux)->ammoNumber.second->getComponent<Animator>()->play(to_string((*aux)->ammo - (*aux)->ammo / 10));
 }
 
 // Crear las cartas de la UI según la mano del jugador, iniciando variables y posicionándolas correctamente
@@ -107,61 +117,83 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 	newCard->card->addComponent<Transform>(Vector2D(posX, posY), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, rotation);
 	newCard->card->addComponent<Image>(handPlayer[i]->getTexture());
 
+	// Guardar munición
+	newCard->ammo = handPlayer[i]->getUses();
+
 	// Crear números
 	Vector2D posDecs;
 	Vector2D posUnits;
-
 	switch (i) {
 		case 0:
-			posDecs = Vector2D(posX - 4, posY + 31);
-			posUnits = Vector2D(posX + 6, posY + 29);
+			posDecs = Vector2D(posX + X1_XOFFSET_DECS, posY + X1_YOFFSET_DECS);
+			posUnits = Vector2D(posX + X1_XOFFSET_UNITS, posY + X1_YOFFSET_UNITS);
 			break;
 		case 1:
-			posDecs = Vector2D(posX + 5, posY + 23);
-			posUnits = Vector2D(posX + 15, posY + 22.5);
+			posDecs = Vector2D(posX + X2_XOFFSET_DECS, posY + X2_YOFFSET_DECS);
+			posUnits = Vector2D(posX + X2_XOFFSET_UNITS, posY + X2_YOFFSET_UNITS);
 			break;
 		case 2:
-			posDecs = Vector2D(posX + 26, posY + 12); 
-			posUnits = Vector2D(posX + 36, posY + 13);
+			posDecs = Vector2D(posX + X3_XOFFSET_DECS, posY + X3_YOFFSET_DECS); 
+			posUnits = Vector2D(posX + X3_XOFFSET_UNITS, posY + X3_YOFFSET_UNITS);
 			break;
 		case 3:
-			posDecs = Vector2D(posX + 36, posY + 7);
-			posUnits = Vector2D(posX + 46, posY + 9);
+			posDecs = Vector2D(posX + X4_XOFFSET_DECS, posY + X4_YOFFSET_DECS);
+			posUnits = Vector2D(posX + X4_XOFFSET_UNITS, posY + X4_YOFFSET_UNITS);
 			break;
 	}
-
-	auto decs = new GameObject();
-	decs->addComponent<Transform>(posDecs, Vector2D(), 10, 15, rotation);
-	createNumberAnims(decs, 1);
-	auto units = new GameObject();
-	units->addComponent<Transform>(posUnits, Vector2D(), 10, 15, rotation);
-	createNumberAnims(units, 1);
-	newCard->ammoNumber.first = decs;
-	newCard->ammoNumber.second = units;
+	newCard->ammoNumber.first = createNumber(posDecs, rotation, newCard->ammo / 10);
+	newCard->ammoNumber.second = createNumber(posUnits, rotation, newCard->ammo - (newCard->ammo / 10));
 
 	// Añadir a la deque de la UI
 	handUI.push_back(newCard);
 }
 
+// Crear un número según los datos recibidos
+GameObject* HandUI::createNumber(Vector2D pos, float rotation, int value) {
+	// Crear objeto
+	auto number = new GameObject();
+
+	// Añadir componentes (transform y animator)
+	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH, UI_AMMO_NUMBERS_HEIGHT, rotation);
+	createNumberAnims(number, value);
+
+	// Devolver el número creado
+	return number;
+}
+
 // Posiciona las 3 cartas restantes de forma que una esté en medio sin rotación, y las otras a su alrededor ligeramente rotadas
 void HandUI::rearrangeThree() {
-	// Iterador para recorrer la mano y puntero a transform para posicionar
+	// Iterador para recorrer la mano y puntero a transforms para posicionar
 	auto it = handUI.begin();
 	Transform* tr = nullptr;
+	Transform* trDecs = nullptr;
+	Transform* trUnits = nullptr;
 
 	// Primera carta
 	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X1_3CARDS_POS); tr->setRotation(-5);
+	trDecs = (*it)->ammoNumber.first->getComponent<Transform>();
+	trDecs->setPos(Vector2D(tr->getX() + X2_XOFFSET_DECS, tr->getY() + X2_YOFFSET_DECS)); trDecs->setRotation(-5);
+	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
+	trUnits->setPos(Vector2D(tr->getX() + X2_XOFFSET_UNITS, tr->getY() + X2_YOFFSET_UNITS)); trUnits->setRotation(-5);
 	it++;
 
 	// Segunda carta
 	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(CENTERED_CARD_POS); tr->setRotation(0);
+	trDecs = (*it)->ammoNumber.first->getComponent<Transform>();
+	trDecs->setPos(Vector2D(tr->getX() + XC_XOFFSET_DECS, tr->getY() + XC_YOFFSET)); trDecs->setRotation(0);
+	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
+	trUnits->setPos(Vector2D(tr->getX() + XC_XOFFSET_UNITS, tr->getY() + XC_YOFFSET)); trUnits->setRotation(0);
 	it++;
 
 	// Tercera carta
 	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X3_3CARDS_POS); tr->setRotation(5);
+	trDecs = (*it)->ammoNumber.first->getComponent<Transform>();
+	trDecs->setPos(Vector2D(tr->getX() + X3_XOFFSET_DECS, tr->getY() + X3_YOFFSET_DECS)); trDecs->setRotation(5);
+	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
+	trUnits->setPos(Vector2D(tr->getX() + X3_XOFFSET_UNITS, tr->getY() + X3_YOFFSET_UNITS)); trUnits->setRotation(5);
 }
 
 // Posiciona las 2 cartas restantes correctamente, ligeramente rotadas
@@ -169,21 +201,57 @@ void HandUI::rearrangeTwo() {
 	// Iterador para recorrer la mano y puntero a transform para posicionar
 	auto it = handUI.begin();
 	Transform* tr = nullptr;
+	Transform* trDecs = nullptr;
+	Transform* trUnits = nullptr;
 
 	// Primera carta
 	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X2_4CARDS_POS); tr->setRotation(-5);
+	trDecs = (*it)->ammoNumber.first->getComponent<Transform>();
+	trDecs->setPos(Vector2D(tr->getX() + X2_XOFFSET_DECS, tr->getY() + X2_YOFFSET_DECS)); trDecs->setRotation(-5);
+	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
+	trUnits->setPos(Vector2D(tr->getX() + X2_XOFFSET_UNITS, tr->getY() + X2_YOFFSET_UNITS)); trUnits->setRotation(-5);
 	it++;
 
 	// Segunda carta
 	tr = (*it)->card->getComponent<Transform>();
 	tr->setX(X3_4CARDS_POS); tr->setRotation(5);
+	trDecs = (*it)->ammoNumber.first->getComponent<Transform>();
+	trDecs->setPos(Vector2D(tr->getX() + X3_XOFFSET_DECS, tr->getY() + X3_YOFFSET_DECS)); trDecs->setRotation(5);
+	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
+	trUnits->setPos(Vector2D(tr->getX() + X3_XOFFSET_UNITS, tr->getY() + X3_YOFFSET_UNITS)); trUnits->setRotation(5);
 }
 
 // Posiciona la carta restante en el centro sin rotación
 void HandUI::rearrangeOne() {
-	(*active)->card->getComponent<Transform>()->setX(CENTERED_CARD_POS);
-	(*active)->card->getComponent<Transform>()->setRotation(0);
+	Transform* tr = nullptr;
+	Transform* trDecs = nullptr;
+	Transform* trUnits = nullptr;
+
+	tr = (*active)->card->getComponent<Transform>();
+	tr->setX(CENTERED_CARD_POS);
+	tr->setRotation(0);
+	trDecs = (*active)->ammoNumber.first->getComponent<Transform>();
+	trDecs->setPos(Vector2D(tr->getX() + XC_XOFFSET_DECS, tr->getY() + XC_YOFFSET)); trDecs->setRotation(0);
+	trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
+	trUnits->setPos(Vector2D(tr->getX() + XC_XOFFSET_UNITS, tr->getY() + XC_YOFFSET)); trUnits->setRotation(0);
+}
+
+// Buscar la carta correspondiente y devolver un iterador apuntando a esta
+deque<UICard*>::iterator HandUI::searchCard(deque<Card*>::iterator searched) {
+	// Busqueda de la carta correspondiente. Aux: iterador que referencia al mazo de la UI, para saber cual borrar
+	int i = 0;
+	auto aux = handUI.begin();
+	handPlayer = cardComp->getHand();
+	bool discard = false;
+	while (i < handPlayer.size() && !discard) {
+		// Si la carta es la buscada, en aux ya debe de estar la carta de la UI, se sale del bucle
+		if (handPlayer[i] == *searched) discard = true;
+		// ... de lo contrario, continuar iterando comprobando si es la siguiente carta de la UI
+		else { i++; aux++; }
+	}
+
+	return aux;
 }
 
 // Crear los números de la interfaz
@@ -192,5 +260,6 @@ void HandUI::createNumberAnims(GameObject* obj, int value) {
 	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture(STATISTICS_NUMBERS), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, ST_NUMBERS_ROWS, ST_NUMBERS_COLUMNS);
 	for (int j = 0; j < N_NUMBERS; j++) anim->createAnim(to_string(j), j, j, 1, 0);
 	
+	// Reproducir animación correspondiente
 	anim->play(to_string(value));
 }

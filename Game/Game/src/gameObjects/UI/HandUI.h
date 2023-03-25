@@ -6,8 +6,9 @@ struct UICard {
 	GameObject* card;
 	pair<GameObject*, GameObject*> ammoNumber;
 	vector<GameObject*> ammoBlocks;
+	int ammo;
 
-	UICard() : card(nullptr) {};
+	UICard() : card(nullptr), ammo(0) {};
 };
 
 class HandUI : public GameObject
@@ -38,11 +39,18 @@ public:
 	// Descartar una carta
 	void discard(deque<Card*>::iterator discarded);
 
+	// Cambiar la munición de una carta
+	void changeAmmo(deque<Card*>::iterator used);
+
 	// Reposiciona las cartas según el número de cartas que quedan en la mano
 	void rearrangeThree();
 	void rearrangeTwo();
 	void rearrangeOne();
 
+	// Buscar la carta recibida del cardComp en la mano de la UI
+	deque<UICard*>::iterator searchCard(deque<Card*>::iterator searched);
+
+	GameObject* createNumber(Vector2D pos, float rotation, int value);
 	void createNumberAnims(GameObject* obj, int value);
 };
 
