@@ -1,14 +1,8 @@
 #include "PlayerData.h"
 #include "../gameObjects/Card Objects/Cards.h"
 PlayerData::PlayerData() {
-	maxHP = 100;
-	currHP = maxHP;
-
-	maxMana = 100;
-	currMana = maxMana;
-
-	fireRateMult = 1;
-	attackMult = 1;
+	
+	defaultPlayerStats();
 
 	level = 5;
 
