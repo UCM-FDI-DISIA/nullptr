@@ -1,10 +1,7 @@
 #pragma once
-
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
-#ifndef CONSTANTS_H_
-#define CONSTANTS_H_
 
 #include <SDL.h>
 #include <iostream>
@@ -35,6 +32,13 @@ const string TEXTURES_FILE = "../Game/src/data/textures.txt"; // Hay que rehacer
 const int NUM_TEXTURES = 19;
 const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
+
+// FONTS ------------------------------------------------------------------------------------------
+const string USED_FONT = "ARIAL24";
+const int USED_FONT_SIZE = 24;
+
+// TEXT COLORS ------------------------------------------------------------------------------------
+const SDL_Color COLOR_WHITE = { 255, 255, 255 };
 
 // ANIMATIONS -------------------------------------------------------------------------------------
 const string ONOUT = "OnOut";
@@ -240,6 +244,7 @@ const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
 const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
+const string BUY = "BuyButton";
 
 // FLOOR -----------------------------------------------------------------------------------------
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
@@ -435,6 +440,15 @@ const int TANK_RADIUS = 600;
 
 const int STARTING_TIME_PER_WAVE = 15000;
 
+//SHOP ------------------------------------------------------------------------------------------
+const int SHOP_NUMBER_OF_CARDS = 4;
+const int SHOP_CARD_SELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
+const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4;
+const int SHOP_CARD_OFFSET_X = 200;
+const int SHOP_CARD_PRICE_WIDTH = 100;
+const int SHOP_CARD_PRICE_HEIGHT = 50;
+const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 100);
+
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
 //LOS VALORES GUARDADOS SON LAS PROBABILIDADES DE OLEADAS EN ORDEN
 //LOS PORCENTAJES SON ACUMULATIVOS PARA REDUCIR OPERACIONES (ej, si son 15%, 50%, 35%, se guardarian como {15, 65, 100})
@@ -493,5 +507,3 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
-
-#endif

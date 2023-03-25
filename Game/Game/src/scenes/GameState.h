@@ -12,6 +12,7 @@ protected:
     Camera* camera;
     Pointer* pointer;
     array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
+    int lastButtonIndex;
 public:
     // Constructor
     GameState();
@@ -48,4 +49,6 @@ public:
 
     // Devuelve la camara
     Camera* getCamera() const;
+
+    void setLastIndex(int index) { lastButtonIndex = index; }
 };

@@ -1,5 +1,6 @@
 #include "ButtonComponent.h"
 #include "../../gameObjects/GameObject.h"
+#include "../../scenes/GameState.h"
 
 void ButtonComponent::update() {
 	// Cambiar animación según el estado
@@ -38,6 +39,7 @@ bool ButtonComponent::isOver(int mouseX, int mouseY) {
 
 // Ejecuta el callback
 void ButtonComponent::onClick() {
+	gStt->setLastIndex(index);
 	state = OnClick;
 	function();
 }

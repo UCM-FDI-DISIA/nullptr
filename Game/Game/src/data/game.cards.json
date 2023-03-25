@@ -7,7 +7,7 @@
     "maxUses": 6,
     "mana": 35,
     "downTime": 0.5,
-    "textureKey": "Pistol"
+    "textureKey": "Gun"
   },
   {
     "name": "Espada",
