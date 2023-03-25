@@ -50,7 +50,7 @@ void Node::addToNextNodes(Node* node, int ind) {
 
 CallBack Node::loadNode() {
 	return [&](){
-		map().setCurrentNode(this);
+		gameMap().setCurrentNode(this);
 		load(bType);
 	};
 }

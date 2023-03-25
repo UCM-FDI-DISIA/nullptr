@@ -26,6 +26,9 @@ Card::Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _d
 		
 	}
 };
+Card::Card(CardData myData) : 
+	damage(myData.damage), maxUses(myData.maxUses), remainingUses(myData.maxUses), mana(myData.mana), downtime(myData.downTime),
+	name(myData.name), attackText(myData.attackText), abilityText(myData.abilityText), texture(myData.texture){}
 
 //Devuelve la carta correspondiente al id
 Card Card::getCard(CardId type) {
