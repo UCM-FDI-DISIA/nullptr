@@ -68,16 +68,16 @@ void HandUI::changeSelected(bool key, int number) {
 void HandUI::discard(deque<Card*>::iterator discarded) {
 	// Buscar y borrar carta y asignar la nueva activa
 	auto aux = searchCard(discarded);
-	delete *aux;
+	delete* aux;
 	active = handUI.erase(aux);
 
 	// Si la mano no se ha vaciado, marcar la carta inicial
 	if (handUI.size() > 0) {
 		changeSelected(true, 0);
 		switch (handUI.size()) {
-			case 1: rearrangeOne(); break;
-			case 2: rearrangeTwo(); break;
-			case 3: rearrangeThree(); break;
+		case 1: rearrangeOne(); break;
+		case 2: rearrangeTwo(); break;
+		case 3: rearrangeThree(); break;
 		}
 	}
 }
@@ -92,11 +92,22 @@ void HandUI::changeAmmo(deque<Card*>::iterator used) {
 	(*aux)->ammoNumber.first->getComponent<Animator>()->play(to_string((*aux)->ammo / 10));
 	(*aux)->ammoNumber.second->getComponent<Animator>()->play(to_string((*aux)->ammo - (*aux)->ammo / 10));
 
-	// Reducir tamaño de la barra
+	/*// Reducir tamaño de la barra
 	changeAnimatorSrcRelativeWidth((*aux)->ammoBar, (*aux)->maxAmmo, (*aux)->ammo);
 	auto tr = (*aux)->ammoBar->getComponent<Transform>();
 	cout << "(x, y) = (" << tr->getWidth() << ", " << tr->getHeight() << ")" << endl;
-	// tr->setY(tr->getY() + 2);
+	cout << "(x1, y1) = (" << tr->getX() << ", " << tr->getY() << ")" << endl;
+	// tr->setY(tr->getY() + 2);*/
+	// Reducir tamaño de la barra
+	changeAnimatorSrcRelativeWidth((*aux)->ammoBar, (*aux)->maxAmmo, (*aux)->ammo);
+
+	// Actualizar la posición de la barra de munición
+	auto tr = (*aux)->ammoBar->getComponent<Transform>();
+	float newX = (*aux)->initialAmmoBarPosition.getX() - (tr->getWidth() - (*aux)->initialAmmoBarPosition.getX()) / 2.0f;
+	float newY = (*aux)->initialAmmoBarPosition.getY();
+	tr->setY(tr->getY() + 2);
+	tr->setX(tr->getX() + 2);
+	//tr->setPosition(newX, newY);
 }
 
 // Crear las cartas de la UI según la mano del jugador, iniciando variables y posicionándolas correctamente
@@ -117,7 +128,7 @@ void HandUI::createUI() {
 
 void HandUI::createCard(int i, int posX, int posY, int rotation) {
 	// Crear estructura
-	UICard* newCard = new UICard(); 
+	UICard* newCard = new UICard();
 
 	// Crear la carta y añadirle sus componentes image y tansform
 	newCard->card = new GameObject();
@@ -132,26 +143,26 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 	Vector2D posDecs; Vector2D posUnits;
 	Vector2D posBar;
 	switch (i) {
-		case 0:
-			posDecs = Vector2D(posX + X1_XOFFSET_DECS, posY + X1_YOFFSET_DECS);
-			posUnits = Vector2D(posX + X1_XOFFSET_UNITS, posY + X1_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 22, posY + 17.5);
-			break;
-		case 1:
-			posDecs = Vector2D(posX + X2_XOFFSET_DECS, posY + X2_YOFFSET_DECS);
-			posUnits = Vector2D(posX + X2_XOFFSET_UNITS, posY + X2_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 32, posY + 17.5);
-			break;
-		case 2:
-			posDecs = Vector2D(posX + X3_XOFFSET_DECS, posY + X3_YOFFSET_DECS); 
-			posUnits = Vector2D(posX + X3_XOFFSET_UNITS, posY + X3_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 52, posY + 20);
-			break;
-		case 3:
-			posDecs = Vector2D(posX + X4_XOFFSET_DECS, posY + X4_YOFFSET_DECS);
-			posUnits = Vector2D(posX + X4_XOFFSET_UNITS, posY + X4_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 61, posY + 22);
-			break;
+	case 0:
+		posDecs = Vector2D(posX + X1_XOFFSET_DECS, posY + X1_YOFFSET_DECS);
+		posUnits = Vector2D(posX + X1_XOFFSET_UNITS, posY + X1_YOFFSET_UNITS);
+		posBar = Vector2D(posX + 22, posY + 17.5);
+		break;
+	case 1:
+		posDecs = Vector2D(posX + X2_XOFFSET_DECS, posY + X2_YOFFSET_DECS);
+		posUnits = Vector2D(posX + X2_XOFFSET_UNITS, posY + X2_YOFFSET_UNITS);
+		posBar = Vector2D(posX + 32, posY + 17.5);
+		break;
+	case 2:
+		posDecs = Vector2D(posX + X3_XOFFSET_DECS, posY + X3_YOFFSET_DECS);
+		posUnits = Vector2D(posX + X3_XOFFSET_UNITS, posY + X3_YOFFSET_UNITS);
+		posBar = Vector2D(posX + 52, posY + 20);
+		break;
+	case 3:
+		posDecs = Vector2D(posX + X4_XOFFSET_DECS, posY + X4_YOFFSET_DECS);
+		posUnits = Vector2D(posX + X4_XOFFSET_UNITS, posY + X4_YOFFSET_UNITS);
+		posBar = Vector2D(posX + 61, posY + 22);
+		break;
 	}
 
 	// Crear números
@@ -260,21 +271,24 @@ void HandUI::rearrangeTwo() {
 
 // Posiciona la carta restante en el centro sin rotación
 void HandUI::rearrangeOne() {
+
 	Transform* tr = nullptr;
 	Transform* trDecs = nullptr;
 	Transform* trUnits = nullptr;
 	Transform* trBar = nullptr;
 
-	tr = (*active)->card->getComponent<Transform>();
-	tr->setX(CENTERED_CARD_POS);
-	tr->setRotation(0);
-	trDecs = (*active)->ammoNumber.first->getComponent<Transform>();
+	// Única carta
+	auto it = handUI.begin();
+	tr = (*it)->card->getComponent<Transform>();
+	tr->setX(CENTERED_CARD_POS); tr->setRotation(0);
+	trDecs = (*it)->ammoNumber.first->getComponent<Transform>();
 	trDecs->setPos(Vector2D(tr->getX() + XC_XOFFSET_DECS, tr->getY() + XC_YOFFSET)); trDecs->setRotation(0);
-	trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
+	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + XC_XOFFSET_UNITS, tr->getY() + XC_YOFFSET)); trUnits->setRotation(0);
-	trBar = (*active)->ammoBar->getComponent<Transform>();
+	trBar = (*it)->ammoBar->getComponent<Transform>();
 	trBar->setPos(Vector2D(tr->getX() + 42, tr->getY() + 18)); trBar->setRotation(0);
 }
+
 
 // Buscar la carta correspondiente y devolver un iterador apuntando a esta
 deque<UICard*>::iterator HandUI::searchCard(deque<Card*>::iterator searched) {
@@ -298,14 +312,15 @@ void HandUI::createNumberAnims(GameObject* obj, int value) {
 	// Añadir animator y crear animaciones
 	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture(STATISTICS_NUMBERS), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, ST_NUMBERS_ROWS, ST_NUMBERS_COLUMNS);
 	for (int j = 0; j < N_NUMBERS; j++) anim->createAnim(to_string(j), j, j, 1, 0);
-	
+
 	// Reproducir animación correspondiente
 	anim->play(to_string(value));
 }
 
 // Cálcula y cambia el ancho de animación al correspondiente
 void HandUI::changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value) {
-	bar->getComponent<Animator>()->setSrcRectRelativeWidth(getFactored(maxValue, value));
+	bar->getComponent<Transform>()->setWidth(bar->getComponent<Transform>()->getWidth() * (value / maxValue));
+	//bar->getComponent<Animator>()->setSrcRectRelativeWidth(getFactored(maxValue, value));
 }
 
 // Devuelve en 0.XX el valor del factor que usar en el animator
