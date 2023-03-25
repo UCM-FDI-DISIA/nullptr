@@ -6,6 +6,18 @@ InventoryScene::InventoryScene() : GameState() {
 	auto info = PlayerData::instance()->getInventoryInfo();
 	auto rc = PlayerData::instance()->getReceivedCards();
 
+	
+
+	//Imagen de fondo
+	GameObject* background = addGameObject();
+	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Image>(SDLApplication::getTexture("InventoryBackground"));
+
+	//Icono de moneda
+	GameObject* coin = addGameObject();
+	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 32, 32);
+	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
+
 	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, []() { SDLApplication::popGameState(); }, EXIT);
 }
 

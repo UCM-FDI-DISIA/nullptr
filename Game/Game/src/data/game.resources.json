@@ -13,6 +13,7 @@
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
+      { "id" : "InventoryBackground", "file" :  "../Game/resources/images/UI/InventoryScene/InventoryBackground_1280x720.png"},
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
@@ -82,6 +83,7 @@
       { "id" : "LifeSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/LifeSymbol_32x32.png"},
       { "id" : "ManaSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/ManaSymbol_32x32.png"},
       { "id" : "SpeedSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/SpeedSymbol_32x32.png"},
+      { "id" : "Coin", "file" : "../Game/resources/images/UI/InventoryScene/Coin_32x32.png"},
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
 
