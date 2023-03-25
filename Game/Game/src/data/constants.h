@@ -238,17 +238,48 @@ const int IS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 2;
 const int IS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 2;
 const int IS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 2;
 const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
-const Vector2D IS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), WIN_HEIGHT * 7 / 8);
+const Vector2D IS_EXIT_BUTTON_POS = Vector2D(1115 - IS_BUTTON_WIDTH/2, 670);
 const Vector2D IS_EXITFRAME_BUTTON_POS = IS_EXIT_BUTTON_POS - Vector2D(24, 44);
 const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH - 50, 30);
 
 // INVENTORYSCENE : SYMBOLS
-const string LIFE = "LifeSymbol";
-const string MANA = "ManaSymbol";
-const string SPEED = "SpeedSymbol";
-const string CADENCE = "CadenceSymbol";
-const string ATTACK = "AttackSymbol";
+const string SYMBOLS_KEYS[5] = {
+	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
+};
 const int SYMBOL_DIMENSIONS = 64;
+const Vector2D SYMBOL_POSITIONS[5] = {
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 310),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 380),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 450),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 520),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 590)
+};
+
+// INVENTORYSCENE : DECK
+const Vector2D DECK_POSITIONS[6] = {
+	Vector2D(20, 520),
+	Vector2D(180, 520),
+	Vector2D(340, 520),
+	Vector2D(500, 520),
+	Vector2D(660, 520),
+	Vector2D(820, 520)
+};
+
+// INVENTORY : LIBRARY
+const Vector2D LIBRARY_POSITIONS[12] = {
+	Vector2D(20, 50),
+	Vector2D(180, 50),
+	Vector2D(340, 50),
+	Vector2D(500, 50),
+	Vector2D(660, 50),
+	Vector2D(820, 50),
+	Vector2D(20, 270),
+	Vector2D(180, 270),
+	Vector2D(340, 270),
+	Vector2D(500, 270),
+	Vector2D(660, 270),
+	Vector2D(820, 270)
+};
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";
