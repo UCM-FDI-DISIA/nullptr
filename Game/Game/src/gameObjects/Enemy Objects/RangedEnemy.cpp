@@ -9,7 +9,7 @@ void RangedEnemy::initGameObject(Vector2D pos,int life, Player* player) {
 	addComponent<RangeBehaviour>(1, 200, 3000, 3000, 50, 3, player);
 	addComponent<OnDeath>(3, 1, player->getComponent<Transform>());
 	addComponent<HealthComponent>(life);
-	addComponent<EnemyAnimator>(getComponent<RangeBehaviour>(), RANGED_ENEMY_TEXTURE_KEY, RANGED_ENEMY_SPRITE_WIDTH,
+	addComponent<EnemyAnimator>(RANGED_ENEMY_TEXTURE_KEY, RANGED_ENEMY_SPRITE_WIDTH,
 		RANGED_ENEMY_SPRITE_HEIGHT, RANGED_ENEMY_SPRITE_ROWS, RANGED_ENEMY_SPRITE_COLS, 
 		RANGED_ENEMY_IDLE_ANIMATION, RANGED_ENEMY_MOVEMENT_ANIMATION, RANGED_ENEMY_ATTACK_ANIMATION);
 	addComponent<ColliderComponent>(_grp_PLAYER);
