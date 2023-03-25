@@ -32,17 +32,7 @@ ChestScene::ChestScene() : NodeScene() {
 
 	gachaButton->addComponent<ButtonComponent>([&, gb=gachaButton]() {gacha(gb); }, SDLApplication::instance());
 	
-	/*
-	AnimatorInfo aI = AnimatorInfo(key);
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-
-	// Crear boton
-	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
 	
-	*/
 	
 }
 
@@ -92,7 +82,6 @@ void ChestScene::spawnNewItem()
 
 		//Setear la nueva lista de items a player data
 		PlayerData::instance()->setAvailableItems(aux);
-		//obj->removeComponent<ButtonComponent>();
 		
 	}
 }

@@ -202,9 +202,6 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Node Components\ChestComponent.cpp">
-      <Filter>Archivos de Dependecias\Components\Node Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
@@ -479,9 +476,6 @@
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\EterBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Node Components\ChestComponent.h">
-      <Filter>Archivos de Encabezado\Components\Node Components</Filter>
     </ClInclude>
     <ClInclude Include="src\data\PlayerData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
