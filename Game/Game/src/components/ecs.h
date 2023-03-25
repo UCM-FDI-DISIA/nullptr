@@ -26,6 +26,7 @@ enum cmpId : cmpId_type {
 	_ETER,
 	_ON_DEATH,
 	_CHARGED_PORTAL,
+	_CALLBACK_DELAYER,
 	// ... (compoment ids)
 
 	// do not remove this

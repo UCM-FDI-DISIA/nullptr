@@ -12,6 +12,8 @@ public:
 	static void mainMenu();
 	void gacha(GameObject* obj);
 
+	void spawnNewItem();
+
 	
 };
 

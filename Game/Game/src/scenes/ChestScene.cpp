@@ -1,5 +1,6 @@
 #include "ChestScene.h"
 #include "../core/SDLApplication.h"
+#include "../components/General Components/CallbackDelayer.h"
 
 ChestScene::ChestScene() : NodeScene() {
 	cout << "Has entrado en la escena de Cofre" << endl;
@@ -54,6 +55,15 @@ void ChestScene::gacha(GameObject* obj) {
 	if (alreadyClicked) return;
 	//Sacamos el vector de reliquias disponibles
 	std::cout << "CLICK!\n";
+	
+	GameObject* delay = addGameObject();
+	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 500);
+
+	alreadyClicked = true;
+}
+
+void ChestScene::spawnNewItem()
+{
 	std::vector<std::string> aux = PlayerData::instance()->getAvailableItems();
 
 	if (aux.size() > 0) {
@@ -83,7 +93,6 @@ void ChestScene::gacha(GameObject* obj) {
 		//Setear la nueva lista de items a player data
 		PlayerData::instance()->setAvailableItems(aux);
 		//obj->removeComponent<ButtonComponent>();
-		alreadyClicked = true;
+		
 	}
-	
 }
