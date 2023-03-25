@@ -6,6 +6,13 @@ CardsDataContainer::CardsDataContainer() :
 	readFromJSON("../Game/src/data/game.cards.json");
 }
 
+CardTime CardsDataContainer::stringToCardTime(std::string t) {
+	if (t == "Past") return _CardPast;
+	if (t == "Present") return _CardPresent;
+	if (t == "Future") return _CardFuture;
+	throw "Invalid card time.";
+}
+
 // Lee la información de las cartas desde JSON
 void CardsDataContainer::readFromJSON(std::string filename) {
 	// Load JSON configuration file. We use a unique pointer since we
@@ -34,6 +41,7 @@ void CardsDataContainer::readFromJSON(std::string filename) {
 		card.mana = static_cast<int>(vObj["mana"]->AsNumber());
 		card.downTime = static_cast<float>(vObj["downTime"]->AsNumber());
 		card.texture = &sdlutils().images().at(vObj["textureKey"]->AsString());
+		card.time = stringToCardTime(vObj["time"]->AsString());
 		// Añadir la información de la carta al map que las almacena
 		cardsDataMap[card.name] = card;
 	}

@@ -1,13 +1,12 @@
 #pragma once
-#ifndef ALBUMSCENE_H_
-#define ALBUMSCENE_H_
 
 #include "GameState.h"
+#include "../data/Album.h"
+
 class AlbumScene : public GameState {
 private:
+	int cardsByRow;
 public:
 	AlbumScene();
-	static void mainMenu();
+	void createCard(CardData myData);
 };
-
-#endif // !ALBUMSCENE_H_
