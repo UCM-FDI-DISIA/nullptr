@@ -13,23 +13,17 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  RiotShieldCard());
+	// Cartas iniciales
+	deck.push_back(new SwordCard());
+	deck.push_back(new SwordCard());
+	deck.push_back(new SwordCard());
 
-	deck.push_back(new  RiotShieldCard());
+	deck.push_back(new GunCard());
+	deck.push_back(new GunCard());
+	deck.push_back(new GunCard());
 
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-	
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
-
-	deck.push_back(new RiotShieldCard());
+	deck.push_back(new LaserShadesCard());
+	deck.push_back(new LaserShadesCard());
 }
 
 PlayerData::~PlayerData() {

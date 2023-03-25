@@ -1,14 +1,22 @@
 #pragma once
 #include "../../core/SDLApplication.h"
 #include "../GameObject.h"
+#include <cmath>
 
 struct UICard {
 	GameObject* card;
 	pair<GameObject*, GameObject*> ammoNumber;
-	vector<GameObject*> ammoBlocks;
+	GameObject* ammoBar;
 	int ammo;
+	int maxAmmo;
 
-	UICard() : card(nullptr), ammo(0) {};
+	UICard() : card(nullptr), ammo(0), maxAmmo(INT_MAX) {};
+	~UICard() {
+		delete card;
+		delete ammoNumber.first;
+		delete ammoNumber.second;
+		delete ammoBar;
+	}
 };
 
 class HandUI : public GameObject
@@ -41,6 +49,8 @@ public:
 
 	// Cambiar la munición de una carta
 	void changeAmmo(deque<Card*>::iterator used);
+	void changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value);
+	float getFactored(float maxValue, float value);
 
 	// Reposiciona las cartas según el número de cartas que quedan en la mano
 	void rearrangeThree();
