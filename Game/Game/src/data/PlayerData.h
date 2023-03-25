@@ -1,16 +1,18 @@
 #pragma once
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
+#include "../data/CardsDataContainer.h"
 #include <vector>
+#include <map>
 
 struct InventoryInfo {
 	
 	int cuantity = 0;
 	int cuantityDeck = 0;
-	Card* card;
+	CardData* card;
 
 	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { }
-	InventoryInfo(int c, int cd, Card* ca) : cuantity(c), cuantityDeck(cd), card(ca) { }
+	InventoryInfo(int c, int cd, CardData* ca) : cuantity(c), cuantityDeck(cd), card(ca) { }
 };
 
 class Card;
@@ -24,6 +26,8 @@ class PlayerData : public Singleton<PlayerData>
 	
 	Mazo - lo que se lleva
 	Biblioteca - lo que no
+	Inventario - TODO
+	Cartas Recibidas - Mapa de cartas recibidas y su posicion en el vector de inventario
 
 	Progreso de la run
 	- mapa
@@ -37,6 +41,7 @@ class PlayerData : public Singleton<PlayerData>
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
 	std::vector<InventoryInfo> inventory;
+	std::unordered_map<string, vector<InventoryInfo>::iterator> receivedCard;
 	
 	int maxMana;
 	int maxHP;
@@ -60,6 +65,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getFireRateMult() { return fireRateMult; }
 		inline int getLevel() { return level; }
 		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
+		inline unordered_map<string, vector<InventoryInfo>::iterator> getReceivedCards() { return receivedCard; }
 
 		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
 		inline void setCurrMana(int currMana) { this->currMana = currMana; }
@@ -75,7 +81,7 @@ class PlayerData : public Singleton<PlayerData>
 
 		std::vector<Card*> getDeck();
 		void setDeck(std::vector<Card*> newDeck);
-		void addCardToLibrary(Card* newCard);
+		void addCardToLibrary(Card* newCard, int num);
 		std::vector<Card*> getLibrary();
 		
 };

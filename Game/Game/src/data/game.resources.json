@@ -77,6 +77,11 @@
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
       { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
 
+      { "id" : "AttackSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/AttackSymbol_32x32.png"},
+      { "id" : "CadenceSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/CadenceSymbol_32x32.png"},
+      { "id" : "LifeSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/LifeSymbol_32x32.png"},
+      { "id" : "ManaSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/ManaSymbol_32x32.png"},
+      { "id" : "SpeedSymbol", "file" :  "../Game/resources/images/UI/InventoryScene/SpeedSymbol_32x32.png"},
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
 
