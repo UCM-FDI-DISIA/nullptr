@@ -7,29 +7,11 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  SwordCard());
-	
-	deck.push_back(new  SwordCard());
-	
-	deck.push_back(new  SwordCard());
-	
-	deck.push_back(new  SwordCard());
-	
-	deck.push_back(new  SwordCard());
-
-	deck.push_back(new  GunCard());
-
-	deck.push_back(new RiotShieldCard());
-	
-	
-	
-	//Carga de todas las reliquias
-
-	for (auto& var : sdlutils().relics().map_)
-	{
-		avlbRelics.push_back(var.first);
-	}
-
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  CheatGunCard());
 
 }
 
@@ -55,7 +37,7 @@ void PlayerData::defaultPlayerStats()
 
 void PlayerData::updatePlayerStats()
 {
-	//para no duplicar los efectos de las reliquias, se resetean las estadísticas del jugador
+	//para no duplicar los efectos de las reliquias, se resetean las estadï¿½sticas del jugador
 	defaultPlayerStats();
 
 	for (auto relic : myRelics) {
