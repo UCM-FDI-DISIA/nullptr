@@ -267,6 +267,27 @@ const int CARD_RECTANGLE_WIDTH = 34;
 const int CARD_RECTANGLE_HEIGHT = 14;
 const Vector2D CARD_RECTANGLE_OFFSET = Vector2D(44, -7);
 
+const string DECK_PANEL = "DeckPanel";
+const int DP_WIDTH = 90;
+const int DP_HEIGHT = 45;
+const Vector2D DP_POSITION = Vector2D(474 - DP_WIDTH/2, 465);
+
+const string OBJECTS_PANEL = "ObjectsPanel";
+const int OP_WIDTH = 125;
+const int OP_HEIGHT = 30;
+const Vector2D OP_POSITION = Vector2D(1116 - OP_WIDTH/2, 99);
+
+const string INVENTORY_PANEL = "InventoryPanel";
+const int IP_WIDTH = 175;
+const int IP_HEIGHT = 30;
+const Vector2D IP_POSITION = Vector2D(474 - IP_WIDTH / 2, 0);
+
+const string STATS_PANEL = "StatsPanel";
+const int SP_WIDTH = 210;
+const int SP_HEIGHT = 30;
+const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
+
+
 // INVENTORYSCENE : DECK
 const Vector2D DECK_POSITIONS[6] = {
 	Vector2D(20, 520),

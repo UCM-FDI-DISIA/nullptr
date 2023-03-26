@@ -87,6 +87,10 @@
       { "id" : "CardCircle", "file" : "../Game/resources/images/UI/InventoryScene/CardCircle_Inventory_20x20.png"},
       { "id" : "CardFrame", "file" : "../Game/resources/images/UI/InventoryScene/CardFrame_66x101.png"},
       { "id" : "CardRectangle", "file" : "../Game/resources/images/UI/InventoryScene/CardRectangle_Inventory_34x14.png"},
+      { "id" : "DeckPanel", "file" : "../Game/resources/images/UI/InventoryScene/DeckPanel_90x45.png"},
+      { "id" : "ObjectsPanel", "file" : "../Game/resources/images/UI/InventoryScene/ObjectsPanel_125x30.png"},
+      { "id" : "StatsPanel", "file" : "../Game/resources/images/UI/InventoryScene/StatsPanel_210x30.png"},
+      { "id" : "InventoryPanel", "file" : "../Game/resources/images/UI/InventoryScene/InventoryPanel_175x30.png"},
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
 
