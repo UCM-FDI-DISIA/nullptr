@@ -30,11 +30,12 @@ public:
 	static const int id = _ENEMY_BEHAVIOUR;
 
 	//Constructora para la herencia
-	EnemyBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : speed(spd), damage(dmg), stopTime(stop), attackInterval(attack), attacking(false) {
-		player = plyr;
-		playerPos = player->getComponent<Transform>();
-		behaviorTime = SDL_GetTicks();
-    };
+	EnemyBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : 
+		speed(spd), damage(dmg), stopTime(stop), attackInterval(attack), attacking(false), elapsedTime(0), behaviorTime(SDL_GetTicks()),
+		player(plyr), pos(nullptr), playerPos(plyr->getComponent<Transform>()),
+		life(nullptr), playerLife(plyr->getComponent<HealthComponent>()), 
+		confused(false) {
+	};
 
 	virtual void initComponent(){
 		pos = gObj->getComponent<Transform>();

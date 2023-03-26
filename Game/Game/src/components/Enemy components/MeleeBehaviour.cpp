@@ -37,6 +37,7 @@ void MeleeBehaviour::close() {
 }
 
 void MeleeBehaviour::update() {
+	attacking = false;
 	if (confused) {
 		pos->setVel(Vector2D(rand(), rand()).normalize() * speed);
 	}

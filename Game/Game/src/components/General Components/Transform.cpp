@@ -6,6 +6,17 @@
 Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), anchorPoint_(VECTOR_ZERO), width_(0), height_(0), rotation_(0) {
 }
 
+//Constructora por copia
+Transform::Transform(Transform* other) {
+	initialPosition_ = other->initialPosition_;
+	position_ = other->initialPosition_;
+	velocity_ = other->velocity_;
+	anchorPoint_ = other->anchorPoint_;
+	width_ = other->width_;
+	height_ = other->height_;
+	rotation_ = other->rotation_;
+}
+
 //Constructora normal
 Transform::Transform(Vector2D pos, Vector2D vel, float w, float h, float r) : initialPosition_(pos), position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {
 	anchorPoint_ = Vector2D(w / 2, h / 2);

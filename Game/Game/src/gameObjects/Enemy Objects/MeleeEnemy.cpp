@@ -12,7 +12,7 @@ void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<OnDeath>(3, 1, player->getComponent<Transform>());
 	addComponent<HealthComponent>(life);
 	addComponent<StatusComponent>();
-	addComponent<EnemyAnimator>(getComponent<MeleeBehaviour>(),MELEE_ENEMY_TEXTURE_KEY,
+	addComponent<EnemyAnimator>(MELEE_ENEMY_TEXTURE_KEY,
 		MELEE_ENEMY_SPRITE_WIDTH, MELEE_ENEMY_SPRITE_HEIGHT,
 		MELEE_ENEMY_SPRITE_ROWS, MELEE_ENEMY_SPRITE_COLS,
 		MELEE_ENEMY_IDLE_ANIMATION, MELEE_ENEMY_MOVEMENT_ANIMATION, MELEE_ENEMY_ATTACK_ANIMATION);

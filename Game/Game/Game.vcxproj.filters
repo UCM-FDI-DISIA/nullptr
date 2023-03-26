@@ -7,9 +7,6 @@
     <ClCompile Include="src\core\GameStateMachine.cpp">
       <Filter>Archivos de Dependecias</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\SDLApplication.cpp">
-      <Filter>Archivos de Dependecias</Filter>
-    </ClCompile>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
@@ -208,6 +205,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\SDLApplication.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\components\General Components\TextComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
@@ -241,12 +241,18 @@
     <ClCompile Include="src\components\Card Components\FollowEnemyComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
     </ClCompile>
+    <ClCompile Include="src\data\CardsDataContainer.cpp">
+      <Filter>Archivos de Dependecias\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\Album.cpp">
+      <Filter>Archivos de Dependecias\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\CallbackDelayer.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de Encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\AlbumScene.h">
@@ -480,6 +486,10 @@
     <ClInclude Include="src\data\RelicData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\core\SDLApplication.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\TextComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
@@ -503,6 +513,18 @@
     </ClInclude>
     <ClInclude Include="src\components\Card Components\FollowEnemyComponent.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\CardsDataContainer.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\CardData.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\Album.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\CallbackDelayer.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -625,6 +647,12 @@
     <Filter Include="Archivos de Encabezado\Data\json">
       <UniqueIdentifier>{562a10a6-d183-49bc-b7bb-8bcaaaf0483a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de Dependecias\Core">
+      <UniqueIdentifier>{63ea1796-0add-4ff6-8800-c9ab9ed0e692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de Encabezado\Core">
+      <UniqueIdentifier>{98992aa9-64df-4604-9431-33c2e4038671}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -636,6 +664,9 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
     <None Include="src\data\game.map.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
+    <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>

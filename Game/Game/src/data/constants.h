@@ -1,4 +1,4 @@
-
+#pragma once
 
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
@@ -15,6 +15,7 @@ using namespace std;
 using uint = unsigned int;
 
 const Vector2D VECTOR_ZERO = { 0,0 };
+
 
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1280;
@@ -222,6 +223,10 @@ const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
+//CHESTMENU: BUTTON POSITIONS AND DIMENSIONS
+const int CHEST_BUTTON_WIDTH = 100;
+const int CHEST_BUTTON_HEIGHT = 50;
+
 // MAPSCENE: BUTTON POSITIONS AND DIMENSIONS
 const int MS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
 const int MS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 3;
@@ -355,6 +360,9 @@ const int X4_4CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + UI_CARD_WIDTH + BE
 	// 3 CARDS IN HAND
 const int X1_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - BETWEEN_CARD_SPACE * 2;
 const int X3_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + BETWEEN_CARD_SPACE * 2;
+
+// RELICS ----------------------------------------------------------------------------------------
+
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;
@@ -493,5 +501,21 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
+
+//STRUCTS
+
+struct AnimatorInfo {
+	string key;
+	int w, h;
+	int fw, fh;
+	int rows, cols;
+	//Con constantes para botones genéricos
+	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
+		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }
+	//Con parámetros específicos
+	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r, int _c) :
+		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
+};
+
 
 #endif

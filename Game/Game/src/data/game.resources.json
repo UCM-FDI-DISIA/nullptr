@@ -13,6 +13,7 @@
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
+      { "id" : "ChestBackground", "file" : "../Game/resources/images/UI/ChestScene/ChestBackground_106x59.png" },
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
@@ -92,7 +93,9 @@
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
       { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
 
-      { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" }
+      { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id": "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png"}
+      
     ],
     
     "messages" : [
