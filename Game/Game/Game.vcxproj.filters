@@ -241,6 +241,9 @@
     <ClCompile Include="src\data\Album.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\UI\InventoryCard.cpp">
+      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -512,6 +515,9 @@
     </ClInclude>
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

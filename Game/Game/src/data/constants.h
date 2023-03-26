@@ -257,7 +257,7 @@ const Vector2D SYMBOL_POSITIONS[5] = {
 
 const string CARD_CIRCLE = "CardCircle";
 const int CARD_CIRCLE_RADIOUS = 20;
-const Vector2D CARD_CIRCLE_OFFSET = Vector2D(48, 83);
+const Vector2D CARD_CIRCLE_OFFSET = Vector2D(52, 75);
 const string CARD_FRAME = "CardFrame";
 const int CARD_FRAME_WIDTH = 66;
 const int CARD_FRAME_HEIGHT = 101;

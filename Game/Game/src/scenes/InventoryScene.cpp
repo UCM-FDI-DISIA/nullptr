@@ -11,8 +11,12 @@ InventoryScene::InventoryScene() : GameState() {
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("InventoryBackground"));
 
-	createDeck();
-	createLibrary();
+	int numD = 0;
+	for (int i = 0; i < info.size(); i++) {
+		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); numD++; }
+		else addGameObject<InventoryCard>(this, &info[i], i);
+	}
+
 	//Icono de moneda
 	GameObject* coin = addGameObject();
 	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 32, 32);
@@ -43,37 +47,4 @@ void InventoryScene::createSymbol(Vector2D _pos, string key) {
 
 	symbol->addComponent<Transform>(_pos, VECTOR_ZERO, SYMBOL_DIMENSIONS, SYMBOL_DIMENSIONS);
 	symbol->addComponent<Image>(&sdlutils().images().at(key));
-}
-
-void InventoryScene::createDeck() {
-	int numD = 0;
-	int i = 0;
-
-	while (numD < 6 && i < info.size()) {
-		if (info[i].cuantityDeck != 0) {
-			GameObject* card = addGameObject();
-			card->addComponent<Transform>(DECK_POSITIONS[numD], VECTOR_ZERO, CARD_WIDTH * 2, CARD_HEIGHT * 2);
-			card->addComponent<Image>(info[i].card->texture);
-			deck.push_back(card);
-			numD++;
-		}
-		i++;
-	}
-}
-
-void InventoryScene::deleteDeck() {
-	for (GameObject* g : deck) {
-		g->setAlive(false);
-	}
-	deck.clear();
-}
-
-void InventoryScene::createLibrary() {
-	int numL = 0;
-	
-	for (int i = 0; i < info.size(); i++) {
-		if (info[i].cuantityDeck == 0) {
-			// Aqui se crearia la carta en su posicion determinada
-		}
-	}
 }
