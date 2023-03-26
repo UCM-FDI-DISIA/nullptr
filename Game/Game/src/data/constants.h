@@ -245,7 +245,9 @@ const int IS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 2;
 const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
 const Vector2D IS_EXIT_BUTTON_POS = Vector2D(1115 - IS_BUTTON_WIDTH/2, 670);
 const Vector2D IS_EXITFRAME_BUTTON_POS = IS_EXIT_BUTTON_POS - Vector2D(24, 44);
-const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH - 50, 30);
+const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
+const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
+const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
@@ -262,6 +264,7 @@ const Vector2D SYMBOL_POSITIONS[5] = {
 	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 520),
 	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 590)
 };
+
 const Vector2D STAT_OFFSET = Vector2D(74, 20);
 const Vector2D STAT_VALUE_OFFSET = Vector2D(190, 20);
 
@@ -325,7 +328,15 @@ const Vector2D LIBRARY_POSITIONS[12] = {
 };
 
 // INVENTORY : OBJECTS
-
+const int OBJECTS_DIMENSIONS = 64;
+const Vector2D OBJECTS_POSITIONS[6] = {
+	Vector2D(960, 132),
+	Vector2D(1034, 132),
+	Vector2D(1108, 132),
+	Vector2D(960, 199),
+	Vector2D(1034, 199),
+	Vector2D(1108, 199)
+};
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";

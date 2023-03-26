@@ -9,6 +9,7 @@ private:
 	unordered_map<string, vector<InventoryInfo>::iterator> cr;
 	vector<int> deck;
 	vector<int> stats;
+	int deckCards;
 public:
 	InventoryScene();
 
@@ -16,7 +17,10 @@ public:
 	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 	void createSymbol(Vector2D _pos, string key, string text, int val);
 	void createPanels();
+	void createMoneyInfo();
+	void createObjects();
 
 	void removeFromDeck(int ind);
 	int getFirstDeckPos();
+	void changeDeckCardsNumber(int num);
 };

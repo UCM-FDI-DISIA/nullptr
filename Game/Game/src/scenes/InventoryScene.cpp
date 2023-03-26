@@ -5,10 +5,11 @@ InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 	// Llamamos a Player data para pillar la info de las cartas que se tienen
 	info = PlayerData::instance()->getInventoryInfo();
 	cr = PlayerData::instance()->getReceivedCards();
+	deckCards = 0;
 
 	stats.push_back(PlayerData::instance()->getMaxHP());
 	stats.push_back(PlayerData::instance()->getMaxMana());
-	stats.push_back(PLAYER_SPEED / 2);
+	stats.push_back(PlayerData::instance()->getPlayerMoveSpeed() / 2);
 	stats.push_back(PlayerData::instance()->getAttackMult() * 100);
 	stats.push_back(PlayerData::instance()->getFireRateMult() * 100);
 
@@ -18,18 +19,15 @@ InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 	background->addComponent<Image>(SDLApplication::getTexture("InventoryBackground"));
 
 	createPanels();
+	createMoneyInfo();
+	createObjects(); 
 
 	int numD = 0;
 	for (int i = 0; i < info.size(); i++) {
-		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); deck[i] = numD; numD++; }
+		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); deck[i] = numD; numD++; deckCards += info[i].cuantityDeck; }
 		else addGameObject<InventoryCard>(this, &info[i], i);
 	}
-
-	//Icono de moneda
-	GameObject* coin = addGameObject();
-	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 32, 32);
-	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
-
+	
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
 		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
@@ -84,6 +82,34 @@ void InventoryScene::createPanels() {
 
 }
 
+void InventoryScene::createMoneyInfo() {
+	//Icono de moneda
+	GameObject* coin = addGameObject();
+	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 64, 64);
+	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
+
+	// Texto
+	GameObject* text = addGameObject();
+	text->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, 70, 48);
+	text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), "Dinero");
+
+	// Texto con el numero de monedas
+	GameObject* mon = addGameObject();
+	mon->addComponent<Transform>(MONEY_VALUE, VECTOR_ZERO, 50, 48);
+	int m = PlayerData::instance()->getMoney();
+	mon->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), to_string(m));
+}
+
+void InventoryScene::createObjects() {
+	auto objs = PlayerData::instance()->getRelics();
+
+	for (int i = 0; i < objs.size(); i++) {
+		GameObject* g = addGameObject();
+		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
+		g->addComponent<Image>(objs[i]->texture);
+	}
+}
+
 void InventoryScene::removeFromDeck(int ind) {
 	deck[ind] = -1;
 }
@@ -97,4 +123,8 @@ int InventoryScene::getFirstDeckPos() {
 	}
 
 	if (found) { deck[i] = i; return i; }
+}
+
+void InventoryScene::changeDeckCardsNumber(int num) {
+	deckCards += num;
 }

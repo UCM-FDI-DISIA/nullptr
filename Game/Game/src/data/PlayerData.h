@@ -53,6 +53,7 @@ class PlayerData : public Singleton<PlayerData>
 	//Vector con las reliquias que tiene el jugador
 	std::vector<Relic*> myRelics;
 
+	int money;
 	int maxMana;
 	int maxHP;
 	int currHP;
@@ -75,7 +76,9 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getAttackMult() { return attackMult; }
 		inline float getFireRateMult() { return fireRateMult; }
 		inline float getPlayerMoveSpeed() { return playerSpeed; }
+		inline float getMoney() { return money; }
 		inline int getLevel() { return level; }
+		inline vector<Relic*> getRelics() { return myRelics; }
 		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
 		inline unordered_map<string, vector<InventoryInfo>::iterator> getReceivedCards() { return receivedCard; }
 
@@ -86,6 +89,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
 		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
 		inline void setLevel(int level) { this->level = level; }
+		inline void setMoney(int mon) { money += mon; }
 		inline void getPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
 		void defaultPlayerStats();
 		void updatePlayerStats();

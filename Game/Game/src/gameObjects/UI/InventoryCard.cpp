@@ -84,6 +84,7 @@ void InventoryCard::OnDeckNumberChanges() {
 	// SI PASO DE 0 A 1, HAY Q AÑADIR MARCO EN LA LIBRERIA, LA IMAGEN AL MAZO Y SU CIRCULO
 	if (cardData->cuantityDeck == 0) {
 		//Aumento el numero de cartas en mazo y cojo su posicion en el mazo
+		scene->changeDeckCardsNumber(1);
 		cardData->cuantityDeck++;
 		posDeck = scene->getFirstDeckPos();
 		// Creo de nuevo los objetos
@@ -95,6 +96,7 @@ void InventoryCard::OnDeckNumberChanges() {
 	
 	// SI PASO DEL MAXIMO DE CARTAS A 0 HAY Q ELIMINAR LA IMAGEN DE CARTA DEL MAZO
 	else if (cardData->cuantityDeck == cardData->cuantity) {
+		scene->changeDeckCardsNumber(-cardData->cuantityDeck);
 		// Elimino los objetos
 		frame->setAlive(false);
 		frame = nullptr;
@@ -120,6 +122,7 @@ void InventoryCard::OnDeckNumberChanges() {
 	// SI SIMPLEMENTE AUMENTO, ACTUALIZAMOS EL TEXTO
 	else {
 		// Aumento el numero
+		scene->changeDeckCardsNumber(1);
 		cardData->cuantityDeck++;
 		// ACTUALIZAR AMBOS TEXTOS
 		t->changeText(" " + to_string(cardData->cuantityDeck) + "/" + to_string(cardData->cuantity) + " ");

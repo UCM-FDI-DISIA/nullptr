@@ -45,11 +45,13 @@ PlayerData::~PlayerData() {
 
 void PlayerData::defaultPlayerStats()
 {
+	money = 0;
 	setMaxMana(100);
 	setMaxHP(100);
 	setCurrHP(100);
 	setAttackMult(1);
 	setFireRateMult(1);
+	setMoney(50);
 	playerSpeed = PLAYER_SPEED;
 }
 
