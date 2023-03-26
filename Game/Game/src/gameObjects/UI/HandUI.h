@@ -7,7 +7,6 @@ struct UICard {
 	GameObject* card;
 	pair<GameObject*, GameObject*> ammoNumber;
 	GameObject* ammoBar;
-	Vector2D initialAmmoBarPosition;
 	int ammo;
 	int maxAmmo;
 
