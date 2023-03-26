@@ -103,3 +103,18 @@ public:
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	void checkCollisionWithBullets(GameObject* shield, BattleScene* where);
 };
+class  CheatGunCard : public Card {
+public:
+	CheatGunCard() : Card(cardsData().get("Cheat Gun")) {};
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+};
+class RitualAxeCard : public Card {
+private:
+	int enemiesKilled;
+public:
+	RitualAxeCard() : Card(cardsData().get("Hacha Ritual")) { enemiesKilled = 0; };
+	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
+	void enemieKilled();
+};

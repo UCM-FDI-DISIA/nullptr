@@ -5,6 +5,7 @@
 #include "../../components/General Components/Image.h"
 #include "../../components/General Components/ButtonComponent.h"
 #include "../../components/General Components/Animator.h"
+#include "../../data/constants.h"
 
 struct AnimatorInfo {
 	string key;

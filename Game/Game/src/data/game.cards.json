@@ -118,6 +118,25 @@
     "mana": 10,
     "downTime": 0.6,
     "textureKey": "SMG"
+  },
+  {
+    "name": "Cheat Gun",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 6,
+    "maxUses": 6,
+    "mana": 25,
+    "downTime": 0.5,
+    "textureKey": "Pistol"
+  },
+  {
+    "name": "Hacha Ritual",
+    "attackText": "",
+    "abilityText": "",
+    "damage": 2,
+    "maxUses": 5,
+    "mana": 35,
+    "downTime": 0.5,
+    "textureKey": "Sword"
   }
-
 ]

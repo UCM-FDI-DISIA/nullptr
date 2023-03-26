@@ -10,11 +10,13 @@ void ButtonComponent::update() {
 	SDL_GetMouseState(&mouseX, &mouseY);
 
 	// Cambia el estado según la posición del ratón
+	if (state != OnClick) {
 	if (isOver(mouseX, mouseY)) {
 		state = OnOver;
 	}
 	else {
 		state = OnOut;
+	}
 	}
 }
 
@@ -48,9 +50,15 @@ void ButtonComponent::onClick() {
 // Actualiza la animación del botón según el estado
 void ButtonComponent::updateAnimation() {
 	switch (state) {
-	case OnOut: changeStateAnim(ONOUT); break;
-	case OnOver: changeStateAnim(ONOVER); break;
-	case OnClick: changeStateAnim(ONCLICK); break;
+	case OnOut:
+		changeStateAnim(ONOUT);
+		break;
+	case OnOver:
+		changeStateAnim(ONOVER);
+		break;
+	case OnClick:
+		changeStateAnim(ONCLICK);
+		break;
 	}
 }
 
