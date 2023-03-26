@@ -25,7 +25,7 @@ private:
 	BattleType type;
 	GameObject* deck;
 	GameObject* pile;
-
+	Music* battleSceneOST;
 	// - UI -
 	// Frame superior de vida, man� y �ter
 	StatisticsUI* statistics;
@@ -38,6 +38,7 @@ private:
 public:
 	// Constructora
 	BattleScene(BattleType t_);
+	~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };

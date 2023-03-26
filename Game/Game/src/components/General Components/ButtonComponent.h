@@ -30,8 +30,10 @@ protected:
 	Animator* animFrame;
 
 	//Sonidos de los botones
-	SoundEffect* hoverOverButton;
-	SoundEffect* clickButton;
+	SoundEffect* hoverOverSound;
+	SoundEffect* clickSound;
+
+	vector<SoundEffect*> soundEffects;
 
 public:
 	static const int id = _BUTTON;
@@ -50,5 +52,5 @@ public:
 	virtual void updateAnimation();
 
 	// Cambia el estado de los animators para mostrar el estado del botón recibido
-	void changeStateAnim(string key);
+	void changeStateAnim(string key, int state);
 };

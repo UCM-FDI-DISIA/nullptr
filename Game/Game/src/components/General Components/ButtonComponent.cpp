@@ -30,7 +30,8 @@ void ButtonComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
-	hoverOverButton = &sdlutils().soundEffects().at("BangSmall");
+	hoverOverSound = &sdlutils().soundEffects().at("HoverOverButton");
+	clickSound = &sdlutils().soundEffects().at("ButtonPressed");
 }
 
 
@@ -51,21 +52,29 @@ void ButtonComponent::onClick() {
 void ButtonComponent::updateAnimation() {
 	switch (state) {
 	case OnOut:
-		changeStateAnim(ONOUT);
+		changeStateAnim(ONOUT, state);
 		break;
 	case OnOver:
-		changeStateAnim(ONOVER);
+		changeStateAnim(ONOVER, state);
 		break;
 	case OnClick:
-		changeStateAnim(ONCLICK);
+		changeStateAnim(ONCLICK, state);
 		break;
 	}
 }
 
 // Cambia el estado de los animators para mostrar el estado del botón recibido
-void ButtonComponent::changeStateAnim(string key) {
+void ButtonComponent::changeStateAnim(string key, int state) {
 	// Comprobar si la animación actual no es a la que hay que cambiar
 	if (animButton->currentAnimationKey() != key) {
+		switch (state) {
+		case OnClick:
+			clickSound->play();
+			break;
+		case OnOver:
+			hoverOverSound->play();
+			break;
+		}
 		// Reproducir la correspondiente
 		animButton->play(key);
 
