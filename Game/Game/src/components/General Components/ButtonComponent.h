@@ -11,10 +11,7 @@ class SDLApplication;
 
 class ButtonComponent : public Component {
 
-protected:
-	// Puntero al juego
-	SDLApplication* game;
-	
+protected:	
 	// Función a realizar
 	CallBack function;
 
@@ -31,8 +28,8 @@ protected:
 
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack _f, SDLApplication* _g, GameObject* _frame = nullptr) :
-		Component(), state(0), function(_f), game(_g), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
+	ButtonComponent(CallBack _f, GameObject* _frame = nullptr) :
+		Component(), state(0), function(_f), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
 
 	virtual void update();
 	virtual void handleInput();

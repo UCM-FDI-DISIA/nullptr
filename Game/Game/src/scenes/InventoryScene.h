@@ -7,6 +7,8 @@ class InventoryScene : public GameState {
 private:
 	vector<InventoryInfo> info;
 	unordered_map<string, vector<InventoryInfo>::iterator> cr;
+
+	vector<GameObject*> deck;
 public:
 	InventoryScene();
 
@@ -15,8 +17,6 @@ public:
 	void createSymbol(Vector2D _pos, string key);
 
 	void createDeck();
+	void deleteDeck();
 	void createLibrary();
-	
 };
-
-// ola

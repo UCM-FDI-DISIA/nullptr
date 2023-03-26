@@ -255,6 +255,18 @@ const Vector2D SYMBOL_POSITIONS[5] = {
 	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 590)
 };
 
+const string CARD_CIRCLE = "CardCircle";
+const int CARD_CIRCLE_RADIOUS = 20;
+const Vector2D CARD_CIRCLE_OFFSET = Vector2D(48, 83);
+const string CARD_FRAME = "CardFrame";
+const int CARD_FRAME_WIDTH = 66;
+const int CARD_FRAME_HEIGHT = 101;
+const Vector2D CARD_FRAME_OFFSET = Vector2D(4, 4);
+const string CARD_RECTANGLE = "CardRectangle";
+const int CARD_RECTANGLE_WIDTH = 34;
+const int CARD_RECTANGLE_HEIGHT = 14;
+const Vector2D CARD_RECTANGLE_OFFSET = Vector2D(44, -7);
+
 // INVENTORYSCENE : DECK
 const Vector2D DECK_POSITIONS[6] = {
 	Vector2D(20, 520),

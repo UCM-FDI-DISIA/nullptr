@@ -35,7 +35,7 @@ void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
 	// Crear bot�n
-	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
+	addGameObject<Button>(_cb, _bPos, aI, frame);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key) {
@@ -54,10 +54,18 @@ void InventoryScene::createDeck() {
 			GameObject* card = addGameObject();
 			card->addComponent<Transform>(DECK_POSITIONS[numD], VECTOR_ZERO, CARD_WIDTH * 2, CARD_HEIGHT * 2);
 			card->addComponent<Image>(info[i].card->texture);
+			deck.push_back(card);
 			numD++;
 		}
 		i++;
 	}
+}
+
+void InventoryScene::deleteDeck() {
+	for (GameObject* g : deck) {
+		g->setAlive(false);
+	}
+	deck.clear();
 }
 
 void InventoryScene::createLibrary() {
@@ -68,11 +76,4 @@ void InventoryScene::createLibrary() {
 			// Aqui se crearia la carta en su posicion determinada
 		}
 	}
-
-	// Este for comprueba q las posiciones son buenas
-	/*for (int i = 0; i < 12; i++) {
-		GameObject* card = addGameObject();
-		card->addComponent<Transform>(LIBRARY_POSITIONS[i], VECTOR_ZERO, CARD_WIDTH * 2, CARD_HEIGHT * 2);
-		card->addComponent<Image>(&sdlutils().images().at(REVERSE));
-	}*/
 }
