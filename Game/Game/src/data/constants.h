@@ -88,7 +88,6 @@ const int PLAYER_ATTACK_MOVE_INITIAL_FRAME = 40;
 const int PLAYER_ATTACK_MOVE_FINAL_FRAME = 47;
 const int PLAYER_ATTACK_MOVE_FRAME_RATE = 12;
 
-
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
 const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
@@ -169,8 +168,6 @@ const string BULLET= "Bullet";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
-
-
 
 // BULLETS ---------------------------------------------------------------------------------------
 const float BULLET_SPEED = 200;
@@ -343,8 +340,9 @@ const int CARD_HEIGHT = 93;
 const int UI_CARD_WIDTH = CARD_WIDTH * 3;
 const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;
 // UI CARD POSITIONS
+const int SELECTED_OFFSET = 60;
 const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2;
-const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - 60;
+const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - SELECTED_OFFSET;
 const int BETWEEN_CARD_SPACE = CARD_WIDTH * 3 / 2;
 const int CENTERED_CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2; // Usada para 3 y 1 cartas en mano
 	// 4 CARDS IN HAND
@@ -355,34 +353,59 @@ const int X4_4CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + UI_CARD_WIDTH + BE
 	// 3 CARDS IN HAND
 const int X1_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - BETWEEN_CARD_SPACE * 2;
 const int X3_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + BETWEEN_CARD_SPACE * 2;
-// UI AMMO NUMBERS DIMENSIONS
+// UI AMMO AND MANA NUMBERS DIMENSIONS
 const int UI_AMMO_NUMBERS_WIDTH = 10;
 const int UI_AMMO_NUMBERS_HEIGHT = 15;
 const string CARD_AMMO = "CardAmmo";
+const string CARDS_NUMBERS = "CardsNumbers";
+const int N_CARDS_NUMBERS = 10;
+const int CARDS_NUMBERS_WIDTH = 9;
+const int CARDS_NUMBERS_HEIGHT = 18;
+const int CARDS_NUMBERS_ROWS = 5;
+const int CARDS_NUMBERS_COLUMNS = 2;
 	// 1ST CARD
-const int X1_XOFFSET_DECS = -4;
-const int X1_YOFFSET_DECS = 31;
-const int X1_XOFFSET_UNITS = 6;
-const int X1_YOFFSET_UNITS = 29;
+const int X1_AMMO_XOFFSET_DECS = -4;
+const int X1_AMMO_YOFFSET_DECS = 31;
+const int X1_AMMO_XOFFSET_UNITS = 7;
+const int X1_AMMO_YOFFSET_UNITS = 29;
+const int X1_MANA_XOFFSET_DECS = 7;
+const int X1_MANA_YOFFSET_DECS = 70;
+const int X1_MANA_XOFFSET_UNITS = 19;
+const int X1_MANA_YOFFSET_UNITS = 68;
 	// 2ND CARD
-const int X2_XOFFSET_DECS = 6;
-const int X2_YOFFSET_DECS = 24;
-const int X2_XOFFSET_UNITS = 16;
-const float X2_YOFFSET_UNITS = 23.5;
+const int X2_AMMO_XOFFSET_DECS = 6;
+const int X2_AMMO_YOFFSET_DECS = 24;
+const int X2_AMMO_XOFFSET_UNITS = 17;
+const float X2_AMMO_YOFFSET_UNITS = 23.5;
+const int X2_MANA_XOFFSET_DECS = 13;
+const int X2_MANA_YOFFSET_DECS = 64;
+const int X2_MANA_XOFFSET_UNITS = 25;
+const int X2_MANA_YOFFSET_UNITS = 63;
 	// 3RD CARD
-const int X3_XOFFSET_DECS = 26;
-const int X3_YOFFSET_DECS = 12;
-const int X3_XOFFSET_UNITS = 36;
-const int X3_YOFFSET_UNITS = 13;
+const int X3_AMMO_XOFFSET_DECS = 26;
+const int X3_AMMO_YOFFSET_DECS = 12;
+const int X3_AMMO_XOFFSET_UNITS = 37;
+const int X3_AMMO_YOFFSET_UNITS = 13;
+const int X3_MANA_XOFFSET_DECS = 25;
+const int X3_MANA_YOFFSET_DECS = 53;
+const int X3_MANA_XOFFSET_UNITS = 37;
+const int X3_MANA_YOFFSET_UNITS = 54;
 	// 4RD CARD
-const int X4_XOFFSET_DECS = 36;
-const int X4_YOFFSET_DECS = 8;
-const int X4_XOFFSET_UNITS = 46;
-const int X4_YOFFSET_UNITS = 10;
+const int X4_AMMO_XOFFSET_DECS = 36;
+const int X4_AMMO_YOFFSET_DECS = 8;
+const int X4_AMMO_XOFFSET_UNITS = 47;
+const int X4_AMMO_YOFFSET_UNITS = 10;
+const int X4_MANA_XOFFSET_DECS = 32;
+const int X4_MANA_YOFFSET_DECS = 48;
+const int X4_MANA_XOFFSET_UNITS = 44;
+const int X4_MANA_YOFFSET_UNITS = 50;
 	// CENTERED CARD
-const int XC_XOFFSET_DECS = 15;
-const int XC_XOFFSET_UNITS = 26;
-const int XC_YOFFSET = 18;
+const int XC_AMMO_XOFFSET_DECS = 15;
+const int XC_AMMO_XOFFSET_UNITS = 26;
+const int XC_AMMO_YOFFSET = 18;
+const int XC_MANA_XOFFSET_DECS = 19;
+const int XC_MANA_XOFFSET_UNITS = 30;
+const int XC_MANA_YOFFSET = 58;
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;
@@ -456,7 +479,6 @@ const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
 //ENEMY GENERATOR---------------------------------------------------------------------------------
-
 const int MELEE_RADIUS = 500;
 const int RANGED_RADIUS = 800;
 const int TANK_RADIUS = 600;

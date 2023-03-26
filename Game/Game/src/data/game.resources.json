@@ -86,6 +86,7 @@
       { "id": "LifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
       { "id": "ManaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
       { "id": "StatisticsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/StatisticsNumbers_9x18.png" },
+      { "id": "CardsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/CardsNumbers_9x18.png" },
       
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },

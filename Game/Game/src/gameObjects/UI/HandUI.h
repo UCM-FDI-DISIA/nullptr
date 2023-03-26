@@ -8,7 +8,7 @@ struct UICard {
 	pair<GameObject*, GameObject*> manaNumber;
 	pair<GameObject*, GameObject*> ammoNumber;
 	//GameObject* ammoBar;
-	vector<GameObject*> ammoBlocks;
+	//vector<GameObject*> ammoBlocks;
 	int ammo;
 	int maxAmmo;
 
@@ -20,8 +20,7 @@ struct UICard {
 		delete ammoNumber.first;
 		delete ammoNumber.second;
 		//delete ammoBar;
-		for (int i = 0; i < maxAmmo; i++) delete ammoBlocks[i];
-		
+		//for (int i = 0; i < maxAmmo; i++) delete ammoBlocks[i];
 	}
 };
 
@@ -42,7 +41,6 @@ public:
 	virtual ~HandUI();
 	// Métodos virtuales
 	virtual void render() const;
-	virtual void update();
 
 	// Crear o recrear la UI
 	void createUI();
@@ -50,6 +48,7 @@ public:
 
 	// Cambiar de selección (llamado SIEMPRE por BattleScene)
 	void changeSelected(bool key, int number);
+	void repositionSelected(int cardPos, int offset);
 
 	// Descartar una carta
 	void discard(deque<Card*>::iterator discarded);
@@ -61,11 +60,13 @@ public:
 	void rearrangeThree();
 	void rearrangeTwo();
 	void rearrangeOne();
+	void rearrangeCard(deque<UICard*>::iterator it, int cardPos, int rotation,
+		tuple<int, int, int, float> ammoPos, tuple<int, int, int, int> manaPos);
 
 	// Buscar la carta recibida del cardComp en la mano de la UI
 	deque<UICard*>::iterator searchCard(deque<Card*>::iterator searched);
 
-	GameObject* createNumber(Vector2D pos, float rotation, int value);
-	void createNumberAnims(GameObject* obj, int value);
+	GameObject* createNumber(Vector2D pos, float rotation, int value, char type);
+	void createNumberAnims(GameObject* obj, int value, char type);
 };
 
