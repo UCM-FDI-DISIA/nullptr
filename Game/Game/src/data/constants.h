@@ -508,6 +508,20 @@ const int MESSAGE_H = 200;
 const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
+// RELIQUIAS -------------------------------------------------------------------------------------
+const string ALMACENAMIENTO_CUANTICO = "AlmacenamientoCuantico";
+const string HOVERBOARD = "Hoverboard";
+const string ENGRANAJE_AUREO = "EngranajeAureo";
+const string BRAZALETE_IONES = "BrazaleteDeIones";
+const string REGALO = "Regalo";
+const string RELOJ_DIGITAL = "RelojDigital";
+const string COLLAR_GOTICO = "CollarGotico";
+const string CINTURON_HERRAMIENTAS = "CinturonDeHerramientas";
+const string CETRO_PAPAL = "CetroPapal";
+const string LIBRO_PERDIDO = "LibroPerdido";
+const string TAZA_CAFE = "TazaDeCafe";
+const string BOTELLA_MINIATURA = "BotellaConUnBarcoEnMiniatura";
+
 //ENEMY GENERATOR---------------------------------------------------------------------------------
 
 const int MELEE_RADIUS = 500;

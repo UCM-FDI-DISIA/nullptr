@@ -106,7 +106,18 @@
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
       { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
 
-      { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" }
+      { "id" : "AlmacenamientoCuantico", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "EngranajeAureo", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "BrazaleteDeIones", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "Regalo", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "RelojDigital", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "CollarGotico", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "CinturonDeHerramientas", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "CetroPapal", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "LibroPerdido", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "TazaDeCafe", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "BotellaConUnBarcoEnMiniatura", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" }
     ],
     
     "messages" : [
@@ -123,17 +134,127 @@
       { "id" : "beat", "file" : "resources/sound/beat.wav" }
     ],
 
-    "relics" : [
-      {
-        "id": "Hoverboard",
-        "description": "Este invento del futuro mejora la movilidad de los ciudadanos",
-        "era": "F",
-        "health": "0",
-        "movementVelocity": "25",
-        "cadency": "0",
-        "mana": "20",
-        "attack": "0"
-      }
-    ]
+  "relics": [
+    {
+      "id": "AlmacenamientoCuantico",
+      "description": "Contiene la sabiduria de quienes viven en el futuro",
+      "era": "F",
+      "health": "10",
+      "movementVelocity": "0",
+      "cadency": "0",
+      "mana": "20",
+      "attack": "0"
+    },
+    {
+      "id": "Hoverboard",
+      "description": "Este invento del futuro mejora la movilidad de los ciudadanos",
+      "era": "F",
+      "health": "0",
+      "movementVelocity": "25",
+      "cadency": "0",
+      "mana": "20",
+      "attack": "0"
+    },
+    {
+      "id": "EngranajeAureo",
+      "description": "Este engranaje ha pasado de generacion en generacion siendo perfeccionada para ser usada en el arma mas potente de cada civilizacion",
+      "era": "F",
+      "health": "10",
+      "movementVelocity": "10",
+      "cadency": "10",
+      "mana": "10",
+      "attack": "10"
+    },
+    {
+      "id": "BrazaleteDeIones",
+      "description": "Este brazalete se invento para solventar el sedentarismo social. No lo consiguio, pero tal vez te resulta util",
+      "era": "F",
+      "health": "20",
+      "movementVelocity": "10",
+      "cadency": "0",
+      "mana": "0",
+      "attack": "0"
+    },
+    {
+      "id": "Regalo",
+      "description": "The past is history, the future is a mistery, but the present is a gift, that is why it's called the present",
+      "era": "P",
+      "health": "10",
+      "movementVelocity": "0",
+      "cadency": "20",
+      "mana": "0",
+      "attack": "25"
+    },
+    {
+      "id": "RelojDigital",
+      "description": "Te apresura a llegar a tiempo y mide tu ritmo cardiaco",
+      "era": "P",
+      "health": "10",
+      "movementVelocity": "25",
+      "cadency": "0",
+      "mana": "0",
+      "attack": "0"
+    },
+    {
+      "id": "CollarGotico",
+      "description": "Un collar muy aclamado actualmente, el complemento esencial para todo joven",
+      "era": "P",
+      "health": "10",
+      "movementVelocity": "25",
+      "cadency": "0",
+      "mana": "0",
+      "attack": "20"
+    },
+    {
+      "id": "CinturonDeHerramientas",
+      "description": "Como cierto superheroe cuyo nombre hace referencia a un mamifero alado",
+      "era": "P",
+      "health": "0",
+      "movementVelocity": "0",
+      "cadency": "15",
+      "mana": "15",
+      "attack": "0"
+    },
+    {
+      "id": "CetroPapal",
+      "description": "Reparte hostias como panes",
+      "era": "P",
+      "health": "15",
+      "movementVelocity": "5",
+      "cadency": "0",
+      "mana": "0",
+      "attack": "30"
+    },
+    {
+      "id": "LibroPerdido",
+      "description": "Libro perteneciente a la biblioteca de Alejandria perdido por el tiempo, contiene secretos sobre la magia antigua",
+      "era": "P",
+      "health": "0",
+      "movementVelocity": "0",
+      "cadency": "0",
+      "mana": "20",
+      "attack": "10"
+    },
+    {
+      "id": "TazaDeCafe",
+      "description": "Todo caballero ingles sabe apreciar una buena taza de cafe",
+      "era": "P",
+      "health": "15",
+      "movementVelocity": "30",
+      "cadency": "15",
+      "mana": "0",
+      "attack": "0"
+    },
+    {
+      "id": "BotellaConUnBarcoEnMiniatura",
+      "description": "En este barco antes habia gente diminuta viviendo en el, pero murieron tras estar la botella 2 siglos a la deriva por el mar",
+      "era": "P",
+      "health": "0",
+      "movementVelocity": "0",
+      "cadency": "10",
+      "mana": "15",
+      "attack": "5"
+    }
+  ]
   
   }
