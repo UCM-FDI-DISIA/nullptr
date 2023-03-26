@@ -6,15 +6,14 @@
 class EnemyAnimator: public CharacterAnimator
 {
 private:
-	EnemyBehaviour* _bhvr = nullptr;
-public:
+	EnemyBehaviour* _bhvr;
 	// Determina cuándo el enemigo está atacando
 	inline bool attacking() {
 		return _bhvr->isAttacking() || playingAttack();
 	}
 public:
 	// Llama al constructor del padre con las animaciones correspondientes y añade la de ataque
-	EnemyAnimator(EnemyBehaviour* enmyBhvr, string txtr_key, int sprtW, int sprtH, int rws, int cols, Animation idle, Animation mvment, Animation atck);
+	EnemyAnimator(string txtr_key, int sprtW, int sprtH, int rws, int cols, Animation idle, Animation mvment, Animation atck);
 	// Recoge un puntero a RangeBehaviour
 	void initComponent();
 };

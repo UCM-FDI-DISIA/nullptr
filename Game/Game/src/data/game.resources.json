@@ -14,6 +14,7 @@
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
       { "id" : "InventoryBackground", "file" :  "../Game/resources/images/UI/InventoryScene/InventoryBackground_1280x720.png"},
+      { "id" : "ChestBackground", "file" : "../Game/resources/images/UI/ChestScene/ChestBackground_106x59.png" },
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
@@ -117,7 +118,9 @@
       { "id" : "CetroPapal", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "LibroPerdido", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "TazaDeCafe", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id" : "BotellaConUnBarcoEnMiniatura", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" }
+      { "id" : "BotellaConUnBarcoEnMiniatura", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id": "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png"}
+      
     ],
     
     "messages" : [

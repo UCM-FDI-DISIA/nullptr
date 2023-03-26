@@ -1,14 +1,8 @@
 #include "PlayerData.h"
 #include "../gameObjects/Card Objects/Cards.h"
 PlayerData::PlayerData() {
-	maxHP = 100;
-	currHP = maxHP;
-
-	maxMana = 100;
-	currMana = maxMana;
-
-	fireRateMult = 1;
-	attackMult = 1;
+	
+	defaultPlayerStats();
 
 	level = 5;
 
@@ -17,9 +11,9 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
-	// Añadimos al vector de informacion las cartas que tiene el jugador de este tipo y las que están de ellas en el mazo
+	// Aï¿½adimos al vector de informacion las cartas que tiene el jugador de este tipo y las que estï¿½n de ellas en el mazo
 	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Espada")));
-	// La marcamos como añadida
+	// La marcamos como aï¿½adida
 	receivedCard["Espada"] = prev(inventory.end());
 
 	deck.push_back(new GunCard());
@@ -34,12 +28,38 @@ PlayerData::PlayerData() {
 	receivedCard["Gafas Laser"] = prev(inventory.end());
 }
 
+	
+
 PlayerData::~PlayerData() {
 	for (auto& card : deck) {
 		delete card;
 		card = nullptr;
 	}
 	deck.clear();
+}
+
+void PlayerData::defaultPlayerStats()
+{
+	setMaxMana(100);
+	setMaxHP(100);
+	setCurrHP(100);
+	setAttackMult(1);
+	setFireRateMult(1);
+	playerSpeed = PLAYER_SPEED;
+}
+
+void PlayerData::updatePlayerStats()
+{
+	//para no duplicar los efectos de las reliquias, se resetean las estadï¿½sticas del jugador
+	defaultPlayerStats();
+
+	for (auto relic : myRelics) {
+		maxMana += relic->mana;
+		maxHP += relic->health;
+		attackMult += relic->attackMult;
+		fireRateMult += relic->cadencyMult;
+		playerSpeed += relic->movementVelocity;
+	}
 }
 
 void PlayerData::getDataFromJSON()
@@ -57,14 +77,22 @@ std::vector<Card*> PlayerData::getDeck()
 	return deck;
 }
 
+std::vector<std::string> PlayerData::getAvailableItems() {
+	return avlbRelics;
+}
+
 void PlayerData::setDeck(std::vector<Card*> newDeck)
 {
 	deck = newDeck;
 }
 
+void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
+	avlbRelics = newItems;
+}
+
 void PlayerData::addCardToLibrary(Card* newCard, int num)
 {
-	// Añado la carta a la libreria
+	// Aï¿½ado la carta a la libreria
 	library.push_back(newCard);
 
 	//Busco si ya la habia recibido antes
@@ -79,6 +107,10 @@ void PlayerData::addCardToLibrary(Card* newCard, int num)
 		inventory.push_back(InventoryInfo(num, 0, &cardsData().get(newCard->getName())));
 		receivedCard[newCard->getName()] = prev(inventory.end());
 	}
+}
+
+void PlayerData::addRelic(Relic* relic) {
+	myRelics.push_back(relic);
 }
 
 std::vector<Card*> PlayerData::getLibrary()
