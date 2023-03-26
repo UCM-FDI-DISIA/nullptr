@@ -25,14 +25,13 @@ protected:
 	GameObject* frame;
 
 	// Punteros a componentes
-	Transform* tr;
 	Animator* animButton;
 	Animator* animFrame;
 
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, SDLApplication* _g, GameObject* _frame = nullptr) :
-		Component(), state(0), function(_f), game(_g), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
+		Component(), state(0), function(_f), game(_g), frame(_frame), animButton(nullptr), animFrame(nullptr) {}
 
 	virtual void update();
 	virtual void handleInput();

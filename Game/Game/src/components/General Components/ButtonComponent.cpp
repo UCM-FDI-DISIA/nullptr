@@ -24,7 +24,6 @@ void ButtonComponent::handleInput() {
 }
 
 void ButtonComponent::initComponent() {
-	tr = gObj->getComponent<Transform>();
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
 }
@@ -32,8 +31,9 @@ void ButtonComponent::initComponent() {
 
 // Comprueba si las coordenadas introducidas están sobre el mouse
 bool ButtonComponent::isOver(int mouseX, int mouseY) {
-	return (mouseX >= tr->getPos().getX() && mouseX < tr->getPos().getX() + tr->getWidth()) &&
-		(mouseY >= tr->getPos().getY() && mouseY < tr->getPos().getY() + tr->getHeight());
+	auto r = animButton->getRect();
+	return (mouseX >= r.x && mouseX < r.x + r.w) &&
+		(mouseY >= r.y && mouseY < r.y + r.h);
 }
 
 // Ejecuta el callback

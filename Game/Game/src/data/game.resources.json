@@ -94,7 +94,9 @@
 
       { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       
-      { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" }
+      { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
+      { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
+      { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" }
     ],
     
     "messages" : [

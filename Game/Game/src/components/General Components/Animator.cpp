@@ -2,7 +2,8 @@
 #include "../../core/SDLApplication.h"
 
 void Animator::createAnim(string key, Animation anim) {
-	anims.insert({ key, anim });
+	//anims.insert({ key, anim });
+	anims[key] = anim;
 	currentFrame = anim.startFrame;
 }
 
