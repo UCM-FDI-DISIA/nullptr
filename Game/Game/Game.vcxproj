@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h" />

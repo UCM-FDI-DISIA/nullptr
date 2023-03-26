@@ -12,6 +12,7 @@ void ButtonComponent::update() {
 	if (state != OnClick) {
 	if (isOver(mouseX, mouseY)) {
 		state = OnOver;
+
 	}
 	else {
 		state = OnOut;
@@ -29,6 +30,7 @@ void ButtonComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
+	hoverOverButton = &sdlutils().soundEffects().at("BangSmall");
 }
 
 

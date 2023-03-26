@@ -105,7 +105,11 @@
     
     "sounds" : [
       { "id" : "wall_hit", "file" : "resources/sound/wall_hit.wav" },
-      { "id" : "explosion", "file" : "resources/sound/explosion.wav" }
+      { "id" : "explosion", "file" : "resources/sound/explosion.wav" },
+      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"},
+      { "id" : "ButtonPressed", "file": "../Game/resources/sounds/PressButton.wav"},
+      { "id" : "HoverOverButton", "file": "../Game/resources/sounds/HoverOverButton.wav"},
+      { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"}
     ],
   
     "musics" : [

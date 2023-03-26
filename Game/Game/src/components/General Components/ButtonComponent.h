@@ -29,6 +29,10 @@ protected:
 	Animator* animButton;
 	Animator* animFrame;
 
+	//Sonidos de los botones
+	SoundEffect* hoverOverButton;
+	SoundEffect* clickButton;
+
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, SDLApplication* _g, GameObject* _frame = nullptr) :
