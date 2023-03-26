@@ -2,6 +2,10 @@
 
 // Constructora
 Album::Album() : filename("../Game/src/data/game.album.json") {
+	auto const& cbt = cardsData().getCardsByTime();
+	for (int i = 0; i < 3; ++i) {
+		foundCardsByTime[i] = std::vector<bool>(cbt[i].size(), false);
+	}
 	loadFromJSON();
 }
 
@@ -73,5 +77,7 @@ void Album::addCard(CardData cData) {
 	if (!foundCardsNames.count(cData.name)) {
 		foundCards.push_back(cData);
 		foundCardsNames.insert(cData.name);
+
+		foundCardsByTime[cData.time][cardsData().getCardsIndexByTime()[cData.time].at(cData.name)] = true;
 	}
 }

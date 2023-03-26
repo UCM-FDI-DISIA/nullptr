@@ -14,6 +14,7 @@ private:
 	SDLUtils::map_access_wrapper<CardData> cardsDatas;
 
 	std::array<vector<CardData>, 3> cardsByTime;
+	std::array<unordered_map<std::string, int>, 3> cardsIndexByTime;
 
 	// Constructora
 	CardsDataContainer();
@@ -26,6 +27,9 @@ public:
 	inline auto& get(std::string key) {
 		return cardsDatas.at(key);
 	}
+
+	inline auto const& getCardsByTime() { return cardsByTime; }
+	inline auto const& getCardsIndexByTime() { return cardsIndexByTime; }
 };
 
 // Devuelve una referencia a la instancia a CardsDataContainer

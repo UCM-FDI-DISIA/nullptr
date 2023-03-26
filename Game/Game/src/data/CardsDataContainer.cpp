@@ -44,5 +44,7 @@ void CardsDataContainer::readFromJSON(std::string filename) {
 		card.time = stringToCardTime(vObj["time"]->AsString());
 		// Añadir la información de la carta al map que las almacena
 		cardsDataMap[card.name] = card;
+		cardsByTime[card.time].push_back(card);
+		cardsIndexByTime[card.time][card.name] = cardsByTime[card.time].size() - 1;
 	}
 }
