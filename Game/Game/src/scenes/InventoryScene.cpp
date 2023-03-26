@@ -1,7 +1,7 @@
 ﻿#include "InventoryScene.h"
 #include "../core/SDLApplication.h"
 
-InventoryScene::InventoryScene() : GameState() {
+InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 	// Llamamos a Player data para pillar la info de las cartas que se tienen
 	info = PlayerData::instance()->getInventoryInfo();
 	cr = PlayerData::instance()->getReceivedCards();
@@ -15,7 +15,7 @@ InventoryScene::InventoryScene() : GameState() {
 
 	int numD = 0;
 	for (int i = 0; i < info.size(); i++) {
-		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); numD++; }
+		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); deck[i] = numD; numD++; }
 		else addGameObject<InventoryCard>(this, &info[i], i);
 	}
 
@@ -68,4 +68,19 @@ void InventoryScene::createPanels() {
 	sp->addComponent<Transform>(SP_POSITION, VECTOR_ZERO, SP_WIDTH, SP_HEIGHT);
 	sp->addComponent<Image>(&sdlutils().images().at(STATS_PANEL));
 
+}
+
+void InventoryScene::removeFromDeck(int ind) {
+	deck[ind] = -1;
+}
+
+int InventoryScene::getFirstDeckPos() {
+	int i = 0;
+	bool found = false;
+	while (!found && i < deck.size()) {
+		if (deck[i] == -1) found = true;
+		else i++;
+	}
+
+	if (found) { deck[i] = i; return i; }
 }
