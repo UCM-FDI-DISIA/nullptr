@@ -195,7 +195,7 @@ private:
 	inline void onMouseWheelEvent(const SDL_Event& event) {
 		isMouseWheelEvent_ = true;
 		if (event.wheel.y < 0) mouseWheelDown_ = true;
-		if (event.wheel.y < 0) mouseWheelUp_ = true;
+		if (event.wheel.y > 0) mouseWheelUp_ = true;
 	}
 
 	inline void handleWindowEvent(const SDL_Event &event) {
