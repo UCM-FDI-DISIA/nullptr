@@ -18,7 +18,7 @@ public:
 
 	virtual void handleInput();
 
-	void setPlayerSpeed(int newSpeed);
+	void setPlayerSpeed(float newSpeed);
 
 };
 

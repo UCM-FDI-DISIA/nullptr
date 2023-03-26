@@ -1,7 +1,10 @@
 #pragma once
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
+#include "../data/RelicData.h"
 #include <vector>
+#include <list>
+#include <string>
 
 class Card;
 class PlayerData : public Singleton<PlayerData>
@@ -26,11 +29,18 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
+	
+	//Vector con todas las reliquias disponibles, saca su key del mapa
+	std::vector<std::string> avlbRelics;
+
+	//Vector con las reliquias que tiene el jugador
+	std::vector<Relic*> myRelics;
 
 	int maxMana;
 	int maxHP;
 	int currHP;
 	int currMana;
+	float playerSpeed;
 
 	float attackMult, fireRateMult;
 	
@@ -47,6 +57,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline int getCurrHP() { return currHP; }
 		inline float getAttackMult() { return attackMult; }
 		inline float getFireRateMult() { return fireRateMult; }
+		inline float getPlayerMoveSpeed() { return playerSpeed; }
 		inline int getLevel() { return level; }
 
 
@@ -57,14 +68,22 @@ class PlayerData : public Singleton<PlayerData>
 		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
 		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
 		inline void setLevel(int level) { this->level = level; }
-
+		inline void getPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
+		void defaultPlayerStats();
+		void updatePlayerStats();
 
 		void getDataFromJSON();
 		void setDataToJSON();
 
 		std::vector<Card*> getDeck();
+		std::vector<std::string> getAvailableItems();
+		
+
 		void setDeck(std::vector<Card*> newDeck);
+		void setAvailableItems(std::vector<std::string> newItems);
+
 		void addCardToLibrary(Card* newCard);
+		void addRelic(Relic* relic);
 		std::vector<Card*> getLibrary();
 		
 };

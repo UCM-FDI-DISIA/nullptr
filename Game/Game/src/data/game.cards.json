@@ -130,6 +130,27 @@
     "downTime": 0.6,
     "textureKey": "SMG",
     "time": "Present"
+  },
+  {
+    "name": "Cheat Gun",
+    "attackText": "los checlana",
+    "abilityText": "eldenrin gano los chirigotis",
+    "damage": 6,
+    "maxUses": 6,
+    "mana": 25,
+    "downTime": 0.5,
+    "textureKey": "Pistol",
+    "time": "Future"
+  },
+  {
+    "name": "Hacha Ritual",
+    "attackText": "hachaso pum toma hachaso",
+    "abilityText": "hachaso pum hachaso hachaso hachaso",
+    "damage": 2,
+    "maxUses": 5,
+    "mana": 35,
+    "downTime": 0.5,
+    "textureKey": "Sword",
+    "time": "Past"
   }
-
 ]

@@ -1,5 +1,4 @@
 #include "Cards.h"
-#include "../../sdlutils/Texture.h"
 #include "../Card Objects/Hitbox.h"
 
 //Se crea una bala en la posici�n del jugador y se dirige hacia el cursor
