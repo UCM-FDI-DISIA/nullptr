@@ -39,6 +39,7 @@ const int USED_FONT_SIZE = 24;
 
 // TEXT COLORS ------------------------------------------------------------------------------------
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
+const SDL_Color COLOR_RED = { 255, 0,0 };
 
 // ANIMATIONS -------------------------------------------------------------------------------------
 const string ONOUT = "OnOut";
@@ -442,12 +443,17 @@ const int STARTING_TIME_PER_WAVE = 15000;
 
 //SHOP ------------------------------------------------------------------------------------------
 const int SHOP_NUMBER_OF_CARDS = 4;
-const int SHOP_CARD_SELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
-const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4;
+const int SHOP_CARD_SELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 100;
+const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
 const int SHOP_CARD_OFFSET_X = 200;
 const int SHOP_CARD_PRICE_WIDTH = 100;
 const int SHOP_CARD_PRICE_HEIGHT = 50;
 const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 100);
+const int SHOP_MONEY_WIDTH = 100;
+const int SHOP_MONEY_HEIGHT = 50;
+const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
+const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
 //LOS VALORES GUARDADOS SON LAS PROBABILIDADES DE OLEADAS EN ORDEN
