@@ -105,6 +105,8 @@ public:
 };
 class  CheatGunCard : public Card {
 public:
+	constexpr static cardId_type id = _card_CHEATGUN;
+
 	CheatGunCard() : Card(cardsData().get("Cheat Gun")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
@@ -113,6 +115,8 @@ class RitualAxeCard : public Card {
 private:
 	int enemiesKilled;
 public:
+	constexpr static cardId_type id = _card_RITUALAXE;
+
 	RitualAxeCard() : Card(cardsData().get("Hacha Ritual")) { enemiesKilled = 0; };
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);

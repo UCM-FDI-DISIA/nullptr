@@ -28,10 +28,12 @@ protected:
 
 	// Indice para el ultimo boton seleccionado
 	int index;
+
+	bool chest;
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack _f, GameObject* _frame = nullptr, int _index = -1) :
-		Component(), state(0), function(_f), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr), index(_index) {}
+	ButtonComponent(CallBack _f, GameObject* _frame = nullptr ,int _index = -1, bool chst = false) :
+		Component(), state(0), function(_f), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr), index(_index), chest(chst) {}
 
 	virtual void update();
 	virtual void handleInput();

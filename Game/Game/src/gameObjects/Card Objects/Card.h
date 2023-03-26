@@ -47,12 +47,15 @@ class Card
 			case _card_TORCH: return "Torch";
 			case _card_LASERGLASSES: return "LaserGlasses";
 			case _card_BOW: return "Bow";
-			case _card_PULGA: return "SMG";
-			case _card_SPEAR: return "SMG";
+			case _card_PULGA: return "Tick";
+			case _card_SPEAR: return "Spear";
 			case _card_SMG: return "SMG";
 			case _card_ASSAULTRIFLE: return "SMG";
 			case _card_LIGHTRIFLE: return "SMG";
 			case _card_MEGAPHONE: return "SMG";
+			case _card_RIOTSHIELD: return "SMG";
+			case _card_CHEATGUN: return "SMG";
+			case _card_RITUALAXE: return "SMG";
 			default: return REVERSE;
 			}
 		}

@@ -10,7 +10,7 @@ ChestScene::ChestScene() : NodeScene() {
 	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>(mainMenu, SDLApplication::instance(), Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
+	addGameObject<Button>(mainMenu, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
 
 	AnimatorInfo chestAI = AnimatorInfo("GachaChest",
 		SDLApplication::getTexture("GachaChest")->width(),
@@ -30,7 +30,7 @@ ChestScene::ChestScene() : NodeScene() {
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
 	anim->createAnim(ONCLICK, 0, 6, 10, 1);
 
-	gachaButton->addComponent<ButtonComponent>([&, gb=gachaButton]() {gacha(gb); }, SDLApplication::instance());
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);},nullptr, -1, true);
 	
 	
 	

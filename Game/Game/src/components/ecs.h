@@ -65,6 +65,8 @@ enum cardId : cardId_type {
 	_card_LIGHTRIFLE,
 	_card_MEGAPHONE,
 	_card_RIOTSHIELD,
+	_card_RITUALAXE,
+	_card_CHEATGUN,
 
 	// do not remove this
 	_LAST_CARD_ID

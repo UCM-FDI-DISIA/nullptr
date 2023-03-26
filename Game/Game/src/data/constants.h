@@ -8,6 +8,8 @@
 #include "../core/Vector2D.h"
 #include "../components/ecs.h"
 
+#ifndef CONSTANTS_H_
+#define CONSTANTS_H_
 using namespace std;
 using uint = unsigned int;
 
@@ -533,7 +535,7 @@ struct AnimatorInfo {
 	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
 		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }
 	//Con parámetros específicos
-	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r, int _c) :
+	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r = 1 , int _c = 1) :
 		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
 };
 

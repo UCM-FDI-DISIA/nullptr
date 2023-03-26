@@ -127,7 +127,7 @@
     "maxUses": 6,
     "mana": 25,
     "downTime": 0.5,
-    "textureKey": "Pistol"
+    "textureKey": "Gun"
   },
   {
     "name": "Hacha Ritual",
