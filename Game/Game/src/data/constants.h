@@ -358,7 +358,7 @@ const int X3_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + BETWEEN_CARD_SPACE
 // UI AMMO NUMBERS DIMENSIONS
 const int UI_AMMO_NUMBERS_WIDTH = 10;
 const int UI_AMMO_NUMBERS_HEIGHT = 15;
-const string CARD_AMMO = "CardAmmoBar";
+const string CARD_AMMO = "CardAmmo";
 	// 1ST CARD
 const int X1_XOFFSET_DECS = -4;
 const int X1_YOFFSET_DECS = 31;
@@ -447,7 +447,7 @@ const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 17;
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
-const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 26, WIN_HEIGHT - WIN_HEIGHT / 7.6);
+const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 15, WIN_HEIGHT - WIN_HEIGHT / 7.6);
 
 // MESSAGE ---------------------------------------------------------------------------------------
 const int MESSAGE_W = 300;

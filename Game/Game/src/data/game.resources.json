@@ -78,7 +78,7 @@
       { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/CounterNumbers_130x250.png" }, 
-      { "id" : "CardAmmoBar", "file" : "../Game/resources/images/UI/BattleScene/CardAmmoBar_40x5.png" }, 
+      { "id" : "CardAmmo", "file" : "../Game/resources/images/UI/BattleScene/CardAmmoBlock_7x5.png" }, 
 
       { "id": "StatisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
       { "id": "EtherMeterFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeterFrame_44x26.png" },

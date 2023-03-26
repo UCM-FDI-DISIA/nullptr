@@ -14,12 +14,12 @@ HandUI::~HandUI() {
 }
 
 void HandUI::update() {
-	for (int i = 0; i < handUI.size(); i++) {
+	/*for (int i = 0; i < handUI.size(); i++) {
 		if (handUI[i] != nullptr) {
 			auto object = handUI[i];
 			object->ammoBar->update();
 		}
-	}
+	}*/
 }
 
 // Renderizar los GameObjects del deque (de lo contrario solo se renderiza un objeto vacío)
@@ -30,7 +30,14 @@ void HandUI::render() const {
 			object->card->render();
 			object->ammoNumber.first->render();
 			object->ammoNumber.second->render();
-			object->ammoBar->render();
+			/*object->ammoBar->render();*/
+			for (int i = 0; i < object->ammo; i++) {
+				object->ammoBlocks[i]->render();
+				/*SDL_Rect rect = object->ammoBlocks[i]->getComponent<Transform>()->getRect();
+				SDL_RenderDrawRect(sdlutils().renderer(), &rect);*/
+			}
+			/*SDL_Rect rect = object->card->getComponent<Transform>()->getRect();
+			SDL_RenderDrawRect(sdlutils().renderer(), &rect);*/
 		}
 	}
 }
@@ -42,10 +49,14 @@ void HandUI::changeSelected(bool key, int number) {
 		(*active)->card->getComponent<Transform>()->setY(Y_CARD_POS);
 		auto trDecs = (*active)->ammoNumber.first->getComponent<Transform>();
 		auto trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
-		auto trBar = (*active)->ammoBar->getComponent<Transform>();
+		// auto trBar = (*active)->ammoBar->getComponent<Transform>();
 		trDecs->setY(trDecs->getY() + 60);
 		trUnits->setY(trUnits->getY() + 60);
-		trBar->setY(trBar->getY() + 60);
+		for (int i = 0; i < (*active)->ammo; i++) {
+			auto tr = (*active)->ammoBlocks[i]->getComponent<Transform>();
+			tr->setY(tr->getY() + 60);
+		}
+ 		// trBar->setY(trBar->getY() + 60);
 	}
 
 	// Si se ha cambiado pulsando teclas
@@ -66,10 +77,14 @@ void HandUI::changeSelected(bool key, int number) {
 	(*active)->card->getComponent<Transform>()->setY(Y_CARD_POS_SELECTED);
 	auto trDecs = (*active)->ammoNumber.first->getComponent<Transform>();
 	auto trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
-	auto trBar = (*active)->ammoBar->getComponent<Transform>();
+	// auto trBar = (*active)->ammoBar->getComponent<Transform>();
 	trDecs->setY(trDecs->getY() - 60);
 	trUnits->setY(trUnits->getY() - 60);
-	trBar->setY(trBar->getY() - 60);
+	for (int i = 0; i < (*active)->ammo; i++) {
+		auto tr = (*active)->ammoBlocks[i]->getComponent<Transform>();
+		tr->setY(tr->getY() - 60);
+	}
+	// trBar->setY(trBar->getY() - 60);
 }
 
 // Borrar la carta correspondiente
@@ -101,8 +116,9 @@ void HandUI::changeAmmo(deque<Card*>::iterator used) {
 	(*aux)->ammoNumber.second->getComponent<Animator>()->play(to_string((*aux)->ammo - (*aux)->ammo / 10));
 
 	// Reducir tamaño de la barra
-	changeAnimatorSrcRelativeWidth((*aux)->ammoBar, (*aux)->maxAmmo, (*aux)->ammo);
+	/*changeAnimatorSrcRelativeWidth((*aux)->ammoBar, (*aux)->maxAmmo, (*aux)->ammo);
 	auto tr = (*aux)->ammoBar->getComponent<Transform>();
+	tr->setY(tr->getY() + (tr->getWidth() * sin(tr->getRotation()) * M_PI / 180.0f) / 2);*/
 }
 
 // Crear las cartas de la UI según la mano del jugador, iniciando variables y posicionándolas correctamente
@@ -135,44 +151,60 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 	newCard->ammo = handPlayer[i]->getUses();
 
 	// Variables de posición de números y barra de munición
-	Vector2D posDecs; Vector2D posUnits;
-	Vector2D posBar;
+	Vector2D posDecsAmmo; Vector2D posUnitsAmmo;
+	Vector2D posDecsMana; Vector2D posUnitsMana;
 	switch (i) {
 		case 0:
-			posDecs = Vector2D(posX + X1_XOFFSET_DECS, posY + X1_YOFFSET_DECS);
-			posUnits = Vector2D(posX + X1_XOFFSET_UNITS, posY + X1_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 22, posY + 17.5);
+			posDecsAmmo = Vector2D(posX + X1_XOFFSET_DECS, posY + X1_YOFFSET_DECS);
+			posUnitsAmmo = Vector2D(posX + X1_XOFFSET_UNITS, posY + X1_YOFFSET_UNITS);
+			// posBar = Vector2D(posX + 22, posY + 17.5);
 			break;
 		case 1:
-			posDecs = Vector2D(posX + X2_XOFFSET_DECS, posY + X2_YOFFSET_DECS);
-			posUnits = Vector2D(posX + X2_XOFFSET_UNITS, posY + X2_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 32, posY + 17.5);
+			posDecsAmmo = Vector2D(posX + X2_XOFFSET_DECS, posY + X2_YOFFSET_DECS);
+			posUnitsAmmo = Vector2D(posX + X2_XOFFSET_UNITS, posY + X2_YOFFSET_UNITS);
+			// posBar = Vector2D(posX + 32, posY + 17.5);
 			break;
 		case 2:
-			posDecs = Vector2D(posX + X3_XOFFSET_DECS, posY + X3_YOFFSET_DECS); 
-			posUnits = Vector2D(posX + X3_XOFFSET_UNITS, posY + X3_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 52, posY + 20);
+			posDecsAmmo = Vector2D(posX + X3_XOFFSET_DECS, posY + X3_YOFFSET_DECS);
+			posUnitsAmmo = Vector2D(posX + X3_XOFFSET_UNITS, posY + X3_YOFFSET_UNITS);
+			// posBar = Vector2D(posX + 52, posY + 20);
 			break;
 		case 3:
-			posDecs = Vector2D(posX + X4_XOFFSET_DECS, posY + X4_YOFFSET_DECS);
-			posUnits = Vector2D(posX + X4_XOFFSET_UNITS, posY + X4_YOFFSET_UNITS);
-			posBar = Vector2D(posX + 61, posY + 22);
+			posDecsAmmo = Vector2D(posX + X4_XOFFSET_DECS, posY + X4_YOFFSET_DECS);
+			posUnitsAmmo = Vector2D(posX + X4_XOFFSET_UNITS, posY + X4_YOFFSET_UNITS);
+			// posBar = Vector2D(posX + 61, posY + 22);
 			break;
 	}
 
 	// Crear números
-	newCard->ammoNumber.first = createNumber(posDecs, rotation, newCard->maxAmmo / 10);
-	newCard->ammoNumber.second = createNumber(posUnits, rotation, newCard->maxAmmo - (newCard->maxAmmo / 10));
+	newCard->ammoNumber.first = createNumber(posDecsAmmo, rotation, newCard->maxAmmo / 10);
+	newCard->ammoNumber.second = createNumber(posUnitsAmmo, rotation, newCard->maxAmmo - (newCard->maxAmmo / 10));
+
+	int width = (40 * 3) / (newCard->maxAmmo / 1.0f);
+	for (int i = 0; i < newCard->maxAmmo; i++) {
+		auto block = new GameObject();
+
+		int posX0 = posX + 14 * 3 + width * i;
+		int posY0 = posY + 6 * 3;
+		float rotRad = rotation * M_PI * 180.0f;
+		int newPosX = posX0 * cos(rotRad) - posY0 * sin(rotRad);
+		int newPosY = posX0 * sin(rotRad) + posY0 * cos(rotRad); // + ((sin(rotation) / width) * i)
+		
+		block->addComponent<Transform>(Vector2D(newPosX, newPosY), Vector2D(), width, 5 * 3, rotation);
+		block->addComponent<Image>(SDLApplication::getTexture(CARD_AMMO));
+		
+		newCard->ammoBlocks.push_back(block);
+	}
 
 	// Crear barra de munición
-	newCard->ammoBar = new GameObject();
+	/*newCard->ammoBar = new GameObject();
 	newCard->ammoBar->addComponent<Transform>(posBar, Vector2D(), 40 * 3, 5 * 3, rotation);
-	auto anim = newCard->ammoBar->addComponent<Animator>(SDLApplication::getTexture(CARD_AMMO), 40, 5, 4, 1);
+	auto anim = newCard->ammoBar->addComponent<Animator>(SDLApplication::getTexture(CARD_AMMO), 40, 5, 4, 1);*/
 
 	// Mantener en la cámara y crear y reproducir animaciones
-	anim->attachToCamera();
+	/*anim->attachToCamera();
 	anim->createAnim(CARD_AMMO, 0, 4, 6, -1);
-	anim->play(CARD_AMMO);
+	anim->play(CARD_AMMO);*/
 
 	// Añadir a la deque de la UI
 	handUI.push_back(newCard);
@@ -198,7 +230,7 @@ void HandUI::rearrangeThree() {
 	Transform* tr = nullptr;
 	Transform* trDecs = nullptr;
 	Transform* trUnits = nullptr;
-	Transform* trBar = nullptr;
+	// Transform* trBar = nullptr;
 
 	// Primera carta
 	tr = (*it)->card->getComponent<Transform>();
@@ -207,8 +239,8 @@ void HandUI::rearrangeThree() {
 	trDecs->setPos(Vector2D(tr->getX() + X2_XOFFSET_DECS, tr->getY() + X2_YOFFSET_DECS)); trDecs->setRotation(-5);
 	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + X2_XOFFSET_UNITS, tr->getY() + X2_YOFFSET_UNITS)); trUnits->setRotation(-5);
-	trBar = (*it)->ammoBar->getComponent<Transform>();
-	trBar->setPos(Vector2D(tr->getX() + 32, tr->getY() + 17)); trBar->setRotation(-5);
+	/*trBar = (*it)->ammoBar->getComponent<Transform>();
+	trBar->setPos(Vector2D(tr->getX() + 32, tr->getY() + 17)); trBar->setRotation(-5);*/
 	it++;
 
 	// Segunda carta
@@ -218,8 +250,8 @@ void HandUI::rearrangeThree() {
 	trDecs->setPos(Vector2D(tr->getX() + XC_XOFFSET_DECS, tr->getY() + XC_YOFFSET)); trDecs->setRotation(0);
 	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + XC_XOFFSET_UNITS, tr->getY() + XC_YOFFSET)); trUnits->setRotation(0);
-	trBar = (*it)->ammoBar->getComponent<Transform>();
-	trBar->setPos(Vector2D(tr->getX() + 42, tr->getY() + 18)); trBar->setRotation(0);
+	/*trBar = (*it)->ammoBar->getComponent<Transform>();
+	trBar->setPos(Vector2D(tr->getX() + 42, tr->getY() + 18)); trBar->setRotation(0);*/
 	it++;
 
 	// Tercera carta
@@ -229,8 +261,8 @@ void HandUI::rearrangeThree() {
 	trDecs->setPos(Vector2D(tr->getX() + X3_XOFFSET_DECS, tr->getY() + X3_YOFFSET_DECS)); trDecs->setRotation(5);
 	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + X3_XOFFSET_UNITS, tr->getY() + X3_YOFFSET_UNITS)); trUnits->setRotation(5);
-	trBar = (*it)->ammoBar->getComponent<Transform>();
-	trBar->setPos(Vector2D(tr->getX() + 51.5, tr->getY() + 20)); trBar->setRotation(5);
+	/*trBar = (*it)->ammoBar->getComponent<Transform>();
+	trBar->setPos(Vector2D(tr->getX() + 51.5, tr->getY() + 20)); trBar->setRotation(5);*/
 }
 
 // Posiciona las 2 cartas restantes correctamente, ligeramente rotadas
@@ -240,7 +272,7 @@ void HandUI::rearrangeTwo() {
 	Transform* tr = nullptr;
 	Transform* trDecs = nullptr;
 	Transform* trUnits = nullptr;
-	Transform* trBar = nullptr;
+	// Transform* trBar = nullptr;
 
 	// Primera carta
 	tr = (*it)->card->getComponent<Transform>();
@@ -249,8 +281,8 @@ void HandUI::rearrangeTwo() {
 	trDecs->setPos(Vector2D(tr->getX() + X2_XOFFSET_DECS, tr->getY() + X2_YOFFSET_DECS)); trDecs->setRotation(-5);
 	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + X2_XOFFSET_UNITS, tr->getY() + X2_YOFFSET_UNITS)); trUnits->setRotation(-5);
-	trBar = (*it)->ammoBar->getComponent<Transform>();
-	trBar->setPos(Vector2D(tr->getX() + 32, tr->getY() + 17)); trBar->setRotation(-5);
+	/*trBar = (*it)->ammoBar->getComponent<Transform>();
+	trBar->setPos(Vector2D(tr->getX() + 32, tr->getY() + 17)); trBar->setRotation(-5);*/
 	it++;
 
 	// Segunda carta
@@ -260,8 +292,8 @@ void HandUI::rearrangeTwo() {
 	trDecs->setPos(Vector2D(tr->getX() + X3_XOFFSET_DECS, tr->getY() + X3_YOFFSET_DECS)); trDecs->setRotation(5);
 	trUnits = (*it)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + X3_XOFFSET_UNITS, tr->getY() + X3_YOFFSET_UNITS)); trUnits->setRotation(5);
-	trBar = (*it)->ammoBar->getComponent<Transform>();
-	trBar->setPos(Vector2D(tr->getX() + 51.5, tr->getY() + 20)); trBar->setRotation(5);
+	/*trBar = (*it)->ammoBar->getComponent<Transform>();
+	trBar->setPos(Vector2D(tr->getX() + 51.5, tr->getY() + 20)); trBar->setRotation(5);*/
 }
 
 // Posiciona la carta restante en el centro sin rotación
@@ -269,7 +301,7 @@ void HandUI::rearrangeOne() {
 	Transform* tr = nullptr;
 	Transform* trDecs = nullptr;
 	Transform* trUnits = nullptr;
-	Transform* trBar = nullptr;
+	// Transform* trBar = nullptr;
 
 	tr = (*active)->card->getComponent<Transform>();
 	tr->setX(CENTERED_CARD_POS);
@@ -278,8 +310,8 @@ void HandUI::rearrangeOne() {
 	trDecs->setPos(Vector2D(tr->getX() + XC_XOFFSET_DECS, tr->getY() + XC_YOFFSET)); trDecs->setRotation(0);
 	trUnits = (*active)->ammoNumber.second->getComponent<Transform>();
 	trUnits->setPos(Vector2D(tr->getX() + XC_XOFFSET_UNITS, tr->getY() + XC_YOFFSET)); trUnits->setRotation(0);
-	trBar = (*active)->ammoBar->getComponent<Transform>();
-	trBar->setPos(Vector2D(tr->getX() + 42, tr->getY() + 18)); trBar->setRotation(0);
+	/*trBar = (*active)->ammoBar->getComponent<Transform>();
+	trBar->setPos(Vector2D(tr->getX() + 42, tr->getY() + 18)); trBar->setRotation(0);*/
 }
 
 // Buscar la carta correspondiente y devolver un iterador apuntando a esta
@@ -307,14 +339,4 @@ void HandUI::createNumberAnims(GameObject* obj, int value) {
 	
 	// Reproducir animación correspondiente
 	anim->play(to_string(value));
-}
-
-// Cálcula y cambia el ancho de animación al correspondiente
-void HandUI::changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value) {
-	bar->getComponent<Animator>()->setSrcRectRelativeWidth(getFactored(maxValue, value));
-}
-
-// Devuelve en 0.XX el valor del factor que usar en el animator
-float HandUI::getFactored(float maxValue, float value) {
-	return value / maxValue;
 }

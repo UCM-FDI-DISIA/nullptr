@@ -5,17 +5,23 @@
 
 struct UICard {
 	GameObject* card;
+	pair<GameObject*, GameObject*> manaNumber;
 	pair<GameObject*, GameObject*> ammoNumber;
-	GameObject* ammoBar;
+	//GameObject* ammoBar;
+	vector<GameObject*> ammoBlocks;
 	int ammo;
 	int maxAmmo;
 
 	UICard() : card(nullptr), ammo(0), maxAmmo(INT_MAX) {};
 	~UICard() {
 		delete card;
+		delete manaNumber.first;
+		delete manaNumber.second;
 		delete ammoNumber.first;
 		delete ammoNumber.second;
-		delete ammoBar;
+		//delete ammoBar;
+		for (int i = 0; i < maxAmmo; i++) delete ammoBlocks[i];
+		
 	}
 };
 
@@ -50,8 +56,6 @@ public:
 
 	// Cambiar la munición de una carta
 	void changeAmmo(deque<Card*>::iterator used);
-	void changeAnimatorSrcRelativeWidth(GameObject* bar, float maxValue, float value);
-	float getFactored(float maxValue, float value);
 
 	// Reposiciona las cartas según el número de cartas que quedan en la mano
 	void rearrangeThree();
