@@ -107,11 +107,11 @@
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
       { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
 
-      { "id" : "AlmacenamientoCuantico", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "AlmacenamientoCuantico", "file" : "../Game/resources/images/Objects/AlmacenamientoCuantico_32x32.png" },
       { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id" : "EngranajeAureo", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id" : "BrazaleteDeIones", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id" : "Regalo", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "EngranajeAureo", "file" : "../Game/resources/images/Objects/EngranajeAureo_32x32.png" },
+      { "id" : "BrazaleteDeIones", "file" : "../Game/resources/images/Objects/BrazaleteDeIones_32x32.png" },
+      { "id" : "Regalo", "file" : "../Game/resources/images/Objects/Regalo_32x32.png" },
       { "id" : "RelojDigital", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "CollarGotico", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "CinturonDeHerramientas", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
@@ -119,6 +119,7 @@
       { "id" : "LibroPerdido", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "TazaDeCafe", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "BotellaConUnBarcoEnMiniatura", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+
       { "id": "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png"}
       
     ],
