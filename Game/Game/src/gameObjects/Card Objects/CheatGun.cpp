@@ -15,5 +15,5 @@ void CheatGunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMul
 
 void CheatGunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
-
+	where->getPlayer()->getComponent<HealthComponent>()->setInvencibility(0.5 * remainingUses);
 }

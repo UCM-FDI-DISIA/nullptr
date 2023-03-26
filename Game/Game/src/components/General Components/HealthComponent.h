@@ -12,13 +12,13 @@ private:
 	int modifiedMaxLife;
 	bool invincibility;
 	float invTime;
-	float time;
 	OnDeath* onDeath;
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
 	//Delete del padre
 	void receiveDamage(int damage);
+	void setInvencibility(float time);
 	virtual void initComponent();
 	virtual void update();
 	void heal(int heal);
