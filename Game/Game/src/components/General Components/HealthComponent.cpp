@@ -4,6 +4,7 @@
 #include "../Enemy components/RangeBehaviour.h"
 #include "../Enemy components/MeleeBehaviour.h"
 #include "../Enemy components/OnDeath.h"
+#include "../../gameObjects/Card Objects/Cards.h"
 
 // Al construirse, adopta el gameObject y su manager como propios
 // Tambi�n define la vida m�xima del objeto
@@ -13,13 +14,16 @@ HealthComponent::HealthComponent(int life, bool Invincibility) :
 	onDeath(nullptr) {}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
-void HealthComponent::receiveDamage(int damage)
+void HealthComponent::receiveDamage(int damage, RitualAxeCard* axe)
 {
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
 		cout << lifePoints <<endl;
-		if (lifePoints <= 0) die();
+		if (lifePoints <= 0) {
+			die();
+			if (axe != nullptr) axe->enemieKilled();
+		} 
 		else {
 			if (gObj->getComponent<PlayerMovementComponent>() != nullptr) { 
 				auto sc = dynamic_cast<BattleScene*>(gStt); 
