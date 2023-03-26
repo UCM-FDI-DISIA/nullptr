@@ -26,6 +26,11 @@ PlayerData::PlayerData() {
 	deck.push_back(new LaserShadesCard());
 	inventory.push_back(InventoryInfo(2, 2, &cardsData().get("Gafas Laser")));
 	receivedCard["Gafas Laser"] = prev(inventory.end());
+
+	for (auto& var : sdlutils().relics().map_)
+	{
+		avlbRelics.push_back(var.first);
+	}
 }
 
 	
