@@ -7,8 +7,7 @@ PlayerData::PlayerData() {
 	level = 5;
 
 
-	deck.push_back(new  CheatGunCard());
-	deck.push_back(new  CheatGunCard());
+	deck.push_back(new  RitualAxeCard());
 	deck.push_back(new  CheatGunCard());
 	deck.push_back(new  CheatGunCard());
 	deck.push_back(new  CheatGunCard());
