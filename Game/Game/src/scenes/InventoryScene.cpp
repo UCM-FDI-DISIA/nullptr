@@ -6,6 +6,12 @@ InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 	info = PlayerData::instance()->getInventoryInfo();
 	cr = PlayerData::instance()->getReceivedCards();
 
+	stats.push_back(PlayerData::instance()->getMaxHP());
+	stats.push_back(PlayerData::instance()->getMaxMana());
+	stats.push_back(PLAYER_SPEED / 2);
+	stats.push_back(PlayerData::instance()->getAttackMult() * 100);
+	stats.push_back(PlayerData::instance()->getFireRateMult() * 100);
+
 	//Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
@@ -26,7 +32,7 @@ InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
-		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i]);
+		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
 	}
 	// Creamos el boton de salir
 	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, []() { SDLApplication::popGameState(); }, EXIT);
@@ -44,11 +50,19 @@ void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 	addGameObject<Button>(_cb, _bPos, aI, frame);
 }
 
-void InventoryScene::createSymbol(Vector2D _pos, string key) {
+void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 
 	symbol->addComponent<Transform>(_pos, VECTOR_ZERO, SYMBOL_DIMENSIONS, SYMBOL_DIMENSIONS);
 	symbol->addComponent<Image>(&sdlutils().images().at(key));
+
+	GameObject* stat = addGameObject();
+	stat->addComponent<Transform>(_pos + STAT_OFFSET, VECTOR_ZERO, 100, 24);
+	stat->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), text);
+
+	GameObject* value = addGameObject();
+	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
+	value->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), to_string(val));
 }
 
 void InventoryScene::createPanels() {

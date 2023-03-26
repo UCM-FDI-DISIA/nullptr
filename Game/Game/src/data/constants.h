@@ -246,6 +246,9 @@ const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH - 50, 30);
 const string SYMBOLS_KEYS[5] = {
 	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
 };
+const string STATS_TEXTS[5] = {
+	"Vida", "Mana", "Velocidad", "Cadencia", "Ataque"
+};
 const int SYMBOL_DIMENSIONS = 64;
 const Vector2D SYMBOL_POSITIONS[5] = {
 	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 310),
@@ -254,6 +257,8 @@ const Vector2D SYMBOL_POSITIONS[5] = {
 	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 520),
 	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 590)
 };
+const Vector2D STAT_OFFSET = Vector2D(74, 20);
+const Vector2D STAT_VALUE_OFFSET = Vector2D(190, 20);
 
 const string CARD_CIRCLE = "CardCircle";
 const int CARD_CIRCLE_RADIOUS = 20;
@@ -313,6 +318,9 @@ const Vector2D LIBRARY_POSITIONS[12] = {
 	Vector2D(660, 270),
 	Vector2D(820, 270)
 };
+
+// INVENTORY : OBJECTS
+
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";
