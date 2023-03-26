@@ -13,6 +13,14 @@ HandUI::~HandUI() {
 	for (auto gobj : handUI) delete gobj;
 }
 
+void HandUI::update() {
+	for (int i = 0; i < handUI.size(); i++) {
+		if (handUI[i] != nullptr) {
+			auto object = handUI[i];
+			object->ammoBar->update();
+		}
+	}
+}
 
 // Renderizar los GameObjects del deque (de lo contrario solo se renderiza un objeto vacío)
 void HandUI::render() const {
@@ -95,8 +103,6 @@ void HandUI::changeAmmo(deque<Card*>::iterator used) {
 	// Reducir tamaño de la barra
 	changeAnimatorSrcRelativeWidth((*aux)->ammoBar, (*aux)->maxAmmo, (*aux)->ammo);
 	auto tr = (*aux)->ammoBar->getComponent<Transform>();
-	cout << "(x, y) = (" << tr->getWidth() << ", " << tr->getHeight() << ")" << endl;
-	// tr->setY(tr->getY() + 2);
 }
 
 // Crear las cartas de la UI según la mano del jugador, iniciando variables y posicionándolas correctamente
@@ -161,11 +167,11 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 	// Crear barra de munición
 	newCard->ammoBar = new GameObject();
 	newCard->ammoBar->addComponent<Transform>(posBar, Vector2D(), 40 * 3, 5 * 3, rotation);
-	auto anim = newCard->ammoBar->addComponent<Animator>(SDLApplication::getTexture(CARD_AMMO), 40, 5, 1, 4);
+	auto anim = newCard->ammoBar->addComponent<Animator>(SDLApplication::getTexture(CARD_AMMO), 40, 5, 4, 1);
 
 	// Mantener en la cámara y crear y reproducir animaciones
 	anim->attachToCamera();
-	anim->createAnim(CARD_AMMO, 0, 4, 2, -1);
+	anim->createAnim(CARD_AMMO, 0, 4, 6, -1);
 	anim->play(CARD_AMMO);
 
 	// Añadir a la deque de la UI

@@ -36,6 +36,7 @@ public:
 	virtual ~HandUI();
 	// Métodos virtuales
 	virtual void render() const;
+	virtual void update();
 
 	// Crear o recrear la UI
 	void createUI();
