@@ -104,12 +104,14 @@
     ],
     
     "sounds" : [
-      { "id" : "wall_hit", "file" : "resources/sound/wall_hit.wav" },
-      { "id" : "explosion", "file" : "resources/sound/explosion.wav" }
+      { "id" : "ButtonPressed", "file": "../Game/resources/sounds/PressButton.wav"},
+      { "id" : "HoverOverButton", "file": "../Game/resources/sounds/HoverOverButton.wav"},
+      { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"},
+      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"}
     ],
   
     "musics" : [
-      { "id" : "beat", "file" : "resources/sound/beat.wav" }
+      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"}
     ],
 
     "relics" : [

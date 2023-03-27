@@ -29,6 +29,12 @@ protected:
 	Animator* animButton;
 	Animator* animFrame;
 
+	//Sonidos de los botones
+	SoundEffect* hoverOverSound;
+	SoundEffect* clickSound;
+
+	vector<SoundEffect*> soundEffects;
+
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, SDLApplication* _g, GameObject* _frame = nullptr) :
@@ -46,5 +52,5 @@ public:
 	virtual void updateAnimation();
 
 	// Cambia el estado de los animators para mostrar el estado del botón recibido
-	void changeStateAnim(string key);
+	void changeStateAnim(string key, int state);
 };

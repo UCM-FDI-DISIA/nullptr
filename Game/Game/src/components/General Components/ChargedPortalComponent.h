@@ -18,6 +18,8 @@ private:
 	bool exit;
 	double deltaTime;
 
+	
+
 public:
 	static const int id = _CHARGED_PORTAL;
 	

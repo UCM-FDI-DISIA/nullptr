@@ -3,7 +3,10 @@
 
 // Constructor para maná
 BarComponent::BarComponent(int _currentCuantity) : 
-	currentCuantity(_currentCuantity), tr(nullptr) { }
+	currentCuantity(_currentCuantity), tr(nullptr) {
+
+	countDownSound = &sdlutils().soundEffects().at("LoadExit");
+}
 
 // Inicializar componente
 void BarComponent::initComponent() {
@@ -68,6 +71,8 @@ void BarComponent::changeNumbers(vector<GameObject*>& vect, int value) {
 // Cambia el valor de los números activan su animación correspondiente
 void BarComponent::changeEtherNumbers(GameObject* num, int value) {
 	num->getComponent<Animator>()->play(to_string(value));
+	//Sonido
+	countDownSound->play();
 }
 
 // Devuelve una tupla con el valor de las centenas, las decenas y las unidades
