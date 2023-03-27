@@ -10,10 +10,6 @@ void ButtonComponent::update() {
 	SDL_GetMouseState(&mouseX, &mouseY);
 
 	// Cambia el estado según la posición del ratón
-	if (chest) {
-		if (state == OnClick)
-			return;
-	}
 	if (isOver(mouseX, mouseY)) {
 		state = OnOver;
 	}
