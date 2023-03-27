@@ -80,8 +80,8 @@
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
       { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
 
-
-      { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
+      { "id" : "Numbers", "file" : "../Game/resources/images/UI/CounterNumbers_130x250.png" }, 
+      { "id" : "CardAmmo", "file" : "../Game/resources/images/UI/BattleScene/CardAmmoBlock_7x5.png" }, 
 
       { "id": "StatisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
       { "id": "EtherMeterFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeterFrame_44x26.png" },
@@ -89,6 +89,7 @@
       { "id": "LifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
       { "id": "ManaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
       { "id": "StatisticsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/StatisticsNumbers_9x18.png" },
+      { "id": "CardsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/CardsNumbers_9x18.png" },
       
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
@@ -96,8 +97,12 @@
       { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
 
       { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id": "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png"}
       
+      { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
+      { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
+      { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
+
+      { "id": "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png"}
     ],
     
     "messages" : [
@@ -106,12 +111,14 @@
     ],
     
     "sounds" : [
-      { "id" : "wall_hit", "file" : "resources/sound/wall_hit.wav" },
-      { "id" : "explosion", "file" : "resources/sound/explosion.wav" }
+      { "id" : "ButtonPressed", "file": "../Game/resources/sounds/PressButton.wav"},
+      { "id" : "HoverOverButton", "file": "../Game/resources/sounds/HoverOverButton.wav"},
+      { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"},
+      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"}
     ],
   
     "musics" : [
-      { "id" : "beat", "file" : "resources/sound/beat.wav" }
+      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"}
     ],
 
     "relics" : [

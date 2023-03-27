@@ -3,6 +3,8 @@
 #define COMPONENT_H_
 #include <SDL.h>
 #include "ecs.h"
+#include "../sdlutils/SDLUtils.h"
+
 class GameObject;
 class GameState;
 

@@ -22,13 +22,15 @@ protected:
 	GameObject* frame;
 
 	// Punteros a componentes
-	Transform* tr;
 	Animator* animButton;
 	Animator* animFrame;
-
-	// Indice para el ultimo boton seleccionado
 	int index;
 
+	//Sonidos de los botones
+	SoundEffect* hoverOverSound;
+	SoundEffect* clickSound;
+
+	vector<SoundEffect*> soundEffects;
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, GameObject* _frame = nullptr ,int _index = -1) :
@@ -45,6 +47,6 @@ public:
 	// Actualiza la animación del botón según el estado
 	virtual void updateAnimation();
 
-	// Cambia el estado de los animators para mostrar el estado del botón recibido
-	void changeStateAnim(string key);
+	// Cambia el estado de los animators para mostrar el estado del bot�n recibido
+	void changeStateAnim(string key, int state);
 };
