@@ -19,7 +19,7 @@ void Map::initTextureKeys() {
 void Map::initNodeLoads() {
 	nodeLoads[NodeType::Battle] = [](BattleType t) { SDLApplication::instance()->pushNewScene<BattleScene>(t); };
 	nodeLoads[NodeType::Chest] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ChestScene>(); };
-	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ShopScene>(1000); };
+	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ShopScene>(200); };
 }
 
 // Crea el mapa

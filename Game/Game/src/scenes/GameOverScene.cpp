@@ -38,7 +38,7 @@ void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
 	// Crear botón
-	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
+	addGameObject<Button>(_cb, _bPos, aI, -1,frame);
 }
 
 GameOverScene::~GameOverScene() {

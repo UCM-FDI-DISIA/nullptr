@@ -30,8 +30,8 @@ PlayerData::~PlayerData() {
 void PlayerData::defaultPlayerStats()
 {
 	setMaxMana(100);
-	setMaxHP(100);
-	setCurrHP(100);
+	setMaxHP(1000000);
+	setCurrHP(1000);
 	setAttackMult(1);
 	setFireRateMult(1);
 	playerSpeed = PLAYER_SPEED;
