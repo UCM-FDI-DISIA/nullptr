@@ -38,7 +38,7 @@ private:
 public:
 	// Constructora
 	BattleScene(BattleType t_);
-	~BattleScene() { battleSceneOST->haltMusic(); };
+	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };
