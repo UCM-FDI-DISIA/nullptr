@@ -10,18 +10,18 @@ ShopScene::ShopScene(int money) : NodeScene(), myMoney(money), selectedCard(null
 	background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground"));
 
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
-		int rand = sdlutils().rand().nextInt(0, SHOP_NUMBER_OF_CARDS + 1);
+		int rand = sdlutils().rand().nextInt(0, maxCardId + 1);
 		for (int j = 0; j < i; j++)
 		{
 			if (rand == alreadyInStore[j]) {
-				rand = sdlutils().rand().nextInt(0, SHOP_NUMBER_OF_CARDS + 1);
+				rand = sdlutils().rand().nextInt(0, maxCardId + 1);
 				j = -1;
 			}
 		}
 		alreadyInStore[i] = rand;
 
 		Item itemToInsert;
-		itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(rand), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT), i);
+		itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(rand), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, 1, 1), i);
 		// Cambiar el rand() por un precio elegido
 		itemToInsert.price = sdlutils().rand().nextInt(100, 201);
 		

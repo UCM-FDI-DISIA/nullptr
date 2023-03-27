@@ -45,7 +45,7 @@ void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
 	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, frame);
+	addGameObject<Button>(_cb, _bPos, aI, -1, frame);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
