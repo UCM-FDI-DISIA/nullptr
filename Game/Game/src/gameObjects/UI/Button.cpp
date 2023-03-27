@@ -2,7 +2,7 @@
 #include "../../core/SDLApplication.h"
 
 // Añade los componentes al botón y crea sus animaciones
-void Button::initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame) {
+void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame) {
 	// Transform
 	addComponent<Transform>(_pos, VECTOR_ZERO, _animInfo.w, _animInfo.h);
 
@@ -12,7 +12,7 @@ void Button::initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, A
 	if (_frame != nullptr) createButtonAnimations(_frame->getComponent<Animator>());
 
 	// Componente de botones
-	addComponent<ButtonComponent>(_cb, SDLApplication::instance(), _frame);
+	addComponent<ButtonComponent>(_cb, _frame);
 }
 
 // Crea las animaciones esenciales de un bot�n: OnClick, OnOver y Idle

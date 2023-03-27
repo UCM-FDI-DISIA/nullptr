@@ -1,10 +1,22 @@
 #pragma once
 #include "../utils/Singleton.h"
 #include "../gameObjects/Card Objects/Card.h"
+#include "../data/CardsDataContainer.h"
 #include "../data/RelicData.h"
 #include <vector>
+#include <map>
 #include <list>
 #include <string>
+
+struct InventoryInfo {
+	
+	int cuantity = 0;
+	int cuantityDeck = 0;
+	CardData* card;
+
+	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { }
+	InventoryInfo(int c, int cd, CardData* ca) : cuantity(c), cuantityDeck(cd), card(ca) { }
+};
 
 class Card;
 class PlayerData : public Singleton<PlayerData>
@@ -17,6 +29,8 @@ class PlayerData : public Singleton<PlayerData>
 	
 	Mazo - lo que se lleva
 	Biblioteca - lo que no
+	Inventario - TODO
+	Cartas Recibidas - Mapa de cartas recibidas y su posicion en el vector de inventario
 
 	Progreso de la run
 	- mapa
@@ -29,6 +43,9 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
+	std::vector<InventoryInfo> inventory;
+	std::unordered_map<string, vector<InventoryInfo>::iterator> receivedCard;
+	
 	
 	//Vector con todas las reliquias disponibles, saca su key del mapa
 	std::vector<std::string> avlbRelics;
@@ -36,6 +53,7 @@ class PlayerData : public Singleton<PlayerData>
 	//Vector con las reliquias que tiene el jugador
 	std::vector<Relic*> myRelics;
 
+	int money;
 	int maxMana;
 	int maxHP;
 	int currHP;
@@ -58,8 +76,11 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getAttackMult() { return attackMult; }
 		inline float getFireRateMult() { return fireRateMult; }
 		inline float getPlayerMoveSpeed() { return playerSpeed; }
+		inline float getMoney() { return money; }
 		inline int getLevel() { return level; }
-
+		inline vector<Relic*> getRelics() { return myRelics; }
+		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
+		inline unordered_map<string, vector<InventoryInfo>::iterator> getReceivedCards() { return receivedCard; }
 
 		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
 		inline void setCurrMana(int currMana) { this->currMana = currMana; }
@@ -68,6 +89,7 @@ class PlayerData : public Singleton<PlayerData>
 		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
 		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
 		inline void setLevel(int level) { this->level = level; }
+		inline void setMoney(int mon) { money += mon; }
 		inline void getPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
 		void defaultPlayerStats();
 		void updatePlayerStats();
@@ -80,9 +102,9 @@ class PlayerData : public Singleton<PlayerData>
 		
 
 		void setDeck(std::vector<Card*> newDeck);
+		void addCardToLibrary(Card* newCard, int num);
 		void setAvailableItems(std::vector<std::string> newItems);
 
-		void addCardToLibrary(Card* newCard);
 		void addRelic(Relic* relic);
 		std::vector<Card*> getLibrary();
 		

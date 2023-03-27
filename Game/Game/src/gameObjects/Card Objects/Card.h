@@ -39,5 +39,6 @@ class Card
 		int getMana() { return mana; }
 		float getDownTime() { return downtime; }
 		Texture* getTexture() { return texture; }
+		string getName() { return name; }
 };
 
