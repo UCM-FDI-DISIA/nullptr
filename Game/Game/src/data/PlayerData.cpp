@@ -6,15 +6,18 @@ PlayerData::PlayerData() {
 
 	level = 5;
 
+	// Cartas iniciales
+	deck.push_back(new SwordCard());
+	deck.push_back(new SwordCard());
+	deck.push_back(new SwordCard());
 
-	deck.push_back(new  RitualAxeCard());
-	deck.push_back(new  CheatGunCard());
-	deck.push_back(new  CheatGunCard());
-	deck.push_back(new  CheatGunCard());
+	deck.push_back(new GunCard());
+	deck.push_back(new GunCard());
+	deck.push_back(new GunCard());
 
+	deck.push_back(new LaserShadesCard());
+	deck.push_back(new LaserShadesCard());
 }
-
-	
 
 PlayerData::~PlayerData() {
 	for (auto& card : deck) {

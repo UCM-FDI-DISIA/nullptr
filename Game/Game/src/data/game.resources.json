@@ -78,8 +78,8 @@
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
       { "id" : "Mana", "file" :  "../Game/resources/images/Enemies/Mana_10x10.png"},
 
-
-      { "id" : "Numbers", "file" : "../Game/resources/images/UI/Numbers_spritesheet_130x250.png" }, 
+      { "id" : "Numbers", "file" : "../Game/resources/images/UI/CounterNumbers_130x250.png" }, 
+      { "id" : "CardAmmo", "file" : "../Game/resources/images/UI/BattleScene/CardAmmoBlock_7x5.png" }, 
 
       { "id": "StatisticsFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/UpperFrame_250x28.png" },
       { "id": "EtherMeterFrame", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/EtherMeterFrame_44x26.png" },
@@ -87,6 +87,7 @@
       { "id": "LifeBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/LifeAnim_83x10.png" },
       { "id": "ManaBar", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/ManaAnim_83x10.png" },
       { "id": "StatisticsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/StatisticsFrame/StatisticsNumbers_9x18.png" },
+      { "id": "CardsNumbers", "file" :  "../Game/resources/images/UI/BattleScene/CardsNumbers_9x18.png" },
       
       { "id" : "BossFloor", "file" : "../Game/resources/images/Floors/FloorBoss.png" },
       { "id" : "PastFloor", "file" : "../Game/resources/images/Floors/FloorPast.png" },
