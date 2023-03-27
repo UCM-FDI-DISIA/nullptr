@@ -11,8 +11,8 @@ class SDLApplication;
 
 class ButtonComponent : public Component {
 
-protected:
-	// Función a realizar
+protected:	
+	// Funci�n a realizar
 	CallBack function;
 
 	// Estado del botón

@@ -242,6 +242,106 @@ const Vector2D MS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH * 7 / 8 - (MS_BUTTON_WIDT
 const Vector2D MS_OPTIONSFRAME_BUTTON_POS = MS_OPTIONS_BUTTON_POS - FRAME_OFFSET;
 const Vector2D MS_INVENTORYFRAME_BUTTON_POS = MS_INVENTORY_BUTTON_POS - FRAME_OFFSET;
 const Vector2D MS_EXITFRAME_BUTTON_POS = MS_EXIT_BUTTON_POS - FRAME_OFFSET;
+// INVENTORYSCENE: BUTTON POSITIONS AND DIMENSIONS
+const int IS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 2;
+const int IS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 2;
+const int IS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 2;
+const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
+const Vector2D IS_EXIT_BUTTON_POS = Vector2D(1115 - IS_BUTTON_WIDTH/2, 670);
+const Vector2D IS_EXITFRAME_BUTTON_POS = IS_EXIT_BUTTON_POS - Vector2D(24, 44);
+const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
+const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
+const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
+
+// INVENTORYSCENE : SYMBOLS
+const string SYMBOLS_KEYS[5] = {
+	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
+};
+const string STATS_TEXTS[5] = {
+	"Vida", "Mana", "Velocidad", "Cadencia", "Ataque"
+};
+const int SYMBOL_DIMENSIONS = 64;
+const Vector2D SYMBOL_POSITIONS[5] = {
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 310),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 380),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 450),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 520),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 590)
+};
+
+const Vector2D STAT_OFFSET = Vector2D(74, 20);
+const Vector2D STAT_VALUE_OFFSET = Vector2D(190, 20);
+
+const string CARD_CIRCLE = "CardCircle";
+const int CARD_CIRCLE_RADIOUS = 20;
+const Vector2D CARD_CIRCLE_OFFSET = Vector2D(52, 75);
+const string CARD_FRAME = "CardFrame";
+const int CARD_FRAME_WIDTH = 66;
+const int CARD_FRAME_HEIGHT = 101;
+const Vector2D CARD_FRAME_OFFSET = Vector2D(4, 4);
+const string CARD_RECTANGLE = "CardRectangle";
+const int CARD_RECTANGLE_WIDTH = 34;
+const int CARD_RECTANGLE_HEIGHT = 14;
+const Vector2D CARD_RECTANGLE_OFFSET = Vector2D(44, -7);
+
+const string DECK_PANEL = "DeckPanel";
+const int DP_WIDTH = 90;
+const int DP_HEIGHT = 45;
+const Vector2D DP_POSITION = Vector2D(474 - DP_WIDTH/2, 465);
+
+const string OBJECTS_PANEL = "ObjectsPanel";
+const int OP_WIDTH = 125;
+const int OP_HEIGHT = 30;
+const Vector2D OP_POSITION = Vector2D(1116 - OP_WIDTH/2, 99);
+
+const string INVENTORY_PANEL = "InventoryPanel";
+const int IP_WIDTH = 175;
+const int IP_HEIGHT = 30;
+const Vector2D IP_POSITION = Vector2D(474 - IP_WIDTH / 2, 0);
+
+const string STATS_PANEL = "StatsPanel";
+const int SP_WIDTH = 210;
+const int SP_HEIGHT = 30;
+const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
+
+
+// INVENTORYSCENE : DECK
+const Vector2D DECK_POSITIONS[6] = {
+	Vector2D(20, 520),
+	Vector2D(180, 520),
+	Vector2D(340, 520),
+	Vector2D(500, 520),
+	Vector2D(660, 520),
+	Vector2D(820, 520)
+};
+
+// INVENTORY : LIBRARY
+const Vector2D LIBRARY_POSITIONS[12] = {
+	Vector2D(20, 50),
+	Vector2D(180, 50),
+	Vector2D(340, 50),
+	Vector2D(500, 50),
+	Vector2D(660, 50),
+	Vector2D(820, 50),
+	Vector2D(20, 270),
+	Vector2D(180, 270),
+	Vector2D(340, 270),
+	Vector2D(500, 270),
+	Vector2D(660, 270),
+	Vector2D(820, 270)
+};
+
+// INVENTORY : OBJECTS
+const int OBJECTS_DIMENSIONS = 64;
+const Vector2D OBJECTS_POSITIONS[6] = {
+	Vector2D(960, 132),
+	Vector2D(1034, 132),
+	Vector2D(1108, 132),
+	Vector2D(960, 199),
+	Vector2D(1034, 199),
+	Vector2D(1108, 199)
+};
+
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
@@ -494,6 +594,20 @@ const int MESSAGE_H = 200;
 const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
+// RELIQUIAS -------------------------------------------------------------------------------------
+const string ALMACENAMIENTO_CUANTICO = "AlmacenamientoCuantico";
+const string HOVERBOARD = "Hoverboard";
+const string ENGRANAJE_AUREO = "EngranajeAureo";
+const string BRAZALETE_IONES = "BrazaleteDeIones";
+const string REGALO = "Regalo";
+const string RELOJ_DIGITAL = "RelojDigital";
+const string COLLAR_GOTICO = "CollarGotico";
+const string CINTURON_HERRAMIENTAS = "CinturonDeHerramientas";
+const string CETRO_PAPAL = "CetroPapal";
+const string LIBRO_PERDIDO = "LibroPerdido";
+const string TAZA_CAFE = "TazaDeCafe";
+const string BOTELLA_MINIATURA = "BotellaConUnBarcoEnMiniatura";
+
 //ENEMY GENERATOR---------------------------------------------------------------------------------
 const int MELEE_RADIUS = 500;
 const int RANGED_RADIUS = 800;
@@ -581,11 +695,12 @@ struct AnimatorInfo {
 	int w, h;
 	int fw, fh;
 	int rows, cols;
-	//Con constantes para botones genéricos
+	//Con constantes para botones gen�ricos
 	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
 		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }
-	//Con parámetros específicos
-	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r = 1 , int _c = 1) :
+	//Con par�metros espec�ficos
+	AnimatorInfo(string _k, int _w, int _h, int _fw = BUTTON_SPRITE_WIDTH, int _fh = BUTTON_SPRITE_HEIGHT,
+		int _r = BUTTON_SPRITE_ROWS, int _c = BUTTON_SPRITE_COLUMS) :
 		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
 };
 

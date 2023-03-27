@@ -30,7 +30,7 @@ class Card
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
 		//Se gasta un uso
 		void use() { remainingUses -= 1;}
-		//Se reinician sus usos respecto a los máximos
+		//Se reinician sus usos respecto a los mï¿½ximos
 		void resetCard() { remainingUses = maxUses;}
 		
 
@@ -59,5 +59,6 @@ class Card
 			default: return REVERSE;
 			}
 		}
+		string getName() { return name; }
 };
 
