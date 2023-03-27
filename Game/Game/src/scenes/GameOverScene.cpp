@@ -40,3 +40,7 @@ void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 	// Crear botón
 	addGameObject<Button>(_cb, SDLApplication::instance(), _bPos, aI, frame);
 }
+
+GameOverScene::~GameOverScene() {
+	deathSound->haltChannel();
+}
