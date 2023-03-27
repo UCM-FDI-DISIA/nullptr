@@ -171,9 +171,9 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 
 	// Crear números
 	newCard->ammoNumber.first = createNumber(posDecsAmmo, rotation, newCard->maxAmmo / 10, 'a');
-	newCard->ammoNumber.second = createNumber(posUnitsAmmo, rotation, newCard->maxAmmo - (newCard->maxAmmo / 10), 'a');
+	newCard->ammoNumber.second = createNumber(posUnitsAmmo, rotation, newCard->maxAmmo % 10, 'a');
 	newCard->manaNumber.first = createNumber(posDecsMana, rotation, mana / 10, 'm');
-	newCard->manaNumber.second = createNumber(posUnitsMana, rotation, mana - (mana / 10), 'm');
+	newCard->manaNumber.second = createNumber(posUnitsMana, rotation, mana % 10, 'm');
 
 	/* // Crear bloques de munición
 	int width = (40 * 3) / (newCard->maxAmmo / 1.0f);
