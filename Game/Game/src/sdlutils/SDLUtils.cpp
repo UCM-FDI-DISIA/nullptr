@@ -67,7 +67,7 @@ void SDLUtils::initWindow() {
 
 	// hide cursor by default
 	//hideCursor();
-
+	SDL_RenderSetIntegerScale(renderer_, SDL_bool(true));
 }
 
 void SDLUtils::closeWindow() {
