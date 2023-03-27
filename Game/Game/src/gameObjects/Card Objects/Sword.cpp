@@ -1,5 +1,4 @@
 #include "Cards.h"
-#include "../../sdlutils/Texture.h"
 #include "../Card Objects/Hitbox.h"
 
 // Crea un gObj Slash en la direcci�n que apunta el jugador

@@ -235,6 +235,12 @@
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp">
       <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\CheatGun.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Card Components\FollowEnemyComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Cards Component</Filter>
+    </ClCompile>
     <ClCompile Include="src\data\CardsDataContainer.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
@@ -243,6 +249,9 @@
     </ClCompile>
     <ClCompile Include="src\components\General Components\CallbackDelayer.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -453,9 +462,6 @@
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h">
       <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\Card Objects\Explosive.h">
-      <Filter>Archivos de Encabezado\Objects\Card Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h">
       <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
     </ClInclude>
@@ -507,6 +513,9 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h">
       <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Card Components\FollowEnemyComponent.h">
+      <Filter>Archivos de Encabezado\Components\Card Components</Filter>
     </ClInclude>
     <ClInclude Include="src\data\CardsDataContainer.h">
       <Filter>Archivos de Encabezado\Data</Filter>
