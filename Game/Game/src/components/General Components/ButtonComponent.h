@@ -34,7 +34,7 @@ protected:
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, GameObject* _frame = nullptr) :
-		Component(), state(0), function(_f), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
+		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr) {}
 
 	virtual void update();
 	virtual void handleInput();

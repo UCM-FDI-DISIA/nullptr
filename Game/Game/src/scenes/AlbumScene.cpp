@@ -45,7 +45,7 @@ void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 	card->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
 	card->addComponent<Image>(found ? myData.texture : &sdlutils().images().at("CardReverse"));
 
-	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, nullptr, pos,	AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
+	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos,	AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
 	Animator* a = b->getComponent<Animator>();
 	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
 	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
@@ -96,7 +96,7 @@ void AlbumScene::selectCard(CardData cData) {
 
 	// BOTÓN SALIR
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	g = addGameObject<Button>([&]() { deselectCard(); }, SDLApplication::instance(), Vector2D(700, 500), aI);
+	g = addGameObject<Button>([&]() { deselectCard(); }, Vector2D(700, 500), aI);
 	mierdon.push_back(g);
 }
 
