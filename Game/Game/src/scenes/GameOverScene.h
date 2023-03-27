@@ -4,6 +4,8 @@
 
 class SDLApplication;
 class GameOverScene : public GameState {
+private:
+	SoundEffect* deathSound;
 public:
 	GameOverScene();
 	

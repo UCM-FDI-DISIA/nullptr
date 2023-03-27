@@ -106,7 +106,8 @@
     "sounds" : [
       { "id" : "ButtonPressed", "file": "../Game/resources/sounds/PressButton.wav"},
       { "id" : "HoverOverButton", "file": "../Game/resources/sounds/HoverOverButton.wav"},
-      { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"}
+      { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"},
+      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"}
     ],
   
     "musics" : [
