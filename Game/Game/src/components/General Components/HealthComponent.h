@@ -5,6 +5,7 @@
 // Este componente sirve para manejar todos los eventos relacionados con la vida del objeto
 // Como su muerte o su curación
 class OnDeath;
+class RitualAxeCard;
 class HealthComponent : public Component {
 private:
 	int lifePoints;
@@ -12,13 +13,13 @@ private:
 	int modifiedMaxLife;
 	bool invincibility;
 	float invTime;
-	float time;
 	OnDeath* onDeath;
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
 	//Delete del padre
-	void receiveDamage(int damage);
+	void receiveDamage(int damage, RitualAxeCard* axe = nullptr);
+	void setInvencibility(float time);
 	virtual void initComponent();
 	virtual void update();
 	void heal(int heal);

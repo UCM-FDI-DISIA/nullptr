@@ -132,7 +132,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,7 +155,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
+    <ClInclude Include="src\components\Card Components\FollowEnemyComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxExplosionComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxHealingComponent.h" />
@@ -172,6 +174,7 @@
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
     <ClInclude Include="src\components\General Components\ButtonComponent.h" />
+    <ClInclude Include="src\components\General Components\CallbackDelayer.h" />
     <ClInclude Include="src\components\General Components\CameraComponent.h" />
     <ClInclude Include="src\components\General Components\ChargedPortalComponent.h" />
     <ClInclude Include="src\components\General Components\CharacterAnimator.h" />
@@ -203,7 +206,6 @@
     <ClInclude Include="src\gameObjects\Card Objects\Card.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
-    <ClInclude Include="src\gameObjects\Card Objects\Explosive.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
@@ -248,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
+    <ClCompile Include="src\components\Card Components\FollowEnemyComponent.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
@@ -257,6 +260,7 @@
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
+    <ClCompile Include="src\components\General Components\CallbackDelayer.cpp" />
     <ClCompile Include="src\components\General Components\CameraComponent.cpp" />
     <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp" />
     <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
@@ -284,6 +288,8 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\CheatGun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Hitbox.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\LightRifle.cpp" />

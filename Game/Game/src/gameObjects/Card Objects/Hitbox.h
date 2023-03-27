@@ -8,6 +8,8 @@
 #include "../../components/General Components/Image.h"
 #include "../../core/SDLApplication.h"
 
+class RitualAxeCard;
+
 class Hitbox : public GameObject {
 public:
 
@@ -29,11 +31,11 @@ public:
 	}
 
 	//Constructor de hitbox que causa dano, se le anade un lifetime component
-	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr)
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
-		addComponent<HitboxDamageComponent>(dmg, isDestroyed, knockBack);
+		addComponent<HitboxDamageComponent>(dmg, isDestroyed, knockBack, axe);
 	}
 
 	//Constructor de hitbox que aflige estados alterados, se le anade un lifetime component

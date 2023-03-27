@@ -57,6 +57,10 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
+
+	//Música
+	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST->play();
 };
 
 void BattleScene::OnPlayerDies() {

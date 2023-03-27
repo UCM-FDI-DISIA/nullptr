@@ -9,11 +9,14 @@ void ButtonComponent::update() {
 	SDL_GetMouseState(&mouseX, &mouseY);
 
 	// Cambia el estado según la posición del ratón
+	if (state != OnClick) {
 	if (isOver(mouseX, mouseY)) {
 		state = OnOver;
+
 	}
 	else {
 		state = OnOut;
+	}
 	}
 }
 
@@ -27,6 +30,8 @@ void ButtonComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
+	hoverOverSound = &sdlutils().soundEffects().at("HoverOverButton");
+	clickSound = &sdlutils().soundEffects().at("ButtonPressed");
 }
 
 
@@ -46,16 +51,30 @@ void ButtonComponent::onClick() {
 // Actualiza la animación del botón según el estado
 void ButtonComponent::updateAnimation() {
 	switch (state) {
-	case OnOut: changeStateAnim(ONOUT); break;
-	case OnOver: changeStateAnim(ONOVER); break;
-	case OnClick: changeStateAnim(ONCLICK); break;
+	case OnOut:
+		changeStateAnim(ONOUT, state);
+		break;
+	case OnOver:
+		changeStateAnim(ONOVER, state);
+		break;
+	case OnClick:
+		changeStateAnim(ONCLICK, state);
+		break;
 	}
 }
 
 // Cambia el estado de los animators para mostrar el estado del botón recibido
-void ButtonComponent::changeStateAnim(string key) {
+void ButtonComponent::changeStateAnim(string key, int state) {
 	// Comprobar si la animación actual no es a la que hay que cambiar
 	if (animButton->currentAnimationKey() != key) {
+		switch (state) {
+		case OnClick:
+			clickSound->play();
+			break;
+		case OnOver:
+			hoverOverSound->play();
+			break;
+		}
 		// Reproducir la correspondiente
 		animButton->play(key);
 

@@ -16,6 +16,7 @@ using uint = unsigned int;
 
 const Vector2D VECTOR_ZERO = { 0,0 };
 
+
 // WINDOW ----------------------------------------------------------------------------------------
 const uint WIN_WIDTH = 1280;
 const uint WIN_HEIGHT = 720;
@@ -219,6 +220,10 @@ const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_INVENTORYFRAME_BUTTON_POS = PM_INVENTORY_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
+//CHESTMENU: BUTTON POSITIONS AND DIMENSIONS
+const int CHEST_BUTTON_WIDTH = 100;
+const int CHEST_BUTTON_HEIGHT = 50;
+
 // MAPSCENE: BUTTON POSITIONS AND DIMENSIONS
 const int MS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
 const int MS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 3;
@@ -407,6 +412,9 @@ const int XC_MANA_XOFFSET_DECS = 19;
 const int XC_MANA_XOFFSET_UNITS = 30;
 const int XC_MANA_YOFFSET = 58;
 
+// RELICS ----------------------------------------------------------------------------------------
+
+
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;
 const int NUMBERS_HEIGHT = 250;
@@ -543,5 +551,21 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
+
+//STRUCTS
+
+struct AnimatorInfo {
+	string key;
+	int w, h;
+	int fw, fh;
+	int rows, cols;
+	//Con constantes para botones genéricos
+	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
+		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }
+	//Con parámetros específicos
+	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r, int _c) :
+		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
+};
+
 
 #endif

@@ -9,11 +9,12 @@
 #include "../utils/Singleton.h"
 #include "RandomNumberGenerator.h"
 #include "Font.h"
-//#include "Music.h"
-//#include "SoundEffect.h"
+#include "Music.h"
+#include "SoundEffect.h"
 #include "Texture.h"
-#include "../data/RelicData.h"
+#include "SDL_mixer.h"
 #include "VirtualTimer.h"
+#include "../data/RelicData.h"
 #include "../data/constants.h"
 
 class SDLUtils: public Singleton<SDLUtils> {
@@ -150,14 +151,14 @@ public:
 	}*/
 
 // sound effects map
-	/*inline auto& soundEffects() {
+	inline auto& soundEffects() {
 		return soundsAccessWrapper_;
-	}*/
+	}
 
 // musics maps
-	/*inline auto& musics() {
+	inline auto& musics() {
 		return musicsAccessWrapper_;
-	}*/
+	}
 
 // Access to the random number generator. It is important to always
 // use this generator, this way you can regenerate the same sequence
@@ -200,15 +201,15 @@ private:
 	sdl_resource_table<Texture> images_; // textures map (string -> texture)
 	sdl_resource_table<Relic> relics_;
 	//sdl_resource_table<Texture> msgs_; // textures map (string -> texture)
-	//sdl_resource_table<SoundEffect> sounds_; // sounds map (string -> sound)
-	//sdl_resource_table<Music> musics_; // musics map (string -> music)
+	sdl_resource_table<SoundEffect> sounds_; // sounds map (string -> sound)
+	sdl_resource_table<Music> musics_; // musics map (string -> music)
 
 	map_access_wrapper<Font> fontsAccessWrapper_;
 	map_access_wrapper<Texture> imagesAccessWrapper_;
 	map_access_wrapper<Relic> relicsAccessWrapper_;
 	//map_access_wrapper<Texture> msgsAccessWrapper_;
-	//map_access_wrapper<SoundEffect> soundsAccessWrapper_;
-	//map_access_wrapper<Music> musicsAccessWrapper_;
+	map_access_wrapper<SoundEffect> soundsAccessWrapper_;
+	map_access_wrapper<Music> musicsAccessWrapper_;
 
 	RandomNumberGenerator random_; // (pseudo) random numbers generator
 	VirtualTimer timer_; // virtual timer
