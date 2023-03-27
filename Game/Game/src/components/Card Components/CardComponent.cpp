@@ -86,6 +86,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
 		(*active)->attack(playerPos, mousePos, attackMult, where);
 		(*active)->use();
+		where->changeAmmoUI(active);
 		downTime = (*active)->getDownTime() / fireRateMult;
 		if ((*active)->getUses() <= 0)discardCard(active);
 	}

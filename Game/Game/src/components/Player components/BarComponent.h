@@ -13,6 +13,8 @@ class BarComponent : public Component {
 private:
 	Transform* tr;
 	int currentCuantity;
+	//Sonidos
+	SoundEffect* countDownSound;
 
 public:
 	static const int id = _BAR_COMPONENT;

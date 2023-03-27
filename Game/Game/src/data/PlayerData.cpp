@@ -5,8 +5,6 @@ PlayerData::PlayerData() {
 	defaultPlayerStats();
 
 	level = 5;
-
-
 	// Cartas iniciales
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
@@ -32,8 +30,6 @@ PlayerData::PlayerData() {
 		avlbRelics.push_back(var.first);
 	}
 }
-
-	
 
 PlayerData::~PlayerData() {
 	for (auto& card : deck) {
