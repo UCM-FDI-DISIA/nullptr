@@ -2,6 +2,7 @@
 
 #include "Image.h"
 #include <unordered_map>
+#include <unordered_set>
 
 
 using AnimationMap = unordered_map<string, Animation>;
@@ -19,6 +20,7 @@ private:
 	float srcRectRelativeWidth = 1;
 	float srcRectRelativeHeight = 1;
 
+	std::unordered_map<std::string, std::unordered_set<std::string>> linkedAnimations;
 public:
 	// Constructora
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
@@ -31,59 +33,45 @@ public:
 
 	// Empieza una nueva animacion
 	void play(string key);
-
 	// Para la animacion actual
 	void stop();
-
 	// Continua la ultima animacion
 	void resume();
-	
 	// Inicia una nueva animación si es diferente a la actual
 	bool playDiff(string key);
 
+
 	// Actualiza el frame actual dependiendo del frameRate
 	virtual void update();
-
 	// Renderiza el frame actual
 	virtual void render() const;
 
-	// Settea el valor para el cambio del tamaño del srcRect
-	inline void setSrcRectRelativeWidth(float rw) {
-		if (rw > 1) rw = 1;
-		else if (rw < 0) rw = 0;
-		srcRectRelativeWidth = rw;
-	}
+	// Asigna el valor para el cambio del tamaño del srcRect
+	void setSrcRectRelativeWidth(float rw);
+	// Asigna el valor para el cambio del tamaño del srcRect
+	void setSrcRectRelativeHeight(float rh);
 
-	// Settea el valor para el cambio del tamaño del srcRect
-	inline void setSrcRectRelativeHeight(float rh) {
-		if (rh > 1) rh = 1;
-		else if (rh < 0) rh = 0;
-		srcRectRelativeHeight = rh;
-	}
 
 	// Devuelve el nombre de la animacion actual
 	inline string currentAnimationKey() { return currentAnimKey; }
-
-	// Devuelve el numero del frame actual
-	inline int getCurrentFrame() { return currentFrame; }
 
 	// Devuelve si la animación actual está corriendo
 	inline bool isPlaying() {
 		return currentAnimation != nullptr && repetitions != currentAnimation->repeat;
 	}
-
 	// Devuelve si la animación actual se ha completado
 	inline bool animationComplete() {
 		return currentAnimation != nullptr && repetitions == currentAnimation->repeat;
 	}
-
 	// Devuelve si la animación actual es la introducida
 	inline bool isCurrentAnimation(string key) {
 		return currentAnimKey == key;
 	}
-
 	//Devuelve si la animacion introducida esta siendo reproducida
-	bool isPlaying(string key) {
+	inline bool isPlaying(string key) {
 		return isCurrentAnimation(key) && isPlaying();
 	}
+
+	// Enlaza dos animaciones, es decir, al cambiar entre estas dos el frame actual no cambiará
+	void linkAnimations(std::string key1, std::string key2);
 };
