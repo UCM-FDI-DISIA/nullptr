@@ -297,32 +297,18 @@ const int SP_WIDTH = 210;
 const int SP_HEIGHT = 30;
 const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
+const int ALB_CARD_W = 58 * PIXEL_WIDTH;
+const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
+const int ALB_CARD_X[3] = { 90, 265, 440 };
+const int ALB_CARD_Y = 275;
+
+const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
+const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
+const Animation CLICKED_CARD_ANIM(3, 3, 1, -1);
+
 
 // INVENTORYSCENE : DECK
-const Vector2D DECK_POSITIONS[6] = {
-	Vector2D(20, 520),
-	Vector2D(180, 520),
-	Vector2D(340, 520),
-	Vector2D(500, 520),
-	Vector2D(660, 520),
-	Vector2D(820, 520)
-};
-
-// INVENTORY : LIBRARY
-const Vector2D LIBRARY_POSITIONS[12] = {
-	Vector2D(20, 50),
-	Vector2D(180, 50),
-	Vector2D(340, 50),
-	Vector2D(500, 50),
-	Vector2D(660, 50),
-	Vector2D(820, 50),
-	Vector2D(20, 270),
-	Vector2D(180, 270),
-	Vector2D(340, 270),
-	Vector2D(500, 270),
-	Vector2D(660, 270),
-	Vector2D(820, 270)
-};
+const int DECK_HEIGHT = 520;
 
 // INVENTORY : OBJECTS
 const int OBJECTS_DIMENSIONS = 64;

@@ -17,7 +17,6 @@ class Card
 	public:
 		Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _data, Texture* _texture);
 		Card(CardData myData);
-		Card* getCard();
 		//Ataque
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
 		//Habilidad

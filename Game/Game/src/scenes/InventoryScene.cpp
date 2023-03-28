@@ -11,7 +11,7 @@ InventoryScene::InventoryScene() : GameState() {
 	for (int i = 0; i < currentLibrary.size();i++) {
 
 		if (!inventory.count(currentLibrary[i]->getName())) {
-			inventory[currentLibrary[i]->getName()].card = currentLibrary[i]->getCard();
+			inventory[currentLibrary[i]->getName()].card = currentLibrary[i];
 		}
 		inventory[currentLibrary[i]->getName()].cuantity++;
 	}
@@ -35,6 +35,7 @@ InventoryScene::InventoryScene() : GameState() {
 	createPanels();
 	createMoneyInfo();
 	createObjects(); 
+	createCards();
 
 	
 	// Los simbolos
@@ -117,4 +118,47 @@ void InventoryScene::createObjects() {
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
 		g->addComponent<Image>(objs[i]->texture);
 	}
+}
+
+void InventoryScene::createCards() {
+	bool row = false;
+	int column = 0;
+	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
+
+		Vector2D pos = Vector2D(20 + 160 * column, 50 + 220 * (row ? 0 : 1));
+		createCard(pos, it->second.card);
+		
+		Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
+			createCard(posD, it->second.card);
+		if (row) {
+			column++;
+			
+		}
+		row = !row;
+		
+
+	}
+}
+
+void InventoryScene::createCard(Vector2D pos, Card* card) {
+	GameObject* cardObj = addGameObject();
+	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
+	cardObj->addComponent<Image>(card->getTexture());
+
+	/*Button* b = addGameObject<Button>([&, cD = myData, f = found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
+	Animator* a = b->getComponent<Animator>();
+	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
+	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
+	a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
+	a->play(ONOUT);*/
+}
+
+InventoryScene::~InventoryScene() {
+	vector<Card*> newDeck;
+	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
+		for (int i = 0; i < it->second.cuantityDeck; i++) {
+			newDeck.push_back(it->second.card);
+		}
+	}
+	PlayerData::instance()->setDeck(newDeck);
 }
