@@ -31,20 +31,6 @@ Card::Card(CardData myData) :
 	name(myData.name), attackText(myData.attackText), abilityText(myData.abilityText), texture(myData.texture){}
 
 //Devuelve la carta correspondiente al id
-Card Card::getCard(CardId type) {
-
-	// cleon says: podéis sacar un elemento random de un vector, y el elemento que sea una lambda
-	switch (type)
-	{
-	case gun:
-		return GunCard();
-	case sword:
-		return SwordCard();
-	case laserShades:
-		return LaserShadesCard();
-	case smg:
-		return SMGCard();
-	default:
-		break;
-	}
+Card* Card::getCard() {
+	return this;
 }

@@ -8,15 +8,7 @@
 #include <list>
 #include <string>
 
-struct InventoryInfo {
-	
-	int cuantity = 0;
-	int cuantityDeck = 0;
-	CardData* card;
 
-	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { }
-	InventoryInfo(int c, int cd, CardData* ca) : cuantity(c), cuantityDeck(cd), card(ca) { }
-};
 
 class Card;
 class PlayerData : public Singleton<PlayerData>
@@ -43,8 +35,6 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<Card*> library;
-	std::vector<InventoryInfo> inventory;
-	std::unordered_map<string, vector<InventoryInfo>::iterator> receivedCard;
 	
 	
 	//Vector con todas las reliquias disponibles, saca su key del mapa
@@ -79,8 +69,6 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getMoney() { return money; }
 		inline int getLevel() { return level; }
 		inline vector<Relic*> getRelics() { return myRelics; }
-		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
-		inline unordered_map<string, vector<InventoryInfo>::iterator> getReceivedCards() { return receivedCard; }
 
 		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
 		inline void setCurrMana(int currMana) { this->currMana = currMana; }

@@ -4,13 +4,7 @@
 #include "../../sdlutils/Texture.h"
 #include "../../data/CardsDataContainer.h"
 
-enum CardId
-{
-	gun = 0,
-	sword,
-	laserShades,
-	smg,
-};
+
 class BattleScene;
 class Card
 {
@@ -23,7 +17,7 @@ class Card
 	public:
 		Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _data, Texture* _texture);
 		Card(CardData myData);
-		static Card getCard(CardId type);
+		Card* getCard();
 		//Ataque
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
 		//Habilidad

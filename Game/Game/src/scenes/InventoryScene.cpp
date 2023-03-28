@@ -1,12 +1,26 @@
 ﻿#include "InventoryScene.h"
 #include "../core/SDLApplication.h"
 
-InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
-	// Llamamos a Player data para pillar la info de las cartas que se tienen
-	info = PlayerData::instance()->getInventoryInfo();
-	cr = PlayerData::instance()->getReceivedCards();
-	deckCards = 0;
 
+
+InventoryScene::InventoryScene() : GameState() {
+	
+	vector<Card*> currentLibrary = PlayerData::instance()->getLibrary();
+	vector<Card*> currentDeck = PlayerData::instance()->getDeck();
+
+	for (int i = 0; i < currentLibrary.size();i++) {
+
+		if (!inventory.count(currentLibrary[i]->getName())) {
+			inventory[currentLibrary[i]->getName()].card = currentLibrary[i]->getCard();
+		}
+		inventory[currentLibrary[i]->getName()].cuantity++;
+	}
+
+	for (int j = 0; j < currentDeck.size(); j++) {
+		inventory[currentLibrary[j]->getName()].cuantityDeck++;
+	}
+
+	// Llamamos a Player data para pillar la info de las cartas que se tienen
 	stats.push_back(PlayerData::instance()->getMaxHP());
 	stats.push_back(PlayerData::instance()->getMaxMana());
 	stats.push_back(PlayerData::instance()->getPlayerMoveSpeed() / 2);
@@ -22,11 +36,6 @@ InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 	createMoneyInfo();
 	createObjects(); 
 
-	int numD = 0;
-	for (int i = 0; i < info.size(); i++) {
-		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); deck[i] = numD; numD++; deckCards += info[i].cuantityDeck; }
-		else addGameObject<InventoryCard>(this, &info[i], i);
-	}
 	
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
@@ -108,23 +117,4 @@ void InventoryScene::createObjects() {
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
 		g->addComponent<Image>(objs[i]->texture);
 	}
-}
-
-void InventoryScene::removeFromDeck(int ind) {
-	deck[ind] = -1;
-}
-
-int InventoryScene::getFirstDeckPos() {
-	int i = 0;
-	bool found = false;
-	while (!found && i < deck.size()) {
-		if (deck[i] == -1) found = true;
-		else i++;
-	}
-
-	if (found) { deck[i] = i; return i; }
-}
-
-void InventoryScene::changeDeckCardsNumber(int num) {
-	deckCards += num;
 }

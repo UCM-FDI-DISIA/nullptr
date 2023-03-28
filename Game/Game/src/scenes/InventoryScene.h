@@ -1,15 +1,23 @@
 #pragma once
 #include "GameState.h"
-#include "../gameObjects/UI/InventoryCard.h"
+#include <map>
 #include <vector>
+
+
+class Card;
+struct InventoryInfo {
+
+	int cuantity = 0;
+	int cuantityDeck = 0;
+	Card* card;
+
+	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { };
+};
 
 class InventoryScene : public GameState {
 private:
-	vector<InventoryInfo> info;
-	unordered_map<string, vector<InventoryInfo>::iterator> cr;
-	vector<int> deck;
+	std::map<string,InventoryInfo> inventory;
 	vector<int> stats;
-	int deckCards;
 public:
 	InventoryScene();
 
@@ -19,8 +27,4 @@ public:
 	void createPanels();
 	void createMoneyInfo();
 	void createObjects();
-
-	void removeFromDeck(int ind);
-	int getFirstDeckPos();
-	void changeDeckCardsNumber(int num);
 };

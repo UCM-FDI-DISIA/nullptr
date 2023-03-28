@@ -247,9 +247,6 @@
     <ClCompile Include="src\data\Album.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\InventoryCard.cpp">
-      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\General Components\CallbackDelayer.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
@@ -529,12 +526,10 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-      </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
