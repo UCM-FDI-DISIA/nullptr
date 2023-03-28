@@ -11,21 +11,21 @@ PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) :
 		Animation(PLAYER_MOVE_INITIAL_FRAME, PLAYER_MOVE_FINAL_FRAME, PLAYER_MOVE_FRAME_RATE, -1)) {
 
 	this->addAction(CHARACTER_ATTACK_MOVE_KEY, Animation(PLAYER_ATTACK_MOVE_INITIAL_FRAME, PLAYER_ATTACK_MOVE_FINAL_FRAME, PLAYER_ATTACK_MOVE_FRAME_RATE, 1), [this]() {
-		return isPlaying(CHARACTER_ATTACK_MOVE_KEY) || moving() && InputHandler::instance()->getMouseButtonState(InputHandler::LEFT);
+		return moving() && (isPlaying(CHARACTER_ATTACK_MOVE_KEY) || isPlaying(CHARACTER_ATTACK_IDLE_KEY) || InputHandler::instance()->getMouseButtonState(InputHandler::LEFT));
+		});
+	this->addAction(CHARACTER_ATTACK_IDLE_KEY, Animation(PLAYER_ATTACK_IDLE_INITIAL_FRAME, PLAYER_ATTACK_IDLE_FINAL_FRAME, PLAYER_ATTACK_IDLE_FRAME_RATE, 1), [this]() {
+		return !moving() && (isPlaying(CHARACTER_ATTACK_IDLE_KEY) || isPlaying(CHARACTER_ATTACK_MOVE_KEY) || InputHandler::instance()->getMouseButtonState(InputHandler::LEFT));
 		});
 
-	this->addAction(CHARACTER_ATTACK_IDLE_KEY, Animation(PLAYER_ATTACK_IDLE_INITIAL_FRAME, PLAYER_ATTACK_IDLE_FINAL_FRAME, PLAYER_ATTACK_IDLE_FRAME_RATE, 1), [this]() {
-		return isPlaying(CHARACTER_ATTACK_IDLE_KEY) || !moving() && InputHandler::instance()->getMouseButtonState(InputHandler::LEFT);
-		});
+	this->linkAnimations(CHARACTER_ATTACK_IDLE_KEY, CHARACTER_ATTACK_MOVE_KEY);
 
 	this->addAction(CHARACTER_SKILL_MOVE_KEY, Animation(PLAYER_SKILL_MOVE_INITIAL_FRAME, PLAYER_SKILL_MOVE_FINAL_FRAME, PLAYER_SKILL_MOVE_FRAME_RATE, 1), [this]() {
-		return isPlaying(CHARACTER_SKILL_MOVE_KEY) || moving() && InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT);
+		return moving() && (isPlaying(CHARACTER_SKILL_MOVE_KEY) || isPlaying(CHARACTER_SKILL_IDLE_KEY) || InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT));
 		});
 
 	this->addAction(CHARACTER_SKILL_IDLE_KEY, Animation(PLAYER_SKILL_IDLE_INITIAL_FRAME, PLAYER_SKILL_IDLE_FINAL_FRAME, PLAYER_SKILL_IDLE_FRAME_RATE, 1), [this]() {
-		return isPlaying(CHARACTER_SKILL_IDLE_KEY) || !moving() && InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT);
+		return !moving() && (isPlaying(CHARACTER_SKILL_IDLE_KEY) || isPlaying(CHARACTER_SKILL_MOVE_KEY) || InputHandler::instance()->getMouseButtonState(InputHandler::RIGHT));
 		});
 
+	this->linkAnimations(CHARACTER_SKILL_IDLE_KEY, CHARACTER_SKILL_MOVE_KEY);
 }
-
-

@@ -55,8 +55,10 @@ struct Animation {
 	int startFrame, endFrame;
 	int frameRate;
 	int repeat;
-	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0) {}
-	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
+	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0), linked(false) {}
+	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep), linked(false) {}
+
+	bool linked;
 };
 
 #include <functional>
