@@ -166,7 +166,8 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	pile.push_back(*discarded);
 	(*discarded)->resetCard();
 	where->discardUI(discarded);
-	active = hand.erase(discarded);
+	hand.erase(discarded);
+	active = hand.begin();
 	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
