@@ -7,6 +7,13 @@ void EnemyGenerator::initComponent() {
 	levelType = (level == 1 ? level : (level < 5 ? 2 : 5));
 	depth = level - levelType;
 	timePerWave = STARTING_TIME_PER_WAVE - depth * 500;
+
+
+	Vector2D spawn = playerPos->getCenter();
+	Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
+	spawnPos = checkPos(spawnPos, RANGED_RADIUS);
+
+	GameObject* enemy = where->addGameObject<BossEnemy>(_grp_ENEMIES, spawnPos, 10, player);
 }
 
 void EnemyGenerator::update() {
@@ -94,7 +101,7 @@ Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 }
 
 void EnemyGenerator::nextWave() {
-	spawnWave(calcWave());
+	//spawnWave(calcWave());
 	nextSpawn = SDLApplication::instance()->getCurrentTime() + timePerWave;
 	if (depth < 29) depth += 1;
 	timePerWave = STARTING_TIME_PER_WAVE - depth * 500;
@@ -104,30 +111,25 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 	//Coger la posicion del player
 	Vector2D spawn = playerPos->getCenter();
 
-	/*//Hacemos un for y añadimos enemigos melee
+	//Hacemos un for y añadimos enemigos melee
 	for (int i = 0; i < wave[0]; i++) {
 		
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
 		spawnPos = checkPos(spawnPos, MELEE_RADIUS);
 		GameObject* enemy = where->addGameObject<MeleeEnemy>(_grp_ENEMIES,spawnPos,10, player);
-	}*/
+	}
 	//Hacemos un for y añadimos enemigos ranged
 	for (int i = 0; i < wave[1]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
 		spawnPos = checkPos(spawnPos, RANGED_RADIUS);
-		GameObject* enemy = where->addGameObject<BossEnemy>(_grp_ENEMIES,spawnPos, 10, player);
-	}
-	/*for (int i = 0; i < wave[1]; i++) {
-		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
-		spawnPos = checkPos(spawnPos, RANGED_RADIUS);
 		GameObject* enemy = where->addGameObject<RangedEnemy>(_grp_ENEMIES,spawnPos, 10, player);
-	}*/
+	}
 
-	/*//Hacemos un for y añadimos enemigos tank
+	//Hacemos un for y añadimos enemigos tank
 	for (int i = 0; i < wave[2]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
 		spawnPos = checkPos(spawnPos, TANK_RADIUS);
 		GameObject* enemy = where->addGameObject<TankEnemy>(_grp_ENEMIES,spawnPos, 10, player);
-	}*/
+	}
 }
 
