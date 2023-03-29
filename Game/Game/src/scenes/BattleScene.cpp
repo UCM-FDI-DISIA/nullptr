@@ -57,6 +57,10 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
+
+	//Música
+	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST->play();
 };
 
 void BattleScene::OnPlayerDies() {
@@ -83,6 +87,10 @@ void BattleScene::discardUI(deque<Card*>::iterator discarded) {
 // Llamar a la creaci�n de la UI
 void BattleScene::recreateUI() {
 	if (hand != nullptr) hand->createUI();
+}
+
+void BattleScene::changeAmmoUI(deque<Card*>::iterator used) {
+	if (hand != nullptr) hand->changeAmmo(used);
 }
 
 // Llamar al cambio del valor de maná

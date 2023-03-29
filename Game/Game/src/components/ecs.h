@@ -19,12 +19,15 @@ enum cmpId : cmpId_type {
 	_HITBOX_DAMAGE_COMPONENT,
 	_HITBOX_STATUS_COMPONENT,
 	_HITBOX_EXPLOSION_COMPONENT,
+	_FOLLOW_ENEMY_COMPONENT,
 	_LIFETIME,
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
+	_CHEST_COMPONENT,
 	_ETER,
 	_ON_DEATH,
 	_CHARGED_PORTAL,
+	_CALLBACK_DELAYER,
 	// ... (compoment ids)
 
 	// do not remove this
@@ -52,8 +55,10 @@ struct Animation {
 	int startFrame, endFrame;
 	int frameRate;
 	int repeat;
-	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0) {}
-	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep) {}
+	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0), linked(false) {}
+	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep), linked(false) {}
+
+	bool linked;
 };
 
 #include <functional>

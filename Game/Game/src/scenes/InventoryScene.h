@@ -1,12 +1,26 @@
 #pragma once
-#ifndef INVENTORYSCENE_H_
-#define INVENTORYSCENE_H_
-
 #include "GameState.h"
+#include "../gameObjects/UI/InventoryCard.h"
+#include <vector>
+
 class InventoryScene : public GameState {
 private:
+	vector<InventoryInfo> info;
+	unordered_map<string, vector<InventoryInfo>::iterator> cr;
+	vector<int> deck;
+	vector<int> stats;
+	int deckCards;
 public:
 	InventoryScene();
-};
 
-#endif
+	// Crear un botón especificado en la escena
+	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
+	void createSymbol(Vector2D _pos, string key, string text, int val);
+	void createPanels();
+	void createMoneyInfo();
+	void createObjects();
+
+	void removeFromDeck(int ind);
+	int getFirstDeckPos();
+	void changeDeckCardsNumber(int num);
+};

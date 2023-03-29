@@ -25,7 +25,7 @@ private:
 	BattleType type;
 	GameObject* deck;
 	GameObject* pile;
-
+	Music* battleSceneOST;
 	// - UI -
 	// Frame superior de vida, man� y �ter
 	StatisticsUI* statistics;
@@ -38,6 +38,7 @@ private:
 public:
 	// Constructora
 	BattleScene(BattleType t_);
+	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };
@@ -53,6 +54,7 @@ public:
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
+	void changeAmmoUI(deque<Card*>::iterator used);
 	// Barras de vida y mana
 	void onManaChanges(float value);
 	void onHealthChanges(float value);

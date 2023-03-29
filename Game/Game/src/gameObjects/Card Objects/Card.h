@@ -1,7 +1,8 @@
+#pragma once
+
 #include "../../core/Vector2D.h"
 #include "../../sdlutils/Texture.h"
-
-#pragma once
+#include "../../data/CardsDataContainer.h"
 
 enum CardId
 {
@@ -21,6 +22,7 @@ class Card
 
 	public:
 		Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _data, Texture* _texture);
+		Card(CardData myData);
 		static Card getCard(CardId type);
 		//Ataque
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
@@ -37,5 +39,6 @@ class Card
 		int getMana() { return mana; }
 		float getDownTime() { return downtime; }
 		Texture* getTexture() { return texture; }
+		string getName() { return name; }
 };
 
