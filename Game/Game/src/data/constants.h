@@ -449,6 +449,9 @@ const float ASSAULT_RIFLE_BURST = 10;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
+// CARD ANIMATIONS
+const int CARD_NUMROWS = 1;
+const int CARD_NUMCOLS = 1;
 // UI CARD DIMENSIONS
 const int UI_CARD_WIDTH = CARD_WIDTH * 3;
 const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;

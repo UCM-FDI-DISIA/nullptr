@@ -31,7 +31,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), selected(false) {
 	
 	GameObject* bg = addGameObject();
 	bg->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
-	bg->addComponent<Image>(&sdlutils().images().at("Album"))->attachToCamera();
+	bg->addComponent<Image>(SDLApplication::getTexture("Album"))->attachToCamera();
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	addGameObject<Button>([&]() { if (!selected) SDLApplication::newScene<MainMenuScene>(); }, Vector2D(10, 10), aI);
@@ -43,9 +43,9 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), selected(false) {
 void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 	GameObject* card = addGameObject();
 	card->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
-	card->addComponent<Image>(found ? myData.texture : &sdlutils().images().at("CardReverse"));
+	card->addComponent<Image>(found ? myData.texture : SDLApplication::getTexture("CardReverse"));
 
-	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos,	AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
+	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
 	Animator* a = b->getComponent<Animator>();
 	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
 	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
@@ -80,17 +80,17 @@ void AlbumScene::selectCard(CardData cData) {
 	// NOMBRE
 	g = addGameObject();
 	g->addComponent<Transform>(Vector2D(300, 70), VECTOR_ZERO);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.name);
+	g->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"), cData.name);
 	mierdon.push_back(g);
 	// ATAQUE
 	g = addGameObject();
 	g->addComponent<Transform>(Vector2D(300, 100), VECTOR_ZERO, 200);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.attackText, true);
+	g->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"), cData.attackText, true);
 	mierdon.push_back(g);
 	// HABILIDAD
 	g = addGameObject();
 	g->addComponent<Transform>(Vector2D(300, 150), VECTOR_ZERO, 200);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.abilityText, true);
+	g->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"), cData.abilityText, true);
 	mierdon.push_back(g);
 
 

@@ -62,7 +62,7 @@ void MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols)->attachToCamera();
 
 	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, -1, frame);
+	addGameObject<Button>(_cb, _bPos, aI, frame);
 }
 
 // Mueve la camara a la altura de los siguientes al nodo actual

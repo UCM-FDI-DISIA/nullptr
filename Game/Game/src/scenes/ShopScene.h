@@ -3,10 +3,12 @@
 #include "../components/General Components/Transform.h"
 #include "../gameObjects/UI/Button.h"
 #include "NodeScene.h"
+#include "../data/PlayerData.h"
 #include <map>
 
 struct Item {
 	Button* card;
+	Card* cardObj;
 	GameObject* priceObj;
 	int price;
 };
@@ -14,27 +16,39 @@ struct Item {
 class ShopScene : public NodeScene {
 private:
 	GameObject* background;
+
+	int myMoney;
+	GameObject* moneyPrint;
+	int alreadyInStore[SHOP_NUMBER_OF_CARDS];
+	array<Item, SHOP_NUMBER_OF_CARDS> myItems;
+	Item itemToInsert;
 	Item* selectedCard;
 	Button* buyButton;
 	Button* exitButton;
-	int myMoney;
-	int alreadyInStore[SHOP_NUMBER_OF_CARDS];
-	map<int,Item> myItems;
-	GameObject* moneyPrint;
 public:
-	// Constructora HAY QUE COGER EL DINERO DE PLAYERDATA
-	ShopScene(int money);
-	void showPrice();
-	void hidePrice();
-	void showBuyButton();
+	// Constructora
+	ShopScene();
+	// Destructora
+	virtual ~ShopScene();
+	
 	void hideBuyButton();
 	void showMoney();
-	void hideMoney();
 	void showExitButton();
-	void hideExitButton();
+
+	void deselectCard();
+	void selectCard();
+
+	void buyCard();
+
 	CallBack changeSelected();
-	void change();
-	void hideCard();
+	
 	CallBack buy();
+	
+
+	// Crea un item
+	Item createItem(CardId cardType, int minPrice, int maxPrice, int i);
+	// Comprueba que haya una carta seleccionada y si se puede comprar con el dinero actual
 	bool canBuy();
+	// Devuelve si la tienda esta vacia y pasa por referencia el indice debido
+	bool isShopEmpty();
 };

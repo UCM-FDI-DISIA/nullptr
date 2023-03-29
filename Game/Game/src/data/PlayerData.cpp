@@ -39,20 +39,18 @@ PlayerData::~PlayerData() {
 	deck.clear();
 }
 
-void PlayerData::defaultPlayerStats()
-{
+void PlayerData::defaultPlayerStats() {
 	money = 0;
 	setMaxMana(100);
 	setMaxHP(1000000);
 	setCurrHP(1000);
 	setAttackMult(1);
 	setFireRateMult(1);
-	setMoney(50);
+	setMoney(999);
 	playerSpeed = PLAYER_SPEED;
 }
 
-void PlayerData::updatePlayerStats()
-{
+void PlayerData::updatePlayerStats() {
 	//para no duplicar los efectos de las reliquias, se resetean las estad�sticas del jugador
 	defaultPlayerStats();
 
@@ -65,8 +63,7 @@ void PlayerData::updatePlayerStats()
 	}
 }
 
-void PlayerData::getDataFromJSON()
-{
+void PlayerData::getDataFromJSON() {
 	throw "Sin implementar lololo";
 }
 
@@ -75,8 +72,7 @@ void PlayerData::setDataToJSON()
 {
 }
 
-std::vector<Card*> PlayerData::getDeck()
-{
+std::vector<Card*> PlayerData::getDeck() {
 	return deck;
 }
 
@@ -84,8 +80,7 @@ std::vector<std::string> PlayerData::getAvailableItems() {
 	return avlbRelics;
 }
 
-void PlayerData::setDeck(std::vector<Card*> newDeck)
-{
+void PlayerData::setDeck(std::vector<Card*> newDeck) {
 	deck = newDeck;
 }
 
@@ -93,8 +88,7 @@ void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
 }
 
-void PlayerData::addCardToLibrary(Card* newCard, int num)
-{
+void PlayerData::addCardToLibrary(Card* newCard, int num) {
 	// A�ado la carta a la libreria
 	library.push_back(newCard);
 
@@ -116,7 +110,6 @@ void PlayerData::addRelic(Relic* relic) {
 	myRelics.push_back(relic);
 }
 
-std::vector<Card*> PlayerData::getLibrary()
-{
+std::vector<Card*> PlayerData::getLibrary() {
 	return library;
 }

@@ -82,15 +82,25 @@ class PlayerData : public Singleton<PlayerData>
 		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
 		inline unordered_map<string, vector<InventoryInfo>::iterator> getReceivedCards() { return receivedCard; }
 
-		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
-		inline void setCurrMana(int currMana) { this->currMana = currMana; }
-		inline void setMaxHP(int maxHP) { this->maxHP = maxHP; }
-		inline void setCurrHP(int currHP) { this->currHP = currHP; }
-		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
-		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
-		inline void setLevel(int level) { this->level = level; }
-		inline void setMoney(int mon) { money += mon; }
-		inline void getPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
+		inline void setMoney(int newMoney) { money = newMoney; }
+		inline void setMaxMana(int newMaxMana) { maxMana = newMaxMana; }
+		inline void setCurrMana(int newCurrMana) { currMana = newCurrMana; }
+		inline void setMaxHP(int newMaxHP) { maxHP = newMaxHP; }
+		inline void setCurrHP(int newCurrHP) { currHP = newCurrHP; }
+		inline void setAttackMult(float newAttackMult) { attackMult = newAttackMult; }
+		inline void setFireRateMult(float newFireRateMult) { fireRateMult = newFireRateMult; }
+		inline void setLevel(int newLevel) { level = newLevel; }
+		inline void setPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
+
+		inline void addMoney(int mon) { money += mon; }
+		inline void addMaxMana(int mana) { maxMana += mana; }
+		inline void addCurrMana(int mana) { currMana += mana; }
+		inline void addMaxHP(int hp) { maxHP += hp; }
+		inline void addCurrHP(int hp) { currHP += hp; }
+		inline void addAttackMult(float attack) { attackMult += attack; }
+		inline void addFireRateMult(float rate) { fireRateMult += rate; }
+		inline void addPlayerMoveSpeed(float speed) { playerSpeed += speed; }
+
 		void defaultPlayerStats();
 		void updatePlayerStats();
 

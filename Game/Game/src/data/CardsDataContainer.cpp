@@ -1,4 +1,5 @@
 #include "CardsDataContainer.h"
+#include "../core/SDLApplication.h"
 
 // Constructora
 CardsDataContainer::CardsDataContainer() :
@@ -40,7 +41,7 @@ void CardsDataContainer::readFromJSON(std::string filename) {
 		card.maxUses = static_cast<int>(vObj["maxUses"]->AsNumber());
 		card.mana = static_cast<int>(vObj["mana"]->AsNumber());
 		card.downTime = static_cast<float>(vObj["downTime"]->AsNumber());
-		card.texture = &sdlutils().images().at(vObj["textureKey"]->AsString());
+		card.texture = SDLApplication::getTexture(vObj["textureKey"]->AsString());
 		card.time = stringToCardTime(vObj["time"]->AsString());
 		// Añadir la información de la carta al map que las almacena
 		cardsDataMap[card.name] = card;

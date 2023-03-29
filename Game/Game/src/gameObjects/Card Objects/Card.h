@@ -1,28 +1,19 @@
 #pragma once
-
 #include "../../core/Vector2D.h"
 #include "../../sdlutils/Texture.h"
 #include "../../data/CardsDataContainer.h"
 
-enum CardId
-{
-	gun = 0,
-	sword,
-	laserShades,
-	smg,
-};
 class BattleScene;
-class Card
-{
+class Card {
 	protected:
 		int damage, maxUses, remainingUses, mana;
 		float downtime;
 		std::string name, abilityText, attackText;
 		Texture* texture;
-
 	public:
 		Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _data, Texture* _texture);
 		Card(CardData myData);
+		virtual ~Card();
 		static Card getCard(CardId type);
 		//Ataque
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {}
@@ -35,9 +26,14 @@ class Card
 		
 
 		// Getters
+		int getDamage() { return damage; }
+		int getMaxUses() { return maxUses; }
 		int getUses() { return remainingUses; }
 		int getMana() { return mana; }
 		float getDownTime() { return downtime; }
+		string getName() { return name; }
+		string getAbilityText() { return abilityText; }
+		string getAttackText() { return attackText; }
 		Texture* getTexture() { return texture; }
 
 		static std::string getCardIDfromEnum(int type) {
@@ -59,6 +55,5 @@ class Card
 			default: return REVERSE;
 			}
 		}
-		string getName() { return name; }
 };
 

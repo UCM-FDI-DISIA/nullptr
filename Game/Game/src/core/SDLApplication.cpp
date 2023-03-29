@@ -91,10 +91,17 @@ void SDLApplication::handleInput() {
 }
 
 // Devuelve la Texture pedida
-Texture* SDLApplication::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
+Texture* SDLApplication::getTexture(TextureName texture) { return &sdlutils().images().at(texture); }
+
+// Devuelve el Font pedido
+Font* SDLApplication::getFont(string fontName) { return &sdlutils().fonts().at(fontName); }
 
 // Devuelve la Reliquia pedida
-Relic* SDLApplication::getRelic(TextureName texture) { return &SDLUtils::instance()->relics().at(texture); }
+Relic* SDLApplication::getRelic(TextureName texture) { return &sdlutils().relics().at(texture); }
+
+// Devuelve un numero entero random
+int SDLApplication::getRandInt(int min, int max) { return sdlutils().rand().nextInt(min, max); }
+
 
 // Pausa el juego
 void SDLApplication::pauseGame() { SDLApplication::instance()->gameStateMachine->pushState(new PauseMenuScene()); }

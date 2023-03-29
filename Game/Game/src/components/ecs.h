@@ -52,7 +52,7 @@ enum grpId : grpId_type {
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 
 using cardId_type = int;
-enum cardId : cardId_type {
+enum CardId : cardId_type {
 	_card_GUN = 0,
 	_card_SWORD,
 	_card_TORCH,

@@ -15,6 +15,10 @@ void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo,
 	addComponent<ButtonComponent>(_cb, _frame, _index);
 }
 
+void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame) {
+	initGameObject(_cb, _pos, _animInfo, -1, _frame);
+}
+
 // Crea las animaciones esenciales de un bot�n: OnClick, OnOver y Idle
 void Button::createButtonAnimations(Animator* animator) {
 	animator->attachToCamera();

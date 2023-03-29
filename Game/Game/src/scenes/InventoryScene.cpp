@@ -45,40 +45,40 @@ void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
 	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, -1, frame);
+	addGameObject<Button>(_cb, _bPos, aI, frame);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 
 	symbol->addComponent<Transform>(_pos, VECTOR_ZERO, SYMBOL_DIMENSIONS, SYMBOL_DIMENSIONS);
-	symbol->addComponent<Image>(&sdlutils().images().at(key));
+	symbol->addComponent<Image>(SDLApplication::getTexture(key));
 
 	GameObject* stat = addGameObject();
 	stat->addComponent<Transform>(_pos + STAT_OFFSET, VECTOR_ZERO, 100, 24);
-	stat->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), text);
+	stat->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), text);
 
 	GameObject* value = addGameObject();
 	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
-	value->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), to_string(val));
+	value->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), to_string(val));
 }
 
 void InventoryScene::createPanels() {
 	GameObject* dp = addGameObject();
 	dp->addComponent<Transform>(DP_POSITION, VECTOR_ZERO, DP_WIDTH, DP_HEIGHT);
-	dp->addComponent<Image>(&sdlutils().images().at(DECK_PANEL));
+	dp->addComponent<Image>(SDLApplication::getTexture(DECK_PANEL));
 
 	GameObject* op = addGameObject();
 	op->addComponent<Transform>(OP_POSITION, VECTOR_ZERO, OP_WIDTH, OP_HEIGHT);
-	op->addComponent<Image>(&sdlutils().images().at(OBJECTS_PANEL));
+	op->addComponent<Image>(SDLApplication::getTexture(OBJECTS_PANEL));
 
 	GameObject* ip = addGameObject();
 	ip->addComponent<Transform>(IP_POSITION, VECTOR_ZERO, IP_WIDTH, IP_HEIGHT);
-	ip->addComponent<Image>(&sdlutils().images().at(INVENTORY_PANEL));
+	ip->addComponent<Image>(SDLApplication::getTexture(INVENTORY_PANEL));
 
 	GameObject* sp = addGameObject();
 	sp->addComponent<Transform>(SP_POSITION, VECTOR_ZERO, SP_WIDTH, SP_HEIGHT);
-	sp->addComponent<Image>(&sdlutils().images().at(STATS_PANEL));
+	sp->addComponent<Image>(SDLApplication::getTexture(STATS_PANEL));
 
 }
 
@@ -91,13 +91,13 @@ void InventoryScene::createMoneyInfo() {
 	// Texto
 	GameObject* text = addGameObject();
 	text->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, 70, 48);
-	text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), "Dinero");
+	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), "Dinero");
 
 	// Texto con el numero de monedas
 	GameObject* mon = addGameObject();
 	mon->addComponent<Transform>(MONEY_VALUE, VECTOR_ZERO, 50, 48);
 	int m = PlayerData::instance()->getMoney();
-	mon->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), to_string(m));
+	mon->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), to_string(m));
 }
 
 void InventoryScene::createObjects() {

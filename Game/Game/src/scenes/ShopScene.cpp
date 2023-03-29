@@ -1,123 +1,169 @@
 ﻿#include "ShopScene.h"
 #include "../core/SDLApplication.h"
 
-ShopScene::ShopScene(int money) : NodeScene(), myMoney(money), selectedCard(nullptr), buyButton(nullptr) {
+// Constructora
+ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) {
 
-	cout << "Has entrado en la escena de Tienda" << endl;
-
+	// Fondo
 	background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground"));
 
-	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
-		int rand = sdlutils().rand().nextInt(0, maxCardId + 1);
-		for (int j = 0; j < i; j++)
-		{
-			if (rand == alreadyInStore[j]) {
-				rand = sdlutils().rand().nextInt(0, maxCardId + 1);
-				j = -1;
-			}
-		}
-		alreadyInStore[i] = rand;
+	// Dinero actual del PlayerData
+	showMoney();
 
-		Item itemToInsert;
-		itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(rand), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, 1, 1), i);
-		// Cambiar el rand() por un precio elegido
-		itemToInsert.price = sdlutils().rand().nextInt(100, 201);
-		
-		myItems[i] = itemToInsert;
-	}
+	// Boton de salida (esquina superior izquierda)
 	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_EXITBUTTON_POSITION, AnimatorInfo(EXIT));
 
-	showMoney();
+	// Seleccion de cartas a mostrar en la tienda
+	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
+		int rand = SDLApplication::instance()->getRandInt(5, 6);
+		/*for (int j = 0; j < i; j++) {
+			if (rand == alreadyInStore[j]) {
+				rand = SDLApplication::instance()->getRandInt(0, maxCardId);
+				j = -1;
+			}
+		}*/
+		alreadyInStore[i] = rand;
+
+		myItems[i] = createItem(CardId(rand), 100, 200, i);
+	}
 }
 
-void ShopScene::showPrice() {
+// Destructora
+ShopScene::~ShopScene() {
+	// No se elimina la basura creada al hacer new Card(), MIRAR DESTRUCTORA DE CARD
+	for (int i = 0; i < myItems.size(); ++i) {
+		if (myItems[i].cardObj != nullptr) {
+			delete myItems[i].cardObj;
+			myItems[i].cardObj = nullptr;
+		}
+	}
+}
+
+// Deselecciona la carta
+void ShopScene::deselectCard() {
+	// Si hay carta seleccionada...
+	if (selectedCard != nullptr) {
+		// La coloca a su posicion normal
+		selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_UNSELECTED_POSY);
+		// Quita el precio
+		selectedCard->priceObj->setAlive(false);
+		// Quita el boton de comprar
+		hideBuyButton();
+		// Se deselecciona
+		selectedCard = nullptr;
+		lastButtonIndex = -1;
+	}
+}
+
+// Selecciona la carta
+void ShopScene::selectCard() {
+	// Selecciona la carta del lastButtonIndex
+	selectedCard = &myItems[lastButtonIndex];
+	// La coloca en su posicion de seleccionada
+	selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_SELECTED_POSY);
+	// Muestra su precio (se crea el objeto del precio (texto) debajo de la carta)
 	selectedCard->priceObj = addGameObject();
 	Transform* selectedCardTransform = selectedCard->card->getComponent<Transform>();
 	selectedCard->priceObj->addComponent<Transform>(Vector2D(selectedCardTransform->getPos().getX() + selectedCardTransform->getWidth() / 2 - USED_FONT_SIZE, selectedCardTransform->getPos().getY() + selectedCardTransform->getHeight()), VECTOR_ZERO, SHOP_CARD_PRICE_WIDTH, SHOP_CARD_PRICE_HEIGHT);
-	if (selectedCard->price < myMoney) selectedCard->priceObj->addComponent<TextComponent>(&sdlutils().fonts().at(USED_FONT), to_string(selectedCard->price), COLOR_WHITE);
-	else selectedCard->priceObj->addComponent<TextComponent>(&sdlutils().fonts().at(USED_FONT), to_string(selectedCard->price), COLOR_RED);
-}
-
-void ShopScene::hidePrice() {
-	selectedCard->priceObj->setAlive(false);
-}
-
-void ShopScene::showBuyButton() {
-	if (buyButton != nullptr) hideBuyButton();
+	SDL_Color color;
+	if (selectedCard->price < myMoney) color = COLOR_WHITE;
+	else color = COLOR_RED;
+	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(selectedCard->price), color);
+	// Muestra el boton de comprar
 	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex);
 }
 
+void ShopScene::buyCard() {
+	// Si se puede comprar
+	if (canBuy()) {
+		#ifdef _DEBUG
+		cout << "COMPRA" << endl;
+		#endif
+		// Le quita al dinero actual el precio de la carta
+		myMoney -= selectedCard->price;
+		PlayerData::instance()->setMoney(myMoney);
+		// Lo anade al inventario
+		moneyPrint->getComponent<TextComponent>()->changeText(to_string(myMoney));
+		pD().addCardToLibrary(selectedCard->cardObj, 1);
+		// Elimina la carta
+		myItems[lastButtonIndex].card->setAlive(false);
+		myItems[lastButtonIndex].cardObj = nullptr;
+		myItems[lastButtonIndex].priceObj->setAlive(false);
+		// Deselecciona
+		deselectCard();
+	}
+	else {
+		#ifdef _DEBUG
+		cout << "NO SE PUEDE COMPRAR" << endl;
+		#endif
+
+		// Hacer aqui la animacion de que no se puede comprar
+
+	}
+}
+
 void ShopScene::hideBuyButton() {
-	buyButton->setAlive(false);
+	if (buyButton != nullptr) buyButton->setAlive(false);
 }
 
 void ShopScene::showMoney() {
+	// Coge el dinero actual de PlayerDaya
+	myMoney = pD().getMoney();
+
+	// Lo muestra visualmente
 	moneyPrint = addGameObject();
 	moneyPrint->addComponent<Transform>(SHOP_MONEY_POSITION, VECTOR_ZERO, SHOP_MONEY_WIDTH, SHOP_MONEY_HEIGHT, 0);
-	moneyPrint->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), to_string(myMoney), COLOR_WHITE);
-}
-
-void ShopScene::hideMoney() {
-	moneyPrint->setAlive(false);
+	moneyPrint->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(myMoney), COLOR_WHITE);
 }
 
 void ShopScene::showExitButton() {
-	if (buyButton != nullptr) hideBuyButton();
-	if (exitButton != nullptr) hideExitButton();
+	if (exitButton != nullptr) exitButton->setAlive(false);
 	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_BUYBUTTON_POSITION, AnimatorInfo(EXIT), lastButtonIndex);
-}
-
-void ShopScene::hideExitButton() {
-	exitButton->setAlive(false);
 }
 
 CallBack ShopScene::changeSelected() {
 	return [&]() {
-		if (selectedCard != nullptr) {
-			selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_UNSELECTED_POSY);
-			hidePrice();
-		}
-		change();
+		// Se deselecciona y se selecciona (cambia de carta)
+		deselectCard();
+		selectCard();
 	};
-}
-
-void ShopScene::change() {
-	selectedCard = &myItems[lastButtonIndex];
-	selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_SELECTED_POSY);
-	showPrice();
-	showBuyButton();
-}
-
-void ShopScene::hideCard() {
-	myItems[lastButtonIndex].card->setAlive(false);
-	myItems[lastButtonIndex].priceObj->setAlive(false);
-	myItems.erase(lastButtonIndex);
-	if (!myItems.empty()) {
-		lastButtonIndex = myItems.begin()->first;
-		change();
-	}
-	else showExitButton();
 }
 
 CallBack ShopScene::buy() {
-
-	// Aqui se debe gestionar:
-	// - Bajar el dinero actual del Player
-	// - A�adir carta
-	
 	return [&]() {
-		if (canBuy()) {
-			cout << "COMPRA" << endl;
-			myMoney -= selectedCard->price;
-			moneyPrint->getComponent<TextComponent>()->changeText(to_string(myMoney));
-			hideCard();
+		buyCard();
+
+		// Si no hay ninguna carta, sale el boton de salir
+		if (isShopEmpty()) {
+			hideBuyButton();
+			showExitButton();
 		}
-		else cout << "NO SE PUEDE COMPRAR" << endl;
 	};
 }
 
+// Crea un item (crea el objeto de carta, lo anade al grupo de cartas
+Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
+	itemToInsert.cardObj = new Card(Card::getCard(cardType));
+	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i);
+	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
+	return itemToInsert;
+}
+
+// Comprueba que haya una carta seleccionada y si se puede comprar con el dinero actual
 bool ShopScene::canBuy() {
-	return myMoney >= selectedCard->price;
+	return selectedCard != nullptr && myMoney >= selectedCard->price;
+}
+
+// Devuelve si la tienda esta vacia y pasa por referencia el indice debido
+bool ShopScene::isShopEmpty() {
+	int i = 0; bool empty = true;
+	while (i < myItems.size() && empty) {
+		if (myItems[i].cardObj != nullptr) {
+			empty = false;
+		}
+		else ++i;
+	}
+	return empty;
 }

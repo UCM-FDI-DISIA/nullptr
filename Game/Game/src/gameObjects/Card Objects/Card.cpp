@@ -30,21 +30,28 @@ Card::Card(CardData myData) :
 	damage(myData.damage), maxUses(myData.maxUses), remainingUses(myData.maxUses), mana(myData.mana), downtime(myData.downTime),
 	name(myData.name), attackText(myData.attackText), abilityText(myData.abilityText), texture(myData.texture){}
 
+Card::~Card() {}
+
 //Devuelve la carta correspondiente al id
 Card Card::getCard(CardId type) {
 
 	// cleon says: podéis sacar un elemento random de un vector, y el elemento que sea una lambda
 	switch (type)
 	{
-	case gun:
-		return GunCard();
-	case sword:
-		return SwordCard();
-	case laserShades:
-		return LaserShadesCard();
-	case smg:
-		return SMGCard();
-	default:
-		break;
+	case _card_GUN: return GunCard();
+	case _card_SWORD: return SwordCard();
+	case _card_TORCH: return TorchCard();
+	case _card_LASERGLASSES: return LaserShadesCard();
+	case _card_BOW: return BowCard();
+	case _card_PULGA: return PulgaCard();
+	case _card_SPEAR: return SpearCard();
+	case _card_SMG: return SMGCard();
+	case _card_ASSAULTRIFLE: return AssaultRifleCard();
+	case _card_LIGHTRIFLE: return LightRifleCard();
+	case _card_MEGAPHONE: return MegaphoneCard();
+	case _card_RIOTSHIELD: return RiotShieldCard();
+	case _card_RITUALAXE: return RitualAxeCard();
+	case _card_CHEATGUN: return CheatGunCard();
+	default: break;
 	}
 }
