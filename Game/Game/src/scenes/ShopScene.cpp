@@ -17,13 +17,13 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 	// Seleccion de cartas a mostrar en la tienda
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
-		int rand = SDLApplication::instance()->getRandInt(5, 6);
-		/*for (int j = 0; j < i; j++) {
+		int rand = SDLApplication::instance()->getRandInt(0, maxCardId);
+		for (int j = 0; j < i; j++) {
 			if (rand == alreadyInStore[j]) {
 				rand = SDLApplication::instance()->getRandInt(0, maxCardId);
 				j = -1;
 			}
-		}*/
+		}
 		alreadyInStore[i] = rand;
 
 		myItems[i] = createItem(CardId(rand), 100, 200, i);

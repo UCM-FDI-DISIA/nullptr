@@ -85,8 +85,9 @@ void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 
 void PlayerData::addCardToLibrary(Card* newCard, int num) {
 	// A�ado la carta a la libreria
-	for(int i=0; i<num;i++)
-	library.push_back(newCard);
+	for (int i = 0; i < num; i++) {
+		library.push_back(newCard);
+	}
 }
 
 void PlayerData::addRelic(Relic* relic) {
