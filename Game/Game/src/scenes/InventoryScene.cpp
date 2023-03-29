@@ -1,12 +1,26 @@
 ﻿#include "InventoryScene.h"
 #include "../core/SDLApplication.h"
 
-InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
-	// Llamamos a Player data para pillar la info de las cartas que se tienen
-	info = PlayerData::instance()->getInventoryInfo();
-	cr = PlayerData::instance()->getReceivedCards();
-	deckCards = 0;
 
+
+InventoryScene::InventoryScene() : GameState() {
+	
+	vector<Card*> currentLibrary = PlayerData::instance()->getLibrary();
+	vector<Card*> currentDeck = PlayerData::instance()->getDeck();
+
+	for (int i = 0; i < currentLibrary.size();i++) {
+
+		if (!inventory.count(currentLibrary[i]->getName())) {
+			inventory[currentLibrary[i]->getName()].card = currentLibrary[i];
+		}
+		inventory[currentLibrary[i]->getName()].cuantity++;
+	}
+
+	for (int j = 0; j < currentDeck.size(); j++) {
+		inventory[currentLibrary[j]->getName()].cuantityDeck++;
+	}
+
+	// Llamamos a Player data para pillar la info de las cartas que se tienen
 	stats.push_back(PlayerData::instance()->getMaxHP());
 	stats.push_back(PlayerData::instance()->getMaxMana());
 	stats.push_back(PlayerData::instance()->getPlayerMoveSpeed() / 2);
@@ -21,12 +35,8 @@ InventoryScene::InventoryScene() : GameState(), deck(vector<int>(6, -1)) {
 	createPanels();
 	createMoneyInfo();
 	createObjects(); 
+	createCards();
 
-	int numD = 0;
-	for (int i = 0; i < info.size(); i++) {
-		if (info[i].cuantityDeck > 0) { addGameObject<InventoryCard>(this, &info[i], i, numD); deck[i] = numD; numD++; deckCards += info[i].cuantityDeck; }
-		else addGameObject<InventoryCard>(this, &info[i], i);
-	}
 	
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
@@ -110,21 +120,45 @@ void InventoryScene::createObjects() {
 	}
 }
 
-void InventoryScene::removeFromDeck(int ind) {
-	deck[ind] = -1;
-}
+void InventoryScene::createCards() {
+	bool row = false;
+	int column = 0;
+	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 
-int InventoryScene::getFirstDeckPos() {
-	int i = 0;
-	bool found = false;
-	while (!found && i < deck.size()) {
-		if (deck[i] == -1) found = true;
-		else i++;
+		Vector2D pos = Vector2D(20 + 160 * column, 50 + 220 * (row ? 0 : 1));
+		createCard(pos, it->second.card);
+		
+		Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
+			createCard(posD, it->second.card);
+		if (row) {
+			column++;
+			
+		}
+		row = !row;
+		
+
 	}
-
-	if (found) { deck[i] = i; return i; }
 }
 
-void InventoryScene::changeDeckCardsNumber(int num) {
-	deckCards += num;
+void InventoryScene::createCard(Vector2D pos, Card* card) {
+	GameObject* cardObj = addGameObject();
+	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
+	cardObj->addComponent<Image>(card->getTexture());
+
+	/*Button* b = addGameObject<Button>([&, cD = myData, f = found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
+	Animator* a = b->getComponent<Animator>();
+	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
+	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
+	a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
+	a->play(ONOUT);*/
+}
+
+InventoryScene::~InventoryScene() {
+	vector<Card*> newDeck;
+	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
+		for (int i = 0; i < it->second.cuantityDeck; i++) {
+			newDeck.push_back(it->second.card);
+		}
+	}
+	PlayerData::instance()->setDeck(newDeck);
 }

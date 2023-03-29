@@ -1,14 +1,6 @@
 #include "AlbumScene.h"
 #include "../core/SDLApplication.h"
 
-const int ALB_CARD_W = 58 * PIXEL_WIDTH;
-const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = {90, 265, 440};
-const int ALB_CARD_Y = 275;
-
-const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
-const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
-const Animation CLICKED_CARD_ANIM(3, 3, 1, -1);
 
 AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), selected(false) {
 	auto const& foundCards = Album::instance()->getFoundCardsByTime();
