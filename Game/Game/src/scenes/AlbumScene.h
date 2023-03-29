@@ -7,7 +7,8 @@ class AlbumScene : public GameState {
 private:
 	int cardsByRow;
 	Transform* camTr;
-	vector<GameObject*> mierdon;
+	int camYLimit;
+	vector<GameObject*> infoWindow;
 	bool selected;
 public:
 	AlbumScene();
