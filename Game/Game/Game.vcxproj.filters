@@ -291,9 +291,6 @@
     <ClInclude Include="src\sdlutils\InputHandler.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\Image.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
-    </ClInclude>
     <ClInclude Include="src\framework.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
@@ -531,10 +528,11 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
       <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-      </ClInclude>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">

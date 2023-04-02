@@ -186,7 +186,6 @@
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
     <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
-    <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
     <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
