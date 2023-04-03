@@ -8,7 +8,7 @@
 
 struct Item {
 	Button* card;
-	Card* cardObj;
+	CardId cardObj;
 	GameObject* priceObj;
 	int price;
 };

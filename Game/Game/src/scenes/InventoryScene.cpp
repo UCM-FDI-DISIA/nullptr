@@ -5,19 +5,19 @@
 
 InventoryScene::InventoryScene() : GameState() {
 	
-	vector<Card*> currentLibrary = PlayerData::instance()->getLibrary();
+	vector<CardId> currentLibrary = PlayerData::instance()->getLibrary();
 	vector<Card*> currentDeck = PlayerData::instance()->getDeck();
 
 	for (int i = 0; i < currentLibrary.size();i++) {
 
-		if (!inventory.count(currentLibrary[i]->getName())) {
-			inventory[currentLibrary[i]->getName()].card = currentLibrary[i];
+		if (!inventory.count(Card::getCardIDfromEnum(currentLibrary[i]))) {
+			inventory[Card::getCardIDfromEnum(currentLibrary[i])].card = currentLibrary[i];
 		}
-		inventory[currentLibrary[i]->getName()].cuantity++;
+		inventory[Card::getCardIDfromEnum(currentLibrary[i])].cuantity++;
 	}
 
 	for (int j = 0; j < currentDeck.size(); j++) {
-		inventory[currentLibrary[j]->getName()].cuantityDeck++;
+		inventory[Card::getCardIDfromEnum(currentLibrary[j])].cuantityDeck++;
 	}
 
 	// Llamamos a Player data para pillar la info de las cartas que se tienen
@@ -132,7 +132,6 @@ void InventoryScene::createCards() {
 			createCard(posD, it->second.card);
 		if (row) {
 			column++;
-			
 		}
 		row = !row;
 		
@@ -140,10 +139,10 @@ void InventoryScene::createCards() {
 	}
 }
 
-void InventoryScene::createCard(Vector2D pos, Card* card) {
+void InventoryScene::createCard(Vector2D pos, CardId card) {
 	GameObject* cardObj = addGameObject();
 	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
-	cardObj->addComponent<Image>(card->getTexture());
+	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(card)).texture);
 
 	/*Button* b = addGameObject<Button>([&, cD = myData, f = found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
 	Animator* a = b->getComponent<Animator>();
@@ -157,7 +156,7 @@ InventoryScene::~InventoryScene() {
 	vector<Card*> newDeck;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 		for (int i = 0; i < it->second.cuantityDeck; i++) {
-			newDeck.push_back(it->second.card);
+			newDeck.push_back(new Card(cardsData().get(Card::getCardIDfromEnum(it->second.card))));
 		}
 	}
 	PlayerData::instance()->setDeck(newDeck);

@@ -32,13 +32,6 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 // Destructora
 ShopScene::~ShopScene() {
-	// No se elimina la basura creada al hacer new Card(), MIRAR DESTRUCTORA DE CARD
-	for (int i = 0; i < myItems.size(); ++i) {
-		if (myItems[i].cardObj != nullptr) {
-			delete myItems[i].cardObj;
-			myItems[i].cardObj = nullptr;
-		}
-	}
 }
 
 // Deselecciona la carta
@@ -53,7 +46,6 @@ void ShopScene::deselectCard() {
 		hideBuyButton();
 		// Se deselecciona
 		selectedCard = nullptr;
-		lastButtonIndex = -1;
 	}
 }
 
@@ -89,7 +81,7 @@ void ShopScene::buyCard() {
 		pD().addCardToLibrary(selectedCard->cardObj, 1);
 		// Elimina la carta
 		myItems[lastButtonIndex].card->setAlive(false);
-		myItems[lastButtonIndex].cardObj = nullptr;
+		myItems[lastButtonIndex].cardObj = _card_NULL;
 		myItems[lastButtonIndex].priceObj->setAlive(false);
 		// Deselecciona
 		deselectCard();
@@ -145,7 +137,7 @@ CallBack ShopScene::buy() {
 
 // Crea un item (crea el objeto de carta, lo anade al grupo de cartas
 Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
-	itemToInsert.cardObj = new Card(Card::getCard(cardType));
+	itemToInsert.cardObj = cardType;
 	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i);
 	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
 	return itemToInsert;
@@ -160,7 +152,7 @@ bool ShopScene::canBuy() {
 bool ShopScene::isShopEmpty() {
 	int i = 0; bool empty = true;
 	while (i < myItems.size() && empty) {
-		if (myItems[i].cardObj != nullptr) {
+		if (myItems[i].cardObj != _card_NULL) {
 			empty = false;
 		}
 		else ++i;

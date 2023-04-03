@@ -9,9 +9,9 @@ struct InventoryInfo {
 
 	int cuantity = 0;
 	int cuantityDeck = 0;
-	Card* card;
+	CardId card;
 
-	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { };
+	InventoryInfo() : cuantity(0), cuantityDeck(0), card(_card_NULL) { };
 };
 
 class InventoryScene : public GameState {
@@ -28,5 +28,5 @@ public:
 	void createMoneyInfo();
 	void createObjects();
 	void createCards();
-	void createCard(Vector2D pos, Card* card);
+	void createCard(Vector2D pos, CardId card);
 };

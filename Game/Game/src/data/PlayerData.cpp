@@ -9,16 +9,16 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
-	addCardToLibrary(new SwordCard(), 3);
+	addCardToLibrary(_card_SWORD, 3);
 
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
-	addCardToLibrary(new GunCard(), 3);
+	addCardToLibrary(_card_GUN, 3);
 
 	deck.push_back(new LaserShadesCard());
 	deck.push_back(new LaserShadesCard());
-	addCardToLibrary(new LaserShadesCard(), 2);
+	addCardToLibrary(_card_LASERGLASSES, 2);
 
 	for (auto& var : sdlutils().relics().map_)
 	{
@@ -83,9 +83,10 @@ void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
 }
 
-void PlayerData::addCardToLibrary(Card* newCard, int num) {
+void PlayerData::addCardToLibrary(CardId newCard, int num) {
 	// A�ado la carta a la libreria
 	for (int i = 0; i < num; i++) {
+
 		library.push_back(newCard);
 	}
 }
@@ -94,6 +95,6 @@ void PlayerData::addRelic(Relic* relic) {
 	myRelics.push_back(relic);
 }
 
-std::vector<Card*> PlayerData::getLibrary() {
+std::vector<CardId> PlayerData::getLibrary() {
 	return library;
 }

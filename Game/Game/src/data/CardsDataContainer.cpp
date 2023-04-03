@@ -34,6 +34,7 @@ void CardsDataContainer::readFromJSON(std::string filename) {
 		JSONObject vObj = val->AsObject();
 		// Leer la información de la carta
 		CardData card;
+		card.key = vObj["key"]->AsString();
 		card.name = vObj["name"]->AsString();
 		card.attackText = vObj["attackText"]->AsString();
 		card.abilityText = vObj["abilityText"]->AsString();
@@ -44,8 +45,8 @@ void CardsDataContainer::readFromJSON(std::string filename) {
 		card.texture = SDLApplication::getTexture(vObj["textureKey"]->AsString());
 		card.time = stringToCardTime(vObj["time"]->AsString());
 		// Añadir la información de la carta al map que las almacena
-		cardsDataMap[card.name] = card;
+		cardsDataMap[card.key] = card;
 		cardsByTime[card.time].push_back(card);
-		cardsIndexByTime[card.time][card.name] = cardsByTime[card.time].size() - 1;
+		cardsIndexByTime[card.time][card.key] = cardsByTime[card.time].size() - 1;
 	}
 }
