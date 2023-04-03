@@ -8,8 +8,10 @@
 
 #include "../utils/Singleton.h"
 
-#define CONTROLLER_AXIS_POS_MAX 32767.0f
-#define CONTROLLER_AXIS_NEG_MAX 32768.0f
+#define CONTROLLER_AXIS_MAX 32767.0f
+#define CONTROLLER_AXIS_MIN -32768.0f
+#define CONTROLLER_AXIS_POS_DEADZONE (CONTROLLER_AXIS_MAX * 0.2f)
+#define CONTROLLER_AXIS_NEG_DEADZONE (CONTROLLER_AXIS_MIN * 0.2f)
 
 // Instead of a Singleton class, we could make it part of
 // SDLUtils as well.
@@ -191,27 +193,31 @@ public:
 	}
 
 	inline bool isControllerButtonDown(SDL_GameControllerButton b) {
-		return controllerButtonDownEvent() && SDL_GameControllerGetButton(controller_, b);
+		return controllerButtonDownEvent() && SDL_GameControllerGetButton(controller_, b) == 1;
 	}
 
 	inline bool isControllerButtonUp(SDL_GameControllerButton b) {
-		return controllerButtonUpEvent() && !SDL_GameControllerGetButton(controller_, b);
+		return controllerButtonUpEvent() && SDL_GameControllerGetButton(controller_, b) == 0;
 	}
 
 	inline int getControllerAxis(SDL_GameControllerAxis b) {
-		return SDL_GameControllerGetAxis(controller_, b);
+		int axis = SDL_GameControllerGetAxis(controller_, b);
+		float dz = (axis >= 0) ? CONTROLLER_AXIS_POS_DEADZONE : CONTROLLER_AXIS_NEG_DEADZONE;
+		float max = (axis >= 0) ? CONTROLLER_AXIS_MAX : CONTROLLER_AXIS_MIN;
+		
+		if (abs(axis) < abs(dz)) return 0;
+		return axis - (dz * ((max - axis) / (max - dz)));
 	}
 
 	inline float getNormalizedControllerAxis(SDL_GameControllerAxis b) {
-		float axis = SDL_GameControllerGetAxis(controller_, b);
-		return ((float)(axis)) / ((axis >= 0) ? CONTROLLER_AXIS_POS_MAX : CONTROLLER_AXIS_NEG_MAX);
+		float axis = getControllerAxis(b);
+		return axis / abs((axis >= 0) ? CONTROLLER_AXIS_MAX : CONTROLLER_AXIS_MIN);
 	}
 
 private:
 	InputHandler() {
 		kbState_ = SDL_GetKeyboardState(0); 
 		controller_ = nullptr;
-		gcbState_ = nullptr;
 		clearState();
 	}
 
@@ -307,10 +313,7 @@ private:
 	Vector2D mousePos_;
 	std::array<bool, 3> mbState_;
 	const Uint8 *kbState_;
-
 	SDL_GameController* controller_;
-
-	const Uint8* gcbState_;
 }
 ;
 
