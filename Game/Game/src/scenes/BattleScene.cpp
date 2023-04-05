@@ -6,6 +6,21 @@
 BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	//Mana
 	PlayerData::instance()->resetMana();
+
+	//Fondo
+	background = addGameObject();
+	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Image>(SDLApplication::getTexture("BattleBackground"))->attachToCamera();
+	background3 = addGameObject();
+	background3->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
+	background3->addComponent<Image>(SDLApplication::getTexture("BattleBackground3"))->setScrollFactor(BATTLEBACKGROUND3_SCROLLFACTOR);
+	background2 = addGameObject();
+	background2->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
+	background2->addComponent<Image>(SDLApplication::getTexture("BattleBackground2"))->setScrollFactor(BATTLEBACKGROUND2_SCROLLFACTOR);
+	background1 = addGameObject();
+	background1->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
+	background1->addComponent<Image>(SDLApplication::getTexture("BattleBackground1"))->setScrollFactor(BATTLEBACKGROUND1_SCROLLFACTOR);
+	
 	//Suelo
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
