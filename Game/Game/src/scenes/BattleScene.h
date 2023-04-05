@@ -16,8 +16,7 @@ class HandUI;
 class BattleScene : public NodeScene {
 private:
 	Player* player;
-	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor, * decs;
+	GameObject *floor, *background, *background1, *background2, *background3;
 
 	// Generador de enemigos
 	vector<GameObject*> enemies;
@@ -38,6 +37,7 @@ private:
 public:
 	// Constructora
 	BattleScene(BattleType t_);
+	// Destructora
 	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
