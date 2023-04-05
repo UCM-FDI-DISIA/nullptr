@@ -13,10 +13,10 @@
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
-      { "id" : "BattleBackground", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground_544x306.png" },
-      { "id" : "BattleBackground1", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground1_544x306.png" },
-      { "id" : "BattleBackground2", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground2_544x306.png" },
-      { "id" : "BattleBackground3", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground3_544x306.png" },
+      { "id" : "BattleBackground", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground_1088x612.png" },
+      { "id" : "BattleBackground1", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground1_1088x612.png" },
+      { "id" : "BattleBackground2", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground2_1088x612.png" },
+      { "id" : "BattleBackground3", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground3_1088x612.png" },
       { "id" : "InventoryBackground", "file" :  "../Game/resources/images/UI/InventoryScene/InventoryBackground_1280x720.png"},
       { "id" : "ChestBackground", "file" : "../Game/resources/images/UI/ChestScene/ChestBackground_106x59.png" },
 

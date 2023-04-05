@@ -16,7 +16,7 @@ class HandUI;
 class BattleScene : public NodeScene {
 private:
 	Player* player;
-	GameObject *floor, *background, *background1, *background2, *background3, *decs;
+	GameObject *floor, *background, *background1, *background2, *background3;
 
 	// Generador de enemigos
 	vector<GameObject*> enemies;
