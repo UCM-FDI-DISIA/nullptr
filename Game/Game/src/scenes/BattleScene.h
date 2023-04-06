@@ -16,8 +16,7 @@ class HandUI;
 class BattleScene : public NodeScene {
 private:
 	Player* player;
-	// Quitar cuando se cree el mapa de combate / Cambiarlo por el tipo de puntero adecuado
-	GameObject* floor, * decs;
+	GameObject *floor, *background, *background1, *background2, *background3;
 
 	// Generador de enemigos
 	vector<GameObject*> enemies;
@@ -25,7 +24,7 @@ private:
 	BattleType type;
 	GameObject* deck;
 	GameObject* pile;
-
+	Music* battleSceneOST;
 	// - UI -
 	// Frame superior de vida, man� y �ter
 	StatisticsUI* statistics;
@@ -38,6 +37,8 @@ private:
 public:
 	// Constructora
 	BattleScene(BattleType t_);
+	// Destructora
+	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
 	inline vector<GameObject*>* getEnemies() { return &enemies; };
@@ -53,6 +54,7 @@ public:
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
 	void recreateUI();
+	void changeAmmoUI(deque<Card*>::iterator used);
 	// Barras de vida y mana
 	void onManaChanges(float value);
 	void onHealthChanges(float value);

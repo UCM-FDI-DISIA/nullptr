@@ -89,7 +89,6 @@ const int PLAYER_ATTACK_MOVE_INITIAL_FRAME = 40;
 const int PLAYER_ATTACK_MOVE_FINAL_FRAME = 47;
 const int PLAYER_ATTACK_MOVE_FRAME_RATE = 12;
 
-
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
 const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
@@ -171,8 +170,6 @@ const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
 
-
-
 // BULLETS ---------------------------------------------------------------------------------------
 const float BULLET_SPEED = 200;
 const float LIGHT_BULLET_SPEED = 800;
@@ -238,6 +235,106 @@ const Vector2D MS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH * 7 / 8 - (MS_BUTTON_WIDT
 const Vector2D MS_OPTIONSFRAME_BUTTON_POS = MS_OPTIONS_BUTTON_POS - FRAME_OFFSET;
 const Vector2D MS_INVENTORYFRAME_BUTTON_POS = MS_INVENTORY_BUTTON_POS - FRAME_OFFSET;
 const Vector2D MS_EXITFRAME_BUTTON_POS = MS_EXIT_BUTTON_POS - FRAME_OFFSET;
+// INVENTORYSCENE: BUTTON POSITIONS AND DIMENSIONS
+const int IS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 2;
+const int IS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 2;
+const int IS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 2;
+const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
+const Vector2D IS_EXIT_BUTTON_POS = Vector2D(1115 - IS_BUTTON_WIDTH/2, 670);
+const Vector2D IS_EXITFRAME_BUTTON_POS = IS_EXIT_BUTTON_POS - Vector2D(24, 44);
+const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
+const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
+const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
+
+// INVENTORYSCENE : SYMBOLS
+const string SYMBOLS_KEYS[5] = {
+	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
+};
+const string STATS_TEXTS[5] = {
+	"Vida", "Mana", "Velocidad", "Cadencia", "Ataque"
+};
+const int SYMBOL_DIMENSIONS = 64;
+const Vector2D SYMBOL_POSITIONS[5] = {
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 310),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 380),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 450),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 520),
+	Vector2D(WIN_WIDTH * 5 / 6 - (IS_BUTTON_WIDTH / 2), 590)
+};
+
+const Vector2D STAT_OFFSET = Vector2D(74, 20);
+const Vector2D STAT_VALUE_OFFSET = Vector2D(190, 20);
+
+const string CARD_CIRCLE = "CardCircle";
+const int CARD_CIRCLE_RADIOUS = 20;
+const Vector2D CARD_CIRCLE_OFFSET = Vector2D(52, 75);
+const string CARD_FRAME = "CardFrame";
+const int CARD_FRAME_WIDTH = 66;
+const int CARD_FRAME_HEIGHT = 101;
+const Vector2D CARD_FRAME_OFFSET = Vector2D(4, 4);
+const string CARD_RECTANGLE = "CardRectangle";
+const int CARD_RECTANGLE_WIDTH = 34;
+const int CARD_RECTANGLE_HEIGHT = 14;
+const Vector2D CARD_RECTANGLE_OFFSET = Vector2D(44, -7);
+
+const string DECK_PANEL = "DeckPanel";
+const int DP_WIDTH = 90;
+const int DP_HEIGHT = 45;
+const Vector2D DP_POSITION = Vector2D(474 - DP_WIDTH/2, 465);
+
+const string OBJECTS_PANEL = "ObjectsPanel";
+const int OP_WIDTH = 125;
+const int OP_HEIGHT = 30;
+const Vector2D OP_POSITION = Vector2D(1116 - OP_WIDTH/2, 99);
+
+const string INVENTORY_PANEL = "InventoryPanel";
+const int IP_WIDTH = 175;
+const int IP_HEIGHT = 30;
+const Vector2D IP_POSITION = Vector2D(474 - IP_WIDTH / 2, 0);
+
+const string STATS_PANEL = "StatsPanel";
+const int SP_WIDTH = 210;
+const int SP_HEIGHT = 30;
+const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
+
+
+// INVENTORYSCENE : DECK
+const Vector2D DECK_POSITIONS[6] = {
+	Vector2D(20, 520),
+	Vector2D(180, 520),
+	Vector2D(340, 520),
+	Vector2D(500, 520),
+	Vector2D(660, 520),
+	Vector2D(820, 520)
+};
+
+// INVENTORY : LIBRARY
+const Vector2D LIBRARY_POSITIONS[12] = {
+	Vector2D(20, 50),
+	Vector2D(180, 50),
+	Vector2D(340, 50),
+	Vector2D(500, 50),
+	Vector2D(660, 50),
+	Vector2D(820, 50),
+	Vector2D(20, 270),
+	Vector2D(180, 270),
+	Vector2D(340, 270),
+	Vector2D(500, 270),
+	Vector2D(660, 270),
+	Vector2D(820, 270)
+};
+
+// INVENTORY : OBJECTS
+const int OBJECTS_DIMENSIONS = 64;
+const Vector2D OBJECTS_POSITIONS[6] = {
+	Vector2D(960, 132),
+	Vector2D(1034, 132),
+	Vector2D(1108, 132),
+	Vector2D(960, 199),
+	Vector2D(1034, 199),
+	Vector2D(1108, 199)
+};
+
 // BUTTON KEYS
 const string PLAY = "PlayButton";
 const string OPTIONS = "OptionsButton";
@@ -245,6 +342,13 @@ const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
 const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
+
+// BATTLEBACKGROUND ------------------------------------------------------------------------------
+const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 
+const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT; 
+const float BATTLEBACKGROUND3_SCROLLFACTOR = 0.1;
+const float BATTLEBACKGROUND2_SCROLLFACTOR = 0.2;
+const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
 
 // FLOOR -----------------------------------------------------------------------------------------
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
@@ -348,8 +452,9 @@ const int CARD_HEIGHT = 93;
 const int UI_CARD_WIDTH = CARD_WIDTH * 3;
 const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;
 // UI CARD POSITIONS
+const int SELECTED_OFFSET = 60;
 const int Y_CARD_POS = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2;
-const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - 60;
+const int Y_CARD_POS_SELECTED = WIN_HEIGHT - WIN_HEIGHT / 8 - CARD_HEIGHT / 2 - SELECTED_OFFSET;
 const int BETWEEN_CARD_SPACE = CARD_WIDTH * 3 / 2;
 const int CENTERED_CARD_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2; // Usada para 3 y 1 cartas en mano
 	// 4 CARDS IN HAND
@@ -360,6 +465,59 @@ const int X4_4CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + UI_CARD_WIDTH + BE
 	// 3 CARDS IN HAND
 const int X1_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 - BETWEEN_CARD_SPACE * 2;
 const int X3_3CARDS_POS = WIN_WIDTH / 2 - UI_CARD_WIDTH / 2 + BETWEEN_CARD_SPACE * 2;
+// UI AMMO AND MANA NUMBERS DIMENSIONS
+const int UI_AMMO_NUMBERS_WIDTH = 10;
+const int UI_AMMO_NUMBERS_HEIGHT = 15;
+const string CARD_AMMO = "CardAmmo";
+const string CARDS_NUMBERS = "CardsNumbers";
+const int N_CARDS_NUMBERS = 10;
+const int CARDS_NUMBERS_WIDTH = 9;
+const int CARDS_NUMBERS_HEIGHT = 18;
+const int CARDS_NUMBERS_ROWS = 5;
+const int CARDS_NUMBERS_COLUMNS = 2;
+	// 1ST CARD
+const int X1_AMMO_XOFFSET_DECS = -4;
+const int X1_AMMO_YOFFSET_DECS = 31;
+const int X1_AMMO_XOFFSET_UNITS = 7;
+const int X1_AMMO_YOFFSET_UNITS = 29;
+const int X1_MANA_XOFFSET_DECS = 7;
+const int X1_MANA_YOFFSET_DECS = 70;
+const int X1_MANA_XOFFSET_UNITS = 19;
+const int X1_MANA_YOFFSET_UNITS = 68;
+	// 2ND CARD
+const int X2_AMMO_XOFFSET_DECS = 6;
+const int X2_AMMO_YOFFSET_DECS = 24;
+const int X2_AMMO_XOFFSET_UNITS = 17;
+const float X2_AMMO_YOFFSET_UNITS = 23.5;
+const int X2_MANA_XOFFSET_DECS = 13;
+const int X2_MANA_YOFFSET_DECS = 64;
+const int X2_MANA_XOFFSET_UNITS = 25;
+const int X2_MANA_YOFFSET_UNITS = 63;
+	// 3RD CARD
+const int X3_AMMO_XOFFSET_DECS = 26;
+const int X3_AMMO_YOFFSET_DECS = 12;
+const int X3_AMMO_XOFFSET_UNITS = 37;
+const int X3_AMMO_YOFFSET_UNITS = 13;
+const int X3_MANA_XOFFSET_DECS = 25;
+const int X3_MANA_YOFFSET_DECS = 53;
+const int X3_MANA_XOFFSET_UNITS = 37;
+const int X3_MANA_YOFFSET_UNITS = 54;
+	// 4RD CARD
+const int X4_AMMO_XOFFSET_DECS = 36;
+const int X4_AMMO_YOFFSET_DECS = 8;
+const int X4_AMMO_XOFFSET_UNITS = 47;
+const int X4_AMMO_YOFFSET_UNITS = 10;
+const int X4_MANA_XOFFSET_DECS = 32;
+const int X4_MANA_YOFFSET_DECS = 48;
+const int X4_MANA_XOFFSET_UNITS = 44;
+const int X4_MANA_YOFFSET_UNITS = 50;
+	// CENTERED CARD
+const int XC_AMMO_XOFFSET_DECS = 15;
+const int XC_AMMO_XOFFSET_UNITS = 26;
+const int XC_AMMO_YOFFSET = 18;
+const int XC_MANA_XOFFSET_DECS = 19;
+const int XC_MANA_XOFFSET_UNITS = 30;
+const int XC_MANA_YOFFSET = 58;
 
 // RELICS ----------------------------------------------------------------------------------------
 
@@ -427,7 +585,7 @@ const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 17;
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;
 const int STUDIO_HEIGTH = 18 * 3;
-const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 26, WIN_HEIGHT - WIN_HEIGHT / 7.6);
+const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 15, WIN_HEIGHT - WIN_HEIGHT / 7.6);
 
 // MESSAGE ---------------------------------------------------------------------------------------
 const int MESSAGE_W = 300;
@@ -435,8 +593,21 @@ const int MESSAGE_H = 200;
 const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
-//ENEMY GENERATOR---------------------------------------------------------------------------------
+// RELIQUIAS -------------------------------------------------------------------------------------
+const string ALMACENAMIENTO_CUANTICO = "AlmacenamientoCuantico";
+const string HOVERBOARD = "Hoverboard";
+const string ENGRANAJE_AUREO = "EngranajeAureo";
+const string BRAZALETE_IONES = "BrazaleteDeIones";
+const string REGALO = "Regalo";
+const string RELOJ_DIGITAL = "RelojDigital";
+const string COLLAR_GOTICO = "CollarGotico";
+const string CINTURON_HERRAMIENTAS = "CinturonDeHerramientas";
+const string CETRO_PAPAL = "CetroPapal";
+const string LIBRO_PERDIDO = "LibroPerdido";
+const string TAZA_CAFE = "TazaDeCafe";
+const string BOTELLA_MINIATURA = "BotellaConUnBarcoEnMiniatura";
 
+//ENEMY GENERATOR---------------------------------------------------------------------------------
 const int MELEE_RADIUS = 500;
 const int RANGED_RADIUS = 800;
 const int TANK_RADIUS = 600;
@@ -509,11 +680,12 @@ struct AnimatorInfo {
 	int w, h;
 	int fw, fh;
 	int rows, cols;
-	//Con constantes para botones genéricos
+	//Con constantes para botones gen�ricos
 	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
 		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }
-	//Con parámetros específicos
-	AnimatorInfo(string _k, int _w, int _h, int _fw, int _fh, int _r, int _c) :
+	//Con par�metros espec�ficos
+	AnimatorInfo(string _k, int _w, int _h, int _fw = BUTTON_SPRITE_WIDTH, int _fh = BUTTON_SPRITE_HEIGHT,
+		int _r = BUTTON_SPRITE_ROWS, int _c = BUTTON_SPRITE_COLUMS) :
 		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
 };
 

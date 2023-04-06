@@ -8,11 +8,12 @@
 #include "../../data/constants.h"
 
 
+
 class Button : public GameObject {
 private:
 public:
-	// Añade los componentes al botón y crea sus animaciones
-	virtual void initGameObject(CallBack _cb, SDLApplication* game, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame = nullptr);
+	// Aï¿½ade los componentes al botï¿½n y crea sus animaciones
+	virtual void initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame = nullptr);
 
 	// Crear animaciones
 	void createButtonAnimations(Animator* animator);

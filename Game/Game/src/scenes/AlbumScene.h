@@ -1,13 +1,19 @@
 #pragma once
-#ifndef ALBUMSCENE_H_
-#define ALBUMSCENE_H_
 
 #include "GameState.h"
+#include "../data/Album.h"
+
 class AlbumScene : public GameState {
 private:
+	int cardsByRow;
+	Transform* camTr;
+	int camYLimit;
+	vector<GameObject*> infoWindow;
+	bool selected;
 public:
 	AlbumScene();
-	static void mainMenu();
+	void createCard(CardData myData, Vector2D pos, bool found);
+	void handleInput() override;
+	void selectCard(CardData cData);
+	void deselectCard();
 };
-
-#endif // !ALBUMSCENE_H_

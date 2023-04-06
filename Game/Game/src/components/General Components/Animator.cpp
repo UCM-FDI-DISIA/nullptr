@@ -2,7 +2,8 @@
 #include "../../core/SDLApplication.h"
 
 void Animator::createAnim(string key, Animation anim) {
-	anims.insert({ key, anim });
+	//anims.insert({ key, anim });
+	anims[key] = anim;
 	currentFrame = anim.startFrame;
 }
 
@@ -13,11 +14,23 @@ void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
 
 // Empieza una nueva animacion
 void Animator::play(string key) {
+	Animation* prevAnim = currentAnimation;
+	string prevKey = currentAnimKey;
+
 	currentAnimKey = key;
 	currentAnimation = &anims[currentAnimKey];
-	currentFrame = currentAnimation->startFrame;
-	repetitions = 0;
-	currTime = 0;
+
+	// Si son dos animaciones enlazadas entre sí, recoloca el frame actual para ajustarse a la nueva animación
+	if ((prevAnim != nullptr && prevAnim->linked && currentAnimation->linked && linkedAnimations.at(prevKey).count(currentAnimKey))) {
+		currentFrame -= prevAnim->startFrame;
+		currentFrame += currentAnimation->startFrame;
+	}
+	// Si no son animaciones enlazadas se inicia la animción de 0
+	else {
+		currentFrame = currentAnimation->startFrame;
+		repetitions = 0;
+		currTime = 0;
+	}
 }
 
 // Para la animacion actual
@@ -44,7 +57,6 @@ void Animator::update() {
 
 	if (currentAnimation != nullptr) {
 		if (currTime >= (1000 / currentAnimation->frameRate)) {
-
 			if (currentAnimation->repeat != repetitions) {
 				// Devuelve el siguiente frame a renderizar
 				currentFrame = currentAnimation->startFrame + ((currentFrame + 1 - currentAnimation->startFrame) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
@@ -79,4 +91,32 @@ void Animator::render() const {
 			transform->getRotation(), nullptr, flip);
 	}
 	else texture->render(srcRect, getRect(), transform->getRotation(), nullptr, flip);
+}
+
+
+// Asigna el valor para el cambio del tamaño del srcRect
+void Animator::setSrcRectRelativeWidth(float rw) {
+	if (rw > 1) rw = 1;
+	else if (rw < 0) rw = 0;
+	srcRectRelativeWidth = rw;
+}
+
+// Asigna el valor para el cambio del tamaño del srcRect
+void Animator::setSrcRectRelativeHeight(float rh) {
+	if (rh > 1) rh = 1;
+	else if (rh < 0) rh = 0;
+	srcRectRelativeHeight = rh;
+}
+
+void Animator::linkAnimations(std::string key1, std::string key2) {
+	auto it1 = anims.find(key1);
+	if (it1 == anims.end()) throw std::out_of_range("Couldn't link animations. Animation '" + key1 + "' was never declared.");
+	auto it2 = anims.find(key2);
+	if (it2 == anims.end()) throw std::out_of_range("Couldn't link animations. Animation '" + key2 + "' was never declared.");
+
+	it1->second.linked = true;
+	it2->second.linked = true;
+
+	linkedAnimations[key1].insert(key2);
+	linkedAnimations[key2].insert(key1);
 }

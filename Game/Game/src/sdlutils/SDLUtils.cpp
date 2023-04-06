@@ -1,7 +1,6 @@
 // This file is part of the course TPV2@UCM - Samir Genaim
 
 #include "SDLUtils.h"
-
 #include <cassert>
 #include <memory>
 
@@ -17,10 +16,10 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 		height_(height), //
 		fontsAccessWrapper_(fonts_, "Fonts Table"), //
 		imagesAccessWrapper_(images_, "Images Table"), //
-		relicsAccessWrapper_(relics_, "Relics Table")
+		relicsAccessWrapper_(relics_, "Relics Table"),
 		//msgsAccessWrapper_(msgs_, "Messages Table"), //
-		//soundsAccessWrapper_(sounds_, "Sounds Table"), //
-		//musicsAccessWrapper_(musics_, "Musics Table") ///
+		soundsAccessWrapper_(sounds_, "Sounds Table"), //
+		musicsAccessWrapper_(musics_, "Musics Table") ///
 {
 
 	initWindow();
@@ -68,7 +67,7 @@ void SDLUtils::initWindow() {
 
 	// hide cursor by default
 	//hideCursor();
-
+	SDL_RenderSetIntegerScale(renderer_, SDL_bool(true));
 }
 
 void SDLUtils::closeWindow() {
@@ -97,16 +96,16 @@ void SDLUtils::initSDLExtensions() {
 			IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP);
 	assert(imgInit_ret != 0);
 
-//#ifdef _DEBUG
-//	std::cout << "Initializing SEL_Mixer" << std::endl;
-//#endif
+#ifdef _DEBUG
+	std::cout << "Initializing SEL_Mixer" << std::endl;
+#endif
 	// initialize SDL_Mixer
-	//int mixOpenAudio = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-	//assert(mixOpenAudio == 0);
-	//int mixInit_ret = Mix_Init(
-	//		MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
-	//assert(mixInit_ret != 0);
-	//SoundEffect::setNumberofChannels(8); // we start with 8 channels
+	int mixOpenAudio = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+	assert(mixOpenAudio == 0);
+	int mixInit_ret = Mix_Init(
+			MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
+	assert(mixInit_ret != 0);
+	SoundEffect::setNumberofChannels(8); // we start with 8 channels
 
 }
 
@@ -254,66 +253,66 @@ void SDLUtils::loadResources(std::string filename) {
 //		}
 //	}
 //
-//	// load sounds
-//	jValue = root["sounds"];
-//	if (jValue != nullptr) {
-//		if (jValue->IsArray()) {
-//			sounds_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
-//			for (auto &v : jValue->AsArray()) {
-//				if (v->IsObject()) {
-//					JSONObject vObj = v->AsObject();
-//					std::string key = vObj["id"]->AsString();
-//					std::string file = vObj["file"]->AsString();
-//#ifdef _DEBUG
-//					std::cout << "Loading sound effect with id: " << key
-//							<< std::endl;
-//#endif
-//					sounds_.emplace(key, SoundEffect(file));
-//				} else {
-//					throw "'sounds' array in '" + filename
-//							+ "' includes and invalid value";
-//				}
-//			}
-//		} else {
-//			throw "'sounds' is not an array";
-//		}
-//	}
+// load sounds
+	jValue = root["sounds"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			sounds_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto &v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string file = vObj["file"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading sound effect with id: " << key
+							<< std::endl;
+#endif
+					sounds_.emplace(key, SoundEffect(file));
+				} else {
+					throw "'sounds' array in '" + filename
+							+ "' includes and invalid value";
+				}
+		}
+		} else {
+			throw "'sounds' is not an array";
+		}
+	}
 //
 //	// load musics
-//	jValue = root["musics"];
-//	if (jValue != nullptr) {
-//		if (jValue->IsArray()) {
-//			musics_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
-//			for (auto &v : jValue->AsArray()) {
-//				if (v->IsObject()) {
-//					JSONObject vObj = v->AsObject();
-//					std::string key = vObj["id"]->AsString();
-//					std::string file = vObj["file"]->AsString();
-//#ifdef _DEBUG
-//					std::cout << "Loading music with id: " << key << std::endl;
-//#endif
-//					musics_.emplace(key, Music(file));
-//				} else {
-//					throw "'musics' array in '" + filename
-//							+ "' includes and invalid value";
-//				}
-//			}
-//		} else {
-//			throw "'musics' is not an array";
-//		}
-//	}
+	jValue = root["musics"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			musics_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto &v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					std::string file = vObj["file"]->AsString();
+#ifdef _DEBUG
+					std::cout << "Loading music with id: " << key << std::endl;
+#endif
+					musics_.emplace(key, Music(file));
+				} else {
+					throw "'musics' array in '" + filename
+							+ "' includes and invalid value";
+				}
+			}
+		} else {
+			throw "'musics' is not an array";
+		}
+	}
 
 }
 
 void SDLUtils::closeSDLExtensions() {
 
-	//musics_.clear();
-	//sounds_.clear();
+	musics_.clear();
+	sounds_.clear();
 	//msgs_.clear();
 	images_.clear();
 	fonts_.clear();
 
-	//Mix_Quit(); // quit SDL_mixer
+	Mix_Quit(); // quit SDL_mixer
 	IMG_Quit(); // quit SDL_image
 	TTF_Quit(); // quit SDL_ttf
 }

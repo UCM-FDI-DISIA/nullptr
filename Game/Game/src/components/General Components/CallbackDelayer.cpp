@@ -8,5 +8,6 @@ void CallbackDelayer::update()
 	if (timer >= requestedDelay)
 	{
 		callback();
+		gObj->setAlive(false);
 	}
 }

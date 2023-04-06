@@ -3,6 +3,7 @@
 
 // Constructor
 GameState::GameState() : entsByGroup_() { 
+    
     for (auto & grpEnts : entsByGroup_) {
         grpEnts.reserve(100); //Reserva espacio para cada lista
     }

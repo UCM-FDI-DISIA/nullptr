@@ -11,10 +11,7 @@ class SDLApplication;
 
 class ButtonComponent : public Component {
 
-protected:
-	// Puntero al juego
-	SDLApplication* game;
-	
+protected:	
 	// Función a realizar
 	CallBack function;
 
@@ -25,14 +22,19 @@ protected:
 	GameObject* frame;
 
 	// Punteros a componentes
-	Transform* tr;
 	Animator* animButton;
 	Animator* animFrame;
 
+	//Sonidos de los botones
+	SoundEffect* hoverOverSound;
+	SoundEffect* clickSound;
+
+	vector<SoundEffect*> soundEffects;
+
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack _f, SDLApplication* _g, GameObject* _frame = nullptr) :
-		Component(), state(0), function(_f), game(_g), frame(_frame), tr(nullptr), animButton(nullptr), animFrame(nullptr) {}
+	ButtonComponent(CallBack _f, GameObject* _frame = nullptr) :
+		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr) {}
 
 	virtual void update();
 	virtual void handleInput();
@@ -46,5 +48,5 @@ public:
 	virtual void updateAnimation();
 
 	// Cambia el estado de los animators para mostrar el estado del botón recibido
-	void changeStateAnim(string key);
+	void changeStateAnim(string key, int state);
 };

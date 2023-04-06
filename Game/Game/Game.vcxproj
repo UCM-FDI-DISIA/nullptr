@@ -132,7 +132,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\SDL2-2.26.2\lib\x64;$(SolutionDir)libs\SDL2_image-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_mixer-2.6.2\lib\x64;$(SolutionDir)libs\SDL2_ttf-2.20.1\lib\x64;$(SolutionDir)libs\box2d-2.4.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
     <ClInclude Include="src\components\Card Components\FollowEnemyComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
@@ -221,6 +222,7 @@
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
+    <ClInclude Include="src\gameObjects\UI\InventoryCard.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
@@ -315,6 +317,7 @@
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
+    <ClCompile Include="src\gameObjects\UI\InventoryCard.cpp" />
     <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />

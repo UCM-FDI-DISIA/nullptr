@@ -15,10 +15,10 @@ void NodeButtonComponent::update() {
 // Actualiza la animación del botón según el estado
 void NodeButtonComponent::updateAnimation() {
 	if (state == OnLocked) {
-		changeStateAnim(ONLOCKED);
+		changeStateAnim(ONLOCKED,state);
 	}
 	else if (state == OnCompleted) {
-		changeStateAnim(ONCOMPLETED);
+		changeStateAnim(ONCOMPLETED,state);
 	}
 	else ButtonComponent::updateAnimation();
 }
