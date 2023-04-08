@@ -24,6 +24,11 @@ PlayerData::PlayerData() {
 	deck.push_back(new LaserShadesCard());
 	inventory.push_back(InventoryInfo(2, 2, &cardsData().get("Gafas Laser")));
 	receivedCard["Gafas Laser"] = prev(inventory.end());
+	
+	deck.push_back(new AssaultRifleCard());
+	deck.push_back(new AssaultRifleCard());
+	inventory.push_back(InventoryInfo(2, 2, &cardsData().get("Rifle de asalto")));
+	receivedCard["Rifle de asalto"] = prev(inventory.end());
 
 	for (auto& var : sdlutils().relics().map_)
 	{
