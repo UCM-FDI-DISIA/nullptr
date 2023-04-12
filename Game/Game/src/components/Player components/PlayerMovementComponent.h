@@ -7,6 +7,8 @@ class PlayerMovementComponent : public Component
 {
 private:
 	Transform* transform;
+	Vector2D moveDir;
+	float dashDuration;
 	float playerSpeed = PLAYER_SPEED;
 
 public:
@@ -14,11 +16,15 @@ public:
 
 	PlayerMovementComponent();
 
-	virtual void initComponent();
+	void initComponent() override;
 
-	virtual void handleInput();
+	void handleInput() override;
+
+	void update() override;
 
 	void setPlayerSpeed(float newSpeed);
+
+	void dash(Vector2D direction);
 
 };
 

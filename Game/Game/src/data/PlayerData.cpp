@@ -6,22 +6,22 @@ PlayerData::PlayerData() {
 
 	level = 5;
 	// Cartas iniciales
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
+	deck.push_back(new LaserKatanaCard());
+	deck.push_back(new LaserKatanaCard());
+	deck.push_back(new LaserKatanaCard());
 	// A�adimos al vector de informacion las cartas que tiene el jugador de este tipo y las que est�n de ellas en el mazo
 	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Espada")));
 	// La marcamos como a�adida
 	receivedCard["Espada"] = prev(inventory.end());
 
-	deck.push_back(new GunCard());
-	deck.push_back(new GunCard());
-	deck.push_back(new GunCard());
+	deck.push_back(new LaserKatanaCard());
+	deck.push_back(new LaserKatanaCard());
+	deck.push_back(new LaserKatanaCard());
 	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Pistola")));
 	receivedCard["Pistola"] = prev(inventory.end());
 
-	deck.push_back(new LaserShadesCard());
-	deck.push_back(new LaserShadesCard());
+	deck.push_back(new LaserKatanaCard());
+	deck.push_back(new LaserKatanaCard());
 	inventory.push_back(InventoryInfo(2, 2, &cardsData().get("Gafas Laser")));
 	receivedCard["Gafas Laser"] = prev(inventory.end());
 

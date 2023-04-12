@@ -3,7 +3,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../data/PlayerData.h"
 
-PlayerMovementComponent::PlayerMovementComponent() :transform(nullptr){}
+PlayerMovementComponent::PlayerMovementComponent() :transform(nullptr), dashDuration(0){}
 
 void PlayerMovementComponent::initComponent() {
 	transform = gObj->getComponent<Transform>();
@@ -31,10 +31,7 @@ void PlayerMovementComponent::handleInput() {
 		vel = vel + Vector2D(0, 1);
 	}
 
-	if(vel.magnitude()!=0)
-	vel = vel / vel.magnitude();
-	vel = vel * playerSpeed;
-	transform->setVel(vel);
+	moveDir = vel;
 
 	// Activar la pausa lanzando su estado
 	if (InputHandler::instance()->isKeyJustDown(SDLK_ESCAPE)) {
@@ -42,6 +39,23 @@ void PlayerMovementComponent::handleInput() {
 	}
 }
 
+void PlayerMovementComponent::update()
+{
+	if (dashDuration <= 0) {
+		if (moveDir.magnitude() != 0)
+			moveDir = moveDir / moveDir.magnitude();
+		moveDir = moveDir * playerSpeed;
+		transform->setVel(moveDir);
+	} else dashDuration -= SDLApplication::instance()->getDeltaTimeSeconds();
+
+}
+
 void PlayerMovementComponent::setPlayerSpeed(float newSpeed) {
 	playerSpeed = newSpeed;
+}
+
+void PlayerMovementComponent::dash(Vector2D dir) {
+	Vector2D vel = dir * DASH_SPEED;
+	dashDuration = DASH_DURATION;
+	transform->setVel(vel);
 }
