@@ -16,6 +16,7 @@ public:
 	struct ButtonData {
 		button_map::iterator pos[4];
 		int mousePos[2];
+		void setPos(int i, button_map::iterator it) { pos[i] = it; };
 	};
 private:
 

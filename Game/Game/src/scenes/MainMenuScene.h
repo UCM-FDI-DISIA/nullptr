@@ -4,6 +4,7 @@
 #include "../components/General Components/Image.h"
 #include "../components/General Components/Animator.h"
 #include "../components/General Components/TextComponent.h"
+#include "../gameObjects/UI/Button.h"
 
 class MainMenuScene : public GameState {
 private:
