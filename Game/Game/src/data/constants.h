@@ -358,6 +358,13 @@ const string EXIT = "ExitButton";
 const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
 
+// BATTLEBACKGROUND ------------------------------------------------------------------------------
+const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 
+const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT; 
+const float BATTLEBACKGROUND3_SCROLLFACTOR = 0.1;
+const float BATTLEBACKGROUND2_SCROLLFACTOR = 0.2;
+const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
+
 // FLOOR -----------------------------------------------------------------------------------------
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo

@@ -38,7 +38,7 @@ public:
 	void flipVertical();
 	// Desflipea la imagen
 	void flipNone();
-	// 
+	// Establece el factor de deslice para el efecto parallax
 	void setScrollFactor(float _factor);
 };
 #endif // !IMAGE_H_

@@ -49,7 +49,6 @@ void Image::attachToCamera() {
 	cameraTransform = nullptr;
 }
 
-
 // Hace que el GameObject se renderice en función a la cámara, no a la ventana
 void Image::dettachFromCamera() {
 	if (gStt != nullptr) {
@@ -67,10 +66,12 @@ void Image::flipVertical() {
 	flip = SDL_FLIP_VERTICAL;
 }
 
+// Desflipea la imagen
 void Image::flipNone() {
 	flip = SDL_FLIP_NONE;
 }
 
+// Establece el factor de deslice para el efecto parallax
 void Image::setScrollFactor(float _factor) {
 	if (cameraTransform != nullptr) {
 		scrollFactor = _factor;
