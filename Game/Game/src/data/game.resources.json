@@ -121,9 +121,9 @@
       { "id" : "RelojDigital", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "CollarGotico", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "CinturonDeHerramientas", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id" : "CetroPapal", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "CetroPapal", "file" : "../Game/resources/images/Objects/CetroPapal_32x32.png" },
       { "id" : "LibroPerdido", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
-      { "id" : "TazaDeCafe", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "TazaDeCafe", "file" : "../Game/resources/images/Objects/TazaDeCafé_32x32.png" },
       { "id" : "BotellaConUnBarcoEnMiniatura", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
 
       { "id": "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png"},
