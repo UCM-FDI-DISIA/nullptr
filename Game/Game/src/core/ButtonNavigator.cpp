@@ -17,42 +17,43 @@ void ButtonNavigator::right() {
 }
 
 void ButtonNavigator::changePos(way w) {
-	(w % 2 == 0) ?
-		++currentButton.pos[w] :
-		--currentButton.pos[w];
-
-
-	currentButton.mousePos[horizontal] = currentButton.pos[w]->second.mousePos[horizontal];
-	currentButton.mousePos[vertical] = currentButton.pos[w]->second.mousePos[vertical];
-	for (int i = 0; i < 4; ++i) {
-		if (i != w) currentButton.pos[i] = currentButton.pos[w]->second.pos[i];
+	int dir = (w < 2) ? d_x : d_y;
+	// incrementa
+	if (w % 2 != 0) {
+		if (std::next(currentButton.pos[w]) != matrix[dir][currentButton.supPos[w]].end());
+			++currentButton.pos[w];
+	}
+	// decrementa
+	else {
+		if (currentButton.pos[w] != matrix[dir][currentButton.supPos[w]].begin())
+			--currentButton.pos[w];
 	}
 
-	gmCtrl_.moveMouse(currentButton.mousePos[horizontal], currentButton.mousePos[vertical]);
+	setCurrentButton(currentButton.pos[w]->second);
 }
 
-ButtonNavigator::ButtonData ButtonNavigator::insert(SDL_Rect r) {
+ButtonData ButtonNavigator::insert(SDL_Rect r) {
 	return insert(r.x, r.y, r.w, r.h);
 }
 
 // recibe posicion y tamaño del botón con el componente
-ButtonNavigator::ButtonData ButtonNavigator::insert(int x, int y, int w, int h) {
+ButtonData ButtonNavigator::insert(int x, int y, int w, int h) {
 
 	ButtonData bd;
-	bd.mousePos[horizontal] = x + w / 2;
-	bd.mousePos[vertical] = y + h / 2;
+	bd.mousePos[d_x] = x + w / 2;
+	bd.mousePos[d_y] = y + h / 2;
 
 
-	//x /= 13;
-	//y /= 13;
-	//w /= 13;
-	//h /= 13;
+	x /= 13;
+	y /= 13;
+	w /= 13;
+	h /= 13;
 
-	//// area total en el map
-	//x -= w;
-	//y -= h;
-	//w *= 3;
-	//h *= 3;
+	// area total en el map
+	x -= w;
+	y -= h;
+	w *= 3;
+	h *= 3;
 	// sacar los 4 bordes
 	int up[2] = { x + w / 2, y };
 	int down[2] = { x + w / 2, y + h };
@@ -61,36 +62,39 @@ ButtonNavigator::ButtonData ButtonNavigator::insert(int x, int y, int w, int h) 
 
 	// insertar laterales en el map
 	std::pair<button_map::iterator, bool> its[4];
-	its[u] = matrix[vertical][up[1]].insert({ up[0], bd });
-	its[d] = matrix[vertical][down[1]].insert({ down[0] , bd });
-	its[l] = matrix[horizontal][left[0]].insert({ left[1], bd });
-	its[r] = matrix[horizontal][right[0]].insert({ right[1], bd });
+	its[u] = matrix[d_x][up[d_x]].insert({ up[d_y], bd });
+	bd.supPos[u] = up[d_x];
+	its[d] = matrix[d_x][down[d_x]].insert({ down[d_y] , bd });
+	bd.supPos[d] = down[d_x];
+	its[l] = matrix[d_y][left[d_y]].insert({ left[d_x], bd });
+	bd.supPos[l] = left[d_y];
+	its[r] = matrix[d_y][right[d_y]].insert({ right[d_x], bd });
+	bd.supPos[r] = right[d_y];
 
 	// asignar los laterales en el ButtonData
 	for (int i = 0; i < 4; ++i) {
-		bd.setPos(i, its[i].first);
-		/*auto e = its[i].first;
-		bd.pos[i] = e;*/
+		bd.pos[i] = its[i].first;
 	}
 
 	// insertar en todo el área del botón del map
 	for (int i = x; i < x + w; ++i) {
 		for (int j = y; j < y + h; ++j) {
-			matrix[horizontal][i].insert({ j, bd });
-			matrix[vertical][j].insert({ i, bd });
+			matrix[d_x][i].insert({ j, bd });
+			matrix[d_y][j].insert({ i, bd });
 		}
 	}
 
 	// 
 	for (int i = 0; i < 4; ++i) {
-		its[i].first->second = bd;
+		if (its[i].second) 
+			its[i].first->second = bd;
 	}
 
-	return bd;
+	return ButtonData(bd);
 }
 
 
 void ButtonNavigator::setCurrentButton(ButtonData bd) {
 	currentButton = bd;
-	gmCtrl_.moveMouse(currentButton.mousePos[horizontal], currentButton.mousePos[vertical]);
+	gmCtrl_.moveMouse(currentButton.mousePos[d_x], currentButton.mousePos[d_y]);
 }

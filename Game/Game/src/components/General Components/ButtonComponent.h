@@ -33,7 +33,7 @@ protected:
 
 	GameControl& gmCtrl_;
 	ButtonNavigator* butNav;
-	ButtonNavigator::ButtonData myData;
+	ButtonData myData;
 
 	vector<SoundEffect*> soundEffects;
 

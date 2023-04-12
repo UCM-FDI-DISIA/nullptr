@@ -2,24 +2,24 @@
 
 #include <map>
 #include "GameControl.h"
+
+
+struct ButtonData {
+	std::map<int, ButtonData>::iterator pos[4];
+	int supPos[4];
+	int mousePos[2];
+};
+enum direction : int {
+	d_x = 0, d_y
+};
+enum way : int {
+	u = 0, d, l, r
+};
+
 class ButtonNavigator {
 private:
-	enum direction : int {
-		horizontal, vertical
-	};
-	enum way : int {
-		u, d, l, r
-	};
-	struct ButtonData;
-	typedef std::map<int, ButtonData> button_map;
-public:
-	struct ButtonData {
-		button_map::iterator pos[4];
-		int mousePos[2];
-		void setPos(int i, button_map::iterator it) { pos[i] = it; };
-	};
-private:
 
+	typedef std::map<int, ButtonData> button_map;
 	std::map<int, button_map> matrix[2];
 	ButtonData currentButton;
 
