@@ -156,7 +156,7 @@ InventoryScene::~InventoryScene() {
 	vector<Card*> newDeck;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 		for (int i = 0; i < it->second.cuantityDeck; i++) {
-			newDeck.push_back(new Card(cardsData().get(Card::getCardIDfromEnum(it->second.card))));
+			newDeck.push_back(Card::getCard(it->second.card));
 		}
 	}
 	PlayerData::instance()->setDeck(newDeck);

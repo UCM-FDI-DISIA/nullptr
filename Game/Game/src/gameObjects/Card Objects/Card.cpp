@@ -33,25 +33,26 @@ Card::Card(CardData myData) :
 Card::~Card() {}
 
 //Devuelve la carta correspondiente al id
-Card Card::getCard(CardId type) {
+Card* Card::getCard(CardId type) {
 
 	// cleon says: pod�is sacar un elemento random de un vector, y el elemento que sea una lambda
 	switch (type)
 	{
-	case _card_GUN: return GunCard();
-	case _card_SWORD: return SwordCard();
-	case _card_TORCH: return TorchCard();
-	case _card_LASERGLASSES: return LaserShadesCard();
-	case _card_BOW: return BowCard();
-	case _card_PULGA: return PulgaCard();
-	case _card_SPEAR: return SpearCard();
-	case _card_SMG: return SMGCard();
-	case _card_ASSAULTRIFLE: return AssaultRifleCard();
-	case _card_LIGHTRIFLE: return LightRifleCard();
-	case _card_MEGAPHONE: return MegaphoneCard();
-	case _card_RIOTSHIELD: return RiotShieldCard();
-	case _card_RITUALAXE: return RitualAxeCard();
-	case _card_CHEATGUN: return CheatGunCard();
-	default: break;
+	case _card_GUN: return new GunCard();
+	case _card_SWORD: return new SwordCard();
+	case _card_TORCH: return new TorchCard();
+	case _card_LASERGLASSES: return new LaserShadesCard();
+	case _card_BOW: return new BowCard();
+	case _card_PULGA: return new PulgaCard();
+	case _card_SPEAR: return new SpearCard();
+	case _card_SMG: return new SMGCard();
+	case _card_ASSAULTRIFLE: return new AssaultRifleCard();
+	case _card_LIGHTRIFLE: return new LightRifleCard();
+	case _card_MEGAPHONE: return new MegaphoneCard();
+	case _card_RIOTSHIELD: return new RiotShieldCard();
+	case _card_RITUALAXE: return new RitualAxeCard();
+	case _card_CHEATGUN: return new CheatGunCard();
+	default: return nullptr;
 	}
 }
+
