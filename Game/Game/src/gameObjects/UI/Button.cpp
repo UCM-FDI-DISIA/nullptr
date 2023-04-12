@@ -12,7 +12,7 @@ void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo,
 	if (_frame != nullptr) createButtonAnimations(_frame->getComponent<Animator>());
 
 	// Componente de botones
-	addComponent<ButtonComponent>(_cb, _frame);
+	bComp = addComponent<ButtonComponent>(_cb, _frame);
 }
 
 // Crea las animaciones esenciales de un bot�n: OnClick, OnOver y Idle
@@ -22,4 +22,9 @@ void Button::createButtonAnimations(Animator* animator) {
 	animator->createAnim(ONOVER, ONONVER_START_FRAME, ONOVER_END_FRAME, ONOVER_SPEED, -1);
 	animator->createAnim(ONCLICK, ONCLICK_ALL_FRAMES, ONCLICK_ALL_FRAMES, ONCLICK_ONOUT_SPEED, -1);
 	animator->play(ONOUT);
+}
+
+
+void Button::setAsCurrentButton() {
+	bComp->setAsCurrentButton();
 }

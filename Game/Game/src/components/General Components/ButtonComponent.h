@@ -3,6 +3,8 @@
 #include "../General Components/Transform.h"
 #include "../../sdlutils/InputHandler.h"
 #include "../General Components/Animator.h"
+#include "../../core/GameControl.h"
+#include "../../core/ButtonNavigator.h"
 
 // Estados representados por números
 enum State { OnOut = 0, OnOver, OnClick };
@@ -29,12 +31,17 @@ protected:
 	SoundEffect* hoverOverSound;
 	SoundEffect* clickSound;
 
+	GameControl& gmCtrl_;
+	ButtonNavigator* butNav;
+	ButtonNavigator::ButtonData myData;
+
 	vector<SoundEffect*> soundEffects;
 
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, GameObject* _frame = nullptr) :
-		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr) {}
+		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr),
+		clickSound(nullptr), hoverOverSound(nullptr), gmCtrl_(gmCtrl()), butNav(nullptr) {}
 
 	virtual void update();
 	virtual void handleInput();
@@ -49,4 +56,6 @@ public:
 
 	// Cambia el estado de los animators para mostrar el estado del botón recibido
 	void changeStateAnim(string key, int state);
+
+	void setAsCurrentButton();
 };

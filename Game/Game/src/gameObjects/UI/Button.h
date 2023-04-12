@@ -11,10 +11,13 @@
 
 class Button : public GameObject {
 private:
+	ButtonComponent* bComp;
 public:
 	// A�ade los componentes al bot�n y crea sus animaciones
 	virtual void initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame = nullptr);
 
 	// Crear animaciones
 	void createButtonAnimations(Animator* animator);
+
+	void setAsCurrentButton();
 };

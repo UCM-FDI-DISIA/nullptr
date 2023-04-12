@@ -3,6 +3,7 @@
 #include "../gameObjects/GameObject.h"
 #include "../gameObjects/General Objects/Camera.h"
 #include "../gameObjects/General Objects/Pointer.h"
+#include "../core/ButtonNavigator.h"
 
 class SDLApplication;
 using namespace std;
@@ -11,6 +12,8 @@ class GameState {
 protected:
     Camera* camera;
     Pointer* pointer;
+    ButtonNavigator* butNavigator;
+
     array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
 public:
     // Constructor
@@ -48,4 +51,5 @@ public:
 
     // Devuelve la camara
     Camera* getCamera() const;
+    ButtonNavigator* getButtonNavigator() const;
 };

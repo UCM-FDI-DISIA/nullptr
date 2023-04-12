@@ -11,5 +11,5 @@ public:
 	// Constructora
 	MainMenuScene();
 	// Crear un botón especificado en la escena
-	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
+	Button* createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };

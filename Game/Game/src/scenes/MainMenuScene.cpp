@@ -21,7 +21,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
 	// Botón jugar
-	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY);
+	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY)->setAsCurrentButton();
 
 	// Botón options
 	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<OptionsMenuScene>(); }, OPTIONS);
@@ -34,7 +34,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 }
 
 // Crear un bot�n especificado en la escena
-void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
+Button* MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
 	AnimatorInfo aI = AnimatorInfo(key);
 	// Crear marco
 	GameObject* frame = addGameObject();
@@ -42,5 +42,5 @@ void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
 	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, frame);
+	return addGameObject<Button>(_cb, _bPos, aI, frame);
 }

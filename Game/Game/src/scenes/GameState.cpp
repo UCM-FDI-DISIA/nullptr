@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState() : entsByGroup_() { 
+GameState::GameState() : entsByGroup_(), butNavigator(new ButtonNavigator()) { 
     for (auto & grpEnts : entsByGroup_) {
         grpEnts.reserve(100); //Reserva espacio para cada lista
     }
@@ -18,6 +18,7 @@ GameState::~GameState() {
             e = nullptr;
         }
     }
+    delete butNavigator;
 }
 
 // Actualiza los objetos de la escena
@@ -72,3 +73,5 @@ void GameState::refresh() {
 
 // Devuelve la camara de la escena
 Camera* GameState::getCamera() const { return camera; }
+
+ButtonNavigator* GameState::getButtonNavigator() const { return butNavigator; }

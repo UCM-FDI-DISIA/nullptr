@@ -1,5 +1,6 @@
 #include "ButtonComponent.h"
 #include "../../gameObjects/GameObject.h"
+#include "../../scenes/GameState.h"
 
 void ButtonComponent::update() {
 	// Cambiar animación según el estado
@@ -10,19 +11,33 @@ void ButtonComponent::update() {
 
 	// Cambia el estado según la posición del ratón
 	if (state != OnClick) {
-	if (isOver(mouseX, mouseY)) {
-		state = OnOver;
-
-	}
-	else {
-		state = OnOut;
-	}
+		if (isOver(mouseX, mouseY)) {
+			state = OnOver;
+		}
+		else {
+			state = OnOut;
+		}
 	}
 }
 
 void ButtonComponent::handleInput() {
-	if (InputHandler::instance()->getMouseButtonState(InputHandler::LEFT) && state == OnOver) {
-		onClick();
+	if (state == OnOver) {
+		if (gmCtrl_.click()) {
+			onClick();
+		}
+		// MOVER JOYSTICK
+		if (gmCtrl_.selectUpButton()) {
+			butNav->up();
+		}
+		if (gmCtrl_.selectDownButton()) {
+			butNav->down();
+		}
+		if (gmCtrl_.selectLeftButton()) {
+			butNav->left();
+		}
+		if (gmCtrl_.selectRightButton()) {
+			butNav->right();
+		}
 	}
 }
 
@@ -31,6 +46,9 @@ void ButtonComponent::initComponent() {
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
 	hoverOverSound = &sdlutils().soundEffects().at("HoverOverButton");
 	clickSound = &sdlutils().soundEffects().at("ButtonPressed");
+	
+	butNav = gStt->getButtonNavigator();
+	myData = butNav->insert(animButton->getRect());
 }
 
 
@@ -81,4 +99,9 @@ void ButtonComponent::changeStateAnim(string key, int state) {
 		// Cambiar el estado del frame al correspondiente
 		if (frame != nullptr) animFrame->play(key);
 	}
+}
+
+
+void ButtonComponent::setAsCurrentButton() {
+	butNav->setCurrentButton(myData);
 }

@@ -35,6 +35,16 @@ public:
 	// Pausar el juego
 	bool pause();
 
+	// Pulsar un botón
+	bool click();
+	// 
+	bool moveMouse(float x, float y);
+
+	bool selectUpButton();
+	bool selectDownButton();
+	bool selectLeftButton();
+	bool selectRightButton();
+
 	// Cambiar entre control por mando y control por teclado
 	inline void changeControl() {
 		controller_ = !controller_;

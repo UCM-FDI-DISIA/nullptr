@@ -89,3 +89,53 @@ bool GameControl::pause() {
 	}
 	return ih_.isKeyDown(SDLK_ESCAPE);
 }
+
+// Pulsar un botón
+bool GameControl::click() {
+	if (controller_) {
+		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_A);
+	}
+	return ih_.getMouseButtonState(InputHandler::LEFT) && ih_.mouseButtonEvent();
+}
+
+
+bool GameControl::moveMouse(float x, float y) {
+	if (controller_) {
+		SDL_WarpMouseInWindow(sdlutils().window(), x, y);
+		return true;
+	}
+	return false;
+}
+
+
+bool GameControl::selectUpButton() {
+	if (controller_) {
+
+		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_UP);
+	}
+	return false;
+}
+bool GameControl::selectDownButton() {
+	if (controller_) {
+
+		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_DOWN);
+
+	}
+	return false;
+}
+bool GameControl::selectLeftButton() {
+	if (controller_) {
+
+
+		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_LEFT);
+	}
+	return false;
+}
+bool GameControl::selectRightButton() {
+	if (controller_) {
+
+
+		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+	}
+	return false;
+}
