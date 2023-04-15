@@ -126,7 +126,8 @@ void InventoryScene::createCards() {
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 
 		Vector2D pos = Vector2D(20 + 160 * column, 50 + 220 * (row ? 0 : 1));
-		createCard(pos, it->second.card);
+		string temp = Card::getCardIDfromEnum(it->second.card);
+		createCard(pos, it->second.card, Gfalse);
 		
 		Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
 			createCard(posD, it->second.card);
@@ -139,17 +140,30 @@ void InventoryScene::createCards() {
 	}
 }
 
-void InventoryScene::createCard(Vector2D pos, CardId card) {
+void InventoryScene::createCard(Vector2D pos, CardId card, bool deck) {
 	GameObject* cardObj = addGameObject();
 	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
 	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(card)).texture);
-
-	/*Button* b = addGameObject<Button>([&, cD = myData, f = found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
-	Animator* a = b->getComponent<Animator>();
-	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
-	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
-	a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
-	a->play(ONOUT);*/
+	Button* b = addGameObject<Button>([&]()
+		{
+			// no puedo acceder a la carta que le llama, tendra que ser que lo reciba
+			if (deck? inventory[Card::getCardIDfromEnum(card)].cuantityDeck > 0 :inventory[Card::getCardIDfromEnum(card)].cuantityDeck < inventory[Card::getCardIDfromEnum(card)].cuantity) {
+				deck? inventory[Card::getCardIDfromEnum(card)].cuantityDeck-- : inventory[Card::getCardIDfromEnum(card)].cuantityDeck++;
+				inventory[Card::getCardIDfromEnum(card)].myText->getComponent<TextComponent>()->changeText(to_string(inventory[Card::getCardIDfromEnum(card)].cuantityDeck)
+					+ "/" + to_string(inventory[Card::getCardIDfromEnum(card)].cuantity));
+			}
+		}
+		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
+		cardsData().get(Card::getCardIDfromEnum(card)).texture->width(), cardsData().get(Card::getCardIDfromEnum(card)).texture->height(), 1, 4));
+	GameObject* text = addGameObject();
+	inventory[Card::getCardIDfromEnum(card)].myText = text;
+	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), VECTOR_ZERO, 70, 48);
+	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(inventory[Card::getCardIDfromEnum(card)].cuantityDeck) + "/" + to_string(inventory[Card::getCardIDfromEnum(card)].cuantity));
+	//Animator* a = b->getComponent<Animator>();
+	//a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
+	//a->createAnim(ONOVER, SELECTED_CARD_ANIM);
+	//a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
+	//a->play(ONOUT);
 }
 
 InventoryScene::~InventoryScene() {

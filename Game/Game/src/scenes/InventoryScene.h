@@ -10,6 +10,7 @@ struct InventoryInfo {
 	int cuantity = 0;
 	int cuantityDeck = 0;
 	CardId card;
+	GameObject* myText;
 
 	InventoryInfo() : cuantity(0), cuantityDeck(0), card(_card_NULL) { };
 };
@@ -28,5 +29,5 @@ public:
 	void createMoneyInfo();
 	void createObjects();
 	void createCards();
-	void createCard(Vector2D pos, CardId card);
+	void createCard(Vector2D pos, CardId card, bool deck);
 };
