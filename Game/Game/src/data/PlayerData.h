@@ -35,6 +35,7 @@ class PlayerData : public Singleton<PlayerData>
 
 	std::vector<Card*> deck;
 	std::vector<CardId> library;
+	std::vector<CardId> deckIds;
 	
 	
 	//Vector con todas las reliquias disponibles, saca su key del mapa
@@ -98,13 +99,15 @@ class PlayerData : public Singleton<PlayerData>
 		std::vector<Card*> getDeck();
 		std::vector<std::string> getAvailableItems();
 		
-
+		void addCardToDeckId(CardId newCard, int num);
+		void setDeckId(std::vector<CardId> newDeck);
 		void setDeck(std::vector<Card*> newDeck);
 		void addCardToLibrary(CardId newCard, int num);
 		void setAvailableItems(std::vector<std::string> newItems);
 
 		void addRelic(Relic* relic);
 		std::vector<CardId> getLibrary();
+		std::vector<CardId> getDeckIds();
 		
 };
 

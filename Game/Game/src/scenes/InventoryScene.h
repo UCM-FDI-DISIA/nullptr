@@ -14,10 +14,17 @@ struct InventoryInfo {
 
 	InventoryInfo() : cuantity(0), cuantityDeck(0), card(_card_NULL) { };
 };
+struct InventoryCard
+{
+	GameObject* deckButton;
+	GameObject* deckImage;
+	GameObject* deckText;
+};
 
 class InventoryScene : public GameState {
 private:
 	std::map<string,InventoryInfo> inventory;
+	std::map<CardId, InventoryCard> deckButtons;
 	vector<int> stats;
 public:
 	InventoryScene();
@@ -29,5 +36,6 @@ public:
 	void createMoneyInfo();
 	void createObjects();
 	void createCards();
+	void createDeckCards(CardId crd, int column);
 	void createCard(Vector2D pos, CardId card, bool deck);
 };

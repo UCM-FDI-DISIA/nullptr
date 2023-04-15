@@ -6,7 +6,7 @@
 InventoryScene::InventoryScene() : GameState() {
 	
 	vector<CardId> currentLibrary = PlayerData::instance()->getLibrary();
-	vector<Card*> currentDeck = PlayerData::instance()->getDeck();
+	vector<CardId> currentDeck = PlayerData::instance()->getDeckIds();
 
 	for (int i = 0; i < currentLibrary.size();i++) {
 
@@ -17,7 +17,7 @@ InventoryScene::InventoryScene() : GameState() {
 	}
 
 	for (int j = 0; j < currentDeck.size(); j++) {
-		inventory[Card::getCardIDfromEnum(currentLibrary[j])].cuantityDeck++;
+		inventory[Card::getCardIDfromEnum(currentDeck[j])].cuantityDeck++;
 	}
 
 	// Llamamos a Player data para pillar la info de las cartas que se tienen
@@ -43,7 +43,12 @@ InventoryScene::InventoryScene() : GameState() {
 		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
 	}
 	// Creamos el boton de salir
-	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, []() { SDLApplication::popGameState(); }, EXIT);
+	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, [&]() {
+		int cardsInDeck = 0;
+	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
+		if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
+		if(cardsInDeck>=4)SDLApplication::popGameState(); 
+		}, EXIT);
 }
 
 // Crear un bot�n especificado en la escena
@@ -123,55 +128,93 @@ void InventoryScene::createObjects() {
 void InventoryScene::createCards() {
 	bool row = false;
 	int column = 0;
+	int deckColumn = 0;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 
 		Vector2D pos = Vector2D(20 + 160 * column, 50 + 220 * (row ? 0 : 1));
 		string temp = Card::getCardIDfromEnum(it->second.card);
-		createCard(pos, it->second.card, Gfalse);
+		createCard(pos, it->second.card, false);
 		
-		Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
-			createCard(posD, it->second.card);
+		if (it->second.cuantityDeck > 0)createDeckCards(it->second.card, deckColumn);
+			row = !row;
+			deckColumn++;
 		if (row) {
 			column++;
 		}
-		row = !row;
 		
 
 	}
 }
-
-void InventoryScene::createCard(Vector2D pos, CardId card, bool deck) {
+void InventoryScene::createDeckCards(CardId crd, int column)
+{
+	Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
+	createCard(posD, crd, true);
+}
+void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	GameObject* cardObj = addGameObject();
 	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
-	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(card)).texture);
-	Button* b = addGameObject<Button>([&]()
+	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(crd)).texture);
+	Button* b = addGameObject<Button>([&, deck = dck, card = crd, myPos = pos]()
 		{
+
 			// no puedo acceder a la carta que le llama, tendra que ser que lo reciba
 			if (deck? inventory[Card::getCardIDfromEnum(card)].cuantityDeck > 0 :inventory[Card::getCardIDfromEnum(card)].cuantityDeck < inventory[Card::getCardIDfromEnum(card)].cuantity) {
-				deck? inventory[Card::getCardIDfromEnum(card)].cuantityDeck-- : inventory[Card::getCardIDfromEnum(card)].cuantityDeck++;
+				if (deck) {
+					inventory[Card::getCardIDfromEnum(card)].cuantityDeck--;
+					if (inventory[Card::getCardIDfromEnum(card)].cuantityDeck == 0) {
+						deckButtons[card].deckButton->setAlive(false);
+						deckButtons[card].deckImage->setAlive(false);
+						deckButtons[card].deckText->setAlive(false);
+					}
+				}
+				else {
+					inventory[Card::getCardIDfromEnum(card)].cuantityDeck++;
+					if (inventory[Card::getCardIDfromEnum(card)].cuantityDeck == 1) {
+						for (auto obj : deckButtons)
+						{
+							obj.second.deckButton->setAlive(false);
+							obj.second.deckImage->setAlive(false);
+							obj.second.deckText->setAlive(false);
+						}
+						int column = 0;
+						for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++)
+						{
+							if (it->second.cuantityDeck > 0)
+							{
+								createDeckCards(it->second.card, column);
+								column++;
+							}
+
+						}
+					}
+				}
 				inventory[Card::getCardIDfromEnum(card)].myText->getComponent<TextComponent>()->changeText(to_string(inventory[Card::getCardIDfromEnum(card)].cuantityDeck)
 					+ "/" + to_string(inventory[Card::getCardIDfromEnum(card)].cuantity));
 			}
 		}
 		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
-		cardsData().get(Card::getCardIDfromEnum(card)).texture->width(), cardsData().get(Card::getCardIDfromEnum(card)).texture->height(), 1, 4));
+		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4));
+	
 	GameObject* text = addGameObject();
-	inventory[Card::getCardIDfromEnum(card)].myText = text;
+	inventory[Card::getCardIDfromEnum(crd)].myText = text;
 	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), VECTOR_ZERO, 70, 48);
-	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(inventory[Card::getCardIDfromEnum(card)].cuantityDeck) + "/" + to_string(inventory[Card::getCardIDfromEnum(card)].cuantity));
-	//Animator* a = b->getComponent<Animator>();
-	//a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
-	//a->createAnim(ONOVER, SELECTED_CARD_ANIM);
-	//a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
-	//a->play(ONOUT);
+	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(inventory[Card::getCardIDfromEnum(crd)].cuantityDeck) + "/" + to_string(inventory[Card::getCardIDfromEnum(crd)].cuantity));
+	if (dck) {
+		deckButtons[crd].deckButton = b;
+		deckButtons[crd].deckImage = cardObj;
+		deckButtons[crd].deckText = text;
+	}
 }
 
 InventoryScene::~InventoryScene() {
 	vector<Card*> newDeck;
+	vector<CardId> newDeckId;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 		for (int i = 0; i < it->second.cuantityDeck; i++) {
 			newDeck.push_back(Card::getCard(it->second.card));
+			newDeckId.push_back(it->second.card);
 		}
 	}
 	PlayerData::instance()->setDeck(newDeck);
+	PlayerData::instance()->setDeckId(newDeckId);
 }

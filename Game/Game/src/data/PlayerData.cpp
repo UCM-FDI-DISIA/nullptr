@@ -10,15 +10,17 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
 	addCardToLibrary(_card_SWORD, 3);
+	addCardToDeckId(_card_SWORD, 3);
 
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	addCardToLibrary(_card_GUN, 3);
-
+	addCardToDeckId(_card_GUN, 3);
 	deck.push_back(new LaserShadesCard());
 	deck.push_back(new LaserShadesCard());
 	addCardToLibrary(_card_LASERGLASSES, 2);
+	addCardToDeckId(_card_LASERGLASSES, 2);
 
 	for (auto& var : sdlutils().relics().map_)
 	{
@@ -97,4 +99,20 @@ void PlayerData::addRelic(Relic* relic) {
 
 std::vector<CardId> PlayerData::getLibrary() {
 	return library;
+}
+void PlayerData::addCardToDeckId(CardId newCard, int num)
+{
+	for (int i = 0; i < num; i++)
+	{
+		deckIds.push_back(newCard);
+	}
+}
+
+std::vector<CardId> PlayerData::getDeckIds()
+{
+	return deckIds;
+}
+void PlayerData::setDeckId(std::vector<CardId> newDeck)
+{
+	deckIds = newDeck;
 }
