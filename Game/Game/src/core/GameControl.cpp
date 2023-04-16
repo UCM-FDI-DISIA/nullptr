@@ -1,6 +1,18 @@
 #include "GameControl.h"
 
 
+GameControl::GameControl() : 
+	ih_(ih()), 
+	controller_(true), 
+	lastMovement(0),
+	lastMovementU(0),
+	lastMovementD(0),
+	lastMovementL(0),
+	lastMovementR(0),
+	movementDelay(150),
+	sameDirMovementDelay(150)
+{}
+
 float GameControl::movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus) {
 	if (controller_) {
 		return ih_.getNormalizedControllerAxis(axis);
@@ -110,6 +122,12 @@ bool GameControl::moveMouse(float x, float y) {
 
 bool GameControl::selectUpButton() {
 	if (controller_) {
+		uint ticks = SDL_GetTicks();
+		if (ticks > lastMovement + movementDelay && ticks > lastMovementU + sameDirMovementDelay && ih_.getControllerAxis(SDL_CONTROLLER_AXIS_LEFTY) < -0.4f) {
+			lastMovement = ticks;
+			lastMovementU = ticks;
+			return true;
+		}
 
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_UP);
 	}
@@ -117,6 +135,12 @@ bool GameControl::selectUpButton() {
 }
 bool GameControl::selectDownButton() {
 	if (controller_) {
+		uint ticks = SDL_GetTicks();
+		if (ticks > lastMovement + movementDelay && ticks > lastMovementD + sameDirMovementDelay && ih_.getControllerAxis(SDL_CONTROLLER_AXIS_LEFTY) > 0.4f) {
+			lastMovement = ticks;
+			lastMovementD = ticks;
+			return true;
+		}
 
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_DOWN);
 
@@ -125,7 +149,12 @@ bool GameControl::selectDownButton() {
 }
 bool GameControl::selectLeftButton() {
 	if (controller_) {
-
+		uint ticks = SDL_GetTicks();
+		if (ticks > lastMovement + movementDelay && ticks > lastMovementL + sameDirMovementDelay && ih_.getNormalizedControllerAxis(SDL_CONTROLLER_AXIS_LEFTX) < -0.4f) {
+			lastMovement = ticks;
+			lastMovementL = ticks;
+			return true;
+		}
 
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_LEFT);
 	}
@@ -133,7 +162,12 @@ bool GameControl::selectLeftButton() {
 }
 bool GameControl::selectRightButton() {
 	if (controller_) {
-
+		uint ticks = SDL_GetTicks();
+		if (ticks > lastMovement + movementDelay && ticks > lastMovementR + sameDirMovementDelay && ih_.getNormalizedControllerAxis(SDL_CONTROLLER_AXIS_LEFTX) > 0.4f) {
+			lastMovement = ticks;
+			lastMovementR = ticks;
+			return true;
+		}
 
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
 	}

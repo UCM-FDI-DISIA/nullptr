@@ -7,11 +7,14 @@ private:
 	bool controller_;
 	InputHandler& ih_;
 
+	uint lastMovement, lastMovementU, lastMovementD, lastMovementL, lastMovementR;
+	const uint movementDelay, sameDirMovementDelay;
+
 	float movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus);
 	bool attack(SDL_GameControllerButton button, SDL_GameControllerAxis trigger, InputHandler::MOUSEBUTTON mouseButton);
 	bool adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameControllerAxis yAxis);
 public:
-	GameControl() : ih_(ih()), controller_(true) {}
+	GameControl();
 
 	// Eje de movimiento en X, entre -1 y 1
 	float movementX();

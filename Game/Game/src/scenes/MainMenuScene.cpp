@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 #include "../gameObjects/GameObject.h"
 
-MainMenuScene::MainMenuScene() : GameState() {
+MainMenuScene::MainMenuScene() {
 	// Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
@@ -31,16 +31,4 @@ MainMenuScene::MainMenuScene() : GameState() {
 
 	// Botón salir
 	createButton(MM_EXIT_BUTTON_POS, MM_EXIT_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
-}
-
-// Crear un bot�n especificado en la escena
-Button* MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key);
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-
-	// Crear bot�n
-	return addGameObject<Button>(_cb, _bPos, aI, frame);
 }

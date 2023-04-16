@@ -17,50 +17,49 @@ void ButtonNavigator::right() {
 }
 
 void ButtonNavigator::changePos(way w) {
-	int dir = (w < 2) ? d_x : d_y;
-	// incrementa
-	if (w % 2 != 0) {
-		if (std::next(currentButton.pos[w]) != matrix[dir][currentButton.supPos[w]].end()) {
-			++currentButton.pos[w];
+	if (unlockedMovement_) {
+		int dir = (w < 2) ? d_x : d_y;
+		// incrementa
+		if (w % 2 != 0) {
+			if (std::next(currentButton.pos[w]) != matrix[dir][currentButton.supPos[w]].end()) {
+				++currentButton.pos[w];
+			}
 		}
-	}
-	// decrementa
-	else {
-		if (currentButton.pos[w] != matrix[dir][currentButton.supPos[w]].begin()) {
-			--currentButton.pos[w];
+		// decrementa
+		else {
+			if (currentButton.pos[w] != matrix[dir][currentButton.supPos[w]].begin()) {
+				--currentButton.pos[w];
+			}
 		}
-	}
 
-	setCurrentButton(currentButton.pos[w]->second);
+		setCurrentButton(currentButton.pos[w]->second);
+	}
 }
 
-ButtonData ButtonNavigator::insert(SDL_Rect r) {
-	return insert(r.x, r.y, r.w, r.h);
-}
-
-// recibe posicion y tamaño del botón con el componente
-ButtonData ButtonNavigator::insert(int x, int y, int w, int h) {
+// recibe componente imagen del botón
+ButtonData ButtonNavigator::insert(Image* im) {
+	SDL_Rect rr = im->getRect();
+	SDL_Rect orr = rr;
 
 	ButtonData bd;
-	bd.mousePos[d_x] = x + w / 2;
-	bd.mousePos[d_y] = y + h / 2;
+	bd.buttonIm = im;
 
 
-	x /= 13;
-	y /= 13;
-	w /= 13;
-	h /= 13;
+	rr.x /= 15;
+	rr.y /= 15;
+	rr.w /= 15;
+	rr.h /= 15;
 
 	// area total en el map
-	x -= w;
-	y -= h;
-	w *= 3;
-	h *= 3;
+	rr.x -= rr.w/2;
+	rr.y -= rr.h/2;
+	rr.w *= 2;
+	rr.h *= 2;
 	// sacar los 4 bordes
-	int up[2] = { x + w / 2, y };
-	int down[2] = { x + w / 2, y + h };
-	int left[2] = { x, y + h / 2 };
-	int right[2] = { x + w, y + h / 2 };
+	int up[2] = { rr.x + rr.w / 2, rr.y };
+	int down[2] = { rr.x + rr.w / 2, rr.y + rr.h };
+	int left[2] = { rr.x, rr.y + rr.h / 2 };
+	int right[2] = { rr.x + rr.w, rr.y + rr.h / 2 };
 
 	// insertar laterales en el map
 	std::pair<button_map::iterator, bool> its[4];
@@ -79,10 +78,13 @@ ButtonData ButtonNavigator::insert(int x, int y, int w, int h) {
 	}
 
 	// insertar en todo el área del botón del map
-	for (int i = x; i < x + w; ++i) {
-		for (int j = y; j < y + h; ++j) {
-			matrix[d_x][i].insert({ j, bd });
-			matrix[d_y][j].insert({ i, bd });
+	for (int i = rr.x; i < rr.x + rr.w; ++i) {
+		for (int j = rr.y; j < rr.y + rr.h; ++j) {
+			if (j > orr.y && j < orr.y + orr.h) matrix[d_x][i][j] = bd;
+			else matrix[d_x][i].insert({ j, bd });
+			
+			if (i > orr.x && i < orr.x + orr.w) matrix[d_y][j][i] = bd;
+			else matrix[d_y][j].insert({ i, bd });
 		}
 	}
 
@@ -98,5 +100,16 @@ ButtonData ButtonNavigator::insert(int x, int y, int w, int h) {
 
 void ButtonNavigator::setCurrentButton(ButtonData bd) {
 	currentButton = bd;
-	gmCtrl_.moveMouse(currentButton.mousePos[d_x], currentButton.mousePos[d_y]);
+
+	SDL_Rect r = currentButton.buttonIm->getRect();
+
+	gmCtrl_.moveMouse(r.x + r.w / 2, r.y + r.h / 2);
+}
+
+
+void ButtonNavigator::lockMovement() {
+	unlockedMovement_ = false;
+}
+void ButtonNavigator::unlockMovement() {
+	unlockedMovement_ = true;
 }

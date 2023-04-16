@@ -4,6 +4,7 @@
 #include "../gameObjects/General Objects/Camera.h"
 #include "../gameObjects/General Objects/Pointer.h"
 #include "../core/ButtonNavigator.h"
+#include "../gameObjects/UI/Button.h"
 
 class SDLApplication;
 using namespace std;
@@ -27,8 +28,8 @@ public:
     // Maneja el evento actual
     virtual void handleInput();
     // Borra todos los GameObject no vivos
-
     void refresh();
+
     //Inserta un nuevo GameObject a la escena indicando su grupo
     template<typename T = GameObject, typename ...Ts>
     T* addGameObject(grpId group, Ts&& ...args) {
@@ -51,5 +52,10 @@ public:
 
     // Devuelve la camara
     Camera* getCamera() const;
+
+    // Devuelve el navegador entre botones
     ButtonNavigator* getButtonNavigator() const;
+
+    // Crear un botón especificado en la escena
+    Button* createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };

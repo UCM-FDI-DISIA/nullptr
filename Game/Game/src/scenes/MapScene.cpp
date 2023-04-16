@@ -53,18 +53,6 @@ MapScene::MapScene() {
 	createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
 }
 
-// Crear un bot�n especificado en la escena
-Button* MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key);
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols)->attachToCamera();
-
-	// Crear bot�n
-	return addGameObject<Button>(_cb, _bPos, aI, frame);
-}
-
 // Mueve la camara a la altura de los siguientes al nodo actual
 void MapScene::moveCamera() {
 	Transform* tr = camera->getComponent<Transform>();

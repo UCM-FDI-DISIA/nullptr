@@ -2,12 +2,12 @@
 
 #include <map>
 #include "GameControl.h"
-
+#include "../components/General Components/Image.h"
 
 struct ButtonData {
 	std::map<int, ButtonData>::iterator pos[4];
 	int supPos[4];
-	int mousePos[2];
+	Image* buttonIm;
 };
 enum direction : int {
 	d_x = 0, d_y
@@ -24,6 +24,8 @@ private:
 	ButtonData currentButton;
 
 	GameControl& gmCtrl_;
+
+	bool unlockedMovement_;
 public:
 	ButtonNavigator();
 
@@ -34,11 +36,11 @@ public:
 
 	void changePos(way w);
 
-	ButtonData insert(SDL_Rect r);
-
-	// recibe posicion y tamaño del botón
-	ButtonData insert(int x, int y, int w, int h);
+	// recibe componente imagen del botón
+	ButtonData insert(Image* im);
 
 	void setCurrentButton(ButtonData bd);
+	void lockMovement();
+	void unlockMovement();
 };
 

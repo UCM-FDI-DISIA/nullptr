@@ -3,7 +3,7 @@
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
 const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = {90, 265, 440};
+const int ALB_CARD_X[3] = {75, 205, 340};
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
 
@@ -31,7 +31,6 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 			++it; ++j;
 		}
 	}
-	cout << camYLimit << " ";
 	camYLimit -= 1;
 	camYLimit *= (ALB_CARD_H + ALB_CARD_Y_DIST);
 	cout << camYLimit << endl;
@@ -41,8 +40,8 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 	bg->addComponent<Image>(&sdlutils().images().at("Album"))->attachToCamera();
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>([&]() { if (!selected) SDLApplication::newScene<MainMenuScene>(); }, Vector2D(10, 10), aI);
-
+	exitButton = addGameObject<Button>([&]() { if (!selected) SDLApplication::newScene<MainMenuScene>(); }, Vector2D(10, 10), aI);
+	exitButton->setAsCurrentButton();
 
 	camTr = camera->getComponent<Transform>();
 }
@@ -103,8 +102,12 @@ void AlbumScene::selectCard(CardData cData) {
 
 	// BOTÓN SALIR
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	g = addGameObject<Button>([&]() { deselectCard(); }, Vector2D(700, 500), aI);
-	infoWindow.push_back(g);
+
+	Button* b = addGameObject<Button>([&]() { deselectCard(); butNavigator->unlockMovement(); exitButton->setAsCurrentButton(); }, Vector2D(700, 500), aI);
+	
+	butNavigator->lockMovement();
+	b->setAsCurrentButton();
+	infoWindow.push_back(b);
 }
 
 void AlbumScene::deselectCard() {

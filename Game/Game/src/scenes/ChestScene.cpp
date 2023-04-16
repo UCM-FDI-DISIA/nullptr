@@ -30,7 +30,7 @@ ChestScene::ChestScene() : NodeScene() {
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
 	anim->createAnim(ONCLICK, 0, 6, 10, 1);
 
-	gachaButton->addComponent<ButtonComponent>([&, gb=gachaButton]() {gacha(gb); });
+	gachaButton->addComponent<ButtonComponent>([&, gb=gachaButton]() {gacha(gb); })->setAsCurrentButton();
 	
 	
 	

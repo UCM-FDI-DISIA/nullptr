@@ -262,7 +262,9 @@
     <ClCompile Include="src\components\Player components\PlayerInputComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Player Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\ButtonNavigator.cpp" />
+    <ClCompile Include="src\core\ButtonNavigator.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -546,7 +548,9 @@
     <ClInclude Include="src\components\Player components\PlayerInputComponent.h">
       <Filter>Archivos de Encabezado\Components\Player Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\ButtonNavigator.h" />
+    <ClInclude Include="src\core\ButtonNavigator.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">

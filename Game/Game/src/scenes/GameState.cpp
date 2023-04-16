@@ -1,4 +1,4 @@
-#include "GameState.h"
+﻿#include "GameState.h"
 #include "../core/SDLApplication.h"
 
 // Constructor
@@ -74,4 +74,17 @@ void GameState::refresh() {
 // Devuelve la camara de la escena
 Camera* GameState::getCamera() const { return camera; }
 
+// Devuelve el navegador entre botones
 ButtonNavigator* GameState::getButtonNavigator() const { return butNavigator; }
+
+// Crear un botón especificado en la escena
+Button* GameState::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
+    AnimatorInfo aI = AnimatorInfo(key);
+    // Crear marco
+    GameObject* frame = addGameObject();
+    frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
+    frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
+
+    // Crear bot�n
+    return addGameObject<Button>(_cb, _bPos, aI, frame);
+}
