@@ -20,13 +20,15 @@ void ButtonNavigator::changePos(way w) {
 	int dir = (w < 2) ? d_x : d_y;
 	// incrementa
 	if (w % 2 != 0) {
-		if (std::next(currentButton.pos[w]) != matrix[dir][currentButton.supPos[w]].end());
+		if (std::next(currentButton.pos[w]) != matrix[dir][currentButton.supPos[w]].end()) {
 			++currentButton.pos[w];
+		}
 	}
 	// decrementa
 	else {
-		if (currentButton.pos[w] != matrix[dir][currentButton.supPos[w]].begin())
+		if (currentButton.pos[w] != matrix[dir][currentButton.supPos[w]].begin()) {
 			--currentButton.pos[w];
+		}
 	}
 
 	setCurrentButton(currentButton.pos[w]->second);
