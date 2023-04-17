@@ -23,6 +23,7 @@ enum cmpId : cmpId_type {
 	_LIFETIME,
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
+	_STATS_TRACK,
 	_CHEST_COMPONENT,
 	_ETER,
 	_ON_DEATH,

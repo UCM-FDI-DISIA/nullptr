@@ -678,6 +678,13 @@ const int WAVES[7][3] = {
 	{0, 4, 2}
 };
 
+//CALCULO DINERO
+
+const float ENEMYFACTOR = 3.75;
+const float DAMAGEFACTOR = 0.75;
+const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
+
+
 //STRUCTS
 
 struct AnimatorInfo {

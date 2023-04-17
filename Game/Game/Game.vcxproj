@@ -183,6 +183,7 @@
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\General Components\StatsTrackComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
     <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
@@ -270,6 +271,7 @@
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
+    <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
     <ClCompile Include="src\components\General Components\TextComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />

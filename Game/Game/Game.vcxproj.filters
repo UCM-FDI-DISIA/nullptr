@@ -256,6 +256,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -531,8 +534,12 @@
     </ClInclude>
     <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
       <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-      </ClInclude>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
+    <ClInclude Include="src\components\General Components\StatsTrackComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
