@@ -3,14 +3,12 @@
 #include "../components/General Components/CallbackDelayer.h"
 
 ChestScene::ChestScene() : NodeScene() {
-	cout << "Has entrado en la escena de Cofre" << endl;
-
 	GameObject* background = addGameObject(_grp_GENERAL);
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>(mainMenu, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
+	Button* exitButton = addGameObject<Button>([]() { SDLApplication::returnToMapScene(); }, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
 
 	AnimatorInfo chestAI = AnimatorInfo("GachaChest",
 		SDLApplication::getTexture("GachaChest")->width(),
@@ -30,22 +28,18 @@ ChestScene::ChestScene() : NodeScene() {
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
 	anim->createAnim(ONCLICK, 0, 6, 10, 1);
 
-	gachaButton->addComponent<ButtonComponent>([&, gb=gachaButton]() {gacha(gb); })->setAsCurrentButton();
-	
-	
-	
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton, eB = exitButton]() { gacha(gb); eB->setAsCurrentButton(); })->setAsCurrentButton();
 }
 
-void ChestScene::mainMenu() {
-	SDLApplication::returnToMapScene();	
-}
 
 void ChestScene::gacha(GameObject* obj) {
 
 	if (alreadyClicked) return;
 	//Sacamos el vector de reliquias disponibles
+#ifdef _DEBUG
 	std::cout << "CLICK!\n";
-	
+#endif
+
 	GameObject* delay = addGameObject();
 	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 500);
 
@@ -57,7 +51,9 @@ void ChestScene::spawnNewItem()
 	std::vector<std::string> aux = PlayerData::instance()->getAvailableItems();
 
 	if (aux.size() > 0) {
+#ifdef _DEBUG
 		cout << "Entraste" << "\n";
+#endif
 		//Sacamos un random entre 0 y su maximo
 		int Rand = rand() % aux.size();
 
@@ -72,8 +68,9 @@ void ChestScene::spawnNewItem()
 		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + (26 * 5 / 2), (WIN_HEIGHT / 4) + (46 * 5 / 2)), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
 		sprite->addComponent<Image>(item->texture);
 
+#ifdef _DEBUG
 		cout << item->description << "\n";
-
+#endif
 
 		//Borrar del vector
 		auto it = aux.begin();

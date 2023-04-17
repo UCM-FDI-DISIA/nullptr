@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState() : entsByGroup_(), butNavigator(new ButtonNavigator()) { 
+GameState::GameState() : entsByGroup_(), butNavigator(new ButtonNavigator()), gmCtrl_(gmCtrl()) { 
     for (auto & grpEnts : entsByGroup_) {
         grpEnts.reserve(100); //Reserva espacio para cada lista
     }

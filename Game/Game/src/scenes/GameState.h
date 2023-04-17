@@ -14,6 +14,7 @@ protected:
     Camera* camera;
     Pointer* pointer;
     ButtonNavigator* butNavigator;
+    GameControl& gmCtrl_;
 
     array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
 public:

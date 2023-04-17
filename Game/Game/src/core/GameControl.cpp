@@ -13,7 +13,7 @@ GameControl::GameControl() :
 	sameDirMovementDelay(150)
 {}
 
-float GameControl::movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus) {
+float GameControl::movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus) const {
 	if (controller_) {
 		return ih_.getNormalizedControllerAxis(axis);
 	}
@@ -23,7 +23,7 @@ float GameControl::movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_
 	return ctrl;
 }
 
-bool GameControl::attack(SDL_GameControllerButton button, SDL_GameControllerAxis trigger, InputHandler::MOUSEBUTTON mouseButton) {
+bool GameControl::attack(SDL_GameControllerButton button, SDL_GameControllerAxis trigger, InputHandler::MOUSEBUTTON mouseButton) const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(button)
 			|| ih_.getControllerAxis(trigger) > 0;
@@ -32,25 +32,25 @@ bool GameControl::attack(SDL_GameControllerButton button, SDL_GameControllerAxis
 }
 
 // Eje de movimiento en X, entre -1 y 1
-float GameControl::movementX() {
+float GameControl::movementX() const {
 	return movement(SDL_CONTROLLER_AXIS_LEFTX, SDLK_a, SDLK_d);
 }
 // Eje de movimiento en Y, entre -1 y 1
-float GameControl::movementY() {
+float GameControl::movementY() const {
 	return movement(SDL_CONTROLLER_AXIS_LEFTY, SDLK_w, SDLK_s);
 }
 
 
 // Acción de ataque básico
-bool GameControl::basic() {
+bool GameControl::basic() const {
 	return attack(SDL_CONTROLLER_BUTTON_A, SDL_CONTROLLER_AXIS_TRIGGERRIGHT, InputHandler::LEFT);		
 }
 // Acción de habilidad
-bool GameControl::ability() {
+bool GameControl::ability() const {
 	return attack(SDL_CONTROLLER_BUTTON_B, SDL_CONTROLLER_AXIS_TRIGGERLEFT, InputHandler::RIGHT);
 }
 
-bool GameControl::adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameControllerAxis yAxis) {
+bool GameControl::adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameControllerAxis yAxis) const {
 	float x = ih_.getNormalizedControllerAxis(xAxis);
 	float y = ih_.getNormalizedControllerAxis(yAxis);
 	if (x != 0 || y != 0) {
@@ -61,7 +61,7 @@ bool GameControl::adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameC
 }
 
 // Cambia la posición del cursos en función a los joysticks del mando si el control por este está activado
-bool GameControl::controllerToCursor() {
+bool GameControl::controllerToCursor() const {
 	if (controller_) {
 		if (adjustCursorToJoystick(SDL_CONTROLLER_AXIS_RIGHTX, SDL_CONTROLLER_AXIS_RIGHTY)) return true;
 		return adjustCursorToJoystick(SDL_CONTROLLER_AXIS_LEFTX, SDL_CONTROLLER_AXIS_LEFTY);
@@ -71,7 +71,7 @@ bool GameControl::controllerToCursor() {
 
 
 // Cambiar en partida la carta seleccionada a la izquierda
-bool GameControl::selectLeftCard() {
+bool GameControl::selectLeftCard() const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_LEFTSHOULDER)
 			|| ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_LEFT);
@@ -79,7 +79,7 @@ bool GameControl::selectLeftCard() {
 	return ih_.mouseWheelUp() || ih_.isKeyDown(SDLK_q);
 }
 // Cambiar en partida la carta seleccionada a la derecha
-bool GameControl::selectRightCard() {
+bool GameControl::selectRightCard() const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER)
 			|| ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
@@ -88,14 +88,14 @@ bool GameControl::selectRightCard() {
 }
 
 // Activar el portal para salir del nivel
-bool GameControl::completeLevel() {
+bool GameControl::completeLevel() const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_Y);
 	}
 	return ih_.isKeyJustDown(SDLK_SPACE);
 }
 // Pausar el juego
-bool GameControl::pause() {
+bool GameControl::pause() const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_START);
 	}
@@ -103,7 +103,7 @@ bool GameControl::pause() {
 }
 
 // Pulsar un botón
-bool GameControl::click() {
+bool GameControl::click() const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_A);
 	}
@@ -111,7 +111,7 @@ bool GameControl::click() {
 }
 
 
-bool GameControl::moveMouse(float x, float y) {
+bool GameControl::moveMouse(float x, float y) const {
 	if (controller_) {
 		SDL_WarpMouseInWindow(sdlutils().window(), x, y);
 		return true;
@@ -170,6 +170,23 @@ bool GameControl::selectRightButton() {
 		}
 
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+	}
+	return false;
+}
+
+
+float GameControl::scroll() const {
+	if (controller_) {
+		return ih_.getNormalizedControllerAxis(SDL_CONTROLLER_AXIS_RIGHTY) / 200.0f;
+	}
+
+	return (ih_.mouseWheelUp()) ? -1 : (ih_.mouseWheelDown()) ? 1 : 0;
+}
+
+
+bool GameControl::goBack() const {
+	if (controller_) {
+		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_B);
 	}
 	return false;
 }

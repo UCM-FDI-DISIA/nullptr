@@ -24,7 +24,7 @@ MainMenuScene::MainMenuScene() {
 	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY)->setAsCurrentButton();
 
 	// Botón options
-	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<OptionsMenuScene>(); }, OPTIONS);
+	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
 	// Botón album
 	createButton(MM_ALBUM_BUTTON_POS, MM_ALBUM_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);

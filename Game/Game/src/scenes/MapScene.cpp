@@ -15,7 +15,7 @@ MapScene::MapScene() {
 	for (auto& height : nodeMap) {
 		int j = 0;
 		for (Node* node : height) {
-			Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * i);
+			Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * (i + 3));
 			if (node != nullptr) { 
 				switch (nodesPerHeight[i]) {
 				case 1:
@@ -31,7 +31,7 @@ MapScene::MapScene() {
 					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-				addGameObject<NodeButton>(node, node->loadNode(), pos);
+				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1)?15:3*1.5);
 				++j;
 			}
 			nodesPositions[i].push_back(pos);
@@ -40,7 +40,9 @@ MapScene::MapScene() {
 		++i;
 	}
 
-	camera->getComponent<Transform>()->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
+	camTr = camera->getComponent<Transform>();
+	camTr->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
+	camYLimit = nodesPositions[nodesPositions.size() - 1][nodesPositions[nodesPositions.size() - 1].size() - 1].getY();
 
 	// BOTONES
 	// Botón options
@@ -50,7 +52,25 @@ MapScene::MapScene() {
 	createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY)->setAsCurrentButton();
 
 	// Botón salir
-	createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+}
+
+void MapScene::handleInput() {
+	GameState::handleInput();
+
+	// Opciones
+	if (gmCtrl_.pause()) {
+		SDLApplication::pushNewScene<OptionsMenuScene>();
+	}
+	// Atrás
+	else if (gmCtrl_.goBack()) {
+		exitButton->setAsCurrentButton();
+	}
+
+	// Scroll
+	camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll());
+	if (camTr->getY() > -camYLimit) camTr->setY(-camYLimit);
+	else if (camTr->getY() < 0) camTr->setY(0);
 }
 
 // Mueve la camara a la altura de los siguientes al nodo actual
@@ -70,7 +90,7 @@ void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vecto
 					if (nodes[alt - 1][i]->conectsWith(j)) {
 						GameObject* conection = addGameObject();
 						string key = "";
-						Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * alt + NODE_HEIGHT);
+						Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * (alt + 3) + NODE_HEIGHT);
 						
 						if (nodesPerHeight[alt - 1] == 1) {
 							if (nodesPerHeight[alt] == 1) {

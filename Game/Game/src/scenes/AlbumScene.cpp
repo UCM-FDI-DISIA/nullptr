@@ -33,7 +33,6 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 	}
 	camYLimit -= 1;
 	camYLimit *= (ALB_CARD_H + ALB_CARD_Y_DIST);
-	cout << camYLimit << endl;
 
 	GameObject* bg = addGameObject();
 	bg->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
@@ -62,11 +61,13 @@ void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 
 void AlbumScene::handleInput() {
 	GameState::handleInput();
-	if (ih().mouseWheelDown()) {
-		if (camTr->getY() > -camYLimit) camTr->setY(camTr->getY() - 20);
-	}
-	else if (ih().mouseWheelUp()) {
-		if (camTr->getY() < 0) camTr->setY(camTr->getY() + 20);
+	// Scroll
+	camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll());
+	if (camTr->getY() < -camYLimit) camTr->setY(-camYLimit);
+	else if (camTr->getY() > 0) camTr->setY(0);
+	// Atrás
+	if (gmCtrl_.goBack()) {
+		exitButton->setAsCurrentButton();
 	}
 }
 

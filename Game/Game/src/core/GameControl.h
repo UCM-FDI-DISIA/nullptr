@@ -10,43 +10,46 @@ private:
 	uint lastMovement, lastMovementU, lastMovementD, lastMovementL, lastMovementR;
 	const uint movementDelay, sameDirMovementDelay;
 
-	float movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus);
-	bool attack(SDL_GameControllerButton button, SDL_GameControllerAxis trigger, InputHandler::MOUSEBUTTON mouseButton);
-	bool adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameControllerAxis yAxis);
+	float movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus) const;
+	bool attack(SDL_GameControllerButton button, SDL_GameControllerAxis trigger, InputHandler::MOUSEBUTTON mouseButton) const;
+	bool adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameControllerAxis yAxis) const;
 public:
 	GameControl();
 
 	// Eje de movimiento en X, entre -1 y 1
-	float movementX();
+	float movementX() const;
 	// Eje de movimiento en Y, entre -1 y 1
-	float movementY();
+	float movementY() const;
 
 	// Acción de ataque básico
-	bool basic();
+	bool basic() const;
 	// Acción de habilidad
-	bool ability();
+	bool ability() const;
 	// Cambia la posición del cursos en función a los joysticks del mando si el control por este está activado
-	bool controllerToCursor();
+	bool controllerToCursor() const;
 
 	// Cambiar en partida la carta seleccionada a la izquierda
-	bool selectLeftCard();
+	bool selectLeftCard() const;
 	// Cambiar en partida la carta seleccionada a la derecha
-	bool selectRightCard();
+	bool selectRightCard() const;
 
 	// Activar el portal para salir del nivel
-	bool completeLevel();
+	bool completeLevel() const;
 	// Pausar el juego
-	bool pause();
+	bool pause() const;
 
 	// Pulsar un botón
-	bool click();
+	bool click() const;
 	// 
-	bool moveMouse(float x, float y);
+	bool moveMouse(float x, float y) const;
 
 	bool selectUpButton();
 	bool selectDownButton();
 	bool selectLeftButton();
 	bool selectRightButton();
+
+	float scroll() const;
+	bool goBack() const;
 
 	// Cambiar entre control por mando y control por teclado
 	inline void changeControl() {

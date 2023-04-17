@@ -1,21 +1,10 @@
 #include "ButtonNavigator.h"
 
 
-ButtonNavigator::ButtonNavigator() : gmCtrl_(gmCtrl()) {}
+// Constructora
+ButtonNavigator::ButtonNavigator() : gmCtrl_(gmCtrl()), unlockedMovement_(true) {}
 
-void ButtonNavigator::up() {
-	changePos(u);
-}
-void ButtonNavigator::down() {
-	changePos(d);
-}
-void ButtonNavigator::left() {
-	changePos(l);
-}
-void ButtonNavigator::right() {
-	changePos(r);
-}
-
+// Selecciona el botón adjacente al actual en la dirección indicada
 void ButtonNavigator::changePos(way w) {
 	if (unlockedMovement_) {
 		int dir = (w < 2) ? d_x : d_y;
@@ -36,19 +25,36 @@ void ButtonNavigator::changePos(way w) {
 	}
 }
 
-// recibe componente imagen del botón
-ButtonData ButtonNavigator::insert(Image* im) {
+// Selecciona el botón encima del actual
+void ButtonNavigator::up() {
+	changePos(u);
+}
+// Selecciona el botón debajo del actual
+void ButtonNavigator::down() {
+	changePos(d);
+}
+// Selecciona el botón a la derecha del actual
+void ButtonNavigator::left() {
+	changePos(l);
+}
+// Selecciona el botón a la izquierda del actual
+void ButtonNavigator::right() {
+	changePos(r);
+}
+
+// Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
+ButtonData ButtonNavigator::insert(Image* im, float horMul) {
 	SDL_Rect rr = im->getRect();
 	SDL_Rect orr = rr;
 
 	ButtonData bd;
 	bd.buttonIm = im;
 
-
-	rr.x /= 15;
-	rr.y /= 15;
-	rr.w /= 15;
-	rr.h /= 15;
+	rr.x /= 12;
+	rr.y /= 12;
+	rr.w /= 12;
+	rr.w *= horMul;
+	rr.h /= 12;
 
 	// area total en el map
 	rr.x -= rr.w/2;
@@ -90,26 +96,25 @@ ButtonData ButtonNavigator::insert(Image* im) {
 
 	// 
 	for (int i = 0; i < 4; ++i) {
-		if (its[i].second) 
-			its[i].first->second = bd;
+		if (its[i].second) its[i].first->second = bd;
 	}
 
 	return ButtonData(bd);
 }
 
-
+// Recibe un botón y lo asigna como el actual
 void ButtonNavigator::setCurrentButton(ButtonData bd) {
 	currentButton = bd;
 
 	SDL_Rect r = currentButton.buttonIm->getRect();
-
 	gmCtrl_.moveMouse(r.x + r.w / 2, r.y + r.h / 2);
 }
 
-
+// Bloquea la navegacion entre botones
 void ButtonNavigator::lockMovement() {
 	unlockedMovement_ = false;
 }
+// Desbloquea la navegación entre botones
 void ButtonNavigator::unlockMovement() {
 	unlockedMovement_ = true;
 }

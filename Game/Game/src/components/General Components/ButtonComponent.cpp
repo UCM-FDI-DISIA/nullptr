@@ -49,7 +49,7 @@ void ButtonComponent::initComponent() {
 	clickSound = &sdlutils().soundEffects().at("ButtonPressed");
 	
 	butNav = gStt->getButtonNavigator();
-	myData = butNav->insert(animButton);
+	if (addToNavigation_) myData = butNav->insert(animButton);
 }
 
 

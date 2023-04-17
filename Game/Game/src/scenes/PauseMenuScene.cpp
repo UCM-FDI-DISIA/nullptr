@@ -3,7 +3,7 @@
 
 PauseMenuScene::PauseMenuScene() : GameState() {
 	// Botón jugar
-	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME);
+	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME)->setAsCurrentButton();
 
 	// Botón options
 	createButton(PM_INVENTORY_BUTTON_POS, PM_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
@@ -13,4 +13,12 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 
 	// Botón salir
 	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<MapScene>(); }, EXIT);
+}
+
+
+void PauseMenuScene::handleInput() {
+	GameState::handleInput();
+	if (gmCtrl_.pause()) {
+		SDLApplication::resumeGame();
+	}
 }

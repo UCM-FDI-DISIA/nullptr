@@ -25,7 +25,7 @@ GameOverScene::GameOverScene() {
 		[]() { 
 			SDLApplication::newScene<MainMenuScene>();
 
-		}, EXIT);
+		}, EXIT)->setAsCurrentButton();
 }
 
 GameOverScene::~GameOverScene() {
