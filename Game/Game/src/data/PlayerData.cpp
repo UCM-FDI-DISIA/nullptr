@@ -39,7 +39,7 @@ PlayerData::~PlayerData() {
 void PlayerData::defaultPlayerStats() {
 	money = 0;
 	setMaxMana(100);
-	setMaxHP(1000000);
+	setMaxHP(100);
 	setCurrHP(1000);
 	setAttackMult(1);
 	setFireRateMult(1);
