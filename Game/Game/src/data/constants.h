@@ -126,6 +126,8 @@ const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
 const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
 const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
 
+const int MELEE_ATTACK_DAMAGE = 20;
+
 // RANGED ENEMY
 const string RANGED_ENEMY_TEXTURE_KEY = "RangedEnemy";
 const int RANGED_ENEMY_SPRITE_WIDTH = 32;
@@ -142,6 +144,8 @@ const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 
 const int RANGED_ATTACK_ANIM_DELAY = 670;
 
+const int RANGED_ATTACK_DAMAGE = 20;
+
 // TANK ENEMY
 const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
 const int TANK_ENEMY_SPRITE_WIDTH = 40;
@@ -151,7 +155,7 @@ const int TANK_ENEMY_SPRITE_COLS = 5;
 
 const int TANK_WIDTH = 120;
 const float TANK_SPEED = 35;
-const int TANK_ATTACK_DAMAGE = 1;
+const int TANK_ATTACK_DAMAGE = 10;
 const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
@@ -159,6 +163,7 @@ const float TANK_ATTACK_TIME = 2000;
 const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
 const Animation TANK_ENEMY_MOVEMENT_ANIMATION(21, 25, 10, -1);
 const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 20, 10, 1);
+
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";

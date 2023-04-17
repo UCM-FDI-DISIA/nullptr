@@ -119,7 +119,7 @@
       { "id" : "EngranajeAureo", "file" : "../Game/resources/images/Objects/EngranajeAureo_32x32.png" },
       { "id" : "BrazaleteDeIones", "file" : "../Game/resources/images/Objects/BrazaleteDeIones_32x32.png" },
       { "id" : "Regalo", "file" : "../Game/resources/images/Objects/Regalo_32x32.png" },
-      { "id" : "RelojDigital", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
+      { "id" : "RelojDigital", "file" : "../Game/resources/images/Objects/RelojDigital_32x32.png" },
       { "id" : "CollarGotico", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "CinturonDeHerramientas", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "CetroPapal", "file" : "../Game/resources/images/Objects/CetroPapal_32x32.png" },
