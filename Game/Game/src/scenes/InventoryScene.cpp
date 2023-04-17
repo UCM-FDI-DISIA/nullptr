@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 
-
+// Se encarga de cargar todos los datos desde el dataplayer, así como obtener los datos del deck y de la library
 InventoryScene::InventoryScene() : GameState() {
 	
 	vector<CardId> currentLibrary = PlayerData::instance()->getLibrary();
@@ -62,7 +62,6 @@ void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 	// Crear bot�n
 	addGameObject<Button>(_cb, _bPos, aI, frame);
 }
-
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 
@@ -77,7 +76,7 @@ void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int va
 	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
 	value->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), to_string(val));
 }
-
+// Crea los paneles en los que se colocan las cartas
 void InventoryScene::createPanels() {
 	GameObject* dp = addGameObject();
 	dp->addComponent<Transform>(DP_POSITION, VECTOR_ZERO, DP_WIDTH, DP_HEIGHT);
@@ -124,7 +123,7 @@ void InventoryScene::createObjects() {
 		g->addComponent<Image>(objs[i]->texture);
 	}
 }
-
+// Se encarga de crear las imagenes de las cartas en el inventario con sus cantidades
 void InventoryScene::createCards() {
 	bool row = false;
 	int column = 0;
@@ -145,19 +144,23 @@ void InventoryScene::createCards() {
 
 	}
 }
+// Se encarga de crear las imagenes de las cartas en la zona del deck
 void InventoryScene::createDeckCards(CardId crd, int column)
 {
 	Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
 	createCard(posD, crd, true);
 }
+// Se encarga de crear el objeto de la carta, así como sus botones y le añaden la funcionalidad para quitar o poner en el deck
 void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
+	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
 	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
 	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(crd)).texture);
+	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd, myPos = pos]()
 		{
 
-			// no puedo acceder a la carta que le llama, tendra que ser que lo reciba
+			// Dependiendo si esta en el deck o no, realiza la función de sumar o restar la carta del deck
 			if (deck? inventory[Card::getCardIDfromEnum(card)].cuantityDeck > 0 :inventory[Card::getCardIDfromEnum(card)].cuantityDeck < inventory[Card::getCardIDfromEnum(card)].cuantity) {
 				if (deck) {
 					inventory[Card::getCardIDfromEnum(card)].cuantityDeck--;
@@ -167,6 +170,7 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 						deckButtons[card].deckText->setAlive(false);
 					}
 				}
+				// Si estaba en el deck y su cantidad cae a 0, se borra la imagen y su boton para que se represente que no hay este carta en el deck
 				else {
 					inventory[Card::getCardIDfromEnum(card)].cuantityDeck++;
 					if (inventory[Card::getCardIDfromEnum(card)].cuantityDeck == 1) {
@@ -194,7 +198,7 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 		}
 		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
 		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4));
-	
+	// Texto que indica cuantas cartas hay en el deck
 	GameObject* text = addGameObject();
 	inventory[Card::getCardIDfromEnum(crd)].myText = text;
 	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), VECTOR_ZERO, 70, 48);
