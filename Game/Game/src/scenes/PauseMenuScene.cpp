@@ -2,20 +2,20 @@
 #include "../core/SDLApplication.h"
 
 PauseMenuScene::PauseMenuScene() : GameState() {
-	// Botón jugar
+	// Botï¿½n jugar
 	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME);
 
-	// Botón options
+	// Botï¿½n options
 	createButton(PM_INVENTORY_BUTTON_POS, PM_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
 
-	// Botón album
+	// Botï¿½n album
 	createButton(PM_OPTIONS_BUTTON_POS, PM_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
-	// Botón salir
+	// Botï¿½n salir
 	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<MapScene>(); }, EXIT);
 }
 
-// Crear un botón especificado en la escena
+// Crear un botï¿½n especificado en la escena
 void PauseMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
 	AnimatorInfo aI = AnimatorInfo(key);
 
@@ -24,6 +24,6 @@ void PauseMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
-	// Crear botón
+	// Crear botï¿½n
 	addGameObject<Button>(_cb, _bPos, aI, frame);
 }

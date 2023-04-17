@@ -12,28 +12,27 @@ ChestScene::ChestScene() : NodeScene() {
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	addGameObject<Button>(mainMenu, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
 
-	AnimatorInfo chestAI = AnimatorInfo("GachaChest",
+	 chestAI = new AnimatorInfo("GachaChest",
 		SDLApplication::getTexture("GachaChest")->width(),
 		SDLApplication::getTexture("GachaChest")->height(),
 		46,
 		26,
 		1, 7);
 
+	gachaButton = addGameObject(_grp_GENERAL);
+	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI->fw * 5, chestAI->fh * 5);
 	
-	GameObject* gachaButton = addGameObject(_grp_GENERAL);
-	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI.fw * 5, chestAI.fh * 5);
 	
-	
-	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI.fw, chestAI.fh, chestAI.rows, chestAI.cols);
+	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
 	
 	anim->createAnim(ONOUT, 0, 0, ONCLICK_ONOUT_SPEED, -1);
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
-	anim->createAnim(ONCLICK, 0, 6, 10, 1);
-
-	gachaButton->addComponent<ButtonComponent>([&, gb=gachaButton]() {gacha(gb); });
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);},nullptr, -1);
 	
-	
-	
+}
+ChestScene:: ~ChestScene()
+{
+	delete chestAI;
 }
 
 void ChestScene::mainMenu() {
@@ -45,7 +44,14 @@ void ChestScene::gacha(GameObject* obj) {
 	if (alreadyClicked) return;
 	//Sacamos el vector de reliquias disponibles
 	std::cout << "CLICK!\n";
-	
+
+	gachaButton->setAlive(false);
+	GameObject* animation = addGameObject();
+	animation->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI->fw * 5, chestAI->fh * 5);
+	auto anim = animation->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
+	anim->createAnim("OnEnter", 0, 6, 10, 1);
+	anim->play("OnEnter");
+
 	GameObject* delay = addGameObject();
 	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 500);
 

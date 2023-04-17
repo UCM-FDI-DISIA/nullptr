@@ -1,5 +1,6 @@
 #include "ButtonComponent.h"
 #include "../../gameObjects/GameObject.h"
+#include "../../scenes/GameState.h"
 
 void ButtonComponent::update() {
 	// Cambiar animación según el estado
@@ -9,14 +10,12 @@ void ButtonComponent::update() {
 	SDL_GetMouseState(&mouseX, &mouseY);
 
 	// Cambia el estado según la posición del ratón
-	if (state != OnClick) {
 	if (isOver(mouseX, mouseY)) {
 		state = OnOver;
 
 	}
 	else {
 		state = OnOut;
-	}
 	}
 }
 
@@ -43,6 +42,7 @@ bool ButtonComponent::isOver(int mouseX, int mouseY) {
 
 // Ejecuta el callback
 void ButtonComponent::onClick() {
+	gStt->setLastIndex(index);
 	state = OnClick;
 	function();
 }

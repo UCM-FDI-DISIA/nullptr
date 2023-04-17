@@ -42,6 +42,7 @@ enum grpId : grpId_type {
 	_grp_PLYR_ATTACK,
 	_grp_PLAYER,
 	_grp_RELICS,
+	_grp_CARDS,
 	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
@@ -49,6 +50,29 @@ enum grpId : grpId_type {
 	_LAST_GRP_ID
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
+
+using cardId_type = int;
+enum CardId : cardId_type {
+	_card_NULL=-1,
+	_card_GUN = 0,
+	_card_SWORD,
+	_card_TORCH,
+	_card_LASERGLASSES,
+	_card_BOW,
+	_card_PULGA,
+	_card_SPEAR,
+	_card_SMG,
+	_card_ASSAULTRIFLE,
+	_card_LIGHTRIFLE,
+	_card_MEGAPHONE,
+	_card_RIOTSHIELD,
+	_card_RITUALAXE,
+	_card_CHEATGUN,
+
+	// do not remove this
+	_LAST_CARD_ID
+};
+constexpr cardId_type maxCardId = _LAST_CARD_ID;
 
 // Animaciones
 struct Animation {

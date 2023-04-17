@@ -13,6 +13,8 @@
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
+      { "id" : "ShopSceneBackground1", "file" : "../Game/resources/images/UI/ShopScene/ShopSceneBackground1_106x59.png" },
+      { "id" : "ShopSceneBackground2", "file" : "../Game/resources/images/UI/ShopScene/ShopSceneBackground2_544x306.png" },
       { "id" : "BattleBackground", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground_1088x612.png" },
       { "id" : "BattleBackground1", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground1_1088x612.png" },
       { "id" : "BattleBackground2", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground2_1088x612.png" },
@@ -27,11 +29,12 @@
       { "id" : "ExitButton", "file" : "../Game/resources/images/UI/MainMenuScene/ExitButton_spritesheet_79x18.png" },
       { "id" : "ResumeButton", "file" : "../Game/resources/images/UI/MainMenuScene/ResumeButton_spritesheet_79x18.png" },
       { "id" : "InventoryButton", "file" : "../Game/resources/images/UI/MainMenuScene/InventoryButton_spritesheet_79x18.png" },
+      { "id" : "BuyButton", "file" : "../Game/resources/images/UI/ShopScene/BuyButton_spritesheet_79x18.png"},
       
       { "id" : "GameOver", "file" : "../Game/resources/images/UI/BattleScene/GameOver/GameOverBackground_2360x1640.png" },
       { "id" : "YouDied", "file" : "../Game/resources/images/UI/BattleScene/GameOver/YouDiedMessage_300x200.png" },
       
-      { "id" : "Pistol", "file" : "../Game/resources/images/Cards/PistolCard_58x93.png" },
+      { "id" : "Gun", "file" : "../Game/resources/images/Cards/GunCard_58x93.png" },
       { "id" : "Sword", "file" : "../Game/resources/images/Cards/SwordCard_58x93.png" },
       { "id" : "LaserGlasses", "file" : "../Game/resources/images/Cards/LaserGlassesCard_58x93.png" },
       {"id": "SMG", "file": "../Game/resources/images/Cards/SMGCard_58x93.png" },
@@ -39,7 +42,7 @@
       {"id": "Tick","file": "../Game/resources/images/Cards/TickCard_58x93.png"},
       { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
       { "id" : "Bow", "file": "../Game/resources/images/Cards/BowCard_58x93.png"},
-      { "id" : "Rifle", "file": "../Game/resources/images/Cards/RifleCard_58x93.png"},
+      { "id" : "Rifle", "file": "../Game/resources/images/Cards/RifleCard_58x93.jpg"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },

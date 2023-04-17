@@ -1,15 +1,15 @@
 #include "AlbumScene.h"
 #include "../core/SDLApplication.h"
 
-const int ALB_CARD_W = 58 * PIXEL_WIDTH;
-const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = {90, 265, 440};
-const int ALB_CARD_Y = 275;
-const int ALB_CARD_Y_DIST = 10;
-
-const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
-const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
-const Animation CLICKED_CARD_ANIM(3, 3, 1, -1);
+//const int ALB_CARD_W = 58 * PIXEL_WIDTH;
+//const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
+//const int ALB_CARD_X[3] = {90, 265, 440};
+//const int ALB_CARD_Y = 275;
+//const int ALB_CARD_Y_DIST = 10;
+//
+//const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
+//const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
+//const Animation CLICKED_CARD_ANIM(3, 3, 1, -1);
 
 AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected(false) {
 	auto const& foundCards = Album::instance()->getFoundCardsByTime();
@@ -38,7 +38,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 
 	GameObject* bg = addGameObject();
 	bg->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
-	bg->addComponent<Image>(&sdlutils().images().at("Album"))->attachToCamera();
+	bg->addComponent<Image>(SDLApplication::getTexture("Album"))->attachToCamera();
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	addGameObject<Button>([&]() { if (!selected) SDLApplication::newScene<MainMenuScene>(); }, Vector2D(10, 10), aI);
@@ -50,9 +50,9 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 	GameObject* card = addGameObject();
 	card->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
-	card->addComponent<Image>(found ? myData.texture : &sdlutils().images().at("CardReverse"));
+	card->addComponent<Image>(found ? myData.texture : SDLApplication::getTexture("CardReverse"));
 
-	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos,	AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
+	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
 	Animator* a = b->getComponent<Animator>();
 	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
 	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
@@ -101,7 +101,7 @@ void AlbumScene::selectCard(CardData cData) {
 	infoWindow.push_back(g);
 
 
-	// BOTÓN SALIR
+	// BOTï¿½N SALIR
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	g = addGameObject<Button>([&]() { deselectCard(); }, Vector2D(700, 500), aI);
 	infoWindow.push_back(g);
