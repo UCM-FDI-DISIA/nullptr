@@ -102,7 +102,6 @@ Relic* SDLApplication::getRelic(TextureName texture) { return &sdlutils().relics
 // Devuelve un numero entero random
 int SDLApplication::getRandInt(int min, int max) { return sdlutils().rand().nextInt(min, max); }
 
-
 // Pausa el juego
 void SDLApplication::pauseGame() { SDLApplication::instance()->gameStateMachine->pushState(new PauseMenuScene()); }
 

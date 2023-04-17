@@ -7,7 +7,9 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 	// Fondo
 	background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground"));
+	int rand = SDLApplication::instance()->getRandInt(0, 2);
+	(rand == 0) ? background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground1")) : 
+		background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground2"));
 
 	// Dinero actual del PlayerData
 	showMoney();
@@ -17,7 +19,7 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 	// Seleccion de cartas a mostrar en la tienda
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
-		int rand = SDLApplication::instance()->getRandInt(0, maxCardId);
+		rand = SDLApplication::instance()->getRandInt(0, maxCardId);
 		for (int j = 0; j < i; j++) {
 			if (rand == alreadyInStore[j]) {
 				rand = SDLApplication::instance()->getRandInt(0, maxCardId);
