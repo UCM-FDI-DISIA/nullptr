@@ -1,6 +1,7 @@
 #include "BattleScene.h"
 #include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
+#include "../gameObjects/UI/StatisticsUI.h"
 
 // Constructora
 BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
@@ -54,6 +55,8 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 		// Añadimos el objeto que muestra la mano de cartas en la UI
 		hand = addGameObject<HandUI>(_grp_UI, cardComp);
 	}
+
+	player->getComponent<PlayerInputComponent>()->setPortalComponent(statistics->getPortalComp());
 
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);

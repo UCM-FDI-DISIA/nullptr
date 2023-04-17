@@ -61,13 +61,15 @@ void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 
 void AlbumScene::handleInput() {
 	GameState::handleInput();
-	// Scroll
-	camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll());
-	if (camTr->getY() < -camYLimit) camTr->setY(-camYLimit);
-	else if (camTr->getY() > 0) camTr->setY(0);
-	// Atrás
-	if (gmCtrl_.goBack()) {
-		exitButton->setAsCurrentButton();
+	if (!selected) {
+		// Scroll
+		camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll());
+		if (camTr->getY() < -camYLimit) camTr->setY(-camYLimit);
+		else if (camTr->getY() > 0) camTr->setY(0);
+		// Atrás
+		if (gmCtrl_.goBack()) {
+			exitButton->setAsCurrentButton();
+		}
 	}
 }
 

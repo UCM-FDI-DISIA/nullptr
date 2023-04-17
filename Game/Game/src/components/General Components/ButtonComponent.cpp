@@ -12,7 +12,7 @@ void ButtonComponent::update() {
 	// Cambia el estado según la posición del ratón
 	if (state != OnClick) {
 		if (isOver(mouseX, mouseY)) {
-			if (state != OnOver) setAsCurrentButton();
+			setAsCurrentButton();
 			state = OnOver;
 		}
 		else {

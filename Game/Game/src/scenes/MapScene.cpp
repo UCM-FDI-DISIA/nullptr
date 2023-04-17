@@ -49,7 +49,8 @@ MapScene::MapScene() {
 	createButton(MS_OPTIONS_BUTTON_POS, MS_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
 	// Botón Inventario
-	createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY)->setAsCurrentButton();
+	inventoryButton = createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
+	inventoryButton->setAsCurrentButton();
 
 	// Botón salir
 	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
@@ -78,6 +79,10 @@ void MapScene::moveCamera() {
 	Transform* tr = camera->getComponent<Transform>();
 	float prevY = tr->getY();
 	tr->setY(prevY + NODE_POSITION_Y);
+}
+
+void MapScene::resetSelectedButton() {
+	inventoryButton->setAsCurrentButton();
 }
 
 void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vector<Vector2D>> const& nodesPos, vector<int> const& nodesPerHeight, int alt) {

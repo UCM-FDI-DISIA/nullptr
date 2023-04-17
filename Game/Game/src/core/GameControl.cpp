@@ -9,12 +9,14 @@ GameControl::GameControl() :
 	lastMovementD(0),
 	lastMovementL(0),
 	lastMovementR(0),
-	movementDelay(150),
-	sameDirMovementDelay(150)
+	movementDelay(200),
+	sameDirMovementDelay(250)
 {}
 
 float GameControl::movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus) const {
 	if (controller_) {
+
+
 		return ih_.getNormalizedControllerAxis(axis);
 	}
 	float ctrl = 0;
@@ -54,7 +56,7 @@ bool GameControl::adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameC
 	float x = ih_.getNormalizedControllerAxis(xAxis);
 	float y = ih_.getNormalizedControllerAxis(yAxis);
 	if (x != 0 || y != 0) {
-		SDL_WarpMouseInWindow(sdlutils().window(), sdlutils().width() / 2 + sdlutils().width() / 2 * x, sdlutils().height() / 2 + sdlutils().height() / 2 * y);
+		SDL_WarpMouseInWindow(sdlutils().window(), (sdlutils().width() - 1) / 2 + (sdlutils().width() - 1) / 2 * x, (sdlutils().height() - 1) / 2 + (sdlutils().height() - 1) / 2 * y);
 		return true;
 	}
 	return false;

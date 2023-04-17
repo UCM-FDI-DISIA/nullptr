@@ -1,5 +1,7 @@
 #include "PlayerInputComponent.h"
 #include "../../core/SDLApplication.h"
+#include "../../scenes/BattleScene.h"
+#include "../General Components/ChargedPortalComponent.h"
 
 void PlayerInputComponent::initComponent() {
 	plMovement_ = gObj->getComponent<PlayerMovementComponent>();
@@ -29,10 +31,13 @@ void PlayerInputComponent::handleInput() {
 	}
 	// Portal
 	if (gmCtrl_.completeLevel()) {
-		//countDownSetup();
+		prtlComp_->countDownSetup();
 	}
 	// Pausa
 	if (gmCtrl_.pause()) {
 		SDLApplication::pauseGame();
 	}
 }
+
+
+void PlayerInputComponent::setPortalComponent(ChargedPortalComponent* prtlC) { prtlComp_ = prtlC; }

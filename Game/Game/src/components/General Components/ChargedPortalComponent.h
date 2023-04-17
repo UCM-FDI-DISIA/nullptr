@@ -1,8 +1,8 @@
 #pragma once
 #include "../Component.h"
 #include "../../gameObjects/GameObject.h"
+#include "../Player components/BarComponent.h"
 #include "Transform.h"
-#include "../../core/SDLApplication.h"
 #include "../../core/GameControl.h"
 #include <vector>
 

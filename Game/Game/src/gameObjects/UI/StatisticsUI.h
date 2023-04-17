@@ -52,5 +52,6 @@ public:
 	void onEtherChanges(float value);
 	
 	// Getters
-	float getEther() { return actualEther; }
+	inline float getEther() { return actualEther; }
+	ChargedPortalComponent* getPortalComp() { return etherMeter->getComponent<ChargedPortalComponent>(); }
 };
