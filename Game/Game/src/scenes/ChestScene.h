@@ -3,13 +3,15 @@
 
 class ChestScene : public NodeScene {
 private:
-	bool alreadyClicked = false;
+	bool alreadyClicked;
 	GameObject* gachaButton;
 	AnimatorInfo* chestAI;
+
 public:
 	ChestScene();
 	virtual ~ChestScene();
-	static void mainMenu();
+
 	void gacha(GameObject* obj);
+
 	void spawnNewItem();
 };

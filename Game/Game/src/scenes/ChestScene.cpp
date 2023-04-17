@@ -3,91 +3,87 @@
 #include "../components/General Components/CallbackDelayer.h"
 
 ChestScene::ChestScene() : NodeScene() {
-	cout << "Has entrado en la escena de Cofre" << endl;
-
+	// Fondo
 	GameObject* background = addGameObject(_grp_GENERAL);
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
 
-	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>(mainMenu, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI);
+	// Struct info de animación del cofre
+	 chestAI = new AnimatorInfo(CHEST_TEXTURE,
+		SDLApplication::getTexture(CHEST_TEXTURE)->width(),
+		SDLApplication::getTexture(CHEST_TEXTURE)->height(),
+		CHEST_SPRITE_WIDTH,
+		CHEST_SPRITE_HEIGHT,
+		3, 3);
 
-	 chestAI = new AnimatorInfo("GachaChest",
-		SDLApplication::getTexture("GachaChest")->width(),
-		SDLApplication::getTexture("GachaChest")->height(),
-		46,
-		26,
-		1, 7);
-
+	 // -- COFRE --
+	 // Objeto
 	gachaButton = addGameObject(_grp_GENERAL);
-	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI->fw * 5, chestAI->fh * 5);
-	
-	
-	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
-	
-	anim->createAnim(ONOUT, 0, 0, ONCLICK_ONOUT_SPEED, -1);
+	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165), VECTOR_ZERO,
+		chestAI->fw * 6, chestAI->fh * 6);
+	// Animator
+	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture(CHEST_TEXTURE), chestAI->fw,
+		chestAI->fh, chestAI->rows, chestAI->cols);
+	anim->createAnim(ONOUT, 1, 1, ONCLICK_ONOUT_SPEED, -1);
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
-	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);},nullptr, -1);
+	// Componente botón
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);});
 	
 }
-ChestScene:: ~ChestScene()
-{
+ChestScene:: ~ChestScene() {
 	delete chestAI;
 }
 
-void ChestScene::mainMenu() {
-	SDLApplication::returnToMapScene();	
-}
-
 void ChestScene::gacha(GameObject* obj) {
-
-	if (alreadyClicked) return;
-	//Sacamos el vector de reliquias disponibles
-	std::cout << "CLICK!\n";
-
+	// Desactivar botón
 	gachaButton->setAlive(false);
+
+	// Añadir nuevo objeto con animación de cofre abriéndose
 	GameObject* animation = addGameObject();
-	animation->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 150), VECTOR_ZERO, chestAI->fw * 5, chestAI->fh * 5);
-	auto anim = animation->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
-	anim->createAnim("OnEnter", 0, 6, 10, 1);
-	anim->play("OnEnter");
+	animation->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165), VECTOR_ZERO,
+		chestAI->fw * 6, chestAI->fh * 6);
+	auto anim = animation->addComponent<Animator>(SDLApplication::getTexture(CHEST_TEXTURE),
+		chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
+	anim->createAnim(ONCLICK, 0, 7, 10, 1);
+	anim->play(ONCLICK);
 
+	// Objeto que llamará a una función tras X tiempo
 	GameObject* delay = addGameObject();
-	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 500);
-
-	alreadyClicked = true;
+	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 700);
 }
 
-void ChestScene::spawnNewItem()
-{
-	std::vector<std::string> aux = PlayerData::instance()->getAvailableItems();
+void ChestScene::spawnNewItem() {
+	// Sacamos el vector de reliquias disponibles
+	vector<string> aux = PlayerData::instance()->getAvailableItems();
 
+	// Si hay items disponibles
 	if (aux.size() > 0) {
-		cout << "Entraste" << "\n";
-		//Sacamos un random entre 0 y su maximo
+		// Sacamos un random entre 0 y su maximo
 		int Rand = rand() % aux.size();
 
-		//Sacamos la reliquia con la key que nos dan
+		// Sacamos la reliquia con la key que nos dan
 		Relic* item = SDLApplication::instance()->getRelic(aux[Rand]);
 
-		//Asignarsela al jugador
+		// Asignarsela al jugador
 		PlayerData::instance()->addRelic(item);
 
-		//Assign item (a�adir sprite a la escena y vivir feliz)
+		// Assign item (a�adir sprite a la escena y vivir feliz)
 		GameObject* sprite = addGameObject(_grp_GENERAL);
-		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + (26 * 5 / 2), (WIN_HEIGHT / 4) + (46 * 5 / 2)), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
+		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45),
+			VECTOR_ZERO, 32 * 4, 32 * 4);
 		sprite->addComponent<Image>(item->texture);
 
-		cout << item->description << "\n";
-
-
-		//Borrar del vector
+		// Borrar del vector
 		auto it = aux.begin();
-		std::advance(it, Rand);
+		advance(it, Rand);
 		aux.erase(it);
 
-		//Setear la nueva lista de items a player data
+		// Setear la nueva lista de items a player data
 		PlayerData::instance()->setAvailableItems(aux);
-		
+
+		// Botón salir
+		AnimatorInfo aI = AnimatorInfo(EXIT);
+		addGameObject<Button>([]() { SDLApplication::returnToMapScene(); },
+			Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 30, WIN_HEIGHT - MM_BUTTON_HEIGHT - 30), aI);
 	}
 }
