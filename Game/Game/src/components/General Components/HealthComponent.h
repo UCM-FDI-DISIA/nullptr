@@ -1,7 +1,6 @@
 #pragma once
 #include "../Component.h"
 
-
 // Este componente sirve para manejar todos los eventos relacionados con la vida del objeto
 // Como su muerte o su curación
 class OnDeath;
@@ -17,7 +16,7 @@ private:
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
-	//Delete del padre
+	// Delete del padre
 	void receiveDamage(int damage, RitualAxeCard* axe = nullptr);
 	void setInvencibility(float time);
 	virtual void initComponent();
@@ -27,5 +26,4 @@ public:
 	// Devuelve el valor actual de la vida
 	inline int getLife() { return lifePoints; }
 	void multiplyLife(double multiplier);
-	/*void timeDamage()*/
 };

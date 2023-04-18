@@ -3,9 +3,13 @@
 #include "../../components/General Components/Transform.h"
 #include "../../sdlutils/InputHandler.h"
 #include "../../core/SDLApplication.h"
+#include "../../components/General Components/CallbackDelayer.h"
+#include "../../components/Card Components/CardComponent.h"
+#include "../../components/General Components/PointerComponent.h"
+#include "../../components/Player components/PlayerMovementComponent.h"
 
 // Constructora
-PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) :
+PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) : startTime(0),
 	CharacterAnimator(SDLApplication::getTexture(PLAYER), _w, _h, _r, _c,
 		Animation(PLAYER_IDLE_INITIAL_FRAME, PLAYER_IDLE_FINAL_FRAME, PLAYER_IDLE_FRAME_RATE, -1),
 		Animation(PLAYER_MOVE_INITIAL_FRAME, PLAYER_MOVE_FINAL_FRAME, PLAYER_MOVE_FRAME_RATE, -1)) {
@@ -28,4 +32,20 @@ PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) :
 		});
 
 	this->linkAnimations(CHARACTER_SKILL_IDLE_KEY, CHARACTER_SKILL_MOVE_KEY);
+
+	this->addAction(CHARACTER_DEATH_KEY, Animation(PLAYER_DEATH_INITAL_FRAME, PLAYER_DEATH_FINAL_FRAME, PLAYER_DEATH_FRAME_RATE, 1), [this]() {
+		return isPlaying(CHARACTER_DEATH_KEY) || gObj->getComponent<HealthComponent>()->getLife() <= 0;
+		});
+}
+
+// Hace el update del padre y llama al metodo OnPlayerDies al terminar la animacion de muerte
+void PlayerAnimator::update() {
+	CharacterAnimator::update();
+	if (isCurrentAnimation(CHARACTER_DEATH_KEY) && animationComplete()) {
+		gObj->removeComponent<PlayerAnimator>();
+		// DA FALLO AQUI
+		//gObj->removeComponent<PlayerMovementComponent>();
+		//gObj->removeComponent<CardComponent>();
+		//gStt->getPointer()->removeComponent<Image>();
+	}
 }

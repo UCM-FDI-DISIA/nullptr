@@ -62,13 +62,14 @@ const string CHARACTER_ATTACK_IDLE_KEY = "charaAttackIdle";
 const string CHARACTER_ATTACK_MOVE_KEY = "charaAttackMove";
 const string CHARACTER_SKILL_IDLE_KEY = "charaSkillIdle";
 const string CHARACTER_SKILL_MOVE_KEY = "charaSkillMove";
+const string CHARACTER_DEATH_KEY = "charaDeath";
 
 // PLAYER -----------------------------------------------------------------------------------------
 // PLAYER ANIMATIONS
 const string PLAYER = "newPlayer";
 const int PLAYER_SPRITE_WIDTH = 32;
 const int PLAYER_SPRITE_HEIGHT = 32;
-const int PLAYER_SPRITE_ROWS = 6;
+const int PLAYER_SPRITE_ROWS = 7;
 const int PLAYER_SPRITE_COLS = 8;
 
 //PLAYER IDLE ANIM
@@ -95,6 +96,10 @@ const int PLAYER_ATTACK_IDLE_FRAME_RATE = 12;
 const int PLAYER_ATTACK_MOVE_INITIAL_FRAME = 40;
 const int PLAYER_ATTACK_MOVE_FINAL_FRAME = 47;
 const int PLAYER_ATTACK_MOVE_FRAME_RATE = 12;
+//PLAYER DEATH ANIM
+const int PLAYER_DEATH_INITAL_FRAME = 48;
+const int PLAYER_DEATH_FINAL_FRAME = 56;
+const int PLAYER_DEATH_FRAME_RATE = 8;
 
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;

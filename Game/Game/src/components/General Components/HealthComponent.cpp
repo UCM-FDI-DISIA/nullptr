@@ -19,17 +19,19 @@ void HealthComponent::receiveDamage(int damage, RitualAxeCard* axe)
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
-		cout << lifePoints <<endl;
+		cout << lifePoints << endl;
+
+		// Si se trata del Player, actualiza su barra de vida
+		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
+			auto sc = dynamic_cast<BattleScene*>(gStt);
+			sc->OnPlayerDamage(lifePoints);
+		}
+
 		if (lifePoints <= 0) {
 			die();
 			if (axe != nullptr) axe->enemieKilled();
 		} 
-		else {
-			if (gObj->getComponent<PlayerMovementComponent>() != nullptr) { 
-				auto sc = dynamic_cast<BattleScene*>(gStt); 
-				sc->OnPlayerDamage(lifePoints); 
-			}
-		}
+		
 		if (invincibility) {
 			invTime = 0.5;
 			cout << "Invencible" << endl;
@@ -59,19 +61,13 @@ void HealthComponent::heal(int heal)
 	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
 }
 
-// Al llegar la vida a 0, el objetose dispone a morir
-// En el caso del jugador, termina la partida
+// Al llegar la vida a 0, el objeto se dispone a morir
 void HealthComponent::die()
 {
-
-	if(onDeath!=nullptr)
-	onDeath->death();
-
-	auto sc = dynamic_cast<BattleScene*>(gStt);
-	if (gObj->hasComponent<CardComponent>()) {
-		sc->OnPlayerDies();
+	if (onDeath != nullptr) {
+		onDeath->death();
+		gObj->setAlive(false);
 	}
-	gObj->setAlive(false);
 }
 
 // Multiplica la vida maxima, que nunca cambia, por el multiplicador dado
