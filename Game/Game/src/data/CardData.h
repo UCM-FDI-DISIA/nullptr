@@ -11,7 +11,7 @@ struct CardData {
     int damage;
     int maxUses;
     int mana;
-    int downTime;
+    float downTime;
     Texture* texture;
     CardTime time;
 };
