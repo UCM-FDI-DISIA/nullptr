@@ -37,11 +37,15 @@ protected:
 	ButtonNavigator* butNav;
 	ButtonData myData;
 	bool addToNavigation_;
+	std::function<void(Transform*)> onSelected_;
+	Transform* tr_;
+	bool currentButton;
 public:
 	static const int id = _BUTTON;
 	ButtonComponent(CallBack _f, GameObject* _frame = nullptr, bool addToNav = true) :
 		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr),
-		clickSound(nullptr), hoverOverSound(nullptr), gmCtrl_(gmCtrl()), butNav(nullptr), addToNavigation_(addToNav) {}
+		clickSound(nullptr), hoverOverSound(nullptr), gmCtrl_(gmCtrl()), butNav(nullptr), addToNavigation_(addToNav),
+		onSelected_(nullptr), tr_(nullptr), currentButton(false) {}
 
 	virtual void update();
 	virtual void handleInput();
@@ -58,4 +62,6 @@ public:
 	void changeStateAnim(string key, int state);
 	// Selecciona el botón
 	void setAsCurrentButton();
+
+	void setOnSelected(std::function<void(Transform*)> onSel);
 };

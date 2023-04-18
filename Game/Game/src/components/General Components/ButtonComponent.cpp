@@ -9,16 +9,22 @@ void ButtonComponent::update() {
 	int mouseX = 0, mouseY = 0;
 	SDL_GetMouseState(&mouseX, &mouseY);
 
+	if (butNav->isCurrentButton(animButton)) {
+		if (state != OnOver && onSelected_ != nullptr) onSelected_(tr_);
+		auto r = animButton->getRect();
+		gmCtrl_.moveMouse(r.x + r.w / 2, r.y + r.h / 2);
+	}
+
 	// Cambia el estado según la posición del ratón
 	if (state != OnClick) {
 		if (isOver(mouseX, mouseY)) {
-			setAsCurrentButton();
 			state = OnOver;
 		}
 		else {
 			state = OnOut;
 		}
 	}
+
 }
 
 void ButtonComponent::handleInput() {
@@ -50,6 +56,7 @@ void ButtonComponent::initComponent() {
 	
 	butNav = gStt->getButtonNavigator();
 	if (addToNavigation_) myData = butNav->insert(animButton);
+	tr_ = gObj->getComponent<Transform>();
 }
 
 
@@ -105,4 +112,8 @@ void ButtonComponent::changeStateAnim(string key, int state) {
 
 void ButtonComponent::setAsCurrentButton() {
 	butNav->setCurrentButton(myData);
+}
+
+void ButtonComponent::setOnSelected(std::function<void(Transform*)> onSel) {
+	onSelected_ = onSel;
 }

@@ -31,8 +31,9 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 			++it; ++j;
 		}
 	}
-	camYLimit -= 1;
+	//camYLimit -= 1;
 	camYLimit *= (ALB_CARD_H + ALB_CARD_Y_DIST);
+	camYLimit -= ALB_CARD_H / 2;
 
 	GameObject* bg = addGameObject();
 	bg->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
@@ -51,6 +52,11 @@ void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 	card->addComponent<Image>(found ? myData.texture : &sdlutils().images().at("CardReverse"));
 
 	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos,	AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, myData.texture->width(), myData.texture->height(), 1, 4));
+	b->getComponent<ButtonComponent>()->setOnSelected(
+		[&](Transform* myTr) {
+			if (myTr->getY() > ALB_CARD_H * 2) camTr->setY(-myTr->getY() + ALB_CARD_H * 2);
+			else camTr->setY(0);
+		});
 	Animator* a = b->getComponent<Animator>();
 	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
 	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
@@ -63,7 +69,7 @@ void AlbumScene::handleInput() {
 	GameState::handleInput();
 	if (!selected) {
 		// Scroll
-		camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll());
+		camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll(false));
 		if (camTr->getY() < -camYLimit) camTr->setY(-camYLimit);
 		else if (camTr->getY() > 0) camTr->setY(0);
 		// Atrás
@@ -107,7 +113,6 @@ void AlbumScene::selectCard(CardData cData) {
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 
 	Button* b = addGameObject<Button>([&]() { deselectCard(); butNavigator->unlockMovement(); exitButton->setAsCurrentButton(); }, Vector2D(700, 500), aI);
-	
 	butNavigator->lockMovement();
 	b->setAsCurrentButton();
 	infoWindow.push_back(b);

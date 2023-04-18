@@ -215,6 +215,8 @@ public:
 		return axis / abs((axis >= 0) ? CONTROLLER_AXIS_MAX : CONTROLLER_AXIS_MIN);
 	}
 
+	inline bool isControllerConnected() { return controller_ != nullptr; }
+
 private:
 	InputHandler() {
 		kbState_ = SDL_GetKeyboardState(0); 

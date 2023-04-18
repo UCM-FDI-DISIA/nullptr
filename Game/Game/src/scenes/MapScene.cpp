@@ -31,7 +31,10 @@ MapScene::MapScene() {
 					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1)?15:3*1.5);
+				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 15 : 3 * 1.5,
+					[&](Transform* myTr) {
+						camTr->setY(-myTr->getY() + sdlutils().height() / 2 - NODE_HEIGHT / 2);
+					});
 				++j;
 			}
 			nodesPositions[i].push_back(pos);
@@ -42,7 +45,7 @@ MapScene::MapScene() {
 
 	camTr = camera->getComponent<Transform>();
 	camTr->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
-	camYLimit = nodesPositions[nodesPositions.size() - 1][nodesPositions[nodesPositions.size() - 1].size() - 1].getY();
+	camYLimit = -nodesPositions[nodesPositions.size() - 1][nodesPositions[nodesPositions.size() - 1].size() - 1].getY() + sdlutils().height() / 2;
 
 	// BOTONES
 	// Botón options
@@ -69,8 +72,8 @@ void MapScene::handleInput() {
 	}
 
 	// Scroll
-	camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll());
-	if (camTr->getY() > -camYLimit) camTr->setY(-camYLimit);
+	camTr->setY(camTr->getY() - gmCtrl_.scroll(false));
+	if (camTr->getY() > camYLimit) camTr->setY(camYLimit);
 	else if (camTr->getY() < 0) camTr->setY(0);
 }
 

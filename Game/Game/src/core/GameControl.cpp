@@ -3,7 +3,7 @@
 
 GameControl::GameControl() : 
 	ih_(ih()), 
-	controller_(true), 
+	controller_(ih().isControllerConnected()),
 	lastMovement(0),
 	lastMovementU(0),
 	lastMovementD(0),
@@ -113,6 +113,7 @@ bool GameControl::click() const {
 }
 
 
+// Si está activado el control por mando se mueve el mouse a la posición indicada
 bool GameControl::moveMouse(float x, float y) const {
 	if (controller_) {
 		SDL_WarpMouseInWindow(sdlutils().window(), x, y);
@@ -122,6 +123,7 @@ bool GameControl::moveMouse(float x, float y) const {
 }
 
 
+// Seleccionar el botón superior
 bool GameControl::selectUpButton() {
 	if (controller_) {
 		uint ticks = SDL_GetTicks();
@@ -135,6 +137,7 @@ bool GameControl::selectUpButton() {
 	}
 	return false;
 }
+// Seleccionar el botón inferior
 bool GameControl::selectDownButton() {
 	if (controller_) {
 		uint ticks = SDL_GetTicks();
@@ -149,6 +152,7 @@ bool GameControl::selectDownButton() {
 	}
 	return false;
 }
+// Seleccionar el botón a la izquierda
 bool GameControl::selectLeftButton() {
 	if (controller_) {
 		uint ticks = SDL_GetTicks();
@@ -162,6 +166,7 @@ bool GameControl::selectLeftButton() {
 	}
 	return false;
 }
+// Seleccionar el botón a la derecha
 bool GameControl::selectRightButton() {
 	if (controller_) {
 		uint ticks = SDL_GetTicks();
@@ -177,18 +182,29 @@ bool GameControl::selectRightButton() {
 }
 
 
-float GameControl::scroll() const {
+// Devuelve en valor en el que se deberá mover la cámara cuando se hace scroll
+float GameControl::scroll(bool controllerScroll) const {
 	if (controller_) {
-		return ih_.getNormalizedControllerAxis(SDL_CONTROLLER_AXIS_RIGHTY) / 200.0f;
+		return (controllerScroll) ? 20 * ih_.getNormalizedControllerAxis(SDL_CONTROLLER_AXIS_RIGHTY) / 200.0f : 0.0f;
 	}
 
-	return (ih_.mouseWheelUp()) ? -1 : (ih_.mouseWheelDown()) ? 1 : 0;
+	return 20 * (ih_.mouseWheelUp()) ? -1 : (ih_.mouseWheelDown()) ? 1 : 0;
 }
 
 
+// Ir atrás
 bool GameControl::goBack() const {
 	if (controller_) {
 		return ih_.isControllerButtonDown(SDL_CONTROLLER_BUTTON_B);
 	}
 	return false;
+}
+
+void GameControl::changeControl() {
+	if (!controller_) {
+		controller_ = ih().isControllerConnected();
+	}
+	else {
+		controller_ = false;
+	}
 }

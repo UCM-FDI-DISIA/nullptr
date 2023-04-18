@@ -2,6 +2,7 @@
 #include "../utils/Singleton.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
+
 class GameControl : public Singleton<GameControl> {
 private:
 	bool controller_;
@@ -14,6 +15,7 @@ private:
 	bool attack(SDL_GameControllerButton button, SDL_GameControllerAxis trigger, InputHandler::MOUSEBUTTON mouseButton) const;
 	bool adjustCursorToJoystick(SDL_GameControllerAxis xAxis, SDL_GameControllerAxis yAxis) const;
 public:
+	// Constructora
 	GameControl();
 
 	// Eje de movimiento en X, entre -1 y 1
@@ -40,21 +42,25 @@ public:
 
 	// Pulsar un botón
 	bool click() const;
-	// 
+	// Si está activado el control por mando se mueve el mouse a la posición indicada
 	bool moveMouse(float x, float y) const;
 
+	// Seleccionar el botón superior
 	bool selectUpButton();
+	// Seleccionar el botón inferior
 	bool selectDownButton();
+	// Seleccionar el botón a la izquierda
 	bool selectLeftButton();
+	// Seleccionar el botón a la derecha
 	bool selectRightButton();
 
-	float scroll() const;
+	// Devuelve en valor en el que se deberá mover la cámara cuando se hace scroll
+	float scroll(bool controllerScroll = true) const;
+	// Ir atrás
 	bool goBack() const;
 
 	// Cambiar entre control por mando y control por teclado
-	inline void changeControl() {
-		controller_ = !controller_;
-	}
+	void changeControl();
 };
 
 inline GameControl& gmCtrl() { return *GameControl::instance(); }
