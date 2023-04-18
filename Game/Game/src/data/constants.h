@@ -132,7 +132,7 @@ const int MELEE_ENEMY_HEIGHT = MELEE_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
 const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
 const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
-
+const int MELEE_LIFE = 20;
 const int MELEE_ATTACK_DAMAGE = 20;
 
 // RANGED ENEMY
@@ -150,7 +150,7 @@ const Animation RANGED_ENEMY_MOVEMENT_ANIMATION(14, 21, 10, -1);
 const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 
 const int RANGED_ATTACK_ANIM_DELAY = 670;
-
+const int RANGED_LIFE = 10;
 const int RANGED_ATTACK_DAMAGE = 20;
 
 // TANK ENEMY
@@ -260,10 +260,10 @@ const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
-	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
+	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "AttackSymbol", "CadenceSymbol"
 };
 const string STATS_TEXTS[5] = {
-	"Vida", "Mana", "Velocidad", "Cadencia", "Ataque"
+	"Vida", "Mana", "Velocidad", "Ataque", "Cadencia"
 };
 const int SYMBOL_DIMENSIONS = 64;
 const Vector2D SYMBOL_POSITIONS[5] = {

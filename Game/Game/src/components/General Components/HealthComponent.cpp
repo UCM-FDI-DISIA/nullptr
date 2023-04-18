@@ -14,7 +14,7 @@ HealthComponent::HealthComponent(int life, bool Invincibility) :
 	onDeath(nullptr) {}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
-void HealthComponent::receiveDamage(int damage, RitualAxeCard* axe)
+void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 {
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {

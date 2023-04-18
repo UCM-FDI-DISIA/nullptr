@@ -91,7 +91,6 @@ class PlayerData : public Singleton<PlayerData>
 		inline void addPlayerMoveSpeed(float speed) { playerSpeed += speed; }
 
 		void defaultPlayerStats();
-		void updatePlayerStats();
 
 		void getDataFromJSON();
 		void setDataToJSON();
