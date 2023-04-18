@@ -18,7 +18,7 @@ public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
 	//Delete del padre
-	void receiveDamage(int damage, RitualAxeCard* axe = nullptr);
+	void receiveDamage(float damage, RitualAxeCard* axe = nullptr);
 	void setInvencibility(float time);
 	virtual void initComponent();
 	virtual void update();
