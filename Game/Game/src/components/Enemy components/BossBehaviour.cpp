@@ -50,7 +50,7 @@ void BossBehaviour::update() {
 				attackTime = 0;
 				attacking = false;
 				//enemyAttack(); // ataca coincidiendo con la animación  attackState
-				switch (1) {
+				switch (3) {
 				case 0: // Conos
 					coneAttack();
 					break;
@@ -167,4 +167,22 @@ void BossBehaviour::sprinklerAttack() {
 // Función para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
 	// Implementar lógica del ataque Granadas
+	Vector2D directions[] = { Vector2D(1,0), Vector2D(0,1), Vector2D(-1,0), Vector2D(0,-1) };
+
+	// Creo la funcion que instancia 8 balas al explotar
+	CallBackExpl bossGrenade = [myScene = gStt](Transform* tr) {
+		// Direcciones de las balas
+		Vector2D directs[] = {Vector2D(1,0), Vector2D(-1,0), Vector2D(0,1), Vector2D(0,-1), 
+			Vector2D(1,1).normalize(), Vector2D(1,-1).normalize(), Vector2D(-1,1).normalize(), Vector2D(-1,-1).normalize()};
+		// Creo las 8 balas
+		for (int i = 0; i < 8; i++) {
+			Hitbox::HitboxData data = { tr->getCenter(), directs[i] * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER};
+			myScene->addGameObject<Hitbox>(_grp_ENM_ATTACK, 20, true, false, 10, data);
+		}
+	};
+	// Creo las 4 granadas en direcciones arriba, abajo, izq y der
+	for (int i = 0; i < 4; i++) {
+		Hitbox::HitboxData data = {gObj->getComponent<Transform>()->getCenter(), directions[i] * BULLET_SPEED, 0, 50, 50, FLASH_BANG, _grp_PLAYER};
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 1, StatusComponent::NONE, 200, 200, FLASH_BANG, dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
+	}
 }

@@ -4,10 +4,10 @@
 #include "../../components/Card Components/HitboxHealingComponent.h"
 
 //Constructor de hitbox que crea una explosion
-void Hitbox::initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height,string sprite, BattleScene* scene, HitboxData data, Vector2D anch)
+void Hitbox::initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height,string sprite, BattleScene* scene, HitboxData data, Vector2D anch, CallBackExpl cb)
 {
 	initGameObject(data, anch);
-	addComponent<HitboxExplosionComponent>(dmg, lifetime, stts, contact, width, height, sprite, scene, data.trgt);
+	addComponent<HitboxExplosionComponent>(dmg, lifetime, stts, contact, width, height, sprite, scene, data.trgt, cb);
 }
 
 void Hitbox::initGameObject(int healing, float cooldown, HitboxData data, float lifetime, Vector2D anch)

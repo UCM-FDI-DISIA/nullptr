@@ -17,17 +17,22 @@ private:
     BattleScene* scene;
     grpId target;
 	Transform* tr;
+	CallBackExpl cb;
 
 public:
     //Constructora. Determina el tick global en el que el gObj muere, la escena en la que se instancia la explosion y el daño que hace esta
-    HitboxExplosionComponent(int dmg, float lifeSpan, StatusComponent::status stts, bool cntct, float  wdth, float hght,string sprt,  BattleScene* scn, grpId trgt) : damage(dmg), lifeSpan(lifeSpan), currentLifeDuration(0), width(wdth), height(hght), sprite(sprt), scene(scn), target(trgt), tr(nullptr), contact(cntct) {}
+    HitboxExplosionComponent(int dmg, float lifeSpan, StatusComponent::status stts, bool cntct, float  wdth, float hght,string sprt,  BattleScene* scn, grpId trgt, CallBackExpl funct = nullptr) 
+		: damage(dmg), lifeSpan(lifeSpan), currentLifeDuration(0), width(wdth), height(hght), sprite(sprt), scene(scn), target(trgt), tr(nullptr), contact(cntct), cb(funct) {}
     static const int id = _HITBOX_EXPLOSION_COMPONENT;
 
 	// Se le añade al colider la funcion de explosion
 	void initComponent()
 	{
 		tr = gObj->getComponent<Transform>();
-		if(contact) gObj->getComponent<ColliderComponent>()->addFunction(explosionFunction());
+		if (contact) { 
+			gObj->getComponent<ColliderComponent>()->addFunction(explosionFunction()); 
+			if (cb != nullptr) gObj->getComponent<ColliderComponent>()->addFunction(cb);
+		}
 	}
 
 
@@ -38,8 +43,10 @@ public:
 		if (currentLifeDuration > lifeSpan)
 		{
 
-			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, _grp_ENEMIES };
+			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, target };
 
+			// Ejecuto mi funcion
+			if (cb != nullptr) cb(tr);
 			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
 
 			gObj->setAlive(false);
@@ -50,7 +57,7 @@ public:
 	CallBackCol explosionFunction()
 	{
 		return [&](GameObject* trgt) {
-			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, _grp_ENEMIES };
+			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, target };
 
 			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
 

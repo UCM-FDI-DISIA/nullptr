@@ -440,7 +440,7 @@ const int MANA_COLUMS = 2;
 // ETHER ------------------------------------------------------------------------------------------
 const int ETHER_H = 20;
 const int ETHER_W = 20;
-const int ETHER_VALUE = 5;
+const int ETHER_VALUE = 1;
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;
 // CARD REVERSE DIMENSIONS
