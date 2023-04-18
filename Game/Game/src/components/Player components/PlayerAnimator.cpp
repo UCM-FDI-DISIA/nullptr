@@ -42,10 +42,10 @@ PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) : startTime(0),
 void PlayerAnimator::update() {
 	CharacterAnimator::update();
 	if (isCurrentAnimation(CHARACTER_DEATH_KEY) && animationComplete()) {
+		gObj->getComponent<PlayerMovementComponent>()->setPlayerSpeed(0);
+		gObj->removeComponent<PlayerMovementComponent>();
+		gObj->removeComponent<CardComponent>();
+		gStt->getPointer()->removeComponent<Image>();
 		gObj->removeComponent<PlayerAnimator>();
-		// DA FALLO AQUI
-		//gObj->removeComponent<PlayerMovementComponent>();
-		//gObj->removeComponent<CardComponent>();
-		//gStt->getPointer()->removeComponent<Image>();
 	}
 }
