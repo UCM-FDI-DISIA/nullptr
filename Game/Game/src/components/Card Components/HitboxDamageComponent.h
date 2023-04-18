@@ -11,7 +11,7 @@ class RitualAxeCard;
 class HitboxDamageComponent : public Component
 {
 private:
-	int damage; //daño que causa
+	float damage; //daño que causa
 	bool destroy; //Si el objeto se destruye al colisionar
 	bool knockback; //Si el objeto causa knockback
 	RitualAxeCard* axe; //Si el ataque es del Hacha Ritual
@@ -20,7 +20,7 @@ private:
 public:
 	static const int id = _HITBOX_DAMAGE_COMPONENT;
 
-	HitboxDamageComponent(int dmg, bool dstry, bool knback, RitualAxeCard* axeC = nullptr) : damage(dmg), destroy(dstry), knockback(knback), axe(axeC) {}
+	HitboxDamageComponent(float dmg, bool dstry, bool knback, RitualAxeCard* axeC = nullptr) : damage(dmg), destroy(dstry), knockback(knback), axe(axeC) {}
 
 	// Se le añade al colider la funcion de daño
 	void initComponent() override{

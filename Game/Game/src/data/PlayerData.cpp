@@ -33,10 +33,16 @@ PlayerData::~PlayerData() {
 		delete card;
 		card = nullptr;
 	}
-	deck.clear();
+	deck.clear(); 
+	
 }
 
 void PlayerData::defaultPlayerStats() {
+	for (auto& var : sdlutils().relics().map_)
+	{
+		avlbRelics.push_back(var.first);
+	}
+	myRelics.clear();
 	money = 0;
 	setMaxMana(100);
 	setMaxHP(100);
@@ -45,19 +51,6 @@ void PlayerData::defaultPlayerStats() {
 	setFireRateMult(1);
 	setMoney(999);
 	playerSpeed = PLAYER_SPEED;
-}
-
-void PlayerData::updatePlayerStats() {
-	//para no duplicar los efectos de las reliquias, se resetean las estad�sticas del jugador
-	defaultPlayerStats();
-
-	for (auto relic : myRelics) {
-		maxMana += relic->mana;
-		maxHP += relic->health;
-		attackMult += relic->attackMult;
-		fireRateMult += relic->cadencyMult;
-		playerSpeed += relic->movementVelocity;
-	}
 }
 
 void PlayerData::getDataFromJSON() {
@@ -78,6 +71,11 @@ std::vector<std::string> PlayerData::getAvailableItems() {
 }
 
 void PlayerData::setDeck(std::vector<Card*> newDeck) {
+	for (auto& card : deck) {
+		delete card;
+		card = nullptr;
+	}
+	deck.clear();
 	deck = newDeck;
 }
 
@@ -94,6 +92,12 @@ void PlayerData::addCardToLibrary(CardId newCard, int num) {
 }
 
 void PlayerData::addRelic(Relic* relic) {
+
+	maxMana += relic->mana;
+	maxHP += relic->health;
+	attackMult += relic->attackMult/100.0f;
+	fireRateMult += relic->fireRateMult/100.0f;
+	playerSpeed += relic->speed;
 	myRelics.push_back(relic);
 }
 
