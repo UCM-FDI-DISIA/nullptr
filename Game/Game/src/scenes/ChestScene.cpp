@@ -14,22 +14,22 @@ ChestScene::ChestScene() : NodeScene() {
 		SDLApplication::getTexture(CHEST_TEXTURE)->height(),
 		CHEST_SPRITE_WIDTH,
 		CHEST_SPRITE_HEIGHT,
-		3, 3);
+		5, 5);
 
-	 // -- COFRE --
-	 // Objeto
+	// -- COFRE --
+	// Objeto
 	gachaButton = addGameObject(_grp_GENERAL);
 	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165), VECTOR_ZERO,
 		chestAI->fw * 6, chestAI->fh * 6);
 	// Animator
 	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture(CHEST_TEXTURE), chestAI->fw,
 		chestAI->fh, chestAI->rows, chestAI->cols);
-	anim->createAnim(ONOUT, 1, 1, ONCLICK_ONOUT_SPEED, -1);
-	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
+	anim->createAnim(ONOUT, 0, 12, 9, -1);
+	anim->createAnim(ONOVER, 13, 13, ONOVER_SPEED, -1);
 	// Componente botón
 	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);});
-	
 }
+
 ChestScene:: ~ChestScene() {
 	delete chestAI;
 }
@@ -44,12 +44,12 @@ void ChestScene::gacha(GameObject* obj) {
 		chestAI->fw * 6, chestAI->fh * 6);
 	auto anim = animation->addComponent<Animator>(SDLApplication::getTexture(CHEST_TEXTURE),
 		chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
-	anim->createAnim(ONCLICK, 0, 7, 10, 1);
+	anim->createAnim(ONCLICK, 14, 20, 10, 1);
 	anim->play(ONCLICK);
 
 	// Objeto que llamará a una función tras X tiempo
 	GameObject* delay = addGameObject();
-	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 700);
+	delay->addComponent<CallbackDelayer>([&]() {spawnNewItem(); }, 685);
 }
 
 void ChestScene::spawnNewItem() {
@@ -72,6 +72,15 @@ void ChestScene::spawnNewItem() {
 		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45),
 			VECTOR_ZERO, 32 * 4, 32 * 4);
 		sprite->addComponent<Image>(item->texture);
+
+		// Destellos
+		GameObject* sparkles = addGameObject(_grp_GENERAL);
+		sparkles->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 25),
+			VECTOR_ZERO, 32 * 5, 32 * 5);
+		auto anim = sparkles->addComponent<Animator>(SDLApplication::getTexture(SPARKLES_TEXTURE),
+			32, 32, 3, 2);
+		anim->createAnim(SPARKLES_TEXTURE, 0, 5, 12, 2);
+		anim->play(SPARKLES_TEXTURE);
 
 		// Borrar del vector
 		auto it = aux.begin();

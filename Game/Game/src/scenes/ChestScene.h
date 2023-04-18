@@ -3,7 +3,6 @@
 
 class ChestScene : public NodeScene {
 private:
-	bool alreadyClicked;
 	GameObject* gachaButton;
 	AnimatorInfo* chestAI;
 
