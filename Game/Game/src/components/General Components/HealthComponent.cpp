@@ -68,6 +68,11 @@ void HealthComponent::die()
 		onDeath->death();
 		gObj->setAlive(false);
 	}
+
+	auto sc = dynamic_cast<BattleScene*>(gStt);
+	if (gObj->hasComponent<CardComponent>()) {
+		sc->OnPlayerDies();
+	}
 }
 
 // Multiplica la vida maxima, que nunca cambia, por el multiplicador dado

@@ -3,13 +3,9 @@
 #include "../../components/General Components/Transform.h"
 #include "../../sdlutils/InputHandler.h"
 #include "../../core/SDLApplication.h"
-#include "../../components/General Components/CallbackDelayer.h"
-#include "../../components/Card Components/CardComponent.h"
-#include "../../components/General Components/PointerComponent.h"
-#include "../../components/Player components/PlayerMovementComponent.h"
 
 // Constructora
-PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) : startTime(0),
+PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) :
 	CharacterAnimator(SDLApplication::getTexture(PLAYER), _w, _h, _r, _c,
 		Animation(PLAYER_IDLE_INITIAL_FRAME, PLAYER_IDLE_FINAL_FRAME, PLAYER_IDLE_FRAME_RATE, -1),
 		Animation(PLAYER_MOVE_INITIAL_FRAME, PLAYER_MOVE_FINAL_FRAME, PLAYER_MOVE_FRAME_RATE, -1)) {
@@ -42,10 +38,6 @@ PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) : startTime(0),
 void PlayerAnimator::update() {
 	CharacterAnimator::update();
 	if (isCurrentAnimation(CHARACTER_DEATH_KEY) && animationComplete()) {
-		gObj->getComponent<PlayerMovementComponent>()->setPlayerSpeed(0);
-		gObj->removeComponent<PlayerMovementComponent>();
-		gObj->removeComponent<CardComponent>();
-		gStt->getPointer()->removeComponent<Image>();
-		gObj->removeComponent<PlayerAnimator>();
+		static_cast<BattleScene*>(gStt)->changeToGameOverScene();
 	}
 }
