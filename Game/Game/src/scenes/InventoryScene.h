@@ -29,8 +29,6 @@ private:
 public:
 	InventoryScene();
 	virtual ~InventoryScene();
-	// Crear un botón especificado en la escena
-	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 	void createSymbol(Vector2D _pos, string key, string text, int val);
 	void createPanels();
 	void createMoneyInfo();

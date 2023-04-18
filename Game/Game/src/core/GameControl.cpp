@@ -15,8 +15,6 @@ GameControl::GameControl() :
 
 float GameControl::movement(SDL_GameControllerAxis axis, SDL_KeyCode minus, SDL_KeyCode plus) const {
 	if (controller_) {
-
-
 		return ih_.getNormalizedControllerAxis(axis);
 	}
 	float ctrl = 0;

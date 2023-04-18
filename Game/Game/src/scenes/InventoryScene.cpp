@@ -48,20 +48,9 @@ InventoryScene::InventoryScene() : GameState() {
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
 		if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
 		if(cardsInDeck>=4)SDLApplication::popGameState(); 
-		}, EXIT);
+		}, EXIT)->setAsCurrentButton();
 }
 
-// Crear un bot�n especificado en la escena
-void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key, IS_BUTTON_WIDTH, IS_BUTTON_HEIGHT);
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), IS_BUTTONFRAME_WIDTH, IS_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-
-	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, frame);
-}
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 
@@ -197,7 +186,14 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 			}
 		}
 		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
-		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4));
+		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4)); 
+	
+	Animator* a = b->getComponent<Animator>();
+	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
+	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
+	a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
+	a->play(ONOUT);
+
 	// Texto que indica cuantas cartas hay en el deck
 	GameObject* text = addGameObject();
 	inventory[Card::getCardIDfromEnum(crd)].myText = text;

@@ -3,7 +3,7 @@
 
 // Constructora que recibe un iterador al tipo de  batalla, un callback y un puntero al estado del nodo
 NodeButtonComponent::NodeButtonComponent(CallBack _f, nodeState const& _nState, float navigatorHorMul) :
-ButtonComponent(_f, nullptr, false), nState(_nState), horMul(navigatorHorMul) {}
+ButtonComponent(_f, nullptr, -1, false), nState(_nState), horMul(navigatorHorMul) {}
 
 
 void NodeButtonComponent::initComponent() {

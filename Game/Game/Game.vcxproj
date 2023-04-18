@@ -347,6 +347,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\data\game.album.json" />
     <None Include="src\data\game.cards.json" />
     <None Include="src\data\game.map.json" />
     <None Include="src\data\game.resources.json" />
