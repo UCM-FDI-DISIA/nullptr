@@ -17,6 +17,7 @@ protected:
     GameControl& gmCtrl_;
 
     array<std::vector<GameObject*>, maxGroupId> entsByGroup_;
+    int lastButtonIndex;
 public:
     // Constructor
     GameState();
@@ -59,4 +60,6 @@ public:
 
     // Crear un botón especificado en la escena
     Button* createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
+
+    inline void setLastIndex(int index) { lastButtonIndex = index; }
 };

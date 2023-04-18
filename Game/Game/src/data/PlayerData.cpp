@@ -9,21 +9,18 @@ PlayerData::PlayerData() {
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
 	deck.push_back(new SwordCard());
-	// A�adimos al vector de informacion las cartas que tiene el jugador de este tipo y las que est�n de ellas en el mazo
-	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Espada")));
-	// La marcamos como a�adida
-	receivedCard["Espada"] = prev(inventory.end());
+	addCardToLibrary(_card_SWORD, 3);
+	addCardToDeckId(_card_SWORD, 3);
 
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
-	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Pistola")));
-	receivedCard["Pistola"] = prev(inventory.end());
-
+	addCardToLibrary(_card_GUN, 3);
+	addCardToDeckId(_card_GUN, 3);
 	deck.push_back(new LaserShadesCard());
 	deck.push_back(new LaserShadesCard());
-	inventory.push_back(InventoryInfo(2, 2, &cardsData().get("Gafas Laser")));
-	receivedCard["Gafas Laser"] = prev(inventory.end());
+	addCardToLibrary(_card_LASERGLASSES, 2);
+	addCardToDeckId(_card_LASERGLASSES, 2);
 
 	for (auto& var : sdlutils().relics().map_)
 	{
@@ -39,20 +36,18 @@ PlayerData::~PlayerData() {
 	deck.clear();
 }
 
-void PlayerData::defaultPlayerStats()
-{
+void PlayerData::defaultPlayerStats() {
 	money = 0;
 	setMaxMana(100);
 	setMaxHP(100);
-	setCurrHP(100);
+	setCurrHP(1000);
 	setAttackMult(1);
 	setFireRateMult(1);
-	setMoney(50);
+	setMoney(999);
 	playerSpeed = PLAYER_SPEED;
 }
 
-void PlayerData::updatePlayerStats()
-{
+void PlayerData::updatePlayerStats() {
 	//para no duplicar los efectos de las reliquias, se resetean las estad�sticas del jugador
 	defaultPlayerStats();
 
@@ -65,8 +60,7 @@ void PlayerData::updatePlayerStats()
 	}
 }
 
-void PlayerData::getDataFromJSON()
-{
+void PlayerData::getDataFromJSON() {
 	throw "Sin implementar lololo";
 }
 
@@ -75,8 +69,7 @@ void PlayerData::setDataToJSON()
 {
 }
 
-std::vector<Card*> PlayerData::getDeck()
-{
+std::vector<Card*> PlayerData::getDeck() {
 	return deck;
 }
 
@@ -84,8 +77,7 @@ std::vector<std::string> PlayerData::getAvailableItems() {
 	return avlbRelics;
 }
 
-void PlayerData::setDeck(std::vector<Card*> newDeck)
-{
+void PlayerData::setDeck(std::vector<Card*> newDeck) {
 	deck = newDeck;
 }
 
@@ -93,22 +85,11 @@ void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
 }
 
-void PlayerData::addCardToLibrary(Card* newCard, int num)
-{
+void PlayerData::addCardToLibrary(CardId newCard, int num) {
 	// A�ado la carta a la libreria
-	library.push_back(newCard);
+	for (int i = 0; i < num; i++) {
 
-	//Busco si ya la habia recibido antes
-	auto it = receivedCard.find(newCard->getName());
-
-	// Si ya la habia recibido simplemente aumento el contador de cartas
-	if (it != receivedCard.end()) {
-		it->second->cuantity += num;
-	}
-	// Si no la habia recibido, la creo en el inventario y me guardo su posicion en el mapa 
-	else {
-		inventory.push_back(InventoryInfo(num, 0, &cardsData().get(newCard->getName())));
-		receivedCard[newCard->getName()] = prev(inventory.end());
+		library.push_back(newCard);
 	}
 }
 
@@ -116,7 +97,22 @@ void PlayerData::addRelic(Relic* relic) {
 	myRelics.push_back(relic);
 }
 
-std::vector<Card*> PlayerData::getLibrary()
-{
+std::vector<CardId> PlayerData::getLibrary() {
 	return library;
+}
+void PlayerData::addCardToDeckId(CardId newCard, int num)
+{
+	for (int i = 0; i < num; i++)
+	{
+		deckIds.push_back(newCard);
+	}
+}
+
+std::vector<CardId> PlayerData::getDeckIds()
+{
+	return deckIds;
+}
+void PlayerData::setDeckId(std::vector<CardId> newDeck)
+{
+	deckIds = newDeck;
 }

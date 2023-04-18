@@ -74,10 +74,10 @@ Album::~Album() {
 
 // Añade una carta al álbum si no está ya en él
 void Album::addCard(CardData cData) {
-	if (!foundCardsNames.count(cData.name)) {
+	if (!foundCardsNames.count(cData.key)) {
 		foundCards.push_back(cData);
 		foundCardsNames.insert(cData.name);
 
-		foundCardsByTime[cData.time][cardsData().getCardsIndexByTime()[cData.time].at(cData.name)] = true;
+		foundCardsByTime[cData.time][cardsData().getCardsIndexByTime()[cData.time].at(cData.key)] = true;
 	}
 }

@@ -15,7 +15,6 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<MapScene>(); }, EXIT);
 }
 
-
 void PauseMenuScene::handleInput() {
 	GameState::handleInput();
 	if (gmCtrl_.pause()) {

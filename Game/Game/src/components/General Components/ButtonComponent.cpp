@@ -16,15 +16,12 @@ void ButtonComponent::update() {
 	}
 
 	// Cambia el estado según la posición del ratón
-	if (state != OnClick) {
-		if (isOver(mouseX, mouseY)) {
-			state = OnOver;
-		}
-		else {
-			state = OnOut;
-		}
+	if (isOver(mouseX, mouseY)) {
+		state = OnOver;
 	}
-
+	else {
+		state = OnOut;
+	}
 }
 
 void ButtonComponent::handleInput() {
@@ -69,6 +66,7 @@ bool ButtonComponent::isOver(int mouseX, int mouseY) {
 
 // Ejecuta el callback
 void ButtonComponent::onClick() {
+	gStt->setLastIndex(index);
 	state = OnClick;
 	function();
 }

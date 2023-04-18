@@ -1,16 +1,15 @@
 #pragma once
-
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
-#ifndef CONSTANTS_H_
-#define CONSTANTS_H_
 
 #include <SDL.h>
 #include <iostream>
 #include "../core/Vector2D.h"
 #include "../components/ecs.h"
 
+#ifndef CONSTANTS_H_
+#define CONSTANTS_H_
 using namespace std;
 using uint = unsigned int;
 
@@ -36,6 +35,14 @@ const string TEXTURES_FILE = "../Game/src/data/textures.txt"; // Hay que rehacer
 const int NUM_TEXTURES = 19;
 const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
+
+// FONTS ------------------------------------------------------------------------------------------
+const string USED_FONT = "ARIAL24";
+const int USED_FONT_SIZE = 24;
+
+// TEXT COLORS ------------------------------------------------------------------------------------
+const SDL_Color COLOR_WHITE = { 255, 255, 255 };
+const SDL_Color COLOR_RED = { 255, 0,0 };
 
 // ANIMATIONS -------------------------------------------------------------------------------------
 const string ONOUT = "OnOut";
@@ -126,6 +133,8 @@ const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
 const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
 const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
 
+const int MELEE_ATTACK_DAMAGE = 20;
+
 // RANGED ENEMY
 const string RANGED_ENEMY_TEXTURE_KEY = "RangedEnemy";
 const int RANGED_ENEMY_SPRITE_WIDTH = 32;
@@ -142,6 +151,8 @@ const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 
 const int RANGED_ATTACK_ANIM_DELAY = 670;
 
+const int RANGED_ATTACK_DAMAGE = 20;
+
 // TANK ENEMY
 const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
 const int TANK_ENEMY_SPRITE_WIDTH = 40;
@@ -152,7 +163,7 @@ const int TANK_ENEMY_SPRITE_COLS = 5;
 const int TANK_WIDTH = TANK_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
 const int TANK_HEIGHT = TANK_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const float TANK_SPEED = 35;
-const int TANK_ATTACK_DAMAGE = 1;
+const int TANK_ATTACK_DAMAGE = 10;
 const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
@@ -160,6 +171,7 @@ const float TANK_ATTACK_TIME = 2000;
 const Animation TANK_ENEMY_IDLE_ANIMATION(0, 0, 10, -1);
 const Animation TANK_ENEMY_MOVEMENT_ANIMATION(21, 25, 10, -1);
 const Animation TANK_ENEMY_ATTACK_ANIMATION(0, 20, 10, 1);
+
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";
@@ -298,32 +310,19 @@ const int SP_WIDTH = 210;
 const int SP_HEIGHT = 30;
 const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
+const int ALB_CARD_W = 58 * PIXEL_WIDTH;
+const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
+const int ALB_CARD_X[3] = { 90, 265, 440 };
+const int ALB_CARD_Y = 275;
+const int ALB_CARD_Y_DIST = 10;
+
+const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
+const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
+const Animation CLICKED_CARD_ANIM(3, 3, 1, -1);
+
 
 // INVENTORYSCENE : DECK
-const Vector2D DECK_POSITIONS[6] = {
-	Vector2D(20, 520),
-	Vector2D(180, 520),
-	Vector2D(340, 520),
-	Vector2D(500, 520),
-	Vector2D(660, 520),
-	Vector2D(820, 520)
-};
-
-// INVENTORY : LIBRARY
-const Vector2D LIBRARY_POSITIONS[12] = {
-	Vector2D(20, 50),
-	Vector2D(180, 50),
-	Vector2D(340, 50),
-	Vector2D(500, 50),
-	Vector2D(660, 50),
-	Vector2D(820, 50),
-	Vector2D(20, 270),
-	Vector2D(180, 270),
-	Vector2D(340, 270),
-	Vector2D(500, 270),
-	Vector2D(660, 270),
-	Vector2D(820, 270)
-};
+const int DECK_HEIGHT = 520;
 
 // INVENTORY : OBJECTS
 const int OBJECTS_DIMENSIONS = 64;
@@ -343,6 +342,14 @@ const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
 const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
+const string BUY = "BuyButton";
+
+// BATTLEBACKGROUND ------------------------------------------------------------------------------
+const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 
+const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT; 
+const float BATTLEBACKGROUND3_SCROLLFACTOR = 0.1;
+const float BATTLEBACKGROUND2_SCROLLFACTOR = 0.2;
+const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
 
 // FLOOR -----------------------------------------------------------------------------------------
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
@@ -442,6 +449,9 @@ const float ASSAULT_RIFLE_BURST = 10;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
+// CARD ANIMATIONS
+const int CARD_NUMROWS = 1;
+const int CARD_NUMCOLS = 1;
 // UI CARD DIMENSIONS
 const int UI_CARD_WIDTH = CARD_WIDTH * 3;
 const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;
@@ -607,6 +617,20 @@ const int RANGED_RADIUS = 800;
 const int TANK_RADIUS = 600;
 
 const int STARTING_TIME_PER_WAVE = 15000;
+
+//SHOP ------------------------------------------------------------------------------------------
+const int SHOP_NUMBER_OF_CARDS = 4;
+const int SHOP_CARD_SELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 100;
+const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
+const int SHOP_CARD_OFFSET_X = 300;
+const int SHOP_CARD_PRICE_WIDTH = 100;
+const int SHOP_CARD_PRICE_HEIGHT = 50;
+const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 100);
+const int SHOP_MONEY_WIDTH = 100;
+const int SHOP_MONEY_HEIGHT = 50;
+const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
+const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
 //LOS VALORES GUARDADOS SON LAS PROBABILIDADES DE OLEADAS EN ORDEN
