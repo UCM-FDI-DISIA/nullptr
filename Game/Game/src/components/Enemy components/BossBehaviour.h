@@ -18,6 +18,7 @@ private:
 	float attackDelay, attackTime;
 	int attackState = 0;
 	bool listaCompletada = false;
+	int coneAttacksDone = 0;
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
 
@@ -32,5 +33,6 @@ public:
 	void tentacleDirectedAttack();
 	void sprinklerAttack();
 	void grenadeAttack();
+	static Uint32 coneAttackTimerCallback(Uint32 interval, void* param);
 };
 

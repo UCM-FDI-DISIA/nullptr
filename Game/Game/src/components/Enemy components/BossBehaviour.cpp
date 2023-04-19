@@ -7,8 +7,6 @@ BossBehaviour::BossBehaviour(float spd, float safDist, float stptime, float mvTi
 	EnemyBehaviour(spd, dmg, stptime, atck, plyr),
 	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)),
 	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
-
-
 void BossBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
 	pos->setVel(Vector2D(0, 0)); 
@@ -50,7 +48,7 @@ void BossBehaviour::update() {
 				attackTime = 0;
 				attacking = false;
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
-				switch (attackState) {
+				switch (0) {
 				case 0: // Conos
 					coneAttack();
 					break;
@@ -101,12 +99,10 @@ void BossBehaviour::update() {
 					attackState = rand() % 10;
 				}
 			}
-			
 			else attackTime += SDLApplication::instance()->getDeltaTime();
 		}
 	}
 }
-
 // Permite al enemigo instanciar balas
 void BossBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
@@ -136,15 +132,45 @@ void BossBehaviour::enemyAttack() {
 		}
 	}
 }
-// Funci�n para ejecutar el ataque de Conos
+//// Funci�n para ejecutar el ataque de Conos
+//void BossBehaviour::coneAttack() {
+//	// Obtener la direcci�n hacia el objetivo (en este caso, el player)
+//	Vector2D dir = (playerPos->getPos() - pos->getPos());
+//	dir = dir / dir.magnitude();
+//
+//	// Generar los ataques de cono en direcci�n al jugador y en direcci�n contraria
+//	for (int i = 0; i < 2; i++) {
+//		Vector2D coneDir = dir.rotate(i * 180);
+//		Vector2D hitboxDir;
+//
+//		if (i % 2 == 0) {
+//			hitboxDir = coneDir.rotate(45);
+//		}
+//		else {
+//			hitboxDir = coneDir.rotate(315);
+//		}
+//
+//		Vector2D hitboxPos = pos->getPos() + coneDir * 100;
+//		float rotation = Vector2D(1, 0).angle(coneDir);
+//		Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
+//		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+//	}
+//
+//	// Incrementar el contador de ataques y reiniciar el tiempo de ataque
+//	attackTime = 0;
+//
+//	// Reiniciar behaviorTime para empezar de nuevo
+//	behaviorTime = 0;
+//}
+// Modifica la función coneAttack
 void BossBehaviour::coneAttack() {
-	// Obtener la direcci�n hacia el objetivo (en este caso, el player)
+	// Obtener la dirección hacia el objetivo (en este caso, el player)
 	Vector2D dir = (playerPos->getPos() - pos->getPos());
 	dir = dir / dir.magnitude();
 
-	// Generar los ataques de cono en direcci�n al jugador y en direcci�n contraria
+	// Generar los ataques de cono en dirección al jugador y en dirección contraria
 	for (int i = 0; i < 2; i++) {
-		Vector2D coneDir = dir.rotate(i * 180);
+		Vector2D coneDir = dir.rotate(i * 180 + coneAttacksDone * 90);
 		Vector2D hitboxDir;
 
 		if (i % 2 == 0) {
@@ -160,12 +186,28 @@ void BossBehaviour::coneAttack() {
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 	}
 
+	// Incrementar el contador de ataques de cono
+	coneAttacksDone++;
+
+	// Si aún no se han realizado los 4 ataques de cono, llamar a coneAttack() nuevamente después de 2 segundos
+	if (coneAttacksDone < 4) {
+		// Utiliza la función SDL_AddTimer para llamar a coneAttack() nuevamente después de 2 segundos (2000 ms)
+		SDL_AddTimer(2000, &BossBehaviour::coneAttackTimerCallback, this);
+	}
+	else {
+		// Reiniciar coneAttacksDone
+		coneAttacksDone = 0;
+	}
+
 	// Incrementar el contador de ataques y reiniciar el tiempo de ataque
 	attackTime = 0;
 
 	// Reiniciar behaviorTime para empezar de nuevo
 	behaviorTime = 0;
 }
+
+
+
 // Funci�n para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
 	// Definimos la cantidad de balas y la separaci�n entre ellas
@@ -201,7 +243,6 @@ void BossBehaviour::tentacleDirectedAttack() {
 void BossBehaviour::sprinklerAttack() {
 	// Implementar l�gica del ataque Aspersor
 }
-
 // Funci�n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
 	// Implementar l�gica del ataque Granadas
@@ -223,4 +264,11 @@ void BossBehaviour::grenadeAttack() {
 		Hitbox::HitboxData data = {gObj->getComponent<Transform>()->getCenter(), directions[i] * BULLET_SPEED, 0, 50, 50, FLASH_BANG, _grp_PLAYER};
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 1, StatusComponent::NONE, 200, 200, FLASH_BANG, dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
 	}
+}
+
+// Función de devolución de llamada del temporizador para coneAttack
+Uint32 BossBehaviour::coneAttackTimerCallback(Uint32 interval, void* param) {
+	BossBehaviour* boss = static_cast<BossBehaviour*>(param);
+	boss->coneAttack();
+	return 0;
 }
