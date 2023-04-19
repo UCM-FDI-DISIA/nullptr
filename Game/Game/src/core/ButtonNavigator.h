@@ -41,7 +41,8 @@ public:
 
 
 	// Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
-	ButtonData insert(Image* im, float horMul = 1);
+	ButtonData insert(Image* im, float horMul = 1, float verMul = 1);
+	void erase(Image* im);
 
 	// Recibe un botón y lo asigna como el actual
 	void setCurrentButton(ButtonData bd);

@@ -16,7 +16,7 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 	// Boton de salida (esquina superior izquierda)
 	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_EXITBUTTON_POSITION, AnimatorInfo(EXIT));
-
+	exitButton->setAsCurrentButton();
 	// Seleccion de cartas a mostrar en la tienda
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
 		rand = SDLApplication::instance()->getRandInt(0, maxCardId);

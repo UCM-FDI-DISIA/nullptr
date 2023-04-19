@@ -2,6 +2,10 @@
 #include "../../gameObjects/GameObject.h"
 #include "../../scenes/GameState.h"
 
+ButtonComponent::~ButtonComponent() {
+	butNav->erase(animButton);
+}
+
 void ButtonComponent::update() {
 	// Cambiar animación según el estado
 	updateAnimation();

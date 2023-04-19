@@ -43,7 +43,7 @@ void ButtonNavigator::right() {
 }
 
 // Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
-ButtonData ButtonNavigator::insert(Image* im, float horMul) {
+ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	SDL_Rect rr = im->getRect();
 	SDL_Rect orr = rr;
 
@@ -55,6 +55,7 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul) {
 	rr.w /= 12;
 	rr.w *= horMul;
 	rr.h /= 12;
+	rr.h *= verMul;
 
 	// area total en el map
 	rr.x -= rr.w/2;
@@ -100,6 +101,18 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul) {
 	}
 
 	return ButtonData(bd);
+}
+
+void ButtonNavigator::erase(Image* im) {
+	for (int i = 0; i < 2; ++i) {
+		for (auto m : matrix[i]) {
+			m.second.erase(std::remove_if(m.second.begin(), m.second.end(),
+				[im](std::pair<int, ButtonData> bd) {
+					return bd.second.buttonIm == im;
+				}),
+				m.second.end());
+		}
+	}
 }
 
 // Recibe un botón y lo asigna como el actual

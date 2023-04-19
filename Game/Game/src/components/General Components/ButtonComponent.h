@@ -48,6 +48,8 @@ public:
 		clickSound(nullptr), hoverOverSound(nullptr), gmCtrl_(gmCtrl()), butNav(nullptr), addToNavigation_(addToNav),
 		onSelected_(nullptr), tr_(nullptr), currentButton(false) {}
 
+	virtual ~ButtonComponent();
+
 	virtual void update();
 	virtual void handleInput();
 	virtual void initComponent();
