@@ -17,6 +17,7 @@ private:
 	int shotPattern = 0;
 	float attackDelay, attackTime;
 	int attackState = 0;
+	bool listaCompletada = false;
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
 

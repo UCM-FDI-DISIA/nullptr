@@ -50,7 +50,7 @@ void BossBehaviour::update() {
 				attackTime = 0;
 				attacking = false;
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
-				switch (3) {
+				switch (attackState) {
 				case 0: // Conos
 					coneAttack();
 					break;
@@ -88,7 +88,20 @@ void BossBehaviour::update() {
 				default:
 					break;
 				}
+				if (attackState == 9 && !listaCompletada)
+				{
+					listaCompletada = true;
+				}
+				if (!listaCompletada)
+				{
+					attackState++;
+				}
+				else
+				{
+					attackState = rand() % 10;
+				}
 			}
+			
 			else attackTime += SDLApplication::instance()->getDeltaTime();
 		}
 	}
