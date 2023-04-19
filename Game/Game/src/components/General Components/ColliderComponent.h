@@ -7,6 +7,7 @@ class ColliderComponent : public Component
 {
 private:
 	vector <CallBackCol> functions;
+	vector <CallBackExpl> otherfncts;
 	grpId target;
 public:
 	static const int id = _COLLIDER_COMPONENT;
@@ -15,4 +16,5 @@ public:
 	virtual void update();
 	void hasCollided();
 	void addFunction(CallBackCol funct);
+	void addFunction(CallBackExpl funct);
 };

@@ -40,7 +40,7 @@ void BossBehaviour::update() {
 		if (behaviorTime > stopTime + moveTime) {
 			setDirectionTo();
 			//pos->setVel(Vector2D(0, 0));
-			attacking = true; // comienza la animación de ataque
+			attacking = true; // comienza la animaciï¿½n de ataque
 			behaviorTime -= stopTime + moveTime;
 		}
 	}
@@ -49,8 +49,8 @@ void BossBehaviour::update() {
 			if (attackDelay < attackTime) {
 				attackTime = 0;
 				attacking = false;
-				//enemyAttack(); // ataca coincidiendo con la animación  attackState
-				switch (0) {
+				//enemyAttack(); // ataca coincidiendo con la animaciï¿½n  attackState
+				switch (3) {
 				case 0: // Conos
 					coneAttack();
 					break;
@@ -63,7 +63,7 @@ void BossBehaviour::update() {
 				case 3: // Granadas
 					grenadeAttack();
 					break;
-				case 4: // Tentáculo Dirigido
+				case 4: // Tentï¿½culo Dirigido
 					tentacleDirectedAttack();
 					break;
 				case 5: // Aspersor
@@ -73,7 +73,7 @@ void BossBehaviour::update() {
 					bulletHellAttack();
 					grenadeAttack();
 					break;
-				case 7: // Tentáculo Dirigido + Conos
+				case 7: // Tentï¿½culo Dirigido + Conos
 					tentacleDirectedAttack();
 					coneAttack();
 					break;
@@ -81,7 +81,7 @@ void BossBehaviour::update() {
 					bulletHellAttack();
 					sprinklerAttack();
 					break;
-				case 9: // Granadas + Tentáculo Dirigido
+				case 9: // Granadas + Tentï¿½culo Dirigido
 					grenadeAttack();
 					tentacleDirectedAttack();
 					break;
@@ -123,13 +123,13 @@ void BossBehaviour::enemyAttack() {
 		}
 	}
 }
-// Función para ejecutar el ataque de Conos
+// Funciï¿½n para ejecutar el ataque de Conos
 void BossBehaviour::coneAttack() {
-	// Obtener la dirección hacia el objetivo (en este caso, el player)
+	// Obtener la direcciï¿½n hacia el objetivo (en este caso, el player)
 	Vector2D dir = (playerPos->getPos() - pos->getPos());
 	dir = dir / dir.magnitude();
 
-	// Generar los ataques de cono en dirección al jugador y en dirección contraria
+	// Generar los ataques de cono en direcciï¿½n al jugador y en direcciï¿½n contraria
 	for (int i = 0; i < 2; i++) {
 		Vector2D coneDir = dir.rotate(i * 180);
 		Vector2D hitboxDir;
@@ -153,24 +153,24 @@ void BossBehaviour::coneAttack() {
 	// Reiniciar behaviorTime para empezar de nuevo
 	behaviorTime = 0;
 }
-// Función para ejecutar el ataque Bullet Hell
+// Funciï¿½n para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
-	// Definimos la cantidad de balas y la separación entre ellas
+	// Definimos la cantidad de balas y la separaciï¿½n entre ellas
 	const int numBullets = 10;
 	const float bulletSeparation = 20.0f;
-	// Obtenemos la dirección hacia el jugador
+	// Obtenemos la direcciï¿½n hacia el jugador
 	Vector2D dir = (playerPos->getPos() - pos->getPos()).normalize();
 
-	// Calculamos la posición inicial para las balas
+	// Calculamos la posiciï¿½n inicial para las balas
 	Vector2D startPos = pos->getPos() + dir * 50.0f;
 
 	// Generamos las balas
 	for (int i = 0; i < numBullets; i++) {
-		// Calculamos la dirección de la bala
+		// Calculamos la direcciï¿½n de la bala
 		float angle = (float)i * (360.0f / (float)numBullets);
 		Vector2D bulletDir = dir.rotate(angle);
 
-		// Calculamos la posición de la bala
+		// Calculamos la posiciï¿½n de la bala
 		Vector2D bulletPos = startPos + bulletDir * bulletSeparation * i;
 
 		// Creamos el objeto de la bala
@@ -179,17 +179,35 @@ void BossBehaviour::bulletHellAttack() {
 	}
 }
 
-// Función para ejecutar el ataque Tentáculo Dirigido
+// Funciï¿½n para ejecutar el ataque Tentï¿½culo Dirigido
 void BossBehaviour::tentacleDirectedAttack() {
-	// Implementar lógica del ataque Tentáculo Dirigido
+	// Implementar lï¿½gica del ataque Tentï¿½culo Dirigido
 }
 
-// Función para ejecutar el ataque Aspersor
+// Funciï¿½n para ejecutar el ataque Aspersor
 void BossBehaviour::sprinklerAttack() {
-	// Implementar lógica del ataque Aspersor
+	// Implementar lï¿½gica del ataque Aspersor
 }
 
-// Función para ejecutar el ataque Granadas
+// Funciï¿½n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
-	// Implementar lógica del ataque Granadas
+	// Implementar lï¿½gica del ataque Granadas
+	Vector2D directions[] = { Vector2D(1,0), Vector2D(0,1), Vector2D(-1,0), Vector2D(0,-1) };
+
+	// Creo la funcion que instancia 8 balas al explotar
+	CallBackExpl bossGrenade = [myScene = gStt](Transform* tr) {
+		// Direcciones de las balas
+		Vector2D directs[] = {Vector2D(1,0), Vector2D(-1,0), Vector2D(0,1), Vector2D(0,-1), 
+			Vector2D(1,1).normalize(), Vector2D(1,-1).normalize(), Vector2D(-1,1).normalize(), Vector2D(-1,-1).normalize()};
+		// Creo las 8 balas
+		for (int i = 0; i < 8; i++) {
+			Hitbox::HitboxData data = { tr->getCenter(), directs[i] * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER};
+			myScene->addGameObject<Hitbox>(_grp_ENM_ATTACK, 20, true, false, 10, data);
+		}
+	};
+	// Creo las 4 granadas en direcciones arriba, abajo, izq y der
+	for (int i = 0; i < 4; i++) {
+		Hitbox::HitboxData data = {gObj->getComponent<Transform>()->getCenter(), directions[i] * BULLET_SPEED, 0, 50, 50, FLASH_BANG, _grp_PLAYER};
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 1, StatusComponent::NONE, 200, 200, FLASH_BANG, dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
+	}
 }

@@ -15,6 +15,10 @@ void ColliderComponent::addFunction(CallBackCol function) {
 	functions.push_back(function);
 }
 
+void ColliderComponent::addFunction(CallBackExpl function) {
+	otherfncts.push_back(function);
+}
+
 // Comprueba la colisi�n del objeto con la lista de colisionados
 void ColliderComponent::hasCollided() {
 	//Sacamos todos los par�metros del transform propio
@@ -39,6 +43,7 @@ void ColliderComponent::hasCollided() {
 		{
 			// Si colisiona, realiza la funci�n
 			for(CallBackCol function : functions) function(other);
+			for (CallBackExpl func : otherfncts) func(tr);
 		}
 	}
 }
