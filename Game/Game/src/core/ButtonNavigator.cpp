@@ -1,28 +1,32 @@
 #include "ButtonNavigator.h"
-
+#include <experimental/map>
 
 // Constructora
 ButtonNavigator::ButtonNavigator() : gmCtrl_(gmCtrl()), unlockedMovement_(true) {}
 
 // Selecciona el botón adjacente al actual en la dirección indicada
-void ButtonNavigator::changePos(way w) {
+bool ButtonNavigator::changePos(way w) {
+	bool moved = false;
 	if (unlockedMovement_) {
 		int dir = (w < 2) ? d_x : d_y;
 		// incrementa
 		if (w % 2 != 0) {
 			if (std::next(currentButton.pos[w]) != matrix[dir][currentButton.supPos[w]].end()) {
 				++currentButton.pos[w];
+				moved = true;
 			}
 		}
 		// decrementa
 		else {
 			if (currentButton.pos[w] != matrix[dir][currentButton.supPos[w]].begin()) {
 				--currentButton.pos[w];
+				moved = true;
 			}
 		}
 
 		setCurrentButton(currentButton.pos[w]->second);
 	}
+	return moved;
 }
 
 // Selecciona el botón encima del actual
@@ -104,13 +108,20 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 }
 
 void ButtonNavigator::erase(Image* im) {
-	for (int i = 0; i < 2; ++i) {
-		for (auto m : matrix[i]) {
-			m.second.erase(std::remove_if(m.second.begin(), m.second.end(),
-				[im](std::pair<int, ButtonData> bd) {
+	if (im == currentButton.buttonIm) {
+		bool moved = false;
+		for (int i = 0; i < 4 && !moved; ++i) {
+			if (changePos(way(i))) moved = true;
+		}
+	}
+
+
+	for (int o = 0; o < 2; ++o) {
+		for (auto m : matrix[o]) {
+			std::experimental::erase_if(m.second,
+				[im](const auto& bd) {
 					return bd.second.buttonIm == im;
-				}),
-				m.second.end());
+				});
 		}
 	}
 }
@@ -118,9 +129,6 @@ void ButtonNavigator::erase(Image* im) {
 // Recibe un botón y lo asigna como el actual
 void ButtonNavigator::setCurrentButton(ButtonData bd) {
 	currentButton = bd;
-
-	SDL_Rect r = currentButton.buttonIm->getRect();
-	gmCtrl_.moveMouse(r.x + r.w / 2, r.y + r.h / 2);
 }
 
 // Bloquea la navegacion entre botones

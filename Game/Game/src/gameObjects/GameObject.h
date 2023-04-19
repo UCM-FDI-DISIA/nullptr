@@ -24,10 +24,16 @@ public:
 	}
 	// Destructor
 	virtual ~GameObject() { 
-		for (Component* cmp : currCmps) {
-			delete cmp;
-			cmp = nullptr;
+		for (auto cmp = currCmps.rbegin(); cmp != currCmps.rend(); ++cmp) {
+			delete (*cmp);
+			*cmp = nullptr;
 		}
+
+
+		//for (Component* cmp : currCmps) {
+		//	delete cmp;
+		//	cmp = nullptr;
+		//}
 		for (Component* cpm : cmps) {
 			cpm = nullptr;
 		}

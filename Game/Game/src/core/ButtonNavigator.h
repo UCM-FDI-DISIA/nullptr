@@ -26,7 +26,7 @@ private:
 	bool unlockedMovement_;
 
 	// Selecciona el botón adjacente al actual en la dirección indicada
-	void changePos(way w);
+	bool changePos(way w);
 public:
 	// Constructora
 	ButtonNavigator();
