@@ -3,6 +3,7 @@
 #include "../../gameObjects/Card Objects/Hitbox.h"
 #include "../../scenes/BattleScene.h"
 #include "../../core/SDLApplication.h"
+#include <cmath>
 
 // Esta clase define el comportamiento del enemigo a distancia
 // Se mueve por un tiempo determinado y se queda parado otro

@@ -50,7 +50,7 @@ void BossBehaviour::update() {
 				attackTime = 0;
 				attacking = false;
 				//enemyAttack(); // ataca coincidiendo con la animación  attackState
-				switch (1) {
+				switch (0) {
 				case 0: // Conos
 					coneAttack();
 					break;
@@ -125,9 +125,34 @@ void BossBehaviour::enemyAttack() {
 }
 // Función para ejecutar el ataque de Conos
 void BossBehaviour::coneAttack() {
-	// Implementar lógica del ataque de Conos
-}
+	// Obtener la dirección hacia el objetivo (en este caso, el player)
+	Vector2D dir = (playerPos->getPos() - pos->getPos());
+	dir = dir / dir.magnitude();
 
+	// Generar los ataques de cono en dirección al jugador y en dirección contraria
+	for (int i = 0; i < 2; i++) {
+		Vector2D coneDir = dir.rotate(i * 180);
+		Vector2D hitboxDir;
+
+		if (i % 2 == 0) {
+			hitboxDir = coneDir.rotate(45);
+		}
+		else {
+			hitboxDir = coneDir.rotate(315);
+		}
+
+		Vector2D hitboxPos = pos->getPos() + coneDir * 100;
+		float rotation = Vector2D(1, 0).angle(coneDir);
+		Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+	}
+
+	// Incrementar el contador de ataques y reiniciar el tiempo de ataque
+	attackTime = 0;
+
+	// Reiniciar behaviorTime para empezar de nuevo
+	behaviorTime = 0;
+}
 // Función para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
 	// Definimos la cantidad de balas y la separación entre ellas

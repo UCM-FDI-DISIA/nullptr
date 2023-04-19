@@ -174,9 +174,15 @@ const int BOSS_ENEMY_HEIGHT = BOSS_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT * 2;
 const Animation BOSS_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
 const Animation BOSS_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
 const Animation BOSS_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
+//BOSS ATTACKS-----------------------------
+const int CONE_HITBOX_SIZE = 100;
+const int CONE_ATTACK_DURATION = 2000; // 2 seconds
+const int CONE_ATTACK_COOLDOWN = 2000; // 2 seconds
+const float RAD_TO_DEG = 180.0f / M_PI;
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";
+const string CONE_BOSS = "BossCone";
 const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
 const string SOWND_ATTACK = "Sound";
