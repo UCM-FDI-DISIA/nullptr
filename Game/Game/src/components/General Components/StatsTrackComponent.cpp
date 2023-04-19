@@ -1,6 +1,7 @@
 #include "StatsTrackComponent.h"
 #include "../../core/SDLApplication.h"
 #include "../Enemy components/RangeBehaviour.h"
+#include "../../scenes/PostGameScene.h"
 
 void StatsTrackComponent::update()
 {
@@ -36,5 +37,6 @@ void StatsTrackComponent::endTimeCouinting()
 
 void StatsTrackComponent::startStatsScene()
 {
-	//TODO
+	calculateMoney();
+	SDLApplication::newScene<PostGameScene>(damage,melee,ranged,tank,money,time);
 }

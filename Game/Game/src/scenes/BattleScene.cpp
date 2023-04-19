@@ -1,6 +1,7 @@
 #include "BattleScene.h"
 #include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
+#include "../components/General Components/StatsTrackComponent.h"
 
 // Constructora
 BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
@@ -45,8 +46,9 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	camera->startFollowObject(player);
 
 	// Generador de enemigos
-	enemyGenerator = addGameObject();
-	enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	empty = addGameObject();
+	empty->addComponent<EnemyGenerator>(player, this);
+	empty->addComponent<StatsTrackComponent>();
 
 	// - UI -
 	// Nos guardamos una referencia al componente de cartas del player
@@ -120,4 +122,5 @@ void BattleScene::onHealthChanges(float value) {
 // Llamar al cambio del valor de éter
 void BattleScene::onEtherChanges(float value) {
 	if (statistics != nullptr) statistics->onEtherChanges(value);
+	if (value >= 100) getTracker()->endTimeCouinting();
 }

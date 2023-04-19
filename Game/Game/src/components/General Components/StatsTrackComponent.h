@@ -15,6 +15,8 @@ private:
 
 	bool timeCounting;
 
+	void calculateMoney();
+
 public:
 	static const int id = _STATS_TRACK;
 	StatsTrackComponent() : damage(0), melee(0), ranged(0), tank(0), money(0), time(0), timeCounting(true) {}
@@ -24,7 +26,6 @@ public:
 
 	void onPlayerDamage(int dmg);
 	void onEnemyKilled(GameObject* enemy);
-	void calculateMoney();
 	void endTimeCouinting();
 	void startStatsScene();
 

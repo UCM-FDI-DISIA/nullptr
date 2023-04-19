@@ -45,6 +45,7 @@ public:
 	void createLifeBar(int value);
 	void createManaBar(int value);
 	void createEtherMeter();
+	
 
 	// Métodos para cambios en las barras anteriores
 	void onManaChanges(float value);

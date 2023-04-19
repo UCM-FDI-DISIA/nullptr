@@ -65,7 +65,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		objs.push_back(number);
 	}
 	// Componente de salida
-	etherMeter->addComponent<ChargedPortalComponent>(etherCounter);
+	etherMeter->addComponent<ChargedPortalComponent>(etherCounter,gStt);
 }
 
 StatisticsUI::~StatisticsUI() {
