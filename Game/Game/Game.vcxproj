@@ -236,6 +236,7 @@
     <ClInclude Include="src\scenes\NodeScene.h" />
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
+    <ClInclude Include="src\scenes\PostGameScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
     <ClInclude Include="src\sdlutils\Font.h" />
     <ClInclude Include="src\sdlutils\InputHandler.h" />
@@ -332,6 +333,7 @@
     <ClCompile Include="src\scenes\NodeScene.cpp" />
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
+    <ClCompile Include="src\scenes\PostGameScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
