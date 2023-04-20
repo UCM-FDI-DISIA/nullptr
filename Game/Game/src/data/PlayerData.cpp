@@ -6,21 +6,22 @@ PlayerData::PlayerData() {
 
 	level = 5;
 	// Cartas iniciales
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	addCardToLibrary(_card_SWORD, 3);
-	addCardToDeckId(_card_SWORD, 3);
-
+	deck.push_back(new SpearCard());
+	deck.push_back(new SpearCard());
+	deck.push_back(new SpearCard());
+	addCardToLibrary(_card_SPEAR, 3);
+	addCardToDeckId(_card_SPEAR, 3);
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	addCardToLibrary(_card_GUN, 3);
 	addCardToDeckId(_card_GUN, 3);
+	/*
 	deck.push_back(new LaserShadesCard());
 	deck.push_back(new LaserShadesCard());
 	addCardToLibrary(_card_LASERGLASSES, 2);
 	addCardToDeckId(_card_LASERGLASSES, 2);
+	*/
 
 	for (auto& var : sdlutils().relics().map_)
 	{
