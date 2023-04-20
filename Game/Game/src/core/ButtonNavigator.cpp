@@ -57,10 +57,14 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	rr.x /= 12;
 	rr.y /= 12;
 	rr.w /= 12;
-	rr.w *= horMul;
 	rr.h /= 12;
-	rr.h *= verMul;
 
+	rr.x -= (rr.w - rr.w * horMul) / 2;
+	rr.y -= (rr.h - rr.h * verMul) / 2;
+	rr.w *= horMul;
+	rr.h *= verMul;
+	
+	
 	// area total en el map
 	rr.x -= rr.w/2;
 	rr.y -= rr.h/2;
@@ -109,26 +113,42 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 
 void ButtonNavigator::erase(Image* im) {
 	if (im == currentButton.buttonIm) {
-		bool moved = false;
-		for (int i = 0; i < 4 && !moved; ++i) {
-			if (changePos(way(i))) moved = true;
-		}
+		selectDefaultButton();
 	}
 
 
 	for (int o = 0; o < 2; ++o) {
-		for (auto m : matrix[o]) {
-			std::experimental::erase_if(m.second,
-				[im](const auto& bd) {
-					return bd.second.buttonIm == im;
-				});
+		for (auto& m : matrix[o]) {
+			for (auto it = m.second.begin(); it != m.second.end();) {
+				if (it->second.buttonIm == im) {
+					it = m.second.erase(it);
+				} else {
+					++it;
+				}
+			}
+
+
+
+			//std::experimental::erase_if(m.second,
+			//	[im](const auto& bd) {
+			//		return bd.second.buttonIm == im;
+			//	});
 		}
 	}
 }
 
+// Recibe un botón y lo asigna como el por defecto
+void ButtonNavigator::setDefaultButton(ButtonData bd) {
+	defaultButton = bd;
+	selectDefaultButton();
+}
 // Recibe un botón y lo asigna como el actual
 void ButtonNavigator::setCurrentButton(ButtonData bd) {
 	currentButton = bd;
+}
+// Selecciona el botón por defecto
+void ButtonNavigator::selectDefaultButton() {
+	setCurrentButton(defaultButton);
 }
 
 // Bloquea la navegacion entre botones

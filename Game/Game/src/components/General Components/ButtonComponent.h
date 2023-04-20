@@ -38,15 +38,16 @@ protected:
 	ButtonNavigator* butNav;
 	ButtonData myData;
 	bool addToNavigation_;
+	float horMult, verMult;
 	std::function<void(Transform*)> onSelected_;
 	Transform* tr_;
 	bool currentButton;
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack _f, GameObject* _frame = nullptr, int _index = -1, bool addToNav = true) :
+	ButtonComponent(CallBack _f, GameObject* _frame = nullptr, int _index = -1, bool addToNav = true, float horMul = 1.0f, float verMul = 1.0f) :
 		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr), index(_index),
 		clickSound(nullptr), hoverOverSound(nullptr), gmCtrl_(gmCtrl()), butNav(nullptr), addToNavigation_(addToNav),
-		onSelected_(nullptr), tr_(nullptr), currentButton(false) {}
+		onSelected_(nullptr), tr_(nullptr), currentButton(false), horMult(horMul), verMult(verMul) {}
 
 	virtual ~ButtonComponent();
 
@@ -63,6 +64,8 @@ public:
 
 	// Cambia el estado de los animators para mostrar el estado del bot�n recibido
 	void changeStateAnim(string key, int state);
+	// Convierte al botón en el por defecto de la escena
+	void setAsDefaultButton();
 	// Selecciona el bot�n
 	void setAsCurrentButton();
 

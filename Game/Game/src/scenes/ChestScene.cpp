@@ -27,7 +27,7 @@ ChestScene::ChestScene() : NodeScene() {
 	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
 	anim->createAnim(ONCLICK, 0, 6, 10, 1);
 
-	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton, eB = exitButton]() { gacha(gb); eB->setAsCurrentButton(); })->setAsCurrentButton();
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton, eB = exitButton]() { gacha(gb); eB->setAsCurrentButton(); })->setAsDefaultButton();
 
 }
 ChestScene:: ~ChestScene()

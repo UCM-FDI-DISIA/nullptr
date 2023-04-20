@@ -15,10 +15,11 @@ private:
 public:
 	// A�ade los componentes al bot�n y crea sus animaciones
 	virtual void initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame);
-	virtual void initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, int index = -1, GameObject* _frame = nullptr);
+	virtual void initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, int index = -1, GameObject* _frame = nullptr, float horMul = 1.0f, float verMul = -1.0f);
 	
 	// Crear animaciones
 	void createButtonAnimations(Animator* animator);
 
+	void setAsDefaultButton();
 	void setAsCurrentButton();
 };

@@ -42,7 +42,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	exitButton = addGameObject<Button>([&]() { if (!selected) SDLApplication::newScene<MainMenuScene>(); }, Vector2D(10, 10), aI);
-	exitButton->setAsCurrentButton();
+	exitButton->setAsDefaultButton();
 
 	camTr = camera->getComponent<Transform>();
 }
@@ -113,7 +113,7 @@ void AlbumScene::selectCard(CardData cData) {
 	// BOT�N SALIR
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 
-	Button* b = addGameObject<Button>([&]() { deselectCard(); butNavigator->unlockMovement(); exitButton->setAsCurrentButton(); }, Vector2D(700, 500), aI);
+	Button* b = addGameObject<Button>([&]() { deselectCard(); butNavigator->unlockMovement(); butNavigator->selectDefaultButton(); }, Vector2D(700, 500), aI);
 	butNavigator->lockMovement();
 	b->setAsCurrentButton();
 	infoWindow.push_back(b);

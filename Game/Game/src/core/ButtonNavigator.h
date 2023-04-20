@@ -21,6 +21,7 @@ private:
 	typedef std::map<int, ButtonData> button_map;
 	std::map<int, button_map> matrix[2];
 	ButtonData currentButton;
+	ButtonData defaultButton;
 
 	GameControl& gmCtrl_;
 	bool unlockedMovement_;
@@ -41,11 +42,15 @@ public:
 
 
 	// Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
-	ButtonData insert(Image* im, float horMul = 1, float verMul = 1);
+	ButtonData insert(Image* im, float horMul = 1.0f, float verMul = 1.0f);
 	void erase(Image* im);
 
+	// Recibe un botón y lo asigna como el por defecto
+	void setDefaultButton(ButtonData bd);
 	// Recibe un botón y lo asigna como el actual
 	void setCurrentButton(ButtonData bd);
+	// Selecciona el botón por defecto
+	void selectDefaultButton();
 	// Bloquea la navegacion entre botones
 	void lockMovement();
 	// Desbloquea la navegación entre botones

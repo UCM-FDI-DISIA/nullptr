@@ -9,7 +9,7 @@ OptionsMenuScene::OptionsMenuScene() {
 
 	// Botones
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI)->setAsCurrentButton();
+	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 50), aI)->setAsDefaultButton();
 	aI.key = OPTIONS;
 	addGameObject<Button>([]() { sdlutils().toggleFullScreen(); }, Vector2D(WIN_WIDTH / 2 - 79, (WIN_HEIGHT / 4) + 200), aI);
 	aI.key = OPTIONS;

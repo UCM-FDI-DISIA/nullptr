@@ -31,7 +31,7 @@ MapScene::MapScene() {
 					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 15 : 3 * 1.5,
+				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 13 : 7 * 1.5,
 					[&](Transform* myTr) {
 						camTr->setY(-myTr->getY() + sdlutils().height() / 2 - NODE_HEIGHT / 2);
 					});
@@ -53,7 +53,7 @@ MapScene::MapScene() {
 
 	// Botón Inventario
 	inventoryButton = createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
-	inventoryButton->setAsCurrentButton();
+	inventoryButton->setAsDefaultButton();
 
 	// Botón salir
 	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);

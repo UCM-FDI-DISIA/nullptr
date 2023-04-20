@@ -44,11 +44,12 @@ InventoryScene::InventoryScene() : GameState() {
 	}
 	// Creamos el boton de salir
 	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, [&]() {
-		int cardsInDeck = 0;
-	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
-		if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
-		if(cardsInDeck>=4)SDLApplication::popGameState(); 
-		}, EXIT)->setAsCurrentButton();
+			int cardsInDeck = 0;
+			for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
+				if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
+			if (cardsInDeck >= 4) SDLApplication::popGameState(); 
+		}, 
+		EXIT)->setAsDefaultButton();
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
@@ -186,7 +187,8 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 			}
 		}
 		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
-		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4)); 
+		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4),
+			-1, nullptr, 0.5f, 0.5f); 
 	
 	Animator* a = b->getComponent<Animator>();
 	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);

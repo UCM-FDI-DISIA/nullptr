@@ -24,8 +24,8 @@ GameOverScene::GameOverScene() {
 	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3) - FRAME_OFFSET,
 		[]() { 
 			SDLApplication::newScene<MainMenuScene>();
-
-		}, EXIT)->setAsCurrentButton();
+		},
+		EXIT)->setAsDefaultButton();
 }
 
 GameOverScene::~GameOverScene() {

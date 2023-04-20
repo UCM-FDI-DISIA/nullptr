@@ -56,7 +56,7 @@ void ButtonComponent::initComponent() {
 	clickSound = &sdlutils().soundEffects().at("ButtonPressed");
 	
 	butNav = gStt->getButtonNavigator();
-	if (addToNavigation_) myData = butNav->insert(animButton);
+	if (addToNavigation_) myData = butNav->insert(animButton, horMult, verMult);
 	tr_ = gObj->getComponent<Transform>();
 }
 
@@ -111,6 +111,10 @@ void ButtonComponent::changeStateAnim(string key, int state) {
 	}
 }
 
+// Convierte al botón en el por defecto de la escena
+void ButtonComponent::setAsDefaultButton() {
+	butNav->setDefaultButton(myData);
+}
 
 void ButtonComponent::setAsCurrentButton() {
 	butNav->setCurrentButton(myData);
