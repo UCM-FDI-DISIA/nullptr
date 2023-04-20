@@ -29,7 +29,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		GameObject* number = new GameObject();
 		
 		// Añadir componentes y crea animaciones
-		number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 + 60 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
+		number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 + 60 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
 		createNumberAnims(number, fullLife, i);
 
 		// Añadir a los vectores
@@ -43,7 +43,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		GameObject* number = new GameObject();
 
 		// Añadir componentes y crea animaciones
-		number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 140 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
+		number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 140 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
 		createNumberAnims(number, fullMana, i);
 
 		// Añadir a su vector
@@ -57,8 +57,8 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		GameObject* number = new GameObject();
 
 		// Añadir componentes y crea animaciones
-		if (i != 3) number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 35 + (20 * i), 15), Vector2D(), ST_NUMBERS_WIDTH * 1.8, ST_NUMBERS_HEIGHT * 1.8, 0);
-		else number->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 35 + (20 * i), 26), Vector2D(), ST_NUMBERS_WIDTH * 1.2, ST_NUMBERS_HEIGHT * 1.2, 0);
+		if (i != 3) number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 35 + (20 * i), 15), Vector2D(), ST_NUMBERS_WIDTH * 1.8, ST_NUMBERS_HEIGHT * 1.8, 0);
+		else number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 35 + (20 * i), 26), Vector2D(), ST_NUMBERS_WIDTH * 1.2, ST_NUMBERS_HEIGHT * 1.2, 0);
 		createNumberAnims(number, 0, i, false);
 
 		etherCounter.push_back(number);

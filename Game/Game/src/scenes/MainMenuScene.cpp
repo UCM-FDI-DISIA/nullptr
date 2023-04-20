@@ -5,7 +5,7 @@
 MainMenuScene::MainMenuScene() : GameState() {
 	// Imagen de fondo
 	GameObject* background = addGameObject();
-	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
 
 	// Logo del juego
@@ -42,7 +42,7 @@ void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 	// Crear marco
 	GameObject* frame = addGameObject();
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGHT, aI.rows, aI.cols);
 
 	// Crear bot�n
 	addGameObject<Button>(_cb, _bPos, aI, frame);

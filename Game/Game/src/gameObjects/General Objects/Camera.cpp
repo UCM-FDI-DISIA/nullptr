@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "../../core/SDLApplication.h"
 
 /*
 	En cada escena se crea una camara inicializada en la posicion (0,0),
@@ -11,7 +12,7 @@
 
 // Constructora
 Camera::Camera() : followObject(nullptr) {
-	transform = addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	transform = addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	cameraComponent = addComponent<CameraComponent>();
 }
 

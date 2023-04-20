@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include "../sdlutils/SDLUtils.h"
 #include "../data/constants.h"
+#include "../data/Constant.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
 #include "../sdlutils/InputHandler.h"

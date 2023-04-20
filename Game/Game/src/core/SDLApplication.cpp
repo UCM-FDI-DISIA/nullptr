@@ -2,9 +2,11 @@
 
 // Constructora
 SDLApplication::SDLApplication() {
+	// Crea las constantes
+	Constant::getNumbersFromJSON();
 
 	// Creacion de la ventana
-	SDLUtils::init("Timeless Deck - Es tiempo", WIN_WIDTH, WIN_HEIGHT, "../Game/src/data/game.resources.json");
+	SDLUtils::init("Timeless Deck - Es tiempo", Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"), "../Game/src/data/game.resources.json");
 	utils = SDLUtils::instance();
 	window = utils->window();
 	renderer = utils->renderer();

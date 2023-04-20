@@ -5,7 +5,7 @@
 GameOverScene::GameOverScene() {
 	//Creo el background
 	auto bc = addGameObject();
-	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	bc->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	auto i = bc->addComponent<Image>(SDLApplication::getTexture("GameOver"));
 	i->attachToCamera();
 
@@ -21,7 +21,7 @@ GameOverScene::GameOverScene() {
 	deathSound->play();
 
 	//Creo el boton y su marco y los fijo a la camara
-	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3) - FRAME_OFFSET,
+	createButton(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79 * 1.5, Constant::getInt("WIN_HEIGHT") * 2 / 3), Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79 * 1.5, Constant::getInt("WIN_HEIGHT") * 2 / 3) - FRAME_OFFSET,
 		[]() { 
 			SDLApplication::newScene<MainMenuScene>();
 
@@ -35,7 +35,7 @@ void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 	// Crear marco
 	GameObject* frame = addGameObject();
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGHT, aI.rows, aI.cols);
 
 	// Crear botón
 	addGameObject<Button>(_cb, _bPos, aI, frame);

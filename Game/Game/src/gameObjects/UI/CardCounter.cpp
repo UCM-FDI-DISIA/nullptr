@@ -9,7 +9,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Me guardo el Transform del objeto principal (para ajustar los numeros de acorde)
 	Transform* trP;
 	// Si soy el contador de cartas del mazo me coloco a la izquierda
-	int right = WIN_WIDTH - 2 * REVERSE_WIDTH;
+	int right = Constant::getInt("WIN_WIDTH") - 2 * REVERSE_WIDTH;
 	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
 	else trP = addComponent<Transform>(Vector2D(right, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);

@@ -15,7 +15,7 @@ MapScene::MapScene() {
 	for (auto& height : nodeMap) {
 		int j = 0;
 		for (Node* node : height) {
-			Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * i);
+			Vector2D pos = Vector2D(0, (int)Constant::getInt("WIN_HEIGHT") - NODE_POSITION_Y * i);
 			if (node != nullptr) { 
 				switch (nodesPerHeight[i]) {
 				case 1:
@@ -40,7 +40,7 @@ MapScene::MapScene() {
 		++i;
 	}
 
-	camera->getComponent<Transform>()->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
+	camera->getComponent<Transform>()->setY((- (int)Constant::getInt("WIN_HEIGHT") / 2) + NODE_HEIGHT);
 
 	// BOTONES
 	// Botón options
@@ -59,7 +59,7 @@ void MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string
 	// Crear marco
 	GameObject* frame = addGameObject();
 	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols)->attachToCamera();
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGHT, aI.rows, aI.cols)->attachToCamera();
 
 	// Crear bot�n
 	addGameObject<Button>(_cb, _bPos, aI, frame);
@@ -82,7 +82,7 @@ void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vecto
 					if (nodes[alt - 1][i]->conectsWith(j)) {
 						GameObject* conection = addGameObject();
 						string key = "";
-						Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * alt + NODE_HEIGHT);
+						Vector2D pos = Vector2D(0, (int)Constant::getInt("WIN_HEIGHT") - NODE_POSITION_Y * alt + NODE_HEIGHT);
 						
 						if (nodesPerHeight[alt - 1] == 1) {
 							if (nodesPerHeight[alt] == 1) {

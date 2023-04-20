@@ -37,7 +37,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 	cout << camYLimit << endl;
 
 	GameObject* bg = addGameObject();
-	bg->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	bg->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	bg->addComponent<Image>(SDLApplication::getTexture("Album"))->attachToCamera();
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
@@ -76,7 +76,7 @@ void AlbumScene::selectCard(CardData cData) {
 	selected = true;
 	// FONDO
 	GameObject* g = addGameObject();
-	g->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	g->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	g->addComponent<Image>(SDLApplication::getTexture("CardSelectedMenu"))->attachToCamera();
 	infoWindow.push_back(g);
 	// CARTA

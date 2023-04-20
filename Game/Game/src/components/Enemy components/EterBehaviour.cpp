@@ -5,14 +5,14 @@ EterBehaviour::EterBehaviour(float groundTime, Transform* player) {
 	elapsedTime = 0;
 	speeding = 0;
 	plyr = player;
-	dest = Vector2D(WIN_WIDTH / 2, 0);
+	dest = Vector2D(Constant::getInt("WIN_WIDTH") / 2, 0);
 	dir = Vector2D(0, 1);
 }
 void EterBehaviour::initComponent() {
 	myTransform = gObj->getComponent<Transform>();
 }
 void EterBehaviour::update() {
-	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() - WIN_HEIGHT / 2);
+	dest = Vector2D(plyr->getPos().getX(), plyr->getPos().getY() - Constant::getInt("WIN_HEIGHT") / 2);
 	elapsedTime += SDLApplication::instance()->getDeltaTime();
 	if (elapsedTime >= floorTime) {
 		dir = dir.rotate(myTransform->getVel().angle(dest - myTransform->getPos()) > 0 ? 0.3f : -0.3f);

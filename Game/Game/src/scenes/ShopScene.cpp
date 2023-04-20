@@ -6,7 +6,7 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 	// Fondo
 	background = addGameObject();
-	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	int rand = SDLApplication::instance()->getRandInt(0, 2);
 	(rand == 0) ? background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground1")) : 
 		background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground2"));

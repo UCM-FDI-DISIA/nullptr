@@ -17,7 +17,7 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 		fontsAccessWrapper_(fonts_, "Fonts Table"), //
 		imagesAccessWrapper_(images_, "Images Table"), //
 		relicsAccessWrapper_(relics_, "Relics Table"),
-		//msgsAccessWrapper_(msgs_, "Messages Table"), //
+		//numberCtsAccessWrapper_(numberCts_, "Numbers Table"), //
 		soundsAccessWrapper_(sounds_, "Sounds Table"), //
 		musicsAccessWrapper_(musics_, "Musics Table") ///
 {
@@ -216,43 +216,32 @@ void SDLUtils::loadResources(std::string filename) {
 		}
 	}
 
-	// load messages
-//	jValue = root["messages"];
+//	// load number constants
+//	jValue = root["number"];
 //	if (jValue != nullptr) {
 //		if (jValue->IsArray()) {
-//			msgs_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+//			numberCts_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
 //			for (auto &v : jValue->AsArray()) {
 //				if (v->IsObject()) {
 //					JSONObject vObj = v->AsObject();
 //					std::string key = vObj["id"]->AsString();
-//					std::string txt = vObj["text"]->AsString();
-//					auto &font = fonts_.at(vObj["font"]->AsString());
+//					double value = vObj["value"]->AsNumber();
 //#ifdef _DEBUG
-//					std::cout << "Loading message with id: " << key
-//							<< std::endl;
+//					std::cout << "Loading number (int, float, double) info with id: " << key << std::endl;
 //#endif
-//					if (vObj["bg"] == nullptr)
-//						msgs_.emplace(key,
-//								Texture(renderer(), txt, font,
-//										build_sdlcolor(
-//												vObj["color"]->AsString())));
-//					else
-//						msgs_.emplace(key,
-//								Texture(renderer(), txt, font,
-//										build_sdlcolor(
-//												vObj["color"]->AsString()),
-//										build_sdlcolor(
-//												vObj["bg"]->AsString())));
+//
+//					numberCts_.emplace(key, value);
+//					
 //				} else {
-//					throw "'messages' array in '" + filename
+//					throw "'number' array in '" + filename
 //							+ "' includes and invalid value";
 //				}
 //			}
 //		} else {
-//			throw "'messages' is not an array in '" + filename + "'";
+//			throw "'number' is not an array in '" + filename + "'";
 //		}
 //	}
-//
+
 // load sounds
 	jValue = root["sounds"];
 	if (jValue != nullptr) {
