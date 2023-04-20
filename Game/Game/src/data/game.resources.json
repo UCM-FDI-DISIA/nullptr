@@ -53,6 +53,7 @@
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
 
       { "id" : "NewSwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin192x192.png" },
+      { "id" : "NewSwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/NewSwordSlash96x192.png" },
       
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
       { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
