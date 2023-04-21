@@ -7,7 +7,7 @@ class PlayerMovementComponent : public Component
 {
 private:
 	Transform* transform;
-	float playerSpeed = PLAYER_SPEED;
+	float playerSpeed = Constant::getFloat("PLAYER_SPEED");
 
 public:
 	static const int id = _PLAYERMOVEMENTCOMPONENT;

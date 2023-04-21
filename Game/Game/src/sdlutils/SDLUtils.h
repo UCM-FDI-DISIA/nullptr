@@ -201,16 +201,12 @@ private:
 	sdl_resource_table<Font> fonts_; // fonts map (string -> font)
 	sdl_resource_table<Texture> images_; // textures map (string -> texture)
 	sdl_resource_table<Relic> relics_; // relic map (string -> relic)
-	//sdl_resource_table<double> numberCts_; // number map (string -> double)
-	//sdl_resource_table<Vector2D> vectorCts_; // vector map (string -> vector)
 	sdl_resource_table<SoundEffect> sounds_; // sounds map (string -> sound)
 	sdl_resource_table<Music> musics_; // musics map (string -> music)
 
 	map_access_wrapper<Font> fontsAccessWrapper_;
 	map_access_wrapper<Texture> imagesAccessWrapper_;
 	map_access_wrapper<Relic> relicsAccessWrapper_;
-	//map_access_wrapper<double> numberCtsAccessWrapper_;
-	//map_access_wrapper<Vector2D> vectorCtsAccessWrapper_;
 	map_access_wrapper<SoundEffect> soundsAccessWrapper_;
 	map_access_wrapper<Music> musicsAccessWrapper_;
 

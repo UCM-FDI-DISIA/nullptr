@@ -38,7 +38,7 @@ public:
 		if (currentLifeDuration > lifeSpan)
 		{
 
-			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, _grp_ENEMIES };
+			Hitbox::HitboxData data = { tr->getCenter(), Vector2D(), 0, width, height, sprite, _grp_ENEMIES };
 
 			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
 
@@ -50,7 +50,7 @@ public:
 	CallBackCol explosionFunction()
 	{
 		return [&](GameObject* trgt) {
-			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, _grp_ENEMIES };
+			Hitbox::HitboxData data = { tr->getCenter(), Vector2D(), 0, width, height, sprite, _grp_ENEMIES };
 
 			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
 

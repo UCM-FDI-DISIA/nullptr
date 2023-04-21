@@ -1,1319 +1,508 @@
 {
     "number": [
-        {
-          "id": "WIN_WIDTH",
-          "value": 1280
-        },
-        {
-          "id": "WIN_HEIGHT",
-          "value": 720
-        },
-        {
-          "id": "WIN_WIDTH_PER_PIXEL",
-          "value": 2.353
-        },
-        {
-          "id": "WIN_HEIGHT_PER_PIXEL",
-          "value": 2.353
-        },
-        {
-          "id": "PIXEL_WIDTH",
-          "value": 2.353
-        },
-        {
-          "id": "PIXEL_HEIGHT",
-          "value": 2.353
-        },
-        {
-          "id": "FRAME_TIME",
-          "value": 30
-        },
-        {
-          "id": "DELAY_TIME",
-          "value": 17
-        },
-        {
-          "id": "NUM_TEXTURES",
-          "value": 19
-        },
-        {
-          "id": "BLOCK_NUMB",
-          "value": 3
-        },
-        {
-          "id": "DIGITS_NUMB",
-          "value": 4
-        },
-        {
-          "id": "USED_FONT_SIZE",
-          "value": 24
-        },
-
-        {
-          "id": "PLAYER_SPRITE_WIDTH",
-          "value": 32
-        },
-        {
-          "id": "PLAYER_SPRITE_HEIGHT",
-          "value": 32
-        },
-        {
-          "id": "PLAYER_SPRITE_ROWS",
-          "value": 6
-        },
-        {
-          "id": "PLAYER_SPRITE_COLS",
-          "value": 8
-        },
-
-        {
-          "id": "PLAYER_IDLE_INITIAL_FRAME",
-          "value": 0
-        },
-        {
-          "id": "PLAYER_IDLE_FINAL_FRAME",
-          "value": 7
-        },
-        {
-          "id": "PLAYER_IDLE_FRAME_RATE",
-          "value": 10
-        },
-        {
-          "id": "PLAYER_MOVE_INITIAL_FRAME",
-          "value": 8
-        },
-        {
-          "id": "PLAYER_MOVE_FINAL_FRAME",
-          "value": 15
-        },
-        {
-          "id": "PLAYER_MOVE_FRAME_RATE",
-          "value": 10
-        },
-        {
-          "id": "PLAYER_SKILL_IDLE_INITIAL_FRAME",
-          "value": 16
-        },
-        {
-          "id": "PLAYER_SKILL_IDLE_FINAL_FRAME",
-          "value": 23
-        },
-        {
-          "id": "PLAYER_SKILL_IDLE_FRAME_RATE",
-          "value": 12
-        },
-        {
-          "id": "PLAYER_SKILL_MOVE_INITIAL_FRAME",
-          "value": 24
-        },
-        {
-          "id": "PLAYER_SKILL_MOVE_FINAL_FRAME",
-          "value": 31
-        },
-        {
-          "id": "PLAYER_SKILL_MOVE_FRAME_RATE",
-          "value": 12
-        },
-        {
-          "id": "PLAYER_ATTACK_IDLE_INITIAL_FRAME",
-          "value": 32
-        },
-        {
-          "id": "PLAYER_ATTACK_IDLE_FINAL_FRAME",
-          "value": 39
-        },
-        {
-          "id": "PLAYER_ATTACK_IDLE_FRAME_RATE",
-          "value": 12
-        },
-        {
-          "id": "PLAYER_ATTACK_MOVE_INITIAL_FRAME",
-          "value": 40
-        },
-        {
-          "id": "PLAYER_ATTACK_MOVE_FINAL_FRAME",
-          "value": 47
-        },
-        {
-          "id": "PLAYER_ATTACK_MOVE_FRAME_RATE",
-          "value": 12
-        },
-
-        {
-          "id": "PLAYER_INITIAL_WIDTH",
-          "value": 64
-        },
-        {
-          "id": "PLAYER_INITIAL_HEIGHT",
-          "value": 64
-        },
-        {
-          "id": "PLAYER_INITIAL_ROTATION",
-          "value": 0
-        },
-        {
-          "id": "PLAYER_INITIAL_SPEED",
-          "value": 200
-        },
-
-        {
-          "id": "POINTER_WIDTH",
-          "value": 20
-        },
-        {
-          "id": "POINTER_HEIGHT",
-          "value": 20
-        },
-        {
-          "id": "POINTER_DEFAULT_RADIUS",
-          "value": 100.0
-        },
-        {
-          "id": "POINTER_NORMAL_INCLINATION",
-          "value": -25.0
-        },
-
-        {
-          "id": "ENEMY_WIDTH",
-          "value": 60
-        },
-        {
-          "id": "ENEMY_HEIGHT",
-          "value": 120
-        },
-        {
-          "id": "BULLET_ANGLE",
-          "value": 20
-        },
-        {
-          "id": "SHIELD_SPEED",
-          "value": 20
-        },
-        {
-          "id": "ENEMY_SPEED",
-          "value": 50
-        },
-
-        {
-          "id": "MELEE_ENEMY_COOLDOWN",
-          "value": 500
-        },
-        {
-          "id": "MELEE_ENEMY_SPRITE_WIDTH",
-          "value": 32
-        },
-        {
-          "id": "MELEE_ENEMY_SPRITE_HEIGHT",
-          "value": 32
-        },
-        {
-          "id": "MELEE_ENEMY_SPRITE_ROWS",
-          "value": 2
-        },
-        {
-          "id": "MELEE_ENEMY_SPRITE_COLS",
-          "value": 12
-        },
-
-        {
-          "id": "MELEE_ENEMY_WIDTH",
-          "value": 64
-        },
-        {
-          "id": "MELEE_ENEMY_HEIGHT",
-          "value": 64
-        },
-
-        {
-          "id": "MELEE_LIFE",
-          "value": 20
-        },
-        {
-          "id": "MELEE_ATTACK_DAMAGE",
-          "value": 20
-        },
-
-        {
-          "id": "RANGED_ENEMY_SPRITE_WIDTH",
-          "value": 32
-        },
-        {
-          "id": "RANGED_ENEMY_SPRITE_HEIGHT",
-          "value": 32
-        },
-        {
-          "id": "RANGED_ENEMY_SPRITE_ROWS",
-          "value": 2
-        },
-        {
-          "id": "RANGED_ENEMY_SPRITE_COLS",
-          "value": 11
-        },
-
-        {
-          "id": "RANGED_ENEMY_WIDTH",
-          "value": 64
-        },
-        {
-          "id": "RANGED_ENEMY_HEIGHT",
-          "value": 64
-        },
-
-        {
-          "id": "RANGED_ATTACK_ANIM_DELAY",
-          "value": 670
-        },
-        {
-          "id": "RANGED_LIFE",
-          "value": 10
-        },
-        {
-          "id": "RANGED_ATTACK_DAMAGE",
-          "value": 20
-        },
-
-        {
-          "id": "TANK_ENEMY_SPRITE_WIDTH",
-          "value": 40
-        },
-        {
-          "id": "TANK_ENEMY_SPRITE_HEIGHT",
-          "value": 40
-        },
-        {
-          "id": "TANK_ENEMY_SPRITE_ROWS",
-          "value": 6
-        },
-        {
-          "id": "TANK_ENEMY_SPRITE_COLS",
-          "value": 5
-        },
-
-        {
-          "id": "TANK_WIDTH",
-          "value": 120
-        },
-        {
-          "id": "TANK_SPEED",
-          "value": 35
-        },
-        {
-          "id": "TANK_ATTACK_DAMAGE",
-          "value": 10
-        },
-        {
-          "id": "TANK_LIFE",
-          "value": 60
-        },
-        {
-          "id": "TANK_STOP_TIME",
-          "value": 500
-        },
-        {
-          "id": "TANK_ATTACK_DISTANCE",
-          "value": 200
-        },
-        {
-          "id": "TANK_ATTACK_TIME",
-          "value": 2000
-        },
-
-        {
-          "id": "BULLET_SPEED",
-          "value": 200
-        },
-        {
-          "id": "LIGHT_BULLET_SPEED",
-          "value": 800
-        },
-        {
-          "id": "ARROW_SPEED",
-          "value": 150
-        },
-        {
-          "id": "THROWN_SPEAR_SPEED",
-          "value": 600
-        },
-        {
-          "id": "TORCH_SIZE_HEAL",
-          "value": 400
-        },
-
-        {
-          "id": "BURN_DAMAGE",
-          "value": 3
-        },
-
-        {
-          "id": "BUTTON_SPRITE_WIDTH",
-          "value": 79
-        },
-        {
-          "id": "BUTTON_SPRITE_HEIGHT",
-          "value": 18
-        },
-        {
-          "id": "BUTTON_SPRITE_COLUMS",
-          "value": 2
-        },
-        {
-          "id": "BUTTON_SPRITE_ROWS",
-          "value": 6
-        },
-        {
-          "id": "BUTTON_FRAME_SPRITE_WIDTH",
-          "value": 95
-        },
-        {
-          "id": "BUTTON_FRAME_SPRITE_HEIGHT",
-          "value": 45
-        },
-
-        {
-          "id": "ONCLICK_ONOUT_SPEED",
-          "value": 1
-        },
-        {
-          "id": "ONOVER_SPEED",
-          "value": 10
-        },
-
-        {
-          "id": "ONOUT_ALL_FRAMES",
-          "value": 10
-        },
-        {
-          "id": "ONONVER_START_FRAME",
-          "value": 0
-        },
-        {
-          "id": "ONOVER_END_FRAME",
-          "value": 9
-        },
-        {
-          "id": "ONCLICK_ALL_FRAMES",
-          "value": 11
-        },
-
-        {
-          "id": "MM_BUTTON_WIDTH",
-          "value": 237
-        },
-        {
-          "id": "MM_BUTTON_HEIGHT",
-          "value": 54
-        },
-        {
-          "id": "MM_BUTTONFRAME_WIDTH",
-          "value": 285
-        },
-        {
-          "id": "MM_BUTTONFRAME_HEIGHT",
-          "value": 135
-        },
-
-        {
-          "id": "PM_BUTTON_WIDTH",
-          "value": 316
-        },
-        {
-          "id": "PM_BUTTON_HEIGHT",
-          "value": 72
-        },
-        {
-          "id": "PM_BUTTONFRAME_WIDTH",
-          "value": 380
-        },
-        {
-          "id": "PM_BUTTONFRAME_HEIGHT",
-          "value": 180
-        },
-
-        {
-          "id": "CHEST_BUTTON_WIDTH",
-          "value": 100
-        },
-        {
-          "id": "CHEST_BUTTON_HEIGHT",
-          "value": 50
-        },
-
-        {
-          "id": "MS_BUTTON_WIDTH",
-          "value": 237
-        },
-        {
-          "id": "MS_BUTTON_HEIGHT",
-          "value": 54
-        },
-        {
-          "id": "MS_BUTTONFRAME_WIDTH",
-          "value": 285
-        },
-        {
-          "id": "MS_BUTTONFRAME_HEIGHT",
-          "value": 135
-        },
-
-        {
-          "id": "IS_BUTTON_WIDTH",
-          "value": 158
-        },
-        {
-          "id": "IS_BUTTON_HEIGHT",
-          "value": 36
-        },
-        {
-          "id": "IS_BUTTONFRAME_WIDTH",
-          "value": 190
-        },
-        {
-          "id": "IS_BUTTONFRAME_HEIGHT",
-          "value": 90
-        },
-
-        {
-          "id": "SYMBOL_DIMENSIONS",
-          "value": 64
-        },
-
-        {
-          "id": "CARD_CIRCLE_RADIOUS",
-          "value": 20
-        },
-        {
-          "id": "CARD_FRAME_WIDTH",
-          "value": 66
-        },
-        {
-          "id": "CARD_FRAME_HEIGHT",
-          "value": 101
-        },
-        {
-          "id": "CARD_RECTANGLE_WIDTH",
-          "value": 34
-        },
-        {
-          "id": "CARD_RECTANGLE_HEIGHT",
-          "value": 14
-        },
-
-        {
-          "id": "DP_WIDTH",
-          "value": 90
-        },
-        {
-          "id": "DP_HEIGHT",
-          "value": 45
-        },
-
-        {
-          "id": "OP_WIDTH",
-          "value": 125
-        },
-        {
-          "id": "OP_HEIGHT",
-          "value": 30
-        },
-
-        {
-          "id": "IP_WIDTH",
-          "value": 175
-        },
-        {
-          "id": "IP_HEIGHT",
-          "value": 30
-        },
-
-        {
-          "id": "SP_WIDTH",
-          "value": 210
-        },
-        {
-          "id": "SP_HEIGHT",
-          "value": 30
-        },
-
-        {
-          "id": "ALB_CARD_W",
-          "value": 116
-        },
-        {
-          "id": "ALB_CARD_H",
-          "value": 218.83
-        },
-        {
-          "id": "ALB_CARD_Y",
-          "value": 275
-        },
-        {
-          "id": "ALB_CARD_Y_DIST",
-          "value": 10
-        },
-
-        {
-          "id": "DECK_HEIGHT",
-          "value": 520
-        },
-
-        {
-          "id": "OBJECTS_DIMENSIONS",
-          "value": 64
-        },
-
-        {
-          "id": "BATTLEBACKGROUND123_WIDTH",
-          "value": 2176
-        },
-        {
-          "id": "BATTLEBACKGROUND123_HEIGHT",
-          "value": 1224
-        },
-        {
-          "id": "BATTLEBACKGROUND3_SCROLLFACTOR",
-          "value": 0.1
-        },
-        {
-          "id": "BATTLEBACKGROUND2_SCROLLFACTOR",
-          "value": 0.2
-        },
-        {
-          "id": "BATTLEBACKGROUND3_SCROLLFACTOR",
-          "value": 0.3
-        },
-
-        {
-          "id": "FLOOR_WIDTH",
-          "value": 6750
-        },
-        {
-          "id": "FLOOR_HEIGHT",
-          "value": 4500
-        },
-
-        {
-          "id": "STATISTICS_WIDTH",
-          "value": 250
-        },
-        {
-          "id": "STATISTICS_HEIGHT",
-          "value": 28
-        },
-        {
-          "id": "UI_STATISTICS_WIDTH",
-          "value": 625
-        },
-        {
-          "id": "UI_STATISTICS_HEIGHT",
-          "value": 70
-        },
-
-        {
-          "id": "BAR_WIDTH",
-          "value": 83
-        },
-        {
-          "id": "BAR_HEIGHT",
-          "value": 10
-        },
-        {
-          "id": "UI_BAR_WIDTH",
-          "value": 207.5
-        },
-        {
-          "id": "UI_BAR_HEIGHT",
-          "value": 250
-        },
-        {
-          "id": "BAR_ROWS",
-          "value": 4
-        },
-        {
-          "id": "BAR_COLUMNS",
-          "value": 3
-        },
-        {
-          "id": "BAR_START",
-          "value": 0
-        },
-        {
-          "id": "BAR_END",
-          "value": 10
-        },
-        {
-          "id": "BAR_FRAMERATE",
-          "value": 7
-        },
-
-        {
-          "id": "ETHER_FRAME_WIDTH",
-          "value": 44
-        },
-        {
-          "id": "ETHER_FRAME_HEIGHT",
-          "value": 26
-        },
-        {
-          "id": "UI_ETHER_FRAME_WIDTH",
-          "value": 111
-        },
-        {
-          "id": "UI_ETHER_FRAME_HEIGHT",
-          "value": 65
-        },
-        {
-          "id": "ETHER_WIDTH",
-          "value": 40
-        },
-        {
-          "id": "ETHER_HEIGHT",
-          "value": 22
-        },
-        {
-          "id": "UI_ETHER_WIDTH",
-          "value": 101
-        },
-        {
-          "id": "UI_ETHER_HEIGHT",
-          "value": 55
-        },
-        {
-          "id": "MAX_ETHER",
-          "value": 100
-        },
-        {
-          "id": "ETHER_ROWS",
-          "value": 4
-        },
-        {
-          "id": "ETHER_COLUMNS",
-          "value": 2
-        },
-        {
-          "id": "ETHER_START",
-          "value": 0
-        },
-        {
-          "id": "ETHER_END",
-          "value": 7
-        },
-        {
-          "id": "ETHER_FRAMERATE",
-          "value": 8
-        },
-        {
-          "id": "ETHER_LIMIT",
-          "value": 999
-        },
-
-        {
-          "id": "N_LIFE_COUNTER",
-          "value": 7
-        },
-        {
-          "id": "N_MANA_COUNTER",
-          "value": 7
-        },
-        {
-          "id": "N_ETHER_COUNTER",
-          "value": 4
-        },
-        {
-          "id": "N_NUMBERS",
-          "value": 12
-        },
-        {
-          "id": "ST_NUMBERS_WIDTH",
-          "value": 9
-        },
-        {
-          "id": "ST_NUMBERS_HEIGHT",
-          "value": 18
-        },
-        {
-          "id": "ST_NUMBERS_ROWS",
-          "value": 6
-        },
-        {
-          "id": "ST_NUMBERS_COLUMNS",
-          "value": 2
-        },
-        {
-          "id": "COUNTDOWN_TIME",
-          "value": 5.6
-        },
-
-        {
-          "id": "MANA_H",
-          "value": 10
-        },
-        {
-          "id": "MANA_W",
-          "value": 10
-        },
-        {
-          "id": "MANA_OFFSET",
-          "value": 10
-        },
-        {
-          "id": "MANA_VALUE",
-          "value": 5
-        },
-        {
-          "id": "MANA_COLUMS",
-          "value": 2
-        },
-
-        {
-          "id": "ETHER_H",
-          "value": 20
-        },
-        {
-          "id": "ETHER_W",
-          "value": 20
-        },
-        {
-          "id": "ETHER_VALUE",
-          "value": 5
-        },
-        {
-          "id": "MAX_HAND_SIZE",
-          "value": 4
-        },
-        {
-          "id": "REVERSE_WIDTH",
-          "value": 58
-        },
-        {
-          "id": "REVERSE_HEIGHT",
-          "value": 93
-        },
-        {
-          "id": "BS_REVERSE_WIDTH",
-          "value": 87
-        },
-        {
-          "id": "BS_REVERSE_HEIGHT",
-          "value": 139
-        },
-
-        {
-          "id": "RIGHT_OFFSET",
-          "value": 72
-        },
-        {
-          "id": "LEFT_OFFSET",
-          "value": 46
-        },
-        {
-          "id": "DOWN_OFFSET",
-          "value": 557
-        },
-        {
-          "id": "CARD_OFFSET_W",
-          "value": 12
-        },
-        {
-          "id": "CARD_OFFSET_H",
-          "value": 31
-        },
-
-        {
-          "id": "BOW_CADENCE",
-          "value": 0.5
-        },
-        {
-          "id": "SMG_CADENCE",
-          "value": 0.3
-        },
-        {
-          "id": "ASSAULT_RIFLE_BURST",
-          "value": 10
-        },
-
-        {
-          "id": "CARD_WIDTH",
-          "value": 58
-        },
-        {
-          "id": "CARD_HEIGHT",
-          "value": 93
-        },
-
-        {
-          "id": "CARD_NUMROWS",
-          "value": 1
-        },
-        {
-          "id": "CARD_NUMCOLS",
-          "value": 1
-        },
-
-        {
-          "id": "UI_CARD_WIDTH",
-          "value": 174
-        },
-        {
-          "id": "UI_CARD_HEIGHT",
-          "value": 279
-        },
-
-        {
-          "id": "SELECTED_OFFSET",
-          "value": 60
-        },
-        {
-          "id": "Y_CARD_POS",
-          "value": 583
-        },
-        {
-          "id": "Y_CARD_POS_SELECTED",
-          "value": 523
-        },
-        {
-          "id": "BETWEEN_CARD_SPACE",
-          "value": 87
-        },
-        {
-          "id": "CENTERED_CARD_POS",
-          "value": 553
-        },
-
-        {
-          "id": "X1_4CARDS_POS",
-          "value": 292
-        },
-        {
-          "id": "X2_4CARDS_POS",
-          "value": 466
-        },
-        {
-          "id": "X3_4CARDS_POS",
-          "value": 640
-        },
-        {
-          "id": "X4_4CARDS_POS",
-          "value": 814
-        },
-
-        {
-          "id": "X1_3CARDS_POS",
-          "value": 379
-        },
-        {
-          "id": "X3_3CARDS_POS",
-          "value": 727
-        },
-
-        {
-          "id": "UI_AMMO_NUMBERS_WIDTH",
-          "value": 10
-        },
-        {
-          "id": "UI_AMMO_NUMBERS_HEIGHT",
-          "value": 15
-        },
-        {
-          "id": "N_CARDS_NUMBERS",
-          "value": 10
-        },
-        {
-          "id": "CARDS_NUMBERS_WIDTH",
-          "value": 9
-        },
-        {
-          "id": "CARDS_NUMBERS_HEIGHT",
-          "value": 18
-        },
-        {
-          "id": "CARDS_NUMBERS_ROWS",
-          "value": 5
-        },
-        {
-          "id": "CARDS_NUMBERS_COLUMNS",
-          "value": 2
-        },
-
-        {
-          "id": "X1_AMMO_XOFFSET_DECS",
-          "value": -4
-        },
-        {
-          "id": "X1_AMMO_YOFFSET_DECS",
-          "value": 31
-        },
-        {
-          "id": "X1_AMMO_XOFFSET_UNITS",
-          "value": 7
-        },
-        {
-          "id": "X1_AMMO_YOFFSET_UNITS",
-          "value": 29
-        },
-        {
-          "id": "X1_MANA_XOFFSET_DECS",
-          "value": 7
-        },
-        {
-          "id": "X1_MANA_YOFFSET_DECS",
-          "value": 70
-        },
-        {
-          "id": "X1_MANA_XOFFSET_UNITS",
-          "value": 19
-        },
-        {
-          "id": "X1_MANA_YOFFSET_UNITS",
-          "value": 68
-        },
-
-        {
-          "id": "X2_AMMO_XOFFSET_DECS",
-          "value": 6
-        },
-        {
-          "id": "X2_AMMO_YOFFSET_DECS",
-          "value": 24
-        },
-        {
-          "id": "X2_AMMO_XOFFSET_UNITS",
-          "value": 17
-        },
-        {
-          "id": "X2_AMMO_YOFFSET_UNITS",
-          "value": 23.5
-        },
-        {
-          "id": "X2_MANA_XOFFSET_DECS",
-          "value": 13
-        },
-        {
-          "id": "X2_MANA_YOFFSET_DECS",
-          "value": 64
-        },
-        {
-          "id": "X2_MANA_XOFFSET_UNITS",
-          "value": 25
-        },
-        {
-          "id": "X2_MANA_YOFFSET_UNITS",
-          "value": 63
-        },
-
-        {
-          "id": "X3_AMMO_XOFFSET_DECS",
-          "value": 26
-        },
-        {
-          "id": "X3_AMMO_YOFFSET_DECS",
-          "value": 12
-        },
-        {
-          "id": "X3_AMMO_XOFFSET_UNITS",
-          "value": 37
-        },
-        {
-          "id": "X3_AMMO_YOFFSET_UNITS",
-          "value": 13
-        },
-        {
-          "id": "X3_MANA_XOFFSET_DECS",
-          "value": 25
-        },
-        {
-          "id": "X3_MANA_YOFFSET_DECS",
-          "value": 53
-        },
-        {
-          "id": "X3_MANA_XOFFSET_UNITS",
-          "value": 37
-        },
-        {
-          "id": "X3_MANA_YOFFSET_UNITS",
-          "value": 54
-        },
-
-        {
-          "id": "X4_AMMO_XOFFSET_DECS",
-          "value": 36
-        },
-        {
-          "id": "X4_AMMO_YOFFSET_DECS",
-          "value": 8
-        },
-        {
-          "id": "X4_AMMO_XOFFSET_UNITS",
-          "value": 47
-        },
-        {
-          "id": "X4_AMMO_YOFFSET_UNITS",
-          "value": 10
-        },
-        {
-          "id": "X4_MANA_XOFFSET_DECS",
-          "value": 32
-        },
-        {
-          "id": "X4_MANA_YOFFSET_DECS",
-          "value": 48
-        },
-        {
-          "id": "X4_MANA_XOFFSET_UNITS",
-          "value": 44
-        },
-        {
-          "id": "X4_MANA_YOFFSET_UNITS",
-          "value": 50
-        },
-
-        {
-          "id": "XC_AMMO_XOFFSET_DECS",
-          "value": 15
-        },
-        {
-          "id": "XC_AMMO_XOFFSET_UNITS",
-          "value": 26
-        },
-        {
-          "id": "XC_AMMO_YOFFSET",
-          "value": 18
-        },
-        {
-          "id": "XC_MANA_XOFFSET_DECS",
-          "value": 19
-        },
-        {
-          "id": "XC_MANA_XOFFSET_UNITS",
-          "value": 30
-        },
-        {
-          "id": "XC_MANA_YOFFSET",
-          "value": 58
-        },
-
-        {
-          "id": "NUMBERS_WIDTH",
-          "value": 130
-        },
-        {
-          "id": "NUMBERS_HEIGHT",
-          "value": 250
-        },
-        {
-          "id": "NUMBERS_SPRITE_COLUMS",
-          "value": 2
-        },
-        {
-          "id": "NUMBERS_SPRITE_ROWS",
-          "value": 5
-        },
-        {
-          "id": "NUM_RENDER_W",
-          "value": 32
-        },
-        {
-          "id": "NUM_RENDER_H",
-          "value": 83
-        },
-
-        {
-          "id": "LOGO_WIDTH",
-          "value": 404
-        },
-        {
-          "id": "LOGO_HEIGHT",
-          "value": 284
-        },
-        {
-          "id": "LOGO_ROWS",
-          "value": 1
-        },
-        {
-          "id": "LOGO_COLUMNS",
-          "value": 4
-        },
-        {
-          "id": "LOGO_FRAME_WIDTH",
-          "value": 200
-        },
-        {
-          "id": "LOGO_FRAME_HEIGHT",
-          "value": 140
-        },
-        {
-          "id": "LOGO_START_FRAME",
-          "value": 0
-        },
-        {
-          "id": "LOGO_END_FRAME",
-          "value": 3
-        },
-        {
-          "id": "LOGO_FRAME_RATE",
-          "value": 4
-        },
-
-        {
-          "id": "HEIGHT",
-          "value": 17
-        },
-
-        {
-          "id": "NODE_FRAME_WIDTH",
-          "value": 32
-        },
-        {
-          "id": "NODE_FRAME_HEIGHT",
-          "value": 32
-        },
-        {
-          "id": "NODE_FRAME_ROWS",
-          "value": 6
-        },
-        {
-          "id": "NODE_FRAME_COLUMNS",
-          "value": 3
-        },
-
-        {
-          "id": "NODE_WIDTH",
-          "value": 64
-        },
-        {
-          "id": "NODE_HEIGHT",
-          "value": 64
-        },
-        {
-          "id": "NODE_DISTANCE",
-          "value": 50
-        },
-        {
-          "id": "CONECTION_OFFSET",
-          "value": 29
-        },
-
-        {
-          "id": "NODE_POSITION_Y",
-          "value": 94
-        },
-
-        {
-          "id": "NODE_BUTTON_ONOUT_START_FRAME",
-          "value": 0
-        },
-        {
-          "id": "NODE_BUTTON_ONOUT_END_FRAME",
-          "value": 0
-        },
-        {
-          "id": "NODE_BUTTON_ONOVER_START_FRAME",
-          "value": 2
-        },
-        {
-          "id": "NODE_BUTTON_ONOVER_END_FRAME",
-          "value": 14
-        },
-        {
-          "id": "NODE_BUTTON_ONCLICK_START_FRAME",
-          "value": 1
-        },
-        {
-          "id": "NODE_BUTTON_ONCLICK_END_FRAME",
-          "value": 1
-        },
-        {
-          "id": "NODE_BUTTON_ONLOCKED_START_FRAME",
-          "value": 15
-        },
-        {
-          "id": "NODE_BUTTON_ONLOCKED_END_FRAME",
-          "value": 15
-        },
-        {
-          "id": "NODE_BUTTON_ONCOMPLETED_START_FRAME",
-          "value": 16
-        },
-        {
-          "id": "NODE_BUTTON_ONCOMPLETED_END_FRAME",
-          "value": 17
-        },
-
-        {
-          "id": "STUDIO_WIDTH",
-          "value": 252
-        },
-        {
-          "id": "STUDIO_HEIGTH",
-          "value": 54
-        },
-
-        {
-          "id": "MESSAGE_W",
-          "value": 300
-        },
-        {
-          "id": "MESSAGE_H",
-          "value": 200
-        },
-        {
-          "id": "MESSAGE_X",
-          "value": 490
-        },
-        {
-          "id": "MESSAGE_Y",
-          "value": 180
-        },
-
-        {
-          "id": "MELEE_RADIUS",
-          "value": 500
-        },
-        {
-          "id": "RANGED_RADIUS",
-          "value": 800
-        },
-        {
-          "id": "TANK_RADIUS",
-          "value": 600
-        },
-
-        {
-          "id": "STARTING_TIME_PER_WAVE",
-          "value": 15000
-        },
-
-        {
-          "id": "SHOP_NUMBER_OF_CARDS",
-          "value": 4
-        },
-        {
-          "id": "SHOP_CARD_SELECTED_POSY",
-          "value": 248
-        },
-        {
-          "id": "SHOP_CARD_UNSELECTED_POSY",
-          "value": 298
-        },
-        {
-          "id": "SHOP_CARD_OFFSET_X",
-          "value": 300
-        },
-        {
-          "id": "SHOP_CARD_PRICE_WIDTH",
-          "value": 100
-        },
-        {
-          "id": "SHOP_CARD_PRICE_HEIGHT",
-          "value": 50
-        },
-
-        {
-          "id": "SHOP_MONEY_WIDTH",
-          "value": 100
-        },
-        {
-          "id": "SHOP_MONEY_HEIGHT",
-          "value": 50
-        }
+    { "id": "WIN_WIDTH", "value": 1280 },
+    { "id": "WIN_HEIGHT", "value": 720 },
+    { "id": "WIN_WIDTH_PER_PIXEL", "value": 2.353 },
+    { "id": "WIN_HEIGHT_PER_PIXEL", "value": 2.353 },
+    { "id": "PIXEL_WIDTH", "value": 2.353 },
+    { "id": "PIXEL_HEIGHT", "value": 2.353 },
+    { "id": "FRAME_TIME", "value": 30 },
+    { "id": "DELAY_TIME", "value": 17 },
+    { "id": "NUM_TEXTURES", "value": 19 },
+    { "id": "BLOCK_NUMB", "value": 3 },
+    { "id": "DIGITS_NUMB", "value": 4 },
+    { "id": "USED_FONT_SIZE", "value": 24 },
+
+    { "id": "PLAYER_SPRITE_WIDTH", "value": 32 },
+    { "id": "PLAYER_SPRITE_HEIGHT", "value": 32 },
+    { "id": "PLAYER_SPRITE_ROWS", "value": 6 },
+    { "id": "PLAYER_SPRITE_COLS", "value": 8 },
+
+    { "id": "PLAYER_IDLE_INITIAL_FRAME", "value": 0 },
+    { "id": "PLAYER_IDLE_FINAL_FRAME", "value": 7 },
+    { "id": "PLAYER_IDLE_FRAME_RATE", "value": 10 },
+    { "id": "PLAYER_MOVE_INITIAL_FRAME", "value": 8 },
+    { "id": "PLAYER_MOVE_FINAL_FRAME", "value": 15 },
+    { "id": "PLAYER_MOVE_FRAME_RATE", "value": 10 },
+    { "id": "PLAYER_SKILL_IDLE_INITIAL_FRAME", "value": 16 },
+    { "id": "PLAYER_SKILL_IDLE_FINAL_FRAME", "value": 23 },
+    { "id": "PLAYER_SKILL_IDLE_FRAME_RATE", "value": 12 },
+    { "id": "PLAYER_SKILL_MOVE_INITIAL_FRAME", "value": 24 },
+    { "id": "PLAYER_SKILL_MOVE_FINAL_FRAME", "value": 31 },
+    { "id": "PLAYER_SKILL_MOVE_FRAME_RATE", "value": 12 },
+    { "id": "PLAYER_ATTACK_IDLE_INITIAL_FRAME", "value": 32 },
+    { "id": "PLAYER_ATTACK_IDLE_FINAL_FRAME", "value": 39 },
+    { "id": "PLAYER_ATTACK_IDLE_FRAME_RATE", "value": 12 },
+    { "id": "PLAYER_ATTACK_MOVE_INITIAL_FRAME", "value": 40 },
+    { "id": "PLAYER_ATTACK_MOVE_FINAL_FRAME", "value": 47 },
+    { "id": "PLAYER_ATTACK_MOVE_FRAME_RATE", "value": 12 },
+    
+    { "id": "PLAYER_INITIAL_WIDTH", "value": 64 },
+    { "id": "PLAYER_INITIAL_HEIGHT", "value": 64 },
+    { "id": "PLAYER_INITIAL_ROTATION", "value": 0 },
+    { "id": "PLAYER_SPEED", "value": 200 },
+
+    { "id": "POINTER_WIDTH", "value": 20 },
+    { "id": "POINTER_HEIGHT", "value": 20 },
+    { "id": "POINTER_DEFAULT_RADIUS", "value": 100.0 },
+    { "id": "POINTER_NORMAL_INCLINATION", "value": -25.0 },
+
+    { "id": "ENEMY_WIDTH", "value": 60 },
+    { "id": "ENEMY_HEIGHT", "value": 120 },
+    { "id": "BULLET_ANGLE", "value": 20 },
+    { "id": "SHIELD_SPEED", "value": 20 },
+    { "id": "ENEMY_SPEED", "value": 50 },
+
+    { "id": "MELEE_ENEMY_COOLDOWN", "value": 500 },
+    { "id": "MELEE_ENEMY_SPRITE_WIDTH", "value": 32 },
+    { "id": "MELEE_ENEMY_SPRITE_HEIGHT", "value": 32 },
+    { "id": "MELEE_ENEMY_SPRITE_ROWS", "value": 2 },
+    { "id": "MELEE_ENEMY_SPRITE_COLS", "value": 12 },
+
+    { "id": "MELEE_ENEMY_WIDTH", "value": 64 },
+    { "id": "MELEE_ENEMY_HEIGHT", "value": 64 },
+
+    { "id": "MELEE_LIFE", "value": 20 },
+    { "id": "MELEE_ATTACK_DAMAGE", "value": 20 },
+
+    { "id": "RANGED_ENEMY_SPRITE_WIDTH", "value": 32 },
+    { "id": "RANGED_ENEMY_SPRITE_HEIGHT", "value": 32 },
+    { "id": "RANGED_ENEMY_SPRITE_ROWS", "value": 2 },
+    { "id": "RANGED_ENEMY_SPRITE_COLS", "value": 11 },
+    
+    { "id": "RANGED_ENEMY_WIDTH", "value": 64 },
+    { "id": "RANGED_ENEMY_HEIGHT", "value": 64 },
+    
+    { "id": "RANGED_ATTACK_ANIM_DELAY", "value": 670 },
+    { "id": "RANGED_LIFE", "value": 10 },
+    { "id": "RANGED_ATTACK_DAMAGE", "value": 20 },
+
+    { "id": "TANK_ENEMY_SPRITE_WIDTH", "value": 40 },
+    { "id": "TANK_ENEMY_SPRITE_HEIGHT", "value": 40 },
+    { "id": "TANK_ENEMY_SPRITE_ROWS", "value": 6 },
+    { "id": "TANK_ENEMY_SPRITE_COLS", "value": 5 },
+
+    { "id": "TANK_WIDTH", "value": 120 },
+    { "id": "TANK_SPEED", "value": 35 },
+    { "id": "TANK_ATTACK_DAMAGE", "value": 10 },
+    { "id": "TANK_LIFE", "value": 60 },
+    { "id": "TANK_STOP_TIME", "value": 500 },
+    { "id": "TANK_ATTACK_DISTANCE", "value": 200 },
+    { "id": "TANK_ATTACK_TIME", "value": 2000 },
+    
+    { "id": "BULLET_SPEED", "value": 200 },
+    { "id": "LIGHT_BULLET_SPEED", "value": 800 },
+    { "id": "ARROW_SPEED", "value": 150 },
+    { "id": "THROWN_SPEAR_SPEED", "value": 600 },
+    { "id": "TORCH_SIZE_HEAL", "value": 400 },
+    
+    { "id": "BURN_DAMAGE", "value": 3 },
+
+    { "id": "BUTTON_SPRITE_WIDTH", "value": 79 },
+    { "id": "BUTTON_SPRITE_HEIGHT", "value": 18 },
+    { "id": "BUTTON_SPRITE_COLUMS", "value": 2 },
+    { "id": "BUTTON_SPRITE_ROWS", "value": 6 },
+    { "id": "BUTTON_FRAME_SPRITE_WIDTH", "value": 95 },
+    { "id": "BUTTON_FRAME_SPRITE_HEIGHT", "value": 45 },
+    
+    { "id": "ONCLICK_ONOUT_SPEED", "value": 1 },
+    { "id": "ONOVER_SPEED", "value": 10 },
+
+    { "id": "ONOUT_ALL_FRAMES", "value": 10 },
+    { "id": "ONONVER_START_FRAME", "value": 0 },
+    { "id": "ONOVER_END_FRAME", "value": 9 },
+    { "id": "ONCLICK_ALL_FRAMES", "value": 11 },
+    
+    { "id": "MM_BUTTON_WIDTH", "value": 237 },
+    { "id": "MM_BUTTON_HEIGHT", "value": 54 },
+    { "id": "MM_BUTTONFRAME_WIDTH", "value": 285 },
+    { "id": "MM_BUTTONFRAME_HEIGHT", "value": 135 },
+
+    { "id": "PM_BUTTON_WIDTH", "value": 316 },
+    { "id": "PM_BUTTON_HEIGHT", "value": 72 },
+    { "id": "PM_BUTTONFRAME_WIDTH", "value": 380 },
+    { "id": "PM_BUTTONFRAME_HEIGHT", "value": 180 },
+    
+    { "id": "CHEST_BUTTON_WIDTH", "value": 100 },
+    { "id": "CHEST_BUTTON_HEIGHT", "value": 50 },
+    
+    { "id": "MS_BUTTON_WIDTH", "value": 237 },
+    { "id": "MS_BUTTON_HEIGHT", "value": 54 },
+    { "id": "MS_BUTTONFRAME_WIDTH", "value": 285 },
+    { "id": "MS_BUTTONFRAME_HEIGHT", "value": 135 },
+
+    { "id": "IS_BUTTON_WIDTH", "value": 158 },
+    { "id": "IS_BUTTON_HEIGHT", "value": 36 },
+    { "id": "IS_BUTTONFRAME_WIDTH", "value": 190 },
+    { "id": "IS_BUTTONFRAME_HEIGHT", "value": 90 },
+
+    { "id": "SYMBOL_DIMENSIONS", "value": 64 },
+
+    { "id": "CARD_CIRCLE_RADIOUS", "value": 20 },
+    { "id": "CARD_FRAME_WIDTH", "value": 66 },
+    { "id": "CARD_FRAME_HEIGHT", "value": 101 },
+    { "id": "CARD_RECTANGLE_WIDTH", "value": 34 },
+    { "id": "CARD_RECTANGLE_HEIGHT", "value": 14 },
+
+    { "id": "DP_WIDTH", "value": 90 },
+    { "id": "DP_HEIGHT", "value": 45 },
+
+    { "id": "OP_WIDTH", "value": 125 },
+    { "id": "OP_HEIGHT", "value": 30 },
+
+    { "id": "IP_WIDTH", "value": 175 },
+    { "id": "IP_HEIGHT", "value": 30 },
+
+    { "id": "SP_WIDTH", "value": 210 },
+    { "id": "SP_HEIGHT", "value": 30 },
+
+    { "id": "ALB_CARD_W", "value": 116 },
+    { "id": "ALB_CARD_H", "value": 218.83 },
+    { "id": "ALB_CARD_Y", "value": 275 },
+    { "id": "ALB_CARD_Y_DIST", "value": 10 },
+
+    { "id": "DECK_HEIGHT", "value": 520 },
+
+    { "id": "OBJECTS_DIMENSIONS", "value": 64 },
+
+    { "id": "BATTLEBACKGROUND123_WIDTH", "value": 2176 },
+    { "id": "BATTLEBACKGROUND123_HEIGHT", "value": 1224 },
+    { "id": "BATTLEBACKGROUND3_SCROLLFACTOR", "value": 0.1 },
+    { "id": "BATTLEBACKGROUND2_SCROLLFACTOR", "value": 0.2 },
+    { "id": "BATTLEBACKGROUND3_SCROLLFACTOR", "value": 0.3 },
+    
+    { "id": "FLOOR_WIDTH", "value": 6750 },
+    { "id": "FLOOR_HEIGHT", "value": 4500 },
+
+    { "id": "STATISTICS_WIDTH", "value": 250 },
+    { "id": "STATISTICS_HEIGHT", "value": 28 },
+    { "id": "UI_STATISTICS_WIDTH", "value": 625 },
+    { "id": "UI_STATISTICS_HEIGHT", "value": 70 },
+
+    { "id": "BAR_WIDTH", "value": 83 },
+    { "id": "BAR_HEIGHT", "value": 10 },
+    { "id": "UI_BAR_WIDTH", "value": 207.5 },
+    { "id": "UI_BAR_HEIGHT", "value": 250 },
+    { "id": "BAR_ROWS", "value": 4 },
+    { "id": "BAR_COLUMNS", "value": 3 },
+    { "id": "BAR_START", "value": 0 },
+    { "id": "BAR_END", "value": 10 },
+    { "id": "BAR_FRAMERATE", "value": 7 },
+
+    { "id": "ETHER_FRAME_WIDTH", "value": 44 },
+    { "id": "ETHER_FRAME_HEIGHT", "value": 26 },
+    { "id": "UI_ETHER_FRAME_WIDTH", "value": 111 },
+    { "id": "UI_ETHER_FRAME_HEIGHT", "value": 65 },
+    { "id": "ETHER_WIDTH", "value": 40 },
+    { "id": "ETHER_HEIGHT", "value": 22 },
+    { "id": "UI_ETHER_WIDTH", "value": 101 },
+    { "id": "UI_ETHER_HEIGHT", "value": 55 },
+    { "id": "MAX_ETHER", "value": 100 },
+    { "id": "ETHER_ROWS", "value": 4 },
+    { "id": "ETHER_COLUMNS", "value": 2 },
+    { "id": "ETHER_START", "value": 0 },
+    { "id": "ETHER_END", "value": 7 },
+    { "id": "ETHER_FRAMERATE", "value": 8 },
+    { "id": "ETHER_LIMIT", "value": 999 },
+
+    { "id": "N_LIFE_COUNTER", "value": 7 },
+    { "id": "N_MANA_COUNTER", "value": 7 },
+    { "id": "N_ETHER_COUNTER", "value": 4 },
+    { "id": "N_NUMBERS", "value": 12 },
+    { "id": "ST_NUMBERS_WIDTH", "value": 9 },
+    { "id": "ST_NUMBERS_HEIGHT", "value": 18 },
+    { "id": "ST_NUMBERS_ROWS", "value": 6 },
+    { "id": "ST_NUMBERS_COLUMNS", "value": 2 },
+    { "id": "COUNTDOWN_TIME", "value": 5.6 },
+
+    { "id": "MANA_H", "value": 10 },
+    { "id": "MANA_W", "value": 10 },
+    { "id": "MANA_OFFSET", "value": 10 },
+    { "id": "MANA_VALUE", "value": 5 },
+    { "id": "MANA_COLUMS", "value": 2 },
+
+    { "id": "ETHER_H", "value": 20 },
+    { "id": "ETHER_W", "value": 20 },
+    { "id": "ETHER_VALUE", "value": 5 },
+    { "id": "MAX_HAND_SIZE", "value": 4 },
+    { "id": "REVERSE_WIDTH", "value": 58 },
+    { "id": "REVERSE_HEIGHT", "value": 93 },
+    { "id": "BS_REVERSE_WIDTH", "value": 87 },
+    { "id": "BS_REVERSE_HEIGHT", "value": 139 },
+
+    { "id": "RIGHT_OFFSET", "value": 72 },
+    { "id": "LEFT_OFFSET", "value": 46 },
+    { "id": "DOWN_OFFSET", "value": 557 },
+    { "id": "CARD_OFFSET_W", "value": 12 },
+    { "id": "CARD_OFFSET_H", "value": 31 },
+
+    { "id": "BOW_CADENCE", "value": 0.5 },
+    { "id": "SMG_CADENCE", "value": 0.3 },
+    { "id": "ASSAULT_RIFLE_BURST", "value": 10 },
+
+    { "id": "CARD_WIDTH", "value": 58 },
+    { "id": "CARD_HEIGHT", "value": 93 },
+
+    { "id": "CARD_NUMROWS", "value": 1 },
+    { "id": "CARD_NUMCOLS", "value": 1 },
+
+    { "id": "UI_CARD_WIDTH", "value": 174 },
+    { "id": "UI_CARD_HEIGHT", "value": 279 },
+
+    { "id": "SELECTED_OFFSET", "value": 60 },
+    { "id": "Y_CARD_POS", "value": 583 },
+    { "id": "Y_CARD_POS_SELECTED", "value": 523 },
+    { "id": "BETWEEN_CARD_SPACE", "value": 87 },
+    { "id": "CENTERED_CARD_POS", "value": 553 },
+
+    { "id": "X1_4CARDS_POS", "value": 292 },
+    { "id": "X2_4CARDS_POS", "value": 466 },
+    { "id": "X3_4CARDS_POS", "value": 640 },
+    { "id": "X4_4CARDS_POS", "value": 814 },
+
+    { "id": "X1_3CARDS_POS", "value": 379 },
+    { "id": "X3_3CARDS_POS", "value": 727 },
+
+    { "id": "UI_AMMO_NUMBERS_WIDTH", "value": 10 },
+    { "id": "UI_AMMO_NUMBERS_HEIGHT", "value": 15 },
+    { "id": "N_CARDS_NUMBERS", "value": 10 },
+    { "id": "CARDS_NUMBERS_WIDTH", "value": 9 },
+    { "id": "CARDS_NUMBERS_HEIGHT", "value": 18 },
+    { "id": "CARDS_NUMBERS_ROWS", "value": 5 },
+    { "id": "CARDS_NUMBERS_COLUMNS", "value": 2 },
+
+    { "id": "X1_AMMO_XOFFSET_DECS", "value": -4 },
+    { "id": "X1_AMMO_YOFFSET_DECS", "value": 31 },
+    { "id": "X1_AMMO_XOFFSET_UNITS", "value": 7 },
+    { "id": "X1_AMMO_YOFFSET_UNITS", "value": 29 },
+    { "id": "X1_MANA_XOFFSET_DECS", "value": 7 },
+    { "id": "X1_MANA_YOFFSET_DECS", "value": 70 },
+    { "id": "X1_MANA_XOFFSET_UNITS", "value": 19 },
+    { "id": "X1_MANA_YOFFSET_UNITS", "value": 68 },
+
+    { "id": "X2_AMMO_XOFFSET_DECS", "value": 6 },
+    { "id": "X2_AMMO_YOFFSET_DECS", "value": 24 },
+    { "id": "X2_AMMO_XOFFSET_UNITS", "value": 17 },
+    { "id": "X2_AMMO_YOFFSET_UNITS", "value": 23.5 },
+    { "id": "X2_MANA_XOFFSET_DECS", "value": 13 },
+    { "id": "X2_MANA_YOFFSET_DECS", "value": 64 },
+    { "id": "X2_MANA_XOFFSET_UNITS", "value": 25 },
+    { "id": "X2_MANA_YOFFSET_UNITS", "value": 63 },
+
+    { "id": "X3_AMMO_XOFFSET_DECS", "value": 26 },
+    { "id": "X3_AMMO_YOFFSET_DECS", "value": 12 },
+    { "id": "X3_AMMO_XOFFSET_UNITS", "value": 37 },
+    { "id": "X3_AMMO_YOFFSET_UNITS", "value": 13 },
+    { "id": "X3_MANA_XOFFSET_DECS", "value": 25 },
+    { "id": "X3_MANA_YOFFSET_DECS", "value": 53 },
+    { "id": "X3_MANA_XOFFSET_UNITS", "value": 37 },
+    { "id": "X3_MANA_YOFFSET_UNITS", "value": 54 },
+
+    { "id": "X4_AMMO_XOFFSET_DECS", "value": 36 },
+    { "id": "X4_AMMO_YOFFSET_DECS", "value": 8 },
+    { "id": "X4_AMMO_XOFFSET_UNITS", "value": 47 },
+    { "id": "X4_AMMO_YOFFSET_UNITS", "value": 10 },
+    { "id": "X4_MANA_XOFFSET_DECS", "value": 32 },
+    { "id": "X4_MANA_YOFFSET_DECS", "value": 48 },
+    { "id": "X4_MANA_XOFFSET_UNITS", "value": 44 },
+    { "id": "X4_MANA_YOFFSET_UNITS", "value": 50 },
+
+    { "id": "XC_AMMO_XOFFSET_DECS", "value": 15 },
+    { "id": "XC_AMMO_XOFFSET_UNITS", "value": 26 },
+    { "id": "XC_AMMO_YOFFSET", "value": 18 },
+    { "id": "XC_MANA_XOFFSET_DECS", "value": 19 },
+    { "id": "XC_MANA_XOFFSET_UNITS", "value": 30 },
+    { "id": "XC_MANA_YOFFSET", "value": 58 },
+
+    { "id": "NUMBERS_WIDTH", "value": 130 },
+    { "id": "NUMBERS_HEIGHT", "value": 250 },
+    { "id": "NUMBERS_SPRITE_COLUMS", "value": 2 },
+    { "id": "NUMBERS_SPRITE_ROWS", "value": 5 },
+    { "id": "NUM_RENDER_W", "value": 32 },
+    { "id": "NUM_RENDER_H", "value": 83 },
+
+    { "id": "LOGO_WIDTH", "value": 404 },
+    { "id": "LOGO_HEIGHT", "value": 284 },
+    { "id": "LOGO_ROWS", "value": 1 },
+    { "id": "LOGO_COLUMNS", "value": 4 },
+    { "id": "LOGO_FRAME_WIDTH", "value": 200 },
+    { "id": "LOGO_FRAME_HEIGHT", "value": 140 },
+    { "id": "LOGO_START_FRAME", "value": 0 },
+    { "id": "LOGO_END_FRAME", "value": 3 },
+    { "id": "LOGO_FRAME_RATE", "value": 4 },
+
+    { "id": "HEIGHT", "value": 17 },
+    { "id": "MAX_NODES", "value": 3 },
+    { "id": "MAX_SIG", "value": 2 },
+
+    { "id": "NODE_FRAME_WIDTH", "value": 32 },
+    { "id": "NODE_FRAME_HEIGHT", "value": 32 },
+    { "id": "NODE_FRAME_ROWS", "value": 6 },
+    { "id": "NODE_FRAME_COLUMNS", "value": 3 },
+
+    { "id": "NODE_WIDTH", "value": 64 },
+    { "id": "NODE_HEIGHT", "value": 64 },
+    { "id": "NODE_DISTANCE", "value": 50 },
+    { "id": "CONECTION_OFFSET", "value": 29 },
+
+    { "id": "NODE_POSITION_Y", "value": 94 },
+
+    { "id": "NODE_BUTTON_ONOUT_START_FRAME", "value": 0 },
+    { "id": "NODE_BUTTON_ONOUT_END_FRAME", "value": 0 },
+    { "id": "NODE_BUTTON_ONOVER_START_FRAME", "value": 2 },
+    { "id": "NODE_BUTTON_ONOVER_END_FRAME", "value": 14 },
+    { "id": "NODE_BUTTON_ONCLICK_START_FRAME", "value": 1 },
+    { "id": "NODE_BUTTON_ONCLICK_END_FRAME", "value": 1 },
+    { "id": "NODE_BUTTON_ONLOCKED_START_FRAME", "value": 15 },
+    { "id": "NODE_BUTTON_ONLOCKED_END_FRAME", "value": 15 },
+    { "id": "NODE_BUTTON_ONCOMPLETED_START_FRAME", "value": 16 },
+    { "id": "NODE_BUTTON_ONCOMPLETED_END_FRAME", "value": 17 },
+
+    { "id": "STUDIO_WIDTH", "value": 252 },
+    { "id": "STUDIO_HEIGHT", "value": 54 },
+
+    { "id": "MESSAGE_W", "value": 300 },
+    { "id": "MESSAGE_H", "value": 200 },
+    { "id": "MESSAGE_X", "value": 490 },
+    { "id": "MESSAGE_Y", "value": 180 },
+
+    { "id": "MELEE_RADIUS", "value": 500 },
+    { "id": "RANGED_RADIUS", "value": 800 },
+    { "id": "TANK_RADIUS", "value": 600 },
+
+    { "id": "STARTING_TIME_PER_WAVE", "value": 15000 },
+
+    { "id": "SHOP_NUMBER_OF_CARDS", "value": 4 },
+    { "id": "SHOP_CARD_SELECTED_POSY", "value": 248 },
+    { "id": "SHOP_CARD_UNSELECTED_POSY", "value": 298 },
+    { "id": "SHOP_CARD_OFFSET_X", "value": 300 },
+    { "id": "SHOP_CARD_PRICE_WIDTH", "value": 100 },
+    { "id": "SHOP_CARD_PRICE_HEIGHT", "value": 50 },
+
+    { "id": "SHOP_MONEY_WIDTH", "value": 100 },
+    { "id": "SHOP_MONEY_HEIGHT", "value": 50 }
+    ],
+
+    "string" :  [
+    { "id": "TEXTURES_FILE", "value": "../Game/src/data/textures.txt" },
+    { "id": "USED_FONT", "value": "ARIAL24" },
+    { "id": "ONOUT", "value": "OnOut" },
+    { "id": "ONOVER", "value": "OnOver" },
+    { "id": "ONCLICK", "value": "OnClick" },
+    { "id": "ONLOCKED", "value": "OnLocked" },
+    { "id": "ONCOMPLETED", "value": "OnCompleted" },
+    { "id": "SHUFFLING_CARDS", "value": "ShufflingCards" },
+    { "id": "IDLE", "value": "Idle" },
+    { "id": "REVERSE", "value": "CardReverse" },
+    { "id": "NUMBERS", "value": "Numbers" },
+    { "id": "CHARACTER_IDLE_KEY", "value": "charaIdle" },
+    { "id": "CHARACTER_MOVE_KEY", "value": "charaMove" },
+    { "id": "CHARACTER_ATTACK_IDLE_KEY", "value": "charaAttackIdle" },
+    { "id": "CHARACTER_ATTACK_MOVE_KEY", "value": "charaAttackMove" },
+    { "id": "CHARACTER_SKILL_IDLE_KEY", "value": "charaSkillIdle" },
+    { "id": "CHARACTER_SKILL_MOVE_KEY", "value": "charaSkillMove" },
+    { "id": "PLAYER", "value": "newPlayer" },
+    { "id": "POINTER", "value": "Pointer" },
+    { "id": "MELEE_ENEMY_TEXTURE_KEY", "value": "MeleeEnemy" },
+    { "id": "RANGED_ENEMY_TEXTURE_KEY", "value": "RangedEnemy" },
+    { "id": "HEAL_AREA", "value": "HealArea" },
+    { "id": "SWORD_SLASH", "value": "SwordSlash" },
+    { "id": "SWORD_SPIN", "value": "SwordSpin" },
+    { "id": "SPEAR_THRUST", "value": "SpearThrust" },
+    { "id": "SOWND_ATTACK", "value": "Sound" },
+    { "id": "FLASH_BANG", "value": "FlashBang" },
+    { "id": "LASER", "value": "Laser" },
+    { "id": "CARD_CIRCLE", "value": "CardCircle" },
+    { "id": "CARD_FRAME", "value": "CardFrame" },
+    { "id": "CARD_RECTANGLE", "value": "CardRectangle" },
+    { "id": "DECK_PANEL", "value": "DeckPanel" },
+    { "id": "OBJECTS_PANEL", "value": "ObjectsPanel" },
+    { "id": "INVENTORY_PANEL", "value": "InventoryPanel" },
+    { "id": "STATS_PANEL", "value": "StatsPanel" },
+    { "id": "PLAY", "value": "PlayButton" },
+    { "id": "OPTIONS", "value": "OptionsButton" },
+    { "id": "ALBUM", "value": "AlbumButton" },
+    { "id": "EXIT", "value": "ExitButton" },
+    { "id": "RESUME", "value": "ResumeButton" },
+    { "id": "INVENTORY", "value": "InventoryButton" },
+    { "id": "BUY", "value": "BuyButton" },
+    { "id": "STATISTICS", "value": "StatisticsFrame" },
+    { "id": "LIFEBAR", "value": "LifeBar" },
+    { "id": "MANABAR", "value": "ManaBar" },
+    { "id": "ETHER_METER_FRAME", "value": "EtherMeterFrame" },
+    { "id": "ETHER_METER", "value": "EtherMeter" },
+    { "id": "STATISTICS_NUMBERS", "value": "StatisticsNumbers" },
+    { "id": "ETHER_ANIM", "value": "Ether" },
+    { "id": "MANA_NAME", "value": "Mana" },
+    { "id": "CARD_AMMO", "value": "CardAmmo" },
+    { "id": "CARDS_NUMBERS", "value": "CardsNumbers" },
+    { "id": "LOGO_ANIM_KEY", "value": "LogoIdle" },
+    { "id": "NODE_MAP_JSON_ROOT", "value": "../Game/src/data/game.map.json" },
+    { "id": "BATTLE_NODE_TEXTURE_KEY", "value": "BattleNode" },
+    { "id": "SHOP_NODE_TEXTURE_KEY", "value": "ShopNode" },
+    { "id": "CHEST_NODE_TEXTURE_KEY", "value": "ChestNode" },
+    { "id": "EVENT_NODE_TEXTURE_KEY", "value": "EventNode" },
+    { "id": "ALMACENAMIENTO_CUANTICO", "value": "AlmacenamientoCuantico" },
+    { "id": "HOVERBOARD", "value": "Hoverboard" },
+    { "id": "ENGRANAJE_AUREO", "value": "EngranajeAureo" },
+    { "id": "BRAZALETE_IONES", "value": "BrazaleteDeIones" },
+    { "id": "REGALO", "value": "Regalo" },
+    { "id": "RELOJ_DIGITAL", "value": "RelojDigital" },
+    { "id": "COLLAR_GOTICO", "value": "CollarGotico" },
+    { "id": "CINTURON_HERRAMIENTAS", "value": "CinturonDeHerramientas" },
+    { "id": "CETRO_PAPAL", "value": "CetroPapal" },
+    { "id": "LIBRO_PERDIDO", "value": "LibroPerdido" },
+    { "id": "TAZA_CAFE", "value": "TazaDeCafe" },
+    { "id": "BOTELLA_MINIATURA", "value": "BotellaConUnBarcoEnMiniatura" }
+    ],
+
+    "vector" :  [
+    { "id": "PLAYER_INITIAL_POSITION", "x": 608.0, "y": 328.0 },
+    { "id": "PLAYER_INITIAL_VELOCITY", "x": 0.0, "y": 0.0 },
+    { "id": "FRAME_OFFSET", "x": 36.0, "y": 66.0 },
+    { "id": "MM_PLAY_BUTTON_POS", "x": 265.5, "y": 360.0 },
+    { "id": "MM_OPTIONS_BUTTON_POS", "x": 361.5, "y": 495.0 },
+    { "id": "MM_ALBUM_BUTTON_POS", "x": 717.5, "y": 495.0 },
+    { "id": "MM_EXIT_BUTTON_POS", "x": 813.5, "y": 360.0 },
+    { "id": "PM_RESUME_BUTTON_POS", "x": 482.0, "y": 360.0 },
+    { "id": "PM_INVENTORY_BUTTON_POS", "x": 482.0, "y": 450.0 },
+    { "id": "PM_OPTIONS_BUTTON_POS", "x": 482.0, "y": 540.0 },
+    { "id": "PM_EXIT_BUTTON_POS", "x": 482.0, "y": 630.0 },
+    { "id": "PM_RESUMEFRAME_BUTTON_POS", "x": 446.0, "y": 294.0 },
+    { "id": "PM_INVENTORYFRAME_BUTTON_POS", "x": 446.0, "y": 384.0 },
+    { "id": "PM_OPTIONSFRAME_BUTTON_POS", "x": 446, "y": 474.0 },
+    { "id": "PM_EXITFRAME_BUTTON_POS", "x": 446.0, "y": 564.0 },
+    { "id": "MS_OPTIONS_BUTTON_POS", "x": 41.5, "y": 600.0 },
+    { "id": "MS_INVENTORY_BUTTON_POS", "x": 521.5, "y": 600.0 },
+    { "id": "MS_EXIT_BUTTON_POS", "x": 1001.5, "y": 600.0 },
+    { "id": "MS_OPTIONSFRAME_BUTTON_POS", "x": 5.5, "y": 534.0 },
+    { "id": "MS_INVENTORYFRAME_BUTTON_POS", "x": 485.5, "y": 534.0 },
+    { "id": "MS_EXITFRAME_BUTTON_POS", "x": 965.5, "y": 534.0 },
+    { "id": "IS_EXIT_BUTTON_POS", "x": 1036.0, "y": 670.0 },
+    { "id": "IS_EXITFRAME_BUTTON_POS", "x": 1012.0, "y": 626.0 },
+    { "id": "COIN_OFFSET", "x": 970.67, "y": 10.0 },
+    { "id": "MONEY_TEXT", "x": 1050.67, "y": 18.0 },
+    { "id": "MONEY_VALUE", "x": 1210.67, "y": 18.0 },
+    { "id": "STAT_OFFSET", "x": 74.0, "y": 20.0 },
+    { "id": "STAT_VALUE_OFFSET", "x": 190, "y": 20.0 },
+    { "id": "CARD_CIRCLE_OFFSET", "x": 52.0, "y": 75.0 },
+    { "id": "CARD_FRAME_OFFSET", "x": 4.0, "y": 4.0 },
+    { "id": "CARD_RECTANGLE_OFFSET", "x": 44.0, "y": -7.0 },
+    { "id": "DP_POSITION", "x": 429.0, "y": 465.0 },
+    { "id": "OP_POSITION", "x": 1053.5, "y": 99.0 },
+    { "id": "IP_POSITION", "x": 386.5, "y": 0.0 },
+    { "id": "SP_POSITION", "x": 1011.0, "y": 269.0 },
+    { "id": "FLOOR_PAST_VELOCITY", "x": 0.0, "y": 0.0 },
+    { "id": "UI_STATISTICS_POSITION", "x": 327.5, "y": 0.0 },
+    { "id": "LIFEBAR_POSITION", "x": 685.0, "y": 15.0 },
+    { "id": "MANABAR_POSITION", "x": 382.0, "y": 15.0 },
+    { "id": "UI_ETHER_FRAME_POSITION", "x": 584.5, "y": 0.0 },
+    { "id": "UI_ETHER_POSITION", "x": 590.0, "y": 5.0 },
+    { "id": "UI_COUNTDOWN_ETHER_POS", "x": 628.9, "y": 9.0 },
+    { "id": "LOGO_POSITION", "x": 438.0, "y": 90.0 },
+    { "id": "STUDIO_POSITION", "x": 85.33, "y": 625.26 },
+    { "id": "SHOP_BUYBUTTON_POSITION", "x": 561.0, "y": 620.0 },
+    { "id": "SHOP_MONEY_POSITION", "x": 461.0, "y": 620.0 },
+    { "id": "SHOP_EXITBUTTON_POSITION", "x": 5.0, "y": 5.0 }
     ]
 }

@@ -587,7 +587,7 @@ const int NODE_BUTTON_ONCOMPLETED_END_FRAME = 17;
 
 // STUDIO ----------------------------------------------------------------------------------------
 const int STUDIO_WIDTH = 84 * 3;
-const int STUDIO_HEIGTH = 18 * 3;
+const int STUDIO_HEIGHT = 18 * 3;
 const Vector2D STUDIO_POSITION = Vector2D(WIN_WIDTH / 15, WIN_HEIGHT - WIN_HEIGHT / 7.6);
 
 // MESSAGE ---------------------------------------------------------------------------------------
@@ -618,7 +618,7 @@ const int TANK_RADIUS = 600;
 const int STARTING_TIME_PER_WAVE = 15000;
 
 //SHOP ------------------------------------------------------------------------------------------
-const int SHOP_NUMBER_OF_CARDS = 4;
+//const int SHOP_NUMBER_OF_CARDS = 4;
 const int SHOP_CARD_SELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 100;
 const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
 const int SHOP_CARD_OFFSET_X = 300;

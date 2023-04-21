@@ -21,7 +21,7 @@ void ChargedPortalComponent::update() {
 				brComp->changeEtherNumbers(countDownNumber, 5 - (int)deltaTime);
 				
 				// Salir al menú principal si han pasad 5.6 secs (5 de mostrar del 5 al 1 y 0.6 del 0)
-				if (deltaTime > COUNTDOWN_TIME) SDLApplication::returnToMapScene();
+				if (deltaTime > Constant::getFloat("COUNTDOWN_TIME")) SDLApplication::returnToMapScene();
 			}
 		}
 	}
@@ -39,12 +39,12 @@ void ChargedPortalComponent::countDownSetup() {
 
 	// Guardar el primer número del vector y borrar el resto
 	countDownNumber = numbers[0];
-	for (int i = N_ETHER_COUNTER - 1; i > 0; i--) numbers[i]->setAlive(false);
+	for (int i = Constant::getInt("N_ETHER_COUNTER") - 1; i > 0; i--) numbers[i]->setAlive(false);
 	
 	
 	// Reposicionar el número
 	Transform* tr = countDownNumber->getComponent<Transform>(); 
-	tr->setPos(UI_COUNTDOWN_ETHER_POS);
+	tr->setPos(Constant::getVector2D("UI_COUNTDOWN_ETHER_POS"));
 	tr->setWidth(tr->getWidth() * 1.5);
 	tr->setHeight(tr->getHeight() * 1.5);
 }

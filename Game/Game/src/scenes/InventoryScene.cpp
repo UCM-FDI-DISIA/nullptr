@@ -43,7 +43,7 @@ InventoryScene::InventoryScene() : GameState() {
 		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
 	}
 	// Creamos el boton de salir
-	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, [&]() {
+	createButton(Constant::getVector2D("IS_EXIT_BUTTON_POS"), Constant::getVector2D("IS_EXITFRAME_BUTTON_POS"), [&]() {
 		int cardsInDeck = 0;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
 		if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
@@ -53,11 +53,11 @@ InventoryScene::InventoryScene() : GameState() {
 
 // Crear un bot�n especificado en la escena
 void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key, IS_BUTTON_WIDTH, IS_BUTTON_HEIGHT);
+	AnimatorInfo aI = AnimatorInfo(key, Constant::getInt("IS_BUTTON_WIDTH"), Constant::getInt("IS_BUTTON_HEIGHT"));
 	// Crear marco
 	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), IS_BUTTONFRAME_WIDTH, IS_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGHT, aI.rows, aI.cols);
+	frame->addComponent<Transform>(_fPos, Vector2D(), Constant::getInt("IS_BUTTONFRAME_WIDTH"), Constant::getInt("IS_BUTTONFRAME_HEIGHT"));
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), Constant::getInt("BUTTON_FRAME_SPRITE_WIDTH"), Constant::getInt("BUTTON_FRAME_SPRITE_HEIGHT"), aI.rows, aI.cols);
 
 	// Crear bot�n
 	addGameObject<Button>(_cb, _bPos, aI, frame);
@@ -65,51 +65,51 @@ void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 
-	symbol->addComponent<Transform>(_pos, VECTOR_ZERO, SYMBOL_DIMENSIONS, SYMBOL_DIMENSIONS);
+	symbol->addComponent<Transform>(_pos, Vector2D(), Constant::getInt("SYMBOL_DIMENSIONS"), Constant::getInt("SYMBOL_DIMENSIONS"));
 	symbol->addComponent<Image>(SDLApplication::getTexture(key));
 
 	GameObject* stat = addGameObject();
-	stat->addComponent<Transform>(_pos + STAT_OFFSET, VECTOR_ZERO, 100, 24);
+	stat->addComponent<Transform>(_pos + Constant::getVector2D("STAT_OFFSET"), Vector2D(), 100, 24);
 	stat->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), text);
 
 	GameObject* value = addGameObject();
-	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
+	value->addComponent<Transform>(_pos + Constant::getVector2D("STAT_VALUE_OFFSET"), Vector2D(), 50, 24);
 	value->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), to_string(val));
 }
 // Crea los paneles en los que se colocan las cartas
 void InventoryScene::createPanels() {
 	GameObject* dp = addGameObject();
-	dp->addComponent<Transform>(DP_POSITION, VECTOR_ZERO, DP_WIDTH, DP_HEIGHT);
-	dp->addComponent<Image>(SDLApplication::getTexture(DECK_PANEL));
+	dp->addComponent<Transform>(Constant::getVector2D("DP_POSITION"), Vector2D(), Constant::getInt("DP_WIDTH"), Constant::getInt("DP_HEIGHT"));
+	dp->addComponent<Image>(SDLApplication::getTexture(Constant::getString("DECK_PANEL")));
 
 	GameObject* op = addGameObject();
-	op->addComponent<Transform>(OP_POSITION, VECTOR_ZERO, OP_WIDTH, OP_HEIGHT);
-	op->addComponent<Image>(SDLApplication::getTexture(OBJECTS_PANEL));
+	op->addComponent<Transform>(Constant::getVector2D("OP_POSITION"), Vector2D(), Constant::getInt("OP_WIDTH"), Constant::getInt("OP_HEIGHT"));
+	op->addComponent<Image>(SDLApplication::getTexture(Constant::getString("OBJECTS_PANEL")));
 
 	GameObject* ip = addGameObject();
-	ip->addComponent<Transform>(IP_POSITION, VECTOR_ZERO, IP_WIDTH, IP_HEIGHT);
-	ip->addComponent<Image>(SDLApplication::getTexture(INVENTORY_PANEL));
+	ip->addComponent<Transform>(Constant::getVector2D("IP_POSITION"), Vector2D(), Constant::getInt("IP_WIDTH"), Constant::getInt("IP_HEIGHT"));
+	ip->addComponent<Image>(SDLApplication::getTexture(Constant::getString("INVENTORY_PANEL")));
 
 	GameObject* sp = addGameObject();
-	sp->addComponent<Transform>(SP_POSITION, VECTOR_ZERO, SP_WIDTH, SP_HEIGHT);
-	sp->addComponent<Image>(SDLApplication::getTexture(STATS_PANEL));
+	sp->addComponent<Transform>(Constant::getVector2D("SP_POSITION"), Vector2D(), Constant::getInt("SP_WIDTH"), Constant::getInt("SP_HEIGHT"));
+	sp->addComponent<Image>(SDLApplication::getTexture(Constant::getString("STATS_PANEL")));
 
 }
 
 void InventoryScene::createMoneyInfo() {
 	//Icono de moneda
 	GameObject* coin = addGameObject();
-	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 64, 64);
+	coin->addComponent<Transform>(Constant::getVector2D("COIN_OFFSET"), Vector2D(), 64, 64);
 	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
 
 	// Texto
 	GameObject* text = addGameObject();
-	text->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, 70, 48);
+	text->addComponent<Transform>(Constant::getVector2D("MONEY_TEXT"), Vector2D(), 70, 48);
 	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), "Dinero");
 
 	// Texto con el numero de monedas
 	GameObject* mon = addGameObject();
-	mon->addComponent<Transform>(MONEY_VALUE, VECTOR_ZERO, 50, 48);
+	mon->addComponent<Transform>(Constant::getVector2D("MONEY_VALUE"), Vector2D(), 50, 48);
 	int m = PlayerData::instance()->getMoney();
 	mon->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), to_string(m));
 }
@@ -119,7 +119,7 @@ void InventoryScene::createObjects() {
 
 	for (int i = 0; i < objs.size(); i++) {
 		GameObject* g = addGameObject();
-		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
+		g->addComponent<Transform>(OBJECTS_POSITIONS[i], Vector2D(), Constant::getInt("OBJECTS_DIMENSIONS"), Constant::getInt("OBJECTS_DIMENSIONS"));
 		g->addComponent<Image>(objs[i]->texture);
 	}
 }
@@ -147,14 +147,14 @@ void InventoryScene::createCards() {
 // Se encarga de crear las imagenes de las cartas en la zona del deck
 void InventoryScene::createDeckCards(CardId crd, int column)
 {
-	Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
+	Vector2D posD = Vector2D(20 + 160 * column, Constant::getInt("DECK_HEIGHT"));
 	createCard(posD, crd, true);
 }
 // Se encarga de crear el objeto de la carta, así como sus botones y le añaden la funcionalidad para quitar o poner en el deck
 void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
-	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
+	cardObj->addComponent<Transform>(pos, Vector2D(), Constant::getInt("CARD_WIDTH") * 2, Constant::getInt("CARD_HEIGHT") * 2);
 	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(crd)).texture);
 	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd, myPos = pos]()
@@ -196,12 +196,12 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 					+ "/" + to_string(inventory[Card::getCardIDfromEnum(card)].cuantity));
 			}
 		}
-		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
+		, pos, AnimatorInfo("CardSelection", Constant::getInt("ALB_CARD_W"), Constant::getInt("ALB_CARD_H"),
 		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4));
 	// Texto que indica cuantas cartas hay en el deck
 	GameObject* text = addGameObject();
 	inventory[Card::getCardIDfromEnum(crd)].myText = text;
-	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), VECTOR_ZERO, 70, 48);
+	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), Vector2D(), 70, 48);
 	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(inventory[Card::getCardIDfromEnum(crd)].cuantityDeck) + "/" + to_string(inventory[Card::getCardIDfromEnum(crd)].cuantity));
 	if (dck) {
 		deckButtons[crd].deckButton = b;

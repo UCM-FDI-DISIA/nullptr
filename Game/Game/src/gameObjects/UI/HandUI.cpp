@@ -60,7 +60,7 @@ void HandUI::repositionSelected(int cardPos, int offset) {
 void HandUI::changeSelected(bool key, int number) {
 	// Deseleccionar la carta anterior, volviendo a su posición original si no es esta llamada debida a un descarte
 	if (active != handUI.end())
-		repositionSelected(Y_CARD_POS, SELECTED_OFFSET);
+		repositionSelected(Constant::getInt("Y_CARD_POS"), Constant::getInt("SELECTED_OFFSET"));
 
 	// Si se ha cambiado pulsando teclas
 	if (key) {
@@ -77,7 +77,7 @@ void HandUI::changeSelected(bool key, int number) {
 	}
 
 	// Seleccionar la carta escogida
-	repositionSelected(Y_CARD_POS_SELECTED, -SELECTED_OFFSET);
+	repositionSelected(Constant::getInt("Y_CARD_POS_SELECTED"), -Constant::getInt("SELECTED_OFFSET"));
 }
 
 // Borrar la carta correspondiente
@@ -116,10 +116,10 @@ void HandUI::createUI() {
 	handPlayer = cardComp->getHand();
 
 	// Crear las 4 cartas con sus posiciones correspondientes
-	createCard(0, X1_4CARDS_POS, Y_CARD_POS_SELECTED, -10);
-	createCard(1, X2_4CARDS_POS, Y_CARD_POS, -5);
-	createCard(2, X3_4CARDS_POS, Y_CARD_POS, 5);
-	createCard(3, X4_4CARDS_POS, Y_CARD_POS, 10);
+	createCard(0, Constant::getInt("X1_4CARDS_POS"), Constant::getInt("Y_CARD_POS_SELECTED"), -10);
+	createCard(1, Constant::getInt("X2_4CARDS_POS"), Constant::getInt("Y_CARD_POS"), -5);
+	createCard(2, Constant::getInt("X3_4CARDS_POS"), Constant::getInt("Y_CARD_POS"), 5);
+	createCard(3, Constant::getInt("X4_4CARDS_POS"), Constant::getInt("Y_CARD_POS"), 10);
 
 	// Marcar como activa la primera carta
 	active = handUI.begin();
@@ -131,7 +131,7 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 
 	// Crear la carta y añadirle sus componentes image y tansform
 	newCard->card = new GameObject();
-	newCard->card->addComponent<Transform>(Vector2D(posX, posY), Vector2D(), UI_CARD_WIDTH, UI_CARD_HEIGHT, rotation);
+	newCard->card->addComponent<Transform>(Vector2D(posX, posY), Vector2D(), Constant::getInt("UI_CARD_WIDTH"), Constant::getInt("UI_CARD_HEIGHT"), rotation);
 	newCard->card->addComponent<Image>(handPlayer[i]->getTexture());
 
 	// Guardar munición y obtener maná
@@ -144,28 +144,28 @@ void HandUI::createCard(int i, int posX, int posY, int rotation) {
 	Vector2D posDecsMana; Vector2D posUnitsMana;
 	switch (i) {
 		case 0:
-			posDecsAmmo = Vector2D(posX + X1_AMMO_XOFFSET_DECS, posY + X1_AMMO_YOFFSET_DECS);
-			posUnitsAmmo = Vector2D(posX + X1_AMMO_XOFFSET_UNITS, posY + X1_AMMO_YOFFSET_UNITS);
-			posDecsMana = Vector2D(posX + X1_MANA_XOFFSET_DECS, posY + X1_MANA_YOFFSET_DECS);
-			posUnitsMana = Vector2D(posX + X1_MANA_XOFFSET_UNITS, posY + X1_MANA_YOFFSET_UNITS);
+			posDecsAmmo = Vector2D(posX + Constant::getInt("X1_AMMO_XOFFSET_DECS"), posY + Constant::getInt("X1_AMMO_YOFFSET_DECS"));
+			posUnitsAmmo = Vector2D(posX + Constant::getInt("X1_AMMO_XOFFSET_UNITS"), posY + Constant::getInt("X1_AMMO_YOFFSET_UNITS"));
+			posDecsMana = Vector2D(posX + Constant::getInt("X1_MANA_XOFFSET_DECS"), posY + Constant::getInt("X1_MANA_YOFFSET_DECS"));
+			posUnitsMana = Vector2D(posX + Constant::getInt("X1_MANA_XOFFSET_UNITS"), posY + Constant::getInt("X1_MANA_YOFFSET_UNITS"));
 			break;
 		case 1:
-			posDecsAmmo = Vector2D(posX + X2_AMMO_XOFFSET_DECS, posY + X2_AMMO_YOFFSET_DECS);
-			posUnitsAmmo = Vector2D(posX + X2_AMMO_XOFFSET_UNITS, posY + X2_AMMO_YOFFSET_UNITS);
-			posDecsMana = Vector2D(posX + X2_MANA_XOFFSET_DECS, posY + X2_MANA_YOFFSET_DECS);
-			posUnitsMana = Vector2D(posX + X2_MANA_XOFFSET_UNITS, posY + X2_MANA_YOFFSET_UNITS);
+			posDecsAmmo = Vector2D(posX + Constant::getInt("X2_AMMO_XOFFSET_DECS"), posY + Constant::getInt("X2_AMMO_YOFFSET_DECS"));
+			posUnitsAmmo = Vector2D(posX + Constant::getInt("X2_AMMO_XOFFSET_UNITS"), posY + Constant::getInt("X2_AMMO_YOFFSET_UNITS"));
+			posDecsMana = Vector2D(posX + Constant::getInt("X2_MANA_XOFFSET_DECS"), posY + Constant::getInt("X2_MANA_YOFFSET_DECS"));
+			posUnitsMana = Vector2D(posX + Constant::getInt("X2_MANA_XOFFSET_UNITS"), posY + Constant::getInt("X2_MANA_YOFFSET_UNITS"));
 			break;
 		case 2:
-			posDecsAmmo = Vector2D(posX + X3_AMMO_XOFFSET_DECS, posY + X3_AMMO_YOFFSET_DECS);
-			posUnitsAmmo = Vector2D(posX + X3_AMMO_XOFFSET_UNITS, posY + X3_AMMO_YOFFSET_UNITS);
-			posDecsMana = Vector2D(posX + X3_MANA_XOFFSET_DECS, posY + X3_MANA_YOFFSET_DECS);
-			posUnitsMana = Vector2D(posX + X3_MANA_XOFFSET_UNITS, posY + X3_MANA_YOFFSET_UNITS);
+			posDecsAmmo = Vector2D(posX + Constant::getInt("X3_AMMO_XOFFSET_DECS"), posY + Constant::getInt("X3_AMMO_YOFFSET_DECS"));
+			posUnitsAmmo = Vector2D(posX + Constant::getInt("X3_AMMO_XOFFSET_UNITS"), posY + Constant::getInt("X3_AMMO_YOFFSET_UNITS"));
+			posDecsMana = Vector2D(posX + Constant::getInt("X3_MANA_XOFFSET_DECS"), posY + Constant::getInt("X3_MANA_YOFFSET_DECS"));
+			posUnitsMana = Vector2D(posX + Constant::getInt("X3_MANA_XOFFSET_UNITS"), posY + Constant::getInt("X3_MANA_YOFFSET_UNITS"));
 			break;
 		case 3:
-			posDecsAmmo = Vector2D(posX + X4_AMMO_XOFFSET_DECS, posY + X4_AMMO_YOFFSET_DECS);
-			posUnitsAmmo = Vector2D(posX + X4_AMMO_XOFFSET_UNITS, posY + X4_AMMO_YOFFSET_UNITS);
-			posDecsMana = Vector2D(posX + X4_MANA_XOFFSET_DECS, posY + X4_MANA_YOFFSET_DECS);
-			posUnitsMana = Vector2D(posX + X4_MANA_XOFFSET_UNITS, posY + X4_MANA_YOFFSET_UNITS);
+			posDecsAmmo = Vector2D(posX + Constant::getInt("X4_AMMO_XOFFSET_DECS"), posY + Constant::getInt("X4_AMMO_YOFFSET_DECS"));
+			posUnitsAmmo = Vector2D(posX + Constant::getInt("X4_AMMO_XOFFSET_UNITS"), posY + Constant::getInt("X4_AMMO_YOFFSET_UNITS"));
+			posDecsMana = Vector2D(posX + Constant::getInt("X4_MANA_XOFFSET_DECS"), posY + Constant::getInt("X4_MANA_YOFFSET_DECS"));
+			posUnitsMana = Vector2D(posX + Constant::getInt("X4_MANA_XOFFSET_UNITS"), posY + Constant::getInt("X4_MANA_YOFFSET_UNITS"));
 			break;
 	}
 
@@ -202,7 +202,7 @@ GameObject* HandUI::createNumber(Vector2D pos, float rotation, int value, char t
 	auto number = new GameObject();
 
 	// Añadir componentes (transform y animator)
-	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH, UI_AMMO_NUMBERS_HEIGHT, rotation);
+	number->addComponent<Transform>(pos, Vector2D(), Constant::getInt("UI_AMMO_NUMBERS_WIDTH"), Constant::getInt("UI_AMMO_NUMBERS_HEIGHT"), rotation);
 	createNumberAnims(number, value, type);
 
 	// Devolver el número creado
@@ -233,21 +233,21 @@ void HandUI::rearrangeThree() {
 	auto it = handUI.begin();
 
 	// Primera carta
-	rearrangeCard(it, X1_3CARDS_POS, -5,
-		make_tuple(X2_AMMO_XOFFSET_DECS, X2_AMMO_YOFFSET_DECS, X2_AMMO_XOFFSET_UNITS, X2_AMMO_YOFFSET_UNITS),
-		make_tuple(X2_MANA_XOFFSET_DECS, X2_MANA_YOFFSET_DECS, X2_MANA_XOFFSET_UNITS, X2_MANA_YOFFSET_UNITS));
+	rearrangeCard(it, Constant::getInt("X1_3CARDS_POS"), -5,
+		make_tuple(Constant::getInt("X2_AMMO_XOFFSET_DECS"), Constant::getInt("X2_AMMO_YOFFSET_DECS"), Constant::getInt("X2_AMMO_XOFFSET_UNITS"), Constant::getInt("X2_AMMO_YOFFSET_UNITS")),
+		make_tuple(Constant::getInt("X2_MANA_XOFFSET_DECS"), Constant::getInt("X2_MANA_YOFFSET_DECS"), Constant::getInt("X2_MANA_XOFFSET_UNITS"), Constant::getInt("X2_MANA_YOFFSET_UNITS")));
 	it++;
 
 	// Segunda carta
-	rearrangeCard(it, CENTERED_CARD_POS, 0,
-		make_tuple(XC_AMMO_XOFFSET_DECS, XC_AMMO_YOFFSET, XC_AMMO_XOFFSET_UNITS, XC_AMMO_YOFFSET),
-		make_tuple(XC_MANA_XOFFSET_DECS, XC_MANA_YOFFSET, XC_MANA_XOFFSET_UNITS, XC_MANA_YOFFSET));
+	rearrangeCard(it, Constant::getInt("CENTERED_CARD_POS"), 0,
+		make_tuple(Constant::getInt("XC_AMMO_XOFFSET_DECS"), Constant::getInt("XC_AMMO_YOFFSET"), Constant::getInt("XC_AMMO_XOFFSET_UNITS"), Constant::getInt("XC_AMMO_YOFFSET")),
+		make_tuple(Constant::getInt("XC_MANA_XOFFSET_DECS"), Constant::getInt("XC_MANA_YOFFSET"), Constant::getInt("XC_MANA_XOFFSET_UNITS"), Constant::getInt("XC_MANA_YOFFSET")));
 	it++;
 
 	// Tercera carta
-	rearrangeCard(it, X3_3CARDS_POS, 5,
-		make_tuple(X3_AMMO_XOFFSET_DECS, X3_AMMO_YOFFSET_DECS, X3_AMMO_XOFFSET_UNITS, X3_AMMO_YOFFSET_UNITS),
-		make_tuple(X3_MANA_XOFFSET_DECS, X3_MANA_YOFFSET_DECS, X3_MANA_XOFFSET_UNITS, X3_MANA_YOFFSET_UNITS));
+	rearrangeCard(it, Constant::getInt("X3_3CARDS_POS"), 5,
+		make_tuple(Constant::getInt("X3_AMMO_XOFFSET_DECS"), Constant::getInt("X3_AMMO_YOFFSET_DECS"), Constant::getInt("X3_AMMO_XOFFSET_UNITS"), Constant::getInt("X3_AMMO_YOFFSET_UNITS")),
+		make_tuple(Constant::getInt("X3_MANA_XOFFSET_DECS"), Constant::getInt("X3_MANA_YOFFSET_DECS"), Constant::getInt("X3_MANA_XOFFSET_UNITS"), Constant::getInt("X3_MANA_YOFFSET_UNITS")));
 	it++;
 }
 
@@ -257,15 +257,15 @@ void HandUI::rearrangeTwo() {
 	auto it = handUI.begin();
 
 	// Primera carta
-	rearrangeCard(it, X2_4CARDS_POS, -5,
-		make_tuple(X2_AMMO_XOFFSET_DECS, X2_AMMO_YOFFSET_DECS, X2_AMMO_XOFFSET_UNITS, X2_AMMO_YOFFSET_UNITS),
-		make_tuple(X2_MANA_XOFFSET_DECS, X2_MANA_YOFFSET_DECS, X2_MANA_XOFFSET_UNITS, X2_MANA_YOFFSET_UNITS));
+	rearrangeCard(it, Constant::getInt("X2_4CARDS_POS"), -5,
+		make_tuple(Constant::getInt("X2_AMMO_XOFFSET_DECS"), Constant::getInt("X2_AMMO_YOFFSET_DECS"), Constant::getInt("X2_AMMO_XOFFSET_UNITS"), Constant::getInt("X2_AMMO_YOFFSET_UNITS")),
+		make_tuple(Constant::getInt("X2_MANA_XOFFSET_DECS"), Constant::getInt("X2_MANA_YOFFSET_DECS"), Constant::getInt("X2_MANA_XOFFSET_UNITS"), Constant::getInt("X2_MANA_YOFFSET_UNITS")));
 	it++;
 
 	// Segunda carta
-	rearrangeCard(it, X3_4CARDS_POS, 5,
-		make_tuple(X3_AMMO_XOFFSET_DECS, X3_AMMO_YOFFSET_DECS, X3_AMMO_XOFFSET_UNITS, X3_AMMO_YOFFSET_UNITS),
-		make_tuple(X3_MANA_XOFFSET_DECS, X3_MANA_YOFFSET_DECS, X3_MANA_XOFFSET_UNITS, X3_MANA_YOFFSET_UNITS));
+	rearrangeCard(it, Constant::getInt("X3_4CARDS_POS"), 5,
+		make_tuple(Constant::getInt("X3_AMMO_XOFFSET_DECS"), Constant::getInt("X3_AMMO_YOFFSET_DECS"), Constant::getInt("X3_AMMO_XOFFSET_UNITS"), Constant::getInt("X3_AMMO_YOFFSET_UNITS")),
+		make_tuple(Constant::getInt("X3_MANA_XOFFSET_DECS"), Constant::getInt("X3_MANA_YOFFSET_DECS"), Constant::getInt("X3_MANA_XOFFSET_UNITS"), Constant::getInt("X3_MANA_YOFFSET_UNITS")));
 }
 
 // Posiciona la carta restante en el centro sin rotación
@@ -274,9 +274,9 @@ void HandUI::rearrangeOne() {
 	auto it = active;
 
 	// Primera carta
-	rearrangeCard(it, CENTERED_CARD_POS, 0,
-		make_tuple(XC_AMMO_XOFFSET_DECS, XC_AMMO_YOFFSET, XC_AMMO_XOFFSET_UNITS, XC_AMMO_YOFFSET),
-		make_tuple(XC_MANA_XOFFSET_DECS, XC_MANA_YOFFSET, XC_MANA_XOFFSET_UNITS, XC_MANA_YOFFSET));
+	rearrangeCard(it, Constant::getInt("CENTERED_CARD_POS"), 0,
+		make_tuple(Constant::getInt("XC_AMMO_XOFFSET_DECS"), Constant::getInt("XC_AMMO_YOFFSET"), Constant::getInt("XC_AMMO_XOFFSET_UNITS"), Constant::getInt("XC_AMMO_YOFFSET")),
+		make_tuple(Constant::getInt("XC_MANA_XOFFSET_DECS"), Constant::getInt("XC_MANA_YOFFSET"), Constant::getInt("XC_MANA_XOFFSET_UNITS"), Constant::getInt("XC_MANA_YOFFSET")));
 }
 
 // Buscar la carta correspondiente y devolver un iterador apuntando a esta
@@ -300,12 +300,12 @@ deque<UICard*>::iterator HandUI::searchCard(deque<Card*>::iterator searched) {
 void HandUI::createNumberAnims(GameObject* obj, int value, char type) {
 	// Seleccionar textura
 	Texture* txt;
-	if (type == 'a') txt = SDLApplication::getTexture(STATISTICS_NUMBERS);
-	else txt = SDLApplication::getTexture(CARDS_NUMBERS);
+	if (type == 'a') txt = SDLApplication::getTexture(Constant::getString("STATISTICS_NUMBERS"));
+	else txt = SDLApplication::getTexture(Constant::getString("CARDS_NUMBERS"));
 
 	// Añadir animator y crear animaciones
-	auto anim = obj->addComponent<Animator>(txt, CARDS_NUMBERS_WIDTH, CARDS_NUMBERS_HEIGHT, CARDS_NUMBERS_ROWS, CARDS_NUMBERS_COLUMNS);
-	for (int j = 0; j < N_NUMBERS - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+	auto anim = obj->addComponent<Animator>(txt, Constant::getInt("CARDS_NUMBERS_WIDTH"), Constant::getInt("CARDS_NUMBERS_HEIGHT"), Constant::getInt("CARDS_NUMBERS_ROWS"), Constant::getInt("CARDS_NUMBERS_COLUMNS"));
+	for (int j = 0; j < Constant::getInt("N_NUMBERS") - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
 	
 	// Reproducir animación correspondiente
 	anim->play(to_string(value));

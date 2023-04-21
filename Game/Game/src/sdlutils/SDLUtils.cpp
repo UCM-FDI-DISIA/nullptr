@@ -17,7 +17,6 @@ SDLUtils::SDLUtils(std::string windowTitle, int width, int height) :
 		fontsAccessWrapper_(fonts_, "Fonts Table"), //
 		imagesAccessWrapper_(images_, "Images Table"), //
 		relicsAccessWrapper_(relics_, "Relics Table"),
-		//numberCtsAccessWrapper_(numberCts_, "Numbers Table"), //
 		soundsAccessWrapper_(sounds_, "Sounds Table"), //
 		musicsAccessWrapper_(musics_, "Musics Table") ///
 {
@@ -216,33 +215,7 @@ void SDLUtils::loadResources(std::string filename) {
 		}
 	}
 
-//	// load number constants
-//	jValue = root["number"];
-//	if (jValue != nullptr) {
-//		if (jValue->IsArray()) {
-//			numberCts_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
-//			for (auto &v : jValue->AsArray()) {
-//				if (v->IsObject()) {
-//					JSONObject vObj = v->AsObject();
-//					std::string key = vObj["id"]->AsString();
-//					double value = vObj["value"]->AsNumber();
-//#ifdef _DEBUG
-//					std::cout << "Loading number (int, float, double) info with id: " << key << std::endl;
-//#endif
-//
-//					numberCts_.emplace(key, value);
-//					
-//				} else {
-//					throw "'number' array in '" + filename
-//							+ "' includes and invalid value";
-//				}
-//			}
-//		} else {
-//			throw "'number' is not an array in '" + filename + "'";
-//		}
-//	}
-
-// load sounds
+	// load sounds
 	jValue = root["sounds"];
 	if (jValue != nullptr) {
 		if (jValue->IsArray()) {
@@ -266,8 +239,8 @@ void SDLUtils::loadResources(std::string filename) {
 			throw "'sounds' is not an array";
 		}
 	}
-//
-//	// load musics
+
+	// load musics
 	jValue = root["musics"];
 	if (jValue != nullptr) {
 		if (jValue->IsArray()) {
@@ -297,7 +270,6 @@ void SDLUtils::closeSDLExtensions() {
 
 	musics_.clear();
 	sounds_.clear();
-	//msgs_.clear();
 	images_.clear();
 	fonts_.clear();
 

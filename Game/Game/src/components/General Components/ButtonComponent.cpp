@@ -52,13 +52,13 @@ void ButtonComponent::onClick() {
 void ButtonComponent::updateAnimation() {
 	switch (state) {
 	case OnOut:
-		changeStateAnim(ONOUT, state);
+		changeStateAnim(Constant::getString("ONOUT"), state);
 		break;
 	case OnOver:
-		changeStateAnim(ONOVER, state);
+		changeStateAnim(Constant::getString("ONOVER"), state);
 		break;
 	case OnClick:
-		changeStateAnim(ONCLICK, state);
+		changeStateAnim(Constant::getString("ONCLICK"), state);
 		break;
 	}
 }

@@ -3,8 +3,8 @@
 // Constructora, recibe animaciones de idle y movimiento
 CharacterAnimator::CharacterAnimator(Texture* _texture, int _w, int _h, int _r, int _c, Animation idle, Animation move) :
 	Animator(_texture, _w, _h, _r, _c), wantToAdjustDirection(true) {
-	createAnim(CHARACTER_IDLE_KEY, idle);
-	createAnim(CHARACTER_MOVE_KEY, move);
+	createAnim(Constant::getString("CHARACTER_IDLE_KEY"), idle);
+	createAnim(Constant::getString("CHARACTER_MOVE_KEY"), move);
 }
 
 // Actualiza la animacion del personaje en función a sus acciones
@@ -20,8 +20,8 @@ bool CharacterAnimator::updatePlayingAnimation() {
 	for (auto& action : actions) {
 		if (action.second()) return playDiff(action.first);
 	}
-	if (moving()) return playDiff(CHARACTER_MOVE_KEY);
-	if (idling()) return playDiff(CHARACTER_IDLE_KEY);
+	if (moving()) return playDiff(Constant::getString("CHARACTER_MOVE_KEY"));
+	if (idling()) return playDiff(Constant::getString("CHARACTER_IDLE_KEY"));
 	return false;
 }
 
@@ -33,7 +33,7 @@ void CharacterAnimator::addAction(string key, Animation anim, BoolCallBack cb) {
 }
 // Añade animación de ataque que iniciará cuando el callback pasado devuelva true
 void CharacterAnimator::addAttack(Animation anim, BoolCallBack cb) {
-	addAction(CHARACTER_ATTACK_IDLE_KEY, anim, cb);
+	addAction(Constant::getString("CHARACTER_ATTACK_IDLE_KEY"), anim, cb);
 }
 
 

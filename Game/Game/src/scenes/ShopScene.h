@@ -6,6 +6,8 @@
 #include "../data/PlayerData.h"
 #include <map>
 
+const int SHOP_NUMBER_OF_CARDS = 4;
+
 struct Item {
 	Button* card;
 	CardId cardObj;

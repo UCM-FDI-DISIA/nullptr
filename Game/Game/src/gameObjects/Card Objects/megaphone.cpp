@@ -25,7 +25,7 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
         // Sumar la posición del jugador, la dirección y el desplazamiento actual
         Vector2D startPos = playerPos + dir * 20.0f * (i + 1) + currentOffset;
 
-        Hitbox::HitboxData data = { startPos, VECTOR_ZERO, spriteRotation, 50 * i, 100 * i, SOWND_ATTACK, _grp_ENEMIES };
+        Hitbox::HitboxData data = { startPos, Vector2D(), spriteRotation, 50 * i, 100 * i, Constant::getString("SOWND_ATTACK"), _grp_ENEMIES};
 
         where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 0.5, data);
     }
@@ -33,7 +33,7 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 
 //Se disparan todas las balas
 void  MegaphoneCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-    Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 3, 3, HEAL_AREA, _grp_PLAYER };
+    Hitbox::HitboxData data = { playerPos, Vector2D(), 0, 3, 3, Constant::getString("HEAL_AREA"), _grp_PLAYER};
 
     where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 6* remainingUses, 0.5, data, 0.1);
 

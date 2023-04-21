@@ -10,7 +10,7 @@ ChestScene::ChestScene() : NodeScene() {
 	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
 
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>(mainMenu, Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79, (Constant::getInt("WIN_HEIGHT") / 4) + 50), aI);
+	addGameObject<Button>(mainMenu, Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 79, (Constant::getFloat("WIN_HEIGHT") / 4) + 50), aI);
 
 	 chestAI = new AnimatorInfo("GachaChest",
 		SDLApplication::getTexture("GachaChest")->width(),
@@ -20,7 +20,7 @@ ChestScene::ChestScene() : NodeScene() {
 		1, 7);
 
 	gachaButton = addGameObject(_grp_GENERAL);
-	gachaButton->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79, (Constant::getInt("WIN_HEIGHT") / 4) + 150), VECTOR_ZERO, chestAI->fw * 5, chestAI->fh * 5);
+	gachaButton->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 79, (Constant::getFloat("WIN_HEIGHT") / 4) + 150), Vector2D(), chestAI->fw * 5, chestAI->fh * 5);
 	
 	
 	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
@@ -47,7 +47,7 @@ void ChestScene::gacha(GameObject* obj) {
 
 	gachaButton->setAlive(false);
 	GameObject* animation = addGameObject();
-	animation->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79, (Constant::getInt("WIN_HEIGHT") / 4) + 150), VECTOR_ZERO, chestAI->fw * 5, chestAI->fh * 5);
+	animation->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 79, (Constant::getFloat("WIN_HEIGHT") / 4) + 150), Vector2D(), chestAI->fw * 5, chestAI->fh * 5);
 	auto anim = animation->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
 	anim->createAnim("OnEnter", 0, 6, 10, 1);
 	anim->play("OnEnter");
@@ -75,7 +75,7 @@ void ChestScene::spawnNewItem()
 
 		//Assign item (a�adir sprite a la escena y vivir feliz)
 		GameObject* sprite = addGameObject(_grp_GENERAL);
-		sprite->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79 + (26 * 5 / 2), (Constant::getInt("WIN_HEIGHT") / 4) + (46 * 5 / 2)), VECTOR_ZERO, CHEST_BUTTON_HEIGHT, CHEST_BUTTON_WIDTH, 0);
+		sprite->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 79 + (26 * 5 / 2), (Constant::getFloat("WIN_HEIGHT") / 4) + (46 * 5 / 2)), Vector2D(), Constant::getInt("CHEST_BUTTON_HEIGHT"), Constant::getInt("CHEST_BUTTON_WIDTH"), 0);
 		sprite->addComponent<Image>(item->texture);
 
 		cout << item->description << "\n";

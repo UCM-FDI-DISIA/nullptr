@@ -15,10 +15,10 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 	showMoney();
 
 	// Boton de salida (esquina superior izquierda)
-	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_EXITBUTTON_POSITION, AnimatorInfo(EXIT));
+	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, Constant::getVector2D("SHOP_EXITBUTTON_POSITION"), AnimatorInfo(Constant::getString("EXIT")));
 
 	// Seleccion de cartas a mostrar en la tienda
-	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
+	for (int i = 0; i < Constant::getInt("SHOP_NUMBER_OF_CARDS"); i++) {
 		rand = SDLApplication::instance()->getRandInt(0, maxCardId);
 		for (int j = 0; j < i; j++) {
 			if (rand == alreadyInStore[j]) {
@@ -41,7 +41,7 @@ void ShopScene::deselectCard() {
 	// Si hay carta seleccionada...
 	if (selectedCard != nullptr) {
 		// La coloca a su posicion normal
-		selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_UNSELECTED_POSY);
+		selectedCard->card->getComponent<Transform>()->setY(Constant::getInt("SHOP_CARD_UNSELECTED_POSY"));
 		// Quita el precio
 		selectedCard->priceObj->setAlive(false);
 		// Quita el boton de comprar
@@ -56,17 +56,17 @@ void ShopScene::selectCard() {
 	// Selecciona la carta del lastButtonIndex
 	selectedCard = &myItems[lastButtonIndex];
 	// La coloca en su posicion de seleccionada
-	selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_SELECTED_POSY);
+	selectedCard->card->getComponent<Transform>()->setY(Constant::getInt("SHOP_CARD_SELECTED_POSY"));
 	// Muestra su precio (se crea el objeto del precio (texto) debajo de la carta)
 	selectedCard->priceObj = addGameObject();
 	Transform* selectedCardTransform = selectedCard->card->getComponent<Transform>();
-	selectedCard->priceObj->addComponent<Transform>(Vector2D(selectedCardTransform->getPos().getX() + selectedCardTransform->getWidth() / 2 - USED_FONT_SIZE, selectedCardTransform->getPos().getY() + selectedCardTransform->getHeight()), VECTOR_ZERO, SHOP_CARD_PRICE_WIDTH, SHOP_CARD_PRICE_HEIGHT);
+	selectedCard->priceObj->addComponent<Transform>(Vector2D(selectedCardTransform->getPos().getX() + selectedCardTransform->getWidth() / 2 - Constant::getInt("USED_FONT_SIZE"), selectedCardTransform->getPos().getY() + selectedCardTransform->getHeight()), Vector2D(), Constant::getInt("SHOP_CARD_PRICE_WIDTH"), Constant::getInt("SHOP_CARD_PRICE_HEIGHT"));
 	SDL_Color color;
 	if (selectedCard->price < myMoney) color = COLOR_WHITE;
 	else color = COLOR_RED;
-	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(selectedCard->price), color);
+	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(Constant::getString("USED_FONT")), to_string(selectedCard->price), color);
 	// Muestra el boton de comprar
-	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex);
+	buyButton = addGameObject<Button>(_grp_UI, buy(), Constant::getVector2D("SHOP_BUYBUTTON_POSITION"), AnimatorInfo(Constant::getString("BUY")), lastButtonIndex);
 }
 
 void ShopScene::buyCard() {
@@ -108,13 +108,13 @@ void ShopScene::showMoney() {
 
 	// Lo muestra visualmente
 	moneyPrint = addGameObject();
-	moneyPrint->addComponent<Transform>(SHOP_MONEY_POSITION, VECTOR_ZERO, SHOP_MONEY_WIDTH, SHOP_MONEY_HEIGHT, 0);
+	moneyPrint->addComponent<Transform>(Constant::getVector2D("SHOP_MONEY_POSITION"), Vector2D(), Constant::getInt("SHOP_MONEY_WIDTH"), Constant::getInt("SHOP_MONEY_HEIGHT"), 0);
 	moneyPrint->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(myMoney), COLOR_WHITE);
 }
 
 void ShopScene::showExitButton() {
 	if (exitButton != nullptr) exitButton->setAlive(false);
-	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_BUYBUTTON_POSITION, AnimatorInfo(EXIT), lastButtonIndex);
+	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, Constant::getVector2D("SHOP_BUYBUTTON_POSITION"), AnimatorInfo(Constant::getString("EXIT")), lastButtonIndex);
 }
 
 CallBack ShopScene::changeSelected() {
@@ -140,7 +140,7 @@ CallBack ShopScene::buy() {
 // Crea un item (crea el objeto de carta, lo anade al grupo de cartas
 Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
 	itemToInsert.cardObj = cardType;
-	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i);
+	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(Constant::getInt("SHOP_CARD_OFFSET_X") + Constant::getInt("CARD_WIDTH") * Constant::getInt("SHOP_NUMBER_OF_CARDS") * i, Constant::getInt("SHOP_CARD_UNSELECTED_POSY")), AnimatorInfo(Card::getCardIDfromEnum(cardType), Constant::getInt("UI_CARD_WIDTH"), Constant::getInt("UI_CARD_HEIGHT"), Constant::getInt("CARD_WIDTH"), Constant::getInt("CARD_HEIGHT"), Constant::getInt("CARD_NUMROWS"), Constant::getInt("CARD_NUMCOLS")), i);
 	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
 	return itemToInsert;
 }

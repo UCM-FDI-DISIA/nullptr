@@ -3,7 +3,7 @@
 #include "../../core/SDLApplication.h"
 
 //Constructora por defecto
-Transform::Transform() : initialPosition_(VECTOR_ZERO), position_(VECTOR_ZERO), velocity_(VECTOR_ZERO), anchorPoint_(VECTOR_ZERO), width_(0), height_(0), rotation_(0) {
+Transform::Transform() : initialPosition_(Vector2D()), position_(Vector2D()), velocity_(Vector2D()), anchorPoint_(Vector2D()), width_(0), height_(0), rotation_(0) {
 }
 
 //Constructora por copia

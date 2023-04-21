@@ -15,19 +15,19 @@ void PlayerMovementComponent::handleInput() {
 	Vector2D pos =transform->getPos();
 
 	// Izquierda
-	if (pos.getX()>PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_a)) {
+	if (pos.getX()>Constant::getFloat("PLAYER_INITIAL_WIDTH") && InputHandler::instance()->isKeyDown(SDLK_a)) {
 		vel = vel + Vector2D(-1, 0);
 	}
 	// Derecha
-	if (pos.getX()<FLOOR_WIDTH-PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_d)) {
+	if (pos.getX()<Constant::getFloat("FLOOR_WIDTH") - Constant::getFloat("PLAYER_INITIAL_WIDTH") && InputHandler::instance()->isKeyDown(SDLK_d)) {
 		vel = vel + Vector2D(1, 0);
 	}
 	// Arriba
-	if (pos.getY()>0-PLAYER_INITIAL_HEIGHT/3&&InputHandler::instance()->isKeyDown(SDLK_w)) {
+	if (pos.getY()>0-Constant::getFloat("PLAYER_INITIAL_HEIGHT") / 3 && InputHandler::instance()->isKeyDown(SDLK_w)) {
 		vel = vel + Vector2D(0, -1);
 	}
 	// Abajo
-	if (pos.getY()<FLOOR_HEIGHT-PLAYER_INITIAL_HEIGHT&&InputHandler::instance()->isKeyDown(SDLK_s)) {
+	if (pos.getY()<Constant::getFloat("FLOOR_HEIGHT") - Constant::getFloat("PLAYER_INITIAL_HEIGHT") && InputHandler::instance()->isKeyDown(SDLK_s)) {
 		vel = vel + Vector2D(0, 1);
 	}
 

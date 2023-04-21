@@ -3,7 +3,7 @@
 // Constructora
 SDLApplication::SDLApplication() {
 	// Crea las constantes
-	Constant::getNumbersFromJSON();
+	Constant::loadConstantsFromJSON();
 
 	// Creacion de la ventana
 	SDLUtils::init("Timeless Deck - Es tiempo", Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"), "../Game/src/data/game.resources.json");
@@ -55,7 +55,7 @@ void SDLApplication::run() {
 
 		debugCounter += deltaTime;
 
-		if (frameTime >= DELAY_TIME) {
+		if (frameTime >= Constant::getFloat("DELAY_TIME")) {
 			
 			startTime = SDL_GetTicks();
 			

@@ -1,12 +1,7 @@
 #pragma once
-
 #include "../../utils/Singleton.h"
 #include "Node.h"
 #include <unordered_map>
-
-const int MAX_NODES = 3;
-const int MAX_SIG = 2;
-//const int HEIGHT = 17;
 
 class Map : public Singleton<Map> {
 	friend Singleton<Map>;

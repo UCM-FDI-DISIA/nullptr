@@ -3,14 +3,14 @@
 void StatisticsUI::initGameObject(int life, int mana) {
 	// Barra superior
 	statistics = new GameObject();
-	statistics->addComponent<Transform>(UI_STATISTICS_POSITION, Vector2D(), UI_STATISTICS_WIDTH, UI_STATISTICS_HEIGHT);
-	statistics->addComponent<Image>(SDLApplication::getTexture(STATISTICS))->attachToCamera();
+	statistics->addComponent<Transform>(Constant::getVector2D("UI_STATISTICS_POSITION"), Vector2D(), Constant::getFloat("UI_STATISTICS_WIDTH"), Constant::getFloat("UI_STATISTICS_HEIGHT"));
+	statistics->addComponent<Image>(SDLApplication::getTexture(Constant::getTextureName("STATISTICS")))->attachToCamera();
 	objs.push_back(statistics);
 
 	// Medidor de éter
 	etherMeterFrame = new GameObject();
-	etherMeterFrame->addComponent<Transform>(UI_ETHER_FRAME_POSITION, Vector2D(), UI_ETHER_FRAME_WIDTH, UI_ETHER_FRAME_HEIGHT);
-	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(ETHER_METER_FRAME))->attachToCamera();
+	etherMeterFrame->addComponent<Transform>(Constant::getVector2D("UI_ETHER_FRAME_POSITION"), Vector2D(), Constant::getFloat("UI_ETHER_FRAME_WIDTH"), Constant::getFloat("UI_ETHER_FRAME_HEIGHT"), 0);
+	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(Constant::getTextureName("ETHER_METER_FRAME")))->attachToCamera();
 	objs.push_back(etherMeterFrame);
 
 	// Crear barras de vida
@@ -24,12 +24,12 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	actualEther = 0;
 
 	// Crear los numeros de vida
-	for (int i = 0; i < N_LIFE_COUNTER; i++) {
+	for (int i = 0; i < Constant::getInt("N_LIFE_COUNTER"); i++) {
 		// Crear el objeto
 		GameObject* number = new GameObject();
 		
 		// Añadir componentes y crea animaciones
-		number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 + 60 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
+		number->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 + 60 + (12 * i), 46), Vector2D(), Constant::getInt("ST_NUMBERS_WIDTH"), Constant::getInt("ST_NUMBERS_HEIGHT"), 0);
 		createNumberAnims(number, fullLife, i);
 
 		// Añadir a los vectores
@@ -43,8 +43,8 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		GameObject* number = new GameObject();
 
 		// Añadir componentes y crea animaciones
-		number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 140 + (12 * i), 46), Vector2D(), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, 0);
-		createNumberAnims(number, fullMana, i);
+		number->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 140 + (12 * i), 46), Vector2D(), Constant::getInt("ST_NUMBERS_WIDTH"), Constant::getInt("ST_NUMBERS_HEIGHT"), 0);
+		createNumberAnims(number, (int)fullMana, i);
 
 		// Añadir a su vector
 		manaCounter.push_back(number);
@@ -52,13 +52,13 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	}
 
 	// Crear los números de éter
-	for (int i = 0; i < N_ETHER_COUNTER; i++) {
+	for (int i = 0; i < Constant::getInt("N_ETHER_COUNTER"); i++) {
 		// Crear el objeto
 		GameObject* number = new GameObject();
 
 		// Añadir componentes y crea animaciones
-		if (i != 3) number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 35 + (20 * i), 15), Vector2D(), ST_NUMBERS_WIDTH * 1.8, ST_NUMBERS_HEIGHT * 1.8, 0);
-		else number->addComponent<Transform>(Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 35 + (20 * i), 26), Vector2D(), ST_NUMBERS_WIDTH * 1.2, ST_NUMBERS_HEIGHT * 1.2, 0);
+		if (i != 3) number->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 35 + (20 * i), 15), Vector2D(), Constant::getInt("ST_NUMBERS_WIDTH") * 1.8, Constant::getInt("ST_NUMBERS_HEIGHT") * 1.8, 0);
+		else number->addComponent<Transform>(Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 35 + (20 * i), 26), Vector2D(), Constant::getInt("ST_NUMBERS_WIDTH") * 1.2, Constant::getInt("ST_NUMBERS_HEIGHT") * 1.2, 0);
 		createNumberAnims(number, 0, i, false);
 
 		etherCounter.push_back(number);
@@ -81,13 +81,13 @@ void StatisticsUI::createLifeBar(int value) {
 	healthBar = new GameObject();
 
 	// Componentes transform y animator
-	healthBar->addComponent<Transform>(LIFEBAR_POSITION, Vector2D(), UI_BAR_WIDTH, UI_BAR_HEIGHT);
-	auto anim = healthBar->addComponent<Animator>(SDLApplication::getTexture(LIFEBAR), BAR_WIDTH, BAR_HEIGHT, BAR_ROWS, BAR_COLUMNS);
+	healthBar->addComponent<Transform>(Constant::getVector2D("LIFEBAR_POSITION"), Vector2D(), Constant::getInt("UI_BAR_WIDTH"), Constant::getInt("UI_BAR_HEIGHT"));
+	auto anim = healthBar->addComponent<Animator>(SDLApplication::getTexture(Constant::getString("LIFEBAR")), Constant::getInt("BAR_WIDTH"), Constant::getInt("BAR_HEIGHT"), Constant::getInt("BAR_ROWS"), Constant::getInt("BAR_COLUMNS"));
 	
 	// Mantener en la cámara y crear y reproducir animaciones
 	anim->attachToCamera();
-	anim->createAnim(LIFEBAR, BAR_START, BAR_END, BAR_FRAMERATE, -1);
-	anim->play(LIFEBAR);
+	anim->createAnim(Constant::getString("LIFEBAR"), Constant::getInt("BAR_START"), Constant::getInt("BAR_END"), Constant::getInt("BAR_FRAMERATE"), -1);
+	anim->play(Constant::getString("LIFEBAR"));
 
 	// Componente de barra
 	healthBar->addComponent<BarComponent>(value);
@@ -102,14 +102,14 @@ void StatisticsUI::createManaBar(int value) {
 	manaBar = new GameObject();
 
 	// Componentes transform y animator
-	manaBar->addComponent<Transform>(MANABAR_POSITION, Vector2D(), UI_BAR_WIDTH, UI_BAR_HEIGHT);
-	auto anim = manaBar->addComponent<Animator>(SDLApplication::getTexture(MANABAR), BAR_WIDTH, BAR_HEIGHT, BAR_ROWS, BAR_COLUMNS);
+	manaBar->addComponent<Transform>(Constant::getVector2D("MANABAR_POSITION"), Vector2D(), Constant::getInt("UI_BAR_WIDTH"), Constant::getInt("UI_BAR_HEIGHT"));
+	auto anim = manaBar->addComponent<Animator>(SDLApplication::getTexture(Constant::getString("MANABAR")), Constant::getInt("BAR_WIDTH"), Constant::getInt("BAR_HEIGHT"), Constant::getInt("BAR_ROWS"), Constant::getInt("BAR_COLUMNS"));
 	
 	// Mantener en la cámara y crear y reproducir animaciones
 	anim->attachToCamera();
 	anim->flipHorizontal();
-	anim->createAnim(MANABAR, BAR_START, BAR_END, BAR_FRAMERATE, -1);
-	anim->play(MANABAR);
+	anim->createAnim(Constant::getString("MANABAR"), Constant::getInt("BAR_START"), Constant::getInt("BAR_END"), Constant::getInt("BAR_FRAMERATE"), -1);
+	anim->play(Constant::getString("MANABAR"));
 
 	// Componente de barra
 	manaBar->addComponent<BarComponent>(value);
@@ -124,17 +124,17 @@ void StatisticsUI::createEtherMeter() {
 	etherMeter = new GameObject();
 
 	// Componentes transform y animator
-	etherMeter->addComponent<Transform>(UI_ETHER_POSITION, Vector2D(), UI_ETHER_WIDTH, UI_ETHER_HEIGHT);
-	auto anim = etherMeter->addComponent<Animator>(SDLApplication::getTexture(ETHER_METER), ETHER_WIDTH, ETHER_HEIGHT, ETHER_ROWS, ETHER_COLUMNS);
+	etherMeter->addComponent<Transform>(Constant::getVector2D("UI_ETHER_POSITION"), Vector2D(), Constant::getInt("UI_ETHER_WIDTH"), Constant::getInt("UI_ETHER_HEIGHT"));
+	auto anim = etherMeter->addComponent<Animator>(SDLApplication::getTexture(Constant::getString("ETHER_METER")), Constant::getInt("ETHER_WIDTH"), Constant::getInt("ETHER_HEIGHT"), Constant::getInt("ETHER_ROWS"), Constant::getInt("ETHER_COLUMNS"));
 
 	// Crear animaciones
 	anim->attachToCamera();
-	anim->createAnim(ETHER_ANIM, ETHER_START, ETHER_END, ETHER_FRAMERATE, -1);
-	anim->play(ETHER_ANIM);
+	anim->createAnim(Constant::getString("ETHER_ANIM"), Constant::getInt("ETHER_START"), Constant::getInt("ETHER_END"), Constant::getInt("ETHER_FRAMERATE"), -1);
+	anim->play(Constant::getString("ETHER_ANIM"));
 
 	// Componente de barra
 	auto barComp = etherMeter->addComponent<BarComponent>();
-	barComp->changeAnimatorSrcRelativeHeight(etherMeter, MAX_ETHER, 0);
+	barComp->changeAnimatorSrcRelativeHeight(etherMeter, Constant::getFloat("MAX_ETHER"), 0);
 
 	// Añadir al vector
 	objs.push_back(etherMeter);
@@ -166,7 +166,7 @@ void StatisticsUI::onManaChanges(float value) {
 void StatisticsUI::onEtherChanges(float value) {
 	// Sumar éter y trampear si excede el límite
 	actualEther += value;
-	if (actualEther >= ETHER_LIMIT) actualEther = ETHER_LIMIT;
+	if (actualEther >= Constant::getFloat("ETHER_LIMIT")) actualEther = Constant::getFloat("ETHER_LIMIT");
 
 	// Transmitir información a la barra
 	etherMeter->getComponent<BarComponent>()->onEtherChanges(actualEther, etherCounter);
@@ -181,8 +181,8 @@ void StatisticsUI::createNumberAnims(GameObject* obj, int value, int i, bool isB
 	tuple<cents, decs, unids> units = healthBar->getComponent<BarComponent>()->getUnits(value);
 
 	// Añadir animator y crear animaciones
-	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture(STATISTICS_NUMBERS), ST_NUMBERS_WIDTH, ST_NUMBERS_HEIGHT, ST_NUMBERS_ROWS, ST_NUMBERS_COLUMNS);
-	for (int j = 0; j < N_NUMBERS; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+	auto anim = obj->addComponent<Animator>(SDLApplication::getTexture(Constant::getTextureName("STATISTICS_NUMBERS")), Constant::getInt("ST_NUMBERS_WIDTH"), Constant::getInt("ST_NUMBERS_HEIGHT"), Constant::getInt("ST_NUMBERS_ROWS"), Constant::getInt("ST_NUMBERS_COLUMNS"));
+	for (int j = 0; j < Constant::getInt("N_NUMBERS"); j++) anim->createAnim(to_string(j), j, j, 1, 0);
 	
 	if (isBar) {
 		// Reproducir "animacion" con el número correpondiente

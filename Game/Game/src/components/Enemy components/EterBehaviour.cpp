@@ -21,6 +21,6 @@ void EterBehaviour::update() {
 	}
 	if ((myTransform->getPos().getX() <= dest.getX()+ 30 && myTransform->getPos().getX() >= dest.getX() - 30) && myTransform->getPos().getY() <= dest.getY()) {
 		gObj->setAlive(false);
-		dynamic_cast<BattleScene*>(gStt)->onEtherChanges(ETHER_VALUE);
+		dynamic_cast<BattleScene*>(gStt)->onEtherChanges(Constant::getInt("ETHER_VALUE"));
 	}
 }

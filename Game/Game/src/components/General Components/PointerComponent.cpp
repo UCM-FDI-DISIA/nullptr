@@ -2,7 +2,7 @@
 #include "../../scenes/GameState.h"
 
 // Constructora
-PointerComponent::PointerComponent(GameState* gStt_) : gStt(gStt_), pointerTransform(nullptr), followObjectTransform(nullptr), radius(POINTER_DEFAULT_RADIUS) {}
+PointerComponent::PointerComponent(GameState* gStt_) : gStt(gStt_), pointerTransform(nullptr), followObjectTransform(nullptr), radius(Constant::getFloat("POINTER_DEFAULT_RADIUS")) {}
 
 // Inicializa el componente
 void PointerComponent::initComponent() {
@@ -20,7 +20,7 @@ void PointerComponent::update() {
 		// Calculo de la posicion del puntero
 		Vector2D dir = Vector2D(posX, posY).normalize() * radius;
 		Vector2D followObjectCenterPosition = Vector2D(followObjectTransform->getPos().getX() + followObjectTransform->getWidth() / 2, followObjectTransform->getPos().getY() + followObjectTransform->getHeight() / 2);
-		Vector2D pointerPosition = dir + followObjectCenterPosition - Vector2D(POINTER_WIDTH / 2, POINTER_HEIGHT / 2) + followObjectTransform->getInitialPosition() - followObjectTransform->getPos();
+		Vector2D pointerPosition = dir + followObjectCenterPosition - Vector2D(Constant::getFloat("POINTER_WIDTH") / 2, Constant::getFloat("POINTER_HEIGHT") / 2) + followObjectTransform->getInitialPosition() - followObjectTransform->getPos();
 
 		// Calculo de la rotacion del puntero
 		float angle = abs(atan(posX / posY)) * 180 / M_PI;
@@ -45,7 +45,7 @@ void PointerComponent::update() {
 	// Si no tiene objeto a seguir funciona como cursor normal
 	else {
 		// Rotacion
-		pointerTransform->setRotation(POINTER_NORMAL_INCLINATION);
-		pointerTransform->setPos(getMousePos() + Vector2D(POINTER_HEIGHT / 2 * tan(POINTER_NORMAL_INCLINATION), 0));
+		pointerTransform->setRotation(Constant::getFloat("POINTER_NORMAL_INCLINATION"));
+		pointerTransform->setPos(getMousePos() + Vector2D(Constant::getFloat("POINTER_HEIGHT") / 2 * tan(Constant::getFloat("POINTER_NORMAL_INCLINATION")), 0));
 	}
 }

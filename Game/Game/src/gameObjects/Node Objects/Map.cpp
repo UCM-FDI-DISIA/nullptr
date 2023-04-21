@@ -2,7 +2,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
 
-Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
+Map::Map() : nodeMap(HEIGHT, vector<Node*>(Constant::getInt("MAX_NODES"), nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(Constant::getInt("HEIGHT"), 0) {
 	//createMap();
 	initTextureKeys();
 	initNodeLoads();
@@ -10,9 +10,9 @@ Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(ve
 
 // Inicializa el array de claves de las texturas de los nodos
 void Map::initTextureKeys() {
-	nodeTextureKeys[NodeType::Battle] = BATTLE_NODE_TEXTURE_KEY;
-	nodeTextureKeys[NodeType::Shop] = SHOP_NODE_TEXTURE_KEY;
-	nodeTextureKeys[NodeType::Chest] = CHEST_NODE_TEXTURE_KEY;
+	nodeTextureKeys[NodeType::Battle] = Constant::getString("BATTLE_NODE_TEXTURE_KEY");
+	nodeTextureKeys[NodeType::Shop] = Constant::getString("SHOP_NODE_TEXTURE_KEY");
+	nodeTextureKeys[NodeType::Chest] = Constant::getString("CHEST_NODE_TEXTURE_KEY");
 }
 
 // Inicializa el array de CallBacks de los nodos
@@ -24,7 +24,7 @@ void Map::initNodeLoads() {
 
 // Crea el mapa
 void Map::createMap() {
-	initMap(NODE_MAP_JSON_ROOT);
+	initMap(Constant::getString("NODE_MAP_JSON_ROOT"));
 	for (Node* n : unlockedNodes) {
 		n->lock();
 	}
@@ -130,8 +130,8 @@ Needs Map::getNeed(Needs prevNeed) {
 
 // Recibe un vector de nodos y devuelve un vector con las condiciones para crear su siguiente altura
 vector<Needs> Map::getNeeds(vector<Node*> const& nodes) {
-	vector<Needs> needs(MAX_NODES, Needs(NodeType::None, 0, false));
-	for (int i = 0; i < MAX_NODES; ++i) {
+	vector<Needs> needs(Constant::getInt("MAX_NODES"), Needs(NodeType::None, 0, false));
+	for (int i = 0; i < Constant::getInt("MAX_NODES"); ++i) {
 		if (nodes[i] != nullptr) {
 			needs[i] = getNeed(nodes[i]->getNeeded());
 		}
@@ -152,7 +152,7 @@ bool Map::validConection(vector<vector<Node*>> m, int alt, int i, int j) {
 
 	// Si j es el primer nodo de la altura anterior compruebo si los siguientes a él se conectan a alguno anterior a mi
 	if (j == 0) {
-		for (int k = j + 1; k < MAX_NODES; k++) {
+		for (int k = j + 1; k < Constant::getInt("MAX_NODES"); k++) {
 			if (m[alt - 1][k] != nullptr) {
 				for (int l = i - 1; l > -1; l--) {
 					if (m[alt][l] != nullptr && m[alt - 1][k]->conectsWith(l)) return false;
@@ -170,7 +170,7 @@ bool Map::validConection(vector<vector<Node*>> m, int alt, int i, int j) {
 		}
 
 		if (m[alt - 1][0] != nullptr) {
-			for (int l = i + 1; l < MAX_NODES; l++) {
+			for (int l = i + 1; l < Constant::getInt("MAX_NODES"); l++) {
 				if (m[alt][l] != nullptr && m[alt - 1][0]->conectsWith(l)) return false;
 			}
 		}
@@ -180,7 +180,7 @@ bool Map::validConection(vector<vector<Node*>> m, int alt, int i, int j) {
 	if (j == 2) {
 		for (int k = j - 1; k > -1; k--) {
 			if (m[alt - 1][k] != nullptr) {
-				for (int l = i + 1; l < MAX_NODES; l++) {
+				for (int l = i + 1; l < Constant::getInt("MAX_NODES"); l++) {
 					if (m[alt][l] != nullptr && m[alt - 1][k]->conectsWith(l)) return false;
 				}
 			}
@@ -207,12 +207,12 @@ void Map::getRandomWay(int& start, int& end, int& sum) {
 	if (rand() % 2 == 0) {
 		sum = 1;
 		start = 0;
-		end = MAX_NODES;
+		end = Constant::getInt("MAX_NODES");
 	}
 	// De der a izq
 	else {
 		sum = -1;
-		start = MAX_NODES - 1;
+		start = Constant::getInt("MAX_NODES") - 1;
 		end = -1;
 	}
 }
@@ -249,7 +249,7 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 		}
 
 		// Random entre mínimo y máximo y se generan los que falten
-		for (int i = 0; i < MAX_NODES; ++i) {
+		for (int i = 0; i < Constant::getInt("MAX_NODES"); ++i) {
 			int copy = i;
 			if (m[k][i] == nullptr && rand() % 5 > 0) {
 				if (copy == 0) {
@@ -296,13 +296,13 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 
 		// Comprobamos si en la altura anterior hay alguno que no se ha enlazado
 		bool emptyNext = false;
-		for (int i = 0; i < MAX_NODES && !emptyNext; ++i) {
+		for (int i = 0; i < Constant::getInt("MAX_NODES") && !emptyNext; ++i) {
 			if (m[k - 1][i] != nullptr && m[k - 1][i]->getNextCount() <= 0) emptyNext = true;
 		}
 
 		// Si algún nodo ha quedado sin siguientes, se vuelve a hacer la altura
 		if (emptyNext) {
-			for (int i = 0; i < MAX_NODES; i++) {
+			for (int i = 0; i < Constant::getInt("MAX_NODES"); i++) {
 				if (m[k][i] != nullptr) {
 					eraseNode(k, i);
 				}
@@ -413,7 +413,7 @@ void Map::initMap(string filename) {
 							// asigna como siguientes a la última altura generada todos los nodos de la siguiente
 							for (Node* node : nodeMap[levels - 1]) {
 								if (node != nullptr) {
-									for (int i = 0; i < MAX_NODES; ++i) {
+									for (int i = 0; i < Constant::getInt("MAX_NODES"); ++i) {
 										if (nodeMap[levels][i] != nullptr) node->addToNextNodes(nodeMap[levels][i], i);
 									}
 								}

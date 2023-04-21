@@ -50,7 +50,7 @@ void PlayerData::defaultPlayerStats() {
 	setAttackMult(1);
 	setFireRateMult(1);
 	setMoney(999);
-	playerSpeed = PLAYER_SPEED;
+	playerSpeed = Constant::getFloat("PLAYER_SPEED");
 }
 
 void PlayerData::getDataFromJSON() {

@@ -9,13 +9,13 @@ MapScene::MapScene() {
 	vector<int> const& nodesPerHeight = gameMap().getNodesPerWidth();
 
 	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
-	vector<vector<Vector2D>> nodesPositions(HEIGHT);
+	vector<vector<Vector2D>> nodesPositions(Constant::getInt("HEIGHT"));
 
 	int i = 0;
 	for (auto& height : nodeMap) {
 		int j = 0;
 		for (Node* node : height) {
-			Vector2D pos = Vector2D(0, (int)Constant::getInt("WIN_HEIGHT") - NODE_POSITION_Y * i);
+			Vector2D pos = Vector2D(0, (int)Constant::getInt("WIN_HEIGHT") - Constant::getInt("NODE_POSITION_Y") * i);
 			if (node != nullptr) { 
 				switch (nodesPerHeight[i]) {
 				case 1:
@@ -40,17 +40,17 @@ MapScene::MapScene() {
 		++i;
 	}
 
-	camera->getComponent<Transform>()->setY((- (int)Constant::getInt("WIN_HEIGHT") / 2) + NODE_HEIGHT);
+	camera->getComponent<Transform>()->setY((- (int)Constant::getInt("WIN_HEIGHT") / 2) + Constant::getInt("NODE_HEIGHT"));
 
 	// BOTONES
 	// Botón options
-	createButton(MS_OPTIONS_BUTTON_POS, MS_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
+	createButton(Constant::getVector2D("MS_OPTIONS_BUTTON_POS"), Constant::getVector2D("MS_OPTIONSFRAME_BUTTON_POS"), []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, Constant::getString("OPTIONS"));
 
 	// Botón Inventario
-	createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
+	createButton(Constant::getVector2D("MS_INVENTORY_BUTTON_POS"), Constant::getVector2D("MS_INVENTORYFRAME_BUTTON_POS"), []() { SDLApplication::pushNewScene<InventoryScene>(); }, Constant::getString("INVENTORY"));
 
 	// Botón salir
-	createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+	createButton(Constant::getVector2D("MS_EXIT_BUTTON_POS"), Constant::getVector2D("MS_EXITFRAME_BUTTON_POS"), []() { SDLApplication::newScene<MainMenuScene>(); }, Constant::getString("EXIT"));
 }
 
 // Crear un bot�n especificado en la escena
@@ -58,8 +58,8 @@ void MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string
 	AnimatorInfo aI = AnimatorInfo(key);
 	// Crear marco
 	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGHT, aI.rows, aI.cols)->attachToCamera();
+	frame->addComponent<Transform>(_fPos, Vector2D(), Constant::getInt("MM_BUTTONFRAME_WIDTH"), Constant::getInt("MM_BUTTONFRAME_HEIGHT"));
+	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), Constant::getInt("BUTTON_FRAME_SPRITE_WIDTH"), Constant::getInt("BUTTON_FRAME_SPRITE_HEIGHT"), aI.rows, aI.cols)->attachToCamera();
 
 	// Crear bot�n
 	addGameObject<Button>(_cb, _bPos, aI, frame);
@@ -69,7 +69,7 @@ void MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string
 void MapScene::moveCamera() {
 	Transform* tr = camera->getComponent<Transform>();
 	float prevY = tr->getY();
-	tr->setY(prevY + NODE_POSITION_Y);
+	tr->setY(prevY + Constant::getInt("NODE_POSITION_Y"));
 }
 
 void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vector<Vector2D>> const& nodesPos, vector<int> const& nodesPerHeight, int alt) {
@@ -82,7 +82,7 @@ void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vecto
 					if (nodes[alt - 1][i]->conectsWith(j)) {
 						GameObject* conection = addGameObject();
 						string key = "";
-						Vector2D pos = Vector2D(0, (int)Constant::getInt("WIN_HEIGHT") - NODE_POSITION_Y * alt + NODE_HEIGHT);
+						Vector2D pos = Vector2D(0, (int)Constant::getInt("WIN_HEIGHT") - Constant::getInt("NODE_POSITION_Y") * alt + Constant::getInt("NODE_HEIGHT"));
 						
 						if (nodesPerHeight[alt - 1] == 1) {
 							if (nodesPerHeight[alt] == 1) {
@@ -308,8 +308,8 @@ void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vecto
 						else if (key == "FarNodeConection" || key == "ReverseFarNodeConection") w = 427;
 						else w = 640;
 
-						pos.setX(pos.getX() + CONECTION_OFFSET);
-						conection->addComponent<Transform>(pos, VECTOR_ZERO, w, NODE_DISTANCE);
+						pos.setX(pos.getX() + Constant::getInt("CONECTION_OFFSET"));
+						conection->addComponent<Transform>(pos, Vector2D(), w, Constant::getInt("NODE_DISTANCE"));
 						conection->addComponent<Image>(&sdlutils().images().at(key));
 					}
 					++jIndNode;

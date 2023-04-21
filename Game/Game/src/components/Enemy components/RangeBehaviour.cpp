@@ -11,7 +11,7 @@ RangeBehaviour::RangeBehaviour(float spd, float safDist, float stptime, float mv
 
 void RangeBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
-	pos->setVel(Vector2D(ENEMY_SPEED, ENEMY_SPEED));
+	pos->setVel(Vector2D(Constant::getFloat("ENEMY_SPEED"), Constant::getFloat("ENEMY_SPEED")));
 	initialDirection = pos->getVel();
 	setDirectionTo();
 }
@@ -62,26 +62,26 @@ void RangeBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
-		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+		Hitbox::HitboxData data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 		/*vel = vel * bulletSpedd;*/
 		if (shotPattern == 0) {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 		else if (shotPattern == 2) {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
+			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 	}

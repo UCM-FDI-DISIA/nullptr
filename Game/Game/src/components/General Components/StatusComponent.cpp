@@ -17,7 +17,7 @@ void StatusComponent::update()
 {
 	aSecond += SDLApplication::instance()->getDeltaTime();
 	if (statusMap[BURNED] > 0 && aSecond >= 1000) {
-		health->receiveDamage(BURN_DAMAGE);
+		health->receiveDamage(Constant::getInt("BURN_DAMAGE"));
 	}
 	if (enemyAI->isConfused() && statusMap[CONFUSED] <= 0) {
 		enemyAI->setConfusion(false);

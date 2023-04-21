@@ -12,7 +12,7 @@
 
 // Constructora
 Camera::Camera() : followObject(nullptr) {
-	transform = addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
+	transform = addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	cameraComponent = addComponent<CameraComponent>();
 }
 

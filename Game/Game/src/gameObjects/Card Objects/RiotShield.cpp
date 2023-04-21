@@ -10,7 +10,7 @@ void RiotShieldCard::attack(Vector2D playerPos, Vector2D mousePos, float attackM
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "SwordSlash", _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos + dir * 100, Vector2D(), rotation, 200, 100, "SwordSlash", _grp_ENEMIES };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);;
 }
@@ -21,7 +21,7 @@ void RiotShieldCard::ability(Vector2D playerPos, Vector2D mousePos, float attack
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 50, dir * SHIELD_SPEED, rotation, 200, 100, SWORD_SLASH, _grp_ENM_ATTACK };
+	Hitbox::HitboxData data = { playerPos + dir * 50, dir * Constant::getInt("SHIELD_SPEED"), rotation, 200, 100, Constant::getString("SWORD_SLASH"), _grp_ENM_ATTACK};
 
     auto shield = where->addGameObject<CustomHitbox>();
     shield->initCustomHitbox(data);

@@ -6,7 +6,7 @@ void RitualAxeCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, SWORD_SLASH, _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos + dir * 100, Vector2D(), rotation, 200, 100, Constant::getString("SWORD_SLASH"), _grp_ENEMIES};
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, (damage + damage * enemiesKilled) * attackMult, false, false, 0.06, data, Vector2D(-1,-1), this);
 

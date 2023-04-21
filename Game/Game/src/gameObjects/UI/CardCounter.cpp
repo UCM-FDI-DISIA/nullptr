@@ -9,39 +9,39 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	// Me guardo el Transform del objeto principal (para ajustar los numeros de acorde)
 	Transform* trP;
 	// Si soy el contador de cartas del mazo me coloco a la izquierda
-	int right = Constant::getInt("WIN_WIDTH") - 2 * REVERSE_WIDTH;
-	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
+	int right = Constant::getInt("WIN_WIDTH") - 2 * Constant::getInt("REVERSE_WIDTH");
+	if (_ref) trP = addComponent<Transform>(Vector2D(Constant::getFloat("LEFT_OFFSET"), Constant::getFloat("DOWN_OFFSET")), Vector2D(), Constant::getInt("BS_REVERSE_WIDTH"), Constant::getInt("BS_REVERSE_HEIGHT"));
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
-	else trP = addComponent<Transform>(Vector2D(right, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
+	else trP = addComponent<Transform>(Vector2D(right, Constant::getFloat("DOWN_OFFSET")), Vector2D(), Constant::getInt("BS_REVERSE_WIDTH"), Constant::getInt("BS_REVERSE_HEIGHT"));
 
 	if (_ref)
 	{
 		//SI soy mazo debo enseñar la animacion de barajear
-		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHUFFLING_CARDS), 58, 93, 1, 5);
+		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(Constant::getString("SHUFFLING_CARDS")), 58, 93, 1, 5);
 		anim->attachToCamera();
-		anim->createAnim(SHUFFLING_CARDS, 0, 4, 5, 1);
+		anim->createAnim(Constant::getString("SHUFFLING_CARDS"), 0, 4, 5, 1);
 		anim->createAnim(IDLE, 0, 0, 1, 1);
 		anim->play(IDLE);
 	}
 	else
 	{
 		//Si no soy mazo simplemente renderizo el reverso de la carta
-		Image* im = addComponent<Image>(SDLApplication::getTexture(REVERSE));
+		Image* im = addComponent<Image>(SDLApplication::getTexture(Constant::getTextureName("REVERSE")));
 		im->attachToCamera();
 	}
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
-	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + CARD_OFFSET_W, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), NUM_RENDER_W, NUM_RENDER_H);
-	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture(NUMBERS),NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
+	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + Constant::getFloat("CARD_OFFSET_W"), Constant::getFloat("DOWN_OFFSET") + Constant::getFloat("CARD_OFFSET_H")), Vector2D(), Constant::getInt("NUM_RENDER_W")), Constant::getInt("NUM_RENDER_H");
+	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture(Constant::getTextureName("NUMBERS")), Constant::getInt("NUMBERS_WIDTH"), Constant::getInt("NUMBERS_HEIGHT"), Constant::getInt("NUMBERS_SPRITE_ROWS"), Constant::getInt("NUMBERS_SPRITE_COLUMS"));
 	decAnim->attachToCamera();
 	createAnims(decAnim);
 	decAnim->play(to_string(0));
 
 	//Creamos el objeto de las unidades: con sus componentes y sus animaciones
 	unids = new GameObject();
-	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + REVERSE_WIDTH/2 + CARD_OFFSET_W + 5, DOWN_OFFSET + CARD_OFFSET_H), Vector2D(), NUM_RENDER_W, NUM_RENDER_H);
-	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture(NUMBERS), NUMBERS_WIDTH, NUMBERS_HEIGHT, NUMBERS_SPRITE_ROWS, NUMBERS_SPRITE_COLUMS);
+	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + Constant::getFloat("REVERSE_WIDTH") / 2 + Constant::getFloat("CARD_OFFSET_W") + 5, Constant::getFloat("DOWN_OFFSET") + Constant::getFloat("CARD_OFFSET_H")), Vector2D(), Constant::getInt("NUM_RENDER_W"), Constant::getInt("NUM_RENDER_H"));
+	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture(Constant::getTextureName("NUMBERS")), Constant::getInt("NUMBERS_WIDTH"), Constant::getInt("NUMBERS_HEIGHT"), Constant::getInt("NUMBERS_SPRITE_ROWS"), Constant::getInt("NUMBERS_SPRITE_COLUMS"));
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
 	uniAnim->play(to_string(0));
@@ -118,5 +118,5 @@ void CardCounter::createAnims(Animator* &_anim) {
 
 //Metodo para reproducir la animacion de barajar el mazo
 void CardCounter::showShuffle() {
-	if (amIDeck) { getComponent<Animator>()->play(SHUFFLING_CARDS); }
+	if (amIDeck) { getComponent<Animator>()->play(Constant::getString("SHUFFLING_CARDS")); }
 }
