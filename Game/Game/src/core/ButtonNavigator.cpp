@@ -119,20 +119,10 @@ void ButtonNavigator::erase(Image* im) {
 
 	for (int o = 0; o < 2; ++o) {
 		for (auto& m : matrix[o]) {
-			for (auto it = m.second.begin(); it != m.second.end();) {
-				if (it->second.buttonIm == im) {
-					it = m.second.erase(it);
-				} else {
-					++it;
-				}
-			}
-
-
-
-			//std::experimental::erase_if(m.second,
-			//	[im](const auto& bd) {
-			//		return bd.second.buttonIm == im;
-			//	});
+			std::experimental::erase_if(m.second,
+				[im](const auto& bd) {
+					return bd.second.buttonIm == im;
+				});
 		}
 	}
 }

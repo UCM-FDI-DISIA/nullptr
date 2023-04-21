@@ -40,7 +40,5 @@ public:
 	void flipNone();
 	// Establece el factor de deslice para el efecto parallax
 	void setScrollFactor(float _factor);
-
-	inline Texture* getTexture() { return texture; }
 };
 #endif // !IMAGE_H_

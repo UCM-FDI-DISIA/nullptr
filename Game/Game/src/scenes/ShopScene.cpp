@@ -15,8 +15,8 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 	showMoney();
 
 	// Boton de salida (esquina superior izquierda)
-	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_EXITBUTTON_POSITION, AnimatorInfo(EXIT));
-	exitButton->setAsDefaultButton();
+	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, IS_EXIT_BUTTON_POS, AnimatorInfo(EXIT));
+	//exitButton->setAsDefaultButton();
 	// Seleccion de cartas a mostrar en la tienda
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
 		rand = SDLApplication::instance()->getRandInt(0, maxCardId);
@@ -30,6 +30,9 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 		myItems[i] = createItem(CardId(rand), 100, 200, i);
 	}
+
+	exitButton->setAsDefaultButton();
+	myItems[0].card->setAsCurrentButton();
 }
 
 // Destructora
@@ -115,6 +118,7 @@ void ShopScene::showMoney() {
 void ShopScene::showExitButton() {
 	if (exitButton != nullptr) exitButton->setAlive(false);
 	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, SHOP_BUYBUTTON_POSITION, AnimatorInfo(EXIT), lastButtonIndex);
+	exitButton->setAsCurrentButton();
 }
 
 CallBack ShopScene::changeSelected() {
@@ -122,6 +126,7 @@ CallBack ShopScene::changeSelected() {
 		// Se deselecciona y se selecciona (cambia de carta)
 		deselectCard();
 		selectCard();
+		buyButton->setAsCurrentButton();
 	};
 }
 
@@ -140,7 +145,7 @@ CallBack ShopScene::buy() {
 // Crea un item (crea el objeto de carta, lo anade al grupo de cartas
 Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
 	itemToInsert.cardObj = cardType;
-	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i);
+	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i, nullptr, 0.5f, 0.5f);
 	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
 	return itemToInsert;
 }
