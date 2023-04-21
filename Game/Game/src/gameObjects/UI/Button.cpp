@@ -12,7 +12,7 @@ void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo,
 	if (_frame != nullptr) createButtonAnimations(_frame->getComponent<Animator>());
 
 	// Componente de botones
-	bComp = addComponent<ButtonComponent>(_cb, _frame, _index, horMul, verMul);
+	bComp = addComponent<ButtonComponent>(_cb, _frame, _index, true, horMul, verMul);
 }
 
 void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame) {

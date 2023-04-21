@@ -49,7 +49,6 @@ void ButtonNavigator::right() {
 // Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
 ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	SDL_Rect rr = im->getRect();
-	SDL_Rect orr = rr;
 
 	ButtonData bd;
 	bd.buttonIm = im;
@@ -58,9 +57,14 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	rr.y /= 12;
 	rr.w /= 12;
 	rr.h /= 12;
+	SDL_Rect orr = rr;
 
-	rr.x -= (rr.w - rr.w * horMul) / 2;
-	rr.y -= (rr.h - rr.h * verMul) / 2;
+	if (horMul > 1) rr.x -= (rr.w - rr.w * horMul) / 2;
+	else if (horMul < 1) rr.x += (rr.w - rr.w * horMul) / 2;
+
+	if (verMul > 1) rr.y -= (rr.h - rr.h * verMul) / 2;
+	if (verMul < 1) rr.y += (rr.h - rr.h * verMul) / 2;
+
 	rr.w *= horMul;
 	rr.h *= verMul;
 	
