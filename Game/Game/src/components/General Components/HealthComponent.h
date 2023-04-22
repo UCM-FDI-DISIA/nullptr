@@ -14,6 +14,7 @@ private:
 	bool invincibility;
 	float invTime;
 	OnDeath* onDeath;
+	SoundEffect* hitSound;
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);

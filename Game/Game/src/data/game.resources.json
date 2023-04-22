@@ -143,7 +143,14 @@
       { "id" : "ButtonPressed", "file": "../Game/resources/sounds/PressButton.wav"},
       { "id" : "HoverOverButton", "file": "../Game/resources/sounds/HoverOverButton.wav"},
       { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"},
-      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"}
+      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"},
+      { "id" : "TankDeath", "file": "../Game/resources/sounds/TankDeath.wav"},
+      { "id" : "MeleeDeath", "file": "../Game/resources/sounds/MeleeDeath.wav"},
+      { "id" : "RangedDeath", "file": "../Game/resources/sounds/RangedDeath.wav"},
+      { "id" : "TankHit", "file": "../Game/resources/sounds/TankHit.wav"},
+      { "id" : "MeleeHit", "file": "../Game/resources/sounds/MeleeHit.wav"},
+      { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
+      { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"}
     ],
   
     "musics" : [

@@ -25,6 +25,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 			if (axe != nullptr) axe->enemieKilled();
 		} 
 		else {
+			Mix_PlayChannelTimed(-1, hitSound->getChunk(), 0, -1);
 			if (gObj->getComponent<PlayerMovementComponent>() != nullptr) { 
 				auto sc = dynamic_cast<BattleScene*>(gStt); 
 				sc->OnPlayerDamage(lifePoints); 
@@ -43,6 +44,18 @@ void HealthComponent::setInvencibility(float time)
 
 void HealthComponent::initComponent() {
 	onDeath = gObj->getComponent<OnDeath>();
+	if (dynamic_cast<MeleeEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at("MeleeHit");
+	}
+	else if (dynamic_cast<RangedEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at("RangedHit");
+	}
+	else if (dynamic_cast<TankEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at("TankHit");
+	}
+	else if (dynamic_cast<Player*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at("PlayerHit");
+	}
 }
 
 void HealthComponent::update()
