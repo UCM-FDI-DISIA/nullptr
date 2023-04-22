@@ -32,6 +32,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 			if (axe != nullptr) axe->enemieKilled();
 		}
 		else {
+			if(invTime<=0)
 			Mix_PlayChannelTimed(-1, hitSound->getChunk(), 0, -1);
 		}
 		if (invincibility) {
