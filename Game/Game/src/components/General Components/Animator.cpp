@@ -68,7 +68,6 @@ void Animator::update() {
 				}
 			}
 
-			
 			currTime = 0;
 		}
 		currTime += SDLApplication::instance()->getDeltaTime();

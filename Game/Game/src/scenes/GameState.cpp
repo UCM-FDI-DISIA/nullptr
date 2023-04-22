@@ -68,7 +68,3 @@ void GameState::refresh() {
             grpEnts.end());
     }
 }
-
-
-// Devuelve la camara de la escena
-Camera* GameState::getCamera() const { return camera; }
