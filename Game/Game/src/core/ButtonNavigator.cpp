@@ -123,14 +123,9 @@ std::pair<ButtonNavigator::button_map::iterator, bool> ButtonNavigator::insertBo
 	else it = matrix[dir][y].insert({ x, bd });
 
 	if (!it.second) {
-		if (dir == d_x && y >= orr.y && y < orr.y + orr.h) {
-			matrix[dir][x][y] = bd;
-			it.first = matrix[dir][x].find(y);
-			it.second = true;
-		}
-		else if (dir == d_y && x >= orr.x && x < orr.x + orr.w) {
-			matrix[dir][y][x] = bd;
-			it.first = matrix[dir][y].find(x);
+		if (dir == d_x && y >= orr.y && y < orr.y + orr.h ||
+			dir == d_y && x >= orr.x && x < orr.x + orr.w) {
+			it.first->second = bd;
 			it.second = true;
 		}
 	}
