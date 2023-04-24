@@ -29,9 +29,22 @@ PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) :
 		});
 
 	this->linkAnimations(CHARACTER_SKILL_IDLE_KEY, CHARACTER_SKILL_MOVE_KEY);
+
+	this->addAction(CHARACTER_DEATH_KEY, Animation(PLAYER_DEATH_INITAL_FRAME, PLAYER_DEATH_FINAL_FRAME, PLAYER_DEATH_FRAME_RATE, 1), [this]() {
+		return isPlaying(CHARACTER_DEATH_KEY) || gObj->getComponent<HealthComponent>()->getLife() <= 0;
+		});
 }
 
 void PlayerAnimator::initComponent() {
 	CharacterAnimator::initComponent();
 	cardComp_ = gObj->getComponent<CardComponent>();
+	btScn = dynamic_cast<BattleScene*>(gStt);
+}
+
+// Hace el update del padre y llama al metodo OnPlayerDies al terminar la animacion de muerte
+void PlayerAnimator::update() {
+	CharacterAnimator::update();
+	if (isCurrentAnimation(CHARACTER_DEATH_KEY) && animationComplete()) {
+		btScn->changeToGameOverScene();
+	}
 }

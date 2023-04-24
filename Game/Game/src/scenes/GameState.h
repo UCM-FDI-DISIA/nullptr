@@ -53,7 +53,10 @@ public:
     }
 
     // Devuelve la camara
-    Camera* getCamera() const;
+    inline Camera* getCamera() const { return camera; }
+
+    // Devuelve el puntero
+    inline Pointer* getPointer() const { return pointer; }
 
     // Devuelve el navegador entre botones
     ButtonNavigator* getButtonNavigator() const;

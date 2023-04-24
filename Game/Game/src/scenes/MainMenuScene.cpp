@@ -20,6 +20,9 @@ MainMenuScene::MainMenuScene() {
 	estudio->addComponent<Transform>(STUDIO_POSITION, Vector2D(), STUDIO_WIDTH, STUDIO_HEIGTH);
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
+	//Stats por defecto
+	PlayerData::instance()->defaultPlayerStats();
+
 	// Botón jugar
 	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY)->setAsDefaultButton();
 

@@ -42,11 +42,23 @@ void BarComponent::onManaChanges(float value, float maxValue, vector<GameObject*
 }
 
 void BarComponent::onHealthChanges(float value, float maxValue, vector<GameObject*>& myNumbers) {
-	// Cambiar el tamaño de la animación respecto a la vida restante
-	changeAnimatorSrcRelativeWidth(gObj, maxValue, value);
-	
-	// Cambiar los números para mostrar la vida actual
-	changeNumbers(myNumbers, value);
+	if (value > 0) {
+		// Cambiar el tamaño de la animación respecto a la vida restante
+		changeAnimatorSrcRelativeWidth(gObj, maxValue, value);
+
+		// Cambiar los números para mostrar la vida actual
+		changeNumbers(myNumbers, value);
+	}
+	else {
+		// Cambiar el tamaño de la animación
+		changeAnimatorSrcRelativeWidth(gObj, maxValue, 1);
+
+		// Cambiar los números para mostrar la vida nula 
+		changeNumbers(myNumbers, 0);
+
+		// Descativar barra
+		gObj->setAlive(false);
+	}
 }
 
 void BarComponent::onEtherChanges(float value, vector<GameObject*>& myNumbers) {

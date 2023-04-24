@@ -62,13 +62,14 @@ const string CHARACTER_ATTACK_IDLE_KEY = "charaAttackIdle";
 const string CHARACTER_ATTACK_MOVE_KEY = "charaAttackMove";
 const string CHARACTER_SKILL_IDLE_KEY = "charaSkillIdle";
 const string CHARACTER_SKILL_MOVE_KEY = "charaSkillMove";
+const string CHARACTER_DEATH_KEY = "charaDeath";
 
 // PLAYER -----------------------------------------------------------------------------------------
 // PLAYER ANIMATIONS
 const string PLAYER = "newPlayer";
 const int PLAYER_SPRITE_WIDTH = 32;
 const int PLAYER_SPRITE_HEIGHT = 32;
-const int PLAYER_SPRITE_ROWS = 6;
+const int PLAYER_SPRITE_ROWS = 7;
 const int PLAYER_SPRITE_COLS = 8;
 
 //PLAYER IDLE ANIM
@@ -95,6 +96,11 @@ const int PLAYER_ATTACK_IDLE_FRAME_RATE = 12;
 const int PLAYER_ATTACK_MOVE_INITIAL_FRAME = 40;
 const int PLAYER_ATTACK_MOVE_FINAL_FRAME = 47;
 const int PLAYER_ATTACK_MOVE_FRAME_RATE = 12;
+//PLAYER DEATH ANIM
+const int PLAYER_DEATH_INITAL_FRAME = 48;
+const int PLAYER_DEATH_FINAL_FRAME = 56;
+const int PLAYER_DEATH_FRAME_RATE = 8;
+const double DEATH_DELAY = 1000;
 
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
@@ -132,7 +138,7 @@ const int MELEE_ENEMY_HEIGHT = MELEE_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
 const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
 const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
-
+const int MELEE_LIFE = 20;
 const int MELEE_ATTACK_DAMAGE = 20;
 
 // RANGED ENEMY
@@ -150,7 +156,7 @@ const Animation RANGED_ENEMY_MOVEMENT_ANIMATION(14, 21, 10, -1);
 const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 
 const int RANGED_ATTACK_ANIM_DELAY = 670;
-
+const int RANGED_LIFE = 10;
 const int RANGED_ATTACK_DAMAGE = 20;
 
 // TANK ENEMY
@@ -261,10 +267,10 @@ const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
-	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
+	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "AttackSymbol", "CadenceSymbol"
 };
 const string STATS_TEXTS[5] = {
-	"Vida", "Mana", "Velocidad", "Cadencia", "Ataque"
+	"Vida", "Mana", "Velocidad", "Ataque", "Cadencia"
 };
 const int SYMBOL_DIMENSIONS = 64;
 const Vector2D SYMBOL_POSITIONS[5] = {
