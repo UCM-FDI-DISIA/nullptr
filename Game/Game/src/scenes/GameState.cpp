@@ -2,8 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructor
-GameState::GameState() : entsByGroup_() { 
-    
+GameState::GameState() : entsByGroup_(), lastButtonIndex(-1) { 
     for (auto & grpEnts : entsByGroup_) {
         grpEnts.reserve(100); //Reserva espacio para cada lista
     }
@@ -69,7 +68,3 @@ void GameState::refresh() {
             grpEnts.end());
     }
 }
-
-
-// Devuelve la camara de la escena
-Camera* GameState::getCamera() const { return camera; }

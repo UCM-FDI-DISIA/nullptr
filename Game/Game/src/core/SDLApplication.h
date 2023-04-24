@@ -53,10 +53,15 @@ public:
 	void update();
 	// Actualiza el juego en función al evento actual
 	void handleInput();
+
 	// Devuelve la Texture pedida
 	static Texture* getTexture(TextureName texture);
+	// Devuelve el Font Pedido
+	static Font* getFont(string fontName);
 	// Devuelve la Reliquia pedida
 	static Relic* getRelic(TextureName texture);
+	// Devuelve un numero entero random
+	static int getRandInt(int min, int max);
 
 	// Inicializa una nueva escena y la mete en la máquina de estados borrando la anterior
 	template<typename T, typename ...Ts>

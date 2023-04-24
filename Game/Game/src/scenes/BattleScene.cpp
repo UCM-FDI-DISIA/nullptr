@@ -2,6 +2,7 @@
 #include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
 #include "../components/General Components/StatsTrackComponent.h"
+#include "../components/General Components/CallbackDelayer.h"
 
 // Constructora
 BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
@@ -81,12 +82,23 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 };
 
 void BattleScene::OnPlayerDies() {
-	SDLApplication::popGameState();
-	SDLApplication::pushNewScene<GameOverScene>();
+	player->getComponent<Transform>()->setVel(Vector2D());
+	player->removeComponent<PlayerMovementComponent>();
+	player->removeComponent<CardComponent>();
+	pointer->removeComponent<Image>();
 }
 
 void BattleScene::OnPlayerDamage(float value) {
 	onHealthChanges(value);
+}
+
+void BattleScene::changeToGameOverScene() {
+	player->removeComponent<PlayerAnimator>();
+
+	GameObject* delay = addGameObject();
+	delay->addComponent<CallbackDelayer>([&]() {
+		SDLApplication::popGameState();
+		SDLApplication::pushNewScene<GameOverScene>(); }, DEATH_DELAY);
 }
 
 // CAMBIOS DE UI

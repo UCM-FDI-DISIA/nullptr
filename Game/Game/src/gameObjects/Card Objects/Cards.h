@@ -6,84 +6,110 @@
 
 class GunCard : public Card {
 	public:
-		GunCard() : Card(cardsData().get("Pistola")) {};
+		constexpr static cardId_type id = _card_GUN;
+
+		GunCard() : Card(cardsData().get("Gun")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class SwordCard : public Card {
 	public:
-		SwordCard() : Card(cardsData().get("Espada")) {};
+		constexpr static cardId_type id = _card_SWORD;
+
+		SwordCard() : Card(cardsData().get("Sword")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class TorchCard : public Card {
 public:
-	TorchCard() : Card(cardsData().get("Antorcha")) {};
+	constexpr static cardId_type id = _card_TORCH;
+
+	TorchCard() : Card(cardsData().get("Torch")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class LaserShadesCard : public Card {
 	public:
-		LaserShadesCard() : Card(cardsData().get("Gafas Laser")) {};
+		constexpr static cardId_type id = _card_LASERGLASSES;
+
+		LaserShadesCard() : Card(cardsData().get("LaserGlasses")) {};
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class BowCard : public Card {
 public:
-	BowCard() : Card(cardsData().get("Arco")) {};
+	constexpr static cardId_type id = _card_BOW;
+
+	BowCard() : Card(cardsData().get("Bow")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class PulgaCard : public Card {
 public:
-	PulgaCard() : Card(cardsData().get("Pulga")) {};
+	constexpr static cardId_type id = _card_PULGA;
+
+	PulgaCard() : Card(cardsData().get("Tick")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult ,BattleScene* where );
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class SpearCard : public Card {
 public:
-	SpearCard() : Card(cardsData().get("Lanza")) {};
+	constexpr static cardId_type id = _card_SPEAR;
+
+	SpearCard() : Card(cardsData().get("Spear")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 
 class SMGCard : public Card {
 public:
+	constexpr static cardId_type id = _card_SMG;
+
 	SMGCard() : Card(cardsData().get("SMG")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class  AssaultRifleCard : public Card {
 public:
-	AssaultRifleCard() : Card(cardsData().get("Rifle de asalto")) {};
+	constexpr static cardId_type id = _card_ASSAULTRIFLE;
+
+	AssaultRifleCard() : Card(cardsData().get("AssaultRifle")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class  LightRifleCard: public Card {
 public:
-	LightRifleCard() : Card(cardsData().get("Rifle de luz")) {};
+	constexpr static cardId_type id = _card_LIGHTRIFLE;
+
+	LightRifleCard() : Card(cardsData().get("LightBeam")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class  MegaphoneCard : public Card {
 public:
-	MegaphoneCard() : Card(cardsData().get("Megafono")) {};
+	constexpr static cardId_type id = _card_MEGAPHONE;
+
+	MegaphoneCard() : Card(cardsData().get("Speaker")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
 class  RiotShieldCard : public Card {
 public:
-	RiotShieldCard() : Card(cardsData().get("Escudo Antidisturbios")) {};
+	constexpr static cardId_type id = _card_RIOTSHIELD;
+
+	RiotShieldCard() : Card(cardsData().get("RiotShield")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	void checkCollisionWithBullets(GameObject* shield, BattleScene* where);
 };
 class  CheatGunCard : public Card {
 public:
-	CheatGunCard() : Card(cardsData().get("Cheat Gun")) {};
+	constexpr static cardId_type id = _card_CHEATGUN;
+
+	CheatGunCard() : Card(cardsData().get("CheatGun")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
@@ -91,7 +117,9 @@ class RitualAxeCard : public Card {
 private:
 	int enemiesKilled;
 public:
-	RitualAxeCard() : Card(cardsData().get("Hacha Ritual")) { enemiesKilled = 0; };
+	constexpr static cardId_type id = _card_RITUALAXE;
+
+	RitualAxeCard() : Card(cardsData().get("RitualAxe")) { enemiesKilled = 0; };
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	void enemieKilled();

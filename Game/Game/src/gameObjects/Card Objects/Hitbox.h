@@ -31,7 +31,7 @@ public:
 	}
 
 	//Constructor de hitbox que causa dano, se le anade un lifetime component
-	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr)
+	void initGameObject(float dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr)
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);

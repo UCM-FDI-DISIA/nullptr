@@ -223,7 +223,6 @@
     <ClInclude Include="src\gameObjects\UI\Button.h" />
     <ClInclude Include="src\gameObjects\UI\CardCounter.h" />
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
@@ -320,7 +319,6 @@
     <ClCompile Include="src\gameObjects\UI\Button.cpp" />
     <ClCompile Include="src\gameObjects\UI\CardCounter.cpp" />
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
-    <ClCompile Include="src\gameObjects\UI\InventoryCard.cpp" />
     <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
