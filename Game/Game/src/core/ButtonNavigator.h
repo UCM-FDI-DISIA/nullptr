@@ -43,6 +43,7 @@ public:
 
 	// Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
 	ButtonData insert(Image* im, float horMul = 1.0f, float verMul = 1.0f);
+	std::pair<button_map::iterator, bool> insertBorder(direction dir, int x, int y, ButtonData bd, SDL_Rect orr);
 	void erase(Image* im);
 
 	// Recibe un botón y lo asigna como el por defecto

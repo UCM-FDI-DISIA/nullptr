@@ -74,21 +74,23 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	rr.y -= rr.h/2;
 	rr.w *= 2;
 	rr.h *= 2;
+
 	// sacar los 4 bordes
 	int up[2] = { rr.x + rr.w / 2, rr.y };
-	int down[2] = { rr.x + rr.w / 2, rr.y + rr.h };
+	int down[2] = { rr.x + rr.w / 2, rr.y + rr.h - 1 };
 	int left[2] = { rr.x, rr.y + rr.h / 2 };
-	int right[2] = { rr.x + rr.w, rr.y + rr.h / 2 };
+	int right[2] = { rr.x + rr.w - 1, rr.y + rr.h / 2 };
 
 	// insertar laterales en el map
 	std::pair<button_map::iterator, bool> its[4];
-	its[u] = matrix[d_x][up[d_x]].insert({ up[d_y], bd });
+	
+	its[u] = insertBorder(d_x, up[d_x], up[d_y], bd, orr);
 	bd.supPos[u] = up[d_x];
-	its[d] = matrix[d_x][down[d_x]].insert({ down[d_y] , bd });
+	its[d] = insertBorder(d_x, down[d_x], down[d_y], bd, orr);
 	bd.supPos[d] = down[d_x];
-	its[l] = matrix[d_y][left[d_y]].insert({ left[d_x], bd });
+	its[l] = insertBorder(d_y, left[d_x], left[d_y], bd, orr);
 	bd.supPos[l] = left[d_y];
-	its[r] = matrix[d_y][right[d_y]].insert({ right[d_x], bd });
+	its[r] = insertBorder(d_y, right[d_x], right[d_y], bd, orr);
 	bd.supPos[r] = right[d_y];
 
 	// asignar los laterales en el ButtonData
@@ -99,10 +101,10 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	// insertar en todo el área del botón del map
 	for (int i = rr.x; i < rr.x + rr.w; ++i) {
 		for (int j = rr.y; j < rr.y + rr.h; ++j) {
-			if (j > orr.y && j < orr.y + orr.h) matrix[d_x][i][j] = bd;
+			if (j >= orr.y && j < orr.y + orr.h) matrix[d_x][i][j] = bd;
 			else matrix[d_x][i].insert({ j, bd });
 			
-			if (i > orr.x && i < orr.x + orr.w) matrix[d_y][j][i] = bd;
+			if (i >= orr.x && i < orr.x + orr.w) matrix[d_y][j][i] = bd;
 			else matrix[d_y][j].insert({ i, bd });
 		}
 	}
@@ -113,6 +115,26 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	}
 
 	return ButtonData(bd);
+}
+
+std::pair<ButtonNavigator::button_map::iterator, bool> ButtonNavigator::insertBorder(direction dir, int x, int y, ButtonData bd, SDL_Rect orr) {
+	std::pair<button_map::iterator, bool> it;
+	if (dir == d_x) it = matrix[dir][x].insert({ y, bd });
+	else it = matrix[dir][y].insert({ x, bd });
+
+	if (!it.second) {
+		if (dir == d_x && y >= orr.y && y < orr.y + orr.h) {
+			matrix[dir][x][y] = bd;
+			it.first = matrix[dir][x].find(y);
+			it.second = true;
+		}
+		else if (dir == d_y && x >= orr.x && x < orr.x + orr.w) {
+			matrix[dir][y][x] = bd;
+			it.first = matrix[dir][y].find(x);
+			it.second = true;
+		}
+	}
+	return it;
 }
 
 void ButtonNavigator::erase(Image* im) {
