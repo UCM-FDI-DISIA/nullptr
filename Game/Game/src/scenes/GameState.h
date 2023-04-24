@@ -53,7 +53,7 @@ public:
     }
 
     // Devuelve la camara
-    inline Camera* getCamera() const { return camera; }
+    Camera* getCamera() const;
 
     // Devuelve el puntero
     inline Pointer* getPointer() const { return pointer; }
