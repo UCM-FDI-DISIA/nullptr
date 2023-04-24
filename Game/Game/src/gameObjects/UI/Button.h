@@ -22,4 +22,5 @@ public:
 
 	void setAsDefaultButton();
 	void setAsCurrentButton();
+	bool isCurrentButton();
 };

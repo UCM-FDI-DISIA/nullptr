@@ -35,3 +35,8 @@ void Button::setAsDefaultButton() {
 void Button::setAsCurrentButton() {
 	bComp->setAsCurrentButton();
 }
+
+
+bool Button::isCurrentButton() {
+	return bComp->isCurrentButton();
+}

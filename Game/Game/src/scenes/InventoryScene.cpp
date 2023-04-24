@@ -230,6 +230,7 @@ InventoryScene::~InventoryScene() {
 void InventoryScene::handleInput() {
 	GameState::handleInput();
 	if (gmCtrl_.goBack()) {
-		exitButton->setAsCurrentButton();
+		if (exitButton->isCurrentButton()) butNavigator->selectDefaultButton();
+		else exitButton->setAsCurrentButton();
 	}
 }

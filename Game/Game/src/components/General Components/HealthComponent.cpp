@@ -19,7 +19,9 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
+#ifdef _DEBUG
 		cout << lifePoints << endl;
+#endif
 
 		// Si se trata del Player, actualiza su barra de vida
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
@@ -34,7 +36,9 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		
 		if (invincibility) {
 			invTime = 0.5;
+#ifdef _DEBUG
 			cout << "Invencible" << endl;
+#endif
 		}
 	}
 }
