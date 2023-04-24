@@ -451,7 +451,7 @@ const int CARD_OFFSET_H = 21 * 1.5;
 const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
 const float ASSAULT_RIFLE_BURST = 10;
-
+const float LASER_KATANA_BURST = 35;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;

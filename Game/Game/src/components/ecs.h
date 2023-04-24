@@ -68,6 +68,7 @@ enum CardId : cardId_type {
 	_card_RIOTSHIELD,
 	_card_RITUALAXE,
 	_card_CHEATGUN,
+	_card_LASERKATANA,
 
 	// do not remove this
 	_LAST_CARD_ID

@@ -124,7 +124,7 @@ public:
 };
 class  LaserKatanaCard : public Card {
 public:
-	LaserKatanaCard() : Card(cardsData().get("Katana Laser")) {};
+	LaserKatanaCard() : Card(cardsData().get("LaserKatana")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
