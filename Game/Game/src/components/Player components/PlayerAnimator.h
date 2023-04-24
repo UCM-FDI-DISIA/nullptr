@@ -1,10 +1,12 @@
 #pragma once
 #include "../General Components/CharacterAnimator.h"
 #include "../Card Components/CardComponent.h"
+#include "../General Components/HealthComponent.h"
 
 class PlayerAnimator : public CharacterAnimator {
 private:
 	CardComponent* cardComp_;
+	HealthComponent* hlthComp_;
 	BattleScene* btScn;
 public:
 	// Constructora

@@ -85,6 +85,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 void BattleScene::OnPlayerDies() {
 	player->getComponent<Transform>()->setVel(Vector2D());
 	player->removeComponent<PlayerMovementComponent>();
+	player->removeComponent<PlayerInputComponent>();
 	player->removeComponent<CardComponent>();
 	pointer->removeComponent<Image>();
 }
