@@ -49,16 +49,16 @@ void HealthComponent::setInvencibility(float time)
 void HealthComponent::initComponent() {
 	onDeath = gObj->getComponent<OnDeath>();
 	if (dynamic_cast<MeleeEnemy*>(gObj)) {
-		hitSound = &sdlutils().soundEffects().at("MeleeHit");
+		hitSound = &sdlutils().soundEffects().at(MELEE_HIT_SOUND);
 	}
 	else if (dynamic_cast<RangedEnemy*>(gObj)) {
-		hitSound = &sdlutils().soundEffects().at("RangedHit");
+		hitSound = &sdlutils().soundEffects().at(RANGED_HIT_SOUND);
 	}
 	else if (dynamic_cast<TankEnemy*>(gObj)) {
-		hitSound = &sdlutils().soundEffects().at("TankHit");
+		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
 	}
 	else if (dynamic_cast<Player*>(gObj)) {
-		hitSound = &sdlutils().soundEffects().at("PlayerHit");
+		hitSound = &sdlutils().soundEffects().at(PLAYER_HIT_SOUND);
 	}
 }
 
