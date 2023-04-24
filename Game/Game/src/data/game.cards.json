@@ -1,5 +1,6 @@
 [
   {
+    "key": "Gun",
     "name": "Pistola",
     "attackText": "Dispara de manera normal",
     "abilityText": "Se disparan todas las balas como una escopeta",
@@ -7,10 +8,11 @@
     "maxUses": 6,
     "mana": 35,
     "downTime": 0.5,
-    "textureKey": "Pistol",
+    "textureKey": "Gun",
     "time": "Present"
   },
   {
+    "key": "Sword",
     "name": "Espada",
     "attackText": "espadinha",
     "abilityText": "superespadinha",
@@ -22,6 +24,7 @@
     "time": "Past"
   },
   {
+    "key": "Torch",
     "name": "Antorcha",
     "attackText": "arde",
     "abilityText": "lume",
@@ -33,6 +36,7 @@
     "time": "Past"
   },
   {
+    "key": "LaserGlasses",
     "name": "Gafas Laser",
     "attackText": "pium",
     "abilityText": "fium",
@@ -44,6 +48,7 @@
     "time": "Future"
   },
   {
+    "key": "Bow",
     "name": "Arco",
     "attackText": "flechazo",
     "abilityText": "en la rodilla",
@@ -55,6 +60,7 @@
     "time": "Past"
   },
   {
+    "key": "Tick",
     "name": "Pulga",
     "attackText": "que",
     "abilityText": "como que pulga que es esto",
@@ -66,6 +72,7 @@
     "time": "Future"
   },
   {
+    "key": "Spear",
     "name": "Lanza",
     "attackText": "lanzas",
     "abilityText": "lanzo",
@@ -77,6 +84,7 @@
     "time": "Past"
   },
   {
+    "key": "SMG",
     "name": "SMG",
     "attackText": "super mario galaxy",
     "abilityText": "super mamada galaxial",
@@ -88,6 +96,7 @@
     "time": "Future"
   },
   {
+    "key": "AssaultRifle",
     "name": "Rifle de asalto",
     "attackText": "a",
     "abilityText": "chimpo",
@@ -95,10 +104,11 @@
     "maxUses": 8,
     "mana": 20,
     "downTime": 0.8,
-    "textureKey": "SMG",
+    "textureKey": "Rifle",
     "time": "Present"
   },
   {
+    "key": "LightBeam",
     "name": "Rifle de luz",
     "attackText": "Rifle de luz",
     "abilityText": "Rifle de luz",
@@ -110,6 +120,7 @@
     "time": "Future"
   },
   {
+    "key": "Speaker",
     "name": "Megafono",
     "attackText": "OSASUNA",
     "abilityText": "NUNCA SE RINDE",
@@ -121,6 +132,7 @@
     "time": "Present"
   },
   {
+    "key": "RiotShield",
     "name": "Escudo Antidisturbios",
     "attackText": "no pasaba de los 20",
     "abilityText": "el mayor de los 3 chicos",
@@ -132,6 +144,7 @@
     "time": "Present"
   },
   {
+    "key": "CheatGun",
     "name": "Cheat Gun",
     "attackText": "los checlana",
     "abilityText": "eldenrin gano los chirigotis",
@@ -139,10 +152,11 @@
     "maxUses": 6,
     "mana": 25,
     "downTime": 0.5,
-    "textureKey": "Pistol",
+    "textureKey": "Gun",
     "time": "Future"
   },
   {
+    "key": "RitualAxe",
     "name": "Hacha Ritual",
     "attackText": "hachaso pum toma hachaso",
     "abilityText": "hachaso pum hachaso hachaso hachaso",

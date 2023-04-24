@@ -22,7 +22,6 @@ public:
 	// Añade animación de ataque que iniciará cuando el callback pasado devuelva true
 	void addAttack(Animation anim, BoolCallBack cb);
 
-
 	// Devuelve si la acción del jugador es idle, siempre se comprueba la última
 	virtual bool idling();
 	// Devuelve si la acción del jugador es movimiento, siempre se coprueba justo antes de idling
