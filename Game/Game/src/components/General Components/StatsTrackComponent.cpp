@@ -38,5 +38,5 @@ void StatsTrackComponent::endTimeCouinting()
 void StatsTrackComponent::startStatsScene()
 {
 	calculateMoney();
-	SDLApplication::newScene<PostGameScene>(damage,melee,ranged,tank,money,time);
+	SDLApplication::pushNewScene<PostGameScene>(damage,melee,ranged,tank,money,time);
 }
