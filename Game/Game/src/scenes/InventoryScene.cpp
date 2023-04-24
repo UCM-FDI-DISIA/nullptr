@@ -125,11 +125,11 @@ void InventoryScene::createCards() {
 		Button* cardButton = createCard(pos, it->second.card, false);
 		if (it == inventory.begin()) cardButton->setAsDefaultButton();
 
-		if (it->second.cuantityDeck > 0) {
-			createDeckCards(it->second.card, deckColumn);
-			row = !row;
-			deckColumn++;
-		}
+		if (it->second.cuantityDeck > 0) createDeckCards(it->second.card, deckColumn);
+
+		row = !row;
+		deckColumn++;
+
 		if (row) {
 			column++;
 		}
