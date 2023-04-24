@@ -59,15 +59,12 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	rr.h /= 12;
 	SDL_Rect orr = rr;
 
-	if (horMul > 1) rr.x -= (rr.w - rr.w * horMul) / 2;
-	else if (horMul < 1) rr.x += (rr.w - rr.w * horMul) / 2;
-
-	if (verMul > 1) rr.y -= (rr.h - rr.h * verMul) / 2;
-	if (verMul < 1) rr.y += (rr.h - rr.h * verMul) / 2;
+	rr.x += (rr.w - rr.w * horMul) / 2;
+	rr.y += (rr.h - rr.h * verMul) / 2;
 
 	rr.w *= horMul;
 	rr.h *= verMul;
-	
+
 	
 	// area total en el map
 	rr.x -= rr.w/2;

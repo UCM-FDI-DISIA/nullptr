@@ -31,7 +31,7 @@ MapScene::MapScene() {
 					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 13 : 7 * 1.5,
+				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 8.0f : 5.0f,
 					[&](Transform* myTr) {
 						camTr->setY(-myTr->getY() + sdlutils().height() / 2 - NODE_HEIGHT / 2);
 					});

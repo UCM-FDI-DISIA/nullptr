@@ -8,7 +8,7 @@ ButtonComponent(_f, nullptr, -1, false), nState(_nState), horMul(navigatorHorMul
 
 void NodeButtonComponent::initComponent() {
 	ButtonComponent::initComponent();
-	myData = butNav->insert(animButton, horMul);
+	myData = butNav->insert(animButton, horMul, 0.5f);
 }
 
 // Actualiza la animación del botón según el estado
