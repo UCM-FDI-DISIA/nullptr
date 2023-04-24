@@ -9,7 +9,7 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 	createButton(Constant::getVector2D("PM_INVENTORY_BUTTON_POS"), Constant::getVector2D("PM_INVENTORYFRAME_BUTTON_POS"), []() { SDLApplication::pushNewScene<InventoryScene>(); }, Constant::getString("INVENTORY"));
 
 	// Bot�n album
-	createButton(Constant::getVector2D("PM_OPTIONS_BUTTON_POS"), Constant::getVector2D("PM_OPTIONSEFRAME_BUTTON_POS"), []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, Constant::getString("OPTIONS"));
+	createButton(Constant::getVector2D("PM_OPTIONS_BUTTON_POS"), Constant::getVector2D("PM_OPTIONSFRAME_BUTTON_POS"), []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, Constant::getString("OPTIONS"));
 
 	// Bot�n salir
 	createButton(Constant::getVector2D("PM_EXIT_BUTTON_POS"), Constant::getVector2D("PM_EXITFRAME_BUTTON_POS"), []() { SDLApplication::pushNewScene<MapScene>(); }, Constant::getString("EXIT"));

@@ -9,7 +9,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 
 	//Fondo
 	background = addGameObject();
-	background->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
+	background->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getFloat("WIN_WIDTH"), Constant::getFloat("WIN_HEIGHT"));
 	background->addComponent<Image>(SDLApplication::getTexture("BattleBackground"))->attachToCamera();
 	background3 = addGameObject();
 	background3->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getFloat("BATTLEBACKGROUND123_WIDTH"), Constant::getFloat("BATTLEBACKGROUND123_HEIGHT"));

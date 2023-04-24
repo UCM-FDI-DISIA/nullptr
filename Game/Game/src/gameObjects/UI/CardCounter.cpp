@@ -32,7 +32,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 
 	//Creamos el objeto de las decenas: con sus componentes y sus animaciones
 	decs = new GameObject();
-	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + Constant::getFloat("CARD_OFFSET_W"), Constant::getFloat("DOWN_OFFSET") + Constant::getFloat("CARD_OFFSET_H")), Vector2D(), Constant::getInt("NUM_RENDER_W")), Constant::getInt("NUM_RENDER_H");
+	decs->addComponent<Transform>(Vector2D(trP->getPos().getX() + Constant::getFloat("CARD_OFFSET_W"), Constant::getFloat("DOWN_OFFSET") + Constant::getFloat("CARD_OFFSET_H")), Vector2D(), Constant::getFloat("NUM_RENDER_W")), Constant::getFloat("NUM_RENDER_H");
 	Animator* decAnim = decs->addComponent<Animator>(SDLApplication::getTexture(Constant::getTextureName("NUMBERS")), Constant::getInt("NUMBERS_WIDTH"), Constant::getInt("NUMBERS_HEIGHT"), Constant::getInt("NUMBERS_SPRITE_ROWS"), Constant::getInt("NUMBERS_SPRITE_COLUMS"));
 	decAnim->attachToCamera();
 	createAnims(decAnim);
@@ -40,7 +40,7 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 
 	//Creamos el objeto de las unidades: con sus componentes y sus animaciones
 	unids = new GameObject();
-	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + Constant::getFloat("REVERSE_WIDTH") / 2 + Constant::getFloat("CARD_OFFSET_W") + 5, Constant::getFloat("DOWN_OFFSET") + Constant::getFloat("CARD_OFFSET_H")), Vector2D(), Constant::getInt("NUM_RENDER_W"), Constant::getInt("NUM_RENDER_H"));
+	unids->addComponent<Transform>(Vector2D(trP->getPos().getX() + Constant::getFloat("REVERSE_WIDTH") / 2 + Constant::getFloat("CARD_OFFSET_W") + 5, Constant::getFloat("DOWN_OFFSET") + Constant::getFloat("CARD_OFFSET_H")), Vector2D(), Constant::getFloat("NUM_RENDER_W"), Constant::getFloat("NUM_RENDER_H"));
 	Animator* uniAnim =  unids->addComponent<Animator>(SDLApplication::getTexture(Constant::getTextureName("NUMBERS")), Constant::getInt("NUMBERS_WIDTH"), Constant::getInt("NUMBERS_HEIGHT"), Constant::getInt("NUMBERS_SPRITE_ROWS"), Constant::getInt("NUMBERS_SPRITE_COLUMS"));
 	uniAnim->attachToCamera();
 	createAnims(uniAnim);
