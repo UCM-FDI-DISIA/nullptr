@@ -9,14 +9,12 @@ void EnemyGenerator::initComponent() {
 	timePerWave = STARTING_TIME_PER_WAVE - depth * 500;
 
 
-	Vector2D spawn = playerPos->getCenter();
+	Vector2D spawn = playerPos->getPos();
 	Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
 	spawnPos = checkPos(spawnPos, RANGED_RADIUS);
 
 	//para la mitad del mapa cuando hagamos un mapa mas peuqeño
 	//new Vector2D(FLOOR_WIDTH / 2, FLOOR_HEIGHT / 2)
-
-	GameObject* enemy = where->addGameObject<BossEnemy>(_grp_ENEMIES, spawn + Vector2D(100,100), 500, player);
 }
 
 void EnemyGenerator::update() {
@@ -104,7 +102,7 @@ Vector2D EnemyGenerator::checkPos(Vector2D pos, const int rad) {
 }
 
 void EnemyGenerator::nextWave() {
-	//spawnWave(calcWave());
+	spawnWave(calcWave());
 	nextSpawn = SDLApplication::instance()->getCurrentTime() + timePerWave;
 	if (depth < 29) depth += 1;
 	timePerWave = STARTING_TIME_PER_WAVE - depth * 500;
@@ -114,7 +112,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 	//Coger la posicion del player
 	Vector2D spawn = playerPos->getCenter();
 
-	/*//Hacemos un for y añadimos enemigos melee
+	//Hacemos un for y añadimos enemigos melee
 	for (int i = 0; i < wave[0]; i++) {
 		
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
@@ -133,7 +131,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
 		spawnPos = checkPos(spawnPos, TANK_RADIUS);
 		GameObject* enemy = where->addGameObject<TankEnemy>(_grp_ENEMIES,spawnPos, 10, player);
-	}*/
+	}
 	Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
 	spawnPos = checkPos(spawnPos, TANK_RADIUS);
 	GameObject* enemy = where->addGameObject<BossEnemy>(_grp_ENEMIES, spawnPos, 10, player);
