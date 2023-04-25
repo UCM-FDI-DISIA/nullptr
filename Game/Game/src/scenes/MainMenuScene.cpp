@@ -41,7 +41,7 @@ void MainMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, s
 	AnimatorInfo aI = AnimatorInfo(key);
 	// Crear marco
 	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), Constant::getInt("MM_BUTTONFRAME_WIDTH"), Constant::getInt("MM_BUTTONFRAME_HEIGHT"));
+	frame->addComponent<Transform>(_fPos, Vector2D(), Constant::getFloat("MM_BUTTONFRAME_WIDTH"), Constant::getFloat("MM_BUTTONFRAME_HEIGHT"));
 	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), Constant::getInt("BUTTON_FRAME_SPRITE_WIDTH"), Constant::getInt("BUTTON_FRAME_SPRITE_HEIGHT"), aI.rows, aI.cols);
 
 	// Crear bot�n

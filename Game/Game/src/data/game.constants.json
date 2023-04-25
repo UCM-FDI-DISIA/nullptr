@@ -36,6 +36,10 @@
     { "id": "PLAYER_ATTACK_MOVE_INITIAL_FRAME", "value": 40 },
     { "id": "PLAYER_ATTACK_MOVE_FINAL_FRAME", "value": 47 },
     { "id": "PLAYER_ATTACK_MOVE_FRAME_RATE", "value": 12 },
+    { "id": "PLAYER_DEATH_INITAL_FRAME", "value": 48 },
+    { "id": "PLAYER_DEATH_FINAL_FRAME", "value": 56 },
+    { "id": "PLAYER_DEATH_FRAME_RATE", "value": 8 },
+    { "id": "DEATH_DELAY", "value": 1000 },
     
     { "id": "PLAYER_INITIAL_WIDTH", "value": 64 },
     { "id": "PLAYER_INITIAL_HEIGHT", "value": 64 },
@@ -401,6 +405,7 @@
     { "id": "CHARACTER_ATTACK_MOVE_KEY", "value": "charaAttackMove" },
     { "id": "CHARACTER_SKILL_IDLE_KEY", "value": "charaSkillIdle" },
     { "id": "CHARACTER_SKILL_MOVE_KEY", "value": "charaSkillMove" },
+    { "id": "CHARACTER_DEATH_KEY", "value": "charaDeath" },
     { "id": "PLAYER", "value": "newPlayer" },
     { "id": "POINTER", "value": "Pointer" },
     { "id": "TANK_ENEMY_TEXTURE_KEY", "value": "TankEnemy" },
@@ -455,7 +460,21 @@
     { "id": "CETRO_PAPAL", "value": "CetroPapal" },
     { "id": "LIBRO_PERDIDO", "value": "LibroPerdido" },
     { "id": "TAZA_CAFE", "value": "TazaDeCafe" },
-    { "id": "BOTELLA_MINIATURA", "value": "BotellaConUnBarcoEnMiniatura" }
+    { "id": "BOTELLA_MINIATURA", "value": "BotellaConUnBarcoEnMiniatura" },
+
+
+    { "id": "PLAYER_HIT_SOUND", "value": "PlayerHit" },
+    { "id": "MELEE_HIT_SOUND", "value": "MeleeHit" },
+    { "id": "MELEE_DEATH_SOUND", "value": "MeleeDeath" },
+    { "id": "TANK_HIT_SOUND", "value": "TankHit" },
+    { "id": "TANK_DEATH_SOUND", "value": "TankDeath" },
+    { "id": "RANGED_HIT_SOUND", "value": "RangedHit" },
+    { "id": "RANGED_DEATH_SOUND", "value": "RangedDeath" },
+    { "id": "HOVER_OVER_BUTTON_SOUND", "value": "HoverOverButton" },
+    { "id": "DEATH_MELODY", "value": "Death" },
+    { "id": "BUTTON_PRESSED_SOUND", "value": "ButtonPressed" },
+    { "id": "BATTLE_MUSIC", "value": "BattleMusic" },
+    { "id": "LOAD_EXIT_SOUND", "value": "LoadExit" }
     ],
 
     "vector" :  [

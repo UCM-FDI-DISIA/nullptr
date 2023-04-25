@@ -5,7 +5,7 @@
 BarComponent::BarComponent(int _currentCuantity) : 
 	currentCuantity(_currentCuantity), tr(nullptr) {
 
-	countDownSound = &sdlutils().soundEffects().at("LoadExit");
+	countDownSound = &sdlutils().soundEffects().at(Constant::getString("LOAD_EXIT_SOUND"));
 }
 
 // Inicializar componente

@@ -4,13 +4,13 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	// Barra superior
 	statistics = new GameObject();
 	statistics->addComponent<Transform>(Constant::getVector2D("UI_STATISTICS_POSITION"), Vector2D(), Constant::getFloat("UI_STATISTICS_WIDTH"), Constant::getFloat("UI_STATISTICS_HEIGHT"));
-	statistics->addComponent<Image>(SDLApplication::getTexture(Constant::getTextureName("STATISTICS")))->attachToCamera();
+	statistics->addComponent<Image>(SDLApplication::getTexture(Constant::getString("STATISTICS")))->attachToCamera();
 	objs.push_back(statistics);
 
 	// Medidor de éter
 	etherMeterFrame = new GameObject();
 	etherMeterFrame->addComponent<Transform>(Constant::getVector2D("UI_ETHER_FRAME_POSITION"), Vector2D(), Constant::getFloat("UI_ETHER_FRAME_WIDTH"), Constant::getFloat("UI_ETHER_FRAME_HEIGHT"), 0);
-	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(Constant::getTextureName("ETHER_METER_FRAME")))->attachToCamera();
+	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(Constant::getString("ETHER_METER_FRAME")))->attachToCamera();
 	objs.push_back(etherMeterFrame);
 
 	// Crear barras de vida

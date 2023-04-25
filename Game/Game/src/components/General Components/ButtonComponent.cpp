@@ -28,8 +28,8 @@ void ButtonComponent::handleInput() {
 void ButtonComponent::initComponent() {
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
-	hoverOverSound = &sdlutils().soundEffects().at(HOVER_OVER_BUTTON_SOUND);
-	clickSound = &sdlutils().soundEffects().at(BUTTON_PRESSED_SOUND);
+	hoverOverSound = &sdlutils().soundEffects().at(Constant::getString("HOVER_OVER_BUTTON_SOUND"));
+	clickSound = &sdlutils().soundEffects().at(Constant::getString("BUTTON_PRESSED_SOUND"));
 }
 
 

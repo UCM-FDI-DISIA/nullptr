@@ -30,14 +30,14 @@ PlayerAnimator::PlayerAnimator(int _w, int _h, int _r, int _c) :
 	this->linkAnimations(Constant::getString("CHARACTER_SKILL_IDLE_KEY"), Constant::getString("CHARACTER_SKILL_MOVE_KEY"));
 
 	this->addAction(Constant::getString("CHARACTER_DEATH_KEY"), Animation(Constant::getInt("PLAYER_DEATH_INITAL_FRAME"), Constant::getInt("PLAYER_DEATH_FINAL_FRAME"), Constant::getInt("PLAYER_DEATH_FRAME_RATE"), 1), [this]() {
-		return isPlaying(CHARACTER_DEATH_KEY) || gObj->getComponent<HealthComponent>()->getLife() <= 0;
+		return isPlaying(Constant::getString("CHARACTER_DEATH_KEY")) || gObj->getComponent<HealthComponent>()->getLife() <= 0;
 		});
 }
 
 // Hace el update del padre y llama al metodo OnPlayerDies al terminar la animacion de muerte
 void PlayerAnimator::update() {
 	CharacterAnimator::update();
-	if (isCurrentAnimation(CHARACTER_DEATH_KEY) && animationComplete()) {
+	if (isCurrentAnimation(Constant::getString("CHARACTER_DEATH_KEY")) && animationComplete()) {
 		static_cast<BattleScene*>(gStt)->changeToGameOverScene();
 	}
 }

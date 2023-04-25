@@ -60,6 +60,7 @@ const SDL_Color COLOR_RED = { 255, 0,0 };
 //const string CHARACTER_ATTACK_MOVE_KEY = "charaAttackMove";
 //const string CHARACTER_SKILL_IDLE_KEY = "charaSkillIdle";
 //const string CHARACTER_SKILL_MOVE_KEY = "charaSkillMove";
+//const string CHARACTER_DEATH_KEY = "charaDeath";
 //
 //// PLAYER -----------------------------------------------------------------------------------------
 //// PLAYER ANIMATIONS
@@ -255,9 +256,6 @@ const SDL_Color COLOR_RED = { 255, 0,0 };
 //const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
 //const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
 //const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
-
-const string CHARACTER_DEATH_KEY = "charaDeath";
-
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {

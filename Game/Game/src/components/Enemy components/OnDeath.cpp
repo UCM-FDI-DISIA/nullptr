@@ -3,13 +3,13 @@
 void OnDeath::initComponent() {
 	enemyTransform = gObj->getComponent<Transform>();
 	if (dynamic_cast<MeleeEnemy*>(gObj)) {
-		deathSound= &sdlutils().soundEffects().at(MELEE_DEATH_SOUND);
+		deathSound= &sdlutils().soundEffects().at(Constant::getString("MELEE_DEATH_SOUND"));
 	}
 	else if (dynamic_cast<RangedEnemy*>(gObj)) {
-		deathSound = &sdlutils().soundEffects().at(RANGED_DEATH_SOUND);
+		deathSound = &sdlutils().soundEffects().at(Constant::getString("RANGED_DEATH_SOUND"));
 	}
 	else if (dynamic_cast<TankEnemy*>(gObj)) {
-		deathSound = &sdlutils().soundEffects().at(TANK_DEATH_SOUND);
+		deathSound = &sdlutils().soundEffects().at(Constant::getString("TANK_DEATH_SOUND"));
 	}
 }
 
