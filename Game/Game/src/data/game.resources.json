@@ -43,6 +43,7 @@
       { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
       { "id" : "Bow", "file" : "../Game/resources/images/Cards/BowCard_58x93.png"},
       { "id" : "Rifle", "file": "../Game/resources/images/Cards/RifleCard_58x93.png"},
+      { "id" : "Speaker", "file": "../Game/resources/images/Cards/MegaphoneCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
@@ -60,7 +61,7 @@
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
       { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
       { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
-      { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
+      { "id" : "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
       
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },

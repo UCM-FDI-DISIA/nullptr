@@ -6,7 +6,7 @@ RangeBehaviour::RangeBehaviour(float spd, float safDist, float stptime, float mv
 	int dmg, int atck, Player* plyr) :
 	EnemyBehaviour(spd, dmg, stptime, atck, plyr), 
 	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)),
-	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
+	attackDelay(Constant::getFloat("RANGED_ATTACK_ANIM_DELAY")), attackTime(0) {}
 
 
 void RangeBehaviour::initComponent() {
@@ -68,19 +68,19 @@ void RangeBehaviour::enemyAttack() {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 		else if (shotPattern == 1) {
-			vel = vel.rotate(BULLET_ANGLE);
+			vel = vel.rotate(Constant::getFloat("BULLET_ANGLE"));
 			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
-			vel = vel.rotate(-2*BULLET_ANGLE);
+			vel = vel.rotate(-2* Constant::getFloat("BULLET_ANGLE"));
 			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 		else if (shotPattern == 2) {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
-			vel = vel.rotate(BULLET_ANGLE);
+			vel = vel.rotate(Constant::getFloat("BULLET_ANGLE"));
 			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
-			vel = vel.rotate(-2*BULLET_ANGLE);
+			vel = vel.rotate(-2* Constant::getFloat("BULLET_ANGLE"));
 			data = { pos->getPos(), vel * Constant::getFloat("BULLET_SPEED"), 0, 30, 30, "Bullet", _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}

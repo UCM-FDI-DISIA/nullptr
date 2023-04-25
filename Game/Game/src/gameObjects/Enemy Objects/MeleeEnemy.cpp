@@ -15,5 +15,5 @@ void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<EnemyAnimator>(Constant::getString("MELEE_ENEMY_TEXTURE_KEY"),
 		Constant::getInt("MELEE_ENEMY_SPRITE_WIDTH"), Constant::getInt("MELEE_ENEMY_SPRITE_HEIGHT"),
 		Constant::getInt("MELEE_ENEMY_SPRITE_ROWS"), Constant::getInt("MELEE_ENEMY_SPRITE_COLS"),
-		MELEE_ENEMY_IDLE_ANIMATION, MELEE_ENEMY_MOVEMENT_ANIMATION, MELEE_ENEMY_ATTACK_ANIMATION);
+		Constant::getAnimation("MELEE_ENEMY_IDLE_ANIMATION"), Constant::getAnimation("MELEE_ENEMY_MOVEMENT_ANIMATION"), Constant::getAnimation("MELEE_ENEMY_ATTACK_ANIMATION"));
 }

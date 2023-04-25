@@ -9,7 +9,7 @@ ChestScene::ChestScene() : NodeScene() {
 	background->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
 
-	AnimatorInfo aI = AnimatorInfo(EXIT);
+	AnimatorInfo aI = AnimatorInfo(Constant::getString("EXIT"));
 	addGameObject<Button>(mainMenu, Vector2D(Constant::getFloat("WIN_WIDTH") / 2 - 79, (Constant::getFloat("WIN_HEIGHT") / 4) + 50), aI);
 
 	 chestAI = new AnimatorInfo("GachaChest",
@@ -25,8 +25,8 @@ ChestScene::ChestScene() : NodeScene() {
 	
 	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture("GachaChest"), chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
 	
-	anim->createAnim(ONOUT, 0, 0, ONCLICK_ONOUT_SPEED, -1);
-	anim->createAnim(ONOVER, 0, 0, ONOVER_SPEED, -1);
+	anim->createAnim(Constant::getString("ONOUT"), 0, 0, Constant::getInt("ONCLICK_ONOUT_SPEED"), -1);
+	anim->createAnim(Constant::getString("ONOVER"), 0, 0, Constant::getInt("ONOVER_SPEED"), -1);
 	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);},nullptr, -1);
 	
 }

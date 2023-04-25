@@ -5,6 +5,7 @@
 #include "constants.h"
 #include "../utils/Singleton.h"
 #include "../core/Vector2D.h"
+#include "../components/ecs.h"
 using namespace std;
 using TextureName = string;
 
@@ -15,6 +16,7 @@ private:
 	static unordered_map<string, double> numberCts_;
 	static unordered_map<string, string> stringCts_;
 	static unordered_map<string, Vector2D> vectorCts_;
+	static unordered_map<string, Animation> animationCts_;
 
 public:
 	static void loadConstantsFromJSON();
@@ -41,6 +43,10 @@ public:
 
 	static inline Vector2D getVector2D(const string& key) {
 		return vectorCts_.at(key);
+	}
+
+	static inline Animation getAnimation(const string& key) {
+		return animationCts_.at(key);
 	}
 };
 

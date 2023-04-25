@@ -38,7 +38,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	}
 
 	// Crear los numeros de maná
-	for (int i = 0; i < N_MANA_COUNTER; i++) {
+	for (int i = 0; i < Constant::getInt("N_MANA_COUNTER"); i++) {
 		// Crear el objeto
 		GameObject* number = new GameObject();
 

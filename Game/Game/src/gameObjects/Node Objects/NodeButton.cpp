@@ -4,7 +4,7 @@
 void NodeButton::initGameObject(Node* nodeIt, CallBack _cb, Vector2D pos) {
 
 	addComponent<Transform>(pos, Vector2D(), Constant::getFloat("NODE_WIDTH"), Constant::getInt("NODE_HEIGHT"));
-	Animator* animator = addComponent<Animator>(SDLApplication::getTexture(nodeIt->getTextureKey()), NODE_FRAME_WIDTH, NODE_FRAME_HEIGHT, NODE_FRAME_ROWS, NODE_FRAME_COLUMNS);
+	Animator* animator = addComponent<Animator>(SDLApplication::getTexture(nodeIt->getTextureKey()), Constant::getInt("NODE_FRAME_WIDTH"), Constant::getInt("NODE_FRAME_HEIGHT"), Constant::getInt("NODE_FRAME_ROWS"), Constant::getInt("NODE_FRAME_COLUMNS"));
 	addComponent<NodeButtonComponent>(_cb, nodeIt->getState());
 
 	animator->createAnim(Constant::getString("ONOUT"), Constant::getInt("NODE_BUTTON_ONOUT_START_FRAME"), Constant::getInt("NODE_BUTTON_ONOUT_END_FRAME"), Constant::getInt("ONCLICK_ONOUT_SPEED"), -1);

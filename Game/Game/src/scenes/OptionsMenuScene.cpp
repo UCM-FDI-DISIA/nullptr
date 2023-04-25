@@ -8,8 +8,8 @@ OptionsMenuScene::OptionsMenuScene() : GameState() {
 	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
 
 	// Botones
-	AnimatorInfo aI = AnimatorInfo(EXIT);
+	AnimatorInfo aI = AnimatorInfo(Constant::getString("EXIT"));
 	addGameObject<Button>([]() { SDLApplication::newScene<MainMenuScene>(); }, Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79, (Constant::getInt("WIN_HEIGHT") / 4) + 50), aI);
-	aI.key = OPTIONS;
+	aI.key = Constant::getString("OPTIONS");
 	addGameObject<Button>([]() { sdlutils().toggleFullScreen(); }, Vector2D(Constant::getInt("WIN_WIDTH") / 2 - 79, (Constant::getInt("WIN_HEIGHT") / 4) + 200), aI);
 }

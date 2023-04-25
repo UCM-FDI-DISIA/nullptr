@@ -40,7 +40,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 	bg->addComponent<Transform>(Vector2D(), Vector2D(), Constant::getInt("WIN_WIDTH"), Constant::getInt("WIN_HEIGHT"));
 	bg->addComponent<Image>(SDLApplication::getTexture("Album"))->attachToCamera();
 
-	AnimatorInfo aI = AnimatorInfo(EXIT);
+	AnimatorInfo aI = AnimatorInfo(Constant::getString("EXIT"));
 	addGameObject<Button>([&]() { if (!selected) SDLApplication::newScene<MainMenuScene>(); }, Vector2D(10, 10), aI);
 
 
@@ -54,9 +54,9 @@ void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 
 	Button* b = addGameObject<Button>([&, cD=myData, f=found]() { if (f && !selected) selectCard(cD); }, pos, AnimatorInfo("CardSelection", Constant::getInt("ALB_CARD_W"), Constant::getInt("ALB_CARD_H"), myData.texture->width(), myData.texture->height(), 1, 4));
 	Animator* a = b->getComponent<Animator>();
-	a->createAnim(Constant::getString("ONOUT"), UNSELECTED_CARD_ANIM);
-	a->createAnim(Constant::getString("ONOVER"), SELECTED_CARD_ANIM);
-	a->createAnim(Constant::getString("ONCLICK"), CLICKED_CARD_ANIM);
+	a->createAnim(Constant::getString("ONOUT"), Constant::getAnimation("UNSELECTED_CARD_ANIM"));
+	a->createAnim(Constant::getString("ONOVER"), Constant::getAnimation("SELECTED_CARD_ANIM"));
+	a->createAnim(Constant::getString("ONCLICK"), Constant::getAnimation("CLICKED_CARD_ANIM"));
 	a->play(Constant::getString("ONOUT"));
 	a->dettachFromCamera();
 }
@@ -102,7 +102,7 @@ void AlbumScene::selectCard(CardData cData) {
 
 
 	// BOT�N SALIR
-	AnimatorInfo aI = AnimatorInfo(EXIT);
+	AnimatorInfo aI = AnimatorInfo(Constant::getString("EXIT"));
 	g = addGameObject<Button>([&]() { deselectCard(); }, Vector2D(700, 500), aI);
 	infoWindow.push_back(g);
 }

@@ -506,5 +506,20 @@
     { "id": "SHOP_BUYBUTTON_POSITION", "x": 561.0, "y": 620.0 },
     { "id": "SHOP_MONEY_POSITION", "x": 461.0, "y": 620.0 },
     { "id": "SHOP_EXITBUTTON_POSITION", "x": 5.0, "y": 5.0 }
-    ]
+    ],
+
+  "animation": [
+    { "id": "MELEE_ENEMY_IDLE_ANIMATION", "startFrame": 12, "endFrame": 19, "rate": 10, "rep": -1 },
+    { "id": "MELEE_ENEMY_MOVEMENT_ANIMATION", "startFrame": 0, "endFrame": 11, "rate": 10, "rep": -1 },
+    { "id": "MELEE_ENEMY_ATTACK_ANIMATION", "startFrame": 12, "endFrame": 19, "rate": 10, "rep": 1 },
+    { "id": "RANGED_ENEMY_IDLE_ANIMATION", "startFrame": 0, "endFrame": 4, "rate": 10, "rep": -1 },
+    { "id": "RANGED_ENEMY_MOVEMENT_ANIMATION", "startFrame": 14, "endFrame": 21, "rate": 10, "rep": -1 },
+    { "id": "RANGED_ENEMY_ATTACK_ANIMATION", "startFrame": 5, "endFrame": 13, "rate": 10, "rep": 1 },
+    { "id": "TANK_ENEMY_IDLE_ANIMATION", "startFrame": 0, "endFrame": 0, "rate": 10, "rep": -1 },
+    { "id": "TANK_ENEMY_MOVEMENT_ANIMATION", "startFrame": 21, "endFrame": 25, "rate": 10, "rep": -1 },
+    { "id": "TANK_ENEMY_ATTACK_ANIMATION", "startFrame": 0, "endFrame": 20, "rate": 10, "rep": 1 },
+    { "id": "UNSELECTED_CARD_ANIM", "startFrame": 0, "endFrame": 0, "rate": 1, "rep": -1 },
+    { "id": "SELECTED_CARD_ANIM", "startFrame": 1, "endFrame": 2, "rate": 2, "rep": -1 },
+    { "id": "CLICKED_CARD_ANIM", "startFrame": 3, "endFrame": 3, "rate": 1, "rep": -1 }
+  ]
 }

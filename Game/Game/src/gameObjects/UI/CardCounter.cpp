@@ -20,8 +20,8 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(Constant::getString("SHUFFLING_CARDS")), 58, 93, 1, 5);
 		anim->attachToCamera();
 		anim->createAnim(Constant::getString("SHUFFLING_CARDS"), 0, 4, 5, 1);
-		anim->createAnim(IDLE, 0, 0, 1, 1);
-		anim->play(IDLE);
+		anim->createAnim(Constant::getString("IDLE"), 0, 0, 1, 1);
+		anim->play(Constant::getString("IDLE"));
 	}
 	else
 	{

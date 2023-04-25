@@ -48,7 +48,7 @@ InventoryScene::InventoryScene() : GameState() {
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
 		if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
 		if(cardsInDeck>=4)SDLApplication::popGameState(); 
-		}, EXIT);
+		}, Constant::getString("EXIT"));
 }
 
 // Crear un bot�n especificado en la escena
@@ -201,7 +201,7 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	// Texto que indica cuantas cartas hay en el deck
 	GameObject* text = addGameObject();
 	inventory[Card::getCardIDfromEnum(crd)].myText = text;
-	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), Vector2D(), 70, 48);
+	text->addComponent<Transform>(Vector2D (pos.getX()+ Constant::getInt("CARD_WIDTH") * 2, pos.getY()), Vector2D(), 70, 48);
 	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(inventory[Card::getCardIDfromEnum(crd)].cuantityDeck) + "/" + to_string(inventory[Card::getCardIDfromEnum(crd)].cuantity));
 	if (dck) {
 		deckButtons[crd].deckButton = b;

@@ -11,7 +11,7 @@ void RangedEnemy::initGameObject(Vector2D pos,int life, Player* player) {
 	addComponent<HealthComponent>(life);
 	addComponent<EnemyAnimator>(Constant::getString("RANGED_ENEMY_TEXTURE_KEY"), Constant::getInt("RANGED_ENEMY_SPRITE_WIDTH"),
 		Constant::getInt("RANGED_ENEMY_SPRITE_HEIGHT"), Constant::getInt("RANGED_ENEMY_SPRITE_ROWS"), Constant::getInt("RANGED_ENEMY_SPRITE_COLS"),
-		RANGED_ENEMY_IDLE_ANIMATION, RANGED_ENEMY_MOVEMENT_ANIMATION, RANGED_ENEMY_ATTACK_ANIMATION);
+		Constant::getAnimation("RANGED_ENEMY_IDLE_ANIMATION"), Constant::getAnimation("RANGED_ENEMY_MOVEMENT_ANIMATION"), Constant::getAnimation("RANGED_ENEMY_ATTACK_ANIMATION"));
 	addComponent<ColliderComponent>(_grp_PLAYER);
 	addComponent<StatusComponent>();
 }

@@ -3,6 +3,7 @@
 unordered_map<string, double> Constant::numberCts_;
 unordered_map<string, string> Constant::stringCts_;
 unordered_map<string, Vector2D> Constant::vectorCts_;
+unordered_map<string, Animation> Constant::animationCts_;
 
 void Constant::loadConstantsFromJSON() {
 	// Load JSON configuration file. We use a unique pointer since we
@@ -46,7 +47,7 @@ void Constant::loadConstantsFromJSON() {
 		}
 	}
 
-	// load number constants
+	// load string constants
 	jValue = root["string"];
 	if (jValue != nullptr) {
 		if (jValue->IsArray()) {
@@ -97,6 +98,37 @@ void Constant::loadConstantsFromJSON() {
 		}
 		else {
 			throw "'vector' is not an array in '" + CONSTANTS_JSON_ROOT + "'";
+		}
+	}
+
+	// load animation constants
+	jValue = root["animation"];
+	if (jValue != nullptr) {
+		if (jValue->IsArray()) {
+			animationCts_.reserve(jValue->AsArray().size()); // reserve enough space to avoid resizing
+			for (auto& v : jValue->AsArray()) {
+				if (v->IsObject()) {
+					JSONObject vObj = v->AsObject();
+					std::string key = vObj["id"]->AsString();
+					int s = vObj["startFrame"]->AsNumber();
+					int e = vObj["endFrame"]->AsNumber();
+					int rate = vObj["rate"]->AsNumber();
+					int rep = vObj["rep"]->AsNumber();
+
+#ifdef _DEBUG
+					std::cout << "Loading animation info with id: " << key << std::endl;
+#endif
+
+					animationCts_.emplace(key, Animation(s, e, rate, rep));
+				}
+				else {
+					throw "'animation' array in '" + CONSTANTS_JSON_ROOT
+						+ "' includes and invalid value";
+				}
+			}
+		}
+		else {
+			throw "'animation' is not an array in '" + CONSTANTS_JSON_ROOT + "'";
 		}
 	}
 }

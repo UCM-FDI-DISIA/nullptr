@@ -2,7 +2,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
 
-Map::Map() : nodeMap(HEIGHT, vector<Node*>(Constant::getInt("MAX_NODES"), nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(Constant::getInt("HEIGHT"), 0) {
+Map::Map() : nodeMap(Constant::getInt("HEIGHT"), vector<Node*>(Constant::getInt("MAX_NODES"), nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(Constant::getInt("HEIGHT"), 0) {
 	//createMap();
 	initTextureKeys();
 	initNodeLoads();

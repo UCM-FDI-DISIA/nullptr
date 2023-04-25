@@ -109,7 +109,7 @@ void ShopScene::showMoney() {
 	// Lo muestra visualmente
 	moneyPrint = addGameObject();
 	moneyPrint->addComponent<Transform>(Constant::getVector2D("SHOP_MONEY_POSITION"), Vector2D(), Constant::getInt("SHOP_MONEY_WIDTH"), Constant::getInt("SHOP_MONEY_HEIGHT"), 0);
-	moneyPrint->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(myMoney), COLOR_WHITE);
+	moneyPrint->addComponent<TextComponent>(SDLApplication::getFont(Constant::getString("USED_FONT")), to_string(myMoney), COLOR_WHITE);
 }
 
 void ShopScene::showExitButton() {
