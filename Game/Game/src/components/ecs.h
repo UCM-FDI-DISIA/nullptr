@@ -4,6 +4,7 @@ using cmpId_type = int;
 enum cmpId : cmpId_type {
 	// ... (compoment ids)
 	_TRANSFORM = 0,
+	_EFFECT_CONTROLLER,
 	_IMAGE,
 	_PLAYERMOVEMENTCOMPONENT,
 	_POINTERCOMPONENT,
@@ -28,7 +29,6 @@ enum cmpId : cmpId_type {
 	_ON_DEATH,
 	_CHARGED_PORTAL,
 	_CALLBACK_DELAYER,
-	_EFFECT_CONTROLLER,
 	// ... (compoment ids)
 
 	// do not remove this

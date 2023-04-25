@@ -8,15 +8,16 @@
 		E_BURNING,
 		E_CONFUSED,
 		E_INVULN,
+		E_DAMAGED,
 		E_NONE
 	};
 class EffectController : public Component {
 public:
 private:
 
-	Image* image;
-	double timer;
-	effectID currentEffect;
+	Image* image = nullptr;
+	double timer = 0.0;
+	effectID currentEffect = E_NONE;
 
 public:
 

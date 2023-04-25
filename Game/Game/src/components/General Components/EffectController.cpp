@@ -2,14 +2,14 @@
 #include "EffectController.h"
 #include "../../core/SDLApplication.h"
 
-EffectController::EffectController(Image* image) : image(image), timer(0), currentEffect(E_NONE)
+EffectController::EffectController(Image* image) : image(image)
 {
 }
 
 void EffectController::update()
 {
 	
-	double second = fmod(timer, 100);
+	double second = fmod(timer, 100.0);
 	switch (currentEffect)
 	{
 	case E_BURNING:
@@ -27,7 +27,10 @@ void EffectController::update()
 		image->changeTint(129, 56, 231);
 		break;
 	case E_INVULN:
-		image->changeAlpha(255 - abs(second - 50) * 2);
+		image->changeAlpha(100);
+		break;
+	case E_DAMAGED:
+		image->changeTint(255, 50, 50);
 		break;
 	case E_NONE:
 		image->changeAlpha(255);

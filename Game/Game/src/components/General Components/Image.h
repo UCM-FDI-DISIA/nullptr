@@ -49,7 +49,7 @@ public:
 		this->b = b;
 	}
 	void changeAlpha(Uint8 a) {
-		alpha = alpha;
+		alpha = a;
 	}
 	// Establece el factor de deslice para el efecto parallax
 	void setScrollFactor(float _factor);
