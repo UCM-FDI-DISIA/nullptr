@@ -16,6 +16,7 @@ private:
 	OnDeath* onDeath;
 	EffectController* eController;
 	
+	SoundEffect* hitSound;
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);

@@ -75,7 +75,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
 
 	//Música
-	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST = &sdlutils().musics().at(BATTLE_MUSIC);
 	battleSceneOST->play();
 };
 
