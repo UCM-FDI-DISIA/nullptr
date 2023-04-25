@@ -17,6 +17,10 @@ protected:
 	//Transform* cameraTransform;
 	SDL_RendererFlip flip;
 	float scrollFactor;
+
+	Uint8 r = 255, g = 255, b = 255;
+	Uint8 alpha = 255;
+
 public:
 	Transform* cameraTransform;
 	static const int id = _IMAGE;
@@ -40,10 +44,12 @@ public:
 	void flipNone();
 
 	void changeTint(Uint8 r, Uint8 g, Uint8 b) {
-		texture->changeTint(r, g, b);
+		this->r = r;
+		this->g = g;
+		this->b = b;
 	}
 	void changeAlpha(Uint8 a) {
-		texture->changeAlpha(a);
+		alpha = alpha;
 	}
 	// Establece el factor de deslice para el efecto parallax
 	void setScrollFactor(float _factor);

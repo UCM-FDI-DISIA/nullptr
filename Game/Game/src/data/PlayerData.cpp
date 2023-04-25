@@ -17,10 +17,10 @@ PlayerData::PlayerData() {
 	deck.push_back(new GunCard());
 	addCardToLibrary(_card_GUN, 3);
 	addCardToDeckId(_card_GUN, 3);
-	deck.push_back(new LaserShadesCard());
-	deck.push_back(new LaserShadesCard());
-	addCardToLibrary(_card_LASERGLASSES, 2);
-	addCardToDeckId(_card_LASERGLASSES, 2);
+	deck.push_back(new PulgaCard());
+	deck.push_back(new PulgaCard());
+	addCardToLibrary(_card_PULGA, 2);
+	addCardToDeckId(_card_PULGA, 2);
 
 	for (auto& var : sdlutils().relics().map_)
 	{

@@ -15,13 +15,16 @@ void EffectController::update()
 	case E_BURNING:
 		if (second < 33) {
 			image->changeTint(255, 195, 0);
-		}else if (second < 66) {
+		}
+		if (second > 33 && second < 66) {
 			image->changeTint(255, 87, 51);
-		}else {
+		}
+		if (second > 66) {
 			image->changeTint(255, 66, 51);
 		}
 		break;
 	case E_CONFUSED:
+		image->changeTint(129, 56, 231);
 		break;
 	case E_INVULN:
 		image->changeAlpha(255 - abs(second - 50) * 2);
