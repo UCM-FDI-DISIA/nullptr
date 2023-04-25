@@ -1,9 +1,8 @@
+#pragma once
 #include "../Component.h"
 #include "Image.h"
 
 
-class EffectController : public Component {
-public:
 	enum effectID
 	{
 		E_BURNING,
@@ -11,6 +10,8 @@ public:
 		E_INVULN,
 		E_NONE
 	};
+class EffectController : public Component {
+public:
 private:
 
 	Image* image;

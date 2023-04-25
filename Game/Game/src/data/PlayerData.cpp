@@ -6,11 +6,11 @@ PlayerData::PlayerData() {
 
 	level = 5;
 	// Cartas iniciales
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	addCardToLibrary(_card_SWORD, 3);
-	addCardToDeckId(_card_SWORD, 3);
+	deck.push_back(new TorchCard());
+	deck.push_back(new TorchCard());
+	deck.push_back(new TorchCard());
+	addCardToLibrary(_card_TORCH, 3);
+	addCardToDeckId(_card_TORCH, 3);
 
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
