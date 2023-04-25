@@ -38,6 +38,13 @@ public:
 	void flipVertical();
 	// Desflipea la imagen
 	void flipNone();
+
+	void changeTint(Uint8 r, Uint8 g, Uint8 b) {
+		texture->changeTint(r, g, b);
+	}
+	void changeAlpha(Uint8 a) {
+		texture->changeAlpha(a);
+	}
 	// Establece el factor de deslice para el efecto parallax
 	void setScrollFactor(float _factor);
 };

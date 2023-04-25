@@ -1,4 +1,5 @@
 #include "HealthComponent.h"
+#include "EffectController.h"
 #include"../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"
