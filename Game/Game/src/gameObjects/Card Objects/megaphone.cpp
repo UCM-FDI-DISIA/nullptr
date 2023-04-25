@@ -5,24 +5,24 @@
 //se crea un cono de sonido que mata a los enemigos
 void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
     int numProjectiles = 4;
-    float spacingBetweenProjectiles = 10.0f; // Distancia en píxeles entre cada proyectil
+    float spacingBetweenProjectiles = 10.0f; // Distancia en pï¿½xeles entre cada proyectil
 
     Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 
     // Calcular el vector perpendicular a 'dir'
     Vector2D perp(-dir.getY(), dir.getX());
 
-    // Calcular el ángulo de rotación del sprite
+    // Calcular el ï¿½ngulo de rotaciï¿½n del sprite
     float spriteRotation = atan2(dir.getY(), dir.getX()) * 180.0f / M_PI;
 
     for (int i = 0; i < numProjectiles; i++) {
-        // Calcular el factor de interpolación entre -1 y 1
+        // Calcular el factor de interpolaciï¿½n entre -1 y 1
         float t = -1.0f + 2.0f * (float)i / (float)(numProjectiles - 1);
 
         // Interpolar entre 'perp' y '-perp' usando el factor t
         Vector2D currentOffset = perp * t * spacingBetweenProjectiles * (numProjectiles - i);
 
-        // Sumar la posición del jugador, la dirección y el desplazamiento actual
+        // Sumar la posiciï¿½n del jugador, la direcciï¿½n y el desplazamiento actual
         Vector2D startPos = playerPos + dir * 20.0f * (i + 1) + currentOffset;
 
         Hitbox::HitboxData data = { startPos, Vector2D(), spriteRotation, 50 * i, 100 * i, Constant::getString("SOWND_ATTACK"), _grp_ENEMIES};

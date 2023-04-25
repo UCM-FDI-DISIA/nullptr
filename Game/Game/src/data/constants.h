@@ -256,6 +256,9 @@ const SDL_Color COLOR_RED = { 255, 0,0 };
 //const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
 //const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
+const string CHARACTER_DEATH_KEY = "charaDeath";
+
+
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
 	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "AttackSymbol", "CadenceSymbol"
@@ -628,7 +631,6 @@ const int NODE_POSITIONS_X[5] = {
 //const int SHOP_MONEY_HEIGHT = 50;
 //const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
 //const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
-
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
 //LOS VALORES GUARDADOS SON LAS PROBABILIDADES DE OLEADAS EN ORDEN

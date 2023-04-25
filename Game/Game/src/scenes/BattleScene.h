@@ -49,6 +49,8 @@ public:
 	void OnPlayerDies();
 	void OnPlayerDamage(float value);
 
+	void changeToGameOverScene();
+
 	// - UI -
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
