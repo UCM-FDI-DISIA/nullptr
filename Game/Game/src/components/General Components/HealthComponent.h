@@ -5,6 +5,7 @@
 // Como su muerte o su curación
 class OnDeath;
 class RitualAxeCard;
+class EffectController;
 class HealthComponent : public Component {
 private:
 	int lifePoints;
@@ -13,6 +14,8 @@ private:
 	bool invincibility;
 	float invTime;
 	OnDeath* onDeath;
+	EffectController* eController;
+	
 	SoundEffect* hitSound;
 public:
 	static const int id = _HEALTH;
