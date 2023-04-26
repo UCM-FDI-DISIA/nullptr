@@ -362,6 +362,15 @@ const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
+// TUTORIALSCENE ---------------------------------------------------------------------------------
+// SPRITES DIMS
+const int COMPANION_SPRITE_WIDTH = 128;
+const int COMPANION_SPRITE_HEIGHT = 96;
+const int COMPANION_WIDTH = COMPANION_SPRITE_WIDTH * PIXEL_WIDTH;
+const int COMPANION_HEIGHT = COMPANION_SPRITE_HEIGHT * PIXEL_HEIGHT;
+// ANIM KEYS
+const string COMPANION_TEXTURE = "Companion";
+
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
 const string STATISTICS = "StatisticsFrame";

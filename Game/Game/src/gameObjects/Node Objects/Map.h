@@ -19,8 +19,8 @@ private:
 
 	vector<int> nodesPerHeight;
 
-	string nodeTextureKeys[NodeType::None];
-	function<void(BattleType)> nodeLoads[NodeType::None];
+	string nodeTextureKeys[NodeType::Tutorial];
+	function<void(BattleType)> nodeLoads[NodeType::Tutorial];
 
 	// Constructora
 	Map();

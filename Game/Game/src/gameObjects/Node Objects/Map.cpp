@@ -13,6 +13,7 @@ void Map::initTextureKeys() {
 	nodeTextureKeys[NodeType::Battle] = BATTLE_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Shop] = SHOP_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Chest] = CHEST_NODE_TEXTURE_KEY;
+	nodeTextureKeys[NodeType::None] = BATTLE_NODE_TEXTURE_KEY;
 }
 
 // Inicializa el array de CallBacks de los nodos
@@ -20,6 +21,7 @@ void Map::initNodeLoads() {
 	nodeLoads[NodeType::Battle] = [](BattleType t) { SDLApplication::instance()->pushNewScene<BattleScene>(t); };
 	nodeLoads[NodeType::Chest] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ChestScene>(); };
 	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ShopScene>(); };
+	nodeLoads[NodeType::None] = [](BattleType t) {SDLApplication::instance()->pushNewScene<TutorialScene>(t); };
 }
 
 // Crea el mapa
@@ -372,7 +374,7 @@ void Map::initMap(string filename) {
 #endif
 					// Crear los nodos en función de las condiciones leídas
 					if (type == "start")  {
-						initialNodes.push_back(addNode(height, pos, Needs(Battle, 0, false)));
+						initialNodes.push_back(addNode(height, pos, Needs(None, 0, false)));
 					}
 					else if (type == "boss")  {
 						addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);

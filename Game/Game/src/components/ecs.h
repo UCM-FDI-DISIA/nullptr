@@ -29,6 +29,8 @@ enum cmpId : cmpId_type {
 	_CHARGED_PORTAL,
 	_CALLBACK_DELAYER,
 	_PLAYERINPUT,
+	_LERP_COMPONENT,
+	_TUTORIAL_COMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this
