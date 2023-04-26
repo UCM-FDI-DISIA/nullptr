@@ -18,110 +18,161 @@
 </head>
 
 <!-- Cuerpo -->
-<body id="body" style="background-color: #c1a86c; overflow-x:hidden;">
-	<!-- Titulo del juego -->
-	<header id="header" style="background-size: auto; height: 550px; background-position: center;">
-		<img src="web/assets/cartel.png">
+<body>
+	<!-- Cabecera -->
+	<header>
+		<!-- Titulo del juego -->
+		<div style="text-align: center; margin-top: -10px;">
+			<img src="web/assets/cartel.png">
+		</div>
 		
-		<div style=" position: absolute; top: -180px; left: -300px;">
-			<img id="engranaje1" src="web/assets/engranaje.png">
-		</div>
-		<div style="position: absolute; top: -180px; right: -300px;">
-			<img id="engranaje2" src="web/assets/engranaje.png">
-		</div>
 	</header>
 
 	<!-- Cuerpo de la pagina -->
 	<div class="cuerpo">
-		<!-- Seccion de descripcion -->
-		<div id="descripcion" class="particion">
-			<h2>DESCRIPCIÓN</h2>
-			<p class="descripcion" style="padding: 10px;">
-				<b>Timeless Deck</b> es un <i>juego arcade</i> en el cual el jugador deberá superar 
-                distintos niveles combatiendo enemigos. Dispondrás de cartas que te servirán de armas; 
-                así que, ¡es tiempo de hacerte con todas!
-				<br><br><br>
-			</p>
+		<div class="row">
+			<div class="column">
+				<!-- Slideshow de imagenes del juego-->
+				<div class="slideshow-container">
+					<div class="mySlides fade">
+						<img class="image" src="web/assets/cartel.png">
+					</div>
+				
+					<div class="mySlides fade">
+						<img class="image" src="web/assets/cartel.png">
+					</div>
+				
+					<div class="mySlides fade">
+						<img class="image" src="web/assets/cartel.png">
+					</div>
+				
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div>
+				<br>
+				
+				<!-- The dots/circles -->
+				<div style="text-align:center">
+					<span class="dot" onclick="currentSlide(1)"></span>
+					<span class="dot" onclick="currentSlide(2)"></span>
+					<span class="dot" onclick="currentSlide(3)"></span>
+				</div>
+			</div>
+			<!-- Seccion de descripcion -->
+			<div class="column">
+				
+				<div class="descripcion">
+					<div class="cuadro">
+						<h2>DESCRIPCIÓN</h2>
+					</div>
+					<p class="descripcion-txt">
+						<b>Timeless Deck</b> es un <i>juego arcade</i> en el cual el jugador deberá superar 
+						distintos niveles combatiendo enemigos. Dispondrás de cartas que te servirán de armas; 
+						así que, ¡es tiempo de hacerte con todas!
+					</p>
+				</div>
+
+				<div class="descarga">
+					<span>Windows 10, Windows 11 x64</span>
+					<!-- href con la ruta del archivo a descargar-->
+					<!-- download con el nombre del archivo a descargar + el formato -->
+					<a href="" download="">
+						<button class="descarga-boton">¡DESCARGAR!</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="quienesSomos">
+			<div class="cuadro">
+				<h2>QUIENES SOMOS</h2>
+			</div>
+
+			<ul class="participant-list" style="list-style: none; align-items: center;">
+				<li class="participant">
+				  <img id="engranaje1" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+				  <div class="participant-info">
+					<h3>Daniel Alonso Herranz</h3>
+					<p class="descripcionParticipant">Descripción.</p>
+				  </div>
+				</li>
+				<li class="participant">
+					<img id="engranaje2" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Luis Rafael Argandoña Blacido</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje3" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+					  <h3>Miguel Curros García</h3>
+					  <p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje4" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Pablo González Arroyo</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje5" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Alejandro González Sánchez</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje6" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Diego López Balboa</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje7" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Javier Murillo González</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje8" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>José Eduardo Robles Rocas</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje9" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Rafael Vilches Hernández</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+				<li class="participant">
+					<img id="engranaje10" src="web/assets/marcoEngranaje.png" width="350px" height="350px">
+					<div class="participant-info">
+						<h3>Yi Wang Qiu</h3>
+						<p class="descripcionParticipant">Descripción.</p>
+					</div>
+				</li>
+			</ul>
 		</div>
 
-		<ul class="participant-list" style="list-style: none; align-items: center;">
-			<li>
-			  <img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-			  <div class="participant-info">
-				<h3>1</h3>
-				<p>Descripción del jugador 1.</p>
-			  </div>
-			</li>
-			<li>
-			  <img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-			  <div class="participant-info">
-				<h3>2</h3>
-				<p>Descripción del jugador 2.</p>
-			  </div>
-			</li>
-			<li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>3</h3>
-				  <p>Descripción del jugador 3.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>4</h3>
-				  <p>Descripción del jugador 4.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>5</h3>
-				  <p>Descripción del jugador 5.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>6</h3>
-				  <p>Descripción del jugador 6.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>7</h3>
-				  <p>Descripción del jugador 7.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>8</h3>
-				  <p>Descripción del jugador 8.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>9</h3>
-				  <p>Descripción del jugador 9.</p>
-				</div>
-			  </li>
-			  <li>
-				<img src="web/assets/marcoEngranaje.png" width="350px" height="350px">
-				<div class="participant-info">
-				  <h3>10</h3>
-				  <p>Descripción del jugador 10.</p>
-				</div>
-			  </li>
-		  </ul>
+		<div style="position: fixed; top: -300px; left: -300px;">
+			<img id="engranajeIzq" src="web/assets/engranaje.png">
+		</div>
+		
+		<div style="position: fixed; top: -300px; right: -300px;">
+		<img id="engranajeDer" src="web/assets/engranaje.png">
+		</div>
 	</div>
 
-	<!-- Footer -->
 	<footer id="footer">
 		<div class="footer-container">
-
 			<!-- Logo de la empresa -->
 			<div class="footer-content">
 				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
@@ -141,20 +192,6 @@
 				<a href="https://github.com/UCM-FDI-DISIA/nullptr" target="_blank">
 					<img src="web/assets/logos/githubLogo.png" alt="logoGitHub">
 				</a>
-			</div>
-
-			<!-- Nombres de los integrantes -->
-			<div class="footer-content">
-                <p>Daniel Alonso Herranz</p>
-                <p>Luis Rafael Argandoña Blacido</p>
-				<p>Miguel Curros García</p>
-				<p>Pablo González Arroyo</p>
-				<p>Alejandro González Sánchez</p>
-                <p>Diego López Balboa</p>
-                <p>Javier Murillo González</p>
-                <p>José Eduardo Robles Roca</p>
-				<p>Rafael Vilches Hernández</p>
-				<p>Yi Wang Qiu</p>
 			</div>
 		</div>
 	</footer>

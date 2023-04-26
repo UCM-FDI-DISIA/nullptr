@@ -1,77 +1,209 @@
 /* ------------ ESTILOS DE ETIQUETAS HTML ------------ */
-/* Se alinea el contenido del header en el centro y se le da un fondo */
 header {
 	text-align: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
 
-/* Se da el fondo de pantalla, se reducen los margenes y se establecen la fuente del texto al body */
 body {
-	background-repeat: repeat;
 	background-size: 100%;
-	margin: 0px;
 	font-family: Silkscreen;
+	background-color: #c1a86c;
+	overflow-x:hidden;
 }
 
-/* Centra los titulos y pone la fuente de color blanco y a un tamano concreto */
-h2{
+h2 {
 	text-align: center;
 	color: white;
 	font-size: 40px;
 }
 
-/* Pone las lineas de texto de color blanco y a un tamano concreto */
 p {
 	color: white;
 	font-size: 20px;
 }
 
-/* Estilo de la etiqueta footer en HTML. Se le da el fondo, color, margenes y tamaño */
 footer {
-	background-repeat: no-repeat;
-	background-size: 100%;
-	padding: 2em 0;
-	margin-top: 8em;
 	bottom: 0;
+	position: fixed;
 }
 
-/* Estilo de la etiqueta img dentro del footer. Se le da tama�o y un redondeo */
 footer img {
 	width: 80px;
 	border-radius: 1em;
 }
 
-/* Añade un filtro de color al pasar el ratón por encima de una imagen del footer */
 footer img:hover {
 	filter: brightness(75%);
 	-webkit-filter: brightness(75%);
 }
 
 /* ------------ ESTILOS PROPIOS ------------ */
-/* El cuerpo ocupa como minimo toda la altura de la pantalla y se le pone un ancho (mayor o igual al de la resolucion del juego) 
-	junto con un margin auto para ponerlos en el centro le la pantalla */
-.cuerpo{
+.cuerpo {
 	margin: auto;
 	width: auto;
 }
 
-/* El ancho y los margenes de la imagen del titulo */
-.titulo{
-	width: 30%;
-	margin: 0px 0px 80px;
+.cuadro {
+	display: block;
+	position: relative;
+	background-color: #894e18;
+	color: #fff;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 50px;
+	padding: 5px;
+	text-align: center;
+	border-radius: 90px;
+	background-image: url('../assets/tabla.png');
 }
 
-/* Justifica la descripcion */
-.descripcion{
+.descripcion {
+	margin-top: 50px;
+  	text-align: center;
+}
+
+.descripcion-txt {
 	text-align: justify;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
 }
 
-/* Footer. Se describe la forma de disposicion, tamano, alineacion y diseno responsive */
+.descarga {
+	display: block;
+	position: relative;
+	background-color: #333;
+	color: #fff;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 50px;
+	padding: 10px;
+	text-align: center;
+}
+
+.descarga-boton {
+	background-color: greenyellow; 
+	border-color: green;
+	width: 75%;
+	height: 75px;
+	font-size: 25px;
+	font-family: Silkscreen;
+	border-radius: 30px;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.row {
+	margin-top: 100px;
+	display: flex;
+  	justify-content: center;
+}
+
+.image {
+	max-width: 100%;
+	height: 500px;
+}
+
+.slideshow-container {
+	max-width: none;
+	max-height: 760px;
+	position: relative;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  	background-color: #894e18;
+}
+
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #ab6d32;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  	background-color: #894e18;
+}
+
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {opacity: .4}
+	to {opacity: 1}
+}
+
+.participant-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+}
+
+.participant {
+	display: flex;
+	flex-direction: row;
+	margin: 20px;
+}
+
+.participant-info {
+	text-align: justify;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+}
+
+.descripcionParticipant{
+	font-size: large;
+}
+
+.marco {
+	width:"100px";
+	height:"100px";
+}
+
 .footer-container {
 	width: 100%;
 	display: block;
-	background-color: #894e18;
+	background-color: rgba(245, 245, 245, 0.5);
 	line-height: 40%;
 	text-align: center;
 	display: flex;
@@ -81,12 +213,11 @@ footer img:hover {
 	justify-content: space-around;
 }
 
-/* Contenidos del footer. Se usa para determinar distintas secciones en el footer. Dise�o responsive y ajustes */
 .footer-content {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	margin: 50px 30px 10px;
+	margin: 30px 30px 30px;
 }
 
 ::-webkit-scrollbar {
@@ -102,16 +233,4 @@ footer img:hover {
 	background: #e0b54e;
 	background-image: url('../assets/tubo.png');
 	background-repeat: repeat repeat;
-}
-
-.participantes-lista li:nth-child(even) img {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 1;
-}
-  
-.participantes-lista li:nth-child(even) .descripcion {
-	position: relative;
-	z-index: 2;
 }
