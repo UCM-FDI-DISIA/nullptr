@@ -150,7 +150,8 @@
       { "id" : "TankHit", "file": "../Game/resources/sounds/TankHit.wav"},
       { "id" : "MeleeHit", "file": "../Game/resources/sounds/MeleeHit.wav"},
       { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
-      { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"}
+      { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
+      { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"}
     ],
   
     "musics" : [

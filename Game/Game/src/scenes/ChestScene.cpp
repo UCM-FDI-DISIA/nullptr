@@ -4,7 +4,7 @@
 
 ChestScene::ChestScene() : NodeScene() {
 	cout << "Has entrado en la escena de Cofre" << endl;
-
+	chestOpening=&sdlutils().soundEffects().at(CHEST_OPENING_SOUND);
 	GameObject* background = addGameObject(_grp_GENERAL);
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
@@ -40,6 +40,7 @@ void ChestScene::mainMenu() {
 }
 
 void ChestScene::gacha(GameObject* obj) {
+	chestOpening->play();
 
 	if (alreadyClicked) return;
 	//Sacamos el vector de reliquias disponibles

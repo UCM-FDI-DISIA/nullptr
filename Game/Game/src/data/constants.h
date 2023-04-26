@@ -634,6 +634,7 @@ const string PLAYER_HIT_SOUND = "PlayerHit";
 const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
 const string BUTTON_PRESSED_SOUND = "ButtonPressed";
 const string LOAD_EXIT_SOUND = "LoadExit";
+const string CHEST_OPENING_SOUND = "ChestOpening";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
