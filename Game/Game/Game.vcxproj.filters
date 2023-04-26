@@ -259,6 +259,9 @@
     <ClCompile Include="src\scenes\PostGameScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\EffectController.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -544,6 +547,9 @@
     </ClInclude>
     <ClInclude Include="src\scenes\PostGameScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
