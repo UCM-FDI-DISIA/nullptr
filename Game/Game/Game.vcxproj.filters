@@ -256,11 +256,23 @@
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp">
-      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\Enemy components\BossBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\TentacleBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossTentacle.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\TargetedTentacle.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\TargetedComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -546,6 +558,18 @@
       <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\BossBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\TentacleBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossTentacle.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\TargetedTentacle.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\TargetedComponent.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
   </ItemGroup>

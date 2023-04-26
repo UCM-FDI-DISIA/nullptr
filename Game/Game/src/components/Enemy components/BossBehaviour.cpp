@@ -42,7 +42,7 @@ void BossBehaviour::update() {
 			behaviorTime -= stopTime + moveTime;
 		}
 	}
-	if (!confused) {
+	if (!confused && !oneAttack) {
 		if (attacking) {
 			if (attackDelay < attackTime) {
 				attackTime = 0;
@@ -50,7 +50,9 @@ void BossBehaviour::update() {
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
 				switch (0) {
 				case 0: // Conos
-					coneAttack();
+					targetedAttack();
+					oneAttack = true;
+					/*coneAttack();*/
 					break;
 				case 1: // BulletHell
 					bulletHellAttack();
@@ -271,4 +273,13 @@ Uint32 BossBehaviour::coneAttackTimerCallback(Uint32 interval, void* param) {
 	BossBehaviour* boss = static_cast<BossBehaviour*>(param);
 	boss->coneAttack();
 	return 0;
+}
+void BossBehaviour::clockAttack()
+{
+	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX()+pos->getWidth()/2, pos->getPos().getY()+pos->getHeight()/2), false);
+	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), true);
+}
+void BossBehaviour::targetedAttack()
+{
+	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>());
 }

@@ -28,6 +28,8 @@ enum cmpId : cmpId_type {
 	_ON_DEATH,
 	_CHARGED_PORTAL,
 	_CALLBACK_DELAYER,
+	_TENTACLE_BEHAVIOUR,
+	_TARGETED_BEHAVIOUR,
 	// ... (compoment ids)
 
 	// do not remove this

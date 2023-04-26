@@ -3,6 +3,8 @@
 #include "../../gameObjects/Card Objects/Hitbox.h"
 #include "../../scenes/BattleScene.h"
 #include "../../core/SDLApplication.h"
+#include "../../gameObjects/Enemy Objects/BossTentacle.h"
+#include "../../gameObjects/Enemy Objects/TargetedTentacle.h"
 #include <cmath>
 
 // Esta clase define el comportamiento del enemigo a distancia
@@ -19,6 +21,7 @@ private:
 	int attackState = 0;
 	bool listaCompletada = false;
 	int coneAttacksDone = 0;
+	bool oneAttack = false;
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
 
@@ -33,6 +36,8 @@ public:
 	void tentacleDirectedAttack();
 	void sprinklerAttack();
 	void grenadeAttack();
+	void clockAttack();
+	void targetedAttack();
 	static Uint32 coneAttackTimerCallback(Uint32 interval, void* param);
 };
 
