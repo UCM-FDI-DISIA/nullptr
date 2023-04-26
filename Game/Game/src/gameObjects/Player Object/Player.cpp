@@ -7,7 +7,7 @@ void Player::initGameObject() {
 	addComponent<PlayerMovementComponent>();
 	addComponent<CardComponent>();
 	addComponent<PlayerInputComponent>();
+	addComponent<HealthComponent>(PlayerData::instance()->getMaxHP(), true);
 	addComponent<PlayerAnimator>(PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS);
 	addComponent<EffectController>();
-	addComponent<HealthComponent>(PlayerData::instance()->getMaxHP(), true);
 }

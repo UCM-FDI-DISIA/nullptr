@@ -40,9 +40,11 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		}
 		if (invincibility) {
 			invTime = 0.5;
-			
-			if (gObj->hasComponent<EffectController>())
+
+			if (gObj->hasComponent<EffectController>()) {
+				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_INVULN, 0.5);
+			}
 			
 			
 #ifdef _DEBUG
@@ -51,8 +53,10 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		}
 		else
 		{
-			if (gObj->hasComponent<EffectController>())
+			if (gObj->hasComponent<EffectController>()) {
+				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_DAMAGED, 0.25);
+			}
 		}
 	}
 }
@@ -64,9 +68,7 @@ void HealthComponent::setInvencibility(float time)
 }
 
 void HealthComponent::initComponent() {
-		if (gObj->hasComponent<EffectController>()) {
-			eController = gObj->getComponent<EffectController>();
-		}
+	eController = gObj->getComponent<EffectController>();
 	onDeath = gObj->getComponent<OnDeath>();
 	if (dynamic_cast<MeleeEnemy*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(MELEE_HIT_SOUND);

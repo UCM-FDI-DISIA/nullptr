@@ -39,6 +39,20 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 ShopScene::~ShopScene() {
 }
 
+void ShopScene::handleInput() {
+	GameState::handleInput();
+	if (gmCtrl_.goBack()) {
+		if (exitButton->isCurrentButton()) {
+			for (int i = 0; i < myItems.size() && exitButton->isCurrentButton(); ++i) {
+				if (myItems[i].card != nullptr) myItems[i].card->setAsCurrentButton();
+			}
+		}
+		else {
+			exitButton->setAsCurrentButton();
+		}
+	}
+}
+
 // Deselecciona la carta
 void ShopScene::deselectCard() {
 	// Si hay carta seleccionada...
@@ -90,6 +104,7 @@ void ShopScene::buyCard() {
 		myItems[lastButtonIndex].priceObj->setAlive(false);
 		// Deselecciona
 		deselectCard();
+		myItems[lastButtonIndex].card = nullptr;
 	}
 	else {
 		#ifdef _DEBUG
