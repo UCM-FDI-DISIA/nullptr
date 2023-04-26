@@ -99,6 +99,7 @@ public:
 
 	// normalizar vector
 	inline Vector2D normalize() const {
+		if (magnitude() == 0) return *this;
 		return *this / magnitude();
 	}
 

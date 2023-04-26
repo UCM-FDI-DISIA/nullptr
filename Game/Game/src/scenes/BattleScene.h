@@ -8,10 +8,10 @@
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
 #include "../gameObjects/UI/HandUI.h"
-#include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 
 class StatisticsUI;
+class ChargedPortalComponent;
 class HandUI;
 class BattleScene : public NodeScene {
 private:

@@ -23,8 +23,8 @@ const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
-const int PIXEL_WIDTH = WIN_WIDTH / 544;
-const int PIXEL_HEIGHT = WIN_HEIGHT / 306;
+const float PIXEL_WIDTH = WIN_WIDTH / 544.0f;
+const float PIXEL_HEIGHT = WIN_HEIGHT / 306.0f;
 
 // FRAME TIMES ------------------------------------------------------------------------------------
 const double FRAME_TIME = 30;
@@ -103,8 +103,8 @@ const int PLAYER_DEATH_FRAME_RATE = 8;
 const double DEATH_DELAY = 1000;
 
 // PLAYER DIMENSIONS
-const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
-const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
+const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
+const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
@@ -166,7 +166,8 @@ const int TANK_ENEMY_SPRITE_HEIGHT = 40;
 const int TANK_ENEMY_SPRITE_ROWS = 6;
 const int TANK_ENEMY_SPRITE_COLS = 5;
 
-const int TANK_WIDTH = 120;
+const int TANK_WIDTH = TANK_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int TANK_HEIGHT = TANK_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 10;
 const int TANK_LIFE = 60;
@@ -317,7 +318,7 @@ const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
 const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = { 90, 265, 440 };
+const int ALB_CARD_X[3] = { 75, 205, 340 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
 

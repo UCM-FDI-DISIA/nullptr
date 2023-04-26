@@ -23,10 +23,8 @@ public:
 
 	static const int id = _EFFECT_CONTROLLER;
 
-
-	EffectController(Image* image);
-
-	void update();
+	void initComponent() override;
+	void update() override;
 
 	void startEffect(effectID effect, double duration);
 

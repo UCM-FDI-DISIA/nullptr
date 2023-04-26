@@ -10,6 +10,8 @@ private:
 	int camYLimit;
 	vector<GameObject*> infoWindow;
 	bool selected;
+
+	Button* exitButton;
 public:
 	AlbumScene();
 	void createCard(CardData myData, Vector2D pos, bool found);
