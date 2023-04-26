@@ -16,11 +16,11 @@ void StatsTrackComponent::onPlayerDamage(int dmg)
 
 void StatsTrackComponent::onEnemyKilled(GameObject* enemy)
 {
-	if (enemy->getComponent<MeleeBehaviour>())
+	if (dynamic_cast<MeleeEnemy*>(enemy))
 		melee++;
-	else if (enemy->getComponent<TankBehaviour>())
+	else if (dynamic_cast<TankEnemy*>(enemy))
 		tank++;
-	else if (enemy->getComponent<RangeBehaviour>())
+	else if (dynamic_cast<RangedEnemy*>(enemy))
 		ranged++;
 }
 
