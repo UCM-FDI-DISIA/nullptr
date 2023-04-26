@@ -2,37 +2,33 @@
 /* Se alinea el contenido del header en el centro y se le da un fondo */
 header {
 	text-align: center;
-	background-image: url('../assets/webImg/background/top.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
 
-/* Se da el fondo de pantalla, se reducen los m�rgenes y se establecen la fuente del texto al body */
+/* Se da el fondo de pantalla, se reducen los margenes y se establecen la fuente del texto al body */
 body {
-	background-image: url('../assets/webImg/background/body.png');
 	background-repeat: repeat;
 	background-size: 100%;
 	margin: 0px;
 	font-family: Silkscreen;
-	cursor: url('../assets/webImg/cursor.png'), auto;
 }
 
-/* Centra los titulos y pone la fuente de color blanco y a un tama�o concreto */
+/* Centra los titulos y pone la fuente de color blanco y a un tamano concreto */
 h2{
 	text-align: center;
 	color: white;
 	font-size: 40px;
 }
 
-/* Pone las lineas de texto de color blanco y a un tama�o concreto */
-p{
+/* Pone las lineas de texto de color blanco y a un tamano concreto */
+p {
 	color: white;
 	font-size: 20px;
 }
 
 /* Estilo de la etiqueta footer en HTML. Se le da el fondo, color, margenes y tamaño */
 footer {
-	background-image: url('../assets/webImg/background/bottom.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	padding: 2em 0;
@@ -40,16 +36,17 @@ footer {
 	bottom: 0;
 }
 
-	/* Estilo de la etiqueta img dentro del footer. Se le da tama�o y un redondeo */
-	footer img {
-		width: 80px;
-		border-radius: 1em;
-	}
-		/* Añade un filtro de color al pasar el ratón por enicma de una imagen del footer */
-		footer img:hover {
-			filter: brightness(75%);
-			-webkit-filter: brightness(75%);
-		}
+/* Estilo de la etiqueta img dentro del footer. Se le da tama�o y un redondeo */
+footer img {
+	width: 80px;
+	border-radius: 1em;
+}
+
+/* Añade un filtro de color al pasar el ratón por encima de una imagen del footer */
+footer img:hover {
+	filter: brightness(75%);
+	-webkit-filter: brightness(75%);
+}
 
 /* ------------ ESTILOS PROPIOS ------------ */
 /* El cuerpo ocupa como minimo toda la altura de la pantalla y se le pone un ancho (mayor o igual al de la resolucion del juego) 
@@ -70,34 +67,11 @@ footer {
 	text-align: justify;
 }
 
-/* Se especifica el tama�o del canvas del juego y los margenes */
-.canvas{
-	margin: auto;
-	margin-bottom: 90px;
-	/* NO DESCOMENTAR LO DE ABAJO -> CONLFICTO CON EL CANVAS DEL .JS */
-	/* width: 1024px;
-	height: 768px;
-	background-color: black; /* Quitar esta linea cuando ya este el juego implementado */
-}
-
-/* Margenes para cada particion (canvas, historia, controles...) */
-.particion{
-	margin: 25px 150px 50px;
-	/* border: solid black 3px; /* Quitar esta linea cuando ya esten terminadas las particones */
-}
-
-/* Centra la imagen de los controles */
-.controles {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-/* Footer. Se describe la forma de disposicion, tama�o, alineacion y dise�o responsive */
+/* Footer. Se describe la forma de disposicion, tamano, alineacion y diseno responsive */
 .footer-container {
 	width: 100%;
 	display: block;
-	color: gray;
+	background-color: #894e18;
 	line-height: 40%;
 	text-align: center;
 	display: flex;
@@ -113,4 +87,31 @@ footer {
 	flex-direction: column;
 	position: relative;
 	margin: 50px 30px 10px;
+}
+
+::-webkit-scrollbar {
+	width: 15px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: #e0b54e;
+	background-image: url('../assets/tubo.png');
+	background-repeat: repeat repeat;
+}
+
+.participantes-lista li:nth-child(even) img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+  
+.participantes-lista li:nth-child(even) .descripcion {
+	position: relative;
+	z-index: 2;
 }
