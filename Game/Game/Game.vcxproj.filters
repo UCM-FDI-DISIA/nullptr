@@ -4,9 +4,6 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>Archivos de Dependecias</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\GameStateMachine.cpp">
-      <Filter>Archivos de Dependecias</Filter>
-    </ClCompile>
     <ClCompile Include="src\scenes\AlbumScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
@@ -256,11 +253,14 @@
     <ClCompile Include="src\data\Constant.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\EffectController.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\GameStateMachine.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\core\GameStateMachine.h">
-      <Filter>Archivos de Encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="src\scenes\AlbumScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
@@ -492,7 +492,6 @@
     <ClInclude Include="src\data\RelicData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -532,9 +531,17 @@
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\data\Constant.h">
       <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\GameStateMachine.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
