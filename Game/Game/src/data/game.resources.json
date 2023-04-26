@@ -132,7 +132,9 @@
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" } ,
-      { "id" :  "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_32x32.png"}
+      { "id": "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_32x32.png" },
+      { "id": "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_34x46.png" }
+
     ],
     
     "messages" : [

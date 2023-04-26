@@ -5,7 +5,7 @@ void OnDeath::initComponent() {
 }
 
 void OnDeath::death() {
-	for (int i = 0; i < numEter; i++) {
+	for (int i = 0; i < 100; i++) {
 		gStt->addGameObject<SpacialEter>(enemyTransform->getPos().getX() + (sdlutils().rand().nextInt(-50, 50)), enemyTransform->getPos().getY() - 20, playerTransform);
 	}
 	for (int i = 0; i < numMana; i++) {
