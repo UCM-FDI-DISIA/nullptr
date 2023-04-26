@@ -7,7 +7,7 @@ void Tuto::initGameObject(Transform* pl) {
 		VECTOR_ZERO, COMPANION_WIDTH, COMPANION_HEIGHT);
 
 	myAnim = addComponent<Animator>(SDLApplication::getTexture(COMPANION_TEXTURE),
-		COMPANION_SPRITE_WIDTH, COMPANION_SPRITE_WIDTH, 1, 2);
+		COMPANION_SPRITE_WIDTH, COMPANION_SPRITE_HEIGHT, 6, 5);
 	myAnim->createAnim(IDLE, 0, 1, 5, -1);
 	myAnim->play(IDLE);
 

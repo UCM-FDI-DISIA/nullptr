@@ -1,4 +1,8 @@
-#include "TutorialScene.h"
+﻿#include "TutorialScene.h"
+#include "../components/Enemy components/RangeBehaviour.h"
+#include "../components/Enemy components/MeleeBehaviour.h"
+#include "../gameObjects/UI/StatisticsUI.h"
+#include "../components/General Components/CallbackDelayer.h"
 
 TutorialScene::TutorialScene(BattleType bt) : NodeScene(), type (bt) {
 	//Fondo
@@ -18,7 +22,7 @@ TutorialScene::TutorialScene(BattleType bt) : NodeScene(), type (bt) {
 	//Suelo
 	floor = addGameObject();
 	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-	//Selecci�n de textura
+	//Selección de textura
 	switch (type) {
 	case _PASTBATTLE:
 		floor->addComponent<Image>(SDLApplication::getTexture("PastFloor"));
@@ -37,4 +41,49 @@ TutorialScene::TutorialScene(BattleType bt) : NodeScene(), type (bt) {
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>(_grp_PLAYER);
 	camera->startFollowObject(player);
+
+	//Objeto tuto
+	tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
+	// El puntero sigue al player
+	pointer->getComponent<PointerComponent>()->setFollowObject(player);
+
+	//Música
+	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST->play();
+}
+
+
+// CAMBIOS DE UI
+// Llamar a cambiar la carta seleccionada de la UI
+void TutorialScene::changeUISelected(bool key, int number) {
+	if (hand != nullptr) hand->changeSelected(key, number);
+}
+
+// Llamar a borrar una carta de la UI
+void TutorialScene::discardUI(deque<Card*>::iterator discarded) {
+	if (hand != nullptr) hand->discard(discarded);
+}
+
+// Llamar a la creaci�n de la UI
+void TutorialScene::recreateUI() {
+	if (hand != nullptr) hand->createUI();
+}
+
+void TutorialScene::changeAmmoUI(deque<Card*>::iterator used) {
+	if (hand != nullptr) hand->changeAmmo(used);
+}
+
+// Llamar al cambio del valor de maná
+void TutorialScene::onManaChanges(float value) {
+	if (statistics != nullptr) statistics->onManaChanges(value);
+}
+
+// Llamar al cambio del valor de maná
+void TutorialScene::onHealthChanges(float value) {
+	if (statistics != nullptr) statistics->onHealthChanges(value);
+}
+
+// Llamar al cambio del valor de éter
+void TutorialScene::onEtherChanges(float value) {
+	if (statistics != nullptr) statistics->onEtherChanges(value);
 }
