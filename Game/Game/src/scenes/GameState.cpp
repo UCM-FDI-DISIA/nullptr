@@ -78,7 +78,7 @@ Camera* GameState::getCamera() const { return camera; }
 ButtonNavigator* GameState::getButtonNavigator() const { return butNavigator; }
 
 // Crear un botón especificado en la escena
-Button* GameState::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key, float horMul, float verMul) {
+Button* GameState::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key, float horizontalMult, float verticalMult) {
     AnimatorInfo aI = AnimatorInfo(key);
     // Crear marco
     GameObject* frame = addGameObject();
@@ -86,5 +86,5 @@ Button* GameState::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, st
     frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
 
     // Crear bot�n
-    return addGameObject<Button>(_cb, _bPos, aI, -1, frame, horMul, verMul);
+    return addGameObject<Button>(_cb, _bPos, aI, -1, frame, horizontalMult, verticalMult);
 }

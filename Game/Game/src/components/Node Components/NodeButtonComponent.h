@@ -5,10 +5,10 @@
 class NodeButtonComponent : public ButtonComponent {
 private:
 	nodeState const& nState;
-	float horMul;
+	float horizontalMult;
 public:
 	// Constructora que recibe un iterador al tipo de  batalla, un callback y un puntero al estado del nodo
-	NodeButtonComponent(CallBack _f, nodeState const& _nState, float navigatorHorMul);
+	NodeButtonComponent(CallBack _f, nodeState const& _nState, float navigatorHorizontalMult);
 
 	void initComponent() override;
 

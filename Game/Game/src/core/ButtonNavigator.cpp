@@ -47,7 +47,7 @@ void ButtonNavigator::right() {
 }
 
 // Añade un botón al sistema de navegación entre estos, recibe su componente Imagen
-ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
+ButtonData ButtonNavigator::insert(Image* im, float horizontalMult, float verticalMult) {
 	SDL_Rect rr = im->getRect();
 
 	ButtonData bd;
@@ -59,11 +59,11 @@ ButtonData ButtonNavigator::insert(Image* im, float horMul, float verMul) {
 	rr.h /= 12;
 	SDL_Rect orr = rr;
 
-	rr.x += (rr.w - rr.w * horMul) / 2;
-	rr.y += (rr.h - rr.h * verMul) / 2;
+	rr.x += (rr.w - rr.w * horizontalMult) / 2;
+	rr.y += (rr.h - rr.h * verticalMult) / 2;
 
-	rr.w *= horMul;
-	rr.h *= verMul;
+	rr.w *= horizontalMult;
+	rr.h *= verticalMult;
 
 	
 	// area total en el map

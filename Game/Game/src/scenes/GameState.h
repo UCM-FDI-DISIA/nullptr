@@ -62,7 +62,7 @@ public:
     ButtonNavigator* getButtonNavigator() const;
 
     // Crear un botón especificado en la escena
-    Button* createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key, float horMul = 1.0f, float verMul = 1.0f);
+    Button* createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key, float horizontalMult = 1.0f, float verticalMult = 1.0f);
 
     inline void setLastIndex(int index) { lastButtonIndex = index; }
 };
