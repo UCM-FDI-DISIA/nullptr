@@ -1,6 +1,7 @@
 #pragma once
 #include "../Component.h"
 #include "HealthComponent.h"
+#include "EffectController.h"
 #include "../Enemy components/EnemyBehaviour.h"
 #include "../../gameObjects/GameObject.h"
 #include <unordered_map>
@@ -18,6 +19,7 @@ public:
 private:
 	HealthComponent* health;
 	EnemyBehaviour* enemyAI;
+	EffectController* eController;
 	unordered_map<status, float> statusMap;
 	int aSecond;
 public:

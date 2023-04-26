@@ -7,6 +7,7 @@
 #include "../../scenes/GameState.h"
 #include "../../components/Card Components/CardComponent.h"
 #include "../../components/General Components/HealthComponent.h"
+#include "../../components/General Components/EffectController.h"
 
 class Player : public GameObject {
 private:
@@ -15,6 +16,8 @@ private:
 	PlayerAnimator* animator;
 	CardComponent* cardComponent;
 	HealthComponent* health;
+	EffectController* effectController;
+
 public:
 	// Crea los componentes del jugador
 	virtual void initGameObject();

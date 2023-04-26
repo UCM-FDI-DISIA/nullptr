@@ -11,6 +11,7 @@ void StatusComponent::initComponent()
 {
 	health = gObj->getComponent<HealthComponent>();
 	enemyAI = gObj->getComponent<EnemyBehaviour>();
+	eController = gObj->getComponent<EffectController>();
 }
 
 void StatusComponent::update()
@@ -31,5 +32,11 @@ void StatusComponent::update()
 void StatusComponent::applyStatus(status stts, float duration)
 {
 	statusMap[stts] = duration;
-	if (stts == CONFUSED) enemyAI->setConfusion(true);
+	if (stts == CONFUSED) {
+		enemyAI->setConfusion(true);
+		eController->startEffect(E_CONFUSED, duration);
+	}
+	if (stts == BURNED) {
+		eController->startEffect(E_BURNING, duration);
+	}
 }
