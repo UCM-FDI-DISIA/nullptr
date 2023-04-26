@@ -29,11 +29,6 @@ public:
 			*cmp = nullptr;
 		}
 
-
-		//for (Component* cmp : currCmps) {
-		//	delete cmp;
-		//	cmp = nullptr;
-		//}
 		for (Component* cpm : cmps) {
 			cpm = nullptr;
 		}

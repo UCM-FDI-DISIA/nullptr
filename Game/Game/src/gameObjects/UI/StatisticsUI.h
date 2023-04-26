@@ -53,5 +53,5 @@ public:
 	
 	// Getters
 	inline float getEther() { return actualEther; }
-	ChargedPortalComponent* getPortalComp() { return etherMeter->getComponent<ChargedPortalComponent>(); }
+	inline ChargedPortalComponent* getPortalComp() { return etherMeter->getComponent<ChargedPortalComponent>(); }
 };
