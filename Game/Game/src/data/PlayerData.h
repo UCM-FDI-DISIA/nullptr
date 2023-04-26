@@ -91,6 +91,8 @@ class PlayerData : public Singleton<PlayerData>
 		inline void addFireRateMult(float rate) { fireRateMult += rate; }
 		inline void addPlayerMoveSpeed(float speed) { playerSpeed += speed; }
 
+		inline void nextLevel() { level++; }
+
 		void defaultPlayerStats();
 
 		void getDataFromJSON();

@@ -28,6 +28,7 @@ void StatsTrackComponent::calculateMoney()
 {
 	int enemies = 2 * tank + melee + ranged;
 	money = ((enemies * ENEMYFACTOR) - (damage * DAMAGEFACTOR)) / (time / MINTIME[PlayerData::instance()->getLevel()]);
+	if (money < 0) money = 0;
 }
 
 void StatsTrackComponent::endTimeCouinting()
@@ -38,5 +39,6 @@ void StatsTrackComponent::endTimeCouinting()
 void StatsTrackComponent::startStatsScene()
 {
 	calculateMoney();
-	SDLApplication::pushNewScene<PostGameScene>(damage,melee,ranged,tank,money,time);
+	if(dynamic_cast<BattleScene*>(gStt)->getPlayer()->getComponent<HealthComponent>()->getLife() > 0)
+		SDLApplication::pushNewScene<PostGameScene>(damage,melee,ranged,tank,money,time);
 }
