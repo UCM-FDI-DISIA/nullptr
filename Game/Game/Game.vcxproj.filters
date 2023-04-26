@@ -262,6 +262,9 @@
     <ClCompile Include="src\core\ButtonNavigator.cpp">
       <Filter>Archivos de Dependecias\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\EffectController.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -547,6 +550,9 @@
     </ClInclude>
     <ClInclude Include="src\core\ButtonNavigator.h">
       <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

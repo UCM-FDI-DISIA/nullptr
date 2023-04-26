@@ -183,7 +183,7 @@ const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";
 const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
-const string SOWND_ATTACK = "Sound";
+const string SOUND_ATTACK = "Sound";
 const string BULLET= "Bullet";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
@@ -623,6 +623,22 @@ const int RANGED_RADIUS = 800;
 const int TANK_RADIUS = 600;
 
 const int STARTING_TIME_PER_WAVE = 15000;
+
+//SOUNDS
+const string MELEE_DEATH_SOUND = "MeleeDeath";
+const string MELEE_HIT_SOUND = "MeleeHit";
+const string RANGED_DEATH_SOUND = "RangedDeath";
+const string RANGED_HIT_SOUND = "RangedHit";
+const string TANK_DEATH_SOUND = "TankDeath";
+const string TANK_HIT_SOUND = "TankHit";
+const string PLAYER_HIT_SOUND = "PlayerHit";
+const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
+const string BUTTON_PRESSED_SOUND = "ButtonPressed";
+const string LOAD_EXIT_SOUND = "LoadExit";
+
+//MUSICS
+const string BATTLE_MUSIC = "BattleMusic";
+const string DEATH_MELODY = "Death";
 
 //SHOP ------------------------------------------------------------------------------------------
 const int SHOP_NUMBER_OF_CARDS = 4;

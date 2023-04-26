@@ -10,7 +10,7 @@ GameOverScene::GameOverScene() {
 	i->attachToCamera();
 
 	//Sonido
-	deathSound = &sdlutils().soundEffects().at("Death");
+	deathSound = &sdlutils().soundEffects().at(DEATH_MELODY);
 
 	//Creo el objeto con la imagen del mensaje de muerte
 		GameObject * message = addGameObject();

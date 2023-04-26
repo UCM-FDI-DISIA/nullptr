@@ -83,13 +83,16 @@ void Animator::render() const {
 	srcRect.y = ((currentFrame / cols) % rows) * fh;
 	srcRect.w = fw * srcRectRelativeWidth;
 	srcRect.h = fh * srcRectRelativeHeight;
-	
+	texture->changeTint(r, g, b);
+	texture->changeAlpha(alpha);
 	// Si debo renderizar menos del ancho de la textura original
 	if (srcRectRelativeWidth < 1 || srcRectRelativeHeight < 1) {
 		texture->render(srcRect, getFactoredRect(srcRectRelativeWidth, srcRectRelativeHeight),
 			transform->getRotation(), nullptr, flip);
 	}
 	else texture->render(srcRect, getRect(), transform->getRotation(), nullptr, flip);
+	texture->changeAlpha(255);
+	texture->changeTint(255, 255, 255);
 }
 
 

@@ -179,6 +179,7 @@
     <ClInclude Include="src\components\General Components\ChargedPortalComponent.h" />
     <ClInclude Include="src\components\General Components\CharacterAnimator.h" />
     <ClInclude Include="src\components\General Components\ColliderComponent.h" />
+    <ClInclude Include="src\components\General Components\EffectController.h" />
     <ClInclude Include="src\components\General Components\HealthComponent.h" />
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
@@ -267,6 +268,7 @@
     <ClCompile Include="src\components\General Components\ChargedPortalComponent.cpp" />
     <ClCompile Include="src\components\General Components\ColliderComponent.cpp" />
     <ClCompile Include="src\components\General Components\CharacterAnimator.cpp" />
+    <ClCompile Include="src\components\General Components\EffectController.cpp" />
     <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
