@@ -548,7 +548,6 @@
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
-</ClInclude>
     <ClInclude Include="src\components\General Components\StatsTrackComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
