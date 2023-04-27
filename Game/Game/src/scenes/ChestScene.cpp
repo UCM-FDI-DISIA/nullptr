@@ -68,10 +68,27 @@ void ChestScene::spawnNewItem() {
 		PlayerData::instance()->addRelic(item);
 
 		// Assign item (a�adir sprite a la escena y vivir feliz)
+		GameObject* frame = addGameObject(_grp_GENERAL);
+		frame->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29),
+			VECTOR_ZERO, 38 * 4.2 / 1, 38 * 4.2 / 1);
+		frame->addComponent<Image>(SDLApplication::getTexture("ItemFrame"));
 		GameObject* sprite = addGameObject(_grp_GENERAL);
 		sprite->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45),
 			VECTOR_ZERO, 32 * 4, 32 * 4);
 		sprite->addComponent<Image>(item->texture);
+
+		// Recuadro de información
+		GameObject* itemInfo = addGameObject(_grp_GENERAL);
+		itemInfo->addComponent<Transform>(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60, WIN_HEIGHT / 4 + 29),
+			VECTOR_ZERO, 80 * 4.2 / 1, 70 * 4.2 / 1);
+		itemInfo->addComponent<Image>(SDLApplication::getTexture("ItemInfoFrame"));
+		GameObject* name = addGameObject(_grp_GENERAL);
+		auto tr = name->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
+		SDL_Color white;
+		white.r = 255; white.g = 255; white.b = 255;
+		name->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), item->id, white);
+		tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
+			WIN_HEIGHT / 4 + 45));
 
 		// Destellos
 		GameObject* sparkles = addGameObject(_grp_GENERAL);
