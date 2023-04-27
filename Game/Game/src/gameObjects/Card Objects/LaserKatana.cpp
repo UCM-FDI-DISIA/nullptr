@@ -24,7 +24,8 @@ void LaserKatanaCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 
 		Hitbox::HitboxData data = { playerPos + dir * LASER_KATANA_BURST * (i-1), dir * BULLET_SPEED, rotation, 15, 150, LASER, _grp_ENEMIES};
 
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 10, data);
 	}
 
+	remainingUses = 0;
 }

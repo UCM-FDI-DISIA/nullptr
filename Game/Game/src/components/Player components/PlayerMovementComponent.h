@@ -19,8 +19,6 @@ public:
 
 	void initComponent() override;
 
-	void handleInput() override;
-
 	void update() override;
 	void setDirection(Vector2D dir);
 

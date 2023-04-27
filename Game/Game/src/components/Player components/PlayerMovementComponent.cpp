@@ -19,7 +19,7 @@ void PlayerMovementComponent::setDirection(Vector2D dir) {
 	if (pos.getY() < 0 - PLAYER_INITIAL_HEIGHT / 3) transform->setY(0 - PLAYER_INITIAL_HEIGHT / 3);
 	else if (pos.getY() > FLOOR_HEIGHT - PLAYER_INITIAL_HEIGHT) transform->setY(FLOOR_HEIGHT - PLAYER_INITIAL_HEIGHT);
 
-	moveDir = vel;
+	moveDir = dir.normalize() * playerSpeed;
 
 	// Activar la pausa lanzando su estado
 	if (InputHandler::instance()->isKeyJustDown(SDLK_ESCAPE)) {
@@ -29,13 +29,8 @@ void PlayerMovementComponent::setDirection(Vector2D dir) {
 
 void PlayerMovementComponent::update()
 {
-	if (dashDuration <= 0) {
-		if (moveDir.magnitude() != 0)
-			moveDir = moveDir / moveDir.magnitude();
-		moveDir = moveDir * playerSpeed;
-		transform->setVel(moveDir);
-	} else dashDuration -= SDLApplication::instance()->getDeltaTimeSeconds();
-
+	if (dashDuration <= 0) transform->setVel(moveDir);
+	else dashDuration -= SDLApplication::instance()->getDeltaTimeSeconds();
 }
 
 void PlayerMovementComponent::setPlayerSpeed(float newSpeed) {
