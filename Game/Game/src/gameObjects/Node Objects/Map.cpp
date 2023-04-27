@@ -455,7 +455,8 @@ JSONValue* Map::mapToJSON() {
 				jsonNode["height"] = new JSONValue(i);
 				jsonNode["pos"] = new JSONValue(j);
 				jsonNode["type"] = new JSONValue((node->getType() == Battle) ?
-					"battle" : ((node->getType() == Chest) ?
+					((node->getBattleType() == _BOSSBATTLE) ? 
+						"boss" : "battle") : ((node->getType() == Chest) ?
 						"chest" : ((node->getType() == Shop) ?
 							"shop" : "start")));
 				JSONArray jsonNext;
@@ -467,6 +468,8 @@ JSONValue* Map::mapToJSON() {
 					jsonNext.push_back(new JSONValue(jsonNextPos));
 				}
 				jsonNode["next"] = new JSONValue(jsonNext);
+
+				jsonMap.push_back(new JSONValue(jsonNode));
 			}
 			++j;
 		}

@@ -75,15 +75,20 @@ void PlayerData::setDataToJSON()
 	}
 	player["library"] = new JSONValue(jsonRelics);
 
+
+	JSONObject jsonData;
+	jsonData["player"] = new JSONValue(player);
+	jsonData["map"] = gameMap().mapToJSON();
+
+	JSONValue* jval = new JSONValue(jsonData);
 	std::ofstream save("../Game/src/data/game.playerData.json");
 	// comprobar que se ha abierto el archivo
 	if (!save.is_open()) {
 		save.close();
 		throw "Could not create save Player Data file";
 	}
-	JSONValue* jval = new JSONValue(player);
 	try {
-		// Guardar los nombres de las cartas en un JSON array
+		// Guardar los detos de la partida en el archivo
 		save << JSON::Stringify(jval);
 	}
 	catch (...) {
@@ -140,4 +145,6 @@ std::vector<CardId> PlayerData::getDeck() {
 void PlayerData::setDeck(std::vector<CardId> newDeck)
 {
 	deck = newDeck;
+
+	setDataToJSON();
 }
