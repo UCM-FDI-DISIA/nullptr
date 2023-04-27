@@ -23,11 +23,8 @@ void Map::initNodeLoads() {
 
 // Crea el mapa
 void Map::createMap(string filename) {
-	initMap(filename);
-	for (Node* n : unlockedNodes) {
-		n->lock();
-	}
 	unlockedNodes = initialNodes;
+	initMap(filename);
 	for (Node* n : unlockedNodes) {
 		n->unlock();
 	}
@@ -353,6 +350,7 @@ void Map::initMap(string filename) {
 		nextsnodes(int h, int p, JSONArray a) : height(h), pos(p), arr(a) {}
 	};
 	vector<nextsnodes> nexts;
+	vector<vector<nodeState>> nStates(HEIGHT, vector<nodeState>(MAX_NODES, nodeState::_LOCKED_NODE));
 
 	// load fonts
 	jValue = root["map"];
@@ -365,25 +363,32 @@ void Map::initMap(string filename) {
 					int height = static_cast<int>(vObj["height"]->AsNumber());
 					int pos = static_cast<int>(vObj["pos"]->AsNumber());
 					std::string type = vObj["type"]->AsString();
+					auto sttIt = vObj.find("state");
 					JSONArray next = vObj["next"]->AsArray();
 #ifdef _DEBUG
 					std::cout << "Loading node with id: " << type << height << pos << std::endl;
 #endif
+					Node* n;
 					// Crear los nodos en función de las condiciones leídas
 					if (type == "start")  {
-						initialNodes.push_back(addNode(height, pos, Needs(Battle, 0, false)));
+						n = addNode(height, pos, Needs(Battle, 0, false));
+						initialNodes.push_back(n);
 					}
 					else if (type == "boss")  {
-						addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
+						n = addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
 					}
 					else  {
-						addNode(height, pos, Needs((type == "battle") ?
+						n = addNode(height, pos, Needs((type == "battle") ?
 							Battle : ((type == "chest") ?
 								Chest : ((type == "shop") ?
 									Shop : None)), 0, false));
 					}
+
 					// Guardar la posición del nodo creado con las posiciones de sus siguientes
 					nexts.push_back(nextsnodes(height, pos, next));
+
+					// Si hay un estado guardado en los nodos se almacena
+					if (sttIt != vObj.end()) nStates[height][pos] = static_cast<nodeState>(sttIt->second->AsNumber());
 
 				} else {
 					throw "'node' array in '" + filename
@@ -421,6 +426,17 @@ void Map::initMap(string filename) {
 					}
 				}
 			}
+
+			auto sttPreIt = nStates.begin();
+			for (auto& nodeHeight : nodeMap) {
+				auto sttIt = sttPreIt->begin();
+				for (Node* nod : nodeHeight) {
+					if (*sttIt == _COMPLETED_NODE) nod->complete(unlockedNodes);
+					++sttIt;
+				}
+				++sttPreIt;
+			}
+
 		} else {
 			throw "'node' is not an array in '" + filename + "'";
 		}
@@ -454,6 +470,7 @@ JSONValue* Map::mapToJSON() {
 				JSONObject jsonNode;
 				jsonNode["height"] = new JSONValue(i);
 				jsonNode["pos"] = new JSONValue(j);
+				jsonNode["state"] = new JSONValue(node->getState());
 				jsonNode["type"] = new JSONValue((node->getType() == Battle) ?
 					((node->getBattleType() == _BOSSBATTLE) ? 
 						"boss" : "battle") : ((node->getType() == Chest) ?
