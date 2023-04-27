@@ -7,6 +7,12 @@
 #include <array>
 
 #include "../utils/Singleton.h"
+#include "../core/Vector2D.h"
+
+#define CONTROLLER_AXIS_MAX 32767.0f
+#define CONTROLLER_AXIS_MIN -32768.0f
+#define CONTROLLER_AXIS_POS_DEADZONE (CONTROLLER_AXIS_MAX * 0.3f)
+#define CONTROLLER_AXIS_NEG_DEADZONE (CONTROLLER_AXIS_MIN * 0.3f)
 
 // Instead of a Singleton class, we could make it part of
 // SDLUtils as well.
@@ -21,6 +27,7 @@ public:
 	};
 
 	virtual ~InputHandler() {
+		onControllerDeviceRemoved();
 	}
 
 	// clear the state
@@ -36,6 +43,9 @@ public:
 		for (auto i = 0u; i < 3; i++) {
 			mbState_[i] = false;
 		}
+		isControllerButtonDownEvent_ = false;
+		isControllerButtonUpEvent_ = false;
+		isControllerAxisMotionEvent_ = false;
 	}
 
 	// update the state with a new event
@@ -58,6 +68,21 @@ public:
 			break;
 		case SDL_MOUSEWHEEL:
 			onMouseWheelEvent(event);
+			break;
+		case SDL_CONTROLLERDEVICEADDED:
+			onControllerDeviceAdded();
+			break;
+		case SDL_CONTROLLERDEVICEREMOVED:
+			onControllerDeviceRemoved();
+			break;
+		case SDL_CONTROLLERBUTTONDOWN:
+			onControllerButtonDown(event);
+			break;
+		case SDL_CONTROLLERBUTTONUP:
+			onControllerButtonUp(event);
+			break;
+		case SDL_CONTROLLERAXISMOTION:
+			onControllerAxisMotion(event);
 			break;
 		case SDL_WINDOWEVENT:
 			handleWindowEvent(event);
@@ -155,9 +180,47 @@ public:
 	// TODO add support for Joystick, see Chapter 4 of
 	// the book 'SDL Game Development'
 
+
+	inline bool controllerButtonDownEvent() {
+		return isControllerButtonDownEvent_;
+	}
+
+	inline bool controllerButtonUpEvent() {
+		return isControllerButtonUpEvent_;
+	}
+
+	inline bool controllerAxisMotionEvent() {
+		return isControllerAxisMotionEvent_;
+	}
+
+	inline bool isControllerButtonDown(SDL_GameControllerButton b) {
+		return controllerButtonDownEvent() && SDL_GameControllerGetButton(controller_, b) == 1;
+	}
+
+	inline bool isControllerButtonUp(SDL_GameControllerButton b) {
+		return controllerButtonUpEvent() && SDL_GameControllerGetButton(controller_, b) == 0;
+	}
+
+	inline int getControllerAxis(SDL_GameControllerAxis b) {
+		int axis = SDL_GameControllerGetAxis(controller_, b);
+		float dz = (axis >= 0) ? CONTROLLER_AXIS_POS_DEADZONE : CONTROLLER_AXIS_NEG_DEADZONE;
+		float max = (axis >= 0) ? CONTROLLER_AXIS_MAX : CONTROLLER_AXIS_MIN;
+		
+		if (abs(axis) < abs(dz)) return 0;
+		return axis - (dz * ((max - axis) / (max - dz)));
+	}
+
+	inline float getNormalizedControllerAxis(SDL_GameControllerAxis b) {
+		float axis = getControllerAxis(b);
+		return axis / abs((axis >= 0) ? CONTROLLER_AXIS_MAX : CONTROLLER_AXIS_MIN);
+	}
+
+	inline bool isControllerConnected() { return controller_ != nullptr; }
+
 private:
 	InputHandler() {
-		kbState_ = SDL_GetKeyboardState(0);
+		kbState_ = SDL_GetKeyboardState(0); 
+		controller_ = nullptr;
 		clearState();
 	}
 
@@ -208,6 +271,37 @@ private:
 		}
 	}
 
+	inline void onControllerDeviceAdded() {
+		if (controller_ == nullptr) {
+			controller_ = SDL_GameControllerOpen(0);
+#ifdef _DEBUG
+			std::cout << "GameController connected." << std::endl;
+#endif
+		}
+	}
+	inline void onControllerDeviceRemoved() {
+		if (controller_ != nullptr) {
+			SDL_GameControllerClose(controller_);
+			controller_ = nullptr;
+#ifdef _DEBUG
+			std::cout << "GameController disconnected." << std::endl;
+#endif
+		}
+	}
+
+	inline void onControllerButtonDown(const SDL_Event& event) {
+		isControllerButtonDownEvent_ = true;
+
+	}
+	inline void onControllerButtonUp(const SDL_Event& event) {
+		isControllerButtonUpEvent_ = true;
+
+	}
+	inline void onControllerAxisMotion(const SDL_Event& event) {
+		isControllerAxisMotionEvent_ = true;
+
+	}
+
 	bool isCloseWindoEvent_;
 	bool isKeyUpEvent_;
 	bool isKeyDownEvent_;
@@ -216,9 +310,13 @@ private:
 	bool isMouseWheelEvent_;
 	bool mouseWheelUp_;
 	bool mouseWheelDown_;
+	bool isControllerButtonDownEvent_;
+	bool isControllerButtonUpEvent_;
+	bool isControllerAxisMotionEvent_;
 	Vector2D mousePos_;
 	std::array<bool, 3> mbState_;
 	const Uint8 *kbState_;
+	SDL_GameController* controller_;
 }
 ;
 

@@ -20,7 +20,9 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
+#ifdef _DEBUG
 		cout << lifePoints << endl;
+#endif
 
 		// Si se trata del Player, actualiza su barra de vida
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
@@ -39,17 +41,23 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		}
 		if (invincibility) {
 			invTime = 0.5;
-			
-			if (gObj->hasComponent<EffectController>())
+
+			if (gObj->hasComponent<EffectController>()) {
+				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_INVULN, 0.5);
+			}
 			
 			
+#ifdef _DEBUG
 			cout << "Invencible" << endl;
+#endif
 		}
 		else
 		{
-			if (gObj->hasComponent<EffectController>())
+			if (gObj->hasComponent<EffectController>()) {
+				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_DAMAGED, 0.25);
+			}
 		}
 	}
 }
@@ -61,9 +69,7 @@ void HealthComponent::setInvencibility(float time)
 }
 
 void HealthComponent::initComponent() {
-		if (gObj->hasComponent<EffectController>()) {
-			eController = gObj->getComponent<EffectController>();
-		}
+	eController = gObj->getComponent<EffectController>();
 	onDeath = gObj->getComponent<OnDeath>();
 	if (dynamic_cast<MeleeEnemy*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(MELEE_HIT_SOUND);

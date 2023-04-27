@@ -1,8 +1,9 @@
 #pragma once
 #include "../Component.h"
 #include "../../gameObjects/GameObject.h"
+#include "../Player components/BarComponent.h"
 #include "Transform.h"
-#include "../../core/SDLApplication.h"
+#include "../../core/GameControl.h"
 #include <vector>
 #include "../../scenes/BattleScene.h"
 
@@ -20,7 +21,7 @@ private:
 	bool exit;
 	double deltaTime;
 
-	
+	GameControl& gmCtrl_;
 
 public:
 	static const int id = _CHARGED_PORTAL;

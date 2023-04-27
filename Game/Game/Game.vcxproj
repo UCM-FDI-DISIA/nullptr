@@ -188,11 +188,13 @@
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
     <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
-    <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
     <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
+    <ClInclude Include="src\components\Player components\PlayerInputComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerMovementComponent.h" />
+    <ClInclude Include="src\core\ButtonNavigator.h" />
+    <ClInclude Include="src\core\GameControl.h" />
     <ClInclude Include="src\core\GameStateMachine.h" />
     <ClInclude Include="src\core\SDLApplication.h" />
     <ClInclude Include="src\core\Vector2D.h" />
@@ -280,7 +282,10 @@
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
     <ClCompile Include="src\components\Player components\BarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
+    <ClCompile Include="src\components\Player components\PlayerInputComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerMovementComponent.cpp" />
+    <ClCompile Include="src\core\ButtonNavigator.cpp" />
+    <ClCompile Include="src\core\GameControl.cpp" />
     <ClCompile Include="src\core\GameStateMachine.cpp" />
     <ClCompile Include="src\core\SDLApplication.cpp" />
     <ClCompile Include="src\core\Vector2D.cpp" />
@@ -348,6 +353,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\data\game.album.json" />
     <None Include="src\data\game.cards.json" />
     <None Include="src\data\game.map.json" />
     <None Include="src\data\game.resources.json" />
