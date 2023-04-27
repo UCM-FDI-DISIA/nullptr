@@ -3,44 +3,15 @@
 #include "../components/Enemy components/MeleeBehaviour.h"
 #include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/General Components/CallbackDelayer.h"
+#include "../gameObjects/UI/HandUI.h"
 
 // Constructora
 BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	//Mana
 	PlayerData::instance()->resetMana();
 
-	//Fondo
-	background = addGameObject();
-	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(SDLApplication::getTexture("BattleBackground"))->attachToCamera();
-	background3 = addGameObject();
-	background3->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
-	background3->addComponent<Image>(SDLApplication::getTexture("BattleBackground3"))->setScrollFactor(BATTLEBACKGROUND3_SCROLLFACTOR);
-	background2 = addGameObject();
-	background2->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
-	background2->addComponent<Image>(SDLApplication::getTexture("BattleBackground2"))->setScrollFactor(BATTLEBACKGROUND2_SCROLLFACTOR);
-	background1 = addGameObject();
-	background1->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
-	background1->addComponent<Image>(SDLApplication::getTexture("BattleBackground1"))->setScrollFactor(BATTLEBACKGROUND1_SCROLLFACTOR);
-	
-	//Suelo
-	floor = addGameObject();
-	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
-	//Selección de textura
-	switch (type) {
-	case _PASTBATTLE:
-		floor->addComponent<Image>(SDLApplication::getTexture("PastFloor"));
-		break;
-	case _PRESENTBATTLE:
-		floor->addComponent<Image>(SDLApplication::getTexture("PresentFloor"));
-		break;
-	case _FUTUREBATTLE:
-		floor->addComponent<Image>(SDLApplication::getTexture("FutureFloor"));
-		break;
-	case _BOSSBATTLE:
-		floor->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
-		break;
-	}
+	addBackgroundAndFloor();
+	addMusic();
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
 	player = addGameObject<Player>(_grp_PLAYER);
@@ -62,7 +33,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	if (cardComp != nullptr) {
 		statistics = nullptr;
 		if (healthComp != nullptr) statistics = addGameObject<StatisticsUI>(_grp_UI, healthComp->getLife(), cardComp->getMana());
-		
+
 		// Creamos los contadores de cartas y linkeamos el componente con el contador de mazo par ala animacion de barajar
 		cardContLeft = addGameObject<CardCounter>(_grp_UI, true, cardComp);
 		cardContRight = addGameObject<CardCounter>(_grp_UI, false, cardComp);
@@ -101,6 +72,49 @@ void BattleScene::changeToGameOverScene() {
 	delay->addComponent<CallbackDelayer>([&]() {
 		SDLApplication::popGameState();
 		SDLApplication::pushNewScene<GameOverScene>(); }, DEATH_DELAY);
+}
+
+// Anade el fondo y suelo
+void BattleScene::addBackgroundAndFloor() {
+	//Fondo
+	background = addGameObject();
+	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Image>(SDLApplication::getTexture("BattleBackground"))->attachToCamera();
+	background3 = addGameObject();
+	background3->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
+	background3->addComponent<Image>(SDLApplication::getTexture("BattleBackground3"))->setScrollFactor(BATTLEBACKGROUND3_SCROLLFACTOR);
+	background2 = addGameObject();
+	background2->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
+	background2->addComponent<Image>(SDLApplication::getTexture("BattleBackground2"))->setScrollFactor(BATTLEBACKGROUND2_SCROLLFACTOR);
+	background1 = addGameObject();
+	background1->addComponent<Transform>(Vector2D(), Vector2D(), BATTLEBACKGROUND123_WIDTH, BATTLEBACKGROUND123_HEIGHT);
+	background1->addComponent<Image>(SDLApplication::getTexture("BattleBackground1"))->setScrollFactor(BATTLEBACKGROUND1_SCROLLFACTOR);
+
+	//Suelo
+	floor = addGameObject();
+	floor->addComponent<Transform>(Vector2D(50, 50), FLOOR_PAST_VELOCITY, FLOOR_WIDTH, FLOOR_HEIGHT);
+	//Selección de textura
+	switch (type) {
+	case _PASTBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("PastFloor"));
+		break;
+	case _PRESENTBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("PresentFloor"));
+		break;
+	case _FUTUREBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("FutureFloor"));
+		break;
+	case _BOSSBATTLE:
+		floor->addComponent<Image>(SDLApplication::getTexture("BossFloor"));
+		break;
+	}
+}
+
+// Anade la musica
+void BattleScene::addMusic() {
+	//Música
+	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST->play();
 }
 
 // CAMBIOS DE UI

@@ -5,15 +5,23 @@
 #include "../../sdlutils/InputHandler.h"
 #include "../../scenes/BattleScene.h"
 #include "../../gameObjects/UI/CardCounter.h"
+#include "../../gameObjects/Card Objects/Cards.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
-CardComponent::CardComponent() : gmCtrl_(gmCtrl()) {
+CardComponent::CardComponent(bool tutorial) : gmCtrl_(gmCtrl()) {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	deck = PlayerData::instance()->getDeck();
+	if (!tutorial) deck = PlayerData::instance()->getDeck();
+	else {
+		vector<Card*> iniDeck;
+		iniDeck.push_back(new SwordCard());
+		deck = iniDeck;
+	}
 	_myCounter = nullptr;
+	tuto = tutorial;
+	cout << deck.size() << endl;
 	initDeck();
 }
 
@@ -51,20 +59,6 @@ void CardComponent::handleInput() {
 
 	if (!locked) {
 
-		//// Click izquierdo
-		//if (gmCtrl_.basic())
-		//	attack();
-
-		//// Click derecho
-		//if (gmCtrl_.ability())
-		//	ability();
-
-		// Cambio carta
-		/*if (gmCtrl_.selectRightCard())
-			switchActive(false);
-		else if (gmCtrl_.selectLeftCard())
-			switchActive(true);*/
-
 		// Téclas numéricas
 		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
 			switchActive(0);
@@ -82,7 +76,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
 		(*active)->attack(playerPos, mousePos, attackMult, where);
 		(*active)->use();
-		where->changeAmmoUI(active);
+		if (!tuto) where->changeAmmoUI(active);
 		downTime = (*active)->getDownTime() / fireRateMult;
 		if ((*active)->getUses() <= 0) discardCard(active);
 		attacking = true;
@@ -157,13 +151,18 @@ void CardComponent::newHand() {
 	//Si la mano esta vacia se barajan nuevas cartas
 	if (deck.size() == 0)
 		reshufflePile();
-	for (int i = 0; i < 4; i++) {
+	if (tuto) {
 		drawCard();
-		//Si se vacia la mano al ir sacando cartas
-		if (deck.size() == 0) {
-			//Si tengo un contador asignado muestro la animacion de barajar
-			if (_myCounter != nullptr) _myCounter->showShuffle();
-			reshufflePile();
+	}
+	else {
+		for (int i = 0; i < 4; i++) {
+			drawCard();
+			//Si se vacia la mano al ir sacando cartas
+			if (deck.size() == 0) {
+				//Si tengo un contador asignado muestro la animacion de barajar
+				if (_myCounter != nullptr) _myCounter->showShuffle();
+				reshufflePile();
+			}
 		}
 	}
 	active = hand.begin();

@@ -10,9 +10,9 @@ void PlayerInputComponent::initComponent() {
 
 void PlayerInputComponent::handleInput() {
 	// Movimiento
-	plMovement_->setDirection(Vector2D(gmCtrl_.movementX(), gmCtrl_.movementY()));
+	if (canMove) plMovement_->setDirection(Vector2D(gmCtrl_.movementX(), gmCtrl_.movementY()));
 	// Ataque
-	if (!crdComp_->getLocked()) {
+	if (canAttack && !crdComp_->getLocked()) {
 		if (gmCtrl_.basic()) {
 			crdComp_->attack();
 		}

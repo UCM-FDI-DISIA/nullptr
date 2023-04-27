@@ -1,7 +1,9 @@
 #include "TankBehaviour.h"
 
 // Constructora
-TankBehaviour::TankBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : EnemyBehaviour(spd, dmg, stop, attack, plyr), transform(nullptr), startAttack(false), attacked(false), chargingAttack(false),  stop(stopTime), attackingTime(TANK_ATTACK_TIME) {}
+TankBehaviour::TankBehaviour(float spd, int dmg, float stop, float attack, Player* plyr) : EnemyBehaviour(spd, dmg, stop, attack, plyr), 
+	transform(nullptr), startAttack(false), attacked(false), chargingAttack(false),  
+	stop(stopTime), attackingTime(TANK_ATTACK_TIME) {}
 
 void TankBehaviour::initComponent() {
 

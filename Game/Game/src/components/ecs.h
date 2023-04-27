@@ -49,6 +49,7 @@ enum grpId : grpId_type {
 	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
+	_grp_TUTORIAL,
 	// do not remove this
 	_LAST_GRP_ID
 };

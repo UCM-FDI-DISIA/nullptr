@@ -7,23 +7,20 @@
 #include "../gameObjects/Enemy Objects/TankEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
-#include "../gameObjects/UI/HandUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 
 class StatisticsUI;
 class ChargedPortalComponent;
 class HandUI;
+
 class BattleScene : public NodeScene {
-private:
+protected:
 	Player* player;
 	GameObject *floor, *background, *background1, *background2, *background3;
 
 	// Generador de enemigos
-	vector<GameObject*> enemies;
 	GameObject* enemyGenerator;
 	BattleType type;
-	GameObject* deck;
-	GameObject* pile;
 	Music* battleSceneOST;
 	// - UI -
 	// Frame superior de vida, man� y �ter
@@ -41,8 +38,6 @@ public:
 	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
-	inline vector<GameObject*>* getEnemies() { return &enemies; };
-	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
 	Player* getPlayer() { return player; };
 
 	// Efectos sobre el jugador
@@ -50,6 +45,11 @@ public:
 	void OnPlayerDamage(float value);
 
 	void changeToGameOverScene();
+
+	// Anade el fondo y suelo
+	void addBackgroundAndFloor();
+	// Anade la musica
+	void addMusic();
 
 	// - UI -
 	// Comunicar cambios a la UI

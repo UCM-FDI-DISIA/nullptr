@@ -133,7 +133,8 @@
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
 
-      {"id": "Companion","file": "../Game/resources/images/Tutorial/Tuto_128x96.png"}
+      {"id": "Companion","file": "../Game/resources/images/Tutorial/Tuto_128x96.png"},
+      {"id": "Screen", "file":  "../Game/resources/images/Tutorial/Screen.png"}
     ],
     
     "messages" : [

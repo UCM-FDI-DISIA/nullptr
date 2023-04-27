@@ -262,6 +262,18 @@
     <ClCompile Include="src\core\ButtonNavigator.cpp">
       <Filter>Archivos de Dependecias\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\LerpComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\TutorialComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\General Objects\Tuto.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\TutorialScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -495,7 +507,6 @@
     <ClInclude Include="src\data\RelicData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -532,9 +543,6 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
@@ -547,6 +555,21 @@
     </ClInclude>
     <ClInclude Include="src\core\ButtonNavigator.h">
       <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\LerpComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\TutorialComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\General Objects\Tuto.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\TutorialScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -691,5 +714,6 @@
     <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
+    <None Include="src\data\game.album.json" />
   </ItemGroup>
 </Project>

@@ -12,5 +12,5 @@
 class Player : public GameObject {
 public:
 	// Crea los componentes del jugador
-	virtual void initGameObject();
+	virtual void initGameObject(bool tutorial = false);
 };

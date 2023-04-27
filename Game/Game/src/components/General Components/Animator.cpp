@@ -54,7 +54,6 @@ bool Animator::playDiff(string key) {
 
 // Actualiza el frame actual dependiendo del frameRate
 void Animator::update() {
-
 	if (currentAnimation != nullptr) {
 		if (currTime >= (1000 / currentAnimation->frameRate)) {
 			if (currentAnimation->repeat != repetitions) {

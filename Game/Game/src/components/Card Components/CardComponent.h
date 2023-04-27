@@ -10,7 +10,7 @@
 #include "../../core/GameControl.h"
 
 #pragma once
-class BatleScene;
+class BattleScene;
 class CardCounter;
 class CardComponent : public Component {
 	private:
@@ -26,6 +26,7 @@ class CardComponent : public Component {
 
 		int mana, maxMana;
 		bool locked = false, automatic = false, attacking = false, abiliting = false;
+		bool tuto;
 
 		GameControl& gmCtrl_;
 
@@ -42,7 +43,7 @@ class CardComponent : public Component {
 
 	public:
 		static const int id = _CARDCOMPONENT;
-		CardComponent();
+		CardComponent(bool tutorial = false);
 		void initComponent();
 		void update();
 		void handleInput();
