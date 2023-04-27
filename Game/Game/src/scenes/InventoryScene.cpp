@@ -6,7 +6,7 @@
 InventoryScene::InventoryScene() : GameState() {
 	
 	vector<CardId> currentLibrary = PlayerData::instance()->getLibrary();
-	vector<CardId> currentDeck = PlayerData::instance()->getDeckIds();
+	vector<CardId> currentDeck = PlayerData::instance()->getDeck();
 
 	for (int i = 0; i < currentLibrary.size();i++) {
 
@@ -215,16 +215,13 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 }
 
 InventoryScene::~InventoryScene() {
-	vector<Card*> newDeck;
-	vector<CardId> newDeckId;
+	vector<CardId> newDeck;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 		for (int i = 0; i < it->second.cuantityDeck; i++) {
-			newDeck.push_back(Card::getCard(it->second.card));
-			newDeckId.push_back(it->second.card);
+			newDeck.push_back(it->second.card);
 		}
 	}
 	PlayerData::instance()->setDeck(newDeck);
-	PlayerData::instance()->setDeckId(newDeckId);
 }
 
 

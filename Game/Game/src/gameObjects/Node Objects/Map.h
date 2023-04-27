@@ -72,7 +72,7 @@ public:
 	// Devuelve una referencia constante al mapa de nodos
 	inline vector<int> const& getNodesPerWidth() { return nodesPerHeight; }
 	// Borra el mapa actual y crea uno nuevo
-	void reloadMap();
+	void reloadMap(); 
 };
 // Referencia a la instancia del mapa
 inline Map& gameMap() { return *Map::instance(); }

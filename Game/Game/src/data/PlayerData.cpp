@@ -1,40 +1,26 @@
 #include "PlayerData.h"
 #include "../gameObjects/Card Objects/Cards.h"
+#include "../data/json/JSON.h"
+#include <fstream>
+#include "Album.h"
 PlayerData::PlayerData() {
 	
 	defaultPlayerStats();
 
 	level = 5;
 	// Cartas iniciales
-	deck.push_back(new TorchCard());
-	deck.push_back(new TorchCard());
-	deck.push_back(new TorchCard());
 	addCardToLibrary(_card_TORCH, 3);
-	addCardToDeckId(_card_TORCH, 3);
-
-	deck.push_back(new GunCard());
-	deck.push_back(new GunCard());
-	deck.push_back(new GunCard());
+	addCardToDeck(_card_TORCH, 3);
 	addCardToLibrary(_card_GUN, 3);
-	addCardToDeckId(_card_GUN, 3);
-	deck.push_back(new PulgaCard());
-	deck.push_back(new PulgaCard());
+	addCardToDeck(_card_GUN, 3);
 	addCardToLibrary(_card_PULGA, 2);
-	addCardToDeckId(_card_PULGA, 2);
+	addCardToDeck(_card_PULGA, 2);
 
 	for (auto& var : sdlutils().relics().map_)
 	{
 		avlbRelics.push_back(var.first);
 	}
-}
-
-PlayerData::~PlayerData() {
-	for (auto& card : deck) {
-		delete card;
-		card = nullptr;
-	}
-	deck.clear(); 
-	
+	PlayerData::setDataToJSON();
 }
 
 void PlayerData::defaultPlayerStats() {
@@ -60,27 +46,71 @@ void PlayerData::getDataFromJSON() {
 
 void PlayerData::setDataToJSON()
 {
-}
+	JSONObject player;
+	player["health"] = new JSONValue(maxHP);
+	player["currHP"] = new JSONValue(currHP);
+	player["mana"] = new JSONValue(maxMana);
+	player["currMana"] = new JSONValue(currMana);
+	player["speed"] = new JSONValue(playerSpeed);
+	player["attack"] = new JSONValue(attackMult);
+	player["fireRate"] = new JSONValue(fireRateMult);
+	player["speed"] = new JSONValue(playerSpeed);
+	player["money"] = new JSONValue(money);
+	player["level"] = new JSONValue(level);
+	JSONArray jsonRelics;
+	for (Relic* r : myRelics) {
+		jsonRelics.push_back(new JSONValue(r->id));
+	}
+	player["relics"] = new JSONValue(jsonRelics);
 
-std::vector<Card*> PlayerData::getDeck() {
-	return deck;
+	JSONArray jsonDeck;
+	for (CardId cId : deck) {
+		jsonDeck.push_back(new JSONValue(cId));
+	}
+	player["deck"] = new JSONValue(jsonDeck);
+
+	JSONArray jsonLibrary;
+	for (CardId cId : library) {
+		jsonLibrary.push_back(new JSONValue(cId));
+	}
+	player["library"] = new JSONValue(jsonRelics);
+
+	std::ofstream save("../Game/src/data/game.playerData.json");
+	// comprobar que se ha abierto el archivo
+	if (!save.is_open()) {
+		save.close();
+		throw "Could not create save Player Data file";
+	}
+	JSONValue* jval = new JSONValue(player);
+	try {
+		// Guardar los nombres de las cartas en un JSON array
+		save << JSON::Stringify(jval);
+	}
+	catch (...) {
+		delete jval;
+		// Cerrar el archivo e informar si hubo algún problema al guardar
+		save.close();
+		throw "Could not save Player Data correctly";
+	}
+	delete jval;
 }
 
 std::vector<std::string> PlayerData::getAvailableItems() {
 	return avlbRelics;
 }
 
-void PlayerData::setDeck(std::vector<Card*> newDeck) {
-	for (auto& card : deck) {
-		delete card;
-		card = nullptr;
-	}
-	deck.clear();
-	deck = newDeck;
-}
-
 void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
+}
+
+void PlayerData::addRelic(Relic* relic) {
+
+	maxMana += relic->mana;
+	maxHP += relic->health;
+	attackMult += relic->attackMult / 100.0f;
+	fireRateMult += relic->fireRateMult / 100.0f;
+	playerSpeed += relic->speed;
+	myRelics.push_back(relic);
 }
 
 void PlayerData::addCardToLibrary(CardId newCard, int num) {
@@ -89,34 +119,25 @@ void PlayerData::addCardToLibrary(CardId newCard, int num) {
 
 		library.push_back(newCard);
 	}
-}
-
-void PlayerData::addRelic(Relic* relic) {
-
-	maxMana += relic->mana;
-	maxHP += relic->health;
-	attackMult += relic->attackMult/100.0f;
-	fireRateMult += relic->fireRateMult/100.0f;
-	playerSpeed += relic->speed;
-	myRelics.push_back(relic);
+	Album::instance()->addCard(cardsData().get(Card::getCardIDfromEnum(newCard)));
 }
 
 std::vector<CardId> PlayerData::getLibrary() {
 	return library;
 }
-void PlayerData::addCardToDeckId(CardId newCard, int num)
+void PlayerData::addCardToDeck(CardId newCard, int num)
 {
 	for (int i = 0; i < num; i++)
 	{
-		deckIds.push_back(newCard);
+		deck.push_back(newCard);
 	}
 }
 
-std::vector<CardId> PlayerData::getDeckIds()
-{
-	return deckIds;
+std::vector<CardId> PlayerData::getDeck() {
+	return deck;
 }
-void PlayerData::setDeckId(std::vector<CardId> newDeck)
+
+void PlayerData::setDeck(std::vector<CardId> newDeck)
 {
-	deckIds = newDeck;
+	deck = newDeck;
 }

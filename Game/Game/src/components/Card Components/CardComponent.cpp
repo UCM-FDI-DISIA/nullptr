@@ -12,7 +12,7 @@ CardComponent::CardComponent() : gmCtrl_(gmCtrl()) {
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	deck = PlayerData::instance()->getDeck();
+	//deck = PlayerData::instance()->getDeck();
 	_myCounter = nullptr;
 	initDeck();
 }
