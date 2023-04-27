@@ -3,6 +3,7 @@
 #include "../../utils/Singleton.h"
 #include "Node.h"
 #include <unordered_map>
+#include "../../data/json/JSON.h"
 
 const int MAX_NODES = 3;
 const int MAX_SIG = 2;
@@ -31,8 +32,6 @@ private:
 	void initNodeLoads();
 	// Inicializa el mapa de nodos a partir de un JSON
 	void initMap(string filename);
-	// Crea el mapa
-	void createMap();
 
 	// Limpia el mapa
 	void clearMap();
@@ -59,6 +58,8 @@ private:
 	// Borra el nodo en la posición dada
 	void eraseNode(int height, int pos);
 public:
+	// Crea el mapa
+	void createMap(string filename);
 	// Destructora
 	~Map();
 	// Asigna el nodo actual
@@ -72,7 +73,9 @@ public:
 	// Devuelve una referencia constante al mapa de nodos
 	inline vector<int> const& getNodesPerWidth() { return nodesPerHeight; }
 	// Borra el mapa actual y crea uno nuevo
-	void reloadMap(); 
+	void reloadMap();
+	// Devuelve un JSONValue* con los datos del mapa
+	JSONValue* mapToJSON();
 };
 // Referencia a la instancia del mapa
 inline Map& gameMap() { return *Map::instance(); }

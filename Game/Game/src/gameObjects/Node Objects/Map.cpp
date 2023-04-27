@@ -1,6 +1,5 @@
 #include "Map.h"
 #include "../../core/SDLApplication.h"
-#include "../../data/json/JSON.h"
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	//createMap();
@@ -23,8 +22,8 @@ void Map::initNodeLoads() {
 }
 
 // Crea el mapa
-void Map::createMap() {
-	initMap(NODE_MAP_JSON_ROOT);
+void Map::createMap(string filename) {
+	initMap(filename);
 	for (Node* n : unlockedNodes) {
 		n->lock();
 	}
@@ -441,5 +440,37 @@ void Map::completeCurrentNode() {
 // Borra el mapa actual y crea uno nuevo
 void Map::reloadMap() {
 	clearMap();
-	createMap();
+	createMap(NODE_MAP_JSON_ROOT);
+}
+
+
+JSONValue* Map::mapToJSON() {
+	JSONArray jsonMap;
+	int i = 0;
+	for (vector<Node*>& nodeHeight : nodeMap) {
+		int j = 0;
+		for (Node* node : nodeHeight) {
+			if (node != nullptr) {
+				JSONObject jsonNode;
+				jsonNode["height"] = new JSONValue(i);
+				jsonNode["pos"] = new JSONValue(j);
+				jsonNode["type"] = new JSONValue((node->getType() == Battle) ?
+					"battle" : ((node->getType() == Chest) ?
+						"chest" : ((node->getType() == Shop) ?
+							"shop" : "start")));
+				JSONArray jsonNext;
+				for (int nextPos : node->getNextInd()) {
+					JSONArray jsonNextPos;
+					jsonNextPos.push_back(new JSONValue(nextPos));
+					jsonNextPos.push_back(new JSONValue(i + 1));
+
+					jsonNext.push_back(new JSONValue(jsonNextPos));
+				}
+				jsonNode["next"] = new JSONValue(jsonNext);
+			}
+			++j;
+		}
+		++i;
+	}
+	return new JSONValue(jsonMap);
 }
