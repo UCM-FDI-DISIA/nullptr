@@ -27,9 +27,7 @@ void RangeBehaviour::setDirectionTo() {
 		//Si estas dentro del rango de peligro, da media vuelta para salir de �l
 		if (pos->getDistance(playerPos->getPos()) < safeDistance)
 		{
-			Vector2D aux = playerPos->getPos();
-			aux* -1;
-			pos->lookAt(aux);
+			pos->lookAt(playerPos->getPos() * -1);
 		}
 		else
 		{
