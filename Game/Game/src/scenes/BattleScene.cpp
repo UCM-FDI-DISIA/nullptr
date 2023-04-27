@@ -6,7 +6,7 @@
 #include "../gameObjects/UI/HandUI.h"
 
 // Constructora
-BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
+BattleScene::BattleScene(BattleType t_, bool tutorial) : NodeScene(), type(t_) {
 	//Mana
 	PlayerData::instance()->resetMana();
 
@@ -18,9 +18,18 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	camera->startFollowObject(player);
 
 	// Generador de enemigos
-	enemyGenerator = addGameObject();
-	enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	if (!tutorial) {
+		enemyGenerator = addGameObject();
+		enemyGenerator->addComponent<EnemyGenerator>(player, this);
+		createUI();
+	}
 
+	//Música
+	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST->play();
+};
+
+void BattleScene::createUI() {
 	// - UI -
 	// Nos guardamos una referencia al componente de cartas del player
 	CardComponent* cardComp = player->getComponent<CardComponent>();
@@ -47,11 +56,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
-
-	//Música
-	battleSceneOST = &sdlutils().musics().at("BattleMusic");
-	battleSceneOST->play();
-};
+}
 
 void BattleScene::OnPlayerDies() {
 	player->getComponent<Transform>()->setVel(Vector2D());

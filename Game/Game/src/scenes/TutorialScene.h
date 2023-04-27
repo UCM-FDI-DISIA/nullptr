@@ -1,15 +1,13 @@
 ﻿#pragma once
 #include "BattleScene.h"
 #include "../gameObjects/General Objects/Tuto.h"
+#include "../components/General Components/TutorialComponent.h"
 
 class TutorialScene : public BattleScene {
 private:
-	enum Pasos {
-		Movimiento, Carta, Descarte, Enemigos, Habilidad, Drops, Portal
-	};
-
 	GameObject* screen;
 	GameObject* popup;
+	GameObject* tutorialController;
 	Tuto* tuto;
 	Pasos current;
 	// Generador de enemigos

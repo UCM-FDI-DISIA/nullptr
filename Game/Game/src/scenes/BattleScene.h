@@ -33,7 +33,7 @@ protected:
 
 public:
 	// Constructora
-	BattleScene(BattleType t_);
+	BattleScene(BattleType t_, bool tutorial = false);
 	// Destructora
 	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
@@ -52,6 +52,7 @@ public:
 	void addMusic();
 
 	// - UI -
+	void createUI();
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);
