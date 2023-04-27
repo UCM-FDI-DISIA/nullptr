@@ -16,9 +16,9 @@ void SpearCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	auto spritePosition = playerPos + dir * 100 -Vector2D(40, 0);
 	spearAnim->addComponent<Transform>(spritePosition, VECTOR_ZERO, 100, 30, rotation);
 	auto anim = spearAnim->addComponent<Animator>(SDLApplication::getTexture("SpearThrustAnim"), 100, 30, 1, 12);
-	anim->createAnim("SpearThrust", Animation(0, 11, 15, 1));
+	anim->createAnim("SpearThrust", Animation(0, 11, 100, 1));
 	anim->play("SpearThrust");
-	spearAnim->addComponent<LifeTimeComponent>(1);
+	spearAnim->addComponent<LifeTimeComponent>(0.2);
 
 }
 

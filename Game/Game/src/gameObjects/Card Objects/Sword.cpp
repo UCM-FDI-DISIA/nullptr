@@ -15,9 +15,9 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	auto spritePosition = playerPos + dir * 100 -Vector2D(PLAYER_SPRITE_WIDTH * 2, PLAYER_SPRITE_HEIGHT * 3);
 	slashAnim->addComponent<Transform>(spritePosition, VECTOR_ZERO, 100, 200, rotation);
 	auto anim = slashAnim->addComponent<Animator>(SDLApplication::getTexture("NewSwordSlash"), 96, 192, 1, 9);
-	anim->createAnim("SwordSlash", Animation(0, 8, 10, 1));
+	anim->createAnim("SwordSlash", Animation(0, 8, 100, 1));
 	anim->play("SwordSlash");
-	slashAnim->addComponent<LifeTimeComponent>(1);
+	slashAnim->addComponent<LifeTimeComponent>(0.2);
 
 }
 

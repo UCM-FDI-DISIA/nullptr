@@ -11,6 +11,11 @@ PlayerData::PlayerData() {
 	deck.push_back(new SpearCard());
 	addCardToLibrary(_card_SPEAR, 3);
 	addCardToDeckId(_card_SPEAR, 3);
+	deck.push_back(new SwordCard());
+	deck.push_back(new SwordCard());
+	deck.push_back(new SwordCard());
+	addCardToLibrary(_card_SWORD, 3);
+	addCardToDeckId(_card_SWORD, 3);
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
 	deck.push_back(new GunCard());
