@@ -3,7 +3,7 @@
 
 
 ChargedPortalComponent::ChargedPortalComponent(vector<GameObject*>& nums, GameState* scen) : Component(), 
-							numbers(nums), exit(false), deltaTime(0) {
+							numbers(nums), exit(false), deltaTime(0), gmCtrl_(gmCtrl()) {
 	scene = dynamic_cast<BattleScene*>(scen);
 
 }
