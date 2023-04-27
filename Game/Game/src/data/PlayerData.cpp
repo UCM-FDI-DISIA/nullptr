@@ -74,6 +74,7 @@ void PlayerData::setDataToJSON()
 		jsonLibrary.push_back(new JSONValue(cId));
 	}
 	player["library"] = new JSONValue(jsonRelics);
+<<<<<<< Updated upstream
 
 
 	JSONObject jsonData;
@@ -81,6 +82,10 @@ void PlayerData::setDataToJSON()
 	jsonData["map"] = gameMap().mapToJSON();
 
 	JSONValue* jval = new JSONValue(jsonData);
+=======
+	
+	
+>>>>>>> Stashed changes
 	std::ofstream save("../Game/src/data/game.playerData.json");
 	// comprobar que se ha abierto el archivo
 	if (!save.is_open()) {

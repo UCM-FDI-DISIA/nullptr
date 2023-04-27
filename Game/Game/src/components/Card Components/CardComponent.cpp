@@ -12,7 +12,6 @@ CardComponent::CardComponent() : gmCtrl_(gmCtrl()) {
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	//deck = PlayerData::instance()->getDeck();
 	_myCounter = nullptr;
 	initDeck();
 }
@@ -143,6 +142,9 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
+	for (CardId card : PlayerData::instance()->getDeck()) {
+		deck.push_back(Card::getCard(card));
+	}
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
 }
