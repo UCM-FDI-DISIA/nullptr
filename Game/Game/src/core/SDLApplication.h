@@ -22,8 +22,6 @@
 #include "../scenes/PauseMenuScene.h"
 #include "../scenes/ShopScene.h"
 #include "../scenes/GameOverScene.h"
-#include "../scenes/TutorialScene.h"
-
 #include "../gameObjects/Node Objects/Node.h"
 
 using namespace std;

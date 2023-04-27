@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
+#include "../../scenes/TutorialScene.h"
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	//createMap();

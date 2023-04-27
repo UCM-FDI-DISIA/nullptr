@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../utils/Singleton.h"
 #include "Node.h"
 #include <unordered_map>
