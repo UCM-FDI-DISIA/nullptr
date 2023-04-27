@@ -253,6 +253,15 @@
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\GameControl.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player components\PlayerInputComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\ButtonNavigator.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\components\General Components\EffectController.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
@@ -289,9 +298,6 @@
       <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\InputHandler.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Image.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\framework.h">
@@ -529,10 +535,22 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
+    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
+      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
+    <ClInclude Include="src\core\GameControl.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\PlayerInputComponent.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ButtonNavigator.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\General Components\EffectController.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>

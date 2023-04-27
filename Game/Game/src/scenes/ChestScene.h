@@ -10,7 +10,6 @@ private:
 public:
 	ChestScene();
 	virtual ~ChestScene();
-	static void mainMenu();
 	void gacha(GameObject* obj);
 	void spawnNewItem();
 };

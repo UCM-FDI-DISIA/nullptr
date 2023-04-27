@@ -1,6 +1,7 @@
 #include "BattleScene.h"
 #include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
+#include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/General Components/CallbackDelayer.h"
 
 // Constructora
@@ -71,6 +72,8 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 		hand = addGameObject<HandUI>(_grp_UI, cardComp);
 	}
 
+	player->getComponent<PlayerInputComponent>()->setPortalComponent(statistics->getPortalComp());
+
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
 
@@ -82,6 +85,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 void BattleScene::OnPlayerDies() {
 	player->getComponent<Transform>()->setVel(Vector2D());
 	player->removeComponent<PlayerMovementComponent>();
+	player->removeComponent<PlayerInputComponent>();
 	player->removeComponent<CardComponent>();
 	pointer->removeComponent<Image>();
 }
