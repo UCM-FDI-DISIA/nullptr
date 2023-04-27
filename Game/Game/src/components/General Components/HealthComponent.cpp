@@ -1,4 +1,5 @@
 #include "HealthComponent.h"
+#include "EffectController.h"
 #include"../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"
@@ -11,7 +12,7 @@
 HealthComponent::HealthComponent(int life, bool Invincibility) :
 	maxLife(life), modifiedMaxLife(life), lifePoints(life), 
 	invincibility(Invincibility), invTime(0),
-	onDeath(nullptr) {}
+	onDeath(nullptr){}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
 void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
@@ -19,7 +20,9 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
+#ifdef _DEBUG
 		cout << lifePoints << endl;
+#endif
 
 		// Si se trata del Player, actualiza su barra de vida
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
@@ -30,21 +33,55 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		if (lifePoints <= 0) {
 			die();
 			if (axe != nullptr) axe->enemieKilled();
-		} 
-		
+		}
+		else {
+			if(invTime<=0)
+			Mix_PlayChannelTimed(-1, hitSound->getChunk(), 0, -1);
+		}
 		if (invincibility) {
 			invTime = 0.5;
+
+			if (gObj->hasComponent<EffectController>()) {
+				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
+				eController->startEffect(E_INVULN, 0.5);
+			}
+			
+			
+#ifdef _DEBUG
 			cout << "Invencible" << endl;
+#endif
+		}
+		else
+		{
+			if (gObj->hasComponent<EffectController>()) {
+				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
+				eController->startEffect(E_DAMAGED, 0.25);
+			}
 		}
 	}
 }
 void HealthComponent::setInvencibility(float time)
 {
-	if (invincibility) invTime = time;
+	if (invincibility) {
+		invTime = time;
+	}
 }
 
 void HealthComponent::initComponent() {
+	eController = gObj->getComponent<EffectController>();
 	onDeath = gObj->getComponent<OnDeath>();
+	if (dynamic_cast<MeleeEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(MELEE_HIT_SOUND);
+	}
+	else if (dynamic_cast<RangedEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(RANGED_HIT_SOUND);
+	}
+	else if (dynamic_cast<TankEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
+	}
+	else if (dynamic_cast<Player*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(PLAYER_HIT_SOUND);
+	}
 }
 
 void HealthComponent::update()

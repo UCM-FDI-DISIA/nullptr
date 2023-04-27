@@ -3,33 +3,21 @@
 #include "../../core/SDLApplication.h"
 #include "../../data/PlayerData.h"
 
-PlayerMovementComponent::PlayerMovementComponent() :transform(nullptr), dashDuration(0){}
+PlayerMovementComponent::PlayerMovementComponent() :transform(nullptr), dashDuration(0) , gmCtrl_(gmCtrl()){}
 
 void PlayerMovementComponent::initComponent() {
 	transform = gObj->getComponent<Transform>();
 	playerSpeed = PlayerData::instance()->getPlayerMoveSpeed();
 }
 
-void PlayerMovementComponent::handleInput() {
-	Vector2D vel(0, 0);
-	Vector2D pos =transform->getPos();
+void PlayerMovementComponent::setDirection(Vector2D dir) {
+	// L�mites
+	Vector2D pos = transform->getPos();
+	if (pos.getX() < PLAYER_INITIAL_WIDTH) transform->setX(PLAYER_INITIAL_WIDTH);
+	else if (pos.getX() > FLOOR_WIDTH - PLAYER_INITIAL_WIDTH) transform->setX(FLOOR_WIDTH - PLAYER_INITIAL_WIDTH);
 
-	// Izquierda
-	if (pos.getX()>PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_a)) {
-		vel = vel + Vector2D(-1, 0);
-	}
-	// Derecha
-	if (pos.getX()<FLOOR_WIDTH-PLAYER_INITIAL_WIDTH&&InputHandler::instance()->isKeyDown(SDLK_d)) {
-		vel = vel + Vector2D(1, 0);
-	}
-	// Arriba
-	if (pos.getY()>0-PLAYER_INITIAL_HEIGHT/3&&InputHandler::instance()->isKeyDown(SDLK_w)) {
-		vel = vel + Vector2D(0, -1);
-	}
-	// Abajo
-	if (pos.getY()<FLOOR_HEIGHT-PLAYER_INITIAL_HEIGHT&&InputHandler::instance()->isKeyDown(SDLK_s)) {
-		vel = vel + Vector2D(0, 1);
-	}
+	if (pos.getY() < 0 - PLAYER_INITIAL_HEIGHT / 3) transform->setY(0 - PLAYER_INITIAL_HEIGHT / 3);
+	else if (pos.getY() > FLOOR_HEIGHT - PLAYER_INITIAL_HEIGHT) transform->setY(FLOOR_HEIGHT - PLAYER_INITIAL_HEIGHT);
 
 	moveDir = vel;
 

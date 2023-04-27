@@ -52,8 +52,8 @@ void Album::saveToJSON() {
 			// Guardar los nombres de las cartas en un JSON array
 			save << "[";
 			for (CardData& cData : foundCards) {
-				save << "\"" << cData.name << "\"";
-				if (cData.name != foundCards.rbegin()->name) {
+				save << "\"" << cData.key << "\"";
+				if (cData.key != foundCards.rbegin()->key) {
 					save << ", ";
 				}
 			}
@@ -76,7 +76,7 @@ Album::~Album() {
 void Album::addCard(CardData cData) {
 	if (!foundCardsNames.count(cData.key)) {
 		foundCards.push_back(cData);
-		foundCardsNames.insert(cData.name);
+		foundCardsNames.insert(cData.key);
 
 		foundCardsByTime[cData.time][cardsData().getCardsIndexByTime()[cData.time].at(cData.key)] = true;
 	}

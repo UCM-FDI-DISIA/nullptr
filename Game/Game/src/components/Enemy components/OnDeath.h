@@ -6,11 +6,19 @@
 #include "../../gameObjects/Player Object/Mana.h"
 #include "../../gameObjects/Enemy Objects/SpacialEter.h"
 
+enum EnemyType
+{
+	meleeEnemy,
+	rangedEnemy,
+	tankEnemy
+};
+
 class OnDeath : public Component {
 private:
 	Transform* enemyTransform;
 	Transform* playerTransform;
 	int numMana, numEter;
+	SoundEffect* deathSound;
 public:
 	static const int id = _ON_DEATH;
 

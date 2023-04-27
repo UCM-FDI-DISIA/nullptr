@@ -40,28 +40,18 @@ InventoryScene::InventoryScene() : GameState() {
 	
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
-		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
+		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]); // cleon llora porque esto son arrays
 	}
 	// Creamos el boton de salir
-	createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, [&]() {
-		int cardsInDeck = 0;
-	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
-		if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
-		if(cardsInDeck>=4)SDLApplication::popGameState(); 
-		}, EXIT);
+	exitButton = createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, [&]() {
+			int cardsInDeck = 0;
+			for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++)  // cleon llora sangre porque esto son interadores sin sintaxis C++11
+				if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
+			if (cardsInDeck >= 4) SDLApplication::popGameState(); 
+		}, 
+		EXIT, 1.0f, 2.0f);
 }
 
-// Crear un bot�n especificado en la escena
-void InventoryScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key, IS_BUTTON_WIDTH, IS_BUTTON_HEIGHT);
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), IS_BUTTONFRAME_WIDTH, IS_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-
-	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, frame);
-}
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 
@@ -78,6 +68,7 @@ void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int va
 }
 // Crea los paneles en los que se colocan las cartas
 void InventoryScene::createPanels() {
+	// cleon sufre porque copypaste
 	GameObject* dp = addGameObject();
 	dp->addComponent<Transform>(DP_POSITION, VECTOR_ZERO, DP_WIDTH, DP_HEIGHT);
 	dp->addComponent<Image>(SDLApplication::getTexture(DECK_PANEL));
@@ -117,7 +108,7 @@ void InventoryScene::createMoneyInfo() {
 void InventoryScene::createObjects() {
 	auto objs = PlayerData::instance()->getRelics();
 
-	for (int i = 0; i < objs.size(); i++) {
+	for (int i = 0; i < objs.size(); i++) { // cleon mas de lo mismo 
 		GameObject* g = addGameObject();
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
 		g->addComponent<Image>(objs[i]->texture);
@@ -130,13 +121,16 @@ void InventoryScene::createCards() {
 	int deckColumn = 0;
 	for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) {
 
-		Vector2D pos = Vector2D(20 + 160 * column, 50 + 220 * (row ? 0 : 1));
+		Vector2D pos = Vector2D(20 + (ALB_CARD_W + 20) * column, 20 + (ALB_CARD_H + 20) * (row ? 0 : 1));
 		string temp = Card::getCardIDfromEnum(it->second.card);
-		createCard(pos, it->second.card, false);
-		
-		if (it->second.cuantityDeck > 0)createDeckCards(it->second.card, deckColumn);
-			row = !row;
-			deckColumn++;
+		Button* cardButton = createCard(pos, it->second.card, false);
+		if (it == inventory.begin()) cardButton->setAsDefaultButton();
+
+		if (it->second.cuantityDeck > 0) createDeckCards(it->second.card, deckColumn);
+
+		row = !row;
+		deckColumn++;
+
 		if (row) {
 			column++;
 		}
@@ -151,10 +145,10 @@ void InventoryScene::createDeckCards(CardId crd, int column)
 	createCard(posD, crd, true);
 }
 // Se encarga de crear el objeto de la carta, así como sus botones y le añaden la funcionalidad para quitar o poner en el deck
-void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
+Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
-	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, CARD_WIDTH*2, CARD_HEIGHT*2);
+	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
 	cardObj->addComponent<Image>(cardsData().get(Card::getCardIDfromEnum(crd)).texture);
 	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd, myPos = pos]()
@@ -197,17 +191,27 @@ void InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 			}
 		}
 		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H,
-		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4));
+		cardsData().get(Card::getCardIDfromEnum(crd)).texture->width(), cardsData().get(Card::getCardIDfromEnum(crd)).texture->height(), 1, 4),
+			-1, nullptr, 0.5f, 0.5f); 
+	
+	Animator* a = b->getComponent<Animator>();
+	a->createAnim(ONOUT, UNSELECTED_CARD_ANIM);
+	a->createAnim(ONOVER, SELECTED_CARD_ANIM);
+	a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
+	a->play(ONOUT);
+
 	// Texto que indica cuantas cartas hay en el deck
 	GameObject* text = addGameObject();
 	inventory[Card::getCardIDfromEnum(crd)].myText = text;
-	text->addComponent<Transform>(Vector2D (pos.getX()+ CARD_WIDTH*2,pos.getY()), VECTOR_ZERO, 70, 48);
+	text->addComponent<Transform>(Vector2D (pos.getX()+ ALB_CARD_W,pos.getY()), VECTOR_ZERO, 70, 48);
 	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(inventory[Card::getCardIDfromEnum(crd)].cuantityDeck) + "/" + to_string(inventory[Card::getCardIDfromEnum(crd)].cuantity));
 	if (dck) {
 		deckButtons[crd].deckButton = b;
 		deckButtons[crd].deckImage = cardObj;
 		deckButtons[crd].deckText = text;
 	}
+
+	return b;
 }
 
 InventoryScene::~InventoryScene() {
@@ -221,4 +225,13 @@ InventoryScene::~InventoryScene() {
 	}
 	PlayerData::instance()->setDeck(newDeck);
 	PlayerData::instance()->setDeckId(newDeckId);
+}
+
+
+void InventoryScene::handleInput() {
+	GameState::handleInput();
+	if (gmCtrl_.goBack()) {
+		if (exitButton->isCurrentButton()) butNavigator->selectDefaultButton();
+		else exitButton->setAsCurrentButton();
+	}
 }

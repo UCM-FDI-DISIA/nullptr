@@ -23,8 +23,8 @@ const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
-const int PIXEL_WIDTH = WIN_WIDTH / 544;
-const int PIXEL_HEIGHT = WIN_HEIGHT / 306;
+const float PIXEL_WIDTH = WIN_WIDTH / 544.0f;
+const float PIXEL_HEIGHT = WIN_HEIGHT / 306.0f;
 
 // FRAME TIMES ------------------------------------------------------------------------------------
 const double FRAME_TIME = 30;
@@ -103,8 +103,8 @@ const int PLAYER_DEATH_FRAME_RATE = 8;
 const double DEATH_DELAY = 1000;
 
 // PLAYER DIMENSIONS
-const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
-const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
+const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
+const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
@@ -167,7 +167,8 @@ const int TANK_ENEMY_SPRITE_HEIGHT = 40;
 const int TANK_ENEMY_SPRITE_ROWS = 6;
 const int TANK_ENEMY_SPRITE_COLS = 5;
 
-const int TANK_WIDTH = 120;
+const int TANK_WIDTH = TANK_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int TANK_HEIGHT = TANK_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 10;
 const int TANK_LIFE = 60;
@@ -183,7 +184,7 @@ const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";
 const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
-const string SOWND_ATTACK = "Sound";
+const string SOUND_ATTACK = "Sound";
 const string BULLET= "Bullet";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
@@ -318,7 +319,7 @@ const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
 const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = { 90, 265, 440 };
+const int ALB_CARD_X[3] = { 75, 205, 340 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
 
@@ -623,6 +624,22 @@ const int RANGED_RADIUS = 800;
 const int TANK_RADIUS = 600;
 
 const int STARTING_TIME_PER_WAVE = 15000;
+
+//SOUNDS
+const string MELEE_DEATH_SOUND = "MeleeDeath";
+const string MELEE_HIT_SOUND = "MeleeHit";
+const string RANGED_DEATH_SOUND = "RangedDeath";
+const string RANGED_HIT_SOUND = "RangedHit";
+const string TANK_DEATH_SOUND = "TankDeath";
+const string TANK_HIT_SOUND = "TankHit";
+const string PLAYER_HIT_SOUND = "PlayerHit";
+const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
+const string BUTTON_PRESSED_SOUND = "ButtonPressed";
+const string LOAD_EXIT_SOUND = "LoadExit";
+
+//MUSICS
+const string BATTLE_MUSIC = "BattleMusic";
+const string DEATH_MELODY = "Death";
 
 //SHOP ------------------------------------------------------------------------------------------
 const int SHOP_NUMBER_OF_CARDS = 4;

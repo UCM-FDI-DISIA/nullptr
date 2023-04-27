@@ -2,6 +2,7 @@
 #include "../../gameObjects/GameObject.h"
 #include "../Component.h"
 #include "../General Components/Transform.h"
+#include "../../core/GameControl.h"
 
 class PlayerMovementComponent : public Component
 {
@@ -10,7 +11,7 @@ private:
 	Vector2D moveDir;
 	float dashDuration;
 	float playerSpeed = PLAYER_SPEED;
-
+	GameControl& gmCtrl_;
 public:
 	static const int id = _PLAYERMOVEMENTCOMPONENT;
 
@@ -21,6 +22,7 @@ public:
 	void handleInput() override;
 
 	void update() override;
+	void setDirection(Vector2D dir);
 
 	void setPlayerSpeed(float newSpeed);
 
