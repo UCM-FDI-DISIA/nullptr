@@ -115,14 +115,20 @@ void HandUI::createUI() {
 	handUI.clear();
 	handPlayer = cardComp->getHand();
 
-	// Crear las 4 cartas con sus posiciones correspondientes
-	createCard(0, X1_4CARDS_POS, Y_CARD_POS_SELECTED, -10);
-	createCard(1, X2_4CARDS_POS, Y_CARD_POS, -5);
-	createCard(2, X3_4CARDS_POS, Y_CARD_POS, 5);
-	createCard(3, X4_4CARDS_POS, Y_CARD_POS, 10);
+	// Crear las cartas con sus posiciones correspondientes
+	if (handPlayer.size() == 1) {
+		createCard(0, CENTERED_CARD_POS, Y_CARD_POS_SELECTED, 0);
+	}
+	else {
+		createCard(0, X1_4CARDS_POS, Y_CARD_POS_SELECTED, -10);
+		createCard(1, X2_4CARDS_POS, Y_CARD_POS, -5);
+		createCard(2, X3_4CARDS_POS, Y_CARD_POS, 5);
+		createCard(3, X4_4CARDS_POS, Y_CARD_POS, 10);
+	}
 
 	// Marcar como activa la primera carta
 	active = handUI.begin();
+	if (handPlayer.size() == 1) rearrangeOne();
 }
 
 void HandUI::createCard(int i, int posX, int posY, int rotation) {

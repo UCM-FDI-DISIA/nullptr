@@ -16,17 +16,22 @@ private:
 	GameObject* text;
 	Button* button;
 	// Paso en el que estamos
-	Pasos current;
+	int current;
 
 public:
 	// Constructora
 	TutorialScene(BattleType bt);
+
+	// Notifica de que se ha descartado una carta
+	void notifyDiscard();
 
 	// PASOS DEL TUTORIAL
 	// Activar input 
 	void activateInput();
 	// Añadir carta (enseñar como se apunta y como se usan)	
 	void addCard();
+	// Enseña sobre el sistema de cartas
+	void explainCardSystem();
 	// Añadir enemigos (matarlos) y las barras de vida y mana
 	void addMeleeEnemy();
 	// Enseñar a usar las habilidades de las cartas (y que el mana baja)

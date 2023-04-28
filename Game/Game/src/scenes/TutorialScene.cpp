@@ -15,6 +15,11 @@ TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(Mov
 	tutorialController = tc->addComponent<TutorialComponent>([&]() { activatePopUp(); }, getSteps());
 }
 
+void TutorialScene::notifyDiscard() {
+	tutorialController->setDiscarted(true);
+	tutorialController->setCurrentStep((Pasos)current);
+}
+
 void TutorialScene::activateInput() {
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
 }
@@ -22,7 +27,12 @@ void TutorialScene::activateInput() {
 void TutorialScene::addCard() {
 	// ENSEÑAMOS LA CARTA (LA ESPADA)
 	createHand(player->getComponent<CardComponent>());
-	player->getComponent<PlayerInputComponent>()->setCanAttack(false);
+	player->getComponent<PlayerInputComponent>()->setCanAttack(true);
+}
+
+void TutorialScene::explainCardSystem() {
+	player->getComponent<CardComponent>()->setInitialDeck();
+	createCounters(player->getComponent<CardComponent>());
 }
 
 void TutorialScene::addMeleeEnemy() {
@@ -45,7 +55,10 @@ void TutorialScene::showPortalCharges() {
 
 // Activa el popup
 void TutorialScene::activatePopUp() {
-
+	if (current == 2) {
+		int i = 0;
+	}
+	tutorialController->setCurrentStep((Pasos)current);
 	// Le impedimos el movimiento y el ataque
 	player->getComponent<PlayerMovementComponent>()->setDirection(Vector2D());
 	player->getComponent<PlayerInputComponent>()->setCanMove(false);
@@ -76,10 +89,9 @@ void TutorialScene::activatePopUp() {
 
 // Desactiva el popup
 void TutorialScene::deactivatePopUp() {
-
 	// Objeto tuto
 	if (tuto == nullptr) tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
-
+	player->getComponent<PlayerInputComponent>()->setCanMove(true);
 	// Desactivar
 	screen->setAlive(false);
 	button->setAlive(false);
@@ -92,6 +104,7 @@ void TutorialScene::deactivatePopUp() {
 	text = nullptr;
 
 	tutorialController->doStep();
+	current++;
 }
 
 // Devuelve los callbacks con sus respectivos tiempos
@@ -100,6 +113,7 @@ vector<pair<CallBack, double>> TutorialScene::getSteps() {
 
 	steps.push_back({ [&]() {activateInput(); }, 5 });
 	steps.push_back({ [&]() {addCard(); }, -1 });
+	steps.push_back({ [&]() {explainCardSystem(); }, 2 });
 	steps.push_back({ [&]() {addMeleeEnemy(); }, -1 });
 	steps.push_back({ [&]() {showAbility(); }, 5 });
 	steps.push_back({ [&]() {showDrops(); }, 5 });

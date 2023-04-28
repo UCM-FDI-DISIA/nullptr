@@ -5,7 +5,7 @@
 // Constructora
 TutorialComponent::TutorialComponent(CallBack callback, vector<pair<CallBack, double>> steps) : 
 	activatePopup(callback), startime(SDL_GetTicks()), timeOffset(0), steps(steps),
-	current(Movimiento), firstActionDone(false), canCount(true) {}
+	current(Movimiento), firstActionDone(false), canCount(true), discarted(false) {}
 
 
 // Actualiza la escena
@@ -13,8 +13,6 @@ void TutorialComponent::update() {
 	// Si el jugador ha realizado la accion debida, empieza el contador
 	if (canCount) timeOffset += SDLApplication::instance()->getDeltaTimeSeconds();
 	else setCanCount();
-
-	cout << timeOffset << endl;
 
 	// Si pasa 1 segundo y esta desactivado el popup o si se ha activado la accion y ha pasado su tiempo de delay, se activa
 	if ((timeOffset >= 1 && !firstActionDone) || (timeOffset >= steps[current].second && firstActionDone)) {
@@ -35,15 +33,18 @@ void TutorialComponent::setCanCount() {
 		case Carta:
 			// Si he usado la carta 5 veces
 			//if () canCount = true;
+			timeOffset = -2;
 		break;
 
 		case Descarte:
 			// Si gasto una carta, hablo del sistema de mazo, pila y mano (y le doy su mazo bueno)
-			timeOffset = steps[Descarte].second;
+			if (discarted) timeOffset = steps[current].second;
+			
 		break;
 
 		case Enemigos:
-			// Si el enemigo muere, timeOffSet = steps[Enemigos].second 
+			// Si el enemigo muere, timeOffSet = steps[Enemigos].second
+			cout << "ESTAS EN EL PASO DE ENEMIGOS" << endl;
 		break;
 
 		case Habilidad:

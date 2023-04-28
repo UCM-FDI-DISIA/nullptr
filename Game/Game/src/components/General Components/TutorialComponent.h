@@ -14,7 +14,7 @@ private:
 	CallBack activatePopup;
 	Pasos current;
 	float startime, timeOffset;
-	bool firstActionDone, canCount;
+	bool firstActionDone, canCount, discarted;
 public:
 	// Identificador
 	static const int id = _TUTORIAL_COMPONENT;
@@ -24,6 +24,7 @@ public:
 	void update();
 
 	void setCanCount();
+	inline void setDiscarted(bool value) { discarted = value; }
 	inline bool getCanCount() { return canCount; }
 	inline void doStep() { steps[current].first(); }
 

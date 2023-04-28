@@ -6,6 +6,7 @@
 #include "../../scenes/BattleScene.h"
 #include "../../gameObjects/UI/CardCounter.h"
 #include "../../gameObjects/Card Objects/Cards.h"
+#include "../../scenes/TutorialScene.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
 CardComponent::CardComponent(bool tutorial) : gmCtrl_(gmCtrl()) {
@@ -76,7 +77,7 @@ void CardComponent::attack(Vector2D playerPos, Vector2D mousePos) {
 	if (downTime <= 0) {
 		(*active)->attack(playerPos, mousePos, attackMult, where);
 		(*active)->use();
-		if (!tuto) where->changeAmmoUI(active);
+		where->changeAmmoUI(active);
 		downTime = (*active)->getDownTime() / fireRateMult;
 		if ((*active)->getUses() <= 0) discardCard(active);
 		attacking = true;
@@ -124,6 +125,11 @@ void CardComponent::selectLeft() {
 }
 void CardComponent::selectRight() {
 	switchActive(false);
+}
+
+void CardComponent::setInitialDeck() {
+	deck = PlayerData::instance()->getDeck(); 
+	initDeck();
 }
 
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
@@ -176,6 +182,9 @@ void CardComponent::drawCard() {
 
 //Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
+	if (tuto) {
+		dynamic_cast<TutorialScene*>(gStt)->notifyDiscard();
+	}
 	pile.push_back(*discarded);
 	(*discarded)->resetCard();
 	where->discardUI(discarded);

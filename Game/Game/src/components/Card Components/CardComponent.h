@@ -63,6 +63,7 @@ class CardComponent : public Component {
 		void setLocked(bool value) { locked = value; }
 		bool getAutomatic() { return automatic; }
 		bool getLocked() { return locked; }
+		void setInitialDeck();
 
 		inline bool isAttacking() { return attacking; }
 		inline bool isAbiliting() { return abiliting; }
