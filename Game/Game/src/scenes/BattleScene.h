@@ -9,6 +9,8 @@
 #include "../gameObjects/Node Objects/Node.h"
 #include "../gameObjects/UI/HandUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
+#include "../components/General Components/StatsTrackComponent.h"
+
 
 class StatisticsUI;
 class ChargedPortalComponent;
@@ -19,8 +21,7 @@ private:
 	GameObject *floor, *background, *background1, *background2, *background3;
 
 	// Generador de enemigos
-	vector<GameObject*> enemies;
-	GameObject* enemyGenerator;
+	GameObject* empty;
 	BattleType type;
 	GameObject* deck;
 	GameObject* pile;
@@ -41,9 +42,8 @@ public:
 	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
-	inline vector<GameObject*>* getEnemies() { return &enemies; };
-	inline void addEnemy(GameObject* enemy) { enemies.push_back(enemy); }
 	Player* getPlayer() { return player; };
+	StatsTrackComponent* getTracker() { return empty->getComponent<StatsTrackComponent>(); }
 
 	// Efectos sobre el jugador
 	void OnPlayerDies();
