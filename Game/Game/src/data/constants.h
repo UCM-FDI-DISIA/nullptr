@@ -655,9 +655,9 @@ const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
 
 //POSTGAME SCENE ------------------------------------------------------------------------------------------
 const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);
-const Vector2D SPOTLIGHT_POSITION = Vector2D(785, 540);
-const Vector2D CARD_CREATION_POSITION = Vector2D(837, 398);
-const Vector2D NEW_CARD_POSITION = Vector2D(820, 238);
+const Vector2D SPOTLIGHT_POSITION = Vector2D(765, 500);
+const Vector2D CARD_CREATION_POSITION = Vector2D(817, 328);
+const Vector2D NEW_CARD_POSITION = Vector2D(800, 198);
 const float NEXT_EVENT_TIMER = 0.5;
 
 

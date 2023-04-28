@@ -17,7 +17,6 @@ PostGameScene::PostGameScene(int dmg, int mlee, int rngd, int tnk, int mny, floa
 	PlayerData::instance()->addMoney(money);
 	PlayerData::instance()->nextLevel();
 
-
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("BattleBackground"));
@@ -109,8 +108,11 @@ void PostGameScene::showObject() {
 		break;
 	case 8:
 		text = addGameObject(_grp_UI);
-		text->addComponent<Transform>(Vector2D(620, 30), VECTOR_ZERO, 400, 100);
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), "NUEVA CARTA OBTENIDA", build_sdlcolor(0xffffffff));
+		text->addComponent<Transform>(Vector2D(
+			newCard.second == 2 ? 575 : 620, 30), VECTOR_ZERO, 400, 100);
+		
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), 
+			(newCard.second == 2 ? "NUEVAS CARTAS OBTENIDAS" : "NUEVA CARTA OBTENIDA"), build_sdlcolor(0xffffffff));
 		showCard();
 		break;
 	case 9:
