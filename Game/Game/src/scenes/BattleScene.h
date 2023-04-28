@@ -53,6 +53,9 @@ public:
 
 	// - UI -
 	void createUI();
+	void createHand(CardComponent* cc);
+	void createCounters(CardComponent* cc);
+	void createStatistics(HealthComponent* hc, CardComponent* cc);
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);

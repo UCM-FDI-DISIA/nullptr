@@ -10,17 +10,22 @@ enum Pasos {
 class TutorialScene;
 class TutorialComponent : public Component {
 private:
-	TutorialScene* ts;
+	vector<pair<CallBack, double>> steps;
+	CallBack activatePopup;
 	Pasos current;
 	float startime, timeOffset;
-
+	bool firstActionDone, canCount;
 public:
 	// Identificador
 	static const int id = _TUTORIAL_COMPONENT;
 	// Constructora
-	TutorialComponent(TutorialScene* _t);
-	// Inicializa el componente
-	void initComponent();
+	TutorialComponent(CallBack callback, vector<pair<CallBack, double>> steps);
 	// Actualiza la escena
 	void update();
+
+	void setCanCount();
+	inline bool getCanCount() { return canCount; }
+	inline void doStep() { steps[current].first(); }
+
+	inline void setCurrentStep(Pasos nStep) { current = nStep; }
 };

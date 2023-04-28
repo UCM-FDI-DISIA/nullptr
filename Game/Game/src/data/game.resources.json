@@ -134,7 +134,8 @@
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
 
       {"id": "Companion","file": "../Game/resources/images/Tutorial/Tuto_128x96.png"},
-      {"id": "Screen", "file":  "../Game/resources/images/Tutorial/Screen.png"}
+      {"id": "Screen", "file":  "../Game/resources/images/Tutorial/Screen.png"},
+      {"id": "TutoTalking", "file":  "../Game/resources/images/Tutorial/TutoTalking_378x284.png"}
     ],
     
     "messages" : [

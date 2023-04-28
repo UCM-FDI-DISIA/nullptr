@@ -14,7 +14,7 @@ BattleScene::BattleScene(BattleType t_, bool tutorial) : NodeScene(), type(t_) {
 	addMusic();
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
-	player = addGameObject<Player>(_grp_PLAYER);
+	player = addGameObject<Player>(_grp_PLAYER, tutorial);
 	camera->startFollowObject(player);
 
 	// Generador de enemigos
@@ -41,21 +41,32 @@ void BattleScene::createUI() {
 	cardContRight = nullptr;
 	if (cardComp != nullptr) {
 		statistics = nullptr;
-		if (healthComp != nullptr) statistics = addGameObject<StatisticsUI>(_grp_UI, healthComp->getLife(), cardComp->getMana());
-
-		// Creamos los contadores de cartas y linkeamos el componente con el contador de mazo par ala animacion de barajar
-		cardContLeft = addGameObject<CardCounter>(_grp_UI, true, cardComp);
-		cardContRight = addGameObject<CardCounter>(_grp_UI, false, cardComp);
-		cardComp->setCounter(cardContLeft);
-
-		// Añadimos el objeto que muestra la mano de cartas en la UI
-		hand = addGameObject<HandUI>(_grp_UI, cardComp);
+		if (healthComp != nullptr) createStatistics(healthComp, cardComp);
+		createCounters(cardComp);
+		createHand(cardComp);
 	}
 
 	player->getComponent<PlayerInputComponent>()->setPortalComponent(statistics->getPortalComp());
 
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
+}
+
+void BattleScene::createCounters(CardComponent* cardComp) {
+	// Creamos los contadores de cartas y linkeamos el componente con el contador de mazo par ala animacion de barajar
+	cardContLeft = addGameObject<CardCounter>(_grp_UI, true, cardComp);
+	cardContRight = addGameObject<CardCounter>(_grp_UI, false, cardComp);
+	cardComp->setCounter(cardContLeft);
+}
+
+void BattleScene::createHand(CardComponent* cardComp) {
+	// Añadimos el objeto que muestra la mano de cartas en la UI
+	hand = addGameObject<HandUI>(_grp_UI, cardComp);
+}
+
+void BattleScene::createStatistics(HealthComponent* healthComp, CardComponent* cardComp) {
+	// Crear la barra de estadísticas
+	statistics = addGameObject<StatisticsUI>(_grp_UI, healthComp->getLife(), cardComp->getMana());
 }
 
 void BattleScene::OnPlayerDies() {

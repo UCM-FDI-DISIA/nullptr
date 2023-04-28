@@ -5,13 +5,18 @@
 
 class TutorialScene : public BattleScene {
 private:
-	GameObject* screen;
-	GameObject* popup;
-	GameObject* tutorialController;
+	// Objetos de tutorial
+	TutorialComponent* tutorialController;
 	Tuto* tuto;
-	Pasos current;
-	// Generador de enemigos
+	// Enemigo para testear
 	GameObject* testEnemy;
+	// Cosas del popup
+	GameObject* screen;
+	GameObject* tutoPopUp;
+	GameObject* text;
+	Button* button;
+	// Paso en el que estamos
+	Pasos current;
 
 public:
 	// Constructora
@@ -19,18 +24,22 @@ public:
 
 	// PASOS DEL TUTORIAL
 	// Activar input 
-	//void activateInput();
-	//// Añadir carta (enseñar como se apunta y como se usan)	
-	//void addCard();
-	//// Añadir enemigos (matarlos) y las barras de vida y mana
-	//void addEnemy();
-	//// Enseñar a usar las habilidades de las cartas (y que el mana baja)
-	//void showAbility();
-	//// Añadir aun mas enemigos y mostrar que sube el maná si droppean
-	//void showDrops();
-	//// Explicar que los enemigos cargan el portal
-	//void showPortalCharges();
-
+	void activateInput();
+	// Añadir carta (enseñar como se apunta y como se usan)	
+	void addCard();
+	// Añadir enemigos (matarlos) y las barras de vida y mana
+	void addMeleeEnemy();
+	// Enseñar a usar las habilidades de las cartas (y que el mana baja)
+	void showAbility();
+	// Añadir aun mas enemigos y mostrar que sube el maná si droppean
+	void showDrops();
+	// Explicar que los enemigos cargan el portal
+	void showPortalCharges();
+	// Activa el popup
 	void activatePopUp();
+	// Desactiva el popup
 	void deactivatePopUp();
+
+	// Devuelve los callbacks con sus respectivos tiempos
+	vector<pair<CallBack, double>> getSteps();
 };
