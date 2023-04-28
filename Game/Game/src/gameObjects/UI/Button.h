@@ -23,4 +23,6 @@ public:
 	void setAsDefaultButton();
 	void setAsCurrentButton();
 	bool isCurrentButton();
+
+	inline void setCallBack(CallBack _cb) { if (bComp != nullptr) bComp->setCallBack(_cb); }
 };

@@ -72,4 +72,6 @@ public:
 	void setOnSelected(std::function<void(Transform*)> onSel);
 
 	inline bool isCurrentButton() { return butNav->isCurrentButton(animButton); }
+
+	inline void setCallBack(CallBack cb) { function = cb; }
 };
