@@ -8,16 +8,16 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "null", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.1, data);
 
 	auto slashAnim = where->addGameObject<GameObject>();
 
 	auto spritePosition = playerPos + dir * 100 -Vector2D(PLAYER_SPRITE_WIDTH * 2, PLAYER_SPRITE_HEIGHT * 3);
 	slashAnim->addComponent<Transform>(spritePosition, VECTOR_ZERO, 100, 200, rotation);
 	auto anim = slashAnim->addComponent<Animator>(SDLApplication::getTexture("NewSwordSlash"), 96, 192, 1, 9);
-	anim->createAnim("SwordSlash", Animation(0, 8, 100, 1));
+	anim->createAnim("SwordSlash", Animation(0, 8, 20, 1));
 	anim->play("SwordSlash");
-	slashAnim->addComponent<LifeTimeComponent>(0.2);
+	slashAnim->addComponent<LifeTimeComponent>(0.4);
 
 }
 
