@@ -69,19 +69,19 @@ void PostGameScene::showObject() {
 			i++;
 			text = addGameObject(_grp_UI);
 			text->addComponent<Transform>(Vector2D(90, 155 + 60 * i), VECTOR_ZERO, 400, 100);
-			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Melee: " + to_string(melee));
+			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Soldados: " + to_string(melee));
 		}
 		if (ranged > 0) {
 			i++;
 			text = addGameObject(_grp_UI);
 			text->addComponent<Transform>(Vector2D(90, 155 + 60 * i), VECTOR_ZERO, 400, 100);
-			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Ranged: " + to_string(ranged));
+			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Arqueros: " + to_string(ranged));
 		}
 		if (tank > 0) {
 			i++;
 			text = addGameObject(_grp_UI);
 			text->addComponent<Transform>(Vector2D(90, 155 + 60 * i), VECTOR_ZERO, 400, 100);
-			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Tank: " + to_string(tank));
+			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Robustos: " + to_string(tank));
 		}
 		break;
 	case 3:
