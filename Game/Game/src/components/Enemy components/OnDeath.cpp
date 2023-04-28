@@ -15,10 +15,12 @@ void OnDeath::initComponent() {
 
 void OnDeath::death() {
 	Mix_PlayChannelTimed(-1, deathSound->getChunk(), 0,-1);
-	for (int i = 0; i < numEter; i++) {
+	for (int i = 0; i < 50; i++) {
 		gStt->addGameObject<SpacialEter>(enemyTransform->getPos().getX() + (sdlutils().rand().nextInt(-50, 50)), enemyTransform->getPos().getY() - 20, playerTransform);
 	}
 	for (int i = 0; i < numMana; i++) {
 		gStt->addGameObject<Mana>(_grp_MANA, enemyTransform->getPos());
 	}
+	dynamic_cast<BattleScene*>(gStt)->getTracker()->onEnemyKilled(gObj);
+	
 }

@@ -21,6 +21,8 @@ PlayerData::PlayerData() {
 		avlbRelics.push_back(var.first);
 	}
 	PlayerData::setDataToJSON();
+
+	lastCard = _card_NULL;
 }
 
 void PlayerData::defaultPlayerStats() {
@@ -126,6 +128,42 @@ void PlayerData::addCardToLibrary(CardId newCard, int num) {
 		library.push_back(newCard);
 	}
 	Album::instance()->addCard(cardsData().get(Card::getCardIDfromEnum(newCard)));
+}
+
+pair<CardId, int> PlayerData::getNewCard() {
+	pair<CardId, int> res;
+	bool available = cardAvailable();
+	if (lastCard == _card_NULL) {
+		lastCard = (CardId) SDLApplication::instance()->getRandInt(0, maxCardId);
+		while (count(library.begin(), library.end(), lastCard) && available)
+		{
+			lastCard = (CardId)SDLApplication::instance()->getRandInt(0, maxCardId);
+		}
+		res = pair<CardId, int>{lastCard, 1};
+		addCardToLibrary(lastCard, 1);
+	}
+	else {
+		res =  pair<CardId, int>{lastCard , 2};
+		addCardToLibrary(lastCard, 2);
+		lastCard = _card_NULL;
+	}
+	return res;
+}
+
+bool PlayerData::cardAvailable() {
+	for (int i = 0; i < maxCardId; i++) {
+		if (!count(library.begin(), library.end(), (CardId)i)) return true;
+	}
+	return false;
+}
+
+void PlayerData::addRelic(Relic* relic) {
+	maxMana += relic->mana;
+	maxHP += relic->health;
+	attackMult += relic->attackMult/100.0f;
+	fireRateMult += relic->fireRateMult/100.0f;
+	playerSpeed += relic->speed;
+	myRelics.push_back(relic);
 }
 
 std::vector<CardId> PlayerData::getLibrary() {

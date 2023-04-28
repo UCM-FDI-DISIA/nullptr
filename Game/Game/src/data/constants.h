@@ -635,6 +635,7 @@ const string PLAYER_HIT_SOUND = "PlayerHit";
 const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
 const string BUTTON_PRESSED_SOUND = "ButtonPressed";
 const string LOAD_EXIT_SOUND = "LoadExit";
+const string CHEST_OPENING_SOUND = "ChestOpening";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
@@ -652,6 +653,13 @@ const int SHOP_MONEY_WIDTH = 100;
 const int SHOP_MONEY_HEIGHT = 50;
 const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
 const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+
+//POSTGAME SCENE ------------------------------------------------------------------------------------------
+const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);
+const Vector2D SPOTLIGHT_POSITION = Vector2D(765, 500);
+const Vector2D CARD_CREATION_POSITION = Vector2D(817, 328);
+const Vector2D NEW_CARD_POSITION = Vector2D(800, 198);
+const float NEXT_EVENT_TIMER = 0.5;
 
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
@@ -712,6 +720,13 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
+
+//CALCULO DINERO
+
+const float ENEMYFACTOR = 3.75;
+const float DAMAGEFACTOR = 0.5;
+const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
+
 
 //STRUCTS
 
