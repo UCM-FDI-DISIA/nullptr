@@ -8,52 +8,67 @@ EffectController::EffectController(Image* image) : image(image)
 
 void EffectController::update()
 {
+
+	int r = 255, g = 255, b = 255, a = 255;
 	
-	double second = fmod(timer, 100.0);
-	switch (currentEffect)
+	for (auto& effect : currentEffects)
 	{
-	case E_BURNING:
-		if (second < 33) {
-			image->changeTint(255, 195, 0);
+		double second = fmod(effect.timer, 100.0);
+
+
+		switch (effect.effect)
+		{
+		case E_BURNING:
+			if (second < 33) {
+				r = 255; g = 195; b = 0;
+			}
+			if (second > 33 && second < 66) {
+				r = 255; g = 87; b = 51;
+			}
+			if (second > 66) {
+				r = 255; g = 66; b = 51;
+			}
+			break;
+		case E_CONFUSED:
+				r = 129; g = 56; b = 231;
+			break;
+		case E_INVULN:
+				a = 100;
+			break;
+		case E_DAMAGED:
+				r = 255; g = 50; b = 50;
+			break;
+		default:
+			break;
 		}
-		if (second > 33 && second < 66) {
-			image->changeTint(255, 87, 51);
-		}
-		if (second > 66) {
-			image->changeTint(255, 66, 51);
-		}
-		break;
-	case E_CONFUSED:
-		image->changeTint(129, 56, 231);
-		break;
-	case E_INVULN:
-		image->changeAlpha(100);
-		break;
-	case E_DAMAGED:
-		image->changeTint(255, 50, 50);
-		break;
-	case E_NONE:
-		image->changeAlpha(255);
-		image->changeTint(255,255,255);
-		break;
-	default:
-		break;
+
+		
+		effect.timer -= SDLApplication::instance()->getDeltaTimeSeconds();
+
 	}
 
-	if (timer > 0)
-		timer -= SDLApplication::instance()->getDeltaTimeSeconds();
 	
+	image->changeTint(r, g, b);
+	image->changeAlpha(a);
 	
-	if (timer < 0)
-	{
-		currentEffect = E_NONE;
+	for (auto it = currentEffects.begin(); it != currentEffects.end();) {
+		if (it->timer < 0) {
+			it = currentEffects.erase(it);
+		}
+		else
+			++it;
 	}
+	
+	
+	
 }
 
 void EffectController::startEffect(effectID effect, double duration)
 {
-	currentEffect = effect;
-	timer = duration;
+	Effect ef;
+	ef.effect = effect;
+	ef.timer = duration;
+	currentEffects.push_back(ef);
 }
 
 
