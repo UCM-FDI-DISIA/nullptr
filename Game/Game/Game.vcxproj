@@ -184,6 +184,7 @@
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\General Components\StatsTrackComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
     <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
@@ -237,6 +238,7 @@
     <ClInclude Include="src\scenes\NodeScene.h" />
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
+    <ClInclude Include="src\scenes\PostGameScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
     <ClInclude Include="src\sdlutils\Font.h" />
     <ClInclude Include="src\sdlutils\InputHandler.h" />
@@ -273,6 +275,7 @@
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
+    <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
     <ClCompile Include="src\components\General Components\TextComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
@@ -336,6 +339,7 @@
     <ClCompile Include="src\scenes\NodeScene.cpp" />
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
+    <ClCompile Include="src\scenes\PostGameScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />

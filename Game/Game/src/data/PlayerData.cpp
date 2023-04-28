@@ -26,6 +26,8 @@ PlayerData::PlayerData() {
 	{
 		avlbRelics.push_back(var.first);
 	}
+
+	lastCard = _card_NULL;
 }
 
 PlayerData::~PlayerData() {
@@ -91,8 +93,34 @@ void PlayerData::addCardToLibrary(CardId newCard, int num) {
 	}
 }
 
-void PlayerData::addRelic(Relic* relic) {
+pair<CardId, int> PlayerData::getNewCard() {
+	pair<CardId, int> res;
+	bool available = cardAvailable();
+	if (lastCard == _card_NULL) {
+		lastCard = (CardId) SDLApplication::instance()->getRandInt(0, maxCardId);
+		while (count(library.begin(), library.end(), lastCard) && available)
+		{
+			lastCard = (CardId)SDLApplication::instance()->getRandInt(0, maxCardId);
+		}
+		res = pair<CardId, int>{lastCard, 1};
+		addCardToLibrary(lastCard, 1);
+	}
+	else {
+		res =  pair<CardId, int>{lastCard , 2};
+		addCardToLibrary(lastCard, 2);
+		lastCard = _card_NULL;
+	}
+	return res;
+}
 
+bool PlayerData::cardAvailable() {
+	for (int i = 0; i < maxCardId; i++) {
+		if (!count(library.begin(), library.end(), (CardId)i)) return true;
+	}
+	return false;
+}
+
+void PlayerData::addRelic(Relic* relic) {
 	maxMana += relic->mana;
 	maxHP += relic->health;
 	attackMult += relic->attackMult/100.0f;

@@ -410,7 +410,7 @@ const int ETHER_COLUMNS = 2;
 const int ETHER_START = 0;
 const int ETHER_END = 7;
 const int ETHER_FRAMERATE = 8;
-const int ETHER_LIMIT = 999;
+const int ETHER_LIMIT = 100;
 // COUNTERS
 const int N_LIFE_COUNTER = 7;
 const int N_MANA_COUNTER = 7;
@@ -421,7 +421,7 @@ const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
 const Vector2D UI_COUNTDOWN_ETHER_POS = Vector2D(WIN_WIDTH / 2 - (ST_NUMBERS_WIDTH * 1.8 + 6) / 2, 9);
-const float COUNTDOWN_TIME = 5.6f;
+const float COUNTDOWN_TIME = 3.6f;
 
 //MANA -------------------------------------------------------------------------------------------
 const int MANA_H = 10;
@@ -433,7 +433,7 @@ const int MANA_COLUMS = 2;
 // ETHER ------------------------------------------------------------------------------------------
 const int ETHER_H = 20;
 const int ETHER_W = 20;
-const int ETHER_VALUE = 5;
+const int ETHER_VALUE = 1;
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;
 // CARD REVERSE DIMENSIONS
@@ -636,6 +636,7 @@ const string PLAYER_HIT_SOUND = "PlayerHit";
 const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
 const string BUTTON_PRESSED_SOUND = "ButtonPressed";
 const string LOAD_EXIT_SOUND = "LoadExit";
+const string CHEST_OPENING_SOUND = "ChestOpening";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
@@ -653,6 +654,13 @@ const int SHOP_MONEY_WIDTH = 100;
 const int SHOP_MONEY_HEIGHT = 50;
 const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
 const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+
+//POSTGAME SCENE ------------------------------------------------------------------------------------------
+const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);
+const Vector2D SPOTLIGHT_POSITION = Vector2D(765, 500);
+const Vector2D CARD_CREATION_POSITION = Vector2D(817, 328);
+const Vector2D NEW_CARD_POSITION = Vector2D(800, 198);
+const float NEXT_EVENT_TIMER = 0.5;
 
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
@@ -713,6 +721,13 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
+
+//CALCULO DINERO
+
+const float ENEMYFACTOR = 3.75;
+const float DAMAGEFACTOR = 0.25;
+const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
+
 
 //STRUCTS
 

@@ -28,6 +28,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
 			auto sc = dynamic_cast<BattleScene*>(gStt);
 			sc->OnPlayerDamage(lifePoints);
+			sc->getTracker()->onPlayerDamage(damage);
 		}
 
 		if (lifePoints <= 0) {
