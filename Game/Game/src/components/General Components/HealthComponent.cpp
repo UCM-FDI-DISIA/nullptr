@@ -21,6 +21,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 	if (invTime <= 0) {
 		lifePoints -= damage;
 		cout << lifePoints << endl;
+		eController->startEffect(E_DAMAGED, 0.25);
 
 		// Si se trata del Player, actualiza su barra de vida
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
@@ -47,8 +48,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 		}
 		else
 		{
-			if (gObj->hasComponent<EffectController>())
-				eController->startEffect(E_DAMAGED, 0.25);
+				
 		}
 	}
 }
