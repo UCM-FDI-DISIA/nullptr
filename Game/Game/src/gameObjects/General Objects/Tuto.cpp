@@ -16,10 +16,10 @@ void Tuto::initGameObject(Transform* pl) {
 	myAnim->createAnim(IDLE, 0, 1, 5, -1);
 	// Animaciones con controller
 	if (ih().isControllerConnected()) {
-		myAnim->createAnim("MovementCtrlls", 15, 16, 5, -1);
-		myAnim->createAnim("AimCtrlls", 19, 20, -1);
-		myAnim->createAnim("AttackCtrlls", 23, 24, -1);
-		myAnim->createAnim("AbilityCtrlls", 27, 28, -1);
+		myAnim->createAnim(to_string(1), 15, 16, 5, -1);
+		myAnim->createAnim(to_string(2), 19, 20, -1);
+		myAnim->createAnim(to_string(3), 23, 24, -1);
+		myAnim->createAnim(to_string(4), 27, 28, -1);
 	}
 	// Animaciones con teclas
 	else {
