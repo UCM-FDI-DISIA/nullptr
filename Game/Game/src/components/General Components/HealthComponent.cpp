@@ -1,5 +1,6 @@
 #include "HealthComponent.h"
 #include "EffectController.h"
+#include "Transform.h"
 #include"../../gameObjects/GameObject.h"
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"
@@ -15,7 +16,7 @@ HealthComponent::HealthComponent(int life, bool Invincibility) :
 	onDeath(nullptr){}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
-void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
+void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Transform* damageOrigin, Vector2D damageVel)
 {
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
@@ -35,9 +36,16 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe)
 			die();
 			if (axe != nullptr) axe->enemieKilled();
 		}
-		else {
-			if(invTime<=0)
+		else if(invTime <= 0) {
+			if (damageVel.magnitude()!=Vector2D().magnitude())
+				transform->push(damageVel.normalize()*100);
+			else {
+				Vector2D vel = transform->getPos() - damageOrigin->getPos();
+				transform->push((vel.normalize()) * 100);
+			}
+				
 			Mix_PlayChannelTimed(-1, hitSound->getChunk(), 0, -1);
+			
 		}
 		if (invincibility) {
 			invTime = 0.5;
@@ -69,6 +77,7 @@ void HealthComponent::setInvencibility(float time)
 }
 
 void HealthComponent::initComponent() {
+	transform = gObj->getComponent<Transform>();
 	eController = gObj->getComponent<EffectController>();
 	onDeath = gObj->getComponent<OnDeath>();
 	if (dynamic_cast<MeleeEnemy*>(gObj)) {

@@ -31,11 +31,11 @@ public:
 	}
 
 	//Constructor de hitbox que causa dano, se le anade un lifetime component
-	void initGameObject(float dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr)
+	void initGameObject(float dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr, Transform* parentData=nullptr)
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
-		addComponent<HitboxDamageComponent>(dmg, isDestroyed, knockBack, axe);
+		addComponent<HitboxDamageComponent>(dmg, isDestroyed, knockBack, axe, parentData);
 	}
 
 	//Constructor de hitbox que aflige estados alterados, se le anade un lifetime component
@@ -66,6 +66,7 @@ public:
 		addComponent<LifeTimeComponent>(lifetime);
 		addComponent<ColliderComponent>(data.trgt); 
 	}
+
 	// Agrega este método predeterminado a la clase Hitbox
 	void initGameObject() {}
 

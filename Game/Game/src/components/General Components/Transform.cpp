@@ -63,5 +63,10 @@ void Transform::move() {
 //Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
 	double deltaTime = SDLApplication::instance()->getDeltaTimeSeconds();
-	position_ = position_ + (velocity_ * deltaTime);
+	position_ = position_ + ((velocity_+tempVelocity_) * deltaTime);
+	tempVelocity_= tempVelocity_/1.001f;
+}
+
+void Transform::push(Vector2D impulse) {
+	tempVelocity_ = impulse;
 }
