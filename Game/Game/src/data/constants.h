@@ -724,6 +724,4 @@ struct AnimatorInfo {
 		int _r = BUTTON_SPRITE_ROWS, int _c = BUTTON_SPRITE_COLUMS) :
 		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
 };
-
-
 #endif

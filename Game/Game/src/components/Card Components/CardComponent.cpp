@@ -137,15 +137,6 @@ void CardComponent::setInitialDeck() {
 	system = true;
 }
 
-void CardComponent::setTutorialDeck() {
-	deck.clear();
-	deck.push_back(new SwordCard());
-	hand.clear();
-	tutorial = true;
-	system = false;
-	initDeck();
-}
-
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
 void CardComponent::switchActive(int number) {
 	if (number >= 0 && number < hand.size()) {

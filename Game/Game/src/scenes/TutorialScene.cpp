@@ -18,45 +18,6 @@ TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0),
 	tutorialController = tc->addComponent<TutorialComponent>([&]() { activatePopUp(); }, getSteps());
 }
 
-void TutorialScene::setFirstState() {
-	PlayerInputComponent* pic = player->getComponent<PlayerInputComponent>();
-	pic->setCanMove(false);
-	pic->setCanAttack(false);
-	pic->setCanUseAbility(false);
-	pic->setCanExit(false);
-
-	// Ocultamos el puntero
-	pointer->setShowPointer(false);
-	pointer->getComponent<PointerComponent>()->discardFollowObject();
-
-	tuto->setAlive(false);
-	tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
-
-	if (hand != nullptr) {
-		hand->setAlive(false);
-		hand = nullptr;
-	}
-
-	if (cardContLeft != nullptr) {
-		cardContLeft->setAlive(false);
-		cardContRight->setAlive(false);
-		cardContLeft = nullptr;
-		cardContRight = nullptr;
-	}
-
-	if (statistics != nullptr) {
-		statistics->setAlive(false);
-		statistics = nullptr;
-	}
-
-	if (testEnemy != nullptr) {
-		testEnemy->setAlive(false);
-		testEnemy = nullptr;
-	}
-
-	tuto->getComponent<CardComponent>()->setTutorialDeck();
-}
-
 void TutorialScene::activateInput() {
 	// Ocultamos el puntero y le permitimos moverse
 	pointer->setShowPointer(false);
@@ -82,7 +43,7 @@ void TutorialScene::explainCardSystem() {
 void TutorialScene::addMeleeEnemy() {
 	// AÑADIMOS UN ENEMIGO A LA ESCENA
 	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 200, 0);
-	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player, 3, 0);
 	// Y creamos la barra superior de la UI (bloqueamos el input de salir de partida)
 	player->getComponent<PlayerInputComponent>()->setCanExit(false);
 	createStatistics(player->getComponent<HealthComponent>(), player->getComponent<CardComponent>());
@@ -96,7 +57,7 @@ void TutorialScene::showAbility() {
 void TutorialScene::showDrops() {
 	// Añado otro enemigo que me completará el éter necesario para salir en el proximo paso
 	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 200, 0);
-	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player, 19);
+	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player, 0, 20);
 }
 
 void TutorialScene::showPortalCharges() {
@@ -172,16 +133,16 @@ void TutorialScene::deactivatePopUp() {
 }
 
 // Devuelve los callbacks con sus respectivos tiempos
-vector<pair<CallBack, double>> TutorialScene::getSteps() {
-	vector<pair<CallBack, double>> steps;
+vector<CallBack> TutorialScene::getSteps() {
+	vector<CallBack> steps;
 
-	steps.push_back({ [&]() {activateInput(); }, 5 });
-	steps.push_back({ [&]() {addCard(); }, -1 });
-	steps.push_back({ [&]() {explainCardSystem(); }, 2 });
-	steps.push_back({ [&]() {addMeleeEnemy(); }, -1 });
-	steps.push_back({ [&]() {showAbility(); }, 5 });
-	steps.push_back({ [&]() {showDrops(); }, 5 });
-	steps.push_back({ [&]() {showPortalCharges(); }, 5 });
+	steps.push_back([&]() {activateInput(); });
+	steps.push_back([&]() {addCard(); });
+	steps.push_back([&]() {explainCardSystem(); });
+	steps.push_back([&]() {addMeleeEnemy(); });
+	steps.push_back([&]() {showAbility(); });
+	steps.push_back([&]() {showDrops(); });
+	steps.push_back([&]() {showPortalCharges(); });
 	return steps;
 }
 

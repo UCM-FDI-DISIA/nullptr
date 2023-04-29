@@ -35,15 +35,12 @@ private:
 		"¿Has visto eso? ¡El enemigo te ha soltado maná! (piedras azules).\n\nEl maná (barra azul) será necesario para usar las habilidades de las cartas y para recogerlo deberás pasar sobre él.\nLas habilidades vienen indicadas en la zona superior de las cartas junto al maná que consumen, ¡prueba a usar una!",
 	
 		// Portal
-		"El enemigo te puede soltar otra cosa... ¡éter! (polvo morado).\n\nEl éter (barra blanca) será necescario para cargar el portal, teniendo que llegar al 100% del medidor para poder avanzar al siguiente nivel. Se recogerá solo tras cierto tiempo, así que... ¡ánimo contra la siguiente horda de enemigos!"
+		"El enemigo te puede soltar otra cosa... ¡éter! (polvo morado).\n\nEl éter (barra blanca) será necesario para cargar el portal, teniendo que llegar al 100% del medidor para poder avanzar al siguiente nivel. Se recogerá solo tras cierto tiempo, así que... ¡ánimo contra la siguiente horda de enemigos!"
 	};
 
 public:
 	// Constructora
 	TutorialScene(BattleType bt);
-
-	//Devuelve la escena tutorial al estado inicial
-	void setFirstState();
 
 	// Notifica de que se ha descartado una carta, que se crea una nueva mano y que se ha usado una habilidad
 	void notifyDiscard() {
@@ -84,5 +81,5 @@ public:
 	bool getManaNumber() { return getEntitiesByGroup(_grp_MANA).size() == 0; }
 
 	// Devuelve los callbacks con sus respectivos tiempos
-	vector<pair<CallBack, double>> getSteps();
+	vector<CallBack> getSteps();
 };

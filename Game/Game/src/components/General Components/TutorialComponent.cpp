@@ -3,7 +3,7 @@
 #include "../../core/GameControl.h"
 
 // Constructora
-TutorialComponent::TutorialComponent(CallBack callback, vector<pair<CallBack, double>> steps) : 
+TutorialComponent::TutorialComponent(CallBack callback, vector<CallBack> steps) : 
 	activatePopup(callback), timeOffset(0), steps(steps),
 	current(Introduccion), firstActionDone(false), canCount(true), discarted(false), newHand(false), 
 	ability(false), canAdvance(false), ts(nullptr) {}

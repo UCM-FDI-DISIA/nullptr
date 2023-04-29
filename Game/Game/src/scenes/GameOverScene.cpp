@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 #include "TutorialScene.h"
 
-GameOverScene::GameOverScene(bool cameFromTutorial) {
+GameOverScene::GameOverScene(BattleType prevBt, bool cameFromTutorial) : previousBT(prevBt) {
 	//Creo el background
 	auto bc = addGameObject();
 	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
@@ -23,12 +23,8 @@ GameOverScene::GameOverScene(bool cameFromTutorial) {
 	CallBack cb;
 	string key = EXIT;
 	if (!cameFromTutorial) cb = []() { SDLApplication::newScene<MainMenuScene>(); };
-	else { 
-		cout << "MORISTE EN EL TUTORIAL" << endl;
-		cb = []() { 
-			SDLApplication::popGameState(); 
-			dynamic_cast<TutorialScene*>(SDLApplication::instance()->getCurrentState())->setFirstState();
-		};
+	else {
+		cb = [&]() { SDLApplication::popGameState();  SDLApplication::pushNewScene<TutorialScene>(previousBT); };
 		key = RESUME; 
 	}
 

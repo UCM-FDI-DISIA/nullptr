@@ -89,12 +89,13 @@ void BattleScene::changeToGameOverScene() {
 
 	if (tutorial) {
 		delay->addComponent<CallbackDelayer>([&]() {
-			SDLApplication::pushNewScene<GameOverScene>(true); }, DEATH_DELAY);
+			SDLApplication::popGameState();
+			SDLApplication::pushNewScene<GameOverScene>(type, true); }, DEATH_DELAY);
 	}
 	else {
 		delay->addComponent<CallbackDelayer>([&]() {
 			SDLApplication::popGameState();
-			SDLApplication::pushNewScene<GameOverScene>(); }, DEATH_DELAY);
+			SDLApplication::pushNewScene<GameOverScene>(type); }, DEATH_DELAY);
 	}
 }
 

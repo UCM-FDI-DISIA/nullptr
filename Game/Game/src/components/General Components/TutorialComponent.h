@@ -10,7 +10,7 @@ enum Pasos {
 class TutorialScene;
 class TutorialComponent : public Component {
 private:
-	vector<pair<CallBack, double>> steps;
+	vector<CallBack> steps;
 	CallBack activatePopup;
 	Pasos current;
 	TutorialScene* ts;
@@ -20,7 +20,7 @@ public:
 	// Identificador
 	static const int id = _TUTORIAL_COMPONENT;
 	// Constructora
-	TutorialComponent(CallBack callback, vector<pair<CallBack, double>> steps);
+	TutorialComponent(CallBack callback, vector<CallBack> steps);
 	// Actualiza la escena
 	void update();
 
@@ -29,7 +29,7 @@ public:
 	inline void setNewHand(bool value) { newHand = value; }
 	inline void setAbility(bool value) { ability = value; }
 	inline bool getCanCount() { return canCount; }
-	inline void doStep() { steps[current].first(); }
+	inline void doStep() { steps[current](); }
 	inline bool getCanAdvance() { return canAdvance; }
 	inline void setCanAdvance(bool value) { canAdvance = value; }
 
