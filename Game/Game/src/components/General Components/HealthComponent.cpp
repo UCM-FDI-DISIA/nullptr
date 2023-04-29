@@ -65,6 +65,11 @@ void HealthComponent::setInvencibility(float time)
 {
 	if (invincibility) {
 		invTime = time;
+		if (gObj->hasComponent<EffectController>()) {
+			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
+			eController->startEffect(E_INVULN, time);
+		}
+
 	}
 }
 
