@@ -4,41 +4,49 @@
 
 // Constructora
 TutorialComponent::TutorialComponent(CallBack callback, vector<pair<CallBack, double>> steps) : 
-	activatePopup(callback), startime(SDL_GetTicks()), timeOffset(0), steps(steps),
-	current(Movimiento), firstActionDone(false), canCount(true), discarted(false) {}
+	activatePopup(callback), timeOffset(0), steps(steps),
+	current(Introduccion), firstActionDone(false), canCount(true), discarted(false) {}
 
 
 // Actualiza la escena
 void TutorialComponent::update() {
-	// Si el jugador ha realizado la accion debida, empieza el contador
 	if (canCount) timeOffset += SDLApplication::instance()->getDeltaTimeSeconds();
-	else setCanCount();
-
-	// Si pasa 1 segundo y esta desactivado el popup o si se ha activado la accion y ha pasado su tiempo de delay, se activa
-	if ((timeOffset >= 1 && !firstActionDone) || (timeOffset >= steps[current].second && firstActionDone)) {
-		activatePopup();
-		firstActionDone = true;
-		canCount = false;
-		timeOffset = 0;
-	}
+	changeState();
 }
 
-void TutorialComponent::setCanCount() {
+void TutorialComponent::changeState() {
 	
 	switch(current){
+		case Introduccion:
+			if (timeOffset >= 1.5) {
+				activatePopup();		// Con el texto de movimiento
+				timeOffset = 0;
+				current = Movimiento;
+				canCount = false;
+			}
+		break;
+
 		case Movimiento:
-			if (GameControl::instance()->movementX() || GameControl::instance()->movementY()) canCount = true;
+			if (!canCount) canCount = GameControl::instance()->movementX() != 0 || GameControl::instance()->movementY() != 0;
+			else if (canCount && timeOffset >= 5){
+				activatePopup();		// Con el texto de la carta
+				timeOffset = 0;
+				current = Carta;
+				canCount = false;
+			}
+
 		break;
 
 		case Carta:
 			// Si he usado la carta 5 veces
-			//if () canCount = true;
-			timeOffset = -2;
+			if (discarted) {
+				activatePopup();		// Con el texto de descartar
+				current = Descarte;
+			}
 		break;
 
 		case Descarte:
 			// Si gasto una carta, hablo del sistema de mazo, pila y mano (y le doy su mazo bueno)
-			if (discarted) timeOffset = steps[current].second;
 			
 		break;
 

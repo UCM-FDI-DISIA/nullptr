@@ -1,4 +1,5 @@
 ﻿#include "TutorialScene.h"
+#include "../gameObjects/UI/HandUI.h"
 
 TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(Movimiento), screen(nullptr), 
 		testEnemy(nullptr), tuto(nullptr), tutoPopUp(nullptr), text(nullptr), button(nullptr) {
@@ -17,7 +18,6 @@ TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(Mov
 
 void TutorialScene::notifyDiscard() {
 	tutorialController->setDiscarted(true);
-	tutorialController->setCurrentStep((Pasos)current);
 }
 
 void TutorialScene::activateInput() {
@@ -27,12 +27,14 @@ void TutorialScene::activateInput() {
 void TutorialScene::addCard() {
 	// ENSEÑAMOS LA CARTA (LA ESPADA)
 	createHand(player->getComponent<CardComponent>());
-	player->getComponent<PlayerInputComponent>()->setCanAttack(true);
 }
 
 void TutorialScene::explainCardSystem() {
-	player->getComponent<CardComponent>()->setInitialDeck();
-	createCounters(player->getComponent<CardComponent>());
+	CardComponent* cc = player->getComponent<CardComponent>();
+	cc->setInitialDeck();
+	createCounters(cc);
+	hand->setAlive(false);
+	hand = addGameObject<HandUI>(cc);
 }
 
 void TutorialScene::addMeleeEnemy() {
@@ -55,14 +57,11 @@ void TutorialScene::showPortalCharges() {
 
 // Activa el popup
 void TutorialScene::activatePopUp() {
-	if (current == 2) {
-		int i = 0;
-	}
-	tutorialController->setCurrentStep((Pasos)current);
 	// Le impedimos el movimiento y el ataque
 	player->getComponent<PlayerMovementComponent>()->setDirection(Vector2D());
 	player->getComponent<PlayerInputComponent>()->setCanMove(false);
 	player->getComponent<PlayerInputComponent>()->setCanAttack(false);
+	pointer->getComponent<PointerComponent>()->discardFollowObject();
 
 	// Mostrar puntero de ratón
 	pointer->setShowPointer(true);
@@ -105,6 +104,11 @@ void TutorialScene::deactivatePopUp() {
 
 	tutorialController->doStep();
 	current++;
+	if (current >= 2) {
+		// El puntero sigue al player
+		pointer->getComponent<PointerComponent>()->setFollowObject(player);
+		player->getComponent<PlayerInputComponent>()->setCanAttack(true);
+	}
 }
 
 // Devuelve los callbacks con sus respectivos tiempos

@@ -29,6 +29,11 @@ public:
 	inline void setFollowObject(GameObject* followObject_) {
 		followObjectTransform = followObject_->getComponent<Transform>();
 	}
+
+	inline void discardFollowObject() {
+		followObjectTransform = nullptr;
+	}
+
 	// Establece el radio
 	inline void setRadius(float radius_) {
 		radius = radius_;

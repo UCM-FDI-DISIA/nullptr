@@ -128,7 +128,10 @@ void CardComponent::selectRight() {
 }
 
 void CardComponent::setInitialDeck() {
-	deck = PlayerData::instance()->getDeck(); 
+	int i = 0;
+	deck = PlayerData::instance()->getDeck();
+	hand.clear();
+	tuto = false;
 	initDeck();
 }
 
