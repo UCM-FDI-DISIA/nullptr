@@ -4,9 +4,9 @@
 
 ChestScene::ChestScene() : NodeScene() {
 	// Sonido
-  chestOpening=&sdlutils().soundEffects().at(CHEST_OPENING_SOUND);
+	chestOpening=&sdlutils().soundEffects().at(CHEST_OPENING_SOUND);
   
-  // Fondo
+	// Fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture(CHEST_BG));
@@ -29,7 +29,7 @@ ChestScene::ChestScene() : NodeScene() {
 	anim->createAnim(ONOUT, 0, 12, 9, -1);
 	anim->createAnim(ONOVER, 13, 13, ONOVER_SPEED, -1);
 	// Componente botón
-	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb); eB->setAsCurrentButton();})->setAsDefaultButton();
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);})->setAsDefaultButton();
 }
 
 ChestScene:: ~ChestScene() {
@@ -84,7 +84,7 @@ void ChestScene::spawnNewItem() {
 
 		// Botón salir
 		AnimatorInfo aI = AnimatorInfo(EXIT);
-		addGameObject<Button>([]() { SDLApplication::returnToMapScene(); }, CHEST_EXIT_BUTTON_POS, aI);
+		addGameObject<Button>([]() { SDLApplication::returnToMapScene(); }, CHEST_EXIT_BUTTON_POS, aI)->setAsCurrentButton();
 	}
 }
 
@@ -119,10 +119,10 @@ void ChestScene::relicInfo(Relic* r, SDL_Color color) {
 	createStat(r->health, "LifeSymbol", 70, color);
 
 	// Movimiento
-	createStat(r->movementVelocity, "SpeedSymbol", 140, color);
+	createStat(r->speed, "SpeedSymbol", 140, color);
 
 	// Cadencia
-	createStat(r->cadencyMult, "CadenceSymbol", 210, color);
+	createStat(r->fireRateMult, "CadenceSymbol", 210, color);
 
 	// Mana
 	createStat(r->mana, "ManaSymbol", 280, color);

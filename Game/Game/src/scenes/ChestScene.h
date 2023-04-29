@@ -11,6 +11,9 @@ private:
   SoundEffect* chestOpening;
   
 public:
+	ChestScene();
+	virtual ~ChestScene();
+
 	void gacha(GameObject* obj);
 
 	void spawnNewItem();
