@@ -13,19 +13,19 @@ void EffectController::update()
 	
 	for (auto& effect : currentEffects)
 	{
-		double second = fmod(effect.timer, 100.0);
-
+		double second = fmod(effect.timer, 1.0);
+		std::cout << second << "\n";
 
 		switch (effect.effect)
 		{
 		case E_BURNING:
-			if (second < 33) {
+			if (second < .033) {
 				r = 255; g = 195; b = 0;
 			}
-			if (second > 33 && second < 66) {
+			if (second > .033 && second < .066) {
 				r = 255; g = 87; b = 51;
 			}
-			if (second > 66) {
+			if (second > .066) {
 				r = 255; g = 66; b = 51;
 			}
 			break;
@@ -33,7 +33,9 @@ void EffectController::update()
 				r = 129; g = 56; b = 231;
 			break;
 		case E_INVULN:
+			if (second < 0.05)
 				a = 100;
+			else a = 150;
 			break;
 		case E_DAMAGED:
 				r = 255; g = 50; b = 50;
