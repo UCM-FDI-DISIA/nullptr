@@ -4,7 +4,7 @@
 
 
 enum Pasos {
-	Movimiento, Carta, Descarte, Enemigos, Habilidad, Drops, Portal, Introduccion
+	Movimiento, Carta, Mano, Enemigos, Habilidad, Drops, Portal, Introduccion
 };
 
 class TutorialScene;
@@ -13,8 +13,9 @@ private:
 	vector<pair<CallBack, double>> steps;
 	CallBack activatePopup;
 	Pasos current;
+	TutorialScene* ts;
 	float timeOffset;
-	bool firstActionDone, canCount, discarted, newHand;
+	bool firstActionDone, canCount, discarted, newHand, ability;
 public:
 	// Identificador
 	static const int id = _TUTORIAL_COMPONENT;
@@ -26,6 +27,7 @@ public:
 	void changeState();
 	inline void setDiscarted(bool value) { discarted = value; }
 	inline void setNewHand(bool value) { newHand = value; }
+	inline void setAbility(bool value) { ability = value; }
 	inline bool getCanCount() { return canCount; }
 	inline void doStep() { steps[current].first(); }
 

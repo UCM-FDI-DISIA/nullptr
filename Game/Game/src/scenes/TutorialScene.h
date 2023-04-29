@@ -23,8 +23,17 @@ public:
 	TutorialScene(BattleType bt);
 
 	// Notifica de que se ha descartado una carta o se crea una nueva mano
-	void notifyDiscard();
-	void notifyNewHand();
+	void notifyDiscard() {
+		tutorialController->setDiscarted(true);
+	}
+
+	void notifyNewHand() {
+		tutorialController->setNewHand(true);
+	}
+
+	void notifyAbility() {
+		tutorialController->setAbility(true);
+	}
 
 	// PASOS DEL TUTORIAL
 	// Activar input 
@@ -45,6 +54,9 @@ public:
 	void activatePopUp();
 	// Desactiva el popup
 	void deactivatePopUp();
+
+	bool getTestEnemy() { return getEntitiesByGroup(_grp_ENEMIES).size() == 0; };
+	bool getManaNumber() { return getEntitiesByGroup(_grp_MANA).size() == 0; }
 
 	// Devuelve los callbacks con sus respectivos tiempos
 	vector<pair<CallBack, double>> getSteps();

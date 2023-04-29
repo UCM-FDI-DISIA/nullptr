@@ -14,7 +14,8 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	if (!tutorial) deck = PlayerData::instance()->getDeck();
+	if (!tuto) 
+		deck = PlayerData::instance()->getDeck();
 	else {
 		vector<Card*> iniDeck;
 		iniDeck.push_back(new SwordCard());

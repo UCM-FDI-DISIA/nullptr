@@ -1,41 +1,40 @@
 ﻿#include "TutorialScene.h"
 #include "../gameObjects/UI/HandUI.h"
+#include "../gameObjects/UI/StatisticsUI.h"
 
 TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0), screen(nullptr), 
 		testEnemy(nullptr), tuto(nullptr), tutoPopUp(nullptr), text(nullptr), button(nullptr) {
 
 	// Le impedimos el movimiento y el ataque
-	player->getComponent<PlayerInputComponent>()->setCanMove(false);
-	player->getComponent<PlayerInputComponent>()->setCanAttack(false);
+	PlayerInputComponent* pic = player->getComponent<PlayerInputComponent>();
+	pic->setCanMove(false);
+	pic->setCanAttack(false);
+	pic->setCanUseAbility(false);
+	// Ocultamos el puntero
 	pointer->setShowPointer(false);
-
-	CardComponent* a = player->getComponent<CardComponent>();
 
 	//Añadimos el controlador del tutorial
 	GameObject* tc = addGameObject();
 	tutorialController = tc->addComponent<TutorialComponent>([&]() { activatePopUp(); }, getSteps());
 }
 
-void TutorialScene::notifyDiscard() {
-	tutorialController->setDiscarted(true);
-}
-
-void TutorialScene::notifyNewHand() {
-	tutorialController->setNewHand(true);
-}
-
 void TutorialScene::activateInput() {
+	// Ocultamos el puntero y le permitimos moverse
+	pointer->setShowPointer(false);
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
 }
 
 void TutorialScene::addCard() {
-	// ENSEÑAMOS LA CARTA (LA ESPADA)
+	// Creamos la interfaz de la mano de cartas (solo tiene la espada)
 	createHand(player->getComponent<CardComponent>());
 }
 
 void TutorialScene::explainCardSystem() {
+	// Le damos las cartas del mazo inicial
 	CardComponent* cc = player->getComponent<CardComponent>();
 	cc->setInitialDeck();
+
+	// Creamos los contadores de cartas y destruimos y volvemos a crear la mano
 	createCounters(cc);
 	hand->setAlive(false);
 	hand = addGameObject<HandUI>(_grp_UI,cc);
@@ -43,21 +42,28 @@ void TutorialScene::explainCardSystem() {
 
 void TutorialScene::addMeleeEnemy() {
 	// AÑADIMOS UN ENEMIGO A LA ESCENA
-	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 50, 0);
+	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 200, 0);
 	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+	// Y creamos la barra superior de la UI (bloqueamos el input de salir de partida)
+	player->getComponent<PlayerInputComponent>()->setCanExit(false);
 	createStatistics(player->getComponent<HealthComponent>(), player->getComponent<CardComponent>());
 }
 
 void TutorialScene::showAbility() {
-	// 
+	// Permitimos que pueda usar la habilidad de la carta
+	player->getComponent<PlayerInputComponent>()->setCanUseAbility(true);
 }
 
 void TutorialScene::showDrops() {
-
+	// Añado otro enemigo que me completará el éter necesario para salir en el proximo paso
+	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 200, 0);
+	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player, 19);
 }
 
 void TutorialScene::showPortalCharges() {
-
+	// Permito al jugador salir de partida y seteo la referencia a la carga de portal en el input
+	player->getComponent<PlayerInputComponent>()->setCanExit(true);
+	player->getComponent<PlayerInputComponent>()->setPortalComponent(statistics->getPortalComp());
 }
 
 // Activa el popup
@@ -96,22 +102,25 @@ void TutorialScene::deactivatePopUp() {
 	// Objeto tuto
 	if (tuto == nullptr) tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
+
 	// Desactivar
 	screen->setAlive(false);
 	button->setAlive(false);
 	tutoPopUp->setAlive(false);
 	//text->setAlive(false);
 
+	// Anulo referencias
 	screen = nullptr;
 	button = nullptr;
 	tutoPopUp = nullptr;
 	text = nullptr;
 
+	// Realizo el lambda que toque y aumento el estado en el que estoy
 	tutorialController->doStep();
 	current++;
 
+	// Si estoy en el paso 2 como minimo, debo permitir al jugador atacar y hacer que el puntero le siga
 	if (current >= 2) {
-		// El puntero sigue al player
 		pointer->getComponent<PointerComponent>()->setFollowObject(player);
 		player->getComponent<PlayerInputComponent>()->setCanAttack(true);
 	}
