@@ -181,7 +181,7 @@ void ChestScene::standarizeText(GameObject* g, int stat, SDL_Color color) {
 
 // Devuelve un string con la era correspondiente
 string ChestScene::getEraString(string rEra) {
-	string completeEra = "Era ";
+	string completeEra = "Del ";
 
 	if (rEra == "F") completeEra += "Futuro";
 	else if (rEra == "R") completeEra += "Presente";
