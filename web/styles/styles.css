@@ -24,8 +24,11 @@ p {
 }
 
 footer {
-	bottom: 0;
-	position: fixed;
+	width: 100%;
+	background-color: #ac945ea7;
+	display: flex;
+	text-align: center;
+	align-items: center;
 }
 
 footer img {
@@ -92,6 +95,12 @@ footer img:hover {
 	border-radius: 30px;
 }
 
+.row {
+	margin-top: 100px;
+	display: flex;
+  	justify-content: center;
+}
+
 .column {
 	float: left;
 	width: 50%;
@@ -100,12 +109,6 @@ footer img:hover {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-}
-
-.row {
-	margin-top: 100px;
-	display: flex;
-  	justify-content: center;
 }
 
 .image {
@@ -202,21 +205,15 @@ footer img:hover {
 
 .footer-container {
 	width: 100%;
-	display: block;
-	background-color: rgba(245, 245, 245, 0.5);
+	background-color: #ac945ea7;
 	line-height: 40%;
 	text-align: center;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	position: relative;
-	justify-content: space-around;
+	position: fixed;
 }
 
 .footer-content {
-	display: flex;
-	flex-direction: column;
-	position: relative;
 	margin: 30px 30px 30px;
 }
 
