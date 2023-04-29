@@ -76,7 +76,7 @@ void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int va
 void InventoryScene::createPanels() {
 	createPanel(DP_POSITION, DP_WIDTH, DP_HEIGHT, DECK_PANEL);
 	createPanel(OP_POSITION, OP_WIDTH, OP_HEIGHT, OBJECTS_PANEL);
-	createPanel(IP_POSITION, IP_WIDTH, IP_HEIGHT, DECK_PANEL);
+	createPanel(IP_POSITION, IP_WIDTH, IP_HEIGHT, INVENTORY_PANEL);
 	createPanel(SP_POSITION, SP_WIDTH, SP_HEIGHT, STATS_PANEL);
 }
 

@@ -71,7 +71,7 @@ void MapScene::handleInput() {
 	}
 
 	// Scroll
-	camTr->setY(camTr->getY() - gmCtrl_.scroll(false));
+	camTr->setY(camTr->getY() - gmCtrl_.scroll(false) * 50);
 	if (camTr->getY() > camYLimit) camTr->setY(camYLimit);
 	else if (camTr->getY() < 0) camTr->setY(0);
 }

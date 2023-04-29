@@ -96,6 +96,8 @@ class PlayerData : public Singleton<PlayerData>
 
 		void getDataFromJSON();
 		void setDataToJSON();
+		bool hasSaveFile() const;
+		void loseSavedData();
 
 		std::vector<std::string> getAvailableItems();
 		void setAvailableItems(std::vector<std::string> newItems);

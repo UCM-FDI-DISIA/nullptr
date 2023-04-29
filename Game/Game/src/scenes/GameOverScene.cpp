@@ -3,6 +3,8 @@
 
 
 GameOverScene::GameOverScene() {
+	pD().loseSavedData();
+
 	//Creo el background
 	auto bc = addGameObject();
 	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);

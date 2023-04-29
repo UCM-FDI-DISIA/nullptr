@@ -45,17 +45,15 @@ void PlayerData::defaultPlayerStats() {
 void PlayerData::getDataFromJSON() {
 	defaultPlayerStats();
 
-	string filename = "../Game/src/data/game.playerData.json";
-
 	// Load JSON configuration file. We use a unique pointer since we
 	// can exit the method in different ways, this way we guarantee that
 	// it is always deleted
-	std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(filename));
+	std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(SAVE_FILENAME));
 
 	// check it was loaded correctly
 	// the root must be a JSON object
 	if (jValueRoot == nullptr || !jValueRoot->IsObject()) {
-		throw "Something went wrong while load/parsing '" + filename + "'";
+		throw "Something went wrong while load/parsing '" + SAVE_FILENAME + "'";
 	}
 
 	// we know the root is JSONObject
@@ -93,7 +91,7 @@ void PlayerData::getDataFromJSON() {
 		}
 
 		gameMap().clearMap();
-		gameMap().createMap(filename);
+		gameMap().createMap(SAVE_FILENAME);
 	}
 }
 
@@ -135,25 +133,73 @@ void PlayerData::setDataToJSON()
 	jsonData["saved"] = new JSONValue(true);
 
 	
-	std::ofstream save("../Game/src/data/game.playerData.json");
+	std::ofstream save(SAVE_FILENAME);
+	// comprobar que se ha abierto el archivo
+	if (!save.is_open()) {
+		save.close();
+		throw "Could not create save Player Data file";
+	}
+	std::unique_ptr<JSONValue> jval(new JSONValue(jsonData));
+	try {
+		// Guardar los detos de la partida en el archivo
+		save << JSON::Stringify(&*jval);
+	}
+	catch (...) {
+		// Cerrar el archivo e informar si hubo algún problema al guardar
+		save.close();
+		throw "Could not save Player Data correctly";
+	}
+}
+
+
+bool PlayerData::hasSaveFile() const {
+	try {
+		// Load JSON configuration file. We use a unique pointer since we
+		// can exit the method in different ways, this way we guarantee that
+		// it is always deleted
+		std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(SAVE_FILENAME));
+
+		// check it was loaded correctly
+		// the root must be a JSON object
+		if (jValueRoot == nullptr || !jValueRoot->IsObject()) {
+			throw "Something went wrong while load/parsing '" + SAVE_FILENAME + "'";
+		}
+
+		// we know the root is JSONObject
+		JSONObject root = jValueRoot->AsObject();
+		JSONValue* saved = nullptr;
+
+		saved = root["saved"];
+
+		return saved->AsBool();
+	}
+	catch (...) {
+		return false;
+	}
+}
+
+
+void PlayerData::loseSavedData() {
+	JSONObject jsonData;
+	jsonData["saved"] = new JSONValue(false);
+
+	std::ofstream save(SAVE_FILENAME);
 	// comprobar que se ha abierto el archivo
 	if (!save.is_open()) {
 		save.close();
 		throw "Could not create save Player Data file";
 	}
 
-	JSONValue* jval = new JSONValue(jsonData);
+	std::unique_ptr<JSONValue> jval(new JSONValue(jsonData));
 	try {
 		// Guardar los detos de la partida en el archivo
-		save << JSON::Stringify(jval);
+		save << JSON::Stringify(&*jval);
 	}
 	catch (...) {
-		delete jval;
 		// Cerrar el archivo e informar si hubo algún problema al guardar
 		save.close();
 		throw "Could not save Player Data correctly";
 	}
-	delete jval;
 }
 
 std::vector<std::string> PlayerData::getAvailableItems() {
