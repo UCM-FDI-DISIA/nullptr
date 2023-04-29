@@ -37,6 +37,7 @@ class PlayerData : public Singleton<PlayerData>
 	std::vector<CardId> library;
 	std::vector<CardId> deckIds;
 	
+	CardId lastCard;
 	
 	//Vector con todas las reliquias disponibles, saca su key del mapa
 	std::vector<std::string> avlbRelics;
@@ -90,6 +91,8 @@ class PlayerData : public Singleton<PlayerData>
 		inline void addFireRateMult(float rate) { fireRateMult += rate; }
 		inline void addPlayerMoveSpeed(float speed) { playerSpeed += speed; }
 
+		inline void nextLevel() { level++; }
+
 		void defaultPlayerStats();
 
 		void getDataFromJSON();
@@ -103,6 +106,10 @@ class PlayerData : public Singleton<PlayerData>
 		void setDeck(std::vector<Card*> newDeck);
 		void addCardToLibrary(CardId newCard, int num);
 		void setAvailableItems(std::vector<std::string> newItems);
+
+		pair<CardId, int> getNewCard();
+
+		bool cardAvailable();
 
 		void addRelic(Relic* relic);
 		std::vector<CardId> getLibrary();

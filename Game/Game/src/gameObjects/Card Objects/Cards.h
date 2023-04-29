@@ -1,5 +1,7 @@
 #include "../Card Objects/Card.h"
 #include "../../scenes/BattleScene.h"
+#include "../../data/CardsDataContainer.h"
+#include "../../scenes/GameState.h"
 #pragma once
 
 class GunCard : public Card {

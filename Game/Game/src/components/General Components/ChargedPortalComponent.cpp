@@ -1,8 +1,11 @@
 #include "ChargedPortalComponent.h"
+#include "../../core/SDLApplication.h"
 
-ChargedPortalComponent::ChargedPortalComponent(vector<GameObject*>& nums) : Component(), 
-							numbers(nums), exit(false), deltaTime(0) {
-	
+
+ChargedPortalComponent::ChargedPortalComponent(vector<GameObject*>& nums, GameState* scen) : Component(), 
+							numbers(nums), exit(false), deltaTime(0), gmCtrl_(gmCtrl()) {
+	scene = dynamic_cast<BattleScene*>(scen);
+
 }
 
 void ChargedPortalComponent::initComponent() {
@@ -10,20 +13,15 @@ void ChargedPortalComponent::initComponent() {
 }
 
 void ChargedPortalComponent::update() {
-	if (exit) {
-		// Si no se ha empezado a contar y se pulsa la p, empezar la cuenta atrás
-		if (InputHandler::instance()->isKeyJustDown(SDLK_p) && deltaTime == 0) countDownSetup();
-		else {
-			// Si ya se ha empezado la cuenta atrás
-			if (deltaTime != 0) {
-				// Sumar al contador y reflejar cambios en el número
-				deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();
-				brComp->changeEtherNumbers(countDownNumber, 5 - (int)deltaTime);
+	if (deltaTime != 0) {
+		// Sumar al contador y reflejar cambios en el nÃºmero
+		deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();
+		brComp->changeEtherNumbers(countDownNumber, 3 - (int)deltaTime);
 				
-				// Salir al menú principal si han pasad 5.6 secs (5 de mostrar del 5 al 1 y 0.6 del 0)
-				if (deltaTime > COUNTDOWN_TIME) SDLApplication::returnToMapScene();
-			}
-		}
+				// Salir al menÃº principal si han pasad 5.6 secs (5 de mostrar del 5 al 1 y 0.6 del 0)
+				if (deltaTime > COUNTDOWN_TIME) scene->getTracker()->startStatsScene();
+		
+
 	}
 }
 
@@ -32,19 +30,21 @@ void ChargedPortalComponent::activateExit() {
 	exit = true;
 }
 
-// Prepara el contador y el número para la cuenta atrás
+// Prepara el contador y el nÃºmero para la cuenta atrÃ¡s
 void ChargedPortalComponent::countDownSetup() {
-	// Empezar el contador
-	deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();
+	if (exit && deltaTime == 0) {
+		// Empezar el contador
+		deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();
 
-	// Guardar el primer número del vector y borrar el resto
-	countDownNumber = numbers[0];
-	for (int i = N_ETHER_COUNTER - 1; i > 0; i--) numbers[i]->setAlive(false);
-	
-	
-	// Reposicionar el número
-	Transform* tr = countDownNumber->getComponent<Transform>(); 
-	tr->setPos(UI_COUNTDOWN_ETHER_POS);
-	tr->setWidth(tr->getWidth() * 1.5);
-	tr->setHeight(tr->getHeight() * 1.5);
+		// Guardar el primer nÃºmero del vector y borrar el resto
+		countDownNumber = numbers[0];
+		for (int i = N_ETHER_COUNTER - 1; i > 0; i--) numbers[i]->setAlive(false);
+
+
+		// Reposicionar el nÃºmero
+		Transform* tr = countDownNumber->getComponent<Transform>();
+		tr->setPos(UI_COUNTDOWN_ETHER_POS);
+		tr->setWidth(tr->getWidth() * 1.5);
+		tr->setHeight(tr->getHeight() * 1.5);
+	}
 }

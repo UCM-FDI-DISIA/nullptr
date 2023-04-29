@@ -6,10 +6,10 @@ private:
 	bool alreadyClicked = false;
 	GameObject* gachaButton;
 	AnimatorInfo* chestAI;
+	SoundEffect* chestOpening;
 public:
 	ChestScene();
 	virtual ~ChestScene();
-	static void mainMenu();
 	void gacha(GameObject* obj);
 	void spawnNewItem();
 };
