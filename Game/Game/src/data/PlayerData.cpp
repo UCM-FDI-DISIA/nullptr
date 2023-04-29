@@ -218,7 +218,7 @@ void PlayerData::addRelic(Relic* relic) {
 	myRelics.push_back(relic);
 }
 
-std::vector<CardId> PlayerData::getLibrary() {
+std::vector<CardId> const& PlayerData::getLibrary() {
 	return library;
 }
 void PlayerData::addCardToDeck(CardId newCard, int num)
@@ -229,7 +229,7 @@ void PlayerData::addCardToDeck(CardId newCard, int num)
 	}
 }
 
-std::vector<CardId> PlayerData::getDeck() {
+std::vector<CardId> const& PlayerData::getDeck() {
 	return deck;
 }
 

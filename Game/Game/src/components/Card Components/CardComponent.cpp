@@ -202,7 +202,9 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
+#ifdef _DEBUG
 		cout << "Se acabo tu mano\n";
+#endif
 		newHand();
 		where->recreateUI();
 	}

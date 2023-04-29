@@ -107,10 +107,10 @@ class PlayerData : public Singleton<PlayerData>
 		void addRelic(Relic* relic);
 
 		void addCardToLibrary(CardId newCard, int num);
-		std::vector<CardId> getLibrary();
+		std::vector<CardId> const& getLibrary();
 
 		void addCardToDeck(CardId newCard, int num);
-		std::vector<CardId> getDeck();
+		std::vector<CardId> const& getDeck();
 		void setDeck(std::vector<CardId>);
 		
 };
