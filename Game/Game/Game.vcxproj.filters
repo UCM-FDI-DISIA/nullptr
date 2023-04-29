@@ -258,7 +258,7 @@
     </ClCompile>
     <ClCompile Include="src\scenes\PostGameScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
- </ClCompile>
+    </ClCompile>
     <ClCompile Include="src\core\GameControl.cpp">
       <Filter>Archivos de Dependecias\Core</Filter>
     </ClCompile>
@@ -541,9 +541,6 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
@@ -553,7 +550,7 @@
     </ClInclude>
     <ClInclude Include="src\scenes\PostGameScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
-</ClInclude>
+    </ClInclude>
     <ClInclude Include="src\core\GameControl.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -709,5 +706,6 @@
     <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
+    <None Include="src\data\game.album.json" />
   </ItemGroup>
 </Project>
