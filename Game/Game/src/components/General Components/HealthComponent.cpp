@@ -83,6 +83,9 @@ void HealthComponent::initComponent() {
 	else if (dynamic_cast<Player*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(PLAYER_HIT_SOUND);
 	}
+	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
+	}
 }
 
 void HealthComponent::update()

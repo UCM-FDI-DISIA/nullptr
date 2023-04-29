@@ -11,6 +11,9 @@ void OnDeath::initComponent() {
 	else if (dynamic_cast<TankEnemy*>(gObj)) {
 		deathSound = &sdlutils().soundEffects().at(TANK_DEATH_SOUND);
 	}
+	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
+		deathSound = &sdlutils().soundEffects().at(TANK_DEATH_SOUND);
+	}
 }
 
 void OnDeath::death() {

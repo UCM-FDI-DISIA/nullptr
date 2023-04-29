@@ -258,7 +258,7 @@
     </ClCompile>
     <ClCompile Include="src\scenes\PostGameScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
- </ClCompile>
+    </ClCompile>
     <ClCompile Include="src\core\GameControl.cpp">
       <Filter>Archivos de Dependecias\Core</Filter>
     </ClCompile>
@@ -270,6 +270,12 @@
     </ClCompile>
     <ClCompile Include="src\components\General Components\EffectController.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -541,9 +547,6 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
@@ -553,7 +556,7 @@
     </ClInclude>
     <ClInclude Include="src\scenes\PostGameScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
-</ClInclude>
+    </ClInclude>
     <ClInclude Include="src\core\GameControl.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -565,6 +568,12 @@
     </ClInclude>
     <ClInclude Include="src\components\General Components\EffectController.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -709,5 +718,6 @@
     <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
+    <None Include="src\data\game.album.json" />
   </ItemGroup>
 </Project>
