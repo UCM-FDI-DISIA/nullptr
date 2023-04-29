@@ -39,6 +39,8 @@ const int DIGITS_NUMB = 4;
 // FONTS ------------------------------------------------------------------------------------------
 const string USED_FONT = "ARIAL24";
 const int USED_FONT_SIZE = 24;
+const string FONT_SS_REG = "SILKSCREEN_REGULAR";
+const string FONT_SS_BOLD = "SILKSCREEN_BOLD";
 
 // TEXT COLORS ------------------------------------------------------------------------------------
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
@@ -347,11 +349,6 @@ const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
 const string BUY = "BuyButton";
 
-// CHEST SCENE
-const Vector2D RELIC_FRAME_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29);
-const Vector2D RELIC_POS = Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45);
-const Vector2D RELIC_SPARKS_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 25);
-
 // BATTLEBACKGROUND ------------------------------------------------------------------------------
 const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 
 const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT; 
@@ -533,6 +530,26 @@ const int XC_MANA_YOFFSET = 58;
 
 // RELICS ----------------------------------------------------------------------------------------
 
+// CHESTSCENE ------------------------------------------------------------------------------------
+// KEYS
+const string CHEST_BG = "ChestBackground";
+const string RELIC_FRAME = "ItemFrame";
+const string INFO_FRAME = "ItemInfoFrame";
+const string NAME_FRAME = "ItemNameFrame";
+// DIMENSIONS
+const int RELIC_DIMS = 32 * 4;
+const int RELIC_FRAME_DIMS = 38 * 4.2;
+const int SPARKS_DIMS = 35 * 5;
+const int INFO_FRAME_WIDTH = 72 * 4.2;
+const int INFO_FRAME_HEIGHT = 100 * 4.2;
+const int NAME_DIMS_OFFSET = 40;
+// POSITIONS
+const Vector2D CHEST_POS = Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165);
+const Vector2D RELIC_FRAME_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29);
+const Vector2D RELIC_POS = Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45);
+const Vector2D RELIC_SPARKS_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 20);
+const Vector2D INFO_FRAME_POS = Vector2D(WIN_WIDTH - INFO_FRAME_WIDTH - 60, WIN_HEIGHT / 6 + 20);
+const Vector2D CHEST_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 30, WIN_HEIGHT - MM_BUTTON_HEIGHT - 30);
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;

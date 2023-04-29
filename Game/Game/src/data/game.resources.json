@@ -134,7 +134,7 @@
       { "id" : "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png" },
       { "id":  "Sparkles", "file": "../Game/resources/images/UI/ChestScene/Sparkles_32x32.png" },
       { "id" : "ItemFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemFrame_38x38.png" },
-      { "id" : "ItemInfoFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemInfoFrame_80x70.png" },
+      { "id" : "ItemInfoFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemInfoFrame_72x100.png" },
       { "id" : "ItemNameFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemNameFrame_80x16.png" },
 
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },

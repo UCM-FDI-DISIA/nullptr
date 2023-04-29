@@ -21,7 +21,7 @@ MainMenuScene::MainMenuScene() : GameState() {
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
 	// Botón jugar
-	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<ChestScene>(); }, PLAY);
+	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY);
 
 	// Botón options
 	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<OptionsMenuScene>(); }, OPTIONS);

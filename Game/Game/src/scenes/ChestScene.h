@@ -8,7 +8,6 @@ private:
 	AnimatorInfo* chestAI;
 	pair<GameObject*, GameObject*> relic;
 	pair<GameObject*, GameObject*> name;
-	pair<GameObject*, vector<GameObject*>> stats;
 
 public:
 	ChestScene();
@@ -22,5 +21,9 @@ public:
 	void relicImage(Relic* relic);
 	void relicName(Relic* relic, SDL_Color color);
 	void relicInfo(Relic* relic, SDL_Color color);
+
+	// Métodos auxiliares
 	void standarizeText(GameObject* g, int stat, SDL_Color color);
+	string getEraString(string rEra);
+	void createStat(int stat, string symbol, int yOffset, SDL_Color color);
 };

@@ -4,9 +4,9 @@
 
 ChestScene::ChestScene() : NodeScene() {
 	// Fondo
-	GameObject* background = addGameObject(_grp_GENERAL);
+	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(SDLApplication::getTexture("ChestBackground"));
+	background->addComponent<Image>(SDLApplication::getTexture(CHEST_BG));
 
 	// Struct info de animación del cofre
 	 chestAI = new AnimatorInfo(CHEST_TEXTURE,
@@ -18,9 +18,8 @@ ChestScene::ChestScene() : NodeScene() {
 
 	// -- COFRE --
 	// Objeto
-	gachaButton = addGameObject(_grp_GENERAL);
-	gachaButton->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165), VECTOR_ZERO,
-		chestAI->fw * 6, chestAI->fh * 6);
+	gachaButton = addGameObject();
+	gachaButton->addComponent<Transform>(CHEST_POS, VECTOR_ZERO, chestAI->fw * 6, chestAI->fh * 6);
 	// Animator
 	auto anim = gachaButton->addComponent<Animator>(SDLApplication::getTexture(CHEST_TEXTURE), chestAI->fw,
 		chestAI->fh, chestAI->rows, chestAI->cols);
@@ -40,8 +39,7 @@ void ChestScene::gacha(GameObject* obj) {
 
 	// Añadir nuevo objeto con animación de cofre abriéndose
 	GameObject* animation = addGameObject();
-	animation->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165), VECTOR_ZERO,
-		chestAI->fw * 6, chestAI->fh * 6);
+	animation->addComponent<Transform>(CHEST_POS, VECTOR_ZERO, chestAI->fw * 6, chestAI->fh * 6);
 	auto anim = animation->addComponent<Animator>(SDLApplication::getTexture(CHEST_TEXTURE),
 		chestAI->fw, chestAI->fh, chestAI->rows, chestAI->cols);
 	anim->createAnim(ONCLICK, 14, 20, 10, 1);
@@ -62,13 +60,12 @@ void ChestScene::spawnNewItem() {
 		int Rand = rand() % aux.size();
 
 		// Sacamos la reliquia con la key que nos dan
-		//Relic* item = SDLApplication::instance()->getRelic(aux[Rand]);
-		Relic* item = SDLApplication::instance()->getRelic(aux[9]);
+		Relic* item = SDLApplication::instance()->getRelic(aux[Rand]);
 
 		// Asignarsela al jugador
 		PlayerData::instance()->addRelic(item);
 
-		// Assign item (a�adir sprite a la escena y vivir feliz)
+		// Mostrar en la interfaz
 		relicUI(item);
 
 		// Borrar del vector
@@ -81,8 +78,7 @@ void ChestScene::spawnNewItem() {
 
 		// Botón salir
 		AnimatorInfo aI = AnimatorInfo(EXIT);
-		addGameObject<Button>([]() { SDLApplication::returnToMapScene(); },
-			Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 30, WIN_HEIGHT - MM_BUTTON_HEIGHT - 30), aI);
+		addGameObject<Button>([]() { SDLApplication::returnToMapScene(); }, CHEST_EXIT_BUTTON_POS, aI);
 	}
 }
 
@@ -90,84 +86,59 @@ void ChestScene::relicUI(Relic* r) {
 	// Color blanco
 	SDL_Color white; white.r = 255; white.g = 255; white.b = 255;
 
-	// RELIQUIA ----------
+	// RELIQUIA
 	relicImage(r);
 
-	// NOMBRE ----------
+	// NOMBRE
 	relicName(r, white);
 
-	// ESTADÍSTICAS ----------
+	// ESTADÍSTICAS
 	relicInfo(r, white);
 }
 
 void ChestScene::relicInfo(Relic* r, SDL_Color color) {
 	// Marco
 	GameObject* infoFrame = addGameObject();
-	infoFrame->addComponent<Transform>(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60, WIN_HEIGHT / 4 + 29),
-		VECTOR_ZERO, 80 * 4.2 / 1, 70 * 4.2 / 1);
-	infoFrame->addComponent<Image>(SDLApplication::getTexture("ItemInfoFrame"));
+	infoFrame->addComponent<Transform>(INFO_FRAME_POS, VECTOR_ZERO, INFO_FRAME_WIDTH, INFO_FRAME_HEIGHT);
+	infoFrame->addComponent<Image>(SDLApplication::getTexture(INFO_FRAME));
 
 	// Era
 	GameObject* era = addGameObject();
 	auto tr = era->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
-	string completeEra = "Era ";
-	if (r->era == "F") completeEra += "Futuro";
-	else if (r->era == "R") completeEra += "Presente";
-	else completeEra += "Pasado";
-	era->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR"), completeEra, color);
-	tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
-		WIN_HEIGHT / 4 + 45));
+	string completeEra = getEraString(r->era);
+	era->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG), completeEra, color);
+	tr->setPos(INFO_FRAME_POS + Vector2D(INFO_FRAME_WIDTH / 2 - tr->getWidth() / 2, 15));
 
 	// Vida
-	GameObject* health = addGameObject();
-	tr = health->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
-	standarizeText(health, r->health, color);
-	tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
-		WIN_HEIGHT / 4 + 45 + 45));
+	createStat(r->health, "LifeSymbol", 70, color);
 
 	// Movimiento
-	GameObject* movement = addGameObject();
-	tr = movement->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
-	standarizeText(movement, r->movementVelocity, color);
-	tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
-		WIN_HEIGHT / 4 + 45 + 45 * 2));
+	createStat(r->movementVelocity, "SpeedSymbol", 140, color);
 
 	// Cadencia
-	GameObject* cadency = addGameObject();
-	tr = cadency->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
-	standarizeText(cadency, r->cadencyMult, color);
-	tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
-		WIN_HEIGHT / 4 + 45 + 45 * 3));
+	createStat(r->cadencyMult, "CadenceSymbol", 210, color);
 
 	// Mana
-	GameObject* mana = addGameObject();
-	tr = mana->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
-	standarizeText(mana, r->mana, color);
-	tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
-		WIN_HEIGHT / 4 + 45 + 45 * 4));
+	createStat(r->mana, "ManaSymbol", 280, color);
 
-	// Cadencia
-	GameObject* attack = addGameObject();
-	tr = attack->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
-	standarizeText(attack, r->attackMult, color);
-	tr->setPos(Vector2D(WIN_WIDTH - 80 * 4.2 / 1 - 60 + (80 * 4.2 / 1) / 2 - tr->getWidth() / 2,
-		WIN_HEIGHT / 4 + 45 + 45 * 5));
+	// Ataque
+	createStat(r->attackMult, "AttackSymbol", 350, color);
 }
 
 void ChestScene::relicImage(Relic* r) {
 	// Marco del objeto
 	relic.second = addGameObject();
-	relic.second->addComponent<Transform>(RELIC_FRAME_POS, VECTOR_ZERO, 38 * 4.2 / 1, 38 * 4.2 / 1);
-	relic.second->addComponent<Image>(SDLApplication::getTexture("ItemFrame"));
+	relic.second->addComponent<Transform>(RELIC_FRAME_POS, VECTOR_ZERO, RELIC_FRAME_DIMS, RELIC_FRAME_DIMS);
+	relic.second->addComponent<Image>(SDLApplication::getTexture(RELIC_FRAME));
 
 	// Objeto
 	relic.first = addGameObject();
-	relic.first->addComponent<Transform>(RELIC_POS, VECTOR_ZERO, 32 * 4, 32 * 4);
+	relic.first->addComponent<Transform>(RELIC_POS, VECTOR_ZERO, RELIC_DIMS, RELIC_DIMS);
 	relic.first->addComponent<Image>(r->texture);
 
 	// Destellos
 	GameObject* sparkles = addGameObject();
-	sparkles->addComponent<Transform>(RELIC_SPARKS_POS, VECTOR_ZERO, 32 * 5, 32 * 5);
+	sparkles->addComponent<Transform>(RELIC_SPARKS_POS, VECTOR_ZERO, SPARKS_DIMS, SPARKS_DIMS);
 	auto anim = sparkles->addComponent<Animator>(SDLApplication::getTexture(SPARKLES_TEXTURE), 32, 32, 3, 2);
 	anim->createAnim(SPARKLES_TEXTURE, 0, 5, 12, 2); anim->play(SPARKLES_TEXTURE);
 }
@@ -179,22 +150,56 @@ void ChestScene::relicName(Relic* r, SDL_Color color) {
 
 	// Crear el texto para obtener su width
 	auto textTr = name.first->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, 1, 1);
-	name.first->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD"), r->id, color);
+	name.first->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_BOLD), r->id, color);
 
 	// Crear marco dependiente del tamaño del texto
-	auto frameTr = name.second->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, textTr->getWidth() + 40, textTr->getHeight() + 20);
-	name.second->addComponent<Image>(SDLApplication::getTexture("ItemNameFrame"));
+	auto frameTr = name.second->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO,
+		textTr->getWidth() + NAME_DIMS_OFFSET, textTr->getHeight() + NAME_DIMS_OFFSET / 2);
+	name.second->addComponent<Image>(SDLApplication::getTexture(NAME_FRAME));
 
 	// Colocar el marco respecto al frame de la reliquia tras la transformación
-	frameTr->setPos(RELIC_FRAME_POS - Vector2D(frameTr->getWidth() / 2 - (38 * 4.2 / 1) / 2, 55));
+	frameTr->setPos(RELIC_FRAME_POS - Vector2D(frameTr->getWidth() / 2 - RELIC_FRAME_DIMS / 2, 55));
 
 	// Colocar el texto respecto a este marco
-	textTr->setPos(Vector2D(frameTr->getPos().getX() + 20, frameTr->getPos().getY() + 10));
+	textTr->setPos(Vector2D(frameTr->getPos().getX() + NAME_DIMS_OFFSET / 2,
+		frameTr->getPos().getY() + NAME_DIMS_OFFSET / 4));
 }
 
+// Añade el componente de texto con un + o un 0 dependiendo del valor recibido
 void ChestScene::standarizeText(GameObject* g, int stat, SDL_Color color) {
 	if (stat <= 0)
-		g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR"), "0", color);
+		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG), "0", color);
 	else
-		g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR"), "+" + to_string(stat), color);
+		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG), "+" + to_string(stat), color);
+}
+
+// Devuelve un string con la era correspondiente
+string ChestScene::getEraString(string rEra) {
+	string completeEra = "Era ";
+
+	if (rEra == "F") completeEra += "Futuro";
+	else if (rEra == "R") completeEra += "Presente";
+	else completeEra += "Pasado";
+
+	return completeEra;
+}
+
+// Crea una linea con el estado correspondiente
+void ChestScene::createStat(int stat, string symbol, int yOffset, SDL_Color color) {
+	// Variable auxiliar y objetos de img y texto vacíos
+	Transform* tr = nullptr;
+	GameObject* img = addGameObject();
+	GameObject* txt = addGameObject();
+	
+	// Transform "vacio"
+	tr = txt->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
+
+	// Objeto de texto y posición del mismo respecto a su tamaño
+	standarizeText(txt, stat, color);
+	tr->setPos(INFO_FRAME_POS + Vector2D(INFO_FRAME_WIDTH * 2.6 / 4 - tr->getWidth() / 2, yOffset));
+
+	// Objeto imagen
+	img->addComponent<Transform>(INFO_FRAME_POS + Vector2D(INFO_FRAME_WIDTH / 4 - SYMBOL_DIMENSIONS / 2 - 15, yOffset - 15),
+		VECTOR_ZERO, SYMBOL_DIMENSIONS, SYMBOL_DIMENSIONS);
+	img->addComponent<Image>(SDLApplication::getTexture(symbol));
 }
