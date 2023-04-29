@@ -124,15 +124,19 @@ void TutorialScene::activatePopUp() {
 	// Imagen de tuto (cambiar luego t->width por constantes)
 	Texture* t = &sdlutils().images().at("TutoTalking");
 	tutoPopUp = addGameObject(_grp_UI);
-	tutoPopUp->addComponent<Transform>(Vector2D(WIN_WIDTH/2 - t->width() * PIXEL_WIDTH /2, 0), Vector2D(), t->width() * PIXEL_WIDTH, t->height()/2 * PIXEL_HEIGHT);
+	Vector2D tutoPos = Vector2D(WIN_WIDTH / 2 - t->width() * PIXEL_WIDTH / 2, 0);
+	tutoPopUp->addComponent<Transform>(tutoPos, Vector2D(), t->width() * PIXEL_WIDTH, t->height()/2 * PIXEL_HEIGHT);
 	Animator* anim = tutoPopUp->addComponent<Animator>(t, 376, 284, 2, 1);
 	anim->attachToCamera();
 	anim->createAnim("idle", 0, 1, 2, -1);
 	anim->play("idle");
 
+	// Mostar texto correspondiente
+	showPopUpText(tutoPos);
+
 	// Boton
-	AnimatorInfo aI = AnimatorInfo(EXIT);
-	button = addGameObject<Button>(_grp_UI, [&]() { deactivatePopUp(); }, Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 10), aI);
+	AnimatorInfo aI = AnimatorInfo(RESUME);
+	button = addGameObject<Button>(_grp_UI, [&]() { deactivatePopUp(); }, RESUME_BUTTON_POS, aI);
 	button->getComponent<Animator>()->attachToCamera();
 }
 
@@ -146,7 +150,7 @@ void TutorialScene::deactivatePopUp() {
 	screen->setAlive(false);
 	button->setAlive(false);
 	tutoPopUp->setAlive(false);
-	//text->setAlive(false);
+	text->setAlive(false);
 
 	// Anulo referencias
 	screen = nullptr;
@@ -179,4 +183,16 @@ vector<pair<CallBack, double>> TutorialScene::getSteps() {
 	steps.push_back({ [&]() {showDrops(); }, 5 });
 	steps.push_back({ [&]() {showPortalCharges(); }, 5 });
 	return steps;
+}
+
+// Añade el texto correspondiente al popup
+void TutorialScene::showPopUpText(Vector2D tutoPos) {
+	// Color del texto
+	SDL_Color color = { 213, 180, 152 };
+
+	// Añadir objeto con el componente transform y el de texto con el string adecuado
+	text = addGameObject(_grp_UI);
+	text->addComponent<Transform>(tutoPos + TEXT_OFFSET, VECTOR_ZERO, 376 * PIXEL_WIDTH - 120, 284 * PIXEL_HEIGHT - 120);
+	text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR"),
+		tutorialTexts[current], color, true)->attachToCamera();
 }

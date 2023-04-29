@@ -79,7 +79,7 @@ void TutorialComponent::changeState() {
 				canCount = ability;
 				if (timeOffset >= 1.5) {
 					activatePopup();		// Con el texto "Las habilidades gastan mana, y ese mana se consigue.."
-					current = Drops;
+					current = Portal;
 					canCount = false;
 					timeOffset = 0;
 					canAdvance = false;
@@ -87,7 +87,7 @@ void TutorialComponent::changeState() {
 			}
 		break;
 
-		case Drops:
+		case Portal:
 			// Si ya no hay enemigo, y recojo todo el mana
 			if (canAdvance && ts->getTestEnemy() && ts->getManaNumber()) {
 				activatePopup();		// Con el texto de "Los enemigos tambien dejan eter, sirve para pasar el nivel)

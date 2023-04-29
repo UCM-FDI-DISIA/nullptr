@@ -4,7 +4,7 @@
 
 
 enum Pasos {
-	Movimiento, Carta, Mano, Enemigos, Habilidad, Drops, Portal, Introduccion
+	Movimiento, Carta, Mano, Enemigos, Habilidad, Portal, Introduccion
 };
 
 class TutorialScene;

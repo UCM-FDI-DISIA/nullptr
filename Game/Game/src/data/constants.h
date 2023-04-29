@@ -370,6 +370,9 @@ const int COMPANION_WIDTH = COMPANION_SPRITE_WIDTH * PIXEL_WIDTH;
 const int COMPANION_HEIGHT = COMPANION_SPRITE_HEIGHT * PIXEL_HEIGHT;
 // ANIM KEYS
 const string COMPANION_TEXTURE = "Companion";
+// POSITIONS
+const Vector2D RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 5);
+const Vector2D TEXT_OFFSET = Vector2D(80, 80);
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
