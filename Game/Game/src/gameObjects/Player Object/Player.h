@@ -7,14 +7,10 @@
 #include "../../scenes/GameState.h"
 #include "../../components/Card Components/CardComponent.h"
 #include "../../components/General Components/HealthComponent.h"
+#include "../../components/Player components/PlayerInputComponent.h"
+#include "../../components/General Components/EffectController.h"
 
 class Player : public GameObject {
-private:
-	Transform* transform;
-	PlayerMovementComponent* playerMovementComponent;
-	PlayerAnimator* animator;
-	CardComponent* cardComponent;
-	HealthComponent* health;
 public:
 	// Crea los componentes del jugador
 	virtual void initGameObject();

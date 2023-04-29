@@ -77,12 +77,12 @@ public:
 	};
 
 	// Setea el valor de Y del transform
-	inline void setY(int y) {
+	inline void setY(float y) {
 		position_ = Vector2D(position_.getX(), y);
 	}
 
 	//Setea el valor de X en el transform
-	inline void setX(int x) {
+	inline void setX(float x) {
 		position_ = Vector2D(x, position_.getY());
 	}
 

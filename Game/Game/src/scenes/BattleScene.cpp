@@ -2,6 +2,12 @@
 #include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
 
+#include "../components/General Components/StatsTrackComponent.h"
+
+#include "../gameObjects/UI/StatisticsUI.h"
+
+#include "../components/General Components/CallbackDelayer.h"
+
 // Constructora
 BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	//Mana
@@ -45,8 +51,9 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	camera->startFollowObject(player);
 
 	// Generador de enemigos
-	enemyGenerator = addGameObject();
-	enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	empty = addGameObject();
+	empty->addComponent<EnemyGenerator>(player, this);
+	empty->addComponent<StatsTrackComponent>();
 
 	// - UI -
 	// Nos guardamos una referencia al componente de cartas del player
@@ -70,21 +77,35 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 		hand = addGameObject<HandUI>(_grp_UI, cardComp);
 	}
 
+	player->getComponent<PlayerInputComponent>()->setPortalComponent(statistics->getPortalComp());
+
 	// El puntero sigue al player
 	pointer->getComponent<PointerComponent>()->setFollowObject(player);
 
 	//Música
-	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST = &sdlutils().musics().at(BATTLE_MUSIC);
 	battleSceneOST->play();
 };
 
 void BattleScene::OnPlayerDies() {
-	SDLApplication::popGameState();
-	SDLApplication::pushNewScene<GameOverScene>();
+	player->getComponent<Transform>()->setVel(Vector2D());
+	player->removeComponent<PlayerMovementComponent>();
+	player->removeComponent<PlayerInputComponent>();
+	player->removeComponent<CardComponent>();
+	pointer->removeComponent<Image>();
 }
 
 void BattleScene::OnPlayerDamage(float value) {
 	onHealthChanges(value);
+}
+
+void BattleScene::changeToGameOverScene() {
+	player->removeComponent<PlayerAnimator>();
+
+	GameObject* delay = addGameObject();
+	delay->addComponent<CallbackDelayer>([&]() {
+		SDLApplication::popGameState();
+		SDLApplication::pushNewScene<GameOverScene>(); }, DEATH_DELAY);
 }
 
 // CAMBIOS DE UI
@@ -120,4 +141,5 @@ void BattleScene::onHealthChanges(float value) {
 // Llamar al cambio del valor de éter
 void BattleScene::onEtherChanges(float value) {
 	if (statistics != nullptr) statistics->onEtherChanges(value);
+	if (value >= 100) getTracker()->endTimeCouinting();
 }

@@ -8,11 +8,9 @@ private:
 	AnimatorInfo* chestAI;
 	pair<GameObject*, GameObject*> relic;
 	pair<GameObject*, GameObject*> name;
-
+  SoundEffect* chestOpening;
+  
 public:
-	ChestScene();
-	virtual ~ChestScene();
-
 	void gacha(GameObject* obj);
 
 	void spawnNewItem();
@@ -22,7 +20,7 @@ public:
 	void relicName(Relic* relic, SDL_Color color);
 	void relicInfo(Relic* relic, SDL_Color color);
 
-	// Métodos auxiliares
+	// Mï¿½todos auxiliares
 	void standarizeText(GameObject* g, int stat, SDL_Color color);
 	string getEraString(string rEra);
 	void createStat(int stat, string symbol, int yOffset, SDL_Color color);

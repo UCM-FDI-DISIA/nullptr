@@ -3,7 +3,10 @@
 #include "../components/General Components/CallbackDelayer.h"
 
 ChestScene::ChestScene() : NodeScene() {
-	// Fondo
+	// Sonido
+  chestOpening=&sdlutils().soundEffects().at(CHEST_OPENING_SOUND);
+  
+  // Fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture(CHEST_BG));
@@ -26,7 +29,7 @@ ChestScene::ChestScene() : NodeScene() {
 	anim->createAnim(ONOUT, 0, 12, 9, -1);
 	anim->createAnim(ONOVER, 13, 13, ONOVER_SPEED, -1);
 	// Componente botón
-	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb);});
+	gachaButton->addComponent<ButtonComponent>([&, gb = gachaButton]() {gacha(gb); eB->setAsCurrentButton();})->setAsDefaultButton();
 }
 
 ChestScene:: ~ChestScene() {
@@ -34,6 +37,9 @@ ChestScene:: ~ChestScene() {
 }
 
 void ChestScene::gacha(GameObject* obj) {
+  // Reproducir sonido
+  chestOpening->play();
+  
 	// Desactivar botón
 	gachaButton->setAlive(false);
 

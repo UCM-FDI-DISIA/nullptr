@@ -2,6 +2,7 @@
     "fonts" : [
       { "id" : "ARIAL16", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 16 },
       { "id" : "ARIAL24", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 24 },
+      { "id" : "ARIAL36", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 36 },
       { "id" : "ARIAL48", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 48 },
       { "id" : "SILKSCREEN_REGULAR", "file" : "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 22 },
       { "id" : "SILKSCREEN_BOLD", "file" : "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 22 }
@@ -53,6 +54,13 @@
       { "id" : "Sound", "file" : "../Game/resources/images/Cards/CardEffects/Sound32x32.png" },
       { "id" : "SwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/SwordSlash_200x200.png" },
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
+
+      { "id" : "NewSwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin192x192.png" },
+      { "id" : "NewSwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/NewSwordSlash96x192.png" },
+
+      { "id" : "SpearThrustAnim", "file" : "../Game/resources/images/Cards/CardEffects/Spear100x30.png" },
+      { "id" : "SpearSkill", "file" : "../Game/resources/images/Cards/CardEffects/SpearSkill100x30.png" },
+      
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
       { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
       { "id" : "SpearThrust", "file" : "../Game/resources/images/Cards/CardEffects/SpearThrust_184x39.png" },
@@ -62,9 +70,7 @@
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
       { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
       { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
-
-      { "id" : "Enemy", "file" : "../Game/resources/images/Enemies/Enemy_1560x1526.png" },
-      { "id" : "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
+      { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
       
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
@@ -139,7 +145,12 @@
 
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
-      { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" }
+      { "id": "CardSelection", "file": "../Game/resources/images/Cards/CardSelection_58x93.png" },
+
+
+      { "id" : "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_30x10.png" },
+      { "id" : "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_68x92.png" }
+
     ],
     
     "messages" : [
@@ -151,7 +162,15 @@
       { "id" : "ButtonPressed", "file": "../Game/resources/sounds/PressButton.wav"},
       { "id" : "HoverOverButton", "file": "../Game/resources/sounds/HoverOverButton.wav"},
       { "id" : "LoadExit", "file": "../Game/resources/sounds/LoadExit.wav"},
-      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"}
+      { "id" : "Death", "file": "../Game/resources/sounds/DeathSound.wav"},
+      { "id" : "TankDeath", "file": "../Game/resources/sounds/TankDeath.wav"},
+      { "id" : "MeleeDeath", "file": "../Game/resources/sounds/MeleeDeath.wav"},
+      { "id" : "RangedDeath", "file": "../Game/resources/sounds/RangedDeath.wav"},
+      { "id" : "TankHit", "file": "../Game/resources/sounds/TankHit.wav"},
+      { "id" : "MeleeHit", "file": "../Game/resources/sounds/MeleeHit.wav"},
+      { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
+      { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
+      { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"}
     ],
   
     "musics" : [
