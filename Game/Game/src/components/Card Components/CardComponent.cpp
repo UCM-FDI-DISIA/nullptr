@@ -130,12 +130,20 @@ void CardComponent::selectRight() {
 }
 
 void CardComponent::setInitialDeck() {
-	int i = 0;
 	deck = PlayerData::instance()->getDeck();
 	hand.clear();
 	tutorial = false;
 	initDeck();
 	system = true;
+}
+
+void CardComponent::setTutorialDeck() {
+	deck.clear();
+	deck.push_back(new SwordCard());
+	hand.clear();
+	tutorial = true;
+	system = false;
+	initDeck();
 }
 
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido

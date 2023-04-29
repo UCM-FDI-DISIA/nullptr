@@ -18,6 +18,45 @@ TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0),
 	tutorialController = tc->addComponent<TutorialComponent>([&]() { activatePopUp(); }, getSteps());
 }
 
+void TutorialScene::setFirstState() {
+	PlayerInputComponent* pic = player->getComponent<PlayerInputComponent>();
+	pic->setCanMove(false);
+	pic->setCanAttack(false);
+	pic->setCanUseAbility(false);
+	pic->setCanExit(false);
+
+	// Ocultamos el puntero
+	pointer->setShowPointer(false);
+	pointer->getComponent<PointerComponent>()->discardFollowObject();
+
+	tuto->setAlive(false);
+	tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
+
+	if (hand != nullptr) {
+		hand->setAlive(false);
+		hand = nullptr;
+	}
+
+	if (cardContLeft != nullptr) {
+		cardContLeft->setAlive(false);
+		cardContRight->setAlive(false);
+		cardContLeft = nullptr;
+		cardContRight = nullptr;
+	}
+
+	if (statistics != nullptr) {
+		statistics->setAlive(false);
+		statistics = nullptr;
+	}
+
+	if (testEnemy != nullptr) {
+		testEnemy->setAlive(false);
+		testEnemy = nullptr;
+	}
+
+	tuto->getComponent<CardComponent>()->setTutorialDeck();
+}
+
 void TutorialScene::activateInput() {
 	// Ocultamos el puntero y le permitimos moverse
 	pointer->setShowPointer(false);
@@ -124,6 +163,8 @@ void TutorialScene::deactivatePopUp() {
 		pointer->getComponent<PointerComponent>()->setFollowObject(player);
 		player->getComponent<PlayerInputComponent>()->setCanAttack(true);
 	}
+
+	tutorialController->setCanAdvance(true);
 }
 
 // Devuelve los callbacks con sus respectivos tiempos

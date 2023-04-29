@@ -30,10 +30,11 @@ protected:
 	CardCounter* cardContRight;
 	// Puntero a la mano del jugador en la UI
 	HandUI* hand;
+	bool tutorial;
 
 public:
 	// Constructora
-	BattleScene(BattleType t_, bool tutorial = false);
+	BattleScene(BattleType t_, bool tuto = false);
 	// Destructora
 	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 

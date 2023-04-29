@@ -22,7 +22,10 @@ public:
 	// Constructora
 	TutorialScene(BattleType bt);
 
-	// Notifica de que se ha descartado una carta o se crea una nueva mano
+	//Devuelve la escena tutorial al estado inicial
+	void setFirstState();
+
+	// Notifica de que se ha descartado una carta, que se crea una nueva mano y que se ha usado una habilidad
 	void notifyDiscard() {
 		tutorialController->setDiscarted(true);
 	}
@@ -55,6 +58,7 @@ public:
 	// Desactiva el popup
 	void deactivatePopUp();
 
+	// Comprueba si hay enemigos o mana en la escena
 	bool getTestEnemy() { return getEntitiesByGroup(_grp_ENEMIES).size() == 0; };
 	bool getManaNumber() { return getEntitiesByGroup(_grp_MANA).size() == 0; }
 

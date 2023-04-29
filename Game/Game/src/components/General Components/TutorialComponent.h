@@ -15,7 +15,7 @@ private:
 	Pasos current;
 	TutorialScene* ts;
 	float timeOffset;
-	bool firstActionDone, canCount, discarted, newHand, ability;
+	bool firstActionDone, canCount, discarted, newHand, ability, canAdvance;
 public:
 	// Identificador
 	static const int id = _TUTORIAL_COMPONENT;
@@ -30,6 +30,8 @@ public:
 	inline void setAbility(bool value) { ability = value; }
 	inline bool getCanCount() { return canCount; }
 	inline void doStep() { steps[current].first(); }
+	inline bool getCanAdvance() { return canAdvance; }
+	inline void setCanAdvance(bool value) { canAdvance = value; }
 
 	inline void setCurrentStep(Pasos nStep) { current = nStep; }
 };

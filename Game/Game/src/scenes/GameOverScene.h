@@ -5,6 +5,6 @@ class GameOverScene : public GameState {
 private:
 	SoundEffect* deathSound;
 public:
-	GameOverScene();
+	GameOverScene(bool cameFromTutorial = false);
 	virtual ~GameOverScene();
 };

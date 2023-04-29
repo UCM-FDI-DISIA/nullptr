@@ -87,6 +87,7 @@ public:
 	// Cierra el juego
 	static void quitGame();
 
+	inline GameState* getCurrentState() { return SDLApplication::instance()->gameStateMachine->currentState(); }
 	inline double getDeltaTime() { return deltaTime; }
 	inline uint32_t getCurrentTime() { return SDL_GetTicks() - timeOffset; }
 	inline double getDeltaTimeSeconds() { return getDeltaTime() / 1000.0; }

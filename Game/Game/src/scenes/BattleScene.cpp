@@ -6,7 +6,8 @@
 #include "../gameObjects/UI/HandUI.h"
 
 // Constructora
-BattleScene::BattleScene(BattleType t_, bool tutorial) : NodeScene(), type(t_) {
+BattleScene::BattleScene(BattleType t_, bool tuto) : NodeScene(), type(t_) {
+	tutorial = tuto;
 	//Mana
 	PlayerData::instance()->resetMana();
 
@@ -14,11 +15,11 @@ BattleScene::BattleScene(BattleType t_, bool tutorial) : NodeScene(), type(t_) {
 	addMusic();
 
 	//Creamos el jugador e informamos a la camara de que debe seguirle
-	player = addGameObject<Player>(_grp_PLAYER, tutorial);
+	player = addGameObject<Player>(_grp_PLAYER, tuto);
 	camera->startFollowObject(player);
 
 	// Generador de enemigos
-	if (!tutorial) {
+	if (!tuto) {
 		enemyGenerator = addGameObject();
 		enemyGenerator->addComponent<EnemyGenerator>(player, this);
 		createUI();
@@ -85,9 +86,16 @@ void BattleScene::changeToGameOverScene() {
 	player->removeComponent<PlayerAnimator>();
 
 	GameObject* delay = addGameObject();
-	delay->addComponent<CallbackDelayer>([&]() {
-		SDLApplication::popGameState();
-		SDLApplication::pushNewScene<GameOverScene>(); }, DEATH_DELAY);
+
+	if (tutorial) {
+		delay->addComponent<CallbackDelayer>([&]() {
+			SDLApplication::pushNewScene<GameOverScene>(true); }, DEATH_DELAY);
+	}
+	else {
+		delay->addComponent<CallbackDelayer>([&]() {
+			SDLApplication::popGameState();
+			SDLApplication::pushNewScene<GameOverScene>(); }, DEATH_DELAY);
+	}
 }
 
 // Anade el fondo y suelo
