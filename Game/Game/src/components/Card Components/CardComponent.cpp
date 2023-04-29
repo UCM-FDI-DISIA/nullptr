@@ -16,6 +16,21 @@ CardComponent::CardComponent() : gmCtrl_(gmCtrl()) {
 	initDeck();
 }
 
+CardComponent::~CardComponent() {
+	for (Card*& c : deck) {
+		delete c;
+		c = nullptr;
+	}
+	for (Card*& c : hand) {
+		delete c;
+		c = nullptr;
+	}
+	for (Card*& c : pile) {
+		delete c;
+		c = nullptr;
+	}
+}
+
 //Obtiene las referencias a otros componentes y escenas necesarias
 void CardComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();

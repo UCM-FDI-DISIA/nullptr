@@ -7,20 +7,10 @@ PlayerData::PlayerData() {
 	
 	defaultPlayerStats();
 
-	level = 5;
-	// Cartas iniciales
-	addCardToLibrary(_card_TORCH, 3);
-	addCardToDeck(_card_TORCH, 3);
-	addCardToLibrary(_card_GUN, 3);
-	addCardToDeck(_card_GUN, 3);
-	addCardToLibrary(_card_PULGA, 2);
-	addCardToDeck(_card_PULGA, 2);
-
 	for (auto& var : sdlutils().relics().map_)
 	{
 		avlbRelics.push_back(var.first);
 	}
-	PlayerData::setDataToJSON();
 
 	lastCard = _card_NULL;
 }
@@ -30,19 +20,81 @@ void PlayerData::defaultPlayerStats() {
 	{
 		avlbRelics.push_back(var.first);
 	}
+	library.clear();
+	deck.clear();
 	myRelics.clear();
 	money = 0;
 	setMaxMana(100);
 	setMaxHP(100);
-	setCurrHP(1000);
+	setCurrHP(100);
 	setAttackMult(1);
 	setFireRateMult(1);
 	setMoney(999);
+	level = 1;
 	playerSpeed = PLAYER_SPEED;
+
+	// Cartas iniciales
+	addCardToLibrary(_card_TORCH, 3);
+	addCardToDeck(_card_TORCH, 3);
+	addCardToLibrary(_card_GUN, 3);
+	addCardToDeck(_card_GUN, 3);
+	addCardToLibrary(_card_PULGA, 2);
+	addCardToDeck(_card_PULGA, 2);
 }
 
 void PlayerData::getDataFromJSON() {
-	throw "Sin implementar lololo";
+	defaultPlayerStats();
+
+	string filename = "../Game/src/data/game.playerData.json";
+
+	// Load JSON configuration file. We use a unique pointer since we
+	// can exit the method in different ways, this way we guarantee that
+	// it is always deleted
+	std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(filename));
+
+	// check it was loaded correctly
+	// the root must be a JSON object
+	if (jValueRoot == nullptr || !jValueRoot->IsObject()) {
+		throw "Something went wrong while load/parsing '" + filename + "'";
+	}
+
+	// we know the root is JSONObject
+	JSONObject root = jValueRoot->AsObject();
+	JSONValue* jValue = nullptr;
+
+	jValue = root["player"];
+	if (jValue != nullptr) {
+		JSONObject player = jValue->AsObject();
+		maxHP = static_cast<int>(player["health"]->AsNumber());
+		currHP = static_cast<int>(player["currHP"]->AsNumber());
+		maxMana = static_cast<int>(player["mana"]->AsNumber());
+		currMana = static_cast<int>(player["currMana"]->AsNumber());
+		playerSpeed = static_cast<float>(player["speed"]->AsNumber());
+		attackMult = static_cast<float>(player["attack"]->AsNumber());
+		fireRateMult = static_cast<float>(player["fireRate"]->AsNumber());
+		money = static_cast<int>(player["money"]->AsNumber());
+		level = static_cast<int>(player["level"]->AsNumber());
+
+		JSONArray jsonRelics = player["relics"]->AsArray();
+		for (auto& jsonR : jsonRelics) {
+			myRelics.push_back(&sdlutils().relics().at(jsonR->AsString()));
+		}
+		
+		library.clear();
+		JSONArray jsonLibrary = player["library"]->AsArray();
+		for (auto& jsonC : jsonLibrary) {
+			addCardToLibrary(static_cast<CardId>(jsonC->AsNumber()), 1);
+		}
+
+		deck.clear();
+		JSONArray jsonDeck = player["deck"]->AsArray();
+		for (auto& jsonC : jsonDeck) {
+			addCardToDeck(static_cast<CardId>(jsonC->AsNumber()), 1);
+		}
+
+		gameMap().clearMap();
+		gameMap().createMap(filename);
+	}
 }
 
 
@@ -56,7 +108,6 @@ void PlayerData::setDataToJSON()
 	player["speed"] = new JSONValue(playerSpeed);
 	player["attack"] = new JSONValue(attackMult);
 	player["fireRate"] = new JSONValue(fireRateMult);
-	player["speed"] = new JSONValue(playerSpeed);
 	player["money"] = new JSONValue(money);
 	player["level"] = new JSONValue(level);
 	JSONArray jsonRelics;
@@ -81,8 +132,8 @@ void PlayerData::setDataToJSON()
 	JSONObject jsonData;
 	jsonData["player"] = new JSONValue(player);
 	jsonData["map"] = gameMap().mapToJSON();
+	jsonData["saved"] = new JSONValue(true);
 
-	JSONValue* jval = new JSONValue(jsonData);
 	
 	std::ofstream save("../Game/src/data/game.playerData.json");
 	// comprobar que se ha abierto el archivo
@@ -90,6 +141,8 @@ void PlayerData::setDataToJSON()
 		save.close();
 		throw "Could not create save Player Data file";
 	}
+
+	JSONValue* jval = new JSONValue(jsonData);
 	try {
 		// Guardar los detos de la partida en el archivo
 		save << JSON::Stringify(jval);
@@ -111,15 +164,14 @@ void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
 }
 
-void PlayerData::addRelic(Relic* relic) {
-
-	maxMana += relic->mana;
-	maxHP += relic->health;
-	attackMult += relic->attackMult / 100.0f;
-	fireRateMult += relic->fireRateMult / 100.0f;
-	playerSpeed += relic->speed;
-	myRelics.push_back(relic);
-}
+//void PlayerData::addRelic(Relic* relic) {
+//	maxMana += relic->mana;
+//	maxHP += relic->health;
+//	attackMult += relic->attackMult / 100.0f;
+//	fireRateMult += relic->fireRateMult / 100.0f;
+//	playerSpeed += relic->speed;
+//	myRelics.push_back(relic);
+//}
 
 void PlayerData::addCardToLibrary(CardId newCard, int num) {
 	// A�ado la carta a la libreria
@@ -160,8 +212,8 @@ bool PlayerData::cardAvailable() {
 void PlayerData::addRelic(Relic* relic) {
 	maxMana += relic->mana;
 	maxHP += relic->health;
-	attackMult += relic->attackMult/100.0f;
-	fireRateMult += relic->fireRateMult/100.0f;
+	attackMult += relic->attackMult / 100.0f;
+	fireRateMult += relic->fireRateMult / 100.0f;
 	playerSpeed += relic->speed;
 	myRelics.push_back(relic);
 }

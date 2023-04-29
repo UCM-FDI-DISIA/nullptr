@@ -33,8 +33,6 @@ private:
 	// Inicializa el mapa de nodos a partir de un JSON
 	void initMap(string filename);
 
-	// Limpia el mapa
-	void clearMap();
 	
 	// Hay ciertos nodos que son compatibles bajo unas condiciones, este método tiene una probabilidad de juntar dos nodos que cumplan esas condiciones
 	void lookForCompatibles(Needs& n1, Needs& n2);
@@ -60,6 +58,8 @@ private:
 public:
 	// Crea el mapa
 	void createMap(string filename);
+	// Limpia el mapa
+	void clearMap();
 	// Destructora
 	~Map();
 	// Asigna el nodo actual

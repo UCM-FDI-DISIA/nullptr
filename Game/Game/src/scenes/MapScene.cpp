@@ -4,7 +4,6 @@
 
 MapScene::MapScene() {
 	// MAPA
-	gameMap().reloadMap();
 	vector<vector<Node*>> const& nodeMap = gameMap().getNodeMap();
 	vector<int> const& nodesPerHeight = gameMap().getNodesPerWidth();
 
@@ -56,7 +55,7 @@ MapScene::MapScene() {
 	inventoryButton->setAsDefaultButton();
 
 	// Botón salir
-	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { pD().setDataToJSON(); SDLApplication::newScene<MainMenuScene>(); }, EXIT);
 }
 
 void MapScene::handleInput() {
