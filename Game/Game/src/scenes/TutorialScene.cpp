@@ -1,7 +1,7 @@
 ﻿#include "TutorialScene.h"
 #include "../gameObjects/UI/HandUI.h"
 
-TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(Movimiento), screen(nullptr), 
+TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0), screen(nullptr), 
 		testEnemy(nullptr), tuto(nullptr), tutoPopUp(nullptr), text(nullptr), button(nullptr) {
 
 	// Le impedimos el movimiento y el ataque
@@ -20,6 +20,10 @@ void TutorialScene::notifyDiscard() {
 	tutorialController->setDiscarted(true);
 }
 
+void TutorialScene::notifyNewHand() {
+	tutorialController->setNewHand(true);
+}
+
 void TutorialScene::activateInput() {
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
 }
@@ -34,13 +38,14 @@ void TutorialScene::explainCardSystem() {
 	cc->setInitialDeck();
 	createCounters(cc);
 	hand->setAlive(false);
-	hand = addGameObject<HandUI>(cc);
+	hand = addGameObject<HandUI>(_grp_UI,cc);
 }
 
 void TutorialScene::addMeleeEnemy() {
 	// AÑADIMOS UN ENEMIGO A LA ESCENA
 	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 50, 0);
-	GameObject* enemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+	createStatistics(player->getComponent<HealthComponent>(), player->getComponent<CardComponent>());
 }
 
 void TutorialScene::showAbility() {
@@ -104,6 +109,7 @@ void TutorialScene::deactivatePopUp() {
 
 	tutorialController->doStep();
 	current++;
+
 	if (current >= 2) {
 		// El puntero sigue al player
 		pointer->getComponent<PointerComponent>()->setFollowObject(player);

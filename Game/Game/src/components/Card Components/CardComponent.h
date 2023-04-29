@@ -26,7 +26,7 @@ class CardComponent : public Component {
 
 		int mana, maxMana;
 		bool locked = false, automatic = false, attacking = false, abiliting = false;
-		bool tuto;
+		bool tutorial, system;
 
 		GameControl& gmCtrl_;
 

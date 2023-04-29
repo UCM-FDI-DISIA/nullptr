@@ -22,8 +22,9 @@ public:
 	// Constructora
 	TutorialScene(BattleType bt);
 
-	// Notifica de que se ha descartado una carta
+	// Notifica de que se ha descartado una carta o se crea una nueva mano
 	void notifyDiscard();
+	void notifyNewHand();
 
 	// PASOS DEL TUTORIAL
 	// Activar input 

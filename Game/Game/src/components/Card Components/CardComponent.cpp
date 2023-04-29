@@ -9,7 +9,7 @@
 #include "../../scenes/TutorialScene.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
-CardComponent::CardComponent(bool tutorial) : gmCtrl_(gmCtrl()) {
+CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
@@ -21,7 +21,8 @@ CardComponent::CardComponent(bool tutorial) : gmCtrl_(gmCtrl()) {
 		deck = iniDeck;
 	}
 	_myCounter = nullptr;
-	tuto = tutorial;
+	tutorial = tuto;
+	system = false;
 	cout << deck.size() << endl;
 	initDeck();
 }
@@ -131,8 +132,9 @@ void CardComponent::setInitialDeck() {
 	int i = 0;
 	deck = PlayerData::instance()->getDeck();
 	hand.clear();
-	tuto = false;
+	tutorial = false;
 	initDeck();
+	system = true;
 }
 
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
@@ -160,10 +162,14 @@ void CardComponent::newHand() {
 	//Si la mano esta vacia se barajan nuevas cartas
 	if (deck.size() == 0)
 		reshufflePile();
-	if (tuto) {
+	if (tutorial) {
 		drawCard();
 	}
 	else {
+		if (system) {
+			dynamic_cast<TutorialScene*>(gStt)->notifyNewHand();
+			system = false;
+		}
 		for (int i = 0; i < 4; i++) {
 			drawCard();
 			//Si se vacia la mano al ir sacando cartas
@@ -185,7 +191,7 @@ void CardComponent::drawCard() {
 
 //Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
-	if (tuto) {
+	if (tutorial) {
 		dynamic_cast<TutorialScene*>(gStt)->notifyDiscard();
 	}
 	pile.push_back(*discarded);

@@ -5,7 +5,7 @@
 // Constructora
 TutorialComponent::TutorialComponent(CallBack callback, vector<pair<CallBack, double>> steps) : 
 	activatePopup(callback), timeOffset(0), steps(steps),
-	current(Introduccion), firstActionDone(false), canCount(true), discarted(false) {}
+	current(Introduccion), firstActionDone(false), canCount(true), discarted(false), newHand(false) {}
 
 
 // Actualiza la escena
@@ -40,19 +40,23 @@ void TutorialComponent::changeState() {
 		case Carta:
 			// Si he usado la carta 5 veces
 			if (discarted) {
-				activatePopup();		// Con el texto de descartar
+				activatePopup();		// Hablo del sistema de mazo, pila y mano (y le doy su mazo bueno)
 				current = Descarte;
+				discarted = false;
 			}
 		break;
 
 		case Descarte:
-			// Si gasto una carta, hablo del sistema de mazo, pila y mano (y le doy su mazo bueno)
-			
+			// Le doy un tiempo para q siga usando cartas y viendo como se descartan y vuelven
+			if (newHand) {
+				activatePopup();
+				current = Enemigos;
+				newHand = false;
+			}
 		break;
 
 		case Enemigos:
-			// Si el enemigo muere, timeOffSet = steps[Enemigos].second
-			cout << "ESTAS EN EL PASO DE ENEMIGOS" << endl;
+			
 		break;
 
 		case Habilidad:
