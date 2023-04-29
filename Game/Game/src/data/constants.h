@@ -347,6 +347,11 @@ const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
 const string BUY = "BuyButton";
 
+// CHEST SCENE
+const Vector2D RELIC_FRAME_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29);
+const Vector2D RELIC_POS = Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45);
+const Vector2D RELIC_SPARKS_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 25);
+
 // BATTLEBACKGROUND ------------------------------------------------------------------------------
 const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 
 const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT; 

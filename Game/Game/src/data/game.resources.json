@@ -2,7 +2,9 @@
     "fonts" : [
       { "id" : "ARIAL16", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 16 },
       { "id" : "ARIAL24", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 24 },
-      { "id" : "ARIAL48", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 48 }
+      { "id" : "ARIAL48", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 48 },
+      { "id" : "SILKSCREEN_REGULAR", "file" : "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 22 },
+      { "id" : "SILKSCREEN_BOLD", "file" : "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 22 }
     ],
     
     "images" : [
@@ -75,7 +77,6 @@
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
-
       { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
       { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
       { "id" : "FarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_427x50.png" },
@@ -117,8 +118,6 @@
       { "id" : "PresentFloor", "file" : "../Game/resources/images/Floors/FloorPresent.png" },
       { "id" : "FutureFloor", "file" : "../Game/resources/images/Floors/FloorFuture.png" },
 
-      { "id" : "ItemFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemFrame_38x38.png" },
-      { "id" : "ItemInfoFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemInfoFrame_80x70.png" },
       { "id" : "Almacenamiento Cuantico", "file" : "../Game/resources/images/Objects/AlmacenamientoCuantico_32x32.png" },
       { "id" : "Hoverboard", "file" : "../Game/resources/images/Objects/Hoverboard_32x32.png" },
       { "id" : "Engranaje Aureo", "file" : "../Game/resources/images/Objects/EngranajeAureo_32x32.png" },
@@ -134,6 +133,9 @@
 
       { "id" : "GachaChest", "file": "../Game/resources/images/UI/ChestScene/GachaChest_46x26.png" },
       { "id":  "Sparkles", "file": "../Game/resources/images/UI/ChestScene/Sparkles_32x32.png" },
+      { "id" : "ItemFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemFrame_38x38.png" },
+      { "id" : "ItemInfoFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemInfoFrame_80x70.png" },
+      { "id" : "ItemNameFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemNameFrame_80x16.png" },
 
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
@@ -200,7 +202,7 @@
     {
       "id": "Regalo",
       "description": "The past is history, the future is a mistery, but the present is a gift, that is why it's called the present",
-      "era": "P",
+      "era": "R",
       "health": "10",
       "movementVelocity": "0",
       "cadency": "20",
@@ -210,7 +212,7 @@
     {
       "id": "Reloj Digital",
       "description": "Te apresura a llegar a tiempo y mide tu ritmo cardiaco",
-      "era": "P",
+      "era": "R",
       "health": "10",
       "movementVelocity": "25",
       "cadency": "0",
@@ -220,7 +222,7 @@
     {
       "id": "Collar Gotico",
       "description": "Un collar muy aclamado actualmente, el complemento esencial para todo joven",
-      "era": "P",
+      "era": "R",
       "health": "10",
       "movementVelocity": "25",
       "cadency": "0",
@@ -230,7 +232,7 @@
     {
       "id": "Cinturon de Herramientas",
       "description": "Como cierto superheroe cuyo nombre hace referencia a un mamifero alado",
-      "era": "P",
+      "era": "R",
       "health": "0",
       "movementVelocity": "0",
       "cadency": "15",
