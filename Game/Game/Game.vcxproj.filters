@@ -253,6 +253,12 @@
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\PostGameScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
     <ClCompile Include="src\core\GameControl.cpp">
       <Filter>Archivos de Dependecias\Core</Filter>
     </ClCompile>
@@ -273,6 +279,9 @@
     </ClCompile>
     <ClCompile Include="src\scenes\TutorialScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\EffectController.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -547,6 +556,12 @@
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
     <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
+    <ClInclude Include="src\components\General Components\StatsTrackComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\PostGameScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
     <ClInclude Include="src\core\GameControl.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -570,6 +585,9 @@
     </ClInclude>
     <ClInclude Include="src\scenes\TutorialScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

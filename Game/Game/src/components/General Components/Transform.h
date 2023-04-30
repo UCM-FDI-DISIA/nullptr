@@ -19,6 +19,7 @@ private:
 	Vector2D position_;
 	Vector2D velocity_;
 	Vector2D anchorPoint_;
+	Vector2D tempVelocity_;
 	float width_;
 	float height_;
 
@@ -165,6 +166,7 @@ public:
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
+	void push(Vector2D impulse);
 	void move();
 	virtual void update();
 };

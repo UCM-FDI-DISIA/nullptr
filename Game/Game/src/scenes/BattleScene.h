@@ -1,5 +1,4 @@
 #pragma once
-
 #include "NodeScene.h"
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
@@ -8,6 +7,8 @@
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
 #include "../components/Enemy components/EnemyGenerator.h"
+#include "../components/General Components/StatsTrackComponent.h"
+
 
 class StatisticsUI;
 class ChargedPortalComponent;
@@ -40,6 +41,7 @@ public:
 
 	// Getters
 	Player* getPlayer() { return player; };
+	StatsTrackComponent* getTracker() { return enemyGenerator->getComponent<StatsTrackComponent>(); }
 
 	// Efectos sobre el jugador
 	void OnPlayerDies();

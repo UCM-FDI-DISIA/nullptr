@@ -38,16 +38,16 @@ protected:
 	ButtonNavigator* butNav;
 	ButtonData myData;
 	bool addToNavigation_;
-	float horMult, verMult;
+	float horizontalMultt, verticalMultt;
 	std::function<void(Transform*)> onSelected_;
 	Transform* tr_;
 	bool currentButton;
 public:
 	static const int id = _BUTTON;
-	ButtonComponent(CallBack _f, GameObject* _frame = nullptr, int _index = -1, bool addToNav = true, float horMul = 1.0f, float verMul = 1.0f) :
+	ButtonComponent(CallBack _f, GameObject* _frame = nullptr, int _index = -1, bool addToNav = true, float horizontalMult = 1.0f, float verticalMult = 1.0f) :
 		Component(), state(0), function(_f), frame(_frame), animButton(nullptr), animFrame(nullptr), index(_index),
 		clickSound(nullptr), hoverOverSound(nullptr), gmCtrl_(gmCtrl()), butNav(nullptr), addToNavigation_(addToNav),
-		onSelected_(nullptr), tr_(nullptr), currentButton(false), horMult(horMul), verMult(verMul) {}
+		onSelected_(nullptr), tr_(nullptr), currentButton(false), horizontalMultt(horizontalMult), verticalMultt(verticalMult) {}
 
 	virtual ~ButtonComponent();
 

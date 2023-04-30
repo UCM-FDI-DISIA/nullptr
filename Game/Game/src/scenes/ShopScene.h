@@ -30,6 +30,7 @@ public:
 	ShopScene();
 	// Destructora
 	virtual ~ShopScene();
+	void handleInput() override;
 	
 	void hideBuyButton();
 	void showMoney();

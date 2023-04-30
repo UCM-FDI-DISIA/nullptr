@@ -9,4 +9,5 @@ void Player::initGameObject(bool tutorial) {
 	addComponent<HealthComponent>(PlayerData::instance()->getMaxHP(), true);
 	addComponent<PlayerInputComponent>(tutorial);
 	addComponent<PlayerAnimator>(PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS);
+	addComponent<EffectController>();
 }

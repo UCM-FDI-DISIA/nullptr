@@ -52,11 +52,12 @@ void ButtonComponent::handleInput() {
 void ButtonComponent::initComponent() {
 	animButton = gObj->getComponent<Animator>();
 	if (frame != nullptr) animFrame = frame->getComponent<Animator>();
-	hoverOverSound = &sdlutils().soundEffects().at("HoverOverButton");
-	clickSound = &sdlutils().soundEffects().at("ButtonPressed");
-	
+
+	hoverOverSound = &sdlutils().soundEffects().at(HOVER_OVER_BUTTON_SOUND);
+	clickSound = &sdlutils().soundEffects().at(BUTTON_PRESSED_SOUND);
+
 	butNav = gStt->getButtonNavigator();
-	if (addToNavigation_) myData = butNav->insert(animButton, horMult, verMult);
+	if (addToNavigation_) myData = butNav->insert(animButton, horizontalMultt, verticalMultt);
 	tr_ = gObj->getComponent<Transform>();
 }
 

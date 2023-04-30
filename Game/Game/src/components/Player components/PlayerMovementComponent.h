@@ -17,7 +17,6 @@ public:
 
 	virtual void initComponent();
 
-	virtual void handleInput();
 	void setDirection(Vector2D dir);
 
 	void setPlayerSpeed(float newSpeed);

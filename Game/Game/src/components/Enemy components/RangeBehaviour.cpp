@@ -1,4 +1,4 @@
-	#include "RangeBehaviour.h"
+#include "RangeBehaviour.h"
 
 // Esta clase maneja el comportamiento de los enemigos a distancia
 // Como su movimento y su habilidad para atacar
@@ -67,7 +67,7 @@ void RangeBehaviour::enemyAttack() {
 		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
 		/*vel = vel * bulletSpedd;*/
 		if (shotPattern == 0) {
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
@@ -78,7 +78,7 @@ void RangeBehaviour::enemyAttack() {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
 		}
 		else if (shotPattern == 2) {
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);

@@ -15,7 +15,7 @@ void BowCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 
 	Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, rot, 50, 10, PLAYER_ARROW, _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 }
 
 //Se disparan todas las flechas

@@ -45,6 +45,7 @@ public:
 	void createLifeBar(int value);
 	void createManaBar(int value);
 	void createEtherMeter();
+	
 
 	// Métodos para cambios en las barras anteriores
 	void onManaChanges(float value);
@@ -53,5 +54,5 @@ public:
 	
 	// Getters
 	inline float getEther() { return actualEther; }
-	ChargedPortalComponent* getPortalComp() { return etherMeter->getComponent<ChargedPortalComponent>(); }
+	inline ChargedPortalComponent* getPortalComp() { return etherMeter->getComponent<ChargedPortalComponent>(); }
 };

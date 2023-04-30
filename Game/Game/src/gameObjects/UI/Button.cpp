@@ -2,7 +2,7 @@
 #include "../../core/SDLApplication.h"
 
 // Añade los componentes al botón y crea sus animaciones
-void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, int _index, GameObject* _frame, float horMul, float verMul) {
+void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, int _index, GameObject* _frame, float horizontalMult, float verticalMult) {
 	// Transform
 	addComponent<Transform>(_pos, VECTOR_ZERO, _animInfo.w, _animInfo.h);
 
@@ -12,7 +12,7 @@ void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo,
 	if (_frame != nullptr) createButtonAnimations(_frame->getComponent<Animator>());
 
 	// Componente de botones
-	bComp = addComponent<ButtonComponent>(_cb, _frame, _index, true, horMul, verMul);
+	bComp = addComponent<ButtonComponent>(_cb, _frame, _index, true, horizontalMult, verticalMult);
 }
 
 void Button::initGameObject(CallBack _cb, Vector2D _pos, AnimatorInfo _animInfo, GameObject* _frame) {

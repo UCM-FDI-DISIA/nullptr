@@ -40,16 +40,16 @@ InventoryScene::InventoryScene() : GameState() {
 	
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
-		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
+		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]); // cleon llora porque esto son arrays
 	}
 	// Creamos el boton de salir
 	exitButton = createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, [&]() {
 			int cardsInDeck = 0;
-			for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++) 
+			for (map<string, InventoryInfo>::iterator it = inventory.begin(); it != inventory.end(); it++)  // cleon llora sangre porque esto son interadores sin sintaxis C++11
 				if (inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck > 0) cardsInDeck+= inventory[Card::getCardIDfromEnum(it->second.card)].cuantityDeck;
 			if (cardsInDeck >= 4) SDLApplication::popGameState(); 
 		}, 
-		EXIT);
+		EXIT, 1.0f, 2.0f);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
@@ -68,6 +68,7 @@ void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int va
 }
 // Crea los paneles en los que se colocan las cartas
 void InventoryScene::createPanels() {
+	// cleon sufre porque copypaste
 	GameObject* dp = addGameObject();
 	dp->addComponent<Transform>(DP_POSITION, VECTOR_ZERO, DP_WIDTH, DP_HEIGHT);
 	dp->addComponent<Image>(SDLApplication::getTexture(DECK_PANEL));
@@ -107,7 +108,7 @@ void InventoryScene::createMoneyInfo() {
 void InventoryScene::createObjects() {
 	auto objs = PlayerData::instance()->getRelics();
 
-	for (int i = 0; i < objs.size(); i++) {
+	for (int i = 0; i < objs.size(); i++) { // cleon mas de lo mismo 
 		GameObject* g = addGameObject();
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
 		g->addComponent<Image>(objs[i]->texture);
@@ -125,11 +126,11 @@ void InventoryScene::createCards() {
 		Button* cardButton = createCard(pos, it->second.card, false);
 		if (it == inventory.begin()) cardButton->setAsDefaultButton();
 
-		if (it->second.cuantityDeck > 0) {
-			createDeckCards(it->second.card, deckColumn);
-			row = !row;
-			deckColumn++;
-		}
+		if (it->second.cuantityDeck > 0) createDeckCards(it->second.card, deckColumn);
+
+		row = !row;
+		deckColumn++;
+
 		if (row) {
 			column++;
 		}

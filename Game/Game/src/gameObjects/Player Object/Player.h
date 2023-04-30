@@ -8,6 +8,7 @@
 #include "../../components/Card Components/CardComponent.h"
 #include "../../components/General Components/HealthComponent.h"
 #include "../../components/Player components/PlayerInputComponent.h"
+#include "../../components/General Components/EffectController.h"
 
 class Player : public GameObject {
 public:

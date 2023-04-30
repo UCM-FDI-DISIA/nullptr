@@ -1,6 +1,7 @@
 #include "MeleeEnemy.h"
 #include "../../core/SDLApplication.h"
 #include "../../components/General Components/StatusComponent.h"
+#include "../../components/General Components/EffectController.h"
 #include "../../components/Enemy components/MeleeBehaviour.h"
 #include "../../components/Enemy components/EnemyAnimator.h"
 #include "../../scenes/BattleScene.h"
@@ -16,4 +17,7 @@ void MeleeEnemy::initGameObject(Vector2D pos, int life, Player* player, int nMan
 		MELEE_ENEMY_SPRITE_WIDTH, MELEE_ENEMY_SPRITE_HEIGHT,
 		MELEE_ENEMY_SPRITE_ROWS, MELEE_ENEMY_SPRITE_COLS,
 		MELEE_ENEMY_IDLE_ANIMATION, MELEE_ENEMY_MOVEMENT_ANIMATION, MELEE_ENEMY_ATTACK_ANIMATION);
+	addComponent<EffectController>();
+	addComponent<HealthComponent>(life);
+	addComponent<StatusComponent>();
 }

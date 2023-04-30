@@ -87,7 +87,7 @@ void TankBehaviour::enemyAttack() {
 CallBackCol TankBehaviour::tankAttack()
 {
 	return [&](GameObject* player) {
-		player->getComponent<HealthComponent>()->receiveDamage(damage);
+		player->getComponent<HealthComponent>()->receiveDamage(damage, nullptr, gObj->getComponent<Transform>()->getPos());
 		attacked = true;
 		attackInterval = SDLApplication::instance()->getCurrentTime() + MELEE_ENEMY_COOLDOWN;
 	};

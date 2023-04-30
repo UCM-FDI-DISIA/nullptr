@@ -5,6 +5,8 @@
 // Como su muerte o su curación
 class OnDeath;
 class RitualAxeCard;
+class EffectController;
+class Transform;
 class HealthComponent : public Component {
 private:
 	int lifePoints;
@@ -13,11 +15,14 @@ private:
 	bool invincibility;
 	float invTime;
 	OnDeath* onDeath;
+	EffectController* eController;
+	Transform* transform;
+	SoundEffect* hitSound;
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
 	//Delete del padre
-	void receiveDamage(float damage, RitualAxeCard* axe = nullptr);
+	void receiveDamage(float damage, RitualAxeCard* axe = nullptr, Vector2D damageOrigin=VECTOR_ZERO, Vector2D damageVel=Vector2D());
 	void setInvencibility(float time);
 	virtual void initComponent();
 	virtual void update();

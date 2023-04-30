@@ -1,6 +1,7 @@
 #include "BattleScene.h"
 #include "../components/Enemy components/RangeBehaviour.h"
 #include "../components/Enemy components/MeleeBehaviour.h"
+#include "../components/General Components/StatsTrackComponent.h"
 #include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/General Components/CallbackDelayer.h"
 #include "../gameObjects/UI/HandUI.h"
@@ -138,7 +139,7 @@ void BattleScene::addBackgroundAndFloor() {
 // Anade la musica
 void BattleScene::addMusic() {
 	//Música
-	battleSceneOST = &sdlutils().musics().at("BattleMusic");
+	battleSceneOST = &sdlutils().musics().at(BATTLE_MUSIC);
 	battleSceneOST->play();
 }
 
@@ -175,4 +176,5 @@ void BattleScene::onHealthChanges(float value) {
 // Llamar al cambio del valor de éter
 void BattleScene::onEtherChanges(float value) {
 	if (statistics != nullptr) statistics->onEtherChanges(value);
+	if (value >= 100) getTracker()->endTimeCouinting();
 }

@@ -16,7 +16,6 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 	// Boton de salida (esquina superior izquierda)
 	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, IS_EXIT_BUTTON_POS, AnimatorInfo(EXIT));
-	//exitButton->setAsDefaultButton();
 	// Seleccion de cartas a mostrar en la tienda
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
 		rand = SDLApplication::instance()->getRandInt(0, maxCardId);
@@ -37,6 +36,20 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 // Destructora
 ShopScene::~ShopScene() {
+}
+
+void ShopScene::handleInput() {
+	GameState::handleInput();
+	if (gmCtrl_.goBack()) {
+		if (exitButton->isCurrentButton()) {
+			for (int i = 0; i < myItems.size() && exitButton->isCurrentButton(); ++i) {
+				if (myItems[i].card != nullptr) myItems[i].card->setAsCurrentButton();
+			}
+		}
+		else {
+			exitButton->setAsCurrentButton();
+		}
+	}
 }
 
 // Deselecciona la carta
@@ -69,7 +82,7 @@ void ShopScene::selectCard() {
 	else color = COLOR_RED;
 	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(selectedCard->price), color);
 	// Muestra el boton de comprar
-	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex, nullptr, 0.5f, 0.5f);
+	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex, nullptr, 2.5f, 0.4f);
 }
 
 void ShopScene::buyCard() {
@@ -90,6 +103,7 @@ void ShopScene::buyCard() {
 		myItems[lastButtonIndex].priceObj->setAlive(false);
 		// Deselecciona
 		deselectCard();
+		myItems[lastButtonIndex].card = nullptr;
 	}
 	else {
 		#ifdef _DEBUG

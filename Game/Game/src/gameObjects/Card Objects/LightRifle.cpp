@@ -2,7 +2,7 @@
 #include "../../sdlutils/Texture.h"
 #include "../Card Objects/Hitbox.h"
 
-//Se crea una bala en la posición del jugador y se dirige hacia el cursor
+//Se crea una bala en la posiciï¿½n del jugador y se dirige hacia el cursor
 void  LightRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 		dir = dir.normalize();

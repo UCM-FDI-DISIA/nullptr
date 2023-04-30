@@ -10,7 +10,7 @@ void GunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, rot, 20, 10, BULLET, _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 
 }
 
@@ -24,7 +24,7 @@ void GunCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 		float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, rot, 20, 10, BULLET, _grp_ENEMIES };
 
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 	}
 	remainingUses = 0;
 }
