@@ -39,7 +39,6 @@ void BossBehaviour::update() {
 				switch (10) {
 				case 0: // Conos
 					coneAttack();
-					/*coneAttack();*/
 					break;
 				case 1: // BulletHell
 					bulletHellAttack();
@@ -196,6 +195,7 @@ void BossBehaviour::bulletHellAttack() {
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 	}
 }
+
 // Funci�n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
 
@@ -220,18 +220,21 @@ void BossBehaviour::grenadeAttack() {
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 1, StatusComponent::NONE, 200, 200, FLASH_BANG, dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
 	}
 }
+
 // Función de devolución de llamada del temporizador para coneAttack
 Uint32 BossBehaviour::coneAttackTimerCallback(Uint32 interval, void* param) {
 	BossBehaviour* boss = static_cast<BossBehaviour*>(param);
 	boss->coneAttack();
 	return 0;
 }
+
 // Funcion para el ataque de reloj
 void BossBehaviour::clockAttack()
 {
 	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX()+pos->getWidth()/2, pos->getPos().getY()+pos->getHeight()/2), false);
 	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), true);
 }
+
 // Funcion para el ataque teledirigido
 void BossBehaviour::targetedAttack()
 {
