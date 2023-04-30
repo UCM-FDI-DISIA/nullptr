@@ -111,6 +111,7 @@ const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WID
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
 const string POINTER = "Pointer";
@@ -125,6 +126,7 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const int SHIELD_SPEED = 20;
 const float ENEMY_SPEED = 50;
+const int PUSH_STRENGTH = 100;
 
 // MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;

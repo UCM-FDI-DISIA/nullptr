@@ -8,7 +8,7 @@ void SpearCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 100, 30, "null", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.06, data, Vector2D(-1,-1), nullptr, playerPos);
 
 
 	auto spearAnim = where->addGameObject<GameObject>();
@@ -29,7 +29,7 @@ void SpearCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 
 	Hitbox::HitboxData data = { playerPos, dir * THROWN_SPEAR_SPEED, rotation, 100, 30, "SpearSkill", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, true, 10, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data, Vector2D(-1, -1), nullptr, playerPos);
 
 	remainingUses = 0;
 }

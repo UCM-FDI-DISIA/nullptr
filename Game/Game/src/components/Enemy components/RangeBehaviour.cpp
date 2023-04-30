@@ -65,24 +65,24 @@ void RangeBehaviour::enemyAttack() {
 		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
 		/*vel = vel * bulletSpedd;*/
 		if (shotPattern == 0) {
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 2) {
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 	}
 }
