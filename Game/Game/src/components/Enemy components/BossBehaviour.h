@@ -21,6 +21,15 @@ private:
 	int attackState = 0;
 	bool listaCompletada = false;
 	int coneAttacksDone = 0;
+	int initlife;
+	// Timers para controlar el spawn de enemigos
+	float meleeSpawnTimer;
+	float rangedSpawnTimer;
+	float tankSpawnTimer;
+	// Cadencia de spawn de enemigos
+	const float meleeSpawnRate = 2.0f;
+	const float rangedSpawnRate = 5.0f;
+	const float tankSpawnRate = 10.0f;
 
 	EnemyAnimator* anim;
 	HealthComponent* hc;
@@ -39,6 +48,9 @@ public:
 	void grenadeAttack();
 	void clockAttack();
 	void targetedAttack();
+	void spawnMeleeEnemy();
+	void spawnRangedEnemy();
+	void spawnTankEnemy();
 	static Uint32 coneAttackTimerCallback(Uint32 interval, void* param);
 };
 

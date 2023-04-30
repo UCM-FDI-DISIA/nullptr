@@ -6,17 +6,26 @@ BossBehaviour::BossBehaviour(float spd, float safDist, float stptime, float mvTi
 	int dmg, int atck, Player* plyr) :
 	EnemyBehaviour(spd, dmg, stptime, atck, plyr),
 	safeDistance(safDist), moveTime(mvTime), shotPattern(sdlutils().rand().nextInt(0, 3)),
-	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
+	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0),
+	meleeSpawnTimer(0), rangedSpawnTimer(0), tankSpawnTimer(0) {}
+
 void BossBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
 	anim = gObj->getComponent<EnemyAnimator>();
 	hc = gObj->getComponent<HealthComponent>();
 	pos->setVel(Vector2D(0, 0)); 
 	pos->lookAt(playerPos->getPos());
+	initlife = hc->getLife();
 }
 // Se trata de un ciclo de movimiento y parada
 void BossBehaviour::update() {
 	behaviorTime += SDLApplication::instance()->getDeltaTime();
+
+	// Actualizar los temporizadores de spawn
+	float deltaTime = SDLApplication::instance()->getDeltaTime();
+	meleeSpawnTimer += deltaTime;
+	rangedSpawnTimer += deltaTime;
+	tankSpawnTimer += deltaTime;
 
 	// Si ha pasado mas tiempo desde que estas parado del que deberia, te mueves
 	if (behaviorTime > stopTime)
@@ -74,6 +83,22 @@ void BossBehaviour::update() {
 				default:
 					break;
 				}
+				// Spawn de enemigos
+				if (hc->getLife() <= initlife / 2) {
+					if (meleeSpawnTimer >= meleeSpawnRate) {
+						spawnMeleeEnemy();
+						meleeSpawnTimer = 0;
+					}
+					if (rangedSpawnTimer >= rangedSpawnRate) {
+						spawnRangedEnemy();
+						rangedSpawnTimer = 0;
+					}
+					if (tankSpawnTimer >= tankSpawnRate) {
+						spawnTankEnemy();
+						tankSpawnTimer = 0;
+					}
+				}
+
 				if (attackState == 9 && !listaCompletada)
 				{
 					listaCompletada = true;
@@ -90,7 +115,8 @@ void BossBehaviour::update() {
 			else attackTime += SDLApplication::instance()->getDeltaTime();
 		}
 	}
-	cout << pos->getPos() << "\n";
+
+
 }
 // Permite al enemigo instanciar balas
 void BossBehaviour::enemyAttack() {
@@ -239,4 +265,25 @@ void BossBehaviour::clockAttack()
 void BossBehaviour::targetedAttack()
 {
 	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>());
+}
+
+void BossBehaviour::spawnMeleeEnemy() {
+	// Implementar la lógica para generar enemigos cuerpo a cuerpo en la ubicación deseada
+	Vector2D spawnPos = pos->getPos() + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
+	//spawnPos = checkPos(spawnPos, MELEE_RADIUS);
+	GameObject* enemy = gStt->addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, 10, player);
+}
+
+void BossBehaviour::spawnRangedEnemy() {
+	// Implementar la lógica para generar enemigos a distancia en la ubicación deseada
+	Vector2D spawnPos = pos->getPos() + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
+	//spawnPos = checkPos(spawnPos, RANGED_RADIUS);
+	GameObject* enemy = gStt->addGameObject<RangedEnemy>(_grp_ENEMIES, spawnPos, 10, player);
+}
+
+void BossBehaviour::spawnTankEnemy() {
+	// Implementar la lógica para generar enemigos tanque en la ubicación deseada
+	Vector2D spawnPos = pos->getPos() + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
+	//spawnPos = checkPos(spawnPos, TANK_RADIUS);
+	GameObject* enemy = gStt->addGameObject<TankEnemy>(_grp_ENEMIES, spawnPos, 10, player);
 }
