@@ -109,6 +109,7 @@ const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WID
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
 const string POINTER = "Pointer";

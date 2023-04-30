@@ -64,7 +64,7 @@ void Transform::move() {
 void Transform::update() {
 	double deltaTime = SDLApplication::instance()->getDeltaTimeSeconds();
 	position_ = position_ + ((velocity_+tempVelocity_) * deltaTime);
-	tempVelocity_= tempVelocity_/1.001f;
+	tempVelocity_= tempVelocity_/REDUCTION_FACTOR;
 }
 
 void Transform::push(Vector2D impulse) {
