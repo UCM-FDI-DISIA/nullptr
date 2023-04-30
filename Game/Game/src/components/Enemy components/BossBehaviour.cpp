@@ -9,6 +9,7 @@ BossBehaviour::BossBehaviour(float spd, float safDist, float stptime, float mvTi
 	attackDelay(RANGED_ATTACK_ANIM_DELAY), attackTime(0) {}
 void BossBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
+	anim = gObj->getComponent<EnemyAnimator>();
 	pos->setVel(Vector2D(0, 0)); 
 	pos->lookAt(playerPos->getPos());
 }
@@ -123,6 +124,11 @@ void BossBehaviour::enemyAttack() {
 }
 // Funci�n para ejecutar el ataque de Conos
 void BossBehaviour::coneAttack() {
+
+	#ifdef _DEBUG
+	cout << "ataqueCono";
+	#endif
+
 	// Obtener la dirección hacia el objetivo (en este caso, el player)
 	Vector2D dir = (playerPos->getPos() - pos->getPos());
 	dir = dir / dir.magnitude();
@@ -172,6 +178,7 @@ void BossBehaviour::bulletHellAttack() {
 	// Obtenemos la direcci�n hacia el jugador
 	Vector2D dir = (playerPos->getPos() - pos->getPos()).normalize();
 
+	anim->playDiff("BulletHell");
 	// Calculamos la posici�n inicial para las balas
 	Vector2D startPos = pos->getPos() + dir * 50.0f;
 
@@ -199,6 +206,8 @@ void BossBehaviour::sprinklerAttack() {
 }
 // Funci�n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
+
+	anim->playDiff("GrenadeAttack");
 	// Implementar l�gica del ataque Granadas
 	Vector2D directions[] = { Vector2D(1,0), Vector2D(0,1), Vector2D(-1,0), Vector2D(0,-1) };
 

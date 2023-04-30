@@ -166,7 +166,7 @@ const string BOSS_ENEMY_TEXTURE_KEY = "BossEnemy";
 const int BOSS_ENEMY_SPRITE_WIDTH = 300;
 const int BOSS_ENEMY_SPRITE_HEIGHT = 300;
 const int BOSS_ENEMY_SPRITE_ROWS = 1;
-const int BOSS_ENEMY_SPRITE_COLS = 5;
+const int BOSS_ENEMY_SPRITE_COLS = 27;
 
 const int BOSS_ENEMY_WIDTH = BOSS_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
 const int BOSS_ENEMY_HEIGHT = BOSS_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
@@ -180,8 +180,11 @@ const float BOSS_TARGETED_DELAY = 3;
 const Animation BOSS_ENEMY_IDLE_ANIMATION(0, 4, 5, -1);
 const Animation BOSS_ENEMY_MOVEMENT_ANIMATION(0, 4, 5, -1);
 const Animation BOSS_ENEMY_ATTACK_ANIMATION(0, 4, 5, -1);
+
+const Animation BOSS_ENEMY_BULLETHELL_ANIMATION(5, 15, 5, 1);
+const Animation BOSS_ENEMY_GRENADE_ATTACK_ANIMATION(16, 26, 5, 1);
 //BOSS ATTACKS-----------------------------
-const int CONE_HITBOX_SIZE = 100;
+const int CONE_HITBOX_SIZE = 250;
 const int CONE_ATTACK_DURATION = 2000; // 2 seconds
 const int CONE_ATTACK_COOLDOWN = 2000; // 2 seconds
 const float RAD_TO_DEG = 180.0f / M_PI;

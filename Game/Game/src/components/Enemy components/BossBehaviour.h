@@ -22,6 +22,9 @@ private:
 	bool listaCompletada = false;
 	int coneAttacksDone = 0;
 	bool oneAttack = false;
+
+	EnemyAnimator* anim;
+
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
 
