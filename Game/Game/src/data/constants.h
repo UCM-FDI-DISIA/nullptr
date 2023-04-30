@@ -39,6 +39,8 @@ const int DIGITS_NUMB = 4;
 // FONTS ------------------------------------------------------------------------------------------
 const string USED_FONT = "ARIAL24";
 const int USED_FONT_SIZE = 24;
+const string FONT_SS_REG = "SILKSCREEN_REGULAR";
+const string FONT_SS_BOLD = "SILKSCREEN_BOLD";
 
 // TEXT COLORS ------------------------------------------------------------------------------------
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
@@ -242,6 +244,10 @@ const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
 //CHESTMENU: BUTTON POSITIONS AND DIMENSIONS
 const int CHEST_BUTTON_WIDTH = 100;
 const int CHEST_BUTTON_HEIGHT = 50;
+const int CHEST_SPRITE_WIDTH = 46;
+const int CHEST_SPRITE_HEIGHT = 26;
+const string CHEST_TEXTURE = "GachaChest";
+const string SPARKLES_TEXTURE = "Sparkles";
 
 // MAPSCENE: BUTTON POSITIONS AND DIMENSIONS
 const int MS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
@@ -531,6 +537,26 @@ const int XC_MANA_YOFFSET = 58;
 
 // RELICS ----------------------------------------------------------------------------------------
 
+// CHESTSCENE ------------------------------------------------------------------------------------
+// KEYS
+const string CHEST_BG = "ChestBackground";
+const string RELIC_FRAME = "ItemFrame";
+const string INFO_FRAME = "ItemInfoFrame";
+const string NAME_FRAME = "ItemNameFrame";
+// DIMENSIONS
+const int RELIC_DIMS = 32 * 4;
+const int RELIC_FRAME_DIMS = 38 * 4.2;
+const int SPARKS_DIMS = 35 * 5;
+const int INFO_FRAME_WIDTH = 72 * 4.2;
+const int INFO_FRAME_HEIGHT = 100 * 4.2;
+const int NAME_DIMS_OFFSET = 40;
+// POSITIONS
+const Vector2D CHEST_POS = Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165);
+const Vector2D RELIC_FRAME_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29);
+const Vector2D RELIC_POS = Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45);
+const Vector2D RELIC_SPARKS_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 20);
+const Vector2D INFO_FRAME_POS = Vector2D(WIN_WIDTH - INFO_FRAME_WIDTH - 60, WIN_HEIGHT / 6 + 20);
+const Vector2D CHEST_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 30, WIN_HEIGHT - MM_BUTTON_HEIGHT - 30);
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;
@@ -604,18 +630,18 @@ const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
 // RELIQUIAS -------------------------------------------------------------------------------------
-const string ALMACENAMIENTO_CUANTICO = "AlmacenamientoCuantico";
+const string ALMACENAMIENTO_CUANTICO = "Almacenamiento cuantico";
 const string HOVERBOARD = "Hoverboard";
-const string ENGRANAJE_AUREO = "EngranajeAureo";
-const string BRAZALETE_IONES = "BrazaleteDeIones";
+const string ENGRANAJE_AUREO = "Engranaje Aureo";
+const string BRAZALETE_IONES = "Brazalete de Iones";
 const string REGALO = "Regalo";
-const string RELOJ_DIGITAL = "RelojDigital";
-const string COLLAR_GOTICO = "CollarGotico";
-const string CINTURON_HERRAMIENTAS = "CinturonDeHerramientas";
-const string CETRO_PAPAL = "CetroPapal";
-const string LIBRO_PERDIDO = "LibroPerdido";
-const string TAZA_CAFE = "TazaDeCafe";
-const string BOTELLA_MINIATURA = "BotellaConUnBarcoEnMiniatura";
+const string RELOJ_DIGITAL = "Reloj Digital";
+const string COLLAR_GOTICO = "Collar Gotico";
+const string CINTURON_HERRAMIENTAS = "Cinturon de Herramientas";
+const string CETRO_PAPAL = "Cetro Papal";
+const string LIBRO_PERDIDO = "Libro Perdido";
+const string TAZA_CAFE = "Taza de Cafe";
+const string BOTELLA_MINIATURA = "Barco en Miniatura";
 
 //ENEMY GENERATOR---------------------------------------------------------------------------------
 const int MELEE_RADIUS = 500;
