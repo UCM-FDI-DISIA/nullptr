@@ -36,5 +36,6 @@ public:
 	// Métodos de activación
 	void activateExit();
 	void countDownSetup();
+	void debugCountDownSetup();
 	//void countdown();
 };
