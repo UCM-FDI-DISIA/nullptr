@@ -27,7 +27,7 @@ public:
 
 	static const int id = _EFFECT_CONTROLLER;
 
-	EffectController(Image* image);
+	EffectController() {}
 
 	
 	void initComponent() override;
