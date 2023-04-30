@@ -117,6 +117,8 @@ void SDLApplication::returnToMapScene() {
 	MapScene* ms = dynamic_cast<MapScene*>(SDLApplication::instance()->gameStateMachine->currentState());
 	assert(ms != nullptr);
 	ms->moveCamera();
+	ms->resetSelectedButton();
+	pD().setDataToJSON();
 }
 
 // Cierra el juego

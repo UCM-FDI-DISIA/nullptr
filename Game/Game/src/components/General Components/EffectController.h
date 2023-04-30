@@ -29,7 +29,9 @@ public:
 
 	EffectController(Image* image);
 
-	void update();
+	
+	void initComponent() override;
+	void update() override;
 
 	void startEffect(effectID effect, double duration);
 

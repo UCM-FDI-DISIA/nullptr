@@ -33,10 +33,10 @@ class PlayerData : public Singleton<PlayerData>
 	
 	*/
 
-	std::vector<Card*> deck;
 	std::vector<CardId> library;
-	std::vector<CardId> deckIds;
+	std::vector<CardId> deck;
 	
+	CardId lastCard;
 	
 	//Vector con todas las reliquias disponibles, saca su key del mapa
 	std::vector<std::string> avlbRelics;
@@ -58,7 +58,6 @@ class PlayerData : public Singleton<PlayerData>
 	PlayerData();
 
 	public:
-		virtual ~PlayerData();
 		inline int getMaxMana() { return maxMana; }
 		inline int getCurrMana() { return currMana; }
 		inline void resetMana() { currMana = maxMana; }
@@ -90,23 +89,30 @@ class PlayerData : public Singleton<PlayerData>
 		inline void addFireRateMult(float rate) { fireRateMult += rate; }
 		inline void addPlayerMoveSpeed(float speed) { playerSpeed += speed; }
 
+		inline void nextLevel() { level++; }
+
 		void defaultPlayerStats();
 
 		void getDataFromJSON();
 		void setDataToJSON();
+		bool hasSaveFile() const;
+		void loseSavedData();
 
-		std::vector<Card*> getDeck();
 		std::vector<std::string> getAvailableItems();
-		
-		void addCardToDeckId(CardId newCard, int num);
-		void setDeckId(std::vector<CardId> newDeck);
-		void setDeck(std::vector<Card*> newDeck);
-		void addCardToLibrary(CardId newCard, int num);
 		void setAvailableItems(std::vector<std::string> newItems);
 
+		pair<CardId, int> getNewCard();
+
+		bool cardAvailable();
+
 		void addRelic(Relic* relic);
-		std::vector<CardId> getLibrary();
-		std::vector<CardId> getDeckIds();
+
+		void addCardToLibrary(CardId newCard, int num);
+		std::vector<CardId> const& getLibrary();
+
+		void addCardToDeck(CardId newCard, int num);
+		std::vector<CardId> const& getDeck();
+		void setDeck(std::vector<CardId>);
 		
 };
 

@@ -2,8 +2,8 @@
 #include "EffectController.h"
 #include "../../core/SDLApplication.h"
 
-EffectController::EffectController(Image* image) : image(image)
-{
+void EffectController::initComponent() {
+	image = gObj->getComponent<Image>();
 }
 
 void EffectController::update()

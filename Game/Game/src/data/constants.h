@@ -23,8 +23,8 @@ const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
-const int PIXEL_WIDTH = WIN_WIDTH / 544;
-const int PIXEL_HEIGHT = WIN_HEIGHT / 306;
+const float PIXEL_WIDTH = WIN_WIDTH / 544.0f;
+const float PIXEL_HEIGHT = WIN_HEIGHT / 306.0f;
 
 // FRAME TIMES ------------------------------------------------------------------------------------
 const double FRAME_TIME = 30;
@@ -39,6 +39,8 @@ const int DIGITS_NUMB = 4;
 // FONTS ------------------------------------------------------------------------------------------
 const string USED_FONT = "ARIAL24";
 const int USED_FONT_SIZE = 24;
+const string FONT_SS_REG = "SILKSCREEN_REGULAR";
+const string FONT_SS_BOLD = "SILKSCREEN_BOLD";
 
 // TEXT COLORS ------------------------------------------------------------------------------------
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };
@@ -103,12 +105,13 @@ const int PLAYER_DEATH_FRAME_RATE = 8;
 const double DEATH_DELAY = 1000;
 
 // PLAYER DIMENSIONS
-const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
-const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
+const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
+const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
 const string POINTER = "Pointer";
@@ -123,6 +126,7 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const int SHIELD_SPEED = 20;
 const float ENEMY_SPEED = 50;
+const int PUSH_STRENGTH = 100;
 
 // MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;
@@ -166,7 +170,8 @@ const int TANK_ENEMY_SPRITE_HEIGHT = 40;
 const int TANK_ENEMY_SPRITE_ROWS = 6;
 const int TANK_ENEMY_SPRITE_COLS = 5;
 
-const int TANK_WIDTH = 120;
+const int TANK_WIDTH = TANK_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int TANK_HEIGHT = TANK_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const float TANK_SPEED = 35;
 const int TANK_ATTACK_DAMAGE = 10;
 const int TANK_LIFE = 60;
@@ -222,6 +227,7 @@ const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
 const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
 const Vector2D FRAME_OFFSET = Vector2D(36, 66);
 const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5, WIN_HEIGHT * 0.5);
+const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT * 0.5);
 const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
@@ -241,6 +247,10 @@ const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
 //CHESTMENU: BUTTON POSITIONS AND DIMENSIONS
 const int CHEST_BUTTON_WIDTH = 100;
 const int CHEST_BUTTON_HEIGHT = 50;
+const int CHEST_SPRITE_WIDTH = 46;
+const int CHEST_SPRITE_HEIGHT = 26;
+const string CHEST_TEXTURE = "GachaChest";
+const string SPARKLES_TEXTURE = "Sparkles";
 
 // MAPSCENE: BUTTON POSITIONS AND DIMENSIONS
 const int MS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
@@ -317,7 +327,7 @@ const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
 const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = { 90, 265, 440 };
+const int ALB_CARD_X[3] = { 75, 205, 340 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
 
@@ -342,6 +352,7 @@ const Vector2D OBJECTS_POSITIONS[6] = {
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";
+const string CONTINUE = "ContinueButton";
 const string OPTIONS = "OptionsButton";
 const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
@@ -408,7 +419,7 @@ const int ETHER_COLUMNS = 2;
 const int ETHER_START = 0;
 const int ETHER_END = 7;
 const int ETHER_FRAMERATE = 8;
-const int ETHER_LIMIT = 999;
+const int ETHER_LIMIT = 100;
 // COUNTERS
 const int N_LIFE_COUNTER = 7;
 const int N_MANA_COUNTER = 7;
@@ -419,7 +430,7 @@ const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
 const Vector2D UI_COUNTDOWN_ETHER_POS = Vector2D(WIN_WIDTH / 2 - (ST_NUMBERS_WIDTH * 1.8 + 6) / 2, 9);
-const float COUNTDOWN_TIME = 5.6f;
+const float COUNTDOWN_TIME = 3.6f;
 
 //MANA -------------------------------------------------------------------------------------------
 const int MANA_H = 10;
@@ -431,7 +442,7 @@ const int MANA_COLUMS = 2;
 // ETHER ------------------------------------------------------------------------------------------
 const int ETHER_H = 20;
 const int ETHER_W = 20;
-const int ETHER_VALUE = 5;
+const int ETHER_VALUE = 1;
 // CARDS -----------------------------------------------------------------------------------------
 const int MAX_HAND_SIZE = 4;
 // CARD REVERSE DIMENSIONS
@@ -530,6 +541,26 @@ const int XC_MANA_YOFFSET = 58;
 
 // RELICS ----------------------------------------------------------------------------------------
 
+// CHESTSCENE ------------------------------------------------------------------------------------
+// KEYS
+const string CHEST_BG = "ChestBackground";
+const string RELIC_FRAME = "ItemFrame";
+const string INFO_FRAME = "ItemInfoFrame";
+const string NAME_FRAME = "ItemNameFrame";
+// DIMENSIONS
+const int RELIC_DIMS = 32 * 4;
+const int RELIC_FRAME_DIMS = 38 * 4.2;
+const int SPARKS_DIMS = 35 * 5;
+const int INFO_FRAME_WIDTH = 72 * 4.2;
+const int INFO_FRAME_HEIGHT = 100 * 4.2;
+const int NAME_DIMS_OFFSET = 40;
+// POSITIONS
+const Vector2D CHEST_POS = Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165);
+const Vector2D RELIC_FRAME_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29);
+const Vector2D RELIC_POS = Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45);
+const Vector2D RELIC_SPARKS_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 20);
+const Vector2D INFO_FRAME_POS = Vector2D(WIN_WIDTH - INFO_FRAME_WIDTH - 60, WIN_HEIGHT / 6 + 20);
+const Vector2D CHEST_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 30, WIN_HEIGHT - MM_BUTTON_HEIGHT - 30);
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;
@@ -603,18 +634,18 @@ const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
 // RELIQUIAS -------------------------------------------------------------------------------------
-const string ALMACENAMIENTO_CUANTICO = "AlmacenamientoCuantico";
+const string ALMACENAMIENTO_CUANTICO = "Almacenamiento cuantico";
 const string HOVERBOARD = "Hoverboard";
-const string ENGRANAJE_AUREO = "EngranajeAureo";
-const string BRAZALETE_IONES = "BrazaleteDeIones";
+const string ENGRANAJE_AUREO = "Engranaje Aureo";
+const string BRAZALETE_IONES = "Brazalete de Iones";
 const string REGALO = "Regalo";
-const string RELOJ_DIGITAL = "RelojDigital";
-const string COLLAR_GOTICO = "CollarGotico";
-const string CINTURON_HERRAMIENTAS = "CinturonDeHerramientas";
-const string CETRO_PAPAL = "CetroPapal";
-const string LIBRO_PERDIDO = "LibroPerdido";
-const string TAZA_CAFE = "TazaDeCafe";
-const string BOTELLA_MINIATURA = "BotellaConUnBarcoEnMiniatura";
+const string RELOJ_DIGITAL = "Reloj Digital";
+const string COLLAR_GOTICO = "Collar Gotico";
+const string CINTURON_HERRAMIENTAS = "Cinturon de Herramientas";
+const string CETRO_PAPAL = "Cetro Papal";
+const string LIBRO_PERDIDO = "Libro Perdido";
+const string TAZA_CAFE = "Taza de Cafe";
+const string BOTELLA_MINIATURA = "Barco en Miniatura";
 
 //ENEMY GENERATOR---------------------------------------------------------------------------------
 const int MELEE_RADIUS = 500;
@@ -634,6 +665,7 @@ const string PLAYER_HIT_SOUND = "PlayerHit";
 const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
 const string BUTTON_PRESSED_SOUND = "ButtonPressed";
 const string LOAD_EXIT_SOUND = "LoadExit";
+const string CHEST_OPENING_SOUND = "ChestOpening";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
@@ -651,6 +683,13 @@ const int SHOP_MONEY_WIDTH = 100;
 const int SHOP_MONEY_HEIGHT = 50;
 const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
 const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+
+//POSTGAME SCENE ------------------------------------------------------------------------------------------
+const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);
+const Vector2D SPOTLIGHT_POSITION = Vector2D(765, 500);
+const Vector2D CARD_CREATION_POSITION = Vector2D(817, 328);
+const Vector2D NEW_CARD_POSITION = Vector2D(800, 198);
+const float NEXT_EVENT_TIMER = 0.5;
 
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
@@ -711,6 +750,16 @@ const int WAVES[7][3] = {
 	{4, 2, 1},
 	{0, 4, 2}
 };
+
+//CALCULO DINERO
+
+const float ENEMYFACTOR = 3.75;
+const float DAMAGEFACTOR = 0.25;
+const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
+
+// GUARDADO
+
+const string SAVE_FILENAME = "../Game/src/data/game.playerData.json";
 
 //STRUCTS
 

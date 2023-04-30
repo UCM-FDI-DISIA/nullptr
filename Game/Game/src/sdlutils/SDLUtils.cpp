@@ -97,7 +97,7 @@ void SDLUtils::initSDLExtensions() {
 	assert(imgInit_ret != 0);
 
 #ifdef _DEBUG
-	std::cout << "Initializing SEL_Mixer" << std::endl;
+	std::cout << "Initializing SDL_Mixer" << std::endl;
 #endif
 	// initialize SDL_Mixer
 	int mixOpenAudio = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
@@ -107,6 +107,10 @@ void SDLUtils::initSDLExtensions() {
 	assert(mixInit_ret != 0);
 	SoundEffect::setNumberofChannels(8); // we start with 8 channels
 
+#ifdef _DEBUG
+	std::cout << "Initializing SDL_GameController" << std::endl;
+#endif
+	SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
 }
 
 void SDLUtils::loadResources(std::string filename) {
@@ -201,7 +205,7 @@ void SDLUtils::loadResources(std::string filename) {
 #ifdef _DEBUG
 					std::cout << "Loading relic info with id: " << key << std::endl;
 #endif
-					Relic relicStruct(&images().at(key), description, era, stoi(health), stoi(movementVelocity), stoi(cadency), stoi(mana), stoi(attack));
+					Relic relicStruct(&images().at(key), key, description, era, stoi(health), stoi(movementVelocity), stoi(cadency), stoi(mana), stoi(attack));
 					
 					relics_.emplace(key, relicStruct);
 				}
