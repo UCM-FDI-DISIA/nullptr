@@ -151,9 +151,9 @@ void BossBehaviour::enemyAttack() {
 // Funci�n para ejecutar el ataque de Conos
 void BossBehaviour::coneAttack() {
 
-	#ifdef _DEBUG
+#ifdef _DEBUG
 	cout << "ataqueCono";
-	#endif
+#endif
 
 	// Obtener la dirección hacia el objetivo (en este caso, el player)
 	Vector2D dir = (playerPos->getPos() - pos->getPos());
@@ -171,7 +171,8 @@ void BossBehaviour::coneAttack() {
 			hitboxDir = coneDir.rotate(315);
 		}
 
-		Vector2D hitboxPos = pos->getPos() + coneDir * 100;
+		// Cambiar la posición de la hitbox para que se instancie desde el centro del boss
+		Vector2D hitboxPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + coneDir * 200;
 		float rotation = Vector2D(1, 0).angle(coneDir);
 		Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
@@ -196,6 +197,7 @@ void BossBehaviour::coneAttack() {
 	// Reiniciar behaviorTime para empezar de nuevo
 	behaviorTime = 0;
 }
+
 // Funci�n para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
 	// Definimos la cantidad de balas y la separaci�n entre ellas
@@ -206,7 +208,7 @@ void BossBehaviour::bulletHellAttack() {
 
 	anim->playDiff("BulletHell");
 	// Calculamos la posici�n inicial para las balas
-	Vector2D startPos = pos->getPos() + dir * 50.0f;
+	Vector2D startPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + dir * 50.0f;
 
 	// Generamos las balas
 	for (int i = 0; i < numBullets; i++) {
@@ -270,21 +272,21 @@ void BossBehaviour::targetedAttack()
 
 void BossBehaviour::spawnMeleeEnemy() {
 	// Implementar la lógica para generar enemigos cuerpo a cuerpo en la ubicación deseada
-	Vector2D spawnPos = pos->getPos() + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
+	Vector2D spawnPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
 	//spawnPos = checkPos(spawnPos, MELEE_RADIUS);
 	GameObject* enemy = gStt->addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, 10, player);
 }
 
 void BossBehaviour::spawnRangedEnemy() {
 	// Implementar la lógica para generar enemigos a distancia en la ubicación deseada
-	Vector2D spawnPos = pos->getPos() + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
+	Vector2D spawnPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
 	//spawnPos = checkPos(spawnPos, RANGED_RADIUS);
 	GameObject* enemy = gStt->addGameObject<RangedEnemy>(_grp_ENEMIES, spawnPos, 10, player);
 }
 
 void BossBehaviour::spawnTankEnemy() {
 	// Implementar la lógica para generar enemigos tanque en la ubicación deseada
-	Vector2D spawnPos = pos->getPos() + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
+	Vector2D spawnPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
 	//spawnPos = checkPos(spawnPos, TANK_RADIUS);
 	GameObject* enemy = gStt->addGameObject<TankEnemy>(_grp_ENEMIES, spawnPos, 10, player);
 }
