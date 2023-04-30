@@ -30,6 +30,7 @@ enum cmpId : cmpId_type {
 	_CHARGED_PORTAL,
 	_CALLBACK_DELAYER,
 	_PLAYERINPUT,
+	_OPTIONSUPDATE,
 	// ... (compoment ids)
 
 	// do not remove this
@@ -39,6 +40,7 @@ constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 using grpId_type = int;
 enum grpId : grpId_type {
 	_grp_GENERAL,
+	_grp_OPTIONS,
 	_grp_ENEMIES,
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
@@ -75,6 +77,17 @@ enum CardId : cardId_type {
 	_LAST_CARD_ID
 };
 constexpr cardId_type maxCardId = _LAST_CARD_ID;
+
+using optionId_type = int;
+enum OptionId : optionId_type {
+	_option_MUSIC,
+	_option_FX,
+	_option_FULLWINDOW, 
+	_option_PERIPHERAL,
+	// do not remove this
+	_LAST_OPTION_ID
+};
+constexpr optionId_type maxOptionId = _LAST_OPTION_ID;
 
 // Animaciones
 struct Animation {

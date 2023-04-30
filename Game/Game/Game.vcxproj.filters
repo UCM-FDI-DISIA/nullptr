@@ -265,6 +265,9 @@
     <ClCompile Include="src\components\General Components\EffectController.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\General Components\OptionsUpdateComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -535,9 +538,6 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
@@ -552,6 +552,9 @@
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\OptionsUpdateComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -695,6 +698,10 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
     <None Include="src\data\game.cards.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
+    <None Include="src\data\game.album.json" />
+    <None Include="src\data\game.options.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>
