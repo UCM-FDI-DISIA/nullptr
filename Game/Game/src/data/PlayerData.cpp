@@ -72,6 +72,8 @@ void PlayerData::getDataFromJSON() {
 		fireRateMult = static_cast<float>(player["fireRate"]->AsNumber());
 		money = static_cast<int>(player["money"]->AsNumber());
 		level = static_cast<int>(player["level"]->AsNumber());
+		lastCard = static_cast<CardId>(player["lastCard"]->AsNumber());
+
 
 		JSONArray jsonRelics = player["relics"]->AsArray();
 		for (auto& jsonR : jsonRelics) {
@@ -108,6 +110,7 @@ void PlayerData::setDataToJSON()
 	player["fireRate"] = new JSONValue(fireRateMult);
 	player["money"] = new JSONValue(money);
 	player["level"] = new JSONValue(level);
+	player["lastCard"] = new JSONValue(lastCard);
 	JSONArray jsonRelics;
 	for (Relic* r : myRelics) {
 		jsonRelics.push_back(new JSONValue(r->id));
