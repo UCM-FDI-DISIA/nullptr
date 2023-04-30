@@ -36,7 +36,7 @@ void EffectController::update()
 				r = 129; g = 56; b = 231;
 			break;
 		case E_INVULN:
-			if (second < 0.25 || second > 0.5  && second < 0.75)
+			if (second > 0.75 || second > 0.25  && second < 0.5)
 				a = 0;
 			else a = 255;
 			break;

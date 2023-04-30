@@ -26,7 +26,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 #endif
 		if (gObj->hasComponent<EffectController>()) {
 			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
-			eController->startEffect(E_DAMAGED, 0.25);
+			eController->startEffect(E_DAMAGED, 0.5);
 		}
 		// Si se trata del Player, actualiza su barra de vida
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
