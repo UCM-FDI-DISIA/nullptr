@@ -24,7 +24,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 #ifdef _DEBUG
 		cout << lifePoints << endl;
 #endif
-		if (gObj->hasComponent<EffectController>()) {
+		if (lifePoints > 0 && gObj->hasComponent<EffectController>()) {
 			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 			eController->startEffect(E_DAMAGED, 0.5);
 		}
@@ -56,7 +56,7 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 		if (invincibility) {
 			invTime = 1.5;
 
-			if (gObj->hasComponent<EffectController>()) {
+			if ( lifePoints > 0 && gObj->hasComponent<EffectController>()) {
 				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_INVULN, 1.25);
 			}
