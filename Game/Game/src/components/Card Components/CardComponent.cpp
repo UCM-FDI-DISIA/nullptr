@@ -15,7 +15,11 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
 	if (!tuto) 
-		deck = PlayerData::instance()->getDeck();
+	{
+		for (CardId card : PlayerData::instance()->getDeck()) {
+			deck.push_back(Card::getCard(card));
+		}
+	}
 	else {
 		vector<Card*> iniDeck;
 		iniDeck.push_back(new SwordCard());
@@ -145,7 +149,6 @@ void CardComponent::selectRight() {
 }
 
 void CardComponent::setInitialDeck() {
-	deck = PlayerData::instance()->getDeck();
 	hand.clear();
 	tutorial = false;
 	initDeck();
@@ -163,8 +166,10 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
-	for (CardId card : PlayerData::instance()->getDeck()) {
-		deck.push_back(Card::getCard(card));
+	if (!tutorial) {
+		for (CardId card : PlayerData::instance()->getDeck()) {
+			deck.push_back(Card::getCard(card));
+		}
 	}
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
