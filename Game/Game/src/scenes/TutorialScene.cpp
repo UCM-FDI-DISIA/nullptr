@@ -17,6 +17,7 @@ TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0),
 	//Añadimos el controlador del tutorial
 	GameObject* tc = addGameObject();
 	tutorialController = tc->addComponent<TutorialComponent>([&]() { activatePopUp(); }, getSteps());
+	enemyGenerator->getComponent<EnemyGenerator>()->setCanSpawn(false);
 }
 
 void TutorialScene::activateInput() {
@@ -58,7 +59,7 @@ void TutorialScene::showAbility() {
 void TutorialScene::showDrops() {
 	// Añado otro enemigo que me completará el éter necesario para salir en el proximo paso
 	Vector2D spawnPos = player->getComponent<Transform>()->getPos() + Vector2D(MELEE_ENEMY_WIDTH + 200, 0);
-	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player, 0, 20);
+	testEnemy = addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player, 0, 100);
 }
 
 void TutorialScene::showPortalCharges() {

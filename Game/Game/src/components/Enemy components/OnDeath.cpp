@@ -22,6 +22,5 @@ void OnDeath::death() {
 		gStt->addGameObject<Mana>(_grp_MANA, enemyTransform->getPos());
 	}
 	BattleScene* bS = dynamic_cast<BattleScene*>(gStt);
-	if (bS != nullptr) bS->getTracker()->onEnemyKilled(gObj);
-	
+	bS->getTracker()->onEnemyKilled(gObj);
 }

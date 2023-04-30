@@ -21,10 +21,12 @@ BattleScene::BattleScene(BattleType t_, bool tuto) : NodeScene(), type(t_) {
 
 	// Generador de enemigos
 	if (!tuto) {
-		enemyGenerator = addGameObject();
-		enemyGenerator->addComponent<EnemyGenerator>(player, this);
 		createUI();
 	}
+
+	enemyGenerator = addGameObject();
+	enemyGenerator->addComponent<EnemyGenerator>(player, this);
+	enemyGenerator->addComponent<StatsTrackComponent>();
 
 	//Música
 	battleSceneOST = &sdlutils().musics().at("BattleMusic");
