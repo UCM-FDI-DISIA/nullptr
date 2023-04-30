@@ -29,6 +29,9 @@ footer {
 	display: flex;
 	text-align: center;
 	align-items: center;
+	width: 100%;
+	justify-content: center;
+	padding: 20px;
 }
 
 footer img {
@@ -67,6 +70,7 @@ footer img:hover {
 }
 
 .descripcion-txt {
+	font-size: large;
 	text-align: justify;
 	margin-left: 100px;
 	margin-right: 100px;
@@ -76,8 +80,6 @@ footer img:hover {
 .descarga {
 	display: block;
 	position: relative;
-	background-color: #333;
-	color: #fff;
 	margin-left: 100px;
 	margin-right: 100px;
 	margin-top: 50px;
@@ -93,6 +95,24 @@ footer img:hover {
 	font-size: 25px;
 	font-family: Silkscreen;
 	border-radius: 30px;
+}
+
+.btn-descarga {
+	display: inline-block;
+	padding: 1.5rem 2.375rem 1.5rem 2.375rem;
+	border: 0.125rem solid rgb(144, 233, 11);
+	border-radius: 2rem;
+	background-color: rgb(144, 233, 11);
+	color: #fff;
+	font: 700 0.875rem/0 "Silkscreen", Silkscreen;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.btn-descarga:hover {
+	border: 0.125rem solid rgb(144, 233, 11);
+	background-color: rgb(144, 233, 11, 0.5);
+	color: rgb(144, 233, 11);
 }
 
 .row {
@@ -204,13 +224,11 @@ footer img:hover {
 }
 
 .footer-container {
-	width: 100%;
-	background-color: #ac945ea7;
 	line-height: 40%;
 	text-align: center;
 	display: flex;
 	align-items: center;
-	position: fixed;
+	position: relative;
 }
 
 .footer-content {
