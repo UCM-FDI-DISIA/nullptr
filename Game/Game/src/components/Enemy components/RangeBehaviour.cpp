@@ -60,29 +60,31 @@ void RangeBehaviour::update() {
 // Permite al enemigo instanciar balas
 void RangeBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
-	//float rot = playerPos->getPos().angle(pos->getPos()) - 180;
-	float rot = 0;
+	float rot = Vector2D(1, 0).angle(vel.normalize());
 	if (vel.magnitude() != 0) {
 		vel = vel / vel.magnitude();
 		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
-		/*vel = vel * bulletSpedd;*/
 		if (shotPattern == 0) {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
+			rot = Vector2D(1, 0).angle(vel.normalize());
 			data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
+			rot = Vector2D(1, 0).angle(vel.normalize());
 			data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 2) {
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
+			rot = Vector2D(1, 0).angle(vel.normalize());
 			data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(-2*BULLET_ANGLE);
+			rot = Vector2D(1, 0).angle(vel.normalize());
 			data = { pos->getPos(), vel * BULLET_SPEED, rot, 50, 10, ENEMY_ARROW, _grp_PLAYER };
 			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}

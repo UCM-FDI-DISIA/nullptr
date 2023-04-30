@@ -41,7 +41,8 @@ public:
 
 	// Getters
 	Player* getPlayer() { return player; };
-	StatsTrackComponent* getTracker() { return enemyGenerator->getComponent<StatsTrackComponent>(); }
+	StatsTrackComponent* getTracker() { 
+		return enemyGenerator->getComponent<StatsTrackComponent>(); }
 
 	// Efectos sobre el jugador
 	void OnPlayerDies();
