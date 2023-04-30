@@ -10,7 +10,7 @@ void EnemyGenerator::initComponent() {
 }
 
 void EnemyGenerator::update() {
-	if (nextSpawn <= SDLApplication::instance()->getCurrentTime()) {
+	if (canSpawn && nextSpawn <= SDLApplication::instance()->getCurrentTime()) {
 		nextWave();
 	}
 }

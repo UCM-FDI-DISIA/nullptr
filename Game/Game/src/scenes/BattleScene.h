@@ -1,5 +1,4 @@
 #pragma once
-
 #include "NodeScene.h"
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
@@ -7,7 +6,6 @@
 #include "../gameObjects/Enemy Objects/TankEnemy.h"
 #include "../gameObjects/UI/CardCounter.h"
 #include "../gameObjects/Node Objects/Node.h"
-#include "../gameObjects/UI/HandUI.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 #include "../components/General Components/StatsTrackComponent.h"
 
@@ -15,16 +13,15 @@
 class StatisticsUI;
 class ChargedPortalComponent;
 class HandUI;
+
 class BattleScene : public NodeScene {
-private:
+protected:
 	Player* player;
 	GameObject *floor, *background, *background1, *background2, *background3;
 
 	// Generador de enemigos
-	GameObject* empty;
+	GameObject* enemyGenerator;
 	BattleType type;
-	GameObject* deck;
-	GameObject* pile;
 	Music* battleSceneOST;
 	// - UI -
 	// Frame superior de vida, man� y �ter
@@ -34,16 +31,18 @@ private:
 	CardCounter* cardContRight;
 	// Puntero a la mano del jugador en la UI
 	HandUI* hand;
+	bool tutorial;
 
 public:
 	// Constructora
-	BattleScene(BattleType t_);
+	BattleScene(BattleType t_, bool tuto = false);
 	// Destructora
 	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
 
 	// Getters
 	Player* getPlayer() { return player; };
-	StatsTrackComponent* getTracker() { return empty->getComponent<StatsTrackComponent>(); }
+	StatsTrackComponent* getTracker() { 
+		return enemyGenerator->getComponent<StatsTrackComponent>(); }
 
 	// Efectos sobre el jugador
 	void OnPlayerDies();
@@ -51,7 +50,16 @@ public:
 
 	void changeToGameOverScene();
 
+	// Anade el fondo y suelo
+	void addBackgroundAndFloor();
+	// Anade la musica
+	void addMusic();
+
 	// - UI -
+	void createUI();
+	void createHand(CardComponent* cc);
+	void createCounters(CardComponent* cc);
+	void createStatistics(HealthComponent* hc, CardComponent* cc);
 	// Comunicar cambios a la UI
 	void changeUISelected(bool key, int number);
 	void discardUI(deque<Card*>::iterator discarded);

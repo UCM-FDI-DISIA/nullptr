@@ -195,6 +195,13 @@ const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
 const string SOUND_ATTACK = "Sound";
 const string BULLET= "Bullet";
+const string PLAYER_ARROW = "PlayerArrow";
+const string ENEMY_ARROW = "EnemyArrow";
+const string LIGHT_BULLET = "LightBullet";
+const string LIGHT_EXPLOSION = "LightExplosion";
+const string PULGA_BULLET = "PulgaBullet";
+const string PULGA_EXPLOSION = "PulgaExplosion";
+const string GRENADE = "Grenade";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
@@ -377,6 +384,18 @@ const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+
+// TUTORIALSCENE ---------------------------------------------------------------------------------
+// SPRITES DIMS
+const int COMPANION_SPRITE_WIDTH = 128;
+const int COMPANION_SPRITE_HEIGHT = 96;
+const int COMPANION_WIDTH = COMPANION_SPRITE_WIDTH * PIXEL_WIDTH;
+const int COMPANION_HEIGHT = COMPANION_SPRITE_HEIGHT * PIXEL_HEIGHT;
+// ANIM KEYS
+const string COMPANION_TEXTURE = "Companion";
+// POSITIONS
+const Vector2D RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 5);
+const Vector2D TEXT_OFFSET = Vector2D(80, 80);
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
@@ -782,6 +801,4 @@ struct AnimatorInfo {
 		int _r = BUTTON_SPRITE_ROWS, int _c = BUTTON_SPRITE_COLUMS) :
 		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
 };
-
-
 #endif

@@ -12,6 +12,8 @@ private:
 public:
 	MapScene();
 
+	void goToTutorial();
+
 	void handleInput() override;
 
 	// Mover la camara a la altura de los siguientes al current

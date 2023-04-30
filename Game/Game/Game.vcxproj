@@ -183,12 +183,14 @@
     <ClInclude Include="src\components\General Components\EffectController.h" />
     <ClInclude Include="src\components\General Components\HealthComponent.h" />
     <ClInclude Include="src\components\General Components\Image.h" />
+    <ClInclude Include="src\components\General Components\LerpComponent.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\StatsTrackComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
     <ClInclude Include="src\components\General Components\TextComponent.h" />
     <ClInclude Include="src\components\General Components\Transform.h" />
+    <ClInclude Include="src\components\General Components\TutorialComponent.h" />
     <ClInclude Include="src\components\Node Components\NodeButtonComponent.h" />
     <ClInclude Include="src\components\Player components\BarComponent.h" />
     <ClInclude Include="src\components\Player components\PlayerAnimator.h" />
@@ -220,6 +222,7 @@
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
+    <ClInclude Include="src\gameObjects\General Objects\Tuto.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Map.h" />
     <ClInclude Include="src\gameObjects\Node Objects\Node.h" />
     <ClInclude Include="src\gameObjects\Node Objects\NodeButton.h" />
@@ -242,6 +245,7 @@
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\PostGameScene.h" />
     <ClInclude Include="src\scenes\ShopScene.h" />
+    <ClInclude Include="src\scenes\TutorialScene.h" />
     <ClInclude Include="src\sdlutils\Font.h" />
     <ClInclude Include="src\sdlutils\InputHandler.h" />
     <ClInclude Include="src\sdlutils\macros.h" />
@@ -276,12 +280,14 @@
     <ClCompile Include="src\components\General Components\EffectController.cpp" />
     <ClCompile Include="src\components\General Components\HealthComponent.cpp" />
     <ClCompile Include="src\components\General Components\Image.cpp" />
+    <ClCompile Include="src\components\General Components\LerpComponent.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
     <ClCompile Include="src\components\General Components\TextComponent.cpp" />
     <ClCompile Include="src\components\General Components\Transform.cpp" />
+    <ClCompile Include="src\components\General Components\TutorialComponent.cpp" />
     <ClCompile Include="src\components\Node Components\NodeButtonComponent.cpp" />
     <ClCompile Include="src\components\Player components\BarComponent.cpp" />
     <ClCompile Include="src\components\Player components\PlayerAnimator.cpp" />
@@ -322,6 +328,7 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
+    <ClCompile Include="src\gameObjects\General Objects\Tuto.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Map.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\Node.cpp" />
     <ClCompile Include="src\gameObjects\Node Objects\NodeButton.cpp" />
@@ -344,6 +351,7 @@
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\PostGameScene.cpp" />
     <ClCompile Include="src\scenes\ShopScene.cpp" />
+    <ClCompile Include="src\scenes\TutorialScene.cpp" />
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
