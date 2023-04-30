@@ -39,8 +39,10 @@ const int DIGITS_NUMB = 4;
 // FONTS ------------------------------------------------------------------------------------------
 const string USED_FONT = "ARIAL24";
 const int USED_FONT_SIZE = 24;
-const string FONT_SS_REG = "SILKSCREEN_REGULAR";
-const string FONT_SS_BOLD = "SILKSCREEN_BOLD";
+const string FONT_SS_REG22 = "SILKSCREEN_REGULAR22";
+const string FONT_SS_BOLD22 = "SILKSCREEN_BOLD22";
+const string FONT_SS_REG30 = "SILKSCREEN_REGULAR30";
+const string FONT_SS_BOLD30 = "SILKSCREEN_BOLD30";
 
 // TEXT COLORS ------------------------------------------------------------------------------------
 const SDL_Color COLOR_WHITE = { 255, 255, 255 };

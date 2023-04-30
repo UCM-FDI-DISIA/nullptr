@@ -112,7 +112,7 @@ void ChestScene::relicInfo(Relic* r, SDL_Color color) {
 	GameObject* era = addGameObject();
 	auto tr = era->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
 	string completeEra = getEraString(r->era);
-	era->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG), completeEra, color);
+	era->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), completeEra, color);
 	tr->setPos(INFO_FRAME_POS + Vector2D(INFO_FRAME_WIDTH / 2 - tr->getWidth() / 2, 15));
 
 	// Vida
@@ -156,7 +156,7 @@ void ChestScene::relicName(Relic* r, SDL_Color color) {
 
 	// Crear el texto para obtener su width
 	auto textTr = name.first->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, 1, 1);
-	name.first->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_BOLD), r->id, color);
+	name.first->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_BOLD22), r->id, color);
 
 	// Crear marco dependiente del tamaño del texto
 	auto frameTr = name.second->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO,
@@ -174,9 +174,9 @@ void ChestScene::relicName(Relic* r, SDL_Color color) {
 // Añade el componente de texto con un + o un 0 dependiendo del valor recibido
 void ChestScene::standarizeText(GameObject* g, int stat, SDL_Color color) {
 	if (stat <= 0)
-		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG), "0", color);
+		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), "0", color);
 	else
-		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG), "+" + to_string(stat), color);
+		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), "+" + to_string(stat), color);
 }
 
 // Devuelve un string con la era correspondiente

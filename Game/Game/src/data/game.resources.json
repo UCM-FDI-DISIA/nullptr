@@ -4,8 +4,10 @@
       { "id" : "ARIAL24", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 24 },
       { "id" : "ARIAL36", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 36 },
       { "id" : "ARIAL48", "file" : "../Game/resources/fonts/ARIAL.ttf", "size": 48 },
-      { "id" : "SILKSCREEN_REGULAR", "file" : "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 30 },
-      { "id" : "SILKSCREEN_BOLD", "file" : "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 30 }
+      { "id" : "SILKSCREEN_REGULAR22", "file" : "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 22 },
+      { "id" : "SILKSCREEN_BOLD22", "file" : "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 22 },
+      { "id" : "SILKSCREEN_REGULAR30", "file" : "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 30 },
+      { "id" : "SILKSCREEN_BOLD30", "file" : "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 30 }
     ],
     
     "images" : [

@@ -167,6 +167,6 @@ void TutorialScene::showPopUpText(Vector2D tutoPos) {
 	// Añadir objeto con el componente transform y el de texto con el string adecuado
 	text = addGameObject(_grp_UI);
 	text->addComponent<Transform>(tutoPos + TEXT_OFFSET, VECTOR_ZERO, 376 * PIXEL_WIDTH - 120, 284 * PIXEL_HEIGHT - 120);
-	text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR"),
+	text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR30"),
 		tutorialTexts[current], color, true)->attachToCamera();
 }
