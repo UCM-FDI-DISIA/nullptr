@@ -20,22 +20,22 @@ private:
 
 	string tutorialTexts[8] = {
 		// Movimiento
-		"¡Bienvenido a Timeless Deck! Yo soy Tuto y voy a ser tu guía en este lugar.\nPara empezar, siempre que aparezca aquí debes pulsar 'REANUDAR' para continuar.\n\nDicho esto, prueba a moverte con los controles que te voy a mostrar por pantalla.",
+		"Bienvenido a Timeless Deck. Soy Tuto y seré tu guía.\nPara empezar, siempre que aparezca aquí debes pulsar 'REANUDAR' para continuar.\n\nDicho esto, prueba a moverte con los controles que te mostraré por pantalla.",
 		
 		// Carta
-		"¡Muy bien! Pues ya va siendo hora de enseñarte la magia de este lugar... ¡tus armas son cartas!\n\nMira, voy a darte una para probar, aunque realmente puedes llevar hasta 4 como máximo en tu mano.\nFíjate en mi pantalla para aprender a apuntar y disparar y en la carta para ver sus usos.",
+		"¡Muy bien! Pues ya va siendo hora de enseñarte la magia de este lugar... ¡tus armas son cartas!\n\nMira, voy a darte una para probar, aunque realmente puedes llevar hasta 4 como máximo en tu mano.",
 		
 		// Mano
-		"¡Genial! Además de las 4 cartas de tu mano, contarás con una pila de descartes y un mazo, cada uno a un lado.\nCuando gastes una carta, esta pasará a los descartes y, de ser la última de la mano, cogerás 4 nuevas del mazo. Estos mazos ciclarán entre ellos, y el mazo se barajeará cada vez que se acabe con la pila. ¡Pruébalo!",
+		"¡Genial! Además de tu mano, tienes un mazo y una pila de descartes. Las cartas gastadas van a los descartes y se toman 4 nuevas del mazo si se acaba la mano. Al agotarse el mazo, se ciclan los descartes.",
 		
 		// Enemigos
-		"¡Aprendes rápido, eh! En este lugar deberás derrotar enemigos para poder avanzar. Estos enemigos te quitarán vida si te golpean, así que dalo todo para derrotarlos.\n\nPor ahora, cuentas con 100 puntos de vida (barra roja), pero cada enemigo te hará un daño diferente. Recuerda que puedes seleccionar qué carta usas.",
+		"¡Aprendes rápido, eh!\nDebes vencer enemigos para avanzar, pero te quitarán vida si te golpean. Tienes 100 puntos de vida (barra roja) y cada enemigo hace un daño diferente. Escoge tus cartas sabiamente.",
 		
 		// Habilidad
-		"¿Has visto eso? ¡El enemigo te ha soltado maná! (piedras azules).\n\nEl maná (barra azul) será necesario para usar las habilidades de las cartas y para recogerlo deberás pasar sobre él.\nLas habilidades vienen indicadas en la zona superior de las cartas junto al maná que consumen, ¡prueba a usar una!",
+		"¿Has visto eso? \nRecoge el maná que sueltan los enemigos para usar habilidades indicadas en las cartas junto al maná que consumen.",
 	
 		// Portal
-		"El enemigo te puede soltar otra cosa... ¡éter! (polvo morado).\n\nEl éter (barra blanca) será necesario para cargar el portal, teniendo que llegar al 100% del medidor para poder avanzar al siguiente nivel. Se recogerá solo tras cierto tiempo, así que tú preocupaté de derrotar a cuantos más enemigos mejor.",
+		"Los enemigos también pueden soltar éter (polvo morado) que necesitas para cargar el portal y avanzar al siguiente nivel. Recógelo y derrota enemigos para llenar el medidor al 100%.",
 	
 		// Fin
 		"¡Bien hecho, eso es todo! Ahora llenaré tu barra de éter al 100% y podrás salir del nivel tal y como te voy a indicar por pantalla.\n\nCon esto dicho, solo me queda despedirme. ¡Ánimo en tu aventura, nos vemos!"
