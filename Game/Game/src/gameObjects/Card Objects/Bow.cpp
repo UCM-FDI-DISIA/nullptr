@@ -11,8 +11,9 @@ void BowCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
 	dir = dir.normalize();
+	float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-	Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, 0, 50, 10, PLAYER_ARROW, _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, rot, 50, 10, PLAYER_ARROW, _grp_ENEMIES };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
 }
@@ -22,8 +23,9 @@ void BowCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 		dir = dir.normalize();
+		float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-		Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, 0, 16, 16, PLAYER_ARROW, _grp_ENEMIES };
+		Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, rot, 16, 16, PLAYER_ARROW, _grp_ENEMIES };
 
 		float size = 100 + remainingUses * 15;
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 2, StatusComponent::NONE, size, size, BULLET, where, data);

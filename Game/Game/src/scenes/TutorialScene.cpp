@@ -10,6 +10,7 @@ TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0),
 	pic->setCanMove(false);
 	pic->setCanAttack(false);
 	pic->setCanUseAbility(false);
+	pic->setCanExit(false);
 	// Ocultamos el puntero
 	pointer->setShowPointer(false);
 
