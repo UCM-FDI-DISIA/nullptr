@@ -117,7 +117,6 @@
       { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
       { "id" : "SpearThrust", "file" : "../Game/resources/images/Cards/CardEffects/SpearThrust_184x39.png" },
 
-
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
       { "id" : "newPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
@@ -196,6 +195,8 @@
       { "id" : "ItemFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemFrame_38x38.png" },
       { "id" : "ItemInfoFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemInfoFrame_72x100.png" },
       { "id" : "ItemNameFrame", "file" : "../Game/resources/images/UI/ChestScene/ItemNameFrame_80x16.png" },
+
+      { "id" : "MoneyFrame", "file" : "../Game/resources/images/UI/ShopScene/MoneyFrame_58x16.png" },
 
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },

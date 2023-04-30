@@ -10,6 +10,9 @@ struct Item {
 	Button* card;
 	CardId cardObj;
 	GameObject* priceObj;
+	GameObject* priceFrame;
+	pair<GameObject*, GameObject*> ammo;
+	pair<GameObject*, GameObject*> mana;
 	int price;
 };
 
@@ -19,12 +22,15 @@ private:
 
 	int myMoney;
 	GameObject* moneyPrint;
+	pair<GameObject*, GameObject*> moneyFrame;
+
 	int alreadyInStore[SHOP_NUMBER_OF_CARDS];
 	array<Item, SHOP_NUMBER_OF_CARDS> myItems;
 	Item itemToInsert;
 	Item* selectedCard;
 	Button* buyButton;
 	Button* exitButton;
+
 public:
 	// Constructora
 	ShopScene();
