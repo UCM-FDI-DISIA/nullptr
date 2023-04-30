@@ -51,26 +51,26 @@ void BossBehaviour::update() {
 					grenadeAttack();
 					break;
 				case 4: // Tent�culo Dirigido
-					tentacleDirectedAttack();
+					targetedAttack();
 					break;
 				case 5: // Aspersor
-					sprinklerAttack();
+					clockAttack();
 					break;
 				case 6: // BulletHell + Granadas
 					bulletHellAttack();
 					grenadeAttack();
 					break;
 				case 7: // Tent�culo Dirigido + Conos
-					tentacleDirectedAttack();
+					targetedAttack();
 					coneAttack();
 					break;
 				case 8: // BulletHell + Aspersor
 					bulletHellAttack();
-					sprinklerAttack();
+					clockAttack();
 					break;
 				case 9: // Granadas + Tent�culo Dirigido
 					grenadeAttack();
-					tentacleDirectedAttack();
+					targetedAttack();
 					break;
 				default:
 					break;
@@ -196,14 +196,6 @@ void BossBehaviour::bulletHellAttack() {
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 	}
 }
-// Funci�n para ejecutar el ataque Tent�culo Dirigido
-void BossBehaviour::tentacleDirectedAttack() {
-	// Implementar l�gica del ataque Tent�culo Dirigido
-}
-// Funci�n para ejecutar el ataque Aspersor
-void BossBehaviour::sprinklerAttack() {
-	// Implementar l�gica del ataque Aspersor
-}
 // Funci�n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
 
@@ -234,11 +226,13 @@ Uint32 BossBehaviour::coneAttackTimerCallback(Uint32 interval, void* param) {
 	boss->coneAttack();
 	return 0;
 }
+// Funcion para el ataque de reloj
 void BossBehaviour::clockAttack()
 {
 	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX()+pos->getWidth()/2, pos->getPos().getY()+pos->getHeight()/2), false);
 	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), true);
 }
+// Funcion para el ataque teledirigido
 void BossBehaviour::targetedAttack()
 {
 	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>());

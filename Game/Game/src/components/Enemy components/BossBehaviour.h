@@ -36,8 +36,6 @@ public:
 	void enemyAttack();
 	void coneAttack();
 	void bulletHellAttack();
-	void tentacleDirectedAttack();
-	void sprinklerAttack();
 	void grenadeAttack();
 	void clockAttack();
 	void targetedAttack();
