@@ -89,7 +89,7 @@ void TutorialScene::activatePopUp() {
 	tutoPopUp->addComponent<Transform>(tutoPos, Vector2D(), t->width() * PIXEL_WIDTH, t->height()/2 * PIXEL_HEIGHT);
 	Animator* anim = tutoPopUp->addComponent<Animator>(t, 376, 284, 2, 1);
 	anim->attachToCamera();
-	anim->createAnim("idle", 0, 1, 2, -1);
+	anim->createAnim("idle", 0, 1, 3, -1);
 	anim->play("idle");
 
 	// Mostar texto correspondiente
@@ -105,6 +105,7 @@ void TutorialScene::activatePopUp() {
 void TutorialScene::deactivatePopUp() {
 	// Objeto tuto
 	if (tuto == nullptr) tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
+	else tuto->changeAnim(current);
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
 
 	// Desactivar

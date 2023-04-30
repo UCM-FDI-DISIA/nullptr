@@ -75,7 +75,6 @@
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
 
-
       { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
       { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
       { "id" : "FarNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_427x50.png" },
@@ -135,9 +134,9 @@
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
 
-      {"id": "Companion","file": "../Game/resources/images/Tutorial/Tuto_128x96.png"},
-      {"id": "Screen", "file":  "../Game/resources/images/Tutorial/Screen.png"},
-      {"id": "TutoTalking", "file":  "../Game/resources/images/Tutorial/TutoTalking_378x284.png"}
+      {"id": "Companion","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
+      {"id": "Screen", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
+      {"id": "TutoTalking", "file":  "../Game/resources/images/UI/TutorialScene/TutoTalking_378x284.png"}
     ],
     
     "messages" : [

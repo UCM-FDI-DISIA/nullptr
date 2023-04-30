@@ -7,13 +7,17 @@ class Tuto : public GameObject {
 private:
 	Animator* myAnim;
 	LerpComponent* l;
-	// Puntero a mi componente de tuto
+	Transform* tr;
+	int current;
+	double time;
+	bool change;
 
 public:
 	// Constructora
-	Tuto() : myAnim(nullptr), l(nullptr) { }
+	Tuto() : myAnim(nullptr), l(nullptr), time(0) { }
 	// Inicializa el objeto
 	virtual void initGameObject(Transform* pl);
+	virtual void update();
 
 	//void createAnims(Animator* a);
 	//// SE MUEVE CON WASD
@@ -25,4 +29,5 @@ public:
 	//void showSelectCard();
 	//void showPortalCharges();
 
+	void changeAnim(int current);
 };
