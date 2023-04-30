@@ -5,6 +5,7 @@
 AssasinBehaviour::AssasinBehaviour(float stopT, float spd, int dmg, float atkDist, float attack, Player* player) :EnemyBehaviour(spd, dmg, stopT, attack, player) {
 	safeDistance = atkDist;
 	dashTime = attack;
+	dashCooldown = stopT;
 	elapsedDash = 0;
 	elapsedTime = 0;
 }
@@ -46,6 +47,7 @@ void AssasinBehaviour::update() {
 			elapsedDash = 0;
 			attacked = false;
 			pos->setVel(Vector2D(0, 1.2 * ENEMY_SPEED));
+			elapsedTime = 0;
 		}
 		close();
 		if(!attacked){
