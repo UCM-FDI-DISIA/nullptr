@@ -88,10 +88,10 @@ void TutorialComponent::changeState() {
 		break;
 
 		case Portal:
-			// Si ya no hay enemigo, y recojo todo el mana
-			if (canAdvance && ts->getTestEnemy() && ts->getManaNumber()) {
+			// Si ya no hay enemigo, y espero a que se recoja el mana
+			if (canAdvance && ts->getTestEnemy()) {
 				activatePopup();		// Con el texto de "Los enemigos tambien dejan eter, sirve para pasar el nivel)
-				current = Portal;
+				current = Introduccion;
 				canAdvance = false;
 			}
 			break;

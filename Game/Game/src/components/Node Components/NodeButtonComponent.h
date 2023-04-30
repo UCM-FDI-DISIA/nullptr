@@ -17,4 +17,5 @@ public:
 
 	// Ejecuta el callback del botón si este está disponible
 	virtual void onClick();
+	
 };

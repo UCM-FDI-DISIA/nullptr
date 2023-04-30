@@ -10,7 +10,7 @@ MapScene::MapScene() {
 
 	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
 	vector<vector<Vector2D>> nodesPositions(HEIGHT);
-
+	NodeButton* first = nullptr;
 	int i = 0;
 	for (auto& height : nodeMap) {
 		int j = 0;
@@ -31,10 +31,11 @@ MapScene::MapScene() {
 					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-				addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 8.0f : 5.0f,
+				NodeButton* g = addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 8.0f : 5.0f,
 					[&](Transform* myTr) {
 						camTr->setY(-myTr->getY() + sdlutils().height() / 2 - NODE_HEIGHT / 2);
 					});
+				if (i == 0 && j == 0) first = g;
 				++j;
 			}
 			nodesPositions[i].push_back(pos);
@@ -57,6 +58,10 @@ MapScene::MapScene() {
 
 	// Botón salir
 	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+}
+
+void MapScene::goToTutorial() {
+	gameMap().getNodeMap()[0][1]->loadNode()();
 }
 
 void MapScene::handleInput() {
