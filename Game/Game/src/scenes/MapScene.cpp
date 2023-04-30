@@ -63,6 +63,10 @@ void MapScene::goToTutorial() {
 	gameMap().getNodeMap()[0][1]->loadNode()();
 }
 
+void MapScene::goToBoss() {
+	gameMap().getNodeMap()[16][1]->loadNode()();
+}
+
 void MapScene::handleInput() {
 	GameState::handleInput();
 

@@ -23,9 +23,14 @@ MainMenuScene::MainMenuScene() {
 	//Stats por defecto
 	PlayerData::instance()->defaultPlayerStats();
 
-	// Botón jugar
-	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, 
+	// Botón jugar (este es el q debe estar al mergear a hito 3
+	/*createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, 
 		[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
+		PLAY)->setAsDefaultButton();*/
+
+	//Este es para probar el boss
+	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
+		[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToBoss(); },
 		PLAY)->setAsDefaultButton();
 
 	if (pD().hasSaveFile()) createButton(MM_RESUME_BUTTON_POS, MM_RESUME_BUTTON_POS - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);

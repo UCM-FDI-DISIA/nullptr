@@ -13,6 +13,7 @@ public:
 	MapScene();
 
 	void goToTutorial();
+	void goToBoss();
 
 	void handleInput() override;
 
