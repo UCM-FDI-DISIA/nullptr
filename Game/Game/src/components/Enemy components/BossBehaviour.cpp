@@ -30,7 +30,7 @@ void BossBehaviour::update() {
 			behaviorTime -= stopTime + moveTime;
 		}
 	}
-	if (!confused && !oneAttack) {
+	if (!confused) {
 		if (attacking) {
 			if (attackDelay < attackTime) {
 				attackTime = 0;
@@ -38,8 +38,7 @@ void BossBehaviour::update() {
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
 				switch (10) {
 				case 0: // Conos
-					targetedAttack();
-					oneAttack = true;
+					coneAttack();
 					/*coneAttack();*/
 					break;
 				case 1: // BulletHell

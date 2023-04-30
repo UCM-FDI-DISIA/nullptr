@@ -21,7 +21,6 @@ private:
 	int attackState = 0;
 	bool listaCompletada = false;
 	int coneAttacksDone = 0;
-	bool oneAttack = false;
 
 	EnemyAnimator* anim;
 	HealthComponent* hc;
