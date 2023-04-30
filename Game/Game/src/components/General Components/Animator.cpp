@@ -27,7 +27,7 @@ void Animator::play(string key) {
 	}
 	// Si no son animaciones enlazadas se inicia la animción de 0
 	else {
-		currentFrame = currentAnimation->startFrame;
+		currentFrame = (currentAnimation->backwards ? currentAnimation->endFrame : currentAnimation->startFrame);
 		repetitions = 0;
 		currTime = 0;
 	}
@@ -54,21 +54,23 @@ bool Animator::playDiff(string key) {
 
 // Actualiza el frame actual dependiendo del frameRate
 void Animator::update() {
-
 	if (currentAnimation != nullptr) {
 		if (currTime >= (1000 / currentAnimation->frameRate)) {
 			if (currentAnimation->repeat != repetitions) {
-				// Devuelve el siguiente frame a renderizar
-				currentFrame = currentAnimation->startFrame + ((currentFrame + 1 - currentAnimation->startFrame) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
-
+				if (!currentAnimation->backwards) {
+					// Devuelve el siguiente frame a renderizar
+					currentFrame = currentAnimation->startFrame + ((currentFrame + 1 - currentAnimation->startFrame) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
+				}
+				else {
+					currentFrame = currentAnimation->endFrame - ((-currentFrame + 1 + currentAnimation->endFrame) % (currentAnimation->endFrame - currentAnimation->startFrame + 1));
+				}
 				// Si ha terminado una iteracion de la animacion, se le resta una repeticion
-				if (currentFrame == currentAnimation->endFrame) {
+				if ((currentFrame == currentAnimation->endFrame && !currentAnimation->backwards) || (currentFrame == currentAnimation->startFrame && currentAnimation->backwards)) {
 
 					++repetitions;
 				}
 			}
 
-			
 			currTime = 0;
 		}
 		currTime += SDLApplication::instance()->getDeltaTime();
@@ -84,13 +86,16 @@ void Animator::render() const {
 	srcRect.y = ((currentFrame / cols) % rows) * fh;
 	srcRect.w = fw * srcRectRelativeWidth;
 	srcRect.h = fh * srcRectRelativeHeight;
-	
+	texture->changeTint(r, g, b);
+	texture->changeAlpha(alpha);
 	// Si debo renderizar menos del ancho de la textura original
 	if (srcRectRelativeWidth < 1 || srcRectRelativeHeight < 1) {
 		texture->render(srcRect, getFactoredRect(srcRectRelativeWidth, srcRectRelativeHeight),
 			transform->getRotation(), nullptr, flip);
 	}
 	else texture->render(srcRect, getRect(), transform->getRotation(), nullptr, flip);
+	texture->changeAlpha(255);
+	texture->changeTint(255, 255, 255);
 }
 
 

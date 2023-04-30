@@ -1,16 +1,15 @@
 #pragma once
-
 /*
  * La idea sería tener un archivo de lectura de este tipo de data en vez de un .h a compilar
 */
-#ifndef CONSTANTS_H_
-#define CONSTANTS_H_
 
 #include <SDL.h>
 #include <iostream>
 #include "../core/Vector2D.h"
 #include "../components/ecs.h"
 
+#ifndef CONSTANTS_H_
+#define CONSTANTS_H_
 using namespace std;
 using uint = unsigned int;
 
@@ -24,8 +23,8 @@ const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
-const int PIXEL_WIDTH = WIN_WIDTH / 544;
-const int PIXEL_HEIGHT = WIN_HEIGHT / 306;
+const float PIXEL_WIDTH = WIN_WIDTH / 544.0f;
+const float PIXEL_HEIGHT = WIN_HEIGHT / 306.0f;
 
 // FRAME TIMES ------------------------------------------------------------------------------------
 const double FRAME_TIME = 30;
@@ -36,6 +35,18 @@ const string TEXTURES_FILE = "../Game/src/data/textures.txt"; // Hay que rehacer
 const int NUM_TEXTURES = 19;
 const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
+
+// FONTS ------------------------------------------------------------------------------------------
+const string USED_FONT = "ARIAL24";
+const int USED_FONT_SIZE = 24;
+const string FONT_SS_REG22 = "SILKSCREEN_REGULAR22";
+const string FONT_SS_BOLD22 = "SILKSCREEN_BOLD22";
+const string FONT_SS_REG30 = "SILKSCREEN_REGULAR30";
+const string FONT_SS_BOLD30 = "SILKSCREEN_BOLD30";
+
+// TEXT COLORS ------------------------------------------------------------------------------------
+const SDL_Color COLOR_WHITE = { 255, 255, 255 };
+const SDL_Color COLOR_RED = { 255, 0,0 };
 
 // ANIMATIONS -------------------------------------------------------------------------------------
 const string ONOUT = "OnOut";
@@ -55,13 +66,14 @@ const string CHARACTER_ATTACK_IDLE_KEY = "charaAttackIdle";
 const string CHARACTER_ATTACK_MOVE_KEY = "charaAttackMove";
 const string CHARACTER_SKILL_IDLE_KEY = "charaSkillIdle";
 const string CHARACTER_SKILL_MOVE_KEY = "charaSkillMove";
+const string CHARACTER_DEATH_KEY = "charaDeath";
 
 // PLAYER -----------------------------------------------------------------------------------------
 // PLAYER ANIMATIONS
 const string PLAYER = "newPlayer";
 const int PLAYER_SPRITE_WIDTH = 32;
 const int PLAYER_SPRITE_HEIGHT = 32;
-const int PLAYER_SPRITE_ROWS = 6;
+const int PLAYER_SPRITE_ROWS = 7;
 const int PLAYER_SPRITE_COLS = 8;
 
 //PLAYER IDLE ANIM
@@ -88,14 +100,20 @@ const int PLAYER_ATTACK_IDLE_FRAME_RATE = 12;
 const int PLAYER_ATTACK_MOVE_INITIAL_FRAME = 40;
 const int PLAYER_ATTACK_MOVE_FINAL_FRAME = 47;
 const int PLAYER_ATTACK_MOVE_FRAME_RATE = 12;
+//PLAYER DEATH ANIM
+const int PLAYER_DEATH_INITAL_FRAME = 48;
+const int PLAYER_DEATH_FINAL_FRAME = 56;
+const int PLAYER_DEATH_FRAME_RATE = 8;
+const double DEATH_DELAY = 1000;
 
 // PLAYER DIMENSIONS
-const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * 2;
-const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * 2;
+const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
+const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
 const string POINTER = "Pointer";
@@ -110,6 +128,7 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const int SHIELD_SPEED = 20;
 const float ENEMY_SPEED = 50;
+const int PUSH_STRENGTH = 100;
 
 // MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;
@@ -125,6 +144,8 @@ const int MELEE_ENEMY_HEIGHT = MELEE_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Animation MELEE_ENEMY_IDLE_ANIMATION(12, 19, 10, -1);
 const Animation MELEE_ENEMY_MOVEMENT_ANIMATION(0, 11, 10, -1);
 const Animation MELEE_ENEMY_ATTACK_ANIMATION(12, 19, 10, 1);
+const int MELEE_LIFE = 20;
+const int MELEE_ATTACK_DAMAGE = 20;
 
 // RANGED ENEMY
 const string RANGED_ENEMY_TEXTURE_KEY = "RangedEnemy";
@@ -132,6 +153,12 @@ const int RANGED_ENEMY_SPRITE_WIDTH = 32;
 const int RANGED_ENEMY_SPRITE_HEIGHT = 32;
 const int RANGED_ENEMY_SPRITE_ROWS = 2;
 const int RANGED_ENEMY_SPRITE_COLS = 11;
+
+const string ASSASIN_ENEMY_TEXTURE_KEY = "AssasinEnemy";
+const int ASSASIN_ENEMY_SPRITE_WIDTH = 32;
+const int ASSASIN_ENEMY_SPRITE_HEIGHT = 32;
+const int ASSASIN_ENEMY_SPRITE_ROWS = 2;
+const int ASSASIN_ENEMY_SPRITE_COLS = 11;
 
 const int RANGED_ENEMY_WIDTH = RANGED_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
 const int RANGED_ENEMY_HEIGHT = RANGED_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
@@ -141,6 +168,8 @@ const Animation RANGED_ENEMY_MOVEMENT_ANIMATION(14, 21, 10, -1);
 const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 
 const int RANGED_ATTACK_ANIM_DELAY = 670;
+const int RANGED_LIFE = 10;
+const int RANGED_ATTACK_DAMAGE = 20;
 
 // TANK ENEMY
 const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
@@ -149,9 +178,10 @@ const int TANK_ENEMY_SPRITE_HEIGHT = 40;
 const int TANK_ENEMY_SPRITE_ROWS = 6;
 const int TANK_ENEMY_SPRITE_COLS = 5;
 
-const int TANK_WIDTH = 120;
+const int TANK_WIDTH = TANK_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
+const int TANK_HEIGHT = TANK_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const float TANK_SPEED = 35;
-const int TANK_ATTACK_DAMAGE = 1;
+const int TANK_ATTACK_DAMAGE = 10;
 const int TANK_LIFE = 60;
 const float TANK_STOP_TIME = 500;
 const float TANK_ATTACK_DISTANCE = 200;
@@ -188,14 +218,22 @@ const int CONE_HITBOX_SIZE = 250;
 const int CONE_ATTACK_DURATION = 2000; // 2 seconds
 const int CONE_ATTACK_COOLDOWN = 2000; // 2 seconds
 const float RAD_TO_DEG = 180.0f / M_PI;
+
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
 const string SWORD_SLASH = "SwordSlash";
 const string CONE_BOSS = "BossCone";
 const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
-const string SOWND_ATTACK = "Sound";
+const string SOUND_ATTACK = "Sound";
 const string BULLET= "Bullet";
+const string PLAYER_ARROW = "PlayerArrow";
+const string ENEMY_ARROW = "EnemyArrow";
+const string LIGHT_BULLET = "LightBullet";
+const string LIGHT_EXPLOSION = "LightExplosion";
+const string PULGA_BULLET = "PulgaBullet";
+const string PULGA_EXPLOSION = "PulgaExplosion";
+const string GRENADE = "Grenade";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
@@ -234,6 +272,7 @@ const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
 const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
 const Vector2D FRAME_OFFSET = Vector2D(36, 66);
 const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5, WIN_HEIGHT * 0.5);
+const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT * 0.5);
 const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
@@ -253,6 +292,10 @@ const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
 //CHESTMENU: BUTTON POSITIONS AND DIMENSIONS
 const int CHEST_BUTTON_WIDTH = 100;
 const int CHEST_BUTTON_HEIGHT = 50;
+const int CHEST_SPRITE_WIDTH = 46;
+const int CHEST_SPRITE_HEIGHT = 26;
+const string CHEST_TEXTURE = "GachaChest";
+const string SPARKLES_TEXTURE = "Sparkles";
 
 // MAPSCENE: BUTTON POSITIONS AND DIMENSIONS
 const int MS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 3;
@@ -278,10 +321,10 @@ const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
-	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "CadenceSymbol", "AttackSymbol"
+	"LifeSymbol", "ManaSymbol", "SpeedSymbol", "AttackSymbol", "CadenceSymbol"
 };
 const string STATS_TEXTS[5] = {
-	"Vida", "Mana", "Velocidad", "Cadencia", "Ataque"
+	"Vida", "Mana", "Velocidad", "Ataque", "Cadencia"
 };
 const int SYMBOL_DIMENSIONS = 64;
 const Vector2D SYMBOL_POSITIONS[5] = {
@@ -327,32 +370,19 @@ const int SP_WIDTH = 210;
 const int SP_HEIGHT = 30;
 const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
+const int ALB_CARD_W = 58 * PIXEL_WIDTH;
+const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
+const int ALB_CARD_X[3] = { 75, 205, 340 };
+const int ALB_CARD_Y = 275;
+const int ALB_CARD_Y_DIST = 10;
+
+const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
+const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
+const Animation CLICKED_CARD_ANIM(3, 3, 1, -1);
+
 
 // INVENTORYSCENE : DECK
-const Vector2D DECK_POSITIONS[6] = {
-	Vector2D(20, 520),
-	Vector2D(180, 520),
-	Vector2D(340, 520),
-	Vector2D(500, 520),
-	Vector2D(660, 520),
-	Vector2D(820, 520)
-};
-
-// INVENTORY : LIBRARY
-const Vector2D LIBRARY_POSITIONS[12] = {
-	Vector2D(20, 50),
-	Vector2D(180, 50),
-	Vector2D(340, 50),
-	Vector2D(500, 50),
-	Vector2D(660, 50),
-	Vector2D(820, 50),
-	Vector2D(20, 270),
-	Vector2D(180, 270),
-	Vector2D(340, 270),
-	Vector2D(500, 270),
-	Vector2D(660, 270),
-	Vector2D(820, 270)
-};
+const int DECK_HEIGHT = 520;
 
 // INVENTORY : OBJECTS
 const int OBJECTS_DIMENSIONS = 64;
@@ -367,11 +397,13 @@ const Vector2D OBJECTS_POSITIONS[6] = {
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";
+const string CONTINUE = "ContinueButton";
 const string OPTIONS = "OptionsButton";
 const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
 const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
+const string BUY = "BuyButton";
 
 // BATTLEBACKGROUND ------------------------------------------------------------------------------
 const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 
@@ -384,6 +416,18 @@ const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
 const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
 const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
 const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+
+// TUTORIALSCENE ---------------------------------------------------------------------------------
+// SPRITES DIMS
+const int COMPANION_SPRITE_WIDTH = 128;
+const int COMPANION_SPRITE_HEIGHT = 96;
+const int COMPANION_WIDTH = COMPANION_SPRITE_WIDTH * PIXEL_WIDTH;
+const int COMPANION_HEIGHT = COMPANION_SPRITE_HEIGHT * PIXEL_HEIGHT;
+// ANIM KEYS
+const string COMPANION_TEXTURE = "Companion";
+// POSITIONS
+const Vector2D RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 5);
+const Vector2D TEXT_OFFSET = Vector2D(80, 80);
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
@@ -432,7 +476,7 @@ const int ETHER_COLUMNS = 2;
 const int ETHER_START = 0;
 const int ETHER_END = 7;
 const int ETHER_FRAMERATE = 8;
-const int ETHER_LIMIT = 999;
+const int ETHER_LIMIT = 100;
 // COUNTERS
 const int N_LIFE_COUNTER = 7;
 const int N_MANA_COUNTER = 7;
@@ -443,7 +487,7 @@ const int ST_NUMBERS_HEIGHT = 18;
 const int ST_NUMBERS_ROWS = 6;
 const int ST_NUMBERS_COLUMNS = 2;
 const Vector2D UI_COUNTDOWN_ETHER_POS = Vector2D(WIN_WIDTH / 2 - (ST_NUMBERS_WIDTH * 1.8 + 6) / 2, 9);
-const float COUNTDOWN_TIME = 5.6f;
+const float COUNTDOWN_TIME = 3.6f;
 
 //MANA -------------------------------------------------------------------------------------------
 const int MANA_H = 10;
@@ -478,6 +522,9 @@ const float ASSAULT_RIFLE_BURST = 10;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
+// CARD ANIMATIONS
+const int CARD_NUMROWS = 1;
+const int CARD_NUMCOLS = 1;
 // UI CARD DIMENSIONS
 const int UI_CARD_WIDTH = CARD_WIDTH * 3;
 const int UI_CARD_HEIGHT = CARD_HEIGHT * 3;
@@ -551,6 +598,26 @@ const int XC_MANA_YOFFSET = 58;
 
 // RELICS ----------------------------------------------------------------------------------------
 
+// CHESTSCENE ------------------------------------------------------------------------------------
+// KEYS
+const string CHEST_BG = "ChestBackground";
+const string RELIC_FRAME = "ItemFrame";
+const string INFO_FRAME = "ItemInfoFrame";
+const string NAME_FRAME = "ItemNameFrame";
+// DIMENSIONS
+const int RELIC_DIMS = 32 * 4;
+const int RELIC_FRAME_DIMS = 38 * 4.2;
+const int SPARKS_DIMS = 35 * 5;
+const int INFO_FRAME_WIDTH = 72 * 4.2;
+const int INFO_FRAME_HEIGHT = 100 * 4.2;
+const int NAME_DIMS_OFFSET = 40;
+// POSITIONS
+const Vector2D CHEST_POS = Vector2D(WIN_WIDTH / 2 - 40, WIN_HEIGHT / 4 + 165);
+const Vector2D RELIC_FRAME_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 29);
+const Vector2D RELIC_POS = Vector2D(WIN_WIDTH / 2 - 79 + 90, WIN_HEIGHT / 4 + 45);
+const Vector2D RELIC_SPARKS_POS = Vector2D(WIN_WIDTH / 2 - 79 + 74, WIN_HEIGHT / 4 + 20);
+const Vector2D INFO_FRAME_POS = Vector2D(WIN_WIDTH - INFO_FRAME_WIDTH - 60, WIN_HEIGHT / 6 + 20);
+const Vector2D CHEST_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 30, WIN_HEIGHT - MM_BUTTON_HEIGHT - 30);
 
 // NUMBERS ---------------------------------------------------------------------------------------
 const int NUMBERS_WIDTH = 130;
@@ -624,18 +691,18 @@ const int MESSAGE_X = (WIN_WIDTH / 2) - 150;
 const int MESSAGE_Y = WIN_HEIGHT / 4;
 
 // RELIQUIAS -------------------------------------------------------------------------------------
-const string ALMACENAMIENTO_CUANTICO = "AlmacenamientoCuantico";
+const string ALMACENAMIENTO_CUANTICO = "Almacenamiento cuantico";
 const string HOVERBOARD = "Hoverboard";
-const string ENGRANAJE_AUREO = "EngranajeAureo";
-const string BRAZALETE_IONES = "BrazaleteDeIones";
+const string ENGRANAJE_AUREO = "Engranaje Aureo";
+const string BRAZALETE_IONES = "Brazalete de Iones";
 const string REGALO = "Regalo";
-const string RELOJ_DIGITAL = "RelojDigital";
-const string COLLAR_GOTICO = "CollarGotico";
-const string CINTURON_HERRAMIENTAS = "CinturonDeHerramientas";
-const string CETRO_PAPAL = "CetroPapal";
-const string LIBRO_PERDIDO = "LibroPerdido";
-const string TAZA_CAFE = "TazaDeCafe";
-const string BOTELLA_MINIATURA = "BotellaConUnBarcoEnMiniatura";
+const string RELOJ_DIGITAL = "Reloj Digital";
+const string COLLAR_GOTICO = "Collar Gotico";
+const string CINTURON_HERRAMIENTAS = "Cinturon de Herramientas";
+const string CETRO_PAPAL = "Cetro Papal";
+const string LIBRO_PERDIDO = "Libro Perdido";
+const string TAZA_CAFE = "Taza de Cafe";
+const string BOTELLA_MINIATURA = "Barco en Miniatura";
 
 //ENEMY GENERATOR---------------------------------------------------------------------------------
 const int MELEE_RADIUS = 500;
@@ -643,6 +710,44 @@ const int RANGED_RADIUS = 800;
 const int TANK_RADIUS = 600;
 
 const int STARTING_TIME_PER_WAVE = 15000;
+
+//SOUNDS
+const string MELEE_DEATH_SOUND = "MeleeDeath";
+const string MELEE_HIT_SOUND = "MeleeHit";
+const string RANGED_DEATH_SOUND = "RangedDeath";
+const string RANGED_HIT_SOUND = "RangedHit";
+const string TANK_DEATH_SOUND = "TankDeath";
+const string TANK_HIT_SOUND = "TankHit";
+const string PLAYER_HIT_SOUND = "PlayerHit";
+const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
+const string BUTTON_PRESSED_SOUND = "ButtonPressed";
+const string LOAD_EXIT_SOUND = "LoadExit";
+const string CHEST_OPENING_SOUND = "ChestOpening";
+
+//MUSICS
+const string BATTLE_MUSIC = "BattleMusic";
+const string DEATH_MELODY = "Death";
+
+//SHOP ------------------------------------------------------------------------------------------
+const int SHOP_NUMBER_OF_CARDS = 4;
+const int SHOP_CARD_SELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 100;
+const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
+const int SHOP_CARD_OFFSET_X = 300;
+const int SHOP_CARD_PRICE_WIDTH = 100;
+const int SHOP_CARD_PRICE_HEIGHT = 50;
+const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 100);
+const int SHOP_MONEY_WIDTH = 100;
+const int SHOP_MONEY_HEIGHT = 50;
+const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
+const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+
+//POSTGAME SCENE ------------------------------------------------------------------------------------------
+const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);
+const Vector2D SPOTLIGHT_POSITION = Vector2D(765, 500);
+const Vector2D CARD_CREATION_POSITION = Vector2D(817, 328);
+const Vector2D NEW_CARD_POSITION = Vector2D(800, 198);
+const float NEXT_EVENT_TIMER = 0.5;
+
 
 //SPAWNS DE OLEADAS PARA LOS PRIMEROS 4 NODOS
 //LOS VALORES GUARDADOS SON LAS PROBABILIDADES DE OLEADAS EN ORDEN
@@ -703,6 +808,16 @@ const int WAVES[7][3] = {
 	{0, 4, 2}
 };
 
+//CALCULO DINERO
+
+const float ENEMYFACTOR = 3.75;
+const float DAMAGEFACTOR = 0.25;
+const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
+
+// GUARDADO
+
+const string SAVE_FILENAME = "../Game/src/data/game.playerData.json";
+
 //STRUCTS
 
 struct AnimatorInfo {
@@ -718,6 +833,4 @@ struct AnimatorInfo {
 		int _r = BUTTON_SPRITE_ROWS, int _c = BUTTON_SPRITE_COLUMS) :
 		key(_k), w(_w), h(_h), fw(_fw), fh(_fh), rows(_r), cols(_c) { }
 };
-
-
 #endif

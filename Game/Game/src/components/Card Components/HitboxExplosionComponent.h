@@ -47,7 +47,7 @@ public:
 
 			// Ejecuto mi funcion
 			if (cb != nullptr) cb(tr);
-			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
+			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, 4, stts, 0.25, data);
 
 			gObj->setAlive(false);
 		}
@@ -59,7 +59,7 @@ public:
 		return [&](GameObject* trgt) {
 			Hitbox::HitboxData data = { tr->getCenter(), VECTOR_ZERO, 0, width, height, sprite, target };
 
-			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, false, 4, stts, 0.25, data);
+			scene->addGameObject<Hitbox>(gObj->getGroup(), damage, false, 4, stts, 0.25, data);
 
 			gObj->setAlive(false);
 		};

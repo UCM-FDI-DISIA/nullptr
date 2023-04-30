@@ -1,6 +1,7 @@
 #include "InventoryCard.h"
 #include "../../scenes/InventoryScene.h"
 #include "../../sdlutils/InputHandler.h"
+#include "../../core/SDLApplication.h"
 
 void InventoryCard::initGameObject(InventoryScene* s, InventoryInfo* cd, int posL, int posD) {
 	scene = s;
@@ -25,21 +26,21 @@ void InventoryCard::initGameObject(InventoryScene* s, InventoryInfo* cd, int pos
 	GameObject* rect = scene->addGameObject(_grp_UI);
 	rect->addComponent<Transform>(LIBRARY_POSITIONS[posL] + CARD_RECTANGLE_OFFSET * 2, VECTOR_ZERO,
 		CARD_RECTANGLE_WIDTH * 2, CARD_RECTANGLE_HEIGHT * 2);
-	rect->addComponent<Image>(&sdlutils().images().at(CARD_RECTANGLE));
+	rect->addComponent<Image>(SDLApplication::getTexture(CARD_RECTANGLE));
 
 	// Creamos el texto de las cartas
 	text = scene->addGameObject(_grp_UI);
 	tr = text->addComponent<Transform>(LIBRARY_POSITIONS[posL] + CARD_RECTANGLE_OFFSET * 2, VECTOR_ZERO,
 		CARD_RECTANGLE_WIDTH * 2, CARD_RECTANGLE_HEIGHT * 2);
 	string content = " " + to_string(cardData->cuantityDeck) + "/" + to_string(cardData->cuantity) + " ";
-	t = text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), content, true);
+	t = text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), content, true);
 
 }
 
 void InventoryCard::createOnDeckObjects(int _pl, int _pd) {
 	frame = scene->addGameObject();
 	frame->addComponent<Transform>(LIBRARY_POSITIONS[_pl] - CARD_FRAME_OFFSET * 2, VECTOR_ZERO, CARD_FRAME_WIDTH * 2, CARD_FRAME_HEIGHT * 2);
-	frame->addComponent<Image>(&sdlutils().images().at(CARD_FRAME));
+	frame->addComponent<Image>(SDLApplication::getTexture(CARD_FRAME));
 
 	deckCard = scene->addGameObject();
 	deckCard->addComponent<Transform>(DECK_POSITIONS[_pd], VECTOR_ZERO, CARD_WIDTH * 2, CARD_HEIGHT * 2);
@@ -48,12 +49,12 @@ void InventoryCard::createOnDeckObjects(int _pl, int _pd) {
 	circle = scene->addGameObject();
 	circle->addComponent<Transform>(DECK_POSITIONS[_pd] + CARD_CIRCLE_OFFSET * 2, VECTOR_ZERO,
 		CARD_CIRCLE_RADIOUS * 2, CARD_CIRCLE_RADIOUS * 2);
-	circle->addComponent<Image>(&sdlutils().images().at(CARD_CIRCLE));
+	circle->addComponent<Image>(SDLApplication::getTexture(CARD_CIRCLE));
 
 	deckNumber = scene->addGameObject();
 	deckNumber->addComponent<Transform>(Vector2D(DECK_POSITIONS[_pd] + CARD_CIRCLE_OFFSET * 2 + Vector2D(5, CARD_CIRCLE_RADIOUS / 3)), VECTOR_ZERO, 
 														CARD_CIRCLE_RADIOUS * 1.5f, CARD_CIRCLE_RADIOUS * 2);
-	dN = deckNumber->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL24"), to_string(cardData->cuantityDeck), true);
+	dN = deckNumber->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), to_string(cardData->cuantityDeck), true);
 }
 
 void InventoryCard::update() {

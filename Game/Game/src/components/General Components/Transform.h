@@ -19,6 +19,7 @@ private:
 	Vector2D position_;
 	Vector2D velocity_;
 	Vector2D anchorPoint_;
+	Vector2D tempVelocity_;
 	float width_;
 	float height_;
 
@@ -77,12 +78,12 @@ public:
 	};
 
 	// Setea el valor de Y del transform
-	inline void setY(int y) {
+	inline void setY(float y) {
 		position_ = Vector2D(position_.getX(), y);
 	}
 
 	//Setea el valor de X en el transform
-	inline void setX(int x) {
+	inline void setX(float x) {
 		position_ = Vector2D(x, position_.getY());
 	}
 
@@ -165,6 +166,7 @@ public:
 	void lookAt(Vector2D point);
 	void rotate(float rotation);
 	void unrotate();
+	void push(Vector2D impulse);
 	void move();
 	virtual void update();
 	float getAngle(Vector2D target, const Vector2D& pos) const;

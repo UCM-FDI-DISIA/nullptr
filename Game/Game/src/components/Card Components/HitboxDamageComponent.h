@@ -11,16 +11,16 @@ class RitualAxeCard;
 class HitboxDamageComponent : public Component
 {
 private:
-	int damage; //daño que causa
+	float damage; //daño que causa
 	bool destroy; //Si el objeto se destruye al colisionar
-	bool knockback; //Si el objeto causa knockback
 	RitualAxeCard* axe; //Si el ataque es del Hacha Ritual
 	unordered_set<GameObject*> hitRegistry; //Set que registra los choques anteriores
+	Vector2D parentData;
 
 public:
 	static const int id = _HITBOX_DAMAGE_COMPONENT;
 
-	HitboxDamageComponent(int dmg, bool dstry, bool knback, RitualAxeCard* axeC = nullptr) : damage(dmg), destroy(dstry), knockback(knback), axe(axeC) {}
+	HitboxDamageComponent(float dmg, bool dstry, RitualAxeCard* axeC = nullptr, Vector2D parentData= VECTOR_ZERO) : damage(dmg), destroy(dstry), axe(axeC), parentData(parentData) {}
 
 	// Se le añade al colider la funcion de daño
 	void initComponent() override{
@@ -32,11 +32,7 @@ public:
 		return [&](GameObject* trgt)
 		{
 			if (hitRegistry.count(trgt) == 0) {
-				trgt->getComponent<HealthComponent>()->receiveDamage(damage, axe);
-				if (knockback) {
-					Transform* tr = trgt->getComponent<Transform>();
-					tr->setPos(tr->getPos() + tr->getVel() * -20);
-				}
+				trgt->getComponent<HealthComponent>()->receiveDamage(damage, axe, parentData, gObj->getComponent<Transform>()->getVel());
 				if (destroy) gObj->setAlive(false);
 				else hitRegistry.insert(trgt);
 			}

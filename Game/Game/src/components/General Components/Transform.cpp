@@ -63,11 +63,16 @@ void Transform::move() {
 //Actualiza constantemente la posicion con respecto la velocidad
 void Transform::update() {
 	double deltaTime = SDLApplication::instance()->getDeltaTimeSeconds();
-	position_ = position_ + (velocity_ * deltaTime);
+	position_ = position_ + ((velocity_+tempVelocity_) * deltaTime);
+	tempVelocity_= tempVelocity_/REDUCTION_FACTOR;
 }
 
 float Transform::getAngle(Vector2D target ,const Vector2D& position) const {
 	Vector2D dir = target - position;
 	float angle = atan2(dir.getY(), dir.getX()) * RAD_TO_DEG;
 	return angle;
+}
+	
+void Transform::push(Vector2D impulse) {
+	tempVelocity_ = impulse;
 }

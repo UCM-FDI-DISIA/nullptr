@@ -247,9 +247,6 @@
     <ClCompile Include="src\data\Album.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\InventoryCard.cpp">
-      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\General Components\CallbackDelayer.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
@@ -272,6 +269,42 @@
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\PostGameScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\GameControl.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player components\PlayerInputComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\ButtonNavigator.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\LerpComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\TutorialComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\General Objects\Tuto.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\TutorialScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\EffectController.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp">
       <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
     </ClCompile>
   </ItemGroup>
@@ -307,9 +340,6 @@
       <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\InputHandler.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Image.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\framework.h">
@@ -510,7 +540,6 @@
     <ClInclude Include="src\data\RelicData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -571,6 +600,45 @@
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\TargetedComponent.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\StatsTrackComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\PostGameScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\GameControl.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\PlayerInputComponent.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ButtonNavigator.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\LerpComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\TutorialComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\General Objects\Tuto.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\TutorialScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -715,5 +783,6 @@
     <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
+    <None Include="src\data\game.album.json" />
   </ItemGroup>
 </Project>

@@ -77,6 +77,8 @@ public:
 		return channels_ = Mix_AllocateChannels(n);
 	}
 
+	inline Mix_Chunk* getChunk() { return chunk_; }
+
 private:
 
 	inline static void checkChannel(int channel) {

@@ -3,7 +3,7 @@
 
 PauseMenuScene::PauseMenuScene() : GameState() {
 	// Botón jugar
-	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME);
+	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME)->setAsDefaultButton();
 
 	// Botón options
 	createButton(PM_INVENTORY_BUTTON_POS, PM_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
@@ -12,18 +12,12 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 	createButton(PM_OPTIONS_BUTTON_POS, PM_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
 	// Botón salir
-	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<MapScene>(); }, EXIT);
+	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { pD().loseSavedData(); SDLApplication::newScene<MainMenuScene>(); }, EXIT);
 }
 
-// Crear un botón especificado en la escena
-void PauseMenuScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key);
-
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-
-	// Crear botón
-	addGameObject<Button>(_cb, _bPos, aI, frame);
+void PauseMenuScene::handleInput() {
+	GameState::handleInput();
+	if (gmCtrl_.pause()) {
+		SDLApplication::resumeGame();
+	}
 }

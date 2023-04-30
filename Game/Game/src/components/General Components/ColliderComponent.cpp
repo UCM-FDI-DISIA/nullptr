@@ -1,5 +1,6 @@
-#include"ColliderComponent.h"
+#include "ColliderComponent.h"
 #include "../../scenes/GameState.h"
+
 // Recibe una funci�n a realizar cuando los objetos chocan y una lista de objetos con los que chocan
 ColliderComponent::ColliderComponent(grpId id)
 {
@@ -28,7 +29,7 @@ void ColliderComponent::hasCollided() {
 	float height1 = tr->getHeight();
 	float rot1 = tr->getRotation();
 	Vector2D anch1 = tr->getAnchorPoint();
-	vector<GameObject*> others = gStt->getEntitiesByGroup(target);
+	vector<GameObject*> const& others = gStt->getEntitiesByGroup(target);
 	//Por cada gameObject dentro del grupo correspondiente sacamos los par�metros de su transform
 	for (GameObject* other : others) {
 		Transform* otherTr = other->getComponent<Transform>();

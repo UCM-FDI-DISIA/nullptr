@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
+#include "../../scenes/TutorialScene.h"
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	//createMap();
@@ -13,6 +14,7 @@ void Map::initTextureKeys() {
 	nodeTextureKeys[NodeType::Battle] = BATTLE_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Shop] = SHOP_NODE_TEXTURE_KEY;
 	nodeTextureKeys[NodeType::Chest] = CHEST_NODE_TEXTURE_KEY;
+	nodeTextureKeys[NodeType::None] = BATTLE_NODE_TEXTURE_KEY;
 }
 
 // Inicializa el array de CallBacks de los nodos
@@ -20,15 +22,13 @@ void Map::initNodeLoads() {
 	nodeLoads[NodeType::Battle] = [](BattleType t) { SDLApplication::instance()->pushNewScene<BattleScene>(t); };
 	nodeLoads[NodeType::Chest] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ChestScene>(); };
 	nodeLoads[NodeType::Shop] = [](BattleType t) { SDLApplication::instance()->pushNewScene<ShopScene>(); };
+	nodeLoads[NodeType::None] = [](BattleType t) {SDLApplication::instance()->pushNewScene<TutorialScene>(t); };
 }
 
 // Crea el mapa
-void Map::createMap() {
-	initMap(NODE_MAP_JSON_ROOT);
-	for (Node* n : unlockedNodes) {
-		n->lock();
-	}
+void Map::createMap(string filename) {
 	unlockedNodes = initialNodes;
+	initMap(filename);
 	for (Node* n : unlockedNodes) {
 		n->unlock();
 	}
@@ -54,7 +54,7 @@ void Map::clearMap() {
 	initialNodes.clear();
 }
 
-// Hay ciertos nodos que son compatibles bajo unas condiciones, este método tiene una probabilidad de juntar dos nodos que cumplan esas condiciones
+// Hay ciertos nodos que son compatibles bajo unas condiciones, este mÃ©todo tiene una probabilidad de juntar dos nodos que cumplan esas condiciones
 void Map::lookForCompatibles(Needs& n1, Needs& n2) {
 	// Iguales
 	if (n1.type == n2.type && n1.battleCounter == n2.battleCounter && n1.battleOnNext == n2.battleOnNext) {
@@ -89,7 +89,7 @@ void Map::lookForCompatibles(Needs& n1, Needs& n2) {
 	}
 }
 
-// Recibe las condiciones con las que se creó un nodo y devuelve las condiciones que necesita para su siguiente nodo
+// Recibe las condiciones con las que se creÃ³ un nodo y devuelve las condiciones que necesita para su siguiente nodo
 Needs Map::getNeed(Needs prevNeed) {
 	Needs newNeed;
 	// I, 0, F -> B, 1, T
@@ -150,7 +150,7 @@ bool Map::validConection(vector<vector<Node*>> m, int alt, int i, int j) {
 	//        j                        l
 	// El enlace ij solo se puede dar si ningun nodo mayor o igual a k se une a ningun nodo menor o igual a l
 
-	// Si j es el primer nodo de la altura anterior compruebo si los siguientes a él se conectan a alguno anterior a mi
+	// Si j es el primer nodo de la altura anterior compruebo si los siguientes a Ã©l se conectan a alguno anterior a mi
 	if (j == 0) {
 		for (int k = j + 1; k < MAX_NODES; k++) {
 			if (m[alt - 1][k] != nullptr) {
@@ -190,7 +190,7 @@ bool Map::validConection(vector<vector<Node*>> m, int alt, int i, int j) {
 	return true;
 }
 
-// Comprueba si un nodo puede tener a otro como siguiente, recibe sus condiciones de creación
+// Comprueba si un nodo puede tener a otro como siguiente, recibe sus condiciones de creaciÃ³n
 bool Map::linkableNodes(Needs prev, Needs next) {
 	if ((prev.type == Chest || prev.type == Shop) && next.type == Battle && next.battleOnNext) return true;
 	if (prev.type == Battle && prev.battleCounter == 1 && next.type == Battle && next.battleCounter == 2) return true;
@@ -201,7 +201,7 @@ bool Map::linkableNodes(Needs prev, Needs next) {
 	return false;
 }
 
-// Inicializa enteros que se usarán para recorrer de izq a der o al reves
+// Inicializa enteros que se usarÃ¡n para recorrer de izq a der o al reves
 void Map::getRandomWay(int& start, int& end, int& sum) {
 	// De izq a derecha
 	if (rand() % 2 == 0) {
@@ -217,7 +217,7 @@ void Map::getRandomWay(int& start, int& end, int& sum) {
 	}
 }
 
-// Recorre la altura anterior a la indicada para buscar nodos anteriores a aquel con el índice pasado
+// Recorre la altura anterior a la indicada para buscar nodos anteriores a aquel con el Ã­ndice pasado
 bool Map::lookForPrevious(vector<vector<Node*>> m, int alt, int ind) {
 	Node* n = m[alt][ind];
 	bool enlazado = false;
@@ -241,14 +241,14 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 		// Contador de nodos generados y vector de la nodos requeridos de la altura anterior
 		vector<Needs> ns = getNeeds(m[k - 1]);
 
-		// Se generan el mínimo número de nodos de un nivel con sus tipos requeridos
+		// Se generan el mÃ­nimo nÃºmero de nodos de un nivel con sus tipos requeridos
 		for (int i = 0; i < ns.size(); ++i) {
 			if (ns[i].type != NodeType::None) {
 				addNode(k, i, ns[i]);
 			}
 		}
 
-		// Random entre mínimo y máximo y se generan los que falten
+		// Random entre mÃ­nimo y mÃ¡ximo y se generan los que falten
 		for (int i = 0; i < MAX_NODES; ++i) {
 			int copy = i;
 			if (m[k][i] == nullptr && rand() % 5 > 0) {
@@ -300,7 +300,7 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 			if (m[k - 1][i] != nullptr && m[k - 1][i]->getNextCount() <= 0) emptyNext = true;
 		}
 
-		// Si algún nodo ha quedado sin siguientes, se vuelve a hacer la altura
+		// Si algÃºn nodo ha quedado sin siguientes, se vuelve a hacer la altura
 		if (emptyNext) {
 			for (int i = 0; i < MAX_NODES; i++) {
 				if (m[k][i] != nullptr) {
@@ -318,13 +318,13 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 }
 
 
-// Añade un nodo al mapa en la posición indicada con las condiciones indicadas
+// AÃ±ade un nodo al mapa en la posiciÃ³n indicada con las condiciones indicadas
 Node* Map::addNode(int height, int pos, Needs n, BattleType bt) {
 	nodeMap[height][pos] = new Node(n, nodeTextureKeys[n.type], nodeLoads[n.type], n.type, bt);
 	++nodesPerHeight[height];
 	return nodeMap[height][pos];
 }
-// Borra el nodo en la posición dada
+// Borra el nodo en la posiciÃ³n dada
 void Map::eraseNode(int height, int pos) {
 	delete nodeMap[height][pos];
 	nodeMap[height][pos] = nullptr;
@@ -348,12 +348,13 @@ void Map::initMap(string filename) {
 	JSONObject root = jValueRoot->AsObject();
 	JSONValue* jValue = nullptr;
 
-	// struct para guardar la posición de un nodo con un JSONArray de las posiciones de sus siguientes
+	// struct para guardar la posiciÃ³n de un nodo con un JSONArray de las posiciones de sus siguientes
 	struct nextsnodes { 
 		int height, pos; JSONArray arr; 
 		nextsnodes(int h, int p, JSONArray a) : height(h), pos(p), arr(a) {}
 	};
 	vector<nextsnodes> nexts;
+	vector<vector<nodeState>> nStates(HEIGHT, vector<nodeState>(MAX_NODES, nodeState::_LOCKED_NODE));
 
 	// load fonts
 	jValue = root["map"];
@@ -361,30 +362,36 @@ void Map::initMap(string filename) {
 		if (jValue->IsArray()) {
 			for (auto &v : jValue->AsArray()) {
 				if (v->IsObject()) {
-					// Leer la información de cada nodo
+					// Leer la informaciÃ³n de cada nodo
 					JSONObject vObj = v->AsObject();
 					int height = static_cast<int>(vObj["height"]->AsNumber());
 					int pos = static_cast<int>(vObj["pos"]->AsNumber());
 					std::string type = vObj["type"]->AsString();
+					auto sttIt = vObj.find("state");
 					JSONArray next = vObj["next"]->AsArray();
 #ifdef _DEBUG
 					std::cout << "Loading node with id: " << type << height << pos << std::endl;
 #endif
-					// Crear los nodos en función de las condiciones leídas
+					Node* n;
+					// Crear los nodos en funciÃ³n de las condiciones leÃ­das
 					if (type == "start")  {
-						initialNodes.push_back(addNode(height, pos, Needs(Battle, 0, false)));
+						initialNodes.push_back(addNode(height, pos, Needs(None, 0, false)));
 					}
 					else if (type == "boss")  {
-						addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
+						n = addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
 					}
 					else  {
-						addNode(height, pos, Needs((type == "battle") ?
+						n = addNode(height, pos, Needs((type == "battle") ?
 							Battle : ((type == "chest") ?
 								Chest : ((type == "shop") ?
 									Shop : None)), 0, false));
 					}
-					// Guardar la posición del nodo creado con las posiciones de sus siguientes
+
+					// Guardar la posiciÃ³n del nodo creado con las posiciones de sus siguientes
 					nexts.push_back(nextsnodes(height, pos, next));
+
+					// Si hay un estado guardado en los nodos se almacena
+					if (sttIt != vObj.end()) nStates[height][pos] = static_cast<nodeState>(sttIt->second->AsNumber());
 
 				} else {
 					throw "'node' array in '" + filename
@@ -394,23 +401,23 @@ void Map::initMap(string filename) {
 
 			// Una vez creados todos los nodos del JSON, se les asignan sus siguientes
 			for (auto& nn : nexts) {
-				// Solo añade siguientes al nodo si el array tiene elementos
+				// Solo aÃ±ade siguientes al nodo si el array tiene elementos
 				if (nn.arr.size() > 0) {
 					// Por cada elemento del array de siguientes
 					for (auto& nest : nn.arr) {
-						// Si no es un número, es un array con la posición de su siguiente
+						// Si no es un nÃºmero, es un array con la posiciÃ³n de su siguiente
 						if (!nest->IsNumber()) {
 							JSONArray arrr = nest->AsArray();
 							int h = static_cast<int>(arrr[1]->AsNumber());
 							int p = static_cast<int>(arrr[0]->AsNumber());
 							nodeMap[nn.height][nn.pos]->addToNextNodes(nodeMap[h][p], p);
 						}
-						// Si es un número, es la altura hasta la que hay que generar nodos aleatorios
+						// Si es un nÃºmero, es la altura hasta la que hay que generar nodos aleatorios
 						else {
 							int levels = static_cast<int>(nest->AsNumber());
 							generateLevel(nodeMap, levels, nn.height + 1);
 							// Una vez generados todos los nodos,
-							// asigna como siguientes a la última altura generada todos los nodos de la siguiente
+							// asigna como siguientes a la Ãºltima altura generada todos los nodos de la siguiente
 							for (Node* node : nodeMap[levels - 1]) {
 								if (node != nullptr) {
 									for (int i = 0; i < MAX_NODES; ++i) {
@@ -422,6 +429,17 @@ void Map::initMap(string filename) {
 					}
 				}
 			}
+
+			auto sttPreIt = nStates.begin();
+			for (auto& nodeHeight : nodeMap) {
+				auto sttIt = sttPreIt->begin();
+				for (Node* nod : nodeHeight) {
+					if (*sttIt == _COMPLETED_NODE) nod->complete(unlockedNodes);
+					++sttIt;
+				}
+				++sttPreIt;
+			}
+
 		} else {
 			throw "'node' is not an array in '" + filename + "'";
 		}
@@ -441,5 +459,41 @@ void Map::completeCurrentNode() {
 // Borra el mapa actual y crea uno nuevo
 void Map::reloadMap() {
 	clearMap();
-	createMap();
+	createMap(NODE_MAP_JSON_ROOT);
+}
+
+
+JSONValue* Map::mapToJSON() {
+	JSONArray jsonMap;
+	int i = 0;
+	for (vector<Node*>& nodeHeight : nodeMap) {
+		int j = 0;
+		for (Node* node : nodeHeight) {
+			if (node != nullptr) {
+				JSONObject jsonNode;
+				jsonNode["height"] = new JSONValue(i);
+				jsonNode["pos"] = new JSONValue(j);
+				jsonNode["state"] = new JSONValue(node->getState());
+				jsonNode["type"] = new JSONValue((node->getType() == Battle) ?
+					((node->getBattleType() == _BOSSBATTLE) ? 
+						"boss" : "battle") : ((node->getType() == Chest) ?
+						"chest" : ((node->getType() == Shop) ?
+							"shop" : "start")));
+				JSONArray jsonNext;
+				for (int nextPos : node->getNextInd()) {
+					JSONArray jsonNextPos;
+					jsonNextPos.push_back(new JSONValue(nextPos));
+					jsonNextPos.push_back(new JSONValue(i + 1));
+
+					jsonNext.push_back(new JSONValue(jsonNextPos));
+				}
+				jsonNode["next"] = new JSONValue(jsonNext);
+
+				jsonMap.push_back(new JSONValue(jsonNode));
+			}
+			++j;
+		}
+		++i;
+	}
+	return new JSONValue(jsonMap);
 }

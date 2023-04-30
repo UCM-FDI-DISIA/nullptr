@@ -54,6 +54,16 @@ public:
 		return height_;
 	}
 
+	inline void changeTint(Uint8 r, Uint8 g, Uint8 b) {
+		if (texture_ != nullptr)
+			SDL_SetTextureColorMod(texture_, r, g, b);
+	}
+
+	inline void changeAlpha(Uint8 a) {
+		if (texture_ != nullptr)
+			SDL_SetTextureAlphaMod(texture_, a);
+	}
+
 	// This rendering method corresponds to method SDL_RenderCopyEx.
 	//
 	// Renders part of the texture (src) to a destination rectangle (dest)

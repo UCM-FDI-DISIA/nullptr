@@ -7,12 +7,6 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	statistics->addComponent<Image>(SDLApplication::getTexture(STATISTICS))->attachToCamera();
 	objs.push_back(statistics);
 
-	// Medidor de éter
-	etherMeterFrame = new GameObject();
-	etherMeterFrame->addComponent<Transform>(UI_ETHER_FRAME_POSITION, Vector2D(), UI_ETHER_FRAME_WIDTH, UI_ETHER_FRAME_HEIGHT);
-	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(ETHER_METER_FRAME))->attachToCamera();
-	objs.push_back(etherMeterFrame);
-
 	// Crear barras de vida
 	createLifeBar(life);
 	createManaBar(mana);
@@ -51,6 +45,12 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		objs.push_back(number);
 	}
 
+	// Medidor de éter
+	etherMeterFrame = new GameObject();
+	etherMeterFrame->addComponent<Transform>(UI_ETHER_FRAME_POSITION, Vector2D(), UI_ETHER_FRAME_WIDTH, UI_ETHER_FRAME_HEIGHT);
+	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(ETHER_METER_FRAME))->attachToCamera();
+	objs.push_back(etherMeterFrame);
+
 	// Crear los números de éter
 	for (int i = 0; i < N_ETHER_COUNTER; i++) {
 		// Crear el objeto
@@ -65,7 +65,7 @@ void StatisticsUI::initGameObject(int life, int mana) {
 		objs.push_back(number);
 	}
 	// Componente de salida
-	etherMeter->addComponent<ChargedPortalComponent>(etherCounter);
+	etherMeter->addComponent<ChargedPortalComponent>(etherCounter,gStt);
 }
 
 StatisticsUI::~StatisticsUI() {
@@ -166,13 +166,15 @@ void StatisticsUI::onManaChanges(float value) {
 void StatisticsUI::onEtherChanges(float value) {
 	// Sumar éter y trampear si excede el límite
 	actualEther += value;
-	if (actualEther >= ETHER_LIMIT) actualEther = ETHER_LIMIT;
+	int etherPercentage = actualEther * 100 / (16 + PlayerData::instance()->getLevel() * 8);
+	if (etherPercentage >= ETHER_LIMIT) etherPercentage = ETHER_LIMIT;
 
 	// Transmitir información a la barra
-	etherMeter->getComponent<BarComponent>()->onEtherChanges(actualEther, etherCounter);
+	etherMeter->getComponent<BarComponent>()->onEtherChanges(etherPercentage, etherCounter);
 
 	// Activar la posibilidad de salir si se ha completado al 100% la barra
-	if (actualEther >= 100) etherMeter->getComponent<ChargedPortalComponent>()->activateExit();
+	if (actualEther >= 16 + PlayerData::instance()->getLevel()*8) 
+		etherMeter->getComponent<ChargedPortalComponent>()->activateExit();
 }
 
 // Crear los números de la interfaz

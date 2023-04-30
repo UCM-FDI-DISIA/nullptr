@@ -1,15 +1,12 @@
 #pragma once
-
 #include "GameState.h"
+#include "../gameObjects/Node Objects/Node.h"
 
-class SDLApplication;
 class GameOverScene : public GameState {
 private:
 	SoundEffect* deathSound;
+	BattleType previousBT;
 public:
-	GameOverScene();
+	GameOverScene(BattleType prevBt, bool cameFromTutorial = false);
 	virtual ~GameOverScene();
-	
-	// Crear un botón especificado en la escena
-	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
 };

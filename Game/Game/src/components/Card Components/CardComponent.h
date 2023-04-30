@@ -7,8 +7,10 @@
 #include "../../gameObjects/Card Objects/Card.h"
 #include "../General Components/Animator.h"
 
+#include "../../core/GameControl.h"
+
 #pragma once
-class BatleScene;
+class BattleScene;
 class CardCounter;
 class CardComponent : public Component {
 	private:
@@ -23,7 +25,10 @@ class CardComponent : public Component {
 		float downTime, attackMult, fireRateMult;
 
 		int mana, maxMana;
-		bool locked = false, automatic = false;
+		bool locked = false, automatic = false, attacking = false, abiliting = false;
+		bool tutorial, system;
+
+		GameControl& gmCtrl_;
 
 		void initDeck();
 		void reshufflePile();
@@ -38,12 +43,18 @@ class CardComponent : public Component {
 
 	public:
 		static const int id = _CARDCOMPONENT;
-		CardComponent();
+		CardComponent(bool tutorial = false);
+		virtual ~CardComponent();
 		void initComponent();
 		void update();
 		void handleInput();
 		void setCounter(CardCounter* _cc) { _myCounter = _cc; }
 		
+		void attack();
+		void ability();
+		void selectLeft();
+		void selectRight();
+
 		//Getters
 		int getDeckSize() { return deck.size(); }
 		int getPileSize() { return pile.size(); }
@@ -53,5 +64,9 @@ class CardComponent : public Component {
 		void setLocked(bool value) { locked = value; }
 		bool getAutomatic() { return automatic; }
 		bool getLocked() { return locked; }
+		void setInitialDeck();
+
+		inline bool isAttacking() { return attacking; }
+		inline bool isAbiliting() { return abiliting; }
 };
 
