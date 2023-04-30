@@ -28,7 +28,6 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	_myCounter = nullptr;
 	tutorial = tuto;
 	system = false;
-	cout << deck.size() << endl;
 	initDeck();
 }
 

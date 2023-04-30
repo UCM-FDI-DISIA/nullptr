@@ -18,7 +18,7 @@ void  LightRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 	dir = dir.normalize();
 	float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, rot, 20, 5, LIGHT_BULLET, _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * LIGHT_BULLET_SPEED, rot, 20, 5, LIGHT_BULLET, _grp_ENEMIES };
 
 	float size = 100 + 20 * remainingUses;
 
