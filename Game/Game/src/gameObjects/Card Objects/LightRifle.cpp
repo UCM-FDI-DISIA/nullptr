@@ -9,7 +9,7 @@ void  LightRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float attack
 		float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
 		Hitbox::HitboxData data = { playerPos, dir * LIGHT_BULLET_SPEED, rot, 20, 5, LIGHT_BULLET, _grp_ENEMIES };
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 }
 
 //Se disparan todas las balas
