@@ -123,6 +123,7 @@ const int ENEMY_HEIGHT = 60 * 2;
 const int BULLET_ANGLE = 20;
 const int SHIELD_SPEED = 20;
 const float ENEMY_SPEED = 50;
+const int PUSH_STRENGTH = 100;
 
 // MELEE ENEMY
 const float MELEE_ENEMY_COOLDOWN = 500;

@@ -16,7 +16,7 @@ HealthComponent::HealthComponent(int life, bool Invincibility) :
 	onDeath(nullptr){}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
-void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Transform* damageOrigin, Vector2D damageVel)
+void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D damageOrigin, Vector2D damageVel)
 {
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
@@ -37,13 +37,16 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Transform*
 			if (axe != nullptr) axe->enemieKilled();
 		}
 		else if(invTime <= 0) {
+			//Si la hitbox es estática es un ataque cuerpo a cuerpo, si no es una bala
+			//En el primer caso tomamos en cuenta el objeto que lo origina para calcular la direccion
+			//En el segundo tomamos en cuenta la velocidad de la bala
 			if (damageVel.magnitude()!=Vector2D().magnitude())
-				transform->push(damageVel.normalize()*100);
+				transform->push(damageVel.normalize()*PUSH_STRENGTH);
 			else {
-				Vector2D vel = transform->getPos() - damageOrigin->getPos();
-				transform->push((vel.normalize()) * 100);
+				Vector2D vel = transform->getPos() - damageOrigin;
+				transform->push((vel.normalize()) * PUSH_STRENGTH);
 			}
-				
+			//Reproduce el sonido de golpe
 			Mix_PlayChannelTimed(-1, hitSound->getChunk(), 0, -1);
 			
 		}

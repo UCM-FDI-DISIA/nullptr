@@ -8,7 +8,7 @@ void  LightRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float attack
 		dir = dir.normalize();
 
 		Hitbox::HitboxData data = { playerPos, dir * LIGHT_BULLET_SPEED, 0, 30, 30, BULLET, _grp_ENEMIES };
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 }
 
 //Se disparan todas las balas

@@ -22,7 +22,7 @@ public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
 	//Delete del padre
-	void receiveDamage(float damage, RitualAxeCard* axe = nullptr, Transform* damageOrigin=nullptr, Vector2D damageVel=Vector2D());
+	void receiveDamage(float damage, RitualAxeCard* axe = nullptr, Vector2D damageOrigin=VECTOR_ZERO, Vector2D damageVel=Vector2D());
 	void setInvencibility(float time);
 	virtual void initComponent();
 	virtual void update();
