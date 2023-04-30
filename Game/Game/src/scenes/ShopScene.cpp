@@ -82,7 +82,7 @@ void ShopScene::selectCard() {
 	else color = COLOR_RED;
 	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(selectedCard->price), color);
 	// Muestra el boton de comprar
-	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex, nullptr, 2.5f, 0.4f);
+	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex, nullptr, 1.5f, 0.4f);
 }
 
 void ShopScene::buyCard() {

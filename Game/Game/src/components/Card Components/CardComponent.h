@@ -43,6 +43,7 @@ class CardComponent : public Component {
 	public:
 		static const int id = _CARDCOMPONENT;
 		CardComponent();
+		virtual ~CardComponent();
 		void initComponent();
 		void update();
 		void handleInput();

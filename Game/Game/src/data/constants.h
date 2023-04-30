@@ -227,6 +227,7 @@ const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
 const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
 const Vector2D FRAME_OFFSET = Vector2D(36, 66);
 const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5, WIN_HEIGHT * 0.5);
+const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT * 0.5);
 const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
@@ -351,6 +352,7 @@ const Vector2D OBJECTS_POSITIONS[6] = {
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";
+const string CONTINUE = "ContinueButton";
 const string OPTIONS = "OptionsButton";
 const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";
@@ -755,6 +757,9 @@ const float ENEMYFACTOR = 3.75;
 const float DAMAGEFACTOR = 0.25;
 const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
 
+// GUARDADO
+
+const string SAVE_FILENAME = "../Game/src/data/game.playerData.json";
 
 //STRUCTS
 

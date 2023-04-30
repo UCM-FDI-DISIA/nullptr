@@ -12,9 +12,23 @@ CardComponent::CardComponent() : gmCtrl_(gmCtrl()) {
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	deck = PlayerData::instance()->getDeck();
 	_myCounter = nullptr;
 	initDeck();
+}
+
+CardComponent::~CardComponent() {
+	for (Card*& c : deck) {
+		delete c;
+		c = nullptr;
+	}
+	for (Card*& c : hand) {
+		delete c;
+		c = nullptr;
+	}
+	for (Card*& c : pile) {
+		delete c;
+		c = nullptr;
+	}
 }
 
 //Obtiene las referencias a otros componentes y escenas necesarias
@@ -143,6 +157,9 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
+	for (CardId card : PlayerData::instance()->getDeck()) {
+		deck.push_back(Card::getCard(card));
+	}
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
 }
@@ -185,7 +202,9 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
+#ifdef _DEBUG
 		cout << "Se acabo tu mano\n";
+#endif
 		newHand();
 		where->recreateUI();
 	}

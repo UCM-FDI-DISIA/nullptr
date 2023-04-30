@@ -118,6 +118,7 @@ void SDLApplication::returnToMapScene() {
 	assert(ms != nullptr);
 	ms->moveCamera();
 	ms->resetSelectedButton();
+	pD().setDataToJSON();
 }
 
 // Cierra el juego
