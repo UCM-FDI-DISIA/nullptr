@@ -20,10 +20,13 @@ private:
 	Transform* playerTransform;
 	int numMana, numEter;
 	SoundEffect* deathSound;
+	CallBack finalFunction;
+
 public:
 	static const int id = _ON_DEATH;
 
-	OnDeath( int numMana, int numEter, Transform* player): numMana(numMana), numEter(numEter), playerTransform(player), enemyTransform(nullptr) {};
+	OnDeath( int numMana, int numEter, Transform* player, CallBack cb = nullptr) : 
+		numMana(numMana), numEter(numEter), playerTransform(player), enemyTransform(nullptr), finalFunction(cb) {};
 
 	virtual void initComponent();
 	void death();

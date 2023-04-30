@@ -5,6 +5,7 @@
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"
 #include "../Enemy components/MeleeBehaviour.h"
+#include "../../gameObjects/Enemy Objects/BossEnemy.h"
 #include "../Enemy components/OnDeath.h"
 #include "../../gameObjects/Card Objects/Cards.h"
 
@@ -96,6 +97,9 @@ void HealthComponent::initComponent() {
 		hitSound = &sdlutils().soundEffects().at(PLAYER_HIT_SOUND);
 	}
 	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
+	}
+	else if (dynamic_cast<BossEnemy*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
 	}
 }

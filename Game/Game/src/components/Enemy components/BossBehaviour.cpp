@@ -19,6 +19,7 @@ void BossBehaviour::initComponent() {
 }
 // Se trata de un ciclo de movimiento y parada
 void BossBehaviour::update() {
+	
 	behaviorTime += SDLApplication::instance()->getDeltaTime();
 
 	// Actualizar los temporizadores de spawn
@@ -45,7 +46,7 @@ void BossBehaviour::update() {
 				attackTime = 0;
 				attacking = false;
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
-				switch (10) {
+				switch (attackState) {
 				case 0: // Conos
 					coneAttack();
 					break;

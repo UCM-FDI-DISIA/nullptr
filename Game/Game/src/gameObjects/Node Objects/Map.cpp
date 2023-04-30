@@ -322,7 +322,8 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 // Añade un nodo al mapa en la posición indicada con las condiciones indicadas
 Node* Map::addNode(int height, int pos, Needs n, BattleType bt) {
 	if (bt != _BOSSBATTLE) nodeMap[height][pos] = new Node(n, nodeTextureKeys[n.type], nodeLoads[n.type], n.type, bt);
-	else nodeMap[height][pos] = 
+	else 
+		nodeMap[height][pos] = 
 		new Node(n, nodeTextureKeys[n.type], [](BattleType t) {SDLApplication::instance()->pushNewScene<BossBattleScene>(t); }, n.type, bt);
 	++nodesPerHeight[height];
 	return nodeMap[height][pos];
