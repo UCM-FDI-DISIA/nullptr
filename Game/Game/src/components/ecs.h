@@ -24,6 +24,7 @@ enum cmpId : cmpId_type {
 	_LIFETIME,
 	_BAR_COMPONENT,
 	_ENEMY_GEN,
+	_STATS_TRACK,
 	_CHEST_COMPONENT,
 	_ETER,
 	_ON_DEATH,
@@ -31,6 +32,8 @@ enum cmpId : cmpId_type {
 	_CALLBACK_DELAYER,
 	_PLAYERINPUT,
 	_OPTIONSUPDATE,
+	_LERP_COMPONENT,
+	_TUTORIAL_COMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this
@@ -50,6 +53,7 @@ enum grpId : grpId_type {
 	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
+	_grp_TUTORIAL,
 	// do not remove this
 	_LAST_GRP_ID
 };
@@ -60,8 +64,8 @@ enum CardId : cardId_type {
 	_card_NULL=-1,
 	_card_GUN = 0,
 	_card_SWORD,
-	_card_TORCH,
 	_card_LASERGLASSES,
+	_card_TORCH,
 	_card_BOW,
 	_card_PULGA,
 	_card_SPEAR,
@@ -94,8 +98,9 @@ struct Animation {
 	int startFrame, endFrame;
 	int frameRate;
 	int repeat;
-	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0), linked(false) {}
-	Animation(int _s, int _e, int _rate, int _rep) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep), linked(false) {}
+	bool backwards;
+	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0), linked(false), backwards(false) {}
+	Animation(int _s, int _e, int _rate, int _rep, bool bck=false) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep), linked(false), backwards(bck) {}
 
 	bool linked;
 };

@@ -13,4 +13,8 @@ private:
 public:
 	// Inicializa el objeto
 	void initGameObject();
+	// Devuelve si renderiza el puntero o no
+	inline bool getShowPointer() { return imageComponent != nullptr; }
+	// Establece si se quiere renderizar el puntero o no
+	void setShowPointer(bool value);
 };

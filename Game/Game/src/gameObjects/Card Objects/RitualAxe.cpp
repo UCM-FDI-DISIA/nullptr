@@ -8,7 +8,7 @@ void RitualAxeCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, SWORD_SLASH, _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, (damage + damage * enemiesKilled) * attackMult, false, false, 0.06, data, Vector2D(-1,-1), this);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, (damage + damage * enemiesKilled) * attackMult, false, 0.06, data, Vector2D(-1,-1), this, playerPos);
 
 	cout << "enemiesKilled: " + to_string(enemiesKilled) + "\n";
 }

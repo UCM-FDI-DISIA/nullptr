@@ -1,8 +1,9 @@
 #include "GameOverScene.h"
 #include "../core/SDLApplication.h"
+#include "TutorialScene.h"
 
-
-GameOverScene::GameOverScene() {
+GameOverScene::GameOverScene(BattleType prevBt, bool cameFromTutorial) : previousBT(prevBt) {
+	pD().loseSavedData();
 	//Creo el background
 	auto bc = addGameObject();
 	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
@@ -20,12 +21,17 @@ GameOverScene::GameOverScene() {
 
 	deathSound->play();
 
+	CallBack cb;
+	string key = EXIT;
+	if (!cameFromTutorial) cb = []() { SDLApplication::newScene<MainMenuScene>(); };
+	else {
+		cb = [&]() { SDLApplication::popGameState();  SDLApplication::pushNewScene<TutorialScene>(previousBT); };
+		key = RESUME; 
+	}
+
 	//Creo el boton y su marco y los fijo a la camara
 	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3) - FRAME_OFFSET,
-		[]() { 
-			SDLApplication::newScene<MainMenuScene>();
-		},
-		EXIT)->setAsDefaultButton();
+		cb, key)->setAsDefaultButton();
 }
 
 GameOverScene::~GameOverScene() {

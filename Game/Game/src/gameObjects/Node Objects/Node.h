@@ -14,7 +14,8 @@ enum NodeType {
 	Battle,
 	Chest,
 	Shop,
-	None
+	None,
+	Tutorial
 };
 
 enum BattleType {
@@ -70,7 +71,7 @@ public:
 	CallBack loadNode();
 	// Devuelve la clave de la textura del nodo
 	inline virtual string getTextureKey() const { 
-		if (type != Battle) return textureKey;
+		if (type != Battle && type != None) return textureKey;
 		return textureKey + to_string((int)bType);
 	}
 	// Devuelve un puntero al estado del nodo

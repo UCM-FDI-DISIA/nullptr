@@ -2,6 +2,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../scenes/BattleScene.h"
 #include "../General Components/ChargedPortalComponent.h"
+#include "../../scenes/TutorialScene.h"
 
 void PlayerInputComponent::initComponent() {
 	plMovement_ = gObj->getComponent<PlayerMovementComponent>();
@@ -10,14 +11,18 @@ void PlayerInputComponent::initComponent() {
 
 void PlayerInputComponent::handleInput() {
 	// Movimiento
-	plMovement_->setDirection(Vector2D(gmCtrl_.movementX(), gmCtrl_.movementY()));
+	if (canMove) plMovement_->setDirection(Vector2D(gmCtrl_.movementX(), gmCtrl_.movementY()));
 	// Ataque
-	if (!crdComp_->getLocked()) {
+	if (canAttack && !crdComp_->getLocked()) {
 		if (gmCtrl_.basic()) {
 			crdComp_->attack();
 		}
-		if (gmCtrl_.ability()) {
+		if (canUseAbility && gmCtrl_.ability()) {
 			crdComp_->ability();
+			if (tutorial) {
+				dynamic_cast<TutorialScene*>(gStt)->notifyAbility();
+				tutorial = false;
+			}
 		}
 	}
 	// Cursor
@@ -30,7 +35,7 @@ void PlayerInputComponent::handleInput() {
 		crdComp_->selectLeft();
 	}
 	// Portal
-	if (gmCtrl_.completeLevel()) {
+	if (canExit && gmCtrl_.completeLevel()) {
 		prtlComp_->countDownSetup();
 	}
 	// Pausa

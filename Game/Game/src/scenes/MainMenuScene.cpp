@@ -24,7 +24,11 @@ MainMenuScene::MainMenuScene() {
 	PlayerData::instance()->defaultPlayerStats();
 
 	// Botón jugar
-	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<MapScene>(); }, PLAY)->setAsDefaultButton();
+	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, 
+		[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
+		PLAY)->setAsDefaultButton();
+
+	if (pD().hasSaveFile()) createButton(MM_RESUME_BUTTON_POS, MM_RESUME_BUTTON_POS - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);
 
 	// Botón options
 	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);

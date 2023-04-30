@@ -11,6 +11,9 @@ void OnDeath::initComponent() {
 	else if (dynamic_cast<TankEnemy*>(gObj)) {
 		deathSound = &sdlutils().soundEffects().at(TANK_DEATH_SOUND);
 	}
+	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
+		deathSound = &sdlutils().soundEffects().at(TANK_DEATH_SOUND);
+	}
 }
 
 void OnDeath::death() {
@@ -21,4 +24,6 @@ void OnDeath::death() {
 	for (int i = 0; i < numMana; i++) {
 		gStt->addGameObject<Mana>(_grp_MANA, enemyTransform->getPos());
 	}
+	BattleScene* bS = dynamic_cast<BattleScene*>(gStt);
+	bS->getTracker()->onEnemyKilled(gObj);
 }

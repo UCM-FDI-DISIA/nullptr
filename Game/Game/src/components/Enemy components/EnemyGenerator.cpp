@@ -10,7 +10,7 @@ void EnemyGenerator::initComponent() {
 }
 
 void EnemyGenerator::update() {
-	if (nextSpawn <= SDLApplication::instance()->getCurrentTime()) {
+	if (canSpawn && nextSpawn <= SDLApplication::instance()->getCurrentTime()) {
 		nextWave();
 	}
 }
@@ -106,10 +106,14 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 
 	//Hacemos un for y añadimos enemigos melee
 	for (int i = 0; i < wave[0]; i++) {
-		
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
 		spawnPos = checkPos(spawnPos, MELEE_RADIUS);
-		GameObject* enemy = where->addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+		if ((rand() % 100) <= 94) {
+			GameObject* enemy = where->addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+		}
+		else GameObject* enemy = where->addGameObject<AssasinEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
+		
+		
 	}
 	//Hacemos un for y añadimos enemigos ranged
 	for (int i = 0; i < wave[1]; i++) {

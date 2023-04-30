@@ -11,10 +11,11 @@ void SMGCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
 	dir = dir.normalize();
+	float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, BULLET, _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * SMG_BULLET_SPEED, rot, 20, 10, BULLET, _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 }
 
 //Se disparan todas las balas

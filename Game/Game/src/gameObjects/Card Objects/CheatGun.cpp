@@ -6,10 +6,11 @@ void CheatGunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMul
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
 	dir = dir.normalize();
+	float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, BULLET, _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * GUN_BULLET_SPEED, rot, 20, 10, BULLET, _grp_ENEMIES };
 
-	GameObject* Bullet = where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+	GameObject* Bullet = where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 10, data);
 	Bullet->addComponent<FollowEnemyComponent>(1);
 }
 
