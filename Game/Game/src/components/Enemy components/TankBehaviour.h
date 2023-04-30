@@ -2,11 +2,12 @@
 #include "EnemyBehaviour.h"
 #include "../../core/SDLApplication.h"
 
+
 class TankBehaviour : public EnemyBehaviour{
 private: 
 	Transform* transform;
 	bool startAttack, chargingAttack, attacked;
-	float stop, attackingTime;
+	float attackingTime;
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
 

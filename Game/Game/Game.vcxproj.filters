@@ -283,6 +283,12 @@
     <ClCompile Include="src\components\General Components\EffectController.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -588,6 +594,12 @@
     </ClInclude>
     <ClInclude Include="src\components\General Components\EffectController.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

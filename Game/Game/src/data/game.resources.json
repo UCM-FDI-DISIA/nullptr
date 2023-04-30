@@ -27,6 +27,7 @@
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
+      { "id" : "ContinueButton", "file" : "../Game/resources/images/UI/MainMenuScene/ContinueButton_spritesheet_79x18.png" },
       { "id" : "OptionsButton", "file" : "../Game/resources/images/UI/MainMenuScene/OptionsButton_spritesheet_79x18.png" },
       { "id" : "AlbumButton", "file" : "../Game/resources/images/UI/MainMenuScene/AlbumButton_spritesheet_79x18.png" },
       { "id" : "ExitButton", "file" : "../Game/resources/images/UI/MainMenuScene/ExitButton_spritesheet_79x18.png" },
@@ -81,7 +82,7 @@
       { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
       { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
-      
+      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemyProv_32x32.png"},
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
 
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/PastNode_32x32.png" },
