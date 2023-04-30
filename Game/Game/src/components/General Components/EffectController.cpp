@@ -15,7 +15,7 @@ void EffectController::update()
 	{
 		double second = fmod(effect.timer, 1.0);
 	
-		#ifdef DEBUG
+		#ifdef _DEBUG
 			std::cout << second << "\n";
 		#endif // DEBUG
 
@@ -36,8 +36,8 @@ void EffectController::update()
 				r = 129; g = 56; b = 231;
 			break;
 		case E_INVULN:
-			if (second < 0.05)
-				a = 100;
+			if (second < 0.5)
+				a = 50;
 			else a = 150;
 			break;
 		case E_DAMAGED:

@@ -54,11 +54,11 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 			
 		}
 		if (invincibility) {
-			invTime = 0.5;
+			invTime = 1.5;
 
 			if (gObj->hasComponent<EffectController>()) {
 				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
-				eController->startEffect(E_INVULN, 0.5);
+				eController->startEffect(E_INVULN, 1.25);
 			}
 			
 			
