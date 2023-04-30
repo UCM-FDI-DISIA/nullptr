@@ -352,6 +352,7 @@ const Vector2D OBJECTS_POSITIONS[6] = {
 
 // BUTTON KEYS
 const string PLAY = "PlayButton";
+const string CONTINUE = "ContinueButton";
 const string OPTIONS = "OptionsButton";
 const string ALBUM = "AlbumButton";
 const string EXIT = "ExitButton";

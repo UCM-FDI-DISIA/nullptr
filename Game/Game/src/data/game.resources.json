@@ -27,6 +27,7 @@
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
+      { "id" : "ContinueButton", "file" : "../Game/resources/images/UI/MainMenuScene/ContinueButton_spritesheet_79x18.png" },
       { "id" : "OptionsButton", "file" : "../Game/resources/images/UI/MainMenuScene/OptionsButton_spritesheet_79x18.png" },
       { "id" : "AlbumButton", "file" : "../Game/resources/images/UI/MainMenuScene/AlbumButton_spritesheet_79x18.png" },
       { "id" : "ExitButton", "file" : "../Game/resources/images/UI/MainMenuScene/ExitButton_spritesheet_79x18.png" },
