@@ -8,7 +8,7 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "null", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.1, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.1, data, Vector2D(-1, -1), nullptr, playerPos);
 
 	auto slashAnim = where->addGameObject<GameObject>();
 
@@ -26,7 +26,7 @@ void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 	
 	Hitbox::HitboxData  data = { playerPos, VECTOR_ZERO, 0, 300, 300, "null", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.1, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.1, data, Vector2D(-1, -1), nullptr, playerPos);
 
 	auto spinAnim = where->addGameObject<GameObject>();
 	spinAnim->addComponent<Transform>(playerPos - Vector2D(150, 150), VECTOR_ZERO, 300, 300);

@@ -1,6 +1,4 @@
 #include "PostGameScene.h"
-#include "../data/PlayerData.h"
-#include "../gameObjects/UI/Button.h"
 #include "../core/SDLApplication.h"
 #include <iomanip>
 #include <sstream>
@@ -116,7 +114,7 @@ void PostGameScene::showObject() {
 		showCard();
 		break;
 	case 9:
-		addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT));
+		addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT))->setAsCurrentButton();
 		break;
 	}
 }

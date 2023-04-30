@@ -1,6 +1,5 @@
 #include "Map.h"
 #include "../../core/SDLApplication.h"
-#include "../../data/json/JSON.h"
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	//createMap();
@@ -23,12 +22,9 @@ void Map::initNodeLoads() {
 }
 
 // Crea el mapa
-void Map::createMap() {
-	initMap(NODE_MAP_JSON_ROOT);
-	for (Node* n : unlockedNodes) {
-		n->lock();
-	}
+void Map::createMap(string filename) {
 	unlockedNodes = initialNodes;
+	initMap(filename);
 	for (Node* n : unlockedNodes) {
 		n->unlock();
 	}
@@ -354,6 +350,7 @@ void Map::initMap(string filename) {
 		nextsnodes(int h, int p, JSONArray a) : height(h), pos(p), arr(a) {}
 	};
 	vector<nextsnodes> nexts;
+	vector<vector<nodeState>> nStates(HEIGHT, vector<nodeState>(MAX_NODES, nodeState::_LOCKED_NODE));
 
 	// load fonts
 	jValue = root["map"];
@@ -366,25 +363,32 @@ void Map::initMap(string filename) {
 					int height = static_cast<int>(vObj["height"]->AsNumber());
 					int pos = static_cast<int>(vObj["pos"]->AsNumber());
 					std::string type = vObj["type"]->AsString();
+					auto sttIt = vObj.find("state");
 					JSONArray next = vObj["next"]->AsArray();
 #ifdef _DEBUG
 					std::cout << "Loading node with id: " << type << height << pos << std::endl;
 #endif
+					Node* n;
 					// Crear los nodos en función de las condiciones leídas
 					if (type == "start")  {
-						initialNodes.push_back(addNode(height, pos, Needs(Battle, 0, false)));
+						n = addNode(height, pos, Needs(Battle, 0, false));
+						initialNodes.push_back(n);
 					}
 					else if (type == "boss")  {
-						addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
+						n = addNode(height, pos, Needs(Battle, 0, false), _BOSSBATTLE);
 					}
 					else  {
-						addNode(height, pos, Needs((type == "battle") ?
+						n = addNode(height, pos, Needs((type == "battle") ?
 							Battle : ((type == "chest") ?
 								Chest : ((type == "shop") ?
 									Shop : None)), 0, false));
 					}
+
 					// Guardar la posición del nodo creado con las posiciones de sus siguientes
 					nexts.push_back(nextsnodes(height, pos, next));
+
+					// Si hay un estado guardado en los nodos se almacena
+					if (sttIt != vObj.end()) nStates[height][pos] = static_cast<nodeState>(sttIt->second->AsNumber());
 
 				} else {
 					throw "'node' array in '" + filename
@@ -422,6 +426,17 @@ void Map::initMap(string filename) {
 					}
 				}
 			}
+
+			auto sttPreIt = nStates.begin();
+			for (auto& nodeHeight : nodeMap) {
+				auto sttIt = sttPreIt->begin();
+				for (Node* nod : nodeHeight) {
+					if (*sttIt == _COMPLETED_NODE) nod->complete(unlockedNodes);
+					++sttIt;
+				}
+				++sttPreIt;
+			}
+
 		} else {
 			throw "'node' is not an array in '" + filename + "'";
 		}
@@ -441,5 +456,41 @@ void Map::completeCurrentNode() {
 // Borra el mapa actual y crea uno nuevo
 void Map::reloadMap() {
 	clearMap();
-	createMap();
+	createMap(NODE_MAP_JSON_ROOT);
+}
+
+
+JSONValue* Map::mapToJSON() {
+	JSONArray jsonMap;
+	int i = 0;
+	for (vector<Node*>& nodeHeight : nodeMap) {
+		int j = 0;
+		for (Node* node : nodeHeight) {
+			if (node != nullptr) {
+				JSONObject jsonNode;
+				jsonNode["height"] = new JSONValue(i);
+				jsonNode["pos"] = new JSONValue(j);
+				jsonNode["state"] = new JSONValue(node->getState());
+				jsonNode["type"] = new JSONValue((node->getType() == Battle) ?
+					((node->getBattleType() == _BOSSBATTLE) ? 
+						"boss" : "battle") : ((node->getType() == Chest) ?
+						"chest" : ((node->getType() == Shop) ?
+							"shop" : "start")));
+				JSONArray jsonNext;
+				for (int nextPos : node->getNextInd()) {
+					JSONArray jsonNextPos;
+					jsonNextPos.push_back(new JSONValue(nextPos));
+					jsonNextPos.push_back(new JSONValue(i + 1));
+
+					jsonNext.push_back(new JSONValue(jsonNextPos));
+				}
+				jsonNode["next"] = new JSONValue(jsonNext);
+
+				jsonMap.push_back(new JSONValue(jsonNode));
+			}
+			++j;
+		}
+		++i;
+	}
+	return new JSONValue(jsonMap);
 }
