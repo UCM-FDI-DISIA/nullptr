@@ -164,6 +164,7 @@
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyGenerator.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
@@ -256,6 +258,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Card Components\FollowEnemyComponent.cpp" />
+    <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
     <ClCompile Include="src\components\Enemy components\EterBehaviour.cpp" />
@@ -312,6 +315,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />

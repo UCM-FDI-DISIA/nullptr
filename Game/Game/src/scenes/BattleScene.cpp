@@ -54,7 +54,7 @@ BattleScene::BattleScene(BattleType t_) : NodeScene(), type(t_) {
 	empty = addGameObject();
 	empty->addComponent<EnemyGenerator>(player, this);
 	empty->addComponent<StatsTrackComponent>();
-
+	
 	// - UI -
 	// Nos guardamos una referencia al componente de cartas del player
 	CardComponent* cardComp = player->getComponent<CardComponent>();
