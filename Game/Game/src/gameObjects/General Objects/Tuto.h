@@ -14,7 +14,7 @@ private:
 
 public:
 	// Constructora
-	Tuto() : myAnim(nullptr), l(nullptr), time(0) { }
+	Tuto() : myAnim(nullptr), l(nullptr), time(0), current(0), tr(nullptr), change(false) { }
 	// Inicializa el objeto
 	virtual void initGameObject(Transform* pl);
 	virtual void update();

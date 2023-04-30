@@ -11,7 +11,7 @@ void  AssaultRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float atta
 
 		playerPos = playerPos - dir * ASSAULT_RIFLE_BURST;
 
-		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, BULLET, _grp_ENEMIES };
+		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 20, 10, BULLET, _grp_ENEMIES };
 
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
 	}
@@ -21,7 +21,7 @@ void  AssaultRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float att
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 	dir = dir.normalize();
 
-	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 16, 16, BULLET, _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 15, 20, GRENADE, _grp_ENEMIES };
 	float size = 250;
 	string sprite = "Bullet";
 

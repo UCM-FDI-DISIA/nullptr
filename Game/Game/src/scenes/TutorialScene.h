@@ -58,6 +58,8 @@ public:
 		tutorialController->setAbility(true);
 	}
 
+	void hideTuto();
+
 	// PASOS DEL TUTORIAL
 	// Activar input 
 	void activateInput();

@@ -43,7 +43,7 @@ void Tuto::initGameObject(Transform* pl) {
 void Tuto::changeAnim(int c) {
 	if (c == 1 || c == 2 || c == 3) myAnim->play("AimCtrlls");
 	else if (c == 4) myAnim->play("AbilityCtrlls");
-	else if (c == 5) myAnim->play("PortalCtrlls");
+	else if (c == 6) myAnim->play("PortalCtrlls");
 	current = c;
 }
 

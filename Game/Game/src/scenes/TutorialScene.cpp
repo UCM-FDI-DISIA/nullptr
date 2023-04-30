@@ -104,7 +104,10 @@ void TutorialScene::activatePopUp() {
 // Desactiva el popup
 void TutorialScene::deactivatePopUp() {
 	// Objeto tuto
-	if (tuto == nullptr) tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
+	if (tuto == nullptr) {
+		tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
+		if (current >= 3) tuto->changeAnim(current);
+	}
 	else tuto->changeAnim(current);
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
 
@@ -128,9 +131,16 @@ void TutorialScene::deactivatePopUp() {
 	if (current >= 2) {
 		pointer->getComponent<PointerComponent>()->setFollowObject(player);
 		player->getComponent<PlayerInputComponent>()->setCanAttack(true);
+		if (current == 4 || current == 6) {
+			hideTuto();
+		}
 	}
-
 	tutorialController->setCanAdvance(true);
+}
+
+void TutorialScene::hideTuto() {
+	tuto->setAlive(false);
+	tuto = nullptr;
 }
 
 // Devuelve los callbacks con sus respectivos tiempos

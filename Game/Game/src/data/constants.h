@@ -185,6 +185,13 @@ const string SWORD_SPIN = "SwordSpin";
 const string SPEAR_THRUST = "SpearThrust";
 const string SOWND_ATTACK = "Sound";
 const string BULLET= "Bullet";
+const string PLAYER_ARROW = "PlayerArrow";
+const string ENEMY_ARROW = "EnemyArrow";
+const string LIGHT_BULLET = "LightBullet";
+const string LIGHT_EXPLOSION = "LightExplosion";
+const string PULGA_BULLET = "PulgaBullet";
+const string PULGA_EXPLOSION = "PulgaExplosion";
+const string GRENADE = "Grenade";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------

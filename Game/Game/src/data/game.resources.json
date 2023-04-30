@@ -49,13 +49,22 @@
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
 
-      { "id" : "Bullet", "file" : "../Game/resources/images/Cards/CardEffects/Bullet_256x256.jpg" },
+      { "id" : "Bullet", "file" : "../Game/resources/images/Cards/CardEffects/PlayerBullet_20x10.png" },
+      { "id" : "PlayerArrow", "file" : "../Game/resources/images/Cards/CardEffects/PlayerArrow_50x15.png" },
+      { "id": "EnemyArrow", "file": "../Game/resources/images/Cards/CardEffects/EnemyArrow_50x15.png" },
+      { "id": "LightBullet", "file": "../Game/resources/images/Cards/CardEffects/LightRiffleBullet_20x5.png" },
+      { "id": "LightExplosion", "file": "../Game/resources/images/Cards/CardEffects/LightExplosion_40x40.png" },
+      { "id": "PulgaBullet", "file": "../Game/resources/images/Cards/CardEffects/PulgaBullet_10x11.png" },
+      { "id": "PulgaExplosion", "file": "../Game/resources/images/Cards/CardEffects/PulgaExplosion_40x40.png" },
+      { "id": "Grenade", "file": "../Game/resources/images/Cards/CardEffects/Grenade_30x40.png" },
       { "id" : "Sound", "file" : "../Game/resources/images/Cards/CardEffects/Sound32x32.png" },
       { "id" : "SwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/SwordSlash_200x200.png" },
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
       { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
       { "id" : "SpearThrust", "file" : "../Game/resources/images/Cards/CardEffects/SpearThrust_184x39.png" },
+
+
       { "id" : "Player", "file" : "../Game/resources/images/Player/Player_spritesheet_17x30.png" },
       { "id" : "newPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
