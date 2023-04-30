@@ -38,6 +38,10 @@ void PlayerInputComponent::handleInput() {
 	if (canExit && gmCtrl_.completeLevel()) {
 		prtlComp_->countDownSetup();
 	}
+	if (ih().isKeyDown(SDLK_LESS)) {
+		prtlComp_->debugCountDownSetup();
+	}
+
 	// Pausa
 	if (gmCtrl_.pause()) {
 		SDLApplication::pauseGame();
