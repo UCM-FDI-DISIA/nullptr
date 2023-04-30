@@ -24,6 +24,7 @@ private:
 	bool oneAttack = false;
 
 	EnemyAnimator* anim;
+	HealthComponent* hc;
 
 public:
 	static const int id = _ENEMY_BEHAVIOUR;

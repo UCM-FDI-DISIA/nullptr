@@ -136,8 +136,8 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 		spawnPos = checkPos(spawnPos, TANK_RADIUS);
 		GameObject* enemy = where->addGameObject<TankEnemy>(_grp_ENEMIES,spawnPos, TANK_LIFE, player);
 	}
-	Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
+	/*Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;
 	spawnPos = checkPos(spawnPos, TANK_RADIUS);
-	GameObject* enemy = where->addGameObject<BossEnemy>(_grp_ENEMIES, spawnPos, 10, player);
+	GameObject* enemy = where->addGameObject<BossEnemy>(_grp_ENEMIES, spawnPos, 10, player);*/
 }
 

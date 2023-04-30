@@ -2,6 +2,7 @@
 #include "../../core/SDLApplication.h"
 #include "../../data/json/JSON.h"
 #include "../../scenes/TutorialScene.h"
+#include "../../scenes/BossBattleScene.h"
 
 Map::Map() : nodeMap(HEIGHT, vector<Node*>(MAX_NODES, nullptr)), initialNodes(vector<Node*>()), unlockedNodes(initialNodes), currentNode(nullptr), nodesPerHeight(HEIGHT, 0) {
 	//createMap();
@@ -320,7 +321,9 @@ void Map::generateLevel(vector<vector<Node*>>& m, int maxHeight, int k) {
 
 // Añade un nodo al mapa en la posición indicada con las condiciones indicadas
 Node* Map::addNode(int height, int pos, Needs n, BattleType bt) {
-	nodeMap[height][pos] = new Node(n, nodeTextureKeys[n.type], nodeLoads[n.type], n.type, bt);
+	if (bt != _BOSSBATTLE) nodeMap[height][pos] = new Node(n, nodeTextureKeys[n.type], nodeLoads[n.type], n.type, bt);
+	else nodeMap[height][pos] = 
+		new Node(n, nodeTextureKeys[n.type], [](BattleType t) {SDLApplication::instance()->pushNewScene<BossBattleScene>(t); }, n.type, bt);
 	++nodesPerHeight[height];
 	return nodeMap[height][pos];
 }

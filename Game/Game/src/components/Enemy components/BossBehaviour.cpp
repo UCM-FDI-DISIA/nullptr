@@ -10,6 +10,7 @@ BossBehaviour::BossBehaviour(float spd, float safDist, float stptime, float mvTi
 void BossBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
 	anim = gObj->getComponent<EnemyAnimator>();
+	hc = gObj->getComponent<HealthComponent>();
 	pos->setVel(Vector2D(0, 0)); 
 	pos->lookAt(playerPos->getPos());
 }
@@ -101,24 +102,24 @@ void BossBehaviour::enemyAttack() {
 		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
 		/*vel = vel * bulletSpedd;*/
 		if (shotPattern == 0) {
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(-2 * BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 		else if (shotPattern == 2) {	
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 			vel = vel.rotate(-2 * BULLET_ANGLE);
 			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 		}
 	}
 }
@@ -148,7 +149,7 @@ void BossBehaviour::coneAttack() {
 		Vector2D hitboxPos = pos->getPos() + coneDir * 100;
 		float rotation = Vector2D(1, 0).angle(coneDir);
 		Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 	}
 
 	// Incrementar el contador de ataques de cono
@@ -193,7 +194,7 @@ void BossBehaviour::bulletHellAttack() {
 
 		// Creamos el objeto de la bala
 		Hitbox::HitboxData data = { bulletPos, bulletDir * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, false, 10, data);
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
 	}
 }
 // Funci�n para ejecutar el ataque Tent�culo Dirigido
@@ -219,7 +220,7 @@ void BossBehaviour::grenadeAttack() {
 		// Creo las 8 balas
 		for (int i = 0; i < 8; i++) {
 			Hitbox::HitboxData data = { tr->getCenter(), directs[i] * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER};
-			myScene->addGameObject<Hitbox>(_grp_ENM_ATTACK, 20, true, false, 10, data);
+			myScene->addGameObject<Hitbox>(_grp_ENM_ATTACK, 20, true, 10, data);
 		}
 	};
 	// Creo las 4 granadas en direcciones arriba, abajo, izq y der
