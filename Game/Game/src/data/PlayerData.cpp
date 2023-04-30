@@ -34,12 +34,12 @@ void PlayerData::defaultPlayerStats() {
 	playerSpeed = PLAYER_SPEED;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_TORCH, 3);
-	addCardToDeck(_card_TORCH, 3);
-	addCardToLibrary(_card_GUN, 3);
-	addCardToDeck(_card_GUN, 3);
-	addCardToLibrary(_card_PULGA, 2);
-	addCardToDeck(_card_PULGA, 2);
+	addCardToLibrary(_card_SPEAR, 3);
+	addCardToDeck(_card_SPEAR, 3);
+	addCardToLibrary(_card_SWORD, 3);
+	addCardToDeck(_card_SWORD, 3);
+	addCardToLibrary(_card_GUN, 2);
+	addCardToDeck(_card_GUN, 2);
 }
 
 void PlayerData::getDataFromJSON() {
@@ -212,15 +212,6 @@ std::vector<std::string> PlayerData::getAvailableItems() {
 void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
 }
-
-//void PlayerData::addRelic(Relic* relic) {
-//	maxMana += relic->mana;
-//	maxHP += relic->health;
-//	attackMult += relic->attackMult / 100.0f;
-//	fireRateMult += relic->fireRateMult / 100.0f;
-//	playerSpeed += relic->speed;
-//	myRelics.push_back(relic);
-//}
 
 void PlayerData::addCardToLibrary(CardId newCard, int num) {
 	// A�ado la carta a la libreria
