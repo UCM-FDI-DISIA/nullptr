@@ -21,14 +21,17 @@ void EffectController::update()
 
 		switch (effect.effect)
 		{
+		case E_DAMAGED:
+				r = 255; g = 50; b = 50;
+			break;
 		case E_BURNING:
-			if (second < .033) {
+			if (second < 0.33) {
 				r = 255; g = 195; b = 0;
 			}
-			if (second > .033 && second < .066) {
+			else if (second > 0.33 && second < 0.66) {
 				r = 255; g = 87; b = 51;
 			}
-			if (second > .066) {
+			else if (second > 0.66) {
 				r = 255; g = 66; b = 51;
 			}
 			break;
@@ -39,9 +42,6 @@ void EffectController::update()
 			if (second > 0.75 || second > 0.25  && second < 0.5)
 				a = 0;
 			else a = 255;
-			break;
-		case E_DAMAGED:
-				r = 255; g = 50; b = 50;
 			break;
 		default:
 			break;
@@ -70,9 +70,29 @@ void EffectController::update()
 
 void EffectController::startEffect(effectID effect, double duration)
 {
+
+	if (effect == E_DAMAGED)
+	{
+		//Buscar si hay un efecto de quemado
+		bool found = false;
+		auto it = currentEffects.begin();
+		while (it != currentEffects.end() && !found)
+		{
+			if (it->effect == E_BURNING)
+			{
+				found = true;
+			}
+			it++;
+		}
+		if (found)
+			return;
+		
+	}
+
 	Effect ef;
 	ef.effect = effect;
 	ef.timer = duration;
+
 	currentEffects.push_back(ef);
 }
 
