@@ -10,7 +10,7 @@ void TorchCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	float rotation = Vector2D(1, 0).angle(dir);
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, SWORD_SLASH, _grp_ENEMIES };
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage, false, false, 4, StatusComponent::BURNED,  0.06, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage, false, 4, StatusComponent::BURNED,  0.06, data, Vector2D(-1, -1), playerPos);
 }
 
 // Crea un gObj cura en el centro del jugador

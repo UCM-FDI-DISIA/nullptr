@@ -9,7 +9,7 @@ void CheatGunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMul
 
 	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, 0, 30, 30, BULLET, _grp_ENEMIES };
 
-	GameObject* Bullet = where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, false, 10, data);
+	GameObject* Bullet = where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 10, data);
 	Bullet->addComponent<FollowEnemyComponent>(1);
 }
 
