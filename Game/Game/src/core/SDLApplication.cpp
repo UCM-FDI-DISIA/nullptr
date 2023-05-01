@@ -60,9 +60,6 @@ void SDLApplication::run() {
 			render();
 		}
 		
-		// Descomentar para analizar el deltaTime
-		// std::cout << deltaTime << " " << SDL_GetTicks() << " " <<  debugCounter << " " << SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
-		
 		handleInput();
 
 		if (ih().closeWindowEvent()) {

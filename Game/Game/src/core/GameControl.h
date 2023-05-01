@@ -23,11 +23,11 @@ public:
 	// Eje de movimiento en Y, entre -1 y 1
 	float movementY() const;
 
-	// AcciÛn de ataque b·sico
+	// Acci√≥n de ataque b√°sico
 	bool basic() const;
-	// AcciÛn de habilidad
+	// Acci√≥n de habilidad
 	bool ability() const;
-	// Cambia la posiciÛn del cursos en funciÛn a los joysticks del mando si el control por este est· activado
+	// Cambia la posici√≥n del cursos en funci√≥n a los joysticks del mando si el control por este est√° activado
 	bool controllerToCursor() const;
 
 	// Cambiar en partida la carta seleccionada a la izquierda
@@ -40,23 +40,23 @@ public:
 	// Pausar el juego
 	bool pause() const;
 
-	// Pulsar un botÛn
+	// Pulsar un bot√≥n
 	bool click() const;
-	// Si est· activado el control por mando se mueve el mouse a la posiciÛn indicada
+	// Si est√° activado el control por mando se mueve el mouse a la posici√≥n indicada
 	bool moveMouse(float x, float y) const;
 
-	// Seleccionar el botÛn superior
+	// Seleccionar el bot√≥n superior
 	bool selectUpButton();
-	// Seleccionar el botÛn inferior
+	// Seleccionar el bot√≥n inferior
 	bool selectDownButton();
-	// Seleccionar el botÛn a la izquierda
+	// Seleccionar el bot√≥n a la izquierda
 	bool selectLeftButton();
-	// Seleccionar el botÛn a la derecha
+	// Seleccionar el bot√≥n a la derecha
 	bool selectRightButton();
 
-	// Devuelve en valor en el que se deber· mover la c·mara cuando se hace scroll
+	// Devuelve en valor en el que se deber√° mover la c√°mara cuando se hace scroll
 	float scroll(bool controllerScroll = true) const;
-	// Ir atr·s
+	// Ir atr√°s
 	bool goBack() const;
 
 	// Cambiar entre control por mando y control por teclado
@@ -67,6 +67,9 @@ public:
 
 	// Cambiar a control por mando
 	void changeToGamepad();
+
+	// Devuelve si el control actual es con mando o no
+	inline bool controllerActive() const { return controller_; }
 };
 
 inline GameControl& gmCtrl() { return *GameControl::instance(); }

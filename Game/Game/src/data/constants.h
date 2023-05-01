@@ -113,6 +113,8 @@ const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WID
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float DASH_SPEED = 1400;
+const float DASH_DURATION = 0.15;
 const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
@@ -204,6 +206,7 @@ const string LIGHT_EXPLOSION = "LightExplosion";
 const string PULGA_BULLET = "PulgaBullet";
 const string PULGA_EXPLOSION = "PulgaExplosion";
 const string GRENADE = "Grenade";
+const string GRENADE_EXPLOSION = "GrenadeExplosion";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
@@ -214,7 +217,7 @@ const float GUN_BULLET_SPEED = 550;
 const float PULGA_BULLET_SPEED = 250;
 const float SMG_BULLET_SPEED = 700;
 const float LIGHT_BULLET_SPEED = 800;
-const float ARROW_SPEED = 150;
+const float ARROW_SPEED = 350;
 const float THROWN_SPEAR_SPEED = 600;
 const float TORCH_SIZE_HEAL = 400;
 
@@ -490,8 +493,8 @@ const int CARD_OFFSET_H = 21 * 1.5;
 //CARD DATA
 const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
-const float ASSAULT_RIFLE_BURST = 10;
-
+const float ASSAULT_RIFLE_BURST = 25;
+const float LASER_KATANA_BURST = 35;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
@@ -709,11 +712,17 @@ const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
 const int SHOP_CARD_OFFSET_X = 300;
 const int SHOP_CARD_PRICE_WIDTH = 100;
 const int SHOP_CARD_PRICE_HEIGHT = 50;
-const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 100);
+const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 + 10, WIN_HEIGHT - 100);
 const int SHOP_MONEY_WIDTH = 100;
 const int SHOP_MONEY_HEIGHT = 50;
-const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
+const int SHOP_MONEY_FRAME_WIDTH = CARD_WIDTH * PIXEL_WIDTH * 1.5;
+const int SHOP_MONEY_FRAME_HEIGHT = 16 * PIXEL_HEIGHT * 1.5;
+const Vector2D SHOP_MONEY_POSITION = Vector2D(WIN_WIDTH / 2 - SHOP_MONEY_FRAME_WIDTH + 20, WIN_HEIGHT - 95);
 const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+const Vector2D SHOP_MONEY_FRAME_POSITION = Vector2D(WIN_WIDTH / 2 - SHOP_MONEY_FRAME_WIDTH - 20, WIN_HEIGHT - 100);
+const Vector2D SHOP_MONEY_COIN_POSITION = Vector2D(WIN_WIDTH / 2 - 32 * PIXEL_WIDTH - 10, WIN_HEIGHT - 75 - 32 * PIXEL_HEIGHT / 2);
+const int COIN_WIDHT = 32 * PIXEL_WIDTH;
+const int COIN_HEIGHT = 32 * PIXEL_HEIGHT;
 
 // OPTIONS -------------------------------------------------------------------------------------
 const string OPTIONS_JSON_ROOT = "../Game/src/data/game.options.json";

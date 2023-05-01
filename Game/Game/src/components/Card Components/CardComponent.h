@@ -38,7 +38,6 @@ class CardComponent : public Component {
 		void attack(Vector2D playerPos, Vector2D mousePos);
 		void ability(Vector2D playerPos, Vector2D mousePos);
 		void switchActive(bool left = false);
-		void switchActive(int number);
 
 
 	public:
@@ -54,19 +53,20 @@ class CardComponent : public Component {
 		void ability();
 		void selectLeft();
 		void selectRight();
+		void switchActive(int number);
 
 		//Getters
-		int getDeckSize() { return deck.size(); }
-		int getPileSize() { return pile.size(); }
-		deque<Card*> getHand() { return hand; }
-		int getMana() { return mana; }
-		void setAutomatic(bool value) { automatic = value; }
-		void setLocked(bool value) { locked = value; }
-		bool getAutomatic() { return automatic; }
-		bool getLocked() { return locked; }
+		inline int getDeckSize() const { return deck.size(); }
+		inline int getPileSize() const { return pile.size(); }
+		inline deque<Card*> getHand() { return hand; }
+		inline int getMana() const { return mana; }
+		inline void setAutomatic(bool value) { automatic = value; }
+		inline void setLocked(bool value) { locked = value; }
+		inline bool getAutomatic() const { return automatic; }
+		inline bool isLocked() const { return locked; }
 		void setInitialDeck();
 
-		inline bool isAttacking() { return attacking; }
-		inline bool isAbiliting() { return abiliting; }
+		inline bool isAttacking() const { return attacking; }
+		inline bool isAbiliting() const { return abiliting; }
 };
 

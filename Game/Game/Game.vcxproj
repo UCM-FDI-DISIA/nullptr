@@ -309,6 +309,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\LaserKatana.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CheatGun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp" />

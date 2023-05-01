@@ -12,7 +12,6 @@ Card::Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _d
 			case 0:
 				name += _data[i];
 				break;
-				std::cout << name;
 			case 1:
 				attackText += _data[i];
 				break;

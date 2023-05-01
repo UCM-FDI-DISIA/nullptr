@@ -21,9 +21,11 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
+
 #ifdef _DEBUG
 		cout << lifePoints << endl;
 #endif
+
 		if (lifePoints > 0 && gObj->hasComponent<EffectController>()) {
 			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 			eController->startEffect(E_DAMAGED, 0.5);
@@ -60,11 +62,6 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_INVULN, 1.25);
 			}
-			
-			
-#ifdef _DEBUG
-			cout << "Invencible" << endl;
-#endif
 		}
 		else
 		{
@@ -80,6 +77,11 @@ void HealthComponent::setInvencibility(float time)
 {
 	if (invincibility) {
 		invTime = time;
+		if (gObj->hasComponent<EffectController>()) {
+			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
+			eController->startEffect(E_INVULN, time);
+		}
+
 	}
 }
 
