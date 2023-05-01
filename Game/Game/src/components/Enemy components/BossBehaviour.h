@@ -14,6 +14,7 @@ enum bossState_ID : int {
 	boss_IDLE,
 	boss_BHELL,
 	boss_GRENADE,
+	boss_COMBINED,
 };
 
 class BossBehaviour :public EnemyBehaviour
