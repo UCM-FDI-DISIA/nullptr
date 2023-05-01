@@ -227,7 +227,8 @@
       { "id" : "MeleeHit", "file": "../Game/resources/sounds/MeleeHit.wav"},
       { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
       { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
-      { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"}
+      { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"},
+      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"}
     ],
   
     "musics" : [

@@ -36,6 +36,9 @@ PostGameScene::PostGameScene(int dmg, int mlee, int rngd, int tnk, int mny, floa
 	GameObject* title = addGameObject(_grp_UI);
 	title->addComponent<Transform>(Vector2D(90, 65), VECTOR_ZERO, 400, 100);
 	title->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), "ESTADISTICAS");
+
+	faseCompleted = &sdlutils().soundEffects().at(FASE_COMPLETED_SOUND);
+	
 }
 
 void PostGameScene::update()
@@ -53,10 +56,11 @@ void PostGameScene::showObject() {
 
 	GameObject* text;
 	int i = 0;
-
+	
 	switch (nextEvent)
 	{
 	case 1:
+		faseCompleted->play();
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(70, 155), VECTOR_ZERO, 400, 100);
 		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Enemigos derrotados: " + to_string(melee + ranged + tank));
