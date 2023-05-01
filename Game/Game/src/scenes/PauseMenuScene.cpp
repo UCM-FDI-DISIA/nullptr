@@ -2,6 +2,16 @@
 #include "../core/SDLApplication.h"
 
 PauseMenuScene::PauseMenuScene() : GameState() {
+	// Imagen de fondo
+	GameObject* background = addGameObject();
+	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
+	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
+
+	// Cartel de Pausa
+	GameObject* cartel = addGameObject();
+	cartel->addComponent<Transform>(PAUSE_MESSAGE_POS, Vector2D(), PAUSE_MESSAGE_W, PAUSE_MESSAGE_H);
+	cartel->addComponent<Image>(SDLApplication::getTexture(PAUSE_MESSAGE));
+
 	// Botón jugar
 	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME)->setAsDefaultButton();
 
