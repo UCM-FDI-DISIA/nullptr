@@ -14,17 +14,17 @@ gamepadConnection(nullptr) {
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 50, WIN_HEIGHT - MM_BUTTON_HEIGHT - 50), aI, -1, nullptr, 2.0f)->setAsDefaultButton();
 
+	musicOptions.push_back({ "0", []() { Mix_VolumeMusic(0); } });
+	musicOptions.push_back({ "25", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 4); } });
 	musicOptions.push_back({ "50", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 2); } });
 	musicOptions.push_back({ "75", []() { Mix_VolumeMusic(MIX_MAX_VOLUME * 2 / 3); } });
 	musicOptions.push_back({ "100", []() { Mix_VolumeMusic(MIX_MAX_VOLUME); } });
-	musicOptions.push_back({ "0", []() { Mix_VolumeMusic(0); } });
-	musicOptions.push_back({ "25", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 4); } });
 
+	sfxOptions.push_back({ "0", []() { Mix_MasterVolume(0); } });
+	sfxOptions.push_back({ "25", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 4); } });
 	sfxOptions.push_back({ "50", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 2); } });
 	sfxOptions.push_back({ "75", []() { Mix_MasterVolume(MIX_MAX_VOLUME * 2 / 3); } });
 	sfxOptions.push_back({ "100", []() { Mix_MasterVolume(MIX_MAX_VOLUME); } });
-	sfxOptions.push_back({ "0", []() { Mix_MasterVolume(0); } });
-	sfxOptions.push_back({ "25", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 4); } });
 	
 
 	fullWindowOptions.push_back({ "NO", []() {
@@ -115,10 +115,12 @@ void OptionsMenuScene::leftOption(pair<GameObject*, pair<GameObject*, int>> cont
 
 	unordered_map<int, pair<string, CallBack>> options = controls[control.first];
 
-	// Si se trataba de la primera opcion, se coloca la ultima opcion
-	if (control.second.second < 0) control.second.second = options.size() - 1;
-	// Se llama a su callback
-	options[control.second.second].second();
+	// Si se trataba de la primera opcion, no hace nada
+	if (control.second.second < 0) control.second.second = 0;
+	else {
+		// Se llama a su callback
+		options[control.second.second].second();
+	}
 
 	showOption(control, leftButton, rightButton, controlRect);
 }
@@ -129,10 +131,12 @@ void OptionsMenuScene::rightOption(pair<GameObject*, pair<GameObject*, int>> con
 
 	unordered_map<int, pair<string, CallBack>> options = controls[control.first];
 
-	// Si se trataba de la ultima opcion, se coloca la primera
-	if (control.second.second > options.size() - 1) control.second.second = 0;
-	// Se llama a su callback
-	options[control.second.second].second();
+	// Si se trataba de la ultima opcion, no hace nada
+	if (control.second.second > options.size() - 1) control.second.second = options.size() - 1;
+	else {
+		// Se llama a su callback
+		options[control.second.second].second();
+	}
 
 	showOption(control, leftButton, rightButton, controlRect);
 }

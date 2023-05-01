@@ -11,7 +11,7 @@ private:
 	int fullWindow;
 	int peripheral;
 
-	OptionsData() : music(0), sfx(0), fullWindow(0), peripheral(0) {}
+	OptionsData() { resetOptions(); }
 
 public:
 	inline int getMusic() { return music; }
@@ -22,7 +22,7 @@ public:
 	inline void setFullWindow(int value) { fullWindow = value; }
 	inline int getPeripheral() { return peripheral; }
 	inline void setPeripheral(int value) { peripheral = value; }
-	inline void resetOptions() { music = 0; sfx = 0; fullWindow = 0; peripheral = 0; }
+	inline void resetOptions() { music = 4; sfx = 4; fullWindow = 0; peripheral = 0; }
 };
 
 inline OptionsData& oD() { return *OptionsData::instance(); }
