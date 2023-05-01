@@ -29,13 +29,13 @@ void PlayerData::defaultPlayerStats() {
 	setCurrHP(100);
 	setAttackMult(1);
 	setFireRateMult(1);
-	setMoney(999);
-	level = 10;
+	setMoney(0);
+	level = 1;
 	playerSpeed = PLAYER_SPEED;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_TORCH, 3);
-	addCardToDeck(_card_TORCH, 3);
+	addCardToLibrary(_card_SPEAR, 3);
+	addCardToDeck(_card_SPEAR, 3);
 	addCardToLibrary(_card_SWORD, 3);
 	addCardToDeck(_card_SWORD, 3);
 	addCardToLibrary(_card_GUN, 2);
