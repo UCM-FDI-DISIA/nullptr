@@ -8,5 +8,5 @@ void BossTentacle:: initGameObject(Vector2D pos, bool mirror) {
 			player->getComponent<HealthComponent>()->receiveDamage(damage);
 		}
 	);
-	addComponent<Image>(&sdlutils().images().at("BossTentacle"));
+	addComponent<Image>(&sdlutils().images().at(BOSS_TENTACLE));
 }

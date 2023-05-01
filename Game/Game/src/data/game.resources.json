@@ -92,6 +92,8 @@
       
       { "id" : "TargetedTentacle", "file" : "../Game/resources/images/Enemies/TargetedTentacle_250x50.png" },
       { "id" : "ConeAttack", "file" : "../Game/resources/images/Enemies/ConeAttack_250x250.png" },
+      { "id" : "BossBullet", "file" : "../Game/resources/images/Enemies/BossBullet_35x7.png" },
+      { "id" : "BossGrenade", "file" : "../Game/resources/images/Enemies/BossGrenade_100x100.png" },
 
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
 

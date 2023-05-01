@@ -123,28 +123,32 @@ void BossBehaviour::update() {
 void BossBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
 	if (vel.magnitude() != 0) {
-		vel = vel / vel.magnitude();
-		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-		/*vel = vel * bulletSpedd;*/
+		vel = vel.normalize();
+		float rot = Vector2D(-1, 0).angle(vel);
+		Hitbox::HitboxData data = { pos->getPos(), vel * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
 		if (shotPattern == 0) {
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 		}
 		else if (shotPattern == 1) {
 			vel = vel.rotate(BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+			rot = Vector2D(-1, 0).angle(vel);
+			data = { pos->getPos(), vel * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 			vel = vel.rotate(-2 * BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+			rot = Vector2D(-1, 0).angle(vel);
+			data = { pos->getPos(), vel * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 		}
 		else if (shotPattern == 2) {	
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 			vel = vel.rotate(BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+			rot = Vector2D(-1, 0).angle(vel);
+			data = { pos->getPos(), vel * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
+			rot = Vector2D(-1, 0).angle(vel);
 			vel = vel.rotate(-2 * BULLET_ANGLE);
-			data = { pos->getPos(), vel * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+			data = { pos->getPos(), vel * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
+			gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 		}
 	}
 }
@@ -206,7 +210,7 @@ void BossBehaviour::bulletHellAttack() {
 	// Obtenemos la direcci�n hacia el jugador
 	Vector2D dir = (playerPos->getPos() - pos->getPos()).normalize();
 
-	anim->playDiff("BulletHell");
+	//anim->playDiff("BulletHell");
 	// Calculamos la posici�n inicial para las balas
 	Vector2D startPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + dir * 50.0f;
 
@@ -215,20 +219,21 @@ void BossBehaviour::bulletHellAttack() {
 		// Calculamos la direcci�n de la bala
 		float angle = (float)i * (360.0f / (float)numBullets);
 		Vector2D bulletDir = dir.rotate(angle);
+		float rot = Vector2D(-1,0).angle(bulletDir.normalize());
 
 		// Calculamos la posici�n de la bala
 		Vector2D bulletPos = startPos + bulletDir * bulletSeparation * i;
 
 		// Creamos el objeto de la bala
-		Hitbox::HitboxData data = { bulletPos, bulletDir * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER };
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+		Hitbox::HitboxData data = { bulletPos, bulletDir * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 	}
 }
 
 // Funci�n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
 
-	anim->playDiff("GrenadeAttack");
+	//anim->playDiff("GrenadeAttack");
 	// Implementar l�gica del ataque Granadas
 	Vector2D directions[] = { Vector2D(1,0), Vector2D(0,1), Vector2D(-1,0), Vector2D(0,-1) };
 
@@ -238,15 +243,18 @@ void BossBehaviour::grenadeAttack() {
 		Vector2D directs[] = {Vector2D(1,0), Vector2D(-1,0), Vector2D(0,1), Vector2D(0,-1), 
 			Vector2D(1,1).normalize(), Vector2D(1,-1).normalize(), Vector2D(-1,1).normalize(), Vector2D(-1,-1).normalize()};
 		// Creo las 8 balas
+		float rot = 0;
 		for (int i = 0; i < 8; i++) {
-			Hitbox::HitboxData data = { tr->getCenter(), directs[i] * BULLET_SPEED, 0, 30, 30, "Bullet", _grp_PLAYER};
-			myScene->addGameObject<Hitbox>(_grp_ENM_ATTACK, 20, true, 10, data);
+			rot = Vector2D(-1, 0).angle(directs[i]);
+			Hitbox::HitboxData data = { tr->getCenter(), directs[i] * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, 
+				BOSS_BULLET, _grp_PLAYER};
+			myScene->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 		}
 	};
 	// Creo las 4 granadas en direcciones arriba, abajo, izq y der
 	for (int i = 0; i < 4; i++) {
-		Hitbox::HitboxData data = {gObj->getComponent<Transform>()->getCenter(), directions[i] * BULLET_SPEED, 0, 50, 50, FLASH_BANG, _grp_PLAYER};
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 1, StatusComponent::NONE, 200, 200, FLASH_BANG, dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
+		Hitbox::HitboxData data = { gObj->getComponent<Transform>()->getCenter(), directions[i] * BULLET_SPEED, 0, 100, 100, "BossGrenade", _grp_PLAYER};
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 3, StatusComponent::NONE, 200, 200, "BossGrenade", dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
 	}
 }
 
