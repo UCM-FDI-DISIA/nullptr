@@ -30,7 +30,7 @@ private:
 		
 		// Mano
 		"¡Genial! Además de las 4 cartas de tu mano, contarás con una pila de descartes y un mazo, cada uno a un lado.",
-		"Cuando gastes una carta, esta pasará a los descartes y, de ser la última de la mano, cogerás 4 nuevas del mazo. Estos mazos ciclarán entre ellos, y el mazo se barajeará cada vez que se acabe con la pila. ¡Pruébalo!",
+		"Cuando gastes una carta, pasará a los descartes y, de ser la última de la mano, cogerás 4 nuevas del mazo. Estos mazos ciclarán entre ellos, y el mazo se barajeará cada vez que se acabe con la pila. ¡Pruébalo!",
 		
 		// Enemigos
 		"¡Aprendes rápido, eh! En este lugar deberás derrotar enemigos para poder avanzar. Estos enemigos te quitarán vida si te golpean, así que dalo todo para derrotarlos.",
