@@ -29,7 +29,7 @@ const int* EnemyGenerator::calcWave() {
 		startingSpawns = false;
 		break;
 	default:
-		cout << "levelType erroneo";
+		throw "levelType erroneo";
 		break;
 	}
 

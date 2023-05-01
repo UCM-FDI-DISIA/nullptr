@@ -117,9 +117,6 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		where->onManaChanges(mana);
 		abiliting = true;
 	}
-#ifdef _DEBUG
-	else std::cout << "Necesitas manases adicionales" << endl;
-#endif
 }
 
 void CardComponent::ability() {
@@ -224,9 +221,6 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
-#ifdef _DEBUG
-		cout << "Se acabo tu mano\n";
-#endif
 		newHand();
 		where->recreateUI();
 	}

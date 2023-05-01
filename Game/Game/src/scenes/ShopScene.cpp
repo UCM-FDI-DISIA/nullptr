@@ -109,9 +109,6 @@ void ShopScene::selectCard() {
 void ShopScene::buyCard() {
 	// Si se puede comprar
 	if (canBuy()) {
-		#ifdef _DEBUG
-		cout << "COMPRA" << endl;
-		#endif
 		// Le quita al dinero actual el precio de la carta
 		myMoney -= selectedCard->price;
 		PlayerData::instance()->setMoney(myMoney);
@@ -129,14 +126,6 @@ void ShopScene::buyCard() {
 		// Deselecciona
 		deselectCard();
 		myItems[lastButtonIndex].card = nullptr;
-	}
-	else {
-		#ifdef _DEBUG
-		cout << "NO SE PUEDE COMPRAR" << endl;
-		#endif
-
-		// Hacer aqui la animacion de que no se puede comprar
-
 	}
 }
 
