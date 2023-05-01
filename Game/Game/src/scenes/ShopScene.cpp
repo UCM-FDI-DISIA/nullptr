@@ -15,7 +15,8 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 	showMoney();
 
 	// Boton de salida (esquina superior izquierda)
-	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, IS_EXIT_BUTTON_POS, AnimatorInfo(EXIT));
+	Vector2D pos = Vector2D(1110 - IS_BUTTON_WIDTH / 2, 660);
+	exitButton = addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, pos, AnimatorInfo(EXIT));
 	// Seleccion de cartas a mostrar en la tienda
 	for (int i = 0; i < SHOP_NUMBER_OF_CARDS; i++) {
 		rand = SDLApplication::instance()->getRandInt(0, maxCardId);
@@ -58,8 +59,14 @@ void ShopScene::deselectCard() {
 	if (selectedCard != nullptr) {
 		// La coloca a su posicion normal
 		selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_UNSELECTED_POSY);
-		// Quita el precio
+		// Mueve los números
+		Transform* tr = selectedCard->ammo.first->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		tr = selectedCard->ammo.second->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		tr = selectedCard->mana.first->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		tr = selectedCard->mana.second->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		// Quita el precio y su marco
 		selectedCard->priceObj->setAlive(false);
+		selectedCard->priceFrame->setAlive(false);
 		// Quita el boton de comprar
 		hideBuyButton();
 		// Se deselecciona
@@ -71,16 +78,30 @@ void ShopScene::deselectCard() {
 void ShopScene::selectCard() {
 	// Selecciona la carta del lastButtonIndex
 	selectedCard = &myItems[lastButtonIndex];
-	// La coloca en su posicion de seleccionada
+	
+	// La coloca en su posicion de seleccionada y guarda el transform
 	selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_SELECTED_POSY);
+	Transform* selectedCardTransform = selectedCard->card->getComponent<Transform>();
+
+	// Mueve los números
+	Transform* tr = selectedCard->ammo.first->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+	tr = selectedCard->ammo.second->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+	tr = selectedCard->mana.first->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+	tr = selectedCard->mana.second->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+
+	// Añade el marco trasero del dinero
+	selectedCard->priceFrame = addGameObject();
+	selectedCard->priceFrame->addComponent<Transform>(Vector2D(selectedCardTransform->getPos().getX(), selectedCardTransform->getPos().getY() + selectedCardTransform->getHeight() + 1), VECTOR_ZERO, selectedCardTransform->getWidth(), MM_BUTTON_HEIGHT);
+	selectedCard->priceFrame->addComponent<Image>(SDLApplication::getTexture("MoneyFrame"));
+
 	// Muestra su precio (se crea el objeto del precio (texto) debajo de la carta)
 	selectedCard->priceObj = addGameObject();
-	Transform* selectedCardTransform = selectedCard->card->getComponent<Transform>();
-	selectedCard->priceObj->addComponent<Transform>(Vector2D(selectedCardTransform->getPos().getX() + selectedCardTransform->getWidth() / 2 - USED_FONT_SIZE, selectedCardTransform->getPos().getY() + selectedCardTransform->getHeight()), VECTOR_ZERO, SHOP_CARD_PRICE_WIDTH, SHOP_CARD_PRICE_HEIGHT);
+	selectedCard->priceObj->addComponent<Transform>(Vector2D(selectedCardTransform->getPos().getX() + selectedCardTransform->getWidth() / 2 - USED_FONT_SIZE, selectedCardTransform->getPos().getY() + selectedCardTransform->getHeight() + 12), VECTOR_ZERO, SHOP_CARD_PRICE_WIDTH, SHOP_CARD_PRICE_HEIGHT);
 	SDL_Color color;
 	if (selectedCard->price < myMoney) color = COLOR_WHITE;
 	else color = COLOR_RED;
-	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(selectedCard->price), color);
+	selectedCard->priceObj->addComponent<TextComponent>(SDLApplication::getFont(FONT_SS_REG22), to_string(selectedCard->price), color);
+	
 	// Muestra el boton de comprar
 	buyButton = addGameObject<Button>(_grp_UI, buy(), SHOP_BUYBUTTON_POSITION, AnimatorInfo(BUY), lastButtonIndex, nullptr, 1.5f, 0.4f);
 }
@@ -101,6 +122,10 @@ void ShopScene::buyCard() {
 		myItems[lastButtonIndex].card->setAlive(false);
 		myItems[lastButtonIndex].cardObj = _card_NULL;
 		myItems[lastButtonIndex].priceObj->setAlive(false);
+		myItems[lastButtonIndex].ammo.first->setAlive(false);
+		myItems[lastButtonIndex].ammo.second->setAlive(false);
+		myItems[lastButtonIndex].mana.first->setAlive(false);
+		myItems[lastButtonIndex].mana.second->setAlive(false);
 		// Deselecciona
 		deselectCard();
 		myItems[lastButtonIndex].card = nullptr;
@@ -120,13 +145,21 @@ void ShopScene::hideBuyButton() {
 }
 
 void ShopScene::showMoney() {
+	// Marco del dinero actual (marco -first y moneda - second)
+	moneyFrame.first = addGameObject();
+	moneyFrame.second = addGameObject();
+	moneyFrame.first->addComponent<Transform>(SHOP_MONEY_FRAME_POSITION, VECTOR_ZERO, SHOP_MONEY_FRAME_WIDTH, SHOP_MONEY_FRAME_HEIGHT, 0);
+	moneyFrame.first->addComponent<Image>(SDLApplication::getTexture("MoneyFrame"));
+	moneyFrame.second->addComponent<Transform>(SHOP_MONEY_COIN_POSITION, VECTOR_ZERO, COIN_WIDHT, COIN_HEIGHT, 0);
+	moneyFrame.second->addComponent<Image>(SDLApplication::getTexture("Coin"));
+
 	// Coge el dinero actual de PlayerDaya
 	myMoney = pD().getMoney();
 
 	// Lo muestra visualmente
 	moneyPrint = addGameObject();
 	moneyPrint->addComponent<Transform>(SHOP_MONEY_POSITION, VECTOR_ZERO, SHOP_MONEY_WIDTH, SHOP_MONEY_HEIGHT, 0);
-	moneyPrint->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), to_string(myMoney), COLOR_WHITE);
+	moneyPrint->addComponent<TextComponent>(SDLApplication::getFont(FONT_SS_REG30), to_string(myMoney), COLOR_WHITE);
 }
 
 void ShopScene::showExitButton() {
@@ -156,11 +189,29 @@ CallBack ShopScene::buy() {
 	};
 }
 
-// Crea un item (crea el objeto de carta, lo anade al grupo de cartas
+// Crea un item (crea el objeto de carta, lo anade al grupo de cartas)
 Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
 	itemToInsert.cardObj = cardType;
 	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i, nullptr, 0.5f, 0.5f);
 	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
+
+	// Guardar transform y obtener datos de la carta
+	Transform* tr = itemToInsert.card->getComponent<Transform>();
+	CardData card = cardsData().get(Card::getCardIDfromEnum(cardType));
+
+	// Añadir número
+	itemToInsert.ammo.first = addGameObject(_grp_UI);
+	itemToInsert.ammo.second = addGameObject(_grp_UI);
+	itemToInsert.mana.first = addGameObject(_grp_UI);
+	itemToInsert.mana.second = addGameObject(_grp_UI);
+
+	// Crear números
+	Vector2D decsPos = Vector2D(tr->getPos().getX() + 15, tr->getPos().getY() + 18);
+	createNumber(itemToInsert.ammo.first, decsPos, card.maxUses / 10, 'a');
+	createNumber(itemToInsert.ammo.second, decsPos + Vector2D(11, 0), card.maxUses % 10, 'a');
+	createNumber(itemToInsert.mana.first, decsPos + Vector2D(3, 40), card.mana / 10, 'm');
+	createNumber(itemToInsert.mana.second, decsPos + Vector2D(14, 40), card.mana % 10, 'm');
+
 	return itemToInsert;
 }
 
@@ -179,4 +230,22 @@ bool ShopScene::isShopEmpty() {
 		else ++i;
 	}
 	return empty;
+}
+
+// Crear un número según los datos recibidos
+void ShopScene::createNumber(GameObject* number, Vector2D pos, int value, char type) {
+	// Añadir componentes (transform y animator)
+	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH, UI_AMMO_NUMBERS_HEIGHT);
+	
+	// Seleccionar textura
+	Texture* txt;
+	if (type == 'a') txt = SDLApplication::getTexture(STATISTICS_NUMBERS);
+	else txt = SDLApplication::getTexture(CARDS_NUMBERS);
+
+	// Añadir animator y crear animaciones
+	auto anim = number->addComponent<Animator>(txt, CARDS_NUMBERS_WIDTH, CARDS_NUMBERS_HEIGHT, CARDS_NUMBERS_ROWS, CARDS_NUMBERS_COLUMNS);
+	for (int j = 0; j < N_NUMBERS - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+
+	// Reproducir animación correspondiente
+	anim->play(to_string(value));
 }
