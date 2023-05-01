@@ -310,6 +310,9 @@
     <ClCompile Include="src\scenes\BossBattleScene.cpp">
       <Filter>Archivos de Dependecias\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Enemy components\BossAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -642,6 +645,9 @@
     </ClInclude>
     <ClInclude Include="src\scenes\BossBattleScene.h">
       <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\BossAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

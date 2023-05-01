@@ -9,6 +9,13 @@
 
 // Esta clase define el comportamiento del enemigo a distancia
 // Se mueve por un tiempo determinado y se queda parado otro
+
+enum bossState_ID : int {
+	boss_IDLE,
+	boss_BHELL,
+	boss_GRENADE,
+};
+
 class BossBehaviour :public EnemyBehaviour
 {
 private:
@@ -31,8 +38,10 @@ private:
 	const float rangedSpawnRate = 5.0f;
 	const float tankSpawnRate = 10.0f;
 
-	EnemyAnimator* anim;
 	HealthComponent* hc;
+
+	bossState_ID currentBossState = boss_IDLE;
+	
 
 public:
 	static const int id = _ENEMY_BEHAVIOUR;
@@ -40,6 +49,17 @@ public:
 	BossBehaviour(float spd, float safDist, float stptime, float mvTime,
 		int dmg, int atck, Player* plyr);
 	virtual void initComponent();
+
+	inline bossState_ID getBossState() { 
+		if (attacking)
+		{
+			return currentBossState;
+		}
+		else return boss_IDLE;
+	}
+
+	void updateAttackDelay();
+
 	void setDirectionTo();
 	virtual void update();
 	void enemyAttack();

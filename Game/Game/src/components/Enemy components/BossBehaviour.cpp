@@ -11,7 +11,6 @@ BossBehaviour::BossBehaviour(float spd, float safDist, float stptime, float mvTi
 
 void BossBehaviour::initComponent() {
 	pos = gObj->getComponent<Transform>();
-	anim = gObj->getComponent<EnemyAnimator>();
 	hc = gObj->getComponent<HealthComponent>();
 	pos->setVel(Vector2D(0, 0)); 
 	pos->lookAt(playerPos->getPos());
@@ -42,6 +41,7 @@ void BossBehaviour::update() {
 	}
 	if (!confused) {
 		if (attacking) {
+			//iniciar la animacion y sumar el delay al ataque
 			if (attackDelay < attackTime) {
 				attackTime = 0;
 				attacking = false;
@@ -112,6 +112,7 @@ void BossBehaviour::update() {
 				{
 					attackState = rand() % 10;
 				}
+				updateAttackDelay();
 			}
 			else attackTime += SDLApplication::instance()->getDeltaTime();
 		}
@@ -202,6 +203,28 @@ void BossBehaviour::coneAttack() {
 	behaviorTime = 0;
 }
 
+void BossBehaviour::updateAttackDelay()
+{
+	switch (attackState)
+	{
+	case 1: // BulletHell
+	case 6: // BulletHell + Granadas
+	case 8: // BulletHell + Aspersor
+		currentBossState = boss_BHELL;
+		attackDelay = 1800;
+		break;
+	case 3: // Granadas
+	case 9: // Granadas + Tent�culo Dirigido
+		currentBossState = boss_GRENADE;
+		attackDelay = 1400;
+		break;
+	default:
+		currentBossState = boss_IDLE;
+		attackDelay = 0;
+		break;
+	}
+	
+}
 
 // Funci�n para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
