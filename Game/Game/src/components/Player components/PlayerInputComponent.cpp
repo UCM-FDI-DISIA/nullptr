@@ -12,28 +12,48 @@ void PlayerInputComponent::initComponent() {
 void PlayerInputComponent::handleInput() {
 	// Movimiento
 	if (canMove) plMovement_->setDirection(Vector2D(gmCtrl_.movementX(), gmCtrl_.movementY()));
-	// Ataque
-	if (canAttack && !crdComp_->getLocked()) {
-		if (gmCtrl_.basic()) {
-			crdComp_->attack();
+
+	// Cartas
+	if (!crdComp_->isLocked()) {
+		// Ataque
+		if (canAttack) {
+			if (gmCtrl_.basic()) {
+				crdComp_->attack();
+			}
+			if (canUseAbility && gmCtrl_.ability()) {
+				crdComp_->ability();
+				if (tutorial) {
+					dynamic_cast<TutorialScene*>(gStt)->notifyAbility();
+					tutorial = false;
+				}
+			}
 		}
-		if (canUseAbility && gmCtrl_.ability()) {
-			crdComp_->ability();
-			if (tutorial) {
-				dynamic_cast<TutorialScene*>(gStt)->notifyAbility();
-				tutorial = false;
+		// Selección carta
+		if (gmCtrl_.selectRightCard()) {
+			crdComp_->selectRight();
+		}
+		else if (gmCtrl_.selectLeftCard()) {
+			crdComp_->selectLeft();
+		}
+		// Téclas numéricas
+		if (gmCtrl_.controllerActive()) {
+
+			if (InputHandler::instance()->isKeyJustDown(SDLK_1)) {
+				crdComp_->switchActive(0);
+			}
+			else if (InputHandler::instance()->isKeyJustDown(SDLK_2)) {
+				crdComp_->switchActive(1);
+			}
+			else if (InputHandler::instance()->isKeyJustDown(SDLK_3)) {
+				crdComp_->switchActive(2);
+			}
+			else if (InputHandler::instance()->isKeyJustDown(SDLK_4)) {
+				crdComp_->switchActive(3);
 			}
 		}
 	}
 	// Cursor
 	gmCtrl_.controllerToCursor();
-	// Selección carta
-	if (gmCtrl_.selectRightCard()) {
-		crdComp_->selectRight();
-	}
-	else if (gmCtrl_.selectLeftCard()) {
-		crdComp_->selectLeft();
-	}
 	// Portal
 	if (canExit && gmCtrl_.completeLevel()) {
 		prtlComp_->countDownSetup();

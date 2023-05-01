@@ -61,6 +61,8 @@ public:
 
 	// Cambiar entre control por mando y control por teclado
 	void changeControl();
+	// Devuelve si el control actual es con mando o no
+	inline bool controllerActive() const { return controller_; }
 };
 
 inline GameControl& gmCtrl() { return *GameControl::instance(); }
