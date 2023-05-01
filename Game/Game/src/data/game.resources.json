@@ -202,8 +202,8 @@
 
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
 
-      {"id": "Companion","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
-      {"id": "Screen", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
+      {"id": "Tuto","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
+      {"id": "DarkPlain", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
       {"id": "TutoTalking", "file":  "../Game/resources/images/UI/TutorialScene/TutoTalking_378x284.png"},
 
       { "id" : "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_30x10.png" },
