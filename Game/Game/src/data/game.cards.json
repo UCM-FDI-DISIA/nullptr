@@ -166,5 +166,17 @@
     "downTime": 0.5,
     "textureKey": "Sword",
     "time": "Past"
+  },
+  {
+    "key": "LaserKatana",
+    "name": "Katana Laser",
+    "attackText": "Fium soy un ninja",
+    "abilityText": "Fium soy un samurai",
+    "damage": 20,
+    "maxUses": 4,
+    "mana": 50,
+    "downTime": 1.25,
+    "textureKey": "Sword",
+    "time": "Future"
   }
 ]

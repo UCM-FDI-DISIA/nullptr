@@ -113,6 +113,8 @@ const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WID
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float DASH_SPEED = 1400;
+const float DASH_DURATION = 0.15;
 const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
@@ -491,7 +493,7 @@ const int CARD_OFFSET_H = 21 * 1.5;
 const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
 const float ASSAULT_RIFLE_BURST = 10;
-
+const float LASER_KATANA_BURST = 35;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;

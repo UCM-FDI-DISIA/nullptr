@@ -253,6 +253,9 @@
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\LaserKatana.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
     <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
