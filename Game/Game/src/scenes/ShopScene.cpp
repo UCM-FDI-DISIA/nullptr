@@ -59,6 +59,11 @@ void ShopScene::deselectCard() {
 	if (selectedCard != nullptr) {
 		// La coloca a su posicion normal
 		selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_UNSELECTED_POSY);
+		// Mueve los números
+		Transform* tr = selectedCard->ammo.first->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		tr = selectedCard->ammo.second->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		tr = selectedCard->mana.first->getComponent<Transform>(); tr->setY(tr->getY() + 50);
+		tr = selectedCard->mana.second->getComponent<Transform>(); tr->setY(tr->getY() + 50);
 		// Quita el precio y su marco
 		selectedCard->priceObj->setAlive(false);
 		selectedCard->priceFrame->setAlive(false);
@@ -77,6 +82,12 @@ void ShopScene::selectCard() {
 	// La coloca en su posicion de seleccionada y guarda el transform
 	selectedCard->card->getComponent<Transform>()->setY(SHOP_CARD_SELECTED_POSY);
 	Transform* selectedCardTransform = selectedCard->card->getComponent<Transform>();
+
+	// Mueve los números
+	Transform* tr = selectedCard->ammo.first->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+	tr = selectedCard->ammo.second->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+	tr = selectedCard->mana.first->getComponent<Transform>(); tr->setY(tr->getY() - 50);
+	tr = selectedCard->mana.second->getComponent<Transform>(); tr->setY(tr->getY() - 50);
 
 	// Añade el marco trasero del dinero
 	selectedCard->priceFrame = addGameObject();
@@ -111,6 +122,10 @@ void ShopScene::buyCard() {
 		myItems[lastButtonIndex].card->setAlive(false);
 		myItems[lastButtonIndex].cardObj = _card_NULL;
 		myItems[lastButtonIndex].priceObj->setAlive(false);
+		myItems[lastButtonIndex].ammo.first->setAlive(false);
+		myItems[lastButtonIndex].ammo.second->setAlive(false);
+		myItems[lastButtonIndex].mana.first->setAlive(false);
+		myItems[lastButtonIndex].mana.second->setAlive(false);
 		// Deselecciona
 		deselectCard();
 		myItems[lastButtonIndex].card = nullptr;
@@ -174,21 +189,28 @@ CallBack ShopScene::buy() {
 	};
 }
 
-// Crea un item (crea el objeto de carta, lo anade al grupo de cartas
+// Crea un item (crea el objeto de carta, lo anade al grupo de cartas)
 Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
 	itemToInsert.cardObj = cardType;
 	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i, nullptr, 0.5f, 0.5f);
 	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
 
+	// Guardar transform y obtener datos de la carta
 	Transform* tr = itemToInsert.card->getComponent<Transform>();
-	itemToInsert.ammo.first = addGameObject();
-	itemToInsert.ammo.second = addGameObject();
+	CardData card = cardsData().get(Card::getCardIDfromEnum(cardType));
 
-	Vector2D decsPos = Vector2D(tr->getPos().getX() + 10, tr->getPos().getY() + 10);
-	itemToInsert.ammo.first->addComponent<Transform>(decsPos, Vector2D(), UI_AMMO_NUMBERS_WIDTH, UI_AMMO_NUMBERS_HEIGHT);
-	auto anim = itemToInsert.ammo.first->addComponent<Animator>(SDLApplication::getTexture(STATISTICS_NUMBERS), CARDS_NUMBERS_WIDTH, CARDS_NUMBERS_HEIGHT, CARDS_NUMBERS_ROWS, CARDS_NUMBERS_COLUMNS);
-	for (int j = 0; j < N_NUMBERS - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
-	//anim->play(to_string(itemToInsert.cardObj / 10));
+	// Añadir número
+	itemToInsert.ammo.first = addGameObject(_grp_UI);
+	itemToInsert.ammo.second = addGameObject(_grp_UI);
+	itemToInsert.mana.first = addGameObject(_grp_UI);
+	itemToInsert.mana.second = addGameObject(_grp_UI);
+
+	// Crear números
+	Vector2D decsPos = Vector2D(tr->getPos().getX() + 15, tr->getPos().getY() + 18);
+	createNumber(itemToInsert.ammo.first, decsPos, card.maxUses / 10, 'a');
+	createNumber(itemToInsert.ammo.second, decsPos + Vector2D(11, 0), card.maxUses % 10, 'a');
+	createNumber(itemToInsert.mana.first, decsPos + Vector2D(3, 40), card.mana / 10, 'm');
+	createNumber(itemToInsert.mana.second, decsPos + Vector2D(14, 40), card.mana % 10, 'm');
 
 	return itemToInsert;
 }
@@ -208,4 +230,22 @@ bool ShopScene::isShopEmpty() {
 		else ++i;
 	}
 	return empty;
+}
+
+// Crear un número según los datos recibidos
+void ShopScene::createNumber(GameObject* number, Vector2D pos, int value, char type) {
+	// Añadir componentes (transform y animator)
+	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH, UI_AMMO_NUMBERS_HEIGHT);
+	
+	// Seleccionar textura
+	Texture* txt;
+	if (type == 'a') txt = SDLApplication::getTexture(STATISTICS_NUMBERS);
+	else txt = SDLApplication::getTexture(CARDS_NUMBERS);
+
+	// Añadir animator y crear animaciones
+	auto anim = number->addComponent<Animator>(txt, CARDS_NUMBERS_WIDTH, CARDS_NUMBERS_HEIGHT, CARDS_NUMBERS_ROWS, CARDS_NUMBERS_COLUMNS);
+	for (int j = 0; j < N_NUMBERS - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+
+	// Reproducir animación correspondiente
+	anim->play(to_string(value));
 }

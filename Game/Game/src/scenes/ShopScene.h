@@ -58,4 +58,7 @@ public:
 	bool canBuy();
 	// Devuelve si la tienda esta vacia y pasa por referencia el indice debido
 	bool isShopEmpty();
+
+	// Crea los números de munición y maná de las cartas
+	void createNumber(GameObject* number, Vector2D pos, int value, char type);
 };
