@@ -6,6 +6,7 @@ class TargetedComponent : public Component
 private:
 	int originalX;
 	int originalY;
+	Vector2D lastPlayerTransform;
 	Transform* playerTransform;
 	Transform* myTransform;
 	float initTime;

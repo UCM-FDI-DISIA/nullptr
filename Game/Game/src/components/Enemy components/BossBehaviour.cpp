@@ -226,33 +226,33 @@ void BossBehaviour::updateAttackDelay()
 	
 }
 
-// Funci�n para ejecutar el ataque Bullet Hell
+// Función para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
-	// Definimos la cantidad de balas y la separaci�n entre ellas
-	const int numBullets = 10;
-	const float bulletSeparation = 20.0f;
-	// Obtenemos la direcci�n hacia el jugador
+	// Definimos la cantidad de balas y la separación entre ellas
+	const int numBullets = 25;
+	// Obtenemos la dirección hacia el jugador
 	Vector2D dir = (playerPos->getPos() - pos->getPos()).normalize();
 
 	//anim->playDiff("BulletHell");
-	// Calculamos la posici�n inicial para las balas
+	// Calculamos la posición inicial para las balas
 	Vector2D startPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + dir * 50.0f;
 
 	// Generamos las balas
 	for (int i = 0; i < numBullets; i++) {
-		// Calculamos la direcci�n de la bala
+		// Calculamos la dirección de la bala
 		float angle = (float)i * (360.0f / (float)numBullets);
 		Vector2D bulletDir = dir.rotate(angle);
-		float rot = Vector2D(-1,0).angle(bulletDir.normalize());
+		float rot = Vector2D(-1, 0).angle(bulletDir.normalize());
 
-		// Calculamos la posici�n de la bala
-		Vector2D bulletPos = startPos + bulletDir * bulletSeparation * i;
+		// Calculamos la posición de la bala
+		Vector2D bulletPos = startPos + bulletDir * 50.0f; // Cambiamos cómo se calcula la posición de la bala
 
 		// Creamos el objeto de la bala
 		Hitbox::HitboxData data = { bulletPos, bulletDir * BULLET_SPEED, rot, BOSS_BULLET_W, BOSS_BULLET_H, BOSS_BULLET, _grp_PLAYER };
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, BOSS_BULLET_DMG, true, 10, data);
 	}
 }
+
 
 // Funci�n para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {

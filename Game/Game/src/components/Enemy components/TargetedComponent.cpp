@@ -1,8 +1,9 @@
 #include "TargetedComponent.h"
 #include "../../gameObjects/GameObject.h"
 #include "../General Components/Transform.h"
-TargetedComponent::TargetedComponent(Transform* player)
-{
+
+// Constructor de TargetedComponent
+TargetedComponent::TargetedComponent(Transform* player) {
 	playerTransform = player;
 	initTime = 1;
 	delayTime = BOSS_TARGETED_DELAY;
@@ -11,45 +12,46 @@ TargetedComponent::TargetedComponent(Transform* player)
 	initCompleted = delayCompleted = false;
 	actualRot = 0;
 }
-void TargetedComponent::initComponent()
-{
-	myTransform = gObj->getComponent<Transform>();
-	originalX = myTransform->getX();
-	originalY = myTransform->getY();
+
+// Inicializar el componente
+void TargetedComponent::initComponent() {
+	myTransform = gObj->getComponent<Transform>(); // Obtener referencia al componente Transform
+	originalX = myTransform->getX(); // Guardar la posición X original
+	originalY = myTransform->getY(); // Guardar la posición Y original
 }
-void TargetedComponent::update()
-{
-	if (elapsedTime < initTime && !initCompleted && !delayCompleted)
-	{
-		myTransform->setWidth(maxWidth * 3 / 10 * elapsedTime);
-		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds();
-		if (elapsedTime >= initTime) {
-			initCompleted = true;
-			elapsedTime = 0;
-		}
-	}
-	if (elapsedTime < delayTime && initCompleted && !delayCompleted) {
-		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); 
-		// Probar con un booleano de si la rotacion a cambiado
-		myTransform->rotate(myTransform->getAngle(playerTransform->getPos(), myTransform->getPos())-actualRot);
-		actualRot = myTransform->getRotation();
-	}
-	else if (elapsedTime >= delayTime && initCompleted && !delayCompleted)
-	{
-		delayCompleted = true;
-		initCompleted = false;
-		elapsedTime = 0;
-	}
-	else if (elapsedTime < initTime && delayCompleted && !initCompleted)
-	{
-		myTransform->setWidth(maxWidth * 3 / 10 + (maxWidth * 7) / 10 * elapsedTime);
-		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds();
-		if (elapsedTime >= initTime) {
-			initCompleted = true;
-			elapsedTime = 0;
-		}
-	}
-	if(delayCompleted && initCompleted) gObj->setAlive(false);
 
-
+// Actualizar el componente
+void TargetedComponent::update() {
+    // Primer estado: Inicializar y extender el objeto
+    if (elapsedTime < initTime && !initCompleted && !delayCompleted) {
+        myTransform->setWidth(maxWidth * 3 / 10 * elapsedTime); // Aumentar el ancho del objeto
+        elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido
+        if (elapsedTime >= initTime) {
+            initCompleted = true; // Marcar la inicialización como completada
+            elapsedTime = 0;
+        }
+    }
+    // Segundo estado: Seguir al jugador durante el tiempo de espera y almacenar su posición al final del tiempo de espera
+    if (elapsedTime < delayTime && initCompleted && !delayCompleted) {
+        elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido
+        myTransform->rotate(myTransform->getAngle(playerTransform->getPos(), myTransform->getPos()) - actualRot); // Rotar el objeto hacia el jugador
+        actualRot = myTransform->getRotation(); // Actualizar la rotación actual
+        if (elapsedTime >= delayTime) {
+            lastPlayerTransform = playerTransform->getPos(); // Almacenar la posición del jugador al final del tiempo de espera
+            delayCompleted = true;
+            initCompleted = false;
+            elapsedTime = 0;
+        }
+    }
+    // Tercer estado: Extender completamente el objeto y mantenerlo apuntando hacia la última posición del jugador
+    else if (elapsedTime < initTime && delayCompleted && !initCompleted) {
+        myTransform->setWidth(maxWidth * 3 / 10 + (maxWidth * 7) / 10 * elapsedTime); // Aumentar el ancho del objeto
+        elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido
+        if (elapsedTime >= initTime) {
+            initCompleted = true; // Marcar la extensión completa como completada
+            elapsedTime = 0;
+        }
+    }
+    // Marcar el objeto como inactivo si se han completado todos los estados
+    if (delayCompleted && initCompleted) gObj->setAlive(false);
 }

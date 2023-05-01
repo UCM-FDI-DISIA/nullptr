@@ -1,8 +1,10 @@
 #include "TentacleBehaviour.h"
 #include "../../gameObjects/GameObject.h"
 #include "../General Components/Transform.h"
-TentacleBehaviour::TentacleBehaviour(bool mirror)
-{
+
+// Constructor de TentacleBehaviour
+TentacleBehaviour::TentacleBehaviour(bool mirror) {
+	// Inicializar variables miembro
 	initTime = 1;
 	rotationTime = BOSS_CLOCK_ATTACKDURATION;
 	delayTime = BOSS_CLOCK_DELAYTIME;
@@ -11,50 +13,51 @@ TentacleBehaviour::TentacleBehaviour(bool mirror)
 	rotationCompleted = initCompleted = delayCompleted = false;
 	isMirror = mirror;
 }
-void TentacleBehaviour::initComponent()
-{
-	myTransform = gObj->getComponent<Transform>();
-	originalX = myTransform->getX();
-	originalY = myTransform->getY();
+
+// Inicializar el componente
+void TentacleBehaviour::initComponent() {
+	myTransform = gObj->getComponent<Transform>(); // Obtener referencia al componente Transform
+	originalX = myTransform->getX(); // Guardar la posición X original
+	originalY = myTransform->getY(); // Guardar la posición Y original
 }
-void TentacleBehaviour::update()
-{
-	if (elapsedTime < initTime && !initCompleted && !delayCompleted)
-	{
-		myTransform->setWidth( maxWidth / 10 * elapsedTime);
-		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds();
+
+// Actualizar el componente
+void TentacleBehaviour::update() {
+	// Primer estado: Inicializar y extender el tentáculo
+	if (elapsedTime < initTime && !initCompleted && !delayCompleted) {
+		myTransform->setWidth(maxWidth / 10 * elapsedTime); // Aumentar el ancho del tentáculo
+		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido
 		if (elapsedTime >= initTime) {
-			initCompleted = true;
+			initCompleted = true; // Marcar la inicialización como completada
 			elapsedTime = 0;
 		}
 	}
-	else if (elapsedTime >= delayTime && initCompleted && !delayCompleted)
-	{
-		delayCompleted = true;
+	// Segundo estado: Esperar un tiempo determinado
+	else if (elapsedTime >= delayTime && initCompleted && !delayCompleted) {
+		delayCompleted = true; // Marcar la espera como completada
 		initCompleted = false;
 		elapsedTime = 0;
 	}
-	else if (elapsedTime < initTime && delayCompleted && !initCompleted)
-	{
-		myTransform->setWidth( maxWidth / 10 + (maxWidth*9)/10 * elapsedTime);
-		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds();
+	// Tercer estado: Extender completamente el tentáculo
+	else if (elapsedTime < initTime && delayCompleted && !initCompleted) {
+		myTransform->setWidth(maxWidth / 10 + (maxWidth * 9) / 10 * elapsedTime); // Aumentar el ancho del tentáculo
+		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido
 		if (elapsedTime >= initTime) {
-			initCompleted = true;
+			initCompleted = true; // Marcar la extensión completa como completada
 			elapsedTime = 0;
 		}
 	}
-	else if (elapsedTime < rotationTime && !rotationCompleted && delayCompleted && initCompleted)
-	{
-		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds();
-		float angle = 180 * (SDLApplication::instance()->getDeltaTimeSeconds() / rotationTime);
-		myTransform->rotate(angle);
+	// Cuarto estado: Rotar el tentáculo
+	else if (elapsedTime < rotationTime && !rotationCompleted && delayCompleted && initCompleted) {
+		elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido
+		float angle = 180 * (SDLApplication::instance()->getDeltaTimeSeconds() / rotationTime); // Calcular el ángulo de rotación
+		myTransform->rotate(angle); // Rotar el tentáculo
 		if (elapsedTime >= rotationTime) {
-			rotationCompleted = true;
+			rotationCompleted = true; // Marcar la rotación como completada
 			elapsedTime = 0;
-			gObj->setAlive(false);
+			gObj->setAlive(false); // Marcar el objeto como inactivo
 		}
 	}
+	// Incrementar el tiempo transcurrido durante la espera
 	if (elapsedTime < delayTime && initCompleted && !delayCompleted) elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds();
-
-
 }
