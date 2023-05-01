@@ -1,8 +1,10 @@
 #pragma once
 #include "../Component.h"
 
+class OptionsMenuScene;
 class OptionsUpdateComponent : public Component {
 private:
+	OptionsMenuScene* optionsMenuScene;
 	OptionId option;
 	bool peripheral;
 public:

@@ -723,6 +723,9 @@ const SDL_Rect FULL_WINDOW_RECT = { WIN_WIDTH / 3 - 200 , FX_RECT.y + FX_RECT.h 
 const SDL_Rect PERIPHERAL_RECT = { WIN_WIDTH / 3 - 200 , FULL_WINDOW_RECT.y + FULL_WINDOW_RECT.h + 10, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
 const SDL_Rect GAMEPAD_CONNECTION_RECT = { WIN_WIDTH / 2 - 200 , PERIPHERAL_RECT.y + PERIPHERAL_RECT.h + 20, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
 const string GAMEPAD_CONNECTION_TEXT = "No se detectó ningún mando";
+const Animation ONOUT_OPTIONS_ARROW = Animation(0, 0, 7, -1);
+const Animation ONOVER_OPTIONS_ARROW = Animation(1, 1, 7, -1);
+const Animation ONCLICK_OPTIONS_ARROW = Animation(2, 2, 7, -1);
 
 //POSTGAME SCENE ------------------------------------------------------------------------------------------
 const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);

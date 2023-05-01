@@ -4,29 +4,27 @@
 #include "../General Components/TextComponent.h"
 
 // Constructora
-OptionsUpdateComponent::OptionsUpdateComponent(OptionId option_) : option(option_), peripheral(false) {}
+OptionsUpdateComponent::OptionsUpdateComponent(OptionId option_) : option(option_), peripheral(false), optionsMenuScene(nullptr) {}
 
 // Destructora
 OptionsUpdateComponent::~OptionsUpdateComponent() {}
 
 // Inicializa el componente
-void OptionsUpdateComponent::initComponent() {}
+void OptionsUpdateComponent::initComponent() {
+	optionsMenuScene = dynamic_cast<OptionsMenuScene*>(gStt);
+}
 
 // Actualiza los valores de las opciones
 void OptionsUpdateComponent::update() {
 	switch (option) {
-	case _option_MUSIC: break;
-	case _option_SFX: break;
-	case _option_FULLWINDOW: break;
 	case _option_PERIPHERAL: 
 		// Si se conecta y el mensaje de conexion de gamepad esta activo, se actualiza
-		// POR QUE ES NULO
 		if (ih().isControllerConnected() && peripheral) {
 
 #ifdef _DEBUG
 			cout << "Actualiza la conexion del gamepad" << endl;
 #endif
-			dynamic_cast<OptionsMenuScene*>(gStt)->updateGamepadConnection();
+			optionsMenuScene->updateGamepadConnection();
 
 			peripheral = false;
 		}

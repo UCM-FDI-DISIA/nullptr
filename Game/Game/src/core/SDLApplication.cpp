@@ -70,9 +70,6 @@ void SDLApplication::run() {
 		}
 	}
 	gameStateMachine->clearStates();
-
-
-	OptionsMenuScene::resetOptions();
 }
 
 // Dibuja el juego en pantalla

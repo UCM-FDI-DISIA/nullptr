@@ -4,7 +4,6 @@
 #include <unordered_set>
 using AnimationMap = unordered_map<string, Animation>;
 
-class SDLApplication;
 class Animator : public Image {
 private:
 	// Variables de tamaño, filas y columnas de la spritesheet
@@ -20,7 +19,7 @@ private:
 
 	std::unordered_map<std::string, std::unordered_set<std::string>> linkedAnimations;
 public:
-	// Constructoras
+	// Constructora
 	Animator(Texture* _texture, int _w, int _h, int _r, int _c) :
 		Image(_texture), fw(_w), fh(_h), rows(_r), cols(_c), currentFrame(0), currTime(0), repetitions(0), currentAnimation(nullptr) { };
 
