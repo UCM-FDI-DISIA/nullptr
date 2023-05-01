@@ -1,30 +1,30 @@
 #pragma once
 #include "GameState.h"
 #include <unordered_map>
+#include "../data/OptionsData.h"
 
 class SDLApplication;
-class OptionsMenuScene : public GameState, public Singleton<OptionsMenuScene> {
-	friend Singleton<OptionsMenuScene>; 
+class OptionsMenuScene : public GameState {
 private:
 	// 1er GameObject* corresponde al objeto de texto del nombre del control
 	// 2o GameObject* corresponde al objeto de texto de la opcion actual del control
 	// 3o int corresponde al numero de la opcion actual
 	pair<GameObject*, pair<GameObject*, int>> music;
-	pair<GameObject*, pair<GameObject*, int>> fx;
+	pair<GameObject*, pair<GameObject*, int>> sfx;
 	pair<GameObject*, pair<GameObject*, int>> fullWindow;
 	pair<GameObject*, pair<GameObject*, int>> peripheral;
 	// Botones de cambio de opciones de los controles
 	Button* musicLeftButton;
 	Button* musicRightButton;
-	Button* fxLeftButton;
-	Button* fxRightButton;
+	Button* sfxLeftButton;
+	Button* sfxRightButton;
 	Button* fullWindowLeftButton;
 	Button* fullWindowRightButton;
 	Button* peripheralLeftButton;
 	Button* peripheralRightButton;
 	// Listas con las opciones y sus respectivos callbacks
 	vector<pair<string, CallBack>> musicOptions;
-	vector<pair<string, CallBack>> fxOptions;
+	vector<pair<string, CallBack>> sfxOptions;
 	vector<pair<string, CallBack>> fullWindowOptions;
 	vector<pair<string, CallBack>> peripheralOptions;
 	// Mapa que como clave tiene el 1er GameObject* de los anteriores y como valor tiene
@@ -61,9 +61,9 @@ public:
 	// Devuelve el periferico
 	inline pair<GameObject*, pair<GameObject*, int>> getPeripheral() { return peripheral; }
 	// Carga las opciones guardadas desde json
-	void loadOptionsFromJSON();
+	void loadOptions();
 	// Guarda las opciones en el json
-	void saveOptionsToJSON();
+	void saveOptions();
 	// Reestablece los valores de las opciones
 	static void resetOptions();
 };

@@ -85,7 +85,7 @@ constexpr cardId_type maxCardId = _LAST_CARD_ID;
 using optionId_type = int;
 enum OptionId : optionId_type {
 	_option_MUSIC,
-	_option_FX,
+	_option_SFX,
 	_option_FULLWINDOW, 
 	_option_PERIPHERAL,
 	// do not remove this

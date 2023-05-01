@@ -606,6 +606,9 @@
     <ClInclude Include="src\core\GameStateMachine.h">
       <Filter>Archivos de Encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="src\data\OptionsData.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
@@ -750,9 +753,6 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
     <None Include="src\data\game.album.json">
-      <Filter>Archivos de Encabezado\Data</Filter>
-    </None>
-    <None Include="src\data\game.options.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>

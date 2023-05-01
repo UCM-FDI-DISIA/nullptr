@@ -1,12 +1,12 @@
 #include "OptionsMenuScene.h"
 #include "../core/SDLApplication.h"
-#include <cstdarg>
 #include "../components/General Components/OptionsUpdateComponent.h"
 
 // Constructora
-OptionsMenuScene::OptionsMenuScene() : music({ nullptr, { nullptr, 0} }), fx({ nullptr, { nullptr, 0} }), fullWindow({ nullptr, { nullptr, 0} }), peripheral({ nullptr, { nullptr, 0} }),
-musicLeftButton(nullptr), musicRightButton(nullptr), fxLeftButton(nullptr), fxRightButton(nullptr), fullWindowLeftButton(nullptr), fullWindowRightButton(nullptr), peripheralLeftButton(nullptr), peripheralRightButton(nullptr),
+OptionsMenuScene::OptionsMenuScene() : music({ nullptr, { nullptr, 0} }), sfx({ nullptr, { nullptr, 0} }), fullWindow({ nullptr, { nullptr, 0} }), peripheral({ nullptr, { nullptr, 0} }),
+musicLeftButton(nullptr), musicRightButton(nullptr), sfxLeftButton(nullptr), sfxRightButton(nullptr), fullWindowLeftButton(nullptr), fullWindowRightButton(nullptr), peripheralLeftButton(nullptr), peripheralRightButton(nullptr),
 gamepadConnection(nullptr) {
+
 	// Fondo
 	addBackground();
 
@@ -20,11 +20,11 @@ gamepadConnection(nullptr) {
 	musicOptions.push_back({ "0", []() { Mix_VolumeMusic(0); } });
 	musicOptions.push_back({ "25", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 4); } });
 
-	fxOptions.push_back({ "50", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 2); } });
-	fxOptions.push_back({ "75", []() { Mix_MasterVolume(MIX_MAX_VOLUME * 2 / 3); } });
-	fxOptions.push_back({ "100", []() { Mix_MasterVolume(MIX_MAX_VOLUME); } });
-	fxOptions.push_back({ "0", []() { Mix_MasterVolume(0); } });
-	fxOptions.push_back({ "25", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 4); } });
+	sfxOptions.push_back({ "50", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 2); } });
+	sfxOptions.push_back({ "75", []() { Mix_MasterVolume(MIX_MAX_VOLUME * 2 / 3); } });
+	sfxOptions.push_back({ "100", []() { Mix_MasterVolume(MIX_MAX_VOLUME); } });
+	sfxOptions.push_back({ "0", []() { Mix_MasterVolume(0); } });
+	sfxOptions.push_back({ "25", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 4); } });
 	
 
 	fullWindowOptions.push_back({ "NO", []() {
@@ -58,16 +58,16 @@ gamepadConnection(nullptr) {
 		} 
 	} });
 
-	loadOptionsFromJSON();
+	loadOptions();
 
 	createControl("MUSICA", music, OptionId::_option_MUSIC, MUSIC_RECT, musicLeftButton, musicRightButton, musicOptions);
-	createControl("EFECTOS DE SONIDO", fx, OptionId::_option_FX, FX_RECT, fxLeftButton, fxRightButton, fxOptions);
+	createControl("EFECTOS DE SONIDO", sfx, OptionId::_option_SFX, FX_RECT, sfxLeftButton, sfxRightButton, sfxOptions);
 	createControl("PANTALLA COMPLETA", fullWindow, OptionId::_option_FULLWINDOW, FULL_WINDOW_RECT, fullWindowLeftButton, fullWindowRightButton, fullWindowOptions);
 	createControl("CONTROL", peripheral, OptionId::_option_PERIPHERAL, PERIPHERAL_RECT, peripheralLeftButton, peripheralRightButton, peripheralOptions);
 }
 
 // Destructora
-OptionsMenuScene::~OptionsMenuScene() { saveOptionsToJSON(); }
+OptionsMenuScene::~OptionsMenuScene() { saveOptions(); }
 
 // Anade el fondo
 void OptionsMenuScene::addBackground() {
@@ -146,7 +146,7 @@ void OptionsMenuScene::showOption(pair<GameObject*, pair<GameObject*, int>>& con
 	
 	switch (control.first->getComponent<OptionsUpdateComponent>()->getOptionId()) {
 	case _option_MUSIC: music.second.second = control.second.second; break;
-	case _option_FX: fx.second.second = control.second.second; break;
+	case _option_SFX: sfx.second.second = control.second.second; break;
 	case _option_FULLWINDOW: fullWindow.second.second = control.second.second; break;
 	case _option_PERIPHERAL: peripheral.second.second = control.second.second; break;
 	}
@@ -165,7 +165,7 @@ void OptionsMenuScene::showGamepadConnection() {
 	// Mensaje de conexion del gamepad para dar feedback
 	gamepadConnection = addGameObject();
 	gamepadConnection->addComponent<Transform>(Vector2D(GAMEPAD_CONNECTION_RECT.x, GAMEPAD_CONNECTION_RECT.y), Vector2D(), GAMEPAD_CONNECTION_RECT.w, GAMEPAD_CONNECTION_RECT.h);
-	gamepadConnection->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), GAMEPAD_CONNECTION_TEXT, build_sdlcolor("0xff000000"));
+	gamepadConnection->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), GAMEPAD_CONNECTION_TEXT, build_sdlcolor("0xff000000"));
 }
 
 // Quita el feedback de conectar un mando
@@ -183,85 +183,23 @@ void OptionsMenuScene::updateGamepadConnection() {
 }
 
 // Carga las opciones guardadas desde json
-void OptionsMenuScene::loadOptionsFromJSON() {
-	// TODO check the correctness of values and issue a corresponding
-	// exception. Now we just do some simple checks, and assume input
-	// is correct.
-
-	// Load JSON configuration file. We use a unique pointer since we
-	// can exit the method in different ways, this way we guarantee that
-	// it is always deleted
-	std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(OPTIONS_JSON_ROOT));
-
-	// check it was loaded correctly
-	// the root must be a JSON object
-	if (jValueRoot == nullptr || !jValueRoot->IsObject()) {
-		throw "Something went wrong while load/parsing '" + OPTIONS_JSON_ROOT + "'";
-	}
-
-	// we know the root is JSONObject
-	JSONObject root = jValueRoot->AsObject();
-	JSONValue* jValue = nullptr;
-
-	// load options
-	jValue = root["music"];
-	if (jValue != nullptr) {
-		music.second.second = jValue->AsNumber();
-	}
-	jValue = root["fx"];
-	if (jValue != nullptr) {
-		fx.second.second = jValue->AsNumber();
-	}
-	jValue = root["fullWindow"];
-	if (jValue != nullptr) {
-		fullWindow.second.second = jValue->AsNumber();
-	}
-	jValue = root["peripheral"];
-	if (jValue != nullptr) {
-		peripheral.second.second = jValue->AsNumber();
-	}
+void OptionsMenuScene::loadOptions() {
+	music.second.second = oD().getMusic();
+	sfx.second.second = oD().getSFX();
+	fullWindow.second.second = oD().getFullWindow();
+	peripheral.second.second = oD().getPeripheral();
 }
 
 // Guarda las opciones en el json
-void OptionsMenuScene::saveOptionsToJSON() {
-	std::ofstream save(OPTIONS_JSON_ROOT);
-	// comprobar que se ha abierto el archivo
-	if (!save.is_open()) {
-		save.close();
-		throw "Could not create save Options file";
-	}
-	try {
-		save << "{\n";
-		save << "\"music\": " << music.second.second << ",\n";
-		save << "\"fx\": " << fx.second.second << ",\n";
-		save << "\"fullWindow\": " << fullWindow.second.second << ",\n";
-		save << "\"peripheral\": " << peripheral.second.second << "\n";
-		save << "}";
-	}
-	catch (...) {
-		save.close();
-		throw "Could not save Options correctly";
-	}
+void OptionsMenuScene::saveOptions() {
+	oD().setMusic(music.second.second);
+	oD().setSFX(sfx.second.second);
+	oD().setFullWindow(fullWindow.second.second);
+	if (ih().isControllerConnected()) oD().setPeripheral(peripheral.second.second);
+	else oD().setPeripheral(0);
 }
 
 // Reestablece los valores de las opciones
 void OptionsMenuScene::resetOptions() {
-	std::ofstream save(OPTIONS_JSON_ROOT);
-	// comprobar que se ha abierto el archivo
-	if (!save.is_open()) {
-		save.close();
-		throw "Could not create save Options file";
-	}
-	try {
-		save << "{\n";
-		save << "\"music\": 0,\n";
-		save << "\"fx\": 0,\n";
-		save << "\"fullWindow\": 0,\n";
-		save << "\"peripheral\": 0\n";
-		save << "}";
-	}
-	catch (...) {
-		save.close();
-		throw "Could not save Options correctly";
-	}
+	oD().resetOptions();
 }

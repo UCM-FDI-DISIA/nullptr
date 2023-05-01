@@ -16,7 +16,7 @@ void OptionsUpdateComponent::initComponent() {}
 void OptionsUpdateComponent::update() {
 	switch (option) {
 	case _option_MUSIC: break;
-	case _option_FX: break;
+	case _option_SFX: break;
 	case _option_FULLWINDOW: break;
 	case _option_PERIPHERAL: 
 		// Si se conecta y el mensaje de conexion de gamepad esta activo, se actualiza
