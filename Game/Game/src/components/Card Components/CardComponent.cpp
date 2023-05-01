@@ -21,9 +21,8 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 		}
 	}
 	else {
-		vector<Card*> iniDeck;
-		iniDeck.push_back(new SwordCard());
-		deck = iniDeck;
+		tutorialInitCard = new SwordCard();
+		deck.push_back(tutorialInitCard);
 	}
 	_myCounter = nullptr;
 	tutorial = tuto;
@@ -44,6 +43,8 @@ CardComponent::~CardComponent() {
 		delete c;
 		c = nullptr;
 	}
+	delete tutorialInitCard;
+	tutorialInitCard = nullptr;
 }
 
 //Obtiene las referencias a otros componentes y escenas necesarias

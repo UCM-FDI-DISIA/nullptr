@@ -14,6 +14,7 @@ class BattleScene;
 class CardCounter;
 class CardComponent : public Component {
 	private:
+		Card* tutorialInitCard;
 		BattleScene* where;
 		vector<Card*> deck;
 		deque<Card*> hand;
