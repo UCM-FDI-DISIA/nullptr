@@ -46,11 +46,11 @@ class Card {
 			case _card_PULGA: return "Tick";
 			case _card_SPEAR: return "Spear";
 			case _card_SMG: return "SMG";
-			case _card_ASSAULTRIFLE: return "AssaultRifle";
-			case _card_LIGHTRIFLE: return "LightBeam";
-			case _card_MEGAPHONE: return "Speaker";
-			case _card_RIOTSHIELD: return "RiotShield";
-			case _card_CHEATGUN: return "CheatGun";
+			case _card_ASSAULTRIFLE: return "SMG";
+			case _card_LIGHTRIFLE: return "SMG";
+			case _card_MEGAPHONE: return "SMG";
+			case _card_RIOTSHIELD: return "SMG";
+			case _card_CHEATGUN: return "SMG";
 			case _card_RITUALAXE: return "SMG";
 			default: return REVERSE;
 			}

@@ -104,7 +104,7 @@
     "maxUses": 8,
     "mana": 20,
     "downTime": 0.8,
-    "textureKey": "AssaultRifle",
+    "textureKey": "Rifle",
     "time": "Present"
   },
   {
@@ -116,7 +116,7 @@
     "maxUses": 20,
     "mana": 55,
     "downTime": 0.2,
-    "textureKey": "Blaster",
+    "textureKey": "SMG",
     "time": "Future"
   },
   {
@@ -128,7 +128,7 @@
     "maxUses": 5,
     "mana": 60,
     "downTime": 0.5,
-    "textureKey": "Megaphone",
+    "textureKey": "SMG",
     "time": "Present"
   },
   {
@@ -140,7 +140,7 @@
     "maxUses": 5,
     "mana": 10,
     "downTime": 0.6,
-    "textureKey": "Shield",
+    "textureKey": "SMG",
     "time": "Present"
   },
   {
@@ -152,7 +152,7 @@
     "maxUses": 6,
     "mana": 25,
     "downTime": 0.5,
-    "textureKey": "CheatGun",
+    "textureKey": "Gun",
     "time": "Future"
   },
   {
