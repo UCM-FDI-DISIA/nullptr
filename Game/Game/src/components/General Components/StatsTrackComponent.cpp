@@ -16,7 +16,7 @@ void StatsTrackComponent::onPlayerDamage(int dmg)
 
 void StatsTrackComponent::onEnemyKilled(GameObject* enemy)
 {
-	if (dynamic_cast<MeleeEnemy*>(enemy))
+	if (dynamic_cast<MeleeEnemy*>(enemy) || dynamic_cast<AssasinEnemy*>(enemy))
 		melee++;
 	else if (dynamic_cast<TankEnemy*>(enemy))
 		tank++;

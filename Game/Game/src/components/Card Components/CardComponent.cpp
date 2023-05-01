@@ -5,16 +5,45 @@
 #include "../../sdlutils/InputHandler.h"
 #include "../../scenes/BattleScene.h"
 #include "../../gameObjects/UI/CardCounter.h"
+#include "../../gameObjects/Card Objects/Cards.h"
+#include "../../scenes/TutorialScene.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
-CardComponent::CardComponent() : gmCtrl_(gmCtrl()) {
+CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	deck = PlayerData::instance()->getDeck();
+	if (!tuto) 
+	{
+		for (CardId card : PlayerData::instance()->getDeck()) {
+			deck.push_back(Card::getCard(card));
+		}
+	}
+	else {
+		vector<Card*> iniDeck;
+		iniDeck.push_back(new SwordCard());
+		deck = iniDeck;
+	}
 	_myCounter = nullptr;
+	tutorial = tuto;
+	system = false;
 	initDeck();
+}
+
+CardComponent::~CardComponent() {
+	for (Card*& c : deck) {
+		delete c;
+		c = nullptr;
+	}
+	for (Card*& c : hand) {
+		delete c;
+		c = nullptr;
+	}
+	for (Card*& c : pile) {
+		delete c;
+		c = nullptr;
+	}
 }
 
 //Obtiene las referencias a otros componentes y escenas necesarias
@@ -50,20 +79,6 @@ void CardComponent::handleInput() {
 	abiliting = false;
 
 	if (!locked) {
-
-		//// Click izquierdo
-		//if (gmCtrl_.basic())
-		//	attack();
-
-		//// Click derecho
-		//if (gmCtrl_.ability())
-		//	ability();
-
-		// Cambio carta
-		/*if (gmCtrl_.selectRightCard())
-			switchActive(false);
-		else if (gmCtrl_.selectLeftCard())
-			switchActive(true);*/
 
 		// Téclas numéricas
 		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
@@ -102,9 +117,6 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		where->onManaChanges(mana);
 		abiliting = true;
 	}
-#ifdef _DEBUG
-	else std::cout << "Necesitas manases adicionales" << endl;
-#endif
 }
 
 void CardComponent::ability() {
@@ -132,6 +144,13 @@ void CardComponent::selectRight() {
 	switchActive(false);
 }
 
+void CardComponent::setInitialDeck() {
+	hand.clear();
+	tutorial = false;
+	initDeck();
+	system = true;
+}
+
 //Mueve el puntero de la carta activa a la que ocupa la posicion number, comprobando siempre que este sea válido
 void CardComponent::switchActive(int number) {
 	if (number >= 0 && number < hand.size()) {
@@ -143,6 +162,11 @@ void CardComponent::switchActive(int number) {
 
 //Baraja el mazo y roba la mano inicial
 void CardComponent::initDeck() {
+	if (!tutorial) {
+		for (CardId card : PlayerData::instance()->getDeck()) {
+			deck.push_back(Card::getCard(card));
+		}
+	}
 	random_shuffle(deck.begin(), deck.end());
 	newHand();
 }
@@ -157,13 +181,22 @@ void CardComponent::newHand() {
 	//Si la mano esta vacia se barajan nuevas cartas
 	if (deck.size() == 0)
 		reshufflePile();
-	for (int i = 0; i < 4; i++) {
+	if (tutorial) {
 		drawCard();
-		//Si se vacia la mano al ir sacando cartas
-		if (deck.size() == 0) {
-			//Si tengo un contador asignado muestro la animacion de barajar
-			if (_myCounter != nullptr) _myCounter->showShuffle();
-			reshufflePile();
+	}
+	else {
+		if (system) {
+			dynamic_cast<TutorialScene*>(gStt)->notifyNewHand();
+			system = false;
+		}
+		for (int i = 0; i < 4; i++) {
+			drawCard();
+			//Si se vacia la mano al ir sacando cartas
+			if (deck.size() == 0) {
+				//Si tengo un contador asignado muestro la animacion de barajar
+				if (_myCounter != nullptr) _myCounter->showShuffle();
+				reshufflePile();
+			}
 		}
 	}
 	active = hand.begin();
@@ -177,6 +210,9 @@ void CardComponent::drawCard() {
 
 //Añade una carta de la mano a la pila y la borra de la mano, reseteando sus balas y comprobando si la mano queda vacía
 void CardComponent::discardCard(deque<Card*>::iterator discarded) {
+	if (tutorial) {
+		dynamic_cast<TutorialScene*>(gStt)->notifyDiscard();
+	}
 	pile.push_back(*discarded);
 	(*discarded)->resetCard();
 	where->discardUI(discarded);
@@ -185,7 +221,6 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
-		cout << "Se acabo tu mano\n";
 		newHand();
 		where->recreateUI();
 	}

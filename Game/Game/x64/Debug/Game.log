@@ -1,58 +1,125 @@
-﻿c:\software\programacion\MSVStudio2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  LaserKatana.cpp
-C:\hlocal\nullptr\Game\Game\src\sdlutils\Font.h(59,69): warning C4244: 'argumento': conversión de 'float' a 'Uint32'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\sdlutils\Font.h(65,79): warning C4244: 'argumento': conversión de 'float' a 'Uint32'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(100,33): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(350,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(351,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(352,49): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(372,37): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(373,37): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(378,29): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(379,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(392,58): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(393,54): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(397,37): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(398,32): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(416,101): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(436,44): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(437,46): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(441,36): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(443,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(446,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\constants.h(589,88): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\hlocal\nullptr\Game\Game\src\data\CardsDataContainer.h(25,26): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\sdlutils\SDLUtils.h(53,32): warning C4101: 'e': variable local sin referencia
-C:\hlocal\nullptr\Game\Game\src\sdlutils\SDLUtils.h(50,1): message : al compilar la función del miembro clase plantilla "CardData &SDLUtils::map_access_wrapper<CardData>::at(std::string)"
-C:\hlocal\nullptr\Game\Game\src\data\CardsDataContainer.h(14,41): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<CardData>" que se está compilando
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(81,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(86,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(111,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(130,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(131,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(132,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(133,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(141,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(142,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(143,19): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(144,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(151,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General Components\Transform.h(152,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General components\PointerComponent.h(26,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\General components\PointerComponent.h(26,19): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\Card Components\CardComponent.h(48,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\components\Card Components\CardComponent.h(49,21): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\data\PlayerData.h(79,36): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\sdlutils\InputHandler.h(174,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\sdlutils\InputHandler.h(175,30): warning C4244: 'argumento': conversión de 'const Sint32' a 'float'; posible pérdida de datos
-C:\hlocal\nullptr\Game\Game\src\scenes\GameState.h(35,43): warning C4244: 'argumento': conversión de '_Ty' a 'int'; posible pérdida de datos
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  TankBehaviour.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\malloc.h(124,1): message : see previous definition of '_malloca'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\Font.h(59,69): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\Font.h(65,79): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(135,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(136,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(151,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(152,60): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(169,48): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(170,50): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(319,27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(320,27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(356,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(357,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(358,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(378,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(379,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(384,29): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(385,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(398,58): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(399,54): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(403,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(404,32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(422,101): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(442,44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(443,46): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(447,36): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(449,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(452,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(571,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(572,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(598,88): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(111,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(130,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(131,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(132,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(133,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(141,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(142,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(143,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(144,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(151,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(152,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\CardsDataContainer.h(25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\SDLUtils.h(53,32): warning C4101: 'e': unreferenced local variable
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\SDLUtils.h(50,1): message : while compiling class template member function 'CardData &SDLUtils::map_access_wrapper<CardData>::at(std::string)'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\CardsDataContainer.h(14,41): message : see reference to class template instantiation 'SDLUtils::map_access_wrapper<CardData>' being compiled
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(210,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(214,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(237,30): warning C4244: 'argument': conversion from 'const Sint32' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(238,30): warning C4244: 'argument': conversion from 'const Sint32' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Card Components\CardComponent.h(57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Card Components\CardComponent.h(58): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General components\PointerComponent.h(26,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General components\PointerComponent.h(26,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\PlayerData.h(71,36): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\gameObjects\Card Objects\Hitbox.h(52,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Enemy components\TankBehaviour.cpp(41,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Enemy components\TankBehaviour.cpp(41,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Enemy components\TankBehaviour.cpp(99,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  TankEnemy.cpp
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\Font.h(59,69): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\Font.h(65,79): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(135,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(136,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(151,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(152,60): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(169,48): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(170,50): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(319,27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(320,27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(356,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(357,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(358,49): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(378,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(379,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(384,29): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(385,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(398,58): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(399,54): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(403,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(404,32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(422,101): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(442,44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(443,46): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(447,36): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(449,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(452,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(571,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(572,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\constants.h(598,88): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(111,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(130,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(131,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(132,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(133,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(141,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(142,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(143,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(144,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(151,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General Components\Transform.h(152,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\CardsDataContainer.h(25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\SDLUtils.h(53,32): warning C4101: 'e': unreferenced local variable
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\SDLUtils.h(50,1): message : while compiling class template member function 'CardData &SDLUtils::map_access_wrapper<CardData>::at(std::string)'
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\CardsDataContainer.h(14,41): message : see reference to class template instantiation 'SDLUtils::map_access_wrapper<CardData>' being compiled
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(210,15): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(214,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(237,30): warning C4244: 'argument': conversion from 'const Sint32' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\sdlutils\InputHandler.h(238,30): warning C4244: 'argument': conversion from 'const Sint32' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Card Components\CardComponent.h(57): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\Card Components\CardComponent.h(58): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General components\PointerComponent.h(26,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\components\General components\PointerComponent.h(26,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\data\PlayerData.h(71,36): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\gameObjects\GameObject.h(47,32): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\User\Desktop\Programacion\nullptr\Game\Game\src\gameObjects\Enemy Objects\TankEnemy.cpp(5,70): message : see reference to function template instantiation 'T *GameObject::addComponent<Transform,Vector2D&,Vector2D,const int&,const int&>(Vector2D &,Vector2D &&,const int &,const int &)' being compiled
           with
           [
-              _Ty=float
+              T=Transform
           ]
-C:\hlocal\nullptr\Game\Game\src\gameObjects\Card Objects\LaserKatana.cpp(11,133): message : Vea la referencia a la creación de una instancia de la función plantilla "T *GameState::addGameObject<Hitbox,float,bool,bool,const float&,Hitbox::HitboxData&,Vector2D>(grpId,float &&,bool &&,bool &&,const float &,Hitbox::HitboxData &,Vector2D &&)" que se está compilando
-          with
-          [
-              T=Hitbox
-          ]
-  Game.vcxproj -> C:\hlocal\nullptr\Game\libs\SDL2-2.26.2\include\Game.exe
+  Generating Code...
+  Game.vcxproj -> C:\Users\User\Desktop\Programacion\nullptr\Game\libs\SDL2-2.26.2\include\Game.exe

@@ -31,6 +31,8 @@ enum cmpId : cmpId_type {
 	_CHARGED_PORTAL,
 	_CALLBACK_DELAYER,
 	_PLAYERINPUT,
+	_LERP_COMPONENT,
+	_TUTORIAL_COMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this
@@ -49,6 +51,7 @@ enum grpId : grpId_type {
 	_grp_MANA,
 	_grp_UI,
 	_grp_POINTER, // El puntero debe ser lo ultimo en renderizar
+	_grp_TUTORIAL,
 	// do not remove this
 	_LAST_GRP_ID
 };

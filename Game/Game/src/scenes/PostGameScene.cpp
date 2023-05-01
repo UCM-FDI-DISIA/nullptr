@@ -1,6 +1,4 @@
 #include "PostGameScene.h"
-#include "../data/PlayerData.h"
-#include "../gameObjects/UI/Button.h"
 #include "../core/SDLApplication.h"
 #include <iomanip>
 #include <sstream>
@@ -37,7 +35,10 @@ PostGameScene::PostGameScene(int dmg, int mlee, int rngd, int tnk, int mny, floa
 
 	GameObject* title = addGameObject(_grp_UI);
 	title->addComponent<Transform>(Vector2D(90, 65), VECTOR_ZERO, 400, 100);
-	title->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), "ESTADISTICAS");
+	title->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), "ESTADISTICAS");
+
+	faseCompleted = &sdlutils().soundEffects().at(FASE_COMPLETED_SOUND);
+	
 }
 
 void PostGameScene::update()
@@ -55,53 +56,54 @@ void PostGameScene::showObject() {
 
 	GameObject* text;
 	int i = 0;
-
+	
 	switch (nextEvent)
 	{
 	case 1:
+		faseCompleted->play();
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(70, 155), VECTOR_ZERO, 400, 100);
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Enemigos derrotados: " + to_string(melee + ranged + tank));
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Enemigos derrotados: " + to_string(melee + ranged + tank));
 		break;
 	case 2:
 		if (melee > 0) {
 			i++;
 			text = addGameObject(_grp_UI);
 			text->addComponent<Transform>(Vector2D(90, 155 + 60 * i), VECTOR_ZERO, 400, 100);
-			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Soldados: " + to_string(melee));
+			text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Soldados: " + to_string(melee));
 		}
 		if (ranged > 0) {
 			i++;
 			text = addGameObject(_grp_UI);
 			text->addComponent<Transform>(Vector2D(90, 155 + 60 * i), VECTOR_ZERO, 400, 100);
-			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Arqueros: " + to_string(ranged));
+			text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Arqueros: " + to_string(ranged));
 		}
 		if (tank > 0) {
 			i++;
 			text = addGameObject(_grp_UI);
 			text->addComponent<Transform>(Vector2D(90, 155 + 60 * i), VECTOR_ZERO, 400, 100);
-			text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Robustos: " + to_string(tank));
+			text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Robustos: " + to_string(tank));
 		}
 		break;
 	case 3:
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(70, 245 + 180), VECTOR_ZERO, 400, 100);
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Vida perdida: " + to_string(damage));
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Vida perdida: " + to_string(damage));
 		break;
 	case 4:
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(70, 335 + 180), VECTOR_ZERO, 400, 100);
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Tiempo empleado: " + timeText + " s");
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Tiempo empleado: " + timeText + " s");
 		break;
 	case 5:
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(70, 425 + 180), VECTOR_ZERO, 400, 100);
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Dinero obtenido: " + to_string(money));
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Dinero obtenido: " + to_string(money));
 		break;
 	case 6:
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(70, 425 + 180), VECTOR_ZERO, 400, 100);
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL36"), "Dinero obtenido: " + to_string(money));
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR28"), "Dinero obtenido: " + to_string(money));
 		break;
 	case 7:
 		showPlayer();
@@ -111,12 +113,12 @@ void PostGameScene::showObject() {
 		text->addComponent<Transform>(Vector2D(
 			newCard.second == 2 ? 575 : 620, 30), VECTOR_ZERO, 400, 100);
 		
-		text->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL48"), 
+		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), 
 			(newCard.second == 2 ? "NUEVAS CARTAS OBTENIDAS" : "NUEVA CARTA OBTENIDA"), build_sdlcolor(0xffffffff));
 		showCard();
 		break;
 	case 9:
-		addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT));
+		addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT))->setAsCurrentButton();
 		break;
 	}
 }

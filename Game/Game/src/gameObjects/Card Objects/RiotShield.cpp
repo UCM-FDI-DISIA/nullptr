@@ -12,7 +12,7 @@ void RiotShieldCard::attack(Vector2D playerPos, Vector2D mousePos, float attackM
 
 	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "SwordSlash", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);;
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.06, data, Vector2D(-1, -1), nullptr, playerPos);;
 }
 
 

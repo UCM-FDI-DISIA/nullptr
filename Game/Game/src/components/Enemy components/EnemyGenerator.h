@@ -5,6 +5,8 @@
 #include "../../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../../gameObjects/Enemy Objects/RangedEnemy.h"
 #include "../../gameObjects/Enemy Objects/TankEnemy.h"
+#include "../../gameObjects/Enemy Objects/AssasinEnemy.h"
+
 /*
 Objeto que se encarga de hacer los spawns de enemigos
 alrededor del jugador cogiendo la informacion necesaria 
@@ -24,6 +26,7 @@ private:
 	//Para saber el tipo de nivel levelType
 	
 	int depth, nextSpawn, timePerWave, levelType;
+	bool canSpawn;
 
 	//Para agregar los enemigos a la escena de combate
 	BattleScene* where;
@@ -38,12 +41,12 @@ private:
 
 public:
 	static const int id = _ENEMY_GEN;
-	EnemyGenerator(Player* pl, BattleScene* enemigos) :player(pl), playerPos(nullptr), where(enemigos), depth(0), nextSpawn(0), timePerWave(0), levelType(0) {};
+	EnemyGenerator(Player* pl, BattleScene* enemigos) :player(pl), playerPos(nullptr), where(enemigos), depth(0), nextSpawn(0), timePerWave(0), levelType(0), canSpawn(true) {};
 
 	
 	virtual void initComponent();
 	virtual void update();
 
-
-
+	inline void setCanSpawn(bool value) { canSpawn = value; }
+	inline bool getCanSpawn() { return canSpawn; }
 };

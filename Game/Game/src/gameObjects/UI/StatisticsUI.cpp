@@ -7,12 +7,6 @@ void StatisticsUI::initGameObject(int life, int mana) {
 	statistics->addComponent<Image>(SDLApplication::getTexture(STATISTICS))->attachToCamera();
 	objs.push_back(statistics);
 
-	// Medidor de éter
-	etherMeterFrame = new GameObject();
-	etherMeterFrame->addComponent<Transform>(UI_ETHER_FRAME_POSITION, Vector2D(), UI_ETHER_FRAME_WIDTH, UI_ETHER_FRAME_HEIGHT);
-	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(ETHER_METER_FRAME))->attachToCamera();
-	objs.push_back(etherMeterFrame);
-
 	// Crear barras de vida
 	createLifeBar(life);
 	createManaBar(mana);
@@ -120,6 +114,12 @@ void StatisticsUI::createManaBar(int value) {
 
 // Crea el medidor de eter
 void StatisticsUI::createEtherMeter() {
+	// Añadir el frame
+	etherMeterFrame = new GameObject();
+	etherMeterFrame->addComponent<Transform>(UI_ETHER_FRAME_POSITION, Vector2D(), UI_ETHER_FRAME_WIDTH, UI_ETHER_FRAME_HEIGHT);
+	etherMeterFrame->addComponent<Image>(SDLApplication::getTexture(ETHER_METER_FRAME))->attachToCamera();
+	objs.push_back(etherMeterFrame);
+
 	// Añadir el objeto
 	etherMeter = new GameObject();
 
@@ -173,7 +173,7 @@ void StatisticsUI::onEtherChanges(float value) {
 	etherMeter->getComponent<BarComponent>()->onEtherChanges(etherPercentage, etherCounter);
 
 	// Activar la posibilidad de salir si se ha completado al 100% la barra
-	if (actualEther >= 16 + PlayerData::instance()->getLevel()*8) 
+	if (actualEther >= 16 + PlayerData::instance()->getLevel() * 8) 
 		etherMeter->getComponent<ChargedPortalComponent>()->activateExit();
 }
 
