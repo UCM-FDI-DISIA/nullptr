@@ -64,4 +64,6 @@ public:
 	void loadOptionsFromJSON();
 	// Guarda las opciones en el json
 	void saveOptionsToJSON();
+	// Reestablece los valores de las opciones
+	static void resetOptions();
 };

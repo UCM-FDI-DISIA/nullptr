@@ -243,3 +243,25 @@ void OptionsMenuScene::saveOptionsToJSON() {
 		throw "Could not save Options correctly";
 	}
 }
+
+// Reestablece los valores de las opciones
+void OptionsMenuScene::resetOptions() {
+	std::ofstream save(OPTIONS_JSON_ROOT);
+	// comprobar que se ha abierto el archivo
+	if (!save.is_open()) {
+		save.close();
+		throw "Could not create save Options file";
+	}
+	try {
+		save << "{\n";
+		save << "\"music\": 0,\n";
+		save << "\"fx\": 0,\n";
+		save << "\"fullWindow\": 0,\n";
+		save << "\"peripheral\": 0\n";
+		save << "}";
+	}
+	catch (...) {
+		save.close();
+		throw "Could not save Options correctly";
+	}
+}
