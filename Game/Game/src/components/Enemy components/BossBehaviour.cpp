@@ -185,8 +185,8 @@ void BossBehaviour::coneAttack() {
 	// Incrementar el contador de ataques de cono
 	coneAttacksDone++;
 
-	// Si aún no se han realizado los 4 ataques de cono, llamar a coneAttack() nuevamente después de 2 segundos
-	if (coneAttacksDone < 4) {
+	// Si aún no se han realizado los 2 ataques de cono, llamar a coneAttack() nuevamente después de 2 segundos
+	if (coneAttacksDone < 2) {
 		// Utiliza la función SDL_AddTimer para llamar a coneAttack() nuevamente después de 2 segundos (2000 ms)
 		SDL_AddTimer(2000, &BossBehaviour::coneAttackTimerCallback, this);
 	}
@@ -201,6 +201,7 @@ void BossBehaviour::coneAttack() {
 	// Reiniciar behaviorTime para empezar de nuevo
 	behaviorTime = 0;
 }
+
 
 // Funci�n para ejecutar el ataque Bullet Hell
 void BossBehaviour::bulletHellAttack() {
