@@ -108,7 +108,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 	for (int i = 0; i < wave[0]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * MELEE_RADIUS;
 		spawnPos = checkPos(spawnPos, MELEE_RADIUS);
-		if ((rand() % 100) <= 94) {
+		if (levelType != 5 || (rand() % 100) <= 90 - depth) {
 			GameObject* enemy = where->addGameObject<MeleeEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
 		}
 		else GameObject* enemy = where->addGameObject<AssasinEnemy>(_grp_ENEMIES, spawnPos, MELEE_LIFE, player);
