@@ -12,7 +12,7 @@ gamepadConnection(nullptr) {
 
 	// Boton de salida
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 50, WIN_HEIGHT - MM_BUTTON_HEIGHT - 50), aI)->setAsDefaultButton();
+	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 50, WIN_HEIGHT - MM_BUTTON_HEIGHT - 50), aI, -1, nullptr, 2.0f)->setAsDefaultButton();
 
 	musicOptions.push_back({ "MEH", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 2); } });
 	musicOptions.push_back({ "A TOPE :)", []() { Mix_VolumeMusic(MIX_MAX_VOLUME); } });
@@ -90,7 +90,7 @@ void OptionsMenuScene::createControl(string title, pair<GameObject*, pair<GameOb
 	AnimatorInfo aI = AnimatorInfo("LeftArrow", 64, 44, 32, 22, 1, 3);
 	leftButton = addGameObject<Button>([&]() { leftOption(control, leftButton, rightButton, controlRect); }, Vector2D(optionsRect.x - 70, optionsRect.y), aI, onOut, onOver, onClick);
 	aI = AnimatorInfo("RightArrow", 64, 44, 32, 22, 1, 3);
-	rightButton = addGameObject<Button>([&]() { rightOption(control, leftButton, rightButton, controlRect); }, Vector2D(optionsRect.x + optionsRect.w + 70, optionsRect.y), aI, onOut, onOver, onClick);
+	rightButton = addGameObject<Button>([&]() { rightOption(control, leftButton, rightButton, controlRect); }, Vector2D(optionsRect.x + optionsRect.w + 70, optionsRect.y), aI, onOut, onOver, onClick, -1, nullptr, 2.0f);
 
 	// Se llama a su callback
 	options[control.second.second].second();

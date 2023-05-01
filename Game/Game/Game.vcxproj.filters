@@ -285,6 +285,7 @@
     </ClCompile>
     <ClCompile Include="src\components\General Components\OptionsUpdateComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClInclude>
     <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
     </ClCompile>
@@ -563,7 +564,6 @@
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\components\General Components\StatsTrackComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
@@ -599,6 +599,7 @@
     </ClInclude>
     <ClInclude Include="src\components\General Components\OptionsUpdateComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
     </ClInclude>
@@ -748,7 +749,7 @@
     <None Include="src\data\game.cards.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
-    <None Include="src\data\game.album.json" />
+    <None Include="src\data\game.album.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
     <None Include="src\data\game.options.json">
