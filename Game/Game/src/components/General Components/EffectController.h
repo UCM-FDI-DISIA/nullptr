@@ -11,18 +11,25 @@
 		E_DAMAGED,
 		E_NONE
 	};
+
+	struct Effect {
+		effectID effect;
+		double timer;
+	};
 class EffectController : public Component {
 public:
 private:
 
 	Image* image = nullptr;
-	double timer = 0.0;
-	effectID currentEffect = E_NONE;
+	std::vector<Effect> currentEffects;
 
 public:
 
 	static const int id = _EFFECT_CONTROLLER;
 
+	EffectController() {}
+
+	
 	void initComponent() override;
 	void update() override;
 

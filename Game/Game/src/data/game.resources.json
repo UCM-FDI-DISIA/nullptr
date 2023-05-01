@@ -21,6 +21,11 @@
       "size": 48
     },
     {
+      "id": "SILKSCREEN_REGULAR20",
+      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
+      "size": 20
+    },
+    {
       "id": "SILKSCREEN_REGULAR22",
       "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
       "size": 22
@@ -229,7 +234,8 @@
       { "id" : "MeleeHit", "file": "../Game/resources/sounds/MeleeHit.wav"},
       { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
       { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
-      { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"}
+      { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"},
+      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"}
     ],
   
     "musics" : [

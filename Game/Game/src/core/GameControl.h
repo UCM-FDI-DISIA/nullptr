@@ -61,6 +61,12 @@ public:
 
 	// Cambiar entre control por mando y control por teclado
 	void changeControl();
+
+	// Cambiar a control por teclado
+	void changeToKeyboard();
+
+	// Cambiar a control por mando
+	void changeToGamepad();
 };
 
 inline GameControl& gmCtrl() { return *GameControl::instance(); }

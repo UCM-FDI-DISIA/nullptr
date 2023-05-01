@@ -14,29 +14,38 @@ gamepadConnection(nullptr) {
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 50, WIN_HEIGHT - MM_BUTTON_HEIGHT - 50), aI, -1, nullptr, 2.0f)->setAsDefaultButton();
 
-	musicOptions.push_back({ "MEH", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 2); } });
-	musicOptions.push_back({ "A TOPE :)", []() { Mix_VolumeMusic(MIX_MAX_VOLUME); } });
-	musicOptions.push_back({ "SIN MUSICA :(", []() { Mix_VolumeMusic(0); } });
-	musicOptions.push_back({ "BAJITO", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 4); } });
+	musicOptions.push_back({ "50", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 2); } });
+	musicOptions.push_back({ "75", []() { Mix_VolumeMusic(MIX_MAX_VOLUME * 2 / 3); } });
+	musicOptions.push_back({ "100", []() { Mix_VolumeMusic(MIX_MAX_VOLUME); } });
+	musicOptions.push_back({ "0", []() { Mix_VolumeMusic(0); } });
+	musicOptions.push_back({ "25", []() { Mix_VolumeMusic(MIX_MAX_VOLUME / 4); } });
 
-	fxOptions.push_back({ "MEH", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 2); } });
-	fxOptions.push_back({ "A TOPE :)", []() { Mix_MasterVolume(MIX_MAX_VOLUME); } });
-	fxOptions.push_back({ "SIN SONIDO :(", []() { Mix_MasterVolume(0); } });
-	fxOptions.push_back({ "BAJITO", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 4); } });
+	fxOptions.push_back({ "50", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 2); } });
+	fxOptions.push_back({ "75", []() { Mix_MasterVolume(MIX_MAX_VOLUME * 2 / 3); } });
+	fxOptions.push_back({ "100", []() { Mix_MasterVolume(MIX_MAX_VOLUME); } });
+	fxOptions.push_back({ "0", []() { Mix_MasterVolume(0); } });
+	fxOptions.push_back({ "25", []() { Mix_MasterVolume(MIX_MAX_VOLUME / 4); } });
+	
 
 	fullWindowOptions.push_back({ "NO", []() {
 		SDL_Window* window_ = sdlutils().window();
-		SDL_SetWindowSize(window_, WIN_WIDTH, WIN_HEIGHT);
-		SDL_SetWindowFullscreen(window_, 0);
+		auto flags = SDL_GetWindowFlags(window_);
+		if (flags & SDL_WINDOW_FULLSCREEN) {
+			SDL_SetWindowSize(window_, WIN_WIDTH, WIN_HEIGHT);
+			SDL_SetWindowFullscreen(window_, 0);
+		}
 	}});
 	fullWindowOptions.push_back({ "SI", []() { 
 		SDL_Window* window_ = sdlutils().window();
-		SDL_SetWindowSize(window_, WIN_WIDTH, WIN_HEIGHT);
-		SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
+		auto flags = SDL_GetWindowFlags(window_);
+		if (!(flags & SDL_WINDOW_FULLSCREEN)) {
+			SDL_SetWindowSize(window_, WIN_WIDTH, WIN_HEIGHT);
+			SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
+		}
 	} });
 
-	peripheralOptions.push_back({ "TECLADO + RATON", [&]() { hideGamepadConnection(); gmCtrl().changeControl(); } });
-	peripheralOptions.push_back({ "MANDO", [&]() { if (ih().isControllerConnected()) { gmCtrl().changeControl(); }
+	peripheralOptions.push_back({ "TECLADO + RATON", [&]() { hideGamepadConnection(); gmCtrl().changeToKeyboard(); } });
+	peripheralOptions.push_back({ "MANDO", [&]() { if (ih().isControllerConnected()) { gmCtrl().changeToGamepad(); }
 		else { 
 			// Si el mando no esta conectado pero esta seleccionado el modo mando, 
 			// aparece el texto de conectar el mando y se mantiene a la espera de
@@ -46,7 +55,8 @@ gamepadConnection(nullptr) {
 			OptionsUpdateComponent* oUC = peripheral.first->getComponent<OptionsUpdateComponent>();
 			if (oUC != nullptr) oUC->setPeripheral(true);
 
-		} } });
+		} 
+	} });
 
 	loadOptionsFromJSON();
 
@@ -74,7 +84,7 @@ void OptionsMenuScene::createControl(string title, pair<GameObject*, pair<GameOb
 	// Anade el titulo
 	control.first = addGameObject(_grp_OPTIONS);
 	control.first->addComponent<Transform>(Vector2D(controlRect.x, controlRect.y), Vector2D(), controlRect.w, controlRect.h);
-	control.first->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), title);
+	control.first->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), title);
 	control.first->addComponent<OptionsUpdateComponent>(optionId);
 
 	// Anade las opciones con sus respectivos callbacks
@@ -131,17 +141,15 @@ void OptionsMenuScene::rightOption(pair<GameObject*, pair<GameObject*, int>> con
 void OptionsMenuScene::showOption(pair<GameObject*, pair<GameObject*, int>>& control, Button* leftButton, Button* rightButton, SDL_Rect controlRect) {
 	string optionString = controls[control.first][control.second.second].first;
 	if (control.second.first == nullptr) control.second.first = addGameObject();
-	control.second.first->addComponent<Transform>(Vector2D(controlRect.x + controlRect.w / 2 - 8* optionString.size() / 2, controlRect.y), Vector2D(), controlRect.w, controlRect.h);
-	control.second.first->addComponent<TextComponent>(SDLApplication::getFont(USED_FONT), optionString);
+	control.second.first->addComponent<Transform>(Vector2D(controlRect.x + controlRect.w / 2 - 10 * optionString.size() / 2, controlRect.y), Vector2D(), controlRect.w, controlRect.h);
+	control.second.first->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), optionString);
 	
 	switch (control.first->getComponent<OptionsUpdateComponent>()->getOptionId()) {
 	case _option_MUSIC: music.second.second = control.second.second; break;
 	case _option_FX: fx.second.second = control.second.second; break;
 	case _option_FULLWINDOW: fullWindow.second.second = control.second.second; break;
 	case _option_PERIPHERAL: peripheral.second.second = control.second.second; break;
-
 	}
-	peripheral.second.second = control.second.second;
 
 	// Establece las flechas
 	if (leftButton != nullptr) {

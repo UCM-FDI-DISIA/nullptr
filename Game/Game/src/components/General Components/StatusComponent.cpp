@@ -26,7 +26,7 @@ void StatusComponent::update()
 	for (auto e : statusMap) {
 		if(e.second > 0) e.second -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
-	if (aSecond >= 1000) aSecond = 0;
+	if (aSecond >= 1000) aSecond -= 1000;
 }
 
 void StatusComponent::applyStatus(status stts, float duration)
