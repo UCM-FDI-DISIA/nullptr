@@ -29,7 +29,7 @@ void EffectController::update()
 				r = 255; g = 195; b = 0;
 			}
 			else if (second > 0.33 && second < 0.66) {
-				r = 255; g = 87; b = 51;
+				r = 255; g = 97; b = 51;
 			}
 			else if (second > 0.66) {
 				r = 255; g = 66; b = 51;
