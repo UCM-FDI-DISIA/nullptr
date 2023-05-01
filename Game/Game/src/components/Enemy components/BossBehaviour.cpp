@@ -208,7 +208,6 @@ void BossBehaviour::updateAttackDelay()
 	switch (attackState)
 	{
 	case 1: // BulletHell
-	case 6: // BulletHell + Granadas
 	case 8: // BulletHell + Aspersor
 		currentBossState = boss_BHELL;
 		attackDelay = 1800;
@@ -217,6 +216,10 @@ void BossBehaviour::updateAttackDelay()
 	case 9: // Granadas + Tent�culo Dirigido
 		currentBossState = boss_GRENADE;
 		attackDelay = 1400;
+		break;
+	case 6: // BulletHell + Granadas
+		currentBossState = boss_COMBINED;
+		attackDelay = 1800;
 		break;
 	default:
 		currentBossState = boss_IDLE;

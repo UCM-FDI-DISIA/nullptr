@@ -20,5 +20,9 @@ void BossAnimator::initComponent() {
 	addAction(BOSS_ENEMY_GRENADE_ATTACK_KEY, BOSS_ENEMY_GRENADE_ATTACK_ANIMATION,
 		[&]() {return _bhvr->getBossState() == boss_GRENADE; }
 	);
+	
+	addAction(BOSS_ENEMY_COMBINED_ATTACK_KEY, BOSS_ENEMY_COMBINED_ATTACK_ANIMATION,
+		[&]() {return _bhvr->getBossState() == boss_COMBINED; }
+	);
 
 }
