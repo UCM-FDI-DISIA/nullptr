@@ -206,6 +206,7 @@ const string LIGHT_EXPLOSION = "LightExplosion";
 const string PULGA_BULLET = "PulgaBullet";
 const string PULGA_EXPLOSION = "PulgaExplosion";
 const string GRENADE = "Grenade";
+const string GRENADE_EXPLOSION = "GrenadeExplosion";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
@@ -216,7 +217,7 @@ const float GUN_BULLET_SPEED = 550;
 const float PULGA_BULLET_SPEED = 250;
 const float SMG_BULLET_SPEED = 700;
 const float LIGHT_BULLET_SPEED = 800;
-const float ARROW_SPEED = 150;
+const float ARROW_SPEED = 350;
 const float THROWN_SPEAR_SPEED = 600;
 const float TORCH_SIZE_HEAL = 400;
 
@@ -494,6 +495,8 @@ const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
 const float ASSAULT_RIFLE_BURST = 10;
 const float LASER_KATANA_BURST = 35;
+const float ASSAULT_RIFLE_BURST = 25;
+
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;

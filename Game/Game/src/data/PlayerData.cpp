@@ -34,12 +34,20 @@ void PlayerData::defaultPlayerStats() {
 	playerSpeed = PLAYER_SPEED;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_SPEAR, 3);
-	addCardToDeck(_card_SPEAR, 3);
+	//addCardToLibrary(_card_SPEAR, 3);
+	//addCardToDeck(_card_SPEAR, 3);
+	addCardToLibrary(_card_RIOTSHIELD, 3);
+	addCardToDeck(_card_RIOTSHIELD, 3);
+	/*addCardToLibrary(_card_SMG, 3);
+	addCardToDeck(_card_SMG, 3);*/
+	addCardToLibrary(_card_RITUALAXE, 5);
+	addCardToDeck(_card_RITUALAXE, 5);
+
+	/*
 	addCardToLibrary(_card_SWORD, 3);
 	addCardToDeck(_card_SWORD, 3);
 	addCardToLibrary(_card_GUN, 2);
-	addCardToDeck(_card_GUN, 2);
+	addCardToDeck(_card_GUN, 2);*/
 }
 
 void PlayerData::getDataFromJSON() {
