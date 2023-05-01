@@ -24,6 +24,7 @@ void TutorialScene::activateInput() {
 	// Ocultamos el puntero y le permitimos moverse
 	pointer->setShowPointer(false);
 	player->getComponent<PlayerInputComponent>()->setCanMove(true);
+	tutorialController->setPlayerCanMove(true);
 }
 
 void TutorialScene::addCard() {
