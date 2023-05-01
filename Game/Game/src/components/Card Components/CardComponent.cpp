@@ -9,7 +9,7 @@
 #include "../../scenes/TutorialScene.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
-CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()), tutorialInitCard(nullptr) {
+CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
@@ -43,8 +43,6 @@ CardComponent::~CardComponent() {
 		delete c;
 		c = nullptr;
 	}
-
-	tutorialInitCard = nullptr;
 }
 
 //Obtiene las referencias a otros componentes y escenas necesarias
@@ -149,6 +147,8 @@ void CardComponent::selectRight() {
 }
 
 void CardComponent::setInitialDeck() {
+	delete tutorialInitCard;
+	tutorialInitCard = nullptr;
 	hand.clear();
 	tutorial = false;
 	initDeck();
