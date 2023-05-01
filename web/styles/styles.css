@@ -70,7 +70,7 @@ footer img:hover {
 }
 
 .descripcion-txt {
-	font-size: large;
+	font-size: 25px;
 	text-align: justify;
 	margin-left: 100px;
 	margin-right: 100px;
@@ -104,9 +104,10 @@ footer img:hover {
 	border-radius: 2rem;
 	background-color: rgb(144, 233, 11);
 	color: #fff;
-	font: 700 0.875rem/0 "Silkscreen", Silkscreen;
+	font: 600px "Silkscreen", Silkscreen;
 	text-decoration: none;
 	transition: all 0.2s;
+	font-size: 30px;
 }
 
 .btn-descarga:hover {
@@ -212,10 +213,11 @@ footer img:hover {
 	margin-left: 100px;
 	margin-right: 100px;
 	padding: 10px;
+	font-size: 25px;
 }
 
 .descripcionParticipant{
-	font-size: large;
+	font-size: 25px;
 }
 
 .marco {
