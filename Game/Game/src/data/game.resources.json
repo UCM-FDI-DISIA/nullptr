@@ -227,7 +227,9 @@
       {"id": "TutoTalking", "file":  "../Game/resources/images/UI/TutorialScene/TutoTalking_378x284.png"},
 
       { "id" : "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_30x10.png" },
-      { "id" : "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_68x92.png" }
+      { "id": "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_68x92.png" },
+
+      { "id": "Collider", "file": "../Game/resources/images/Collider.png" }
     ],
     
     "messages" : [
@@ -248,7 +250,10 @@
       { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
       { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
       { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"},
-      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"}
+      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"},
+      { "id" : "EtherPick", "file": "../Game/resources/sounds/EtherPick.wav"},
+      { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
+      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"}
     ],
   
     "musics" : [

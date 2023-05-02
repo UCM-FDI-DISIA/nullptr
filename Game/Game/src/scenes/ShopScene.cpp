@@ -5,7 +5,7 @@
 ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) {
 	SDLApplication::instance()->stopMainMusic();
 	shopMusic = &sdlutils().musics().at(SHOP_MUSIC);
-	shopMusic->play();
+	shopMusic->play(-1);
 	// Fondo
 	background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);

@@ -51,6 +51,7 @@ Card* Card::getCard(CardId type) {
 	case _card_RIOTSHIELD: return new RiotShieldCard();
 	case _card_RITUALAXE: return new RitualAxeCard();
 	case _card_CHEATGUN: return new CheatGunCard();
+	case _card_LASERKATANA: return new LaserKatanaCard();
 	default: return nullptr;
 	}
 }
