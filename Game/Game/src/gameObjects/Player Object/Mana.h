@@ -6,6 +6,8 @@
 #include "../../data/PlayerData.h"
 
 class Mana :public GameObject {
+private:
+	SoundEffect* manaPickSound;
 
 public:
 	

@@ -714,6 +714,9 @@ const string BUTTON_PRESSED_SOUND = "ButtonPressed";
 const string LOAD_EXIT_SOUND = "LoadExit";
 const string CHEST_OPENING_SOUND = "ChestOpening";
 const string FASE_COMPLETED_SOUND = "FaseCompleted";
+const string ETHER_PICK = "EtherPick";
+const string MANA_PICK = "ManaPick";
+const string HEAL_SOUND = "Heal";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";

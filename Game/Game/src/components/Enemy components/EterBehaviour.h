@@ -13,6 +13,7 @@ private:
 	float elapsedTime;
 	Vector2D dest;
 	Vector2D dir;
+	SoundEffect* etherPickSound;
 public:
 	static const int id = _ETER;
 	EterBehaviour(float groundTime,Transform* player);

@@ -242,7 +242,10 @@
       { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
       { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
       { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"},
-      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"}
+      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"},
+      { "id" : "EtherPick", "file": "../Game/resources/sounds/EtherPick.wav"},
+      { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
+      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"}
     ],
   
     "musics" : [

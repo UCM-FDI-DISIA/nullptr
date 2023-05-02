@@ -90,7 +90,7 @@ public:
 	// Cierra el juego
 	static void quitGame();
 
-	inline void playMainMusic(){ mainMusic->play(); isPlayingMainMusic = true; }
+	inline void playMainMusic(){ mainMusic->play(-1); isPlayingMainMusic = true; }
 	inline void stopMainMusic(){ mainMusic->haltMusic(); isPlayingMainMusic = false; }
 	inline bool isMusicPlaying() { return isPlayingMainMusic; }
 

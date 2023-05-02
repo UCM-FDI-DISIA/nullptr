@@ -4,7 +4,7 @@
 
 TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0), screen(nullptr), 
 		testEnemy(nullptr), tuto(nullptr), tutoPopUp(nullptr), textOne(nullptr), textTwo(nullptr), button(nullptr) {
-
+	SDLApplication::instance()->stopMainMusic();
 	// Le impedimos el movimiento y el ataque
 	PlayerInputComponent* pic = player->getComponent<PlayerInputComponent>();
 	pic->setCanMove(false);

@@ -99,6 +99,7 @@ void HealthComponent::initComponent() {
 	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
 	}
+	healSound = &sdlutils().soundEffects().at(HEAL_SOUND);
 }
 
 void HealthComponent::update()
@@ -109,8 +110,10 @@ void HealthComponent::update()
 // Cura al objeto el valor puesto
 void HealthComponent::heal(int heal)
 {
-	if (lifePoints + heal <= modifiedMaxLife) 
+	if (lifePoints + heal <= modifiedMaxLife) {
+		Mix_PlayChannelTimed(-1, healSound->getChunk(), 0, -1);
 		lifePoints += heal;
+	}
 	else lifePoints = modifiedMaxLife;
 	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
 }
