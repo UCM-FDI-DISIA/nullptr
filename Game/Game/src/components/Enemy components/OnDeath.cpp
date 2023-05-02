@@ -44,9 +44,9 @@ void OnDeath::deathAnim() {
 	map.startFrame = 0;
 	map.endFrame = 17;
 	map.backwards = false;
-	map.frameRate = 10;
+	map.frameRate = 12;
 	map.repeat = 1;
 	anim->getComponent<Animator>()->createAnim("death", map);
 	anim->getComponent<Animator>()->play("death");
-	anim->addComponent<LifeTimeComponent>(2);
+	anim->addComponent<LifeTimeComponent>(1.5);
 }

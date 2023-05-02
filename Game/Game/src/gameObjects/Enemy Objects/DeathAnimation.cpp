@@ -18,5 +18,5 @@ void DeathAnimation::initGameObject(Vector2D pos, int enemy) {
 		addComponent<Image>(SDLApplication::getTexture("AssasinEnemyDeath"));
 	}
 
-	addComponent<LifeTimeComponent>(1);
+	addComponent<LifeTimeComponent>(0.75);
 }
