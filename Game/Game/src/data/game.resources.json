@@ -123,6 +123,7 @@
       { "id" : "NeonDash", "file" : "../Game/resources/images/Cards/CardEffects/NeonDash_250x70.png" },
       { "id" : "NeonLaser", "file" : "../Game/resources/images/Cards/CardEffects/NeonLaser_15x150.png" },
       { "id" : "ShieldSlash", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSlash96x192.png" },
+      { "id" : "ShieldSkill", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSkill_100x120.png" },
       { "id" : "TorchSlash", "file" : "../Game/resources/images/Cards/CardEffects/TorchSlash96x192.png" },
 
       { "id" : "SpearThrustAnim", "file" : "../Game/resources/images/Cards/CardEffects/Spear100x30.png" },
