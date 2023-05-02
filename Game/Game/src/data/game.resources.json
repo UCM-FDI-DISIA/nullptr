@@ -117,6 +117,12 @@
       { "id" : "NewSwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin192x192.png" },
       { "id" : "NewSwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/NewSwordSlash96x192.png" },
 
+      { "id" : "NewSwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/NewSwordSlash96x192.png" },
+
+      { "id" : "NeonSlash", "file" : "../Game/resources/images/Cards/CardEffects/NeonSlash96x192.png" },
+      { "id" : "ShieldSlash", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSlash96x192.png" },
+      { "id" : "TorchSlash", "file" : "../Game/resources/images/Cards/CardEffects/TorchSlash96x192.png" },
+
       { "id" : "SpearThrustAnim", "file" : "../Game/resources/images/Cards/CardEffects/Spear100x30.png" },
       { "id" : "SpearSkill", "file" : "../Game/resources/images/Cards/CardEffects/SpearSkill100x30.png" },
       
