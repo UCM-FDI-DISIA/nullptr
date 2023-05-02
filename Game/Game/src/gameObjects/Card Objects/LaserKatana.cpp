@@ -32,9 +32,13 @@ void LaserKatanaCard::ability(Vector2D playerPos, Vector2D mousePos, float attac
 	for (int i = 0; i < remainingUses; i++) {
 		
 		Vector2D aux = dir * LASER_KATANA_BURST * (i - 1);
-		Hitbox::HitboxData data = { playerPos + aux, dir * BULLET_SPEED, rotation, 15, 150, LASER, _grp_ENEMIES};
+		Hitbox::HitboxData data = { playerPos + aux, dir * BULLET_SPEED, rotation, 15, 150, "NeonLaser", _grp_ENEMIES };
 
-		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 10, data);
+		auto hbox = where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 10, data);
+		auto anim = hbox->addComponent<Animator>(SDLApplication::getTexture("NeonLaser"), 15, 150, 1, 4);
+		anim->createAnim("Laser", Animation(0, 3, 10, -1));
+		anim->play("Laser");
+
 	}
 
 	remainingUses = 0;
