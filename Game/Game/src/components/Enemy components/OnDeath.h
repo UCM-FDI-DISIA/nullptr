@@ -5,13 +5,15 @@
 #include "../../scenes/BattleScene.h"
 #include "../../gameObjects/Player Object/Mana.h"
 #include "../../gameObjects/Enemy Objects/SpacialEter.h"
+#include "../../gameObjects/Enemy Objects/DeathAnimation.h"
 #include "../../components/General Components/StatsTrackComponent.h"
 
 enum EnemyType
 {
-	meleeEnemy,
+	meleeEnemy = 0,
 	rangedEnemy,
-	tankEnemy
+	tankEnemy, 
+	assasinEnemy
 };
 
 class OnDeath : public Component {
@@ -20,6 +22,7 @@ private:
 	Transform* playerTransform;
 	int numMana, numEter;
 	SoundEffect* deathSound;
+	int type;
 public:
 	static const int id = _ON_DEATH;
 
@@ -27,4 +30,5 @@ public:
 
 	virtual void initComponent();
 	void death();
+	void deathAnim();
 };

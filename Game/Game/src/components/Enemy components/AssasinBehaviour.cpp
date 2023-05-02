@@ -20,6 +20,7 @@ void AssasinBehaviour::initComponent() {
 	attacking = false;
 	elapsedTime = SDL_GetTicks();
 	gObj->getComponent<ColliderComponent>()->addFunction(assasinAttack());
+	
 }
 
 bool AssasinBehaviour::close() {
@@ -84,7 +85,7 @@ CallBackCol AssasinBehaviour::assasinAttack()
 	{
 		enemyAttack();
 		//Da�a al jugador e informa de que ha atacado
-
+		
 
 	};
 }
@@ -105,6 +106,7 @@ void AssasinBehaviour::enemyAttack() {
 
 void AssasinBehaviour::dash(bool atacking)
 {
+	gObj->getComponent<Animator>()->playDiff(CHARACTER_ATTACK_IDLE_KEY);
 	Vector2D dashDir;
 	if(!atacking)dashDir= pos->getVel().rotate(SDLApplication::instance()->getRandInt(0, 2) ? 70 : -70) * 10;
 	else {

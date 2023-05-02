@@ -118,7 +118,10 @@ void PostGameScene::showObject() {
 		showCard();
 		break;
 	case 9:
-		addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT))->setAsCurrentButton();
+		addGameObject<Button>(_grp_UI, []() {
+			if(!SDLApplication::instance()->isMusicPlaying())
+			SDLApplication::instance()->playMainMusic();
+			SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT))->setAsCurrentButton();
 		break;
 	}
 }

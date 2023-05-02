@@ -18,6 +18,7 @@ private:
 	EffectController* eController;
 	Transform* transform;
 	SoundEffect* hitSound;
+	SoundEffect* healSound;
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);

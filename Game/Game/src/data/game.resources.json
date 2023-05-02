@@ -62,6 +62,7 @@
       { "id" : "HealArea", "file" : "../Game/resources/images/Cards/CardEffects/HealArea_51x51.png" },
 
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
+      { "id" : "GameLogoShadow", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogoShadow_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
@@ -93,13 +94,13 @@
       { "id" : "SMG", "file": "../Game/resources/images/Cards/SMGCard_58x93.png" },
       { "id" : "Torch", "file" : "../Game/resources/images/Cards/TorchCard_58x93.png" },
       { "id" : "Spear", "file": "../Game/resources/images/Cards/SpearCard_58x93.png"},
-      { "id" : "Megaphone", "file": "../Game/resources/images/Cards/CartaMegafono_58x93.png"},
+      { "id" : "Speaker", "file": "../Game/resources/images/Cards/CartaMegafono_58x93.png"},
       { "id" : "AssaultRifle", "file": "../Game/resources/images/Cards/RifleCard_58x93.png"},
-      { "id" : "Shield", "file": "../Game/resources/images/Cards/EscudoCarta_58x93.png"},
+      { "id" : "RiotShield", "file": "../Game/resources/images/Cards/EscudoCarta_58x93.png"},
       { "id" : "Tick","file": "../Game/resources/images/Cards/TickCard_58x93.png"},
       { "id" : "Bow", "file": "../Game/resources/images/Cards/BowCard_58x93.png"},
-      { "id" : "Blaster", "file": "../Game/resources/images/Cards/BlasterCard_58x93.png"},
-      { "id" : "Katana", "file": "../Game/resources/images/Cards/KatanaCard_58x93.png"},
+      { "id" : "LightBeam", "file": "../Game/resources/images/Cards/BlasterCard_58x93.png"},
+      { "id" : "LaserKatana", "file": "../Game/resources/images/Cards/KatanaCard_58x93.png"},
       { "id" : "CheatGun", "file": "../Game/resources/images/Cards/CheatGunCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
@@ -133,10 +134,16 @@
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
       { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
+      { "id" : "MeleeEnemyDeath", "file" : "../Game/resources/images/Enemies/MeleeEnemyDeath32x32.png" },
+      { "id" : "DeathAnim", "file" : "../Game/resources/images/Enemies/DeathAnimation_40x50.png" },
+
       { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
       { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
+      { "id": "RangedEnemyDeath", "file": "../Game/resources/images/Enemies/RangedEnemyDeath_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
-      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemyProv_32x32.png"},
+      { "id" : "TankEnemyDeath", "file" : "../Game/resources/images/Enemies/TankEnemyDeath_40x40.png" },
+      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemy_32x32.png"},
+      {"id"  : "AssasinEnemyDeath", "file": "../Game/resources/images/Enemies/AssasinEnemyDeath_32x32.png"},
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
 
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/PastNode_32x32.png" },
@@ -218,10 +225,14 @@
 
       {"id": "Companion","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
       {"id": "Screen", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
+      {"id": "Tuto","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
+      {"id": "DarkPlain", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
       {"id": "TutoTalking", "file":  "../Game/resources/images/UI/TutorialScene/TutoTalking_378x284.png"},
 
       { "id" : "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_30x10.png" },
-      { "id" : "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_68x92.png" }
+      { "id": "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_68x92.png" },
+
+      { "id": "Collider", "file": "../Game/resources/images/Collider.png" }
     ],
     
     "messages" : [
@@ -242,11 +253,16 @@
       { "id" : "PlayerHit", "file": "../Game/resources/sounds/PlayerHit.wav"},
       { "id" : "RangedHit", "file": "../Game/resources/sounds/RangedHit.wav"},
       { "id" : "ChestOpening", "file": "../Game/resources/sounds/ChestOpening.wav"},
-      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"}
+      { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"},
+      { "id" : "EtherPick", "file": "../Game/resources/sounds/EtherPick.wav"},
+      { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
+      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"}
     ],
   
     "musics" : [
-      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"}
+      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"},
+      { "id" : "MenusMusic", "file" : "../Game/resources/sounds/MenusMusic.wav"},
+      { "id" : "ShopMusic", "file" : "../Game/resources/sounds/ShopMusic.wav"}
     ],
 
   "relics": [

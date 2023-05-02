@@ -89,20 +89,17 @@ void ChestScene::spawnNewItem() {
 }
 
 void ChestScene::relicUI(Relic* r) {
-	// Color blanco
-	SDL_Color white; white.r = 255; white.g = 255; white.b = 255;
-
 	// RELIQUIA
 	relicImage(r);
 
 	// NOMBRE
-	relicName(r, white);
+	relicName(r);
 
 	// ESTADÍSTICAS
-	relicInfo(r, white);
+	relicInfo(r);
 }
 
-void ChestScene::relicInfo(Relic* r, SDL_Color color) {
+void ChestScene::relicInfo(Relic* r) {
 	// Marco
 	GameObject* infoFrame = addGameObject();
 	infoFrame->addComponent<Transform>(INFO_FRAME_POS, VECTOR_ZERO, INFO_FRAME_WIDTH, INFO_FRAME_HEIGHT);
@@ -112,23 +109,23 @@ void ChestScene::relicInfo(Relic* r, SDL_Color color) {
 	GameObject* era = addGameObject();
 	auto tr = era->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
 	string completeEra = getEraString(r->era);
-	era->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), completeEra, color);
+	era->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), completeEra, COLOR_WHITE);
 	tr->setPos(INFO_FRAME_POS + Vector2D(INFO_FRAME_WIDTH / 2 - tr->getWidth() / 2, 15));
 
 	// Vida
-	createStat(r->health, "LifeSymbol", 70, color);
+	createStat(r->health, "LifeSymbol", 70);
 
 	// Movimiento
-	createStat(r->speed, "SpeedSymbol", 140, color);
+	createStat(r->speed, "SpeedSymbol", 140);
 
 	// Cadencia
-	createStat(r->fireRateMult, "CadenceSymbol", 210, color);
+	createStat(r->fireRateMult, "CadenceSymbol", 210);
 
 	// Mana
-	createStat(r->mana, "ManaSymbol", 280, color);
+	createStat(r->mana, "ManaSymbol", 280);
 
 	// Ataque
-	createStat(r->attackMult, "AttackSymbol", 350, color);
+	createStat(r->attackMult, "AttackSymbol", 350);
 }
 
 void ChestScene::relicImage(Relic* r) {
@@ -149,14 +146,14 @@ void ChestScene::relicImage(Relic* r) {
 	anim->createAnim(SPARKLES_TEXTURE, 0, 5, 12, 2); anim->play(SPARKLES_TEXTURE);
 }
 
-void ChestScene::relicName(Relic* r, SDL_Color color) {
+void ChestScene::relicName(Relic* r) {
 	// Marco y texto
 	name.second = addGameObject();	// Marco - second
 	name.first = addGameObject();	// Texto - first
 
 	// Crear el texto para obtener su width
 	auto textTr = name.first->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, 1, 1);
-	name.first->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_BOLD22), r->id, color);
+	name.first->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_BOLD22), r->id, COLOR_WHITE);
 
 	// Crear marco dependiente del tamaño del texto
 	auto frameTr = name.second->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO,
@@ -172,11 +169,11 @@ void ChestScene::relicName(Relic* r, SDL_Color color) {
 }
 
 // Añade el componente de texto con un + o un 0 dependiendo del valor recibido
-void ChestScene::standarizeText(GameObject* g, int stat, SDL_Color color) {
+void ChestScene::standarizeText(GameObject* g, int stat) {
 	if (stat <= 0)
-		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), "0", color);
+		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), "0", COLOR_WHITE);
 	else
-		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), "+" + to_string(stat), color);
+		g->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG22), "+" + to_string(stat), COLOR_WHITE);
 }
 
 // Devuelve un string con la era correspondiente
@@ -191,7 +188,7 @@ string ChestScene::getEraString(string rEra) {
 }
 
 // Crea una linea con el estado correspondiente
-void ChestScene::createStat(int stat, string symbol, int yOffset, SDL_Color color) {
+void ChestScene::createStat(int stat, string symbol, int yOffset) {
 	// Variable auxiliar y objetos de img y texto vacíos
 	Transform* tr = nullptr;
 	GameObject* img = addGameObject();
@@ -201,7 +198,7 @@ void ChestScene::createStat(int stat, string symbol, int yOffset, SDL_Color colo
 	tr = txt->addComponent<Transform>(Vector2D(), VECTOR_ZERO, 1, 1);
 
 	// Objeto de texto y posición del mismo respecto a su tamaño
-	standarizeText(txt, stat, color);
+	standarizeText(txt, stat);
 	tr->setPos(INFO_FRAME_POS + Vector2D(INFO_FRAME_WIDTH * 2.6 / 4 - tr->getWidth() / 2, yOffset));
 
 	// Objeto imagen
