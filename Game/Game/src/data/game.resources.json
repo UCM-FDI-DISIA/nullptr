@@ -130,6 +130,7 @@
       { "id" : "ShieldSlash", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSlash96x192.png" },
       { "id" : "ShieldSkill", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSkill_100x120.png" },
       { "id" : "TorchSlash", "file" : "../Game/resources/images/Cards/CardEffects/TorchSlash96x192.png" },
+      { "id" : "MegaphoneAtt", "file" : "../Game/resources/images/Cards/CardEffects/MegaphoneAttack_29x32.png" },
 
       { "id" : "SpearThrustAnim", "file" : "../Game/resources/images/Cards/CardEffects/Spear100x30.png" },
       { "id" : "SpearSkill", "file" : "../Game/resources/images/Cards/CardEffects/SpearSkill100x30.png" },
