@@ -36,7 +36,7 @@ void PlayerInputComponent::handleInput() {
 			crdComp_->selectLeft();
 		}
 		// Téclas numéricas
-		if (gmCtrl_.controllerActive()) {
+		if (!gmCtrl_.controllerActive()) {
 
 			if (InputHandler::instance()->isKeyJustDown(SDLK_1)) {
 				crdComp_->switchActive(0);
