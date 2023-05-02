@@ -12,9 +12,14 @@ MainMenuScene::MainMenuScene() {
 	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
 
 	// Logo del juego
+	GameObject* logoShadow = addGameObject();
 	GameObject* logo = addGameObject();
-	logo->addComponent<Transform>(LOGO_POSITION, Vector2D(), 404, 284);
+	Transform* tr = logo->addComponent<Transform>(LOGO_POSITION, Vector2D(), 404, 284);
 	Animator* a = logo->addComponent<Animator>(SDLApplication::getTexture("GameLogo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
+	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
+	a->play(LOGO_ANIM_KEY);
+	logoShadow->addComponent<Transform>(tr->getPos() + Vector2D(4, 4), Vector2D(), 404, 284);
+	a = logoShadow->addComponent<Animator>(SDLApplication::getTexture("GameLogoShadow"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
 	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
 	a->play(LOGO_ANIM_KEY);
 
@@ -27,17 +32,30 @@ MainMenuScene::MainMenuScene() {
 	PlayerData::instance()->defaultPlayerStats();
 
 	// Botón jugar
-	createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET, 
-		[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
-		PLAY)->setAsDefaultButton();
+	if (pD().hasSaveFile()) {
+		// Botón jugar
+		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
+			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
+			PLAY)->setAsDefaultButton();
 
-	if (pD().hasSaveFile()) createButton(MM_RESUME_BUTTON_POS, MM_RESUME_BUTTON_POS - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);
+		// Botón continuar
+		createButton(MM_RESUME_BUTTON_POS, MM_RESUME_BUTTON_POS - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);
+
+		// Botón album
+		createButton(MM_ALBUM_BUTTON_POS, MM_ALBUM_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
+	}
+	else {
+		// Botón jugar
+		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
+			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
+			PLAY)->setAsDefaultButton();
+
+		// Botón album
+		createButton(MM_ALBUM_BUTTON_POS_NOSAVE, MM_ALBUM_BUTTON_POS_NOSAVE - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
+	}
 
 	// Botón options
 	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
-
-	// Botón album
-	createButton(MM_ALBUM_BUTTON_POS, MM_ALBUM_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
 
 	// Botón salir
 	createButton(MM_EXIT_BUTTON_POS, MM_EXIT_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);

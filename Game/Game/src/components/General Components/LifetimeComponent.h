@@ -12,5 +12,5 @@ public:
     LifeTimeComponent(float lifeSpan);
     static const int id = _LIFETIME;
     //Checkea que haya pasado el tiempo establecido, y elimina el gObj en caso positivo
-    void update();
+    virtual void update();
 };
