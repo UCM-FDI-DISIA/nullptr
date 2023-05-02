@@ -21,9 +21,8 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 		}
 	}
 	else {
-		vector<Card*> iniDeck;
-		iniDeck.push_back(new SwordCard());
-		deck = iniDeck;
+		tutorialInitCard = new SwordCard();
+		deck.push_back(tutorialInitCard);
 	}
 	_myCounter = nullptr;
 	tutorial = tuto;
@@ -132,6 +131,8 @@ void CardComponent::selectRight() {
 }
 
 void CardComponent::setInitialDeck() {
+	delete tutorialInitCard;
+	tutorialInitCard = nullptr;
 	hand.clear();
 	tutorial = false;
 	initDeck();
