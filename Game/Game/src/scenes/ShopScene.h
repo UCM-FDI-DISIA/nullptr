@@ -19,6 +19,7 @@ struct Item {
 class ShopScene : public NodeScene {
 private:
 	GameObject* background;
+	Music* shopMusic;
 
 	int myMoney;
 	GameObject* moneyPrint;
