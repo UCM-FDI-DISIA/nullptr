@@ -57,6 +57,7 @@
       { "id" : "HealArea", "file" : "../Game/resources/images/Cards/CardEffects/HealArea_51x51.png" },
 
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
+      { "id" : "GameLogoShadow", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogoShadow_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
       { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
