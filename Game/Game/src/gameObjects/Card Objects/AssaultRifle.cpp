@@ -10,9 +10,9 @@ void  AssaultRifleCard::attack(Vector2D playerPos, Vector2D mousePos, float atta
 		dir = dir.normalize();
 		float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-		playerPos = playerPos - dir * ASSAULT_RIFLE_BURST;
+		playerPos = playerPos + dir * ASSAULT_RIFLE_BURST;
 
-		Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, rot, 20, 10, BULLET, _grp_ENEMIES };
+		Hitbox::HitboxData data = { playerPos, dir * GUN_BULLET_SPEED, rot, 20, 10, BULLET, _grp_ENEMIES };
 
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
 	}
@@ -25,9 +25,8 @@ void  AssaultRifleCard::ability(Vector2D playerPos, Vector2D mousePos, float att
 
 	Hitbox::HitboxData data = { playerPos, dir * BULLET_SPEED, rot, 15, 20, GRENADE, _grp_ENEMIES };
 	float size = 250;
-	string sprite = "Bullet";
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 50 * (remainingUses / 8), false, 2, StatusComponent::NONE, size, size, sprite, where, data);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 50 * (remainingUses / 8), false, 2, StatusComponent::NONE, size, size, GRENADE_EXPLOSION, where, data);
 
 
 	remainingUses = 0;

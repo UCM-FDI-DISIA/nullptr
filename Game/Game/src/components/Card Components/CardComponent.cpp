@@ -21,14 +21,12 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 		}
 	}
 	else {
-		vector<Card*> iniDeck;
-		iniDeck.push_back(new SwordCard());
-		deck = iniDeck;
+		tutorialInitCard = new SwordCard();
+		deck.push_back(tutorialInitCard);
 	}
 	_myCounter = nullptr;
 	tutorial = tuto;
 	system = false;
-	cout << deck.size() << endl;
 	initDeck();
 }
 
@@ -78,19 +76,6 @@ void CardComponent::update() {
 void CardComponent::handleInput() {
 	attacking = false;
 	abiliting = false;
-
-	if (!locked) {
-
-		// Téclas numéricas
-		if (InputHandler::instance()->isKeyJustDown(SDLK_1))
-			switchActive(0);
-		else if (InputHandler::instance()->isKeyJustDown(SDLK_2))
-			switchActive(1);
-		else if (InputHandler::instance()->isKeyJustDown(SDLK_3))
-			switchActive(2);
-		else if (InputHandler::instance()->isKeyJustDown(SDLK_4))
-			switchActive(3);
-	}
 }
 
 //Checkea el tiempo de espera entre disparos y llama al metodo ataque de la carta activa, gestionando su municion
@@ -118,9 +103,6 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		where->onManaChanges(mana);
 		abiliting = true;
 	}
-#ifdef _DEBUG
-	else std::cout << "Necesitas manases adicionales" << endl;
-#endif
 }
 
 void CardComponent::ability() {
@@ -149,6 +131,8 @@ void CardComponent::selectRight() {
 }
 
 void CardComponent::setInitialDeck() {
+	delete tutorialInitCard;
+	tutorialInitCard = nullptr;
 	hand.clear();
 	tutorial = false;
 	initDeck();
@@ -225,9 +209,6 @@ void CardComponent::discardCard(deque<Card*>::iterator discarded) {
 	if (active != hand.begin())
 		--active;
 	if (hand.size() <= 0) {
-#ifdef _DEBUG
-		cout << "Se acabo tu mano\n";
-#endif
 		newHand();
 		where->recreateUI();
 	}

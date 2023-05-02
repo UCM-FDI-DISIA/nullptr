@@ -29,7 +29,7 @@ void PlayerData::defaultPlayerStats() {
 	setCurrHP(100);
 	setAttackMult(1);
 	setFireRateMult(1);
-	setMoney(999);
+	setMoney(0);
 	level = 1;
 	playerSpeed = PLAYER_SPEED;
 

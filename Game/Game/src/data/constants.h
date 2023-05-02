@@ -113,6 +113,8 @@ const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WID
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
+const float DASH_SPEED = 1400;
+const float DASH_DURATION = 0.15;
 const float REDUCTION_FACTOR = 1.001f;
 
 // POINTER -----------------------------------------------------------------------------------------
@@ -154,12 +156,6 @@ const int RANGED_ENEMY_SPRITE_HEIGHT = 32;
 const int RANGED_ENEMY_SPRITE_ROWS = 2;
 const int RANGED_ENEMY_SPRITE_COLS = 11;
 
-const string ASSASIN_ENEMY_TEXTURE_KEY = "AssasinEnemy";
-const int ASSASIN_ENEMY_SPRITE_WIDTH = 32;
-const int ASSASIN_ENEMY_SPRITE_HEIGHT = 32;
-const int ASSASIN_ENEMY_SPRITE_ROWS = 2;
-const int ASSASIN_ENEMY_SPRITE_COLS = 11;
-
 const int RANGED_ENEMY_WIDTH = RANGED_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
 const int RANGED_ENEMY_HEIGHT = RANGED_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 
@@ -170,6 +166,17 @@ const Animation RANGED_ENEMY_ATTACK_ANIMATION(5, 13, 10, 1);
 const int RANGED_ATTACK_ANIM_DELAY = 670;
 const int RANGED_LIFE = 10;
 const int RANGED_ATTACK_DAMAGE = 20;
+
+// ASSASIN ENEMY
+const string ASSASIN_ENEMY_TEXTURE_KEY = "AssasinEnemy";
+const int ASSASIN_ENEMY_SPRITE_WIDTH = 32;
+const int ASSASIN_ENEMY_SPRITE_HEIGHT = 32;
+const int ASSASIN_ENEMY_SPRITE_ROWS = 2;
+const int ASSASIN_ENEMY_SPRITE_COLS = 7;
+
+const Animation ASSASIN_ENEMY_IDLE_ANIMATION(0, 4, 10, -1);
+const Animation ASSASIN_ENEMY_MOVEMENT_ANIMATION(0, 6, 10, -1);
+const Animation ASSASIN_ENEMY_ATTACK_ANIMATION(7, 11, 10, 1);
 
 // TANK ENEMY
 const string TANK_ENEMY_TEXTURE_KEY = "TankEnemy";
@@ -251,14 +258,18 @@ const string LIGHT_EXPLOSION = "LightExplosion";
 const string PULGA_BULLET = "PulgaBullet";
 const string PULGA_EXPLOSION = "PulgaExplosion";
 const string GRENADE = "Grenade";
+const string GRENADE_EXPLOSION = "GrenadeExplosion";
 const string FLASH_BANG = "FlashBang";
 const string LASER = "Laser";
 // SIZE SPRITES ---------------------------------------------------------------------------------------
 
 // BULLETS ---------------------------------------------------------------------------------------
 const float BULLET_SPEED = 200;
+const float GUN_BULLET_SPEED = 550;
+const float PULGA_BULLET_SPEED = 250;
+const float SMG_BULLET_SPEED = 700;
 const float LIGHT_BULLET_SPEED = 800;
-const float ARROW_SPEED = 150;
+const float ARROW_SPEED = 350;
 const float THROWN_SPEAR_SPEED = 600;
 const float TORCH_SIZE_HEAL = 400;
 
@@ -288,11 +299,13 @@ const int MM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 3;
 const int MM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 3;
 const int MM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 3;
 const Vector2D FRAME_OFFSET = Vector2D(36, 66);
-const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5, WIN_HEIGHT * 0.5);
-const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT * 0.5);
-const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8, WIN_HEIGHT * 5.5 / 8);
-const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 5.5 / 8);
-const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.5);
+const Vector2D MM_PLAY_BUTTON_POS_NOSAVE = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8 - FRAME_OFFSET.getX() / 2, WIN_HEIGHT * 0.55);
+const Vector2D MM_PLAY_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 5 - FRAME_OFFSET.getX(), WIN_HEIGHT * 0.55);
+const Vector2D MM_ALBUM_BUTTON_POS_NOSAVE = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.55);
+const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 5 + FRAME_OFFSET.getX() * 2, WIN_HEIGHT * 0.55);
+const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8 - FRAME_OFFSET.getX() / 2, WIN_HEIGHT * 0.7);
+const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.7);
+const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + FRAME_OFFSET.getX() / 2, WIN_HEIGHT * 0.55);
 // PAUSEMENU: BUTTON POSITIONS AND DIMENSIONS
 const int PM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
 const int PM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
@@ -438,13 +451,20 @@ const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
 // TUTORIALSCENE ---------------------------------------------------------------------------------
 // SPRITES DIMS
-const int COMPANION_SPRITE_WIDTH = 128;
-const int COMPANION_SPRITE_HEIGHT = 96;
-const int COMPANION_WIDTH = COMPANION_SPRITE_WIDTH * PIXEL_WIDTH;
-const int COMPANION_HEIGHT = COMPANION_SPRITE_HEIGHT * PIXEL_HEIGHT;
+const int TUTO_SPRITE_WIDTH = 128;
+const int TUTO_SPRITE_HEIGHT = 96;
+const int TUTO_WIDTH = TUTO_SPRITE_WIDTH * PIXEL_WIDTH;
+const int TUTO_HEIGHT = TUTO_SPRITE_HEIGHT * PIXEL_HEIGHT;
+const int TUTO_POPUP_SPRITE_WIDTH = 376;
+const int TUTO_POPUP_SPRITE_HEIGHT = 284;
+const int TUTO_POPUP_WIDTH = TUTO_POPUP_SPRITE_WIDTH * PIXEL_WIDTH;
+const int TUTO_POPUP_HEIGHT = TUTO_POPUP_SPRITE_HEIGHT * PIXEL_HEIGHT;
 // ANIM KEYS
-const string COMPANION_TEXTURE = "Companion";
+const string TUTO_TEXTURE = "Tuto";
+const string DARK_PLAIN_TEXTURE = "DarkPlain";
+const string TUTO_TALKING_TEXTURE = "TutoTalking";
 // POSITIONS
+const Vector2D TUTO_POPUP_POS = Vector2D(WIN_WIDTH / 2 - TUTO_POPUP_WIDTH / 2, 0);
 const Vector2D RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 5);
 const Vector2D TEXT_OFFSET = Vector2D(80, 80);
 
@@ -538,8 +558,8 @@ const int CARD_OFFSET_H = 21 * 1.5;
 //CARD DATA
 const float BOW_CADENCE = 0.5;
 const float SMG_CADENCE = 0.3;
-const float ASSAULT_RIFLE_BURST = 10;
-
+const float ASSAULT_RIFLE_BURST = 25;
+const float LASER_KATANA_BURST = 35;
 // CARD DIMENSIONS
 const int CARD_WIDTH = 58;
 const int CARD_HEIGHT = 93;
@@ -744,9 +764,15 @@ const string HOVER_OVER_BUTTON_SOUND = "HoverOverButton";
 const string BUTTON_PRESSED_SOUND = "ButtonPressed";
 const string LOAD_EXIT_SOUND = "LoadExit";
 const string CHEST_OPENING_SOUND = "ChestOpening";
+const string FASE_COMPLETED_SOUND = "FaseCompleted";
+const string ETHER_PICK = "EtherPick";
+const string MANA_PICK = "ManaPick";
+const string HEAL_SOUND = "Heal";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
+const string MAIN_MUSIC = "MenusMusic";
+const string SHOP_MUSIC = "ShopMusic";
 const string DEATH_MELODY = "Death";
 
 //SHOP ------------------------------------------------------------------------------------------
@@ -756,11 +782,17 @@ const int SHOP_CARD_UNSELECTED_POSY = WIN_HEIGHT - CARD_HEIGHT * 4 - 50;
 const int SHOP_CARD_OFFSET_X = 300;
 const int SHOP_CARD_PRICE_WIDTH = 100;
 const int SHOP_CARD_PRICE_HEIGHT = 50;
-const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 - 79, WIN_HEIGHT - 100);
+const Vector2D SHOP_BUYBUTTON_POSITION = Vector2D(WIN_WIDTH / 2 + 10, WIN_HEIGHT - 100);
 const int SHOP_MONEY_WIDTH = 100;
 const int SHOP_MONEY_HEIGHT = 50;
-const Vector2D SHOP_MONEY_POSITION = Vector2D(SHOP_BUYBUTTON_POSITION.getX() - SHOP_MONEY_WIDTH, WIN_HEIGHT - 100);
+const int SHOP_MONEY_FRAME_WIDTH = CARD_WIDTH * PIXEL_WIDTH * 1.5;
+const int SHOP_MONEY_FRAME_HEIGHT = 16 * PIXEL_HEIGHT * 1.5;
+const Vector2D SHOP_MONEY_POSITION = Vector2D(WIN_WIDTH / 2 - SHOP_MONEY_FRAME_WIDTH + 20, WIN_HEIGHT - 95);
 const Vector2D SHOP_EXITBUTTON_POSITION = Vector2D(5, 5);
+const Vector2D SHOP_MONEY_FRAME_POSITION = Vector2D(WIN_WIDTH / 2 - SHOP_MONEY_FRAME_WIDTH - 20, WIN_HEIGHT - 100);
+const Vector2D SHOP_MONEY_COIN_POSITION = Vector2D(WIN_WIDTH / 2 - 32 * PIXEL_WIDTH - 10, WIN_HEIGHT - 75 - 32 * PIXEL_HEIGHT / 2);
+const int COIN_WIDHT = 32 * PIXEL_WIDTH;
+const int COIN_HEIGHT = 32 * PIXEL_HEIGHT;
 
 //POSTGAME SCENE ------------------------------------------------------------------------------------------
 const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);

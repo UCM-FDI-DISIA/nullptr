@@ -12,7 +12,6 @@ Card::Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _d
 			case 0:
 				name += _data[i];
 				break;
-				std::cout << name;
 			case 1:
 				attackText += _data[i];
 				break;
@@ -52,6 +51,7 @@ Card* Card::getCard(CardId type) {
 	case _card_RIOTSHIELD: return new RiotShieldCard();
 	case _card_RITUALAXE: return new RitualAxeCard();
 	case _card_CHEATGUN: return new CheatGunCard();
+	case _card_LASERKATANA: return new LaserKatanaCard();
 	default: return nullptr;
 	}
 }

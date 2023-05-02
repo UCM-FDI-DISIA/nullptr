@@ -221,6 +221,7 @@
     <ClInclude Include="src\gameObjects\Enemy Objects\BossEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\BossTentacle.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\DeathAnimation.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
@@ -319,6 +320,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\LaserKatana.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CheatGun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp" />
@@ -336,6 +338,7 @@
     <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\BossTentacle.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\DeathAnimation.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />

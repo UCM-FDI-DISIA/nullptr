@@ -10,21 +10,28 @@ struct Item {
 	Button* card;
 	CardId cardObj;
 	GameObject* priceObj;
+	GameObject* priceFrame;
+	pair<GameObject*, GameObject*> ammo;
+	pair<GameObject*, GameObject*> mana;
 	int price;
 };
 
 class ShopScene : public NodeScene {
 private:
 	GameObject* background;
+	Music* shopMusic;
 
 	int myMoney;
 	GameObject* moneyPrint;
+	pair<GameObject*, GameObject*> moneyFrame;
+
 	int alreadyInStore[SHOP_NUMBER_OF_CARDS];
 	array<Item, SHOP_NUMBER_OF_CARDS> myItems;
 	Item itemToInsert;
 	Item* selectedCard;
 	Button* buyButton;
 	Button* exitButton;
+
 public:
 	// Constructora
 	ShopScene();
@@ -52,4 +59,7 @@ public:
 	bool canBuy();
 	// Devuelve si la tienda esta vacia y pasa por referencia el indice debido
 	bool isShopEmpty();
+
+	// Crea los números de munición y maná de las cartas
+	void createNumber(GameObject* number, Vector2D pos, int value, char type);
 };

@@ -7,6 +7,7 @@ private:
 	float time;
 	string timeText;
 	pair<CardId,int> newCard;
+	SoundEffect* faseCompleted;
 
 	int nextEvent;
 	float coolDown;

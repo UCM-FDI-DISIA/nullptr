@@ -15,16 +15,18 @@ private:
 	Pasos current;
 	TutorialScene* ts;
 	float timeOffset;
-	bool firstActionDone, canCount, discarted, newHand, ability, canAdvance;
+	bool firstActionDone, canCount, playerCanMove, discarted, newHand, ability, canAdvance;
 public:
 	// Identificador
 	static const int id = _TUTORIAL_COMPONENT;
 	// Constructora
 	TutorialComponent(CallBack callback, vector<CallBack> steps);
 	// Actualiza la escena
-	void update();
+	virtual void initComponent();
+	virtual void update();
 
 	void changeState();
+	inline void setPlayerCanMove(bool value) { playerCanMove = true; }
 	inline void setDiscarted(bool value) { discarted = value; }
 	inline void setNewHand(bool value) { newHand = value; }
 	inline void setAbility(bool value) { ability = value; }

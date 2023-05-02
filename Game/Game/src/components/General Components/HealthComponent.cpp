@@ -22,10 +22,10 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 	// Si eres jugador, solo recibes da�o si ha pasado el tiempo de invencibilidad
 	if (invTime <= 0) {
 		lifePoints -= damage;
-#ifdef _DEBUG
-		cout << lifePoints << endl;
-#endif
-
+		if (lifePoints > 0 && gObj->hasComponent<EffectController>()) {
+			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
+			eController->startEffect(E_DAMAGED, 0.5);
+		}
 		// Si se trata del Player, actualiza su barra de vida
 		if (gObj->getComponent<PlayerMovementComponent>() != nullptr) {
 			auto sc = dynamic_cast<BattleScene*>(gStt);
@@ -52,20 +52,16 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 			
 		}
 		if (invincibility) {
-			invTime = 0.5;
+			invTime = 1.5;
 
-			if (gObj->hasComponent<EffectController>()) {
+			if ( lifePoints > 0 && gObj->hasComponent<EffectController>()) {
 				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
-				eController->startEffect(E_INVULN, 0.5);
+				eController->startEffect(E_INVULN, 1.25);
 			}
-			
-			
-#ifdef _DEBUG
-			cout << "Invencible" << endl;
-#endif
 		}
 		else
 		{
+				
 			if (gObj->hasComponent<EffectController>()) {
 				if (eController == nullptr) eController = gObj->getComponent<EffectController>();
 				eController->startEffect(E_DAMAGED, 0.25);
@@ -77,6 +73,11 @@ void HealthComponent::setInvencibility(float time)
 {
 	if (invincibility) {
 		invTime = time;
+		if (gObj->hasComponent<EffectController>()) {
+			if (eController == nullptr) eController = gObj->getComponent<EffectController>();
+			eController->startEffect(E_INVULN, time);
+		}
+
 	}
 }
 
@@ -102,6 +103,7 @@ void HealthComponent::initComponent() {
 	else if (dynamic_cast<BossEnemy*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
 	}
+	healSound = &sdlutils().soundEffects().at(HEAL_SOUND);
 }
 
 void HealthComponent::update()
@@ -112,8 +114,10 @@ void HealthComponent::update()
 // Cura al objeto el valor puesto
 void HealthComponent::heal(int heal)
 {
-	if (lifePoints + heal <= modifiedMaxLife) 
+	if (lifePoints + heal <= modifiedMaxLife) {
+		Mix_PlayChannelTimed(-1, healSound->getChunk(), 0, -1);
 		lifePoints += heal;
+	}
 	else lifePoints = modifiedMaxLife;
 	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
 }

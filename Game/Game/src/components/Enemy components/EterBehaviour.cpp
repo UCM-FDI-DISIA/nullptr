@@ -7,6 +7,7 @@ EterBehaviour::EterBehaviour(float groundTime, Transform* player) {
 	plyr = player;
 	dest = Vector2D(WIN_WIDTH / 2, 0);
 	dir = Vector2D(0, 1);
+	etherPickSound = &sdlutils().soundEffects().at(ETHER_PICK);
 }
 void EterBehaviour::initComponent() {
 	myTransform = gObj->getComponent<Transform>();
@@ -21,6 +22,7 @@ void EterBehaviour::update() {
 	}
 	if ((myTransform->getPos().getX() <= dest.getX()+ 30 && myTransform->getPos().getX() >= dest.getX() - 30) && myTransform->getPos().getY() <= dest.getY()) {
 		gObj->setAlive(false);
+		Mix_PlayChannelTimed(-1, etherPickSound->getChunk(), 0, -1);
 		dynamic_cast<BattleScene*>(gStt)->onEtherChanges(ETHER_VALUE);
 	}
 }

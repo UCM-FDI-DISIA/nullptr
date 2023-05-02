@@ -13,7 +13,7 @@ void AssasinEnemy::initGameObject(Vector2D pos, int life, Player* player) {
 	addComponent<OnDeath>(3, 1, player->getComponent<Transform>());
 	addComponent<EnemyAnimator>(ASSASIN_ENEMY_TEXTURE_KEY, ASSASIN_ENEMY_SPRITE_WIDTH,
 		ASSASIN_ENEMY_SPRITE_HEIGHT, ASSASIN_ENEMY_SPRITE_ROWS, ASSASIN_ENEMY_SPRITE_COLS,
-		RANGED_ENEMY_IDLE_ANIMATION, RANGED_ENEMY_MOVEMENT_ANIMATION, RANGED_ENEMY_ATTACK_ANIMATION);
+		ASSASIN_ENEMY_IDLE_ANIMATION, ASSASIN_ENEMY_MOVEMENT_ANIMATION, ASSASIN_ENEMY_ATTACK_ANIMATION);
 	addComponent<EffectController>();
 	addComponent<HealthComponent>(life);
 	addComponent<StatusComponent>();

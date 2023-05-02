@@ -5,9 +5,12 @@
 // Constructora
 TutorialComponent::TutorialComponent(CallBack callback, vector<CallBack> steps) : 
 	activatePopup(callback), timeOffset(0), steps(steps),
-	current(Introduccion), firstActionDone(false), canCount(true), discarted(false), newHand(false), 
+	current(Introduccion), firstActionDone(false), playerCanMove(false), canCount(true), discarted(false), newHand(false), 
 	ability(false), canAdvance(false), ts(nullptr) {}
 
+void TutorialComponent::initComponent() {
+	ts = dynamic_cast<TutorialScene*>(gStt);
+}
 
 // Actualiza la escena
 void TutorialComponent::update() {
@@ -28,7 +31,8 @@ void TutorialComponent::changeState() {
 		break;
 
 		case Movimiento:
-			if (!canCount) canCount = GameControl::instance()->movementX() != 0 || GameControl::instance()->movementY() != 0;
+			if (!canCount) canCount = 
+				(GameControl::instance()->movementX() != 0 || GameControl::instance()->movementY() != 0) && playerCanMove;
 			else if (canCount && timeOffset >= 5){
 				activatePopup();		// Con el texto de la carta
 				timeOffset = 0;
@@ -53,7 +57,6 @@ void TutorialComponent::changeState() {
 				activatePopup();		// Con el texto de enemigos
 				current = Enemigos;
 				newHand = false;
-				ts = dynamic_cast<TutorialScene*>(gStt);
 				timeOffset = 0;
 				canAdvance = false;
 			}
