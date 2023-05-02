@@ -30,7 +30,7 @@ private:
 		
 		// Mano
 		"¡Genial! Además de las 4 cartas de tu mano, contarás con una pila de descartes y un mazo, cada uno a un lado.",
-		"Cuando gastes una carta, pasará a los descartes y, de ser la última de la mano, cogerás 4 nuevas del mazo. Estos mazos ciclarán entre ellos, y el mazo se barajeará cada vez que se acabe con la pila. ¡Pruébalo!",
+		"Cuando gastes una carta, pasará a los descartes y, de ser la última de la mano, cogerás 4 nuevas del mazo. Estos mazos ciclarán entre ellos y el mazo se barajeará cada vez que se acabe con la pila. ¡Pruébalo!",
 		
 		// Enemigos
 		"¡Aprendes rápido, eh! En este lugar deberás derrotar enemigos para poder avanzar. Estos enemigos te quitarán vida si te golpean, así que dalo todo para derrotarlos.",
@@ -42,7 +42,7 @@ private:
 	
 		// Portal
 		"El enemigo te puede soltar otra cosa... ¡éter! (polvo morado).\nEl éter (barra blanca) será necesario para cargar el portal, teniendo que llegar al 100% del medidor para poder avanzar al siguiente nivel.",
-		"\nSe recogerá solo tras cierto tiempo, así que tú preocupaté de derrotar a cuantos más enemigos mejor.",
+		"\nSe recogerá solo tras cierto tiempo, así que tú preocupate de derrotar a cuantos más enemigos mejor.",
 	
 		// Fin
 		"¡Bien hecho, eso es todo! Ahora llenaré tu barra de éter al 100% y podrás salir del nivel tal y como te voy a indicar por pantalla.",
