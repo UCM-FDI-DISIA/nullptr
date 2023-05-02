@@ -9,14 +9,12 @@ MainMenuScene::MainMenuScene() {
 	// Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	if (!pD().hasSaveFile()) background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground1"));
-	else background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground2"));
+	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
 
 	// Logo del juego
 	GameObject* logoShadow = addGameObject();
 	GameObject* logo = addGameObject();
-	Vector2D pos = Vector2D(WIN_WIDTH / 4 - LOGO_WIDTH / 4, WIN_HEIGHT / 2 - LOGO_HEIGHT / 2);
-	Transform* tr = logo->addComponent<Transform>(pos, Vector2D(), 404, 284);
+	Transform* tr = logo->addComponent<Transform>(LOGO_POSITION, Vector2D(), 404, 284);
 	Animator* a = logo->addComponent<Animator>(SDLApplication::getTexture("GameLogo"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
 	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
 	a->play(LOGO_ANIM_KEY);
@@ -24,7 +22,6 @@ MainMenuScene::MainMenuScene() {
 	a = logoShadow->addComponent<Animator>(SDLApplication::getTexture("GameLogoShadow"), LOGO_FRAME_WIDTH, LOGO_FRAME_HEIGHT, LOGO_ROWS, LOGO_COLUMNS);
 	a->createAnim(LOGO_ANIM_KEY, LOGO_START_FRAME, LOGO_END_FRAME, LOGO_FRAME_RATE, -1);
 	a->play(LOGO_ANIM_KEY);
-
 
 	// Logo del estudio
 	GameObject* estudio = addGameObject();
@@ -35,46 +32,31 @@ MainMenuScene::MainMenuScene() {
 	PlayerData::instance()->defaultPlayerStats();
 
 	// Botón jugar
-	if (!pD().hasSaveFile()) { 
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.24);
-		createButton(pos, pos - FRAME_OFFSET,
+	if (pD().hasSaveFile()) {
+		// Botón jugar
+		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
 			PLAY)->setAsDefaultButton();
 
-		// Botón options
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.39);
-		createButton(pos, pos - FRAME_OFFSET, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
+		// Botón continuar
+		createButton(MM_RESUME_BUTTON_POS, MM_RESUME_BUTTON_POS - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);
 
 		// Botón album
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.54);
-		createButton(pos, pos - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
-
-		// Botón salir
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.69);
-		createButton(pos, pos - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
+		createButton(MM_ALBUM_BUTTON_POS, MM_ALBUM_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
 	}
 	else {
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.16);
-		createButton(pos, pos - FRAME_OFFSET,
+		// Botón jugar
+		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
 			PLAY)->setAsDefaultButton();
 
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.31);
-		createButton(pos, pos - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);
-		
-		// Botón options
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.46);
-		createButton(pos, pos - FRAME_OFFSET, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
-
 		// Botón album
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.61);
-		createButton(pos, pos - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
-
-		// Botón salir
-		pos = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 3, WIN_HEIGHT * 0.76);
-		createButton(pos, pos - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
-
-		
+		createButton(MM_ALBUM_BUTTON_POS_NOSAVE, MM_ALBUM_BUTTON_POS_NOSAVE - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
 	}
-	
+
+	// Botón options
+	createButton(MM_OPTIONS_BUTTON_POS, MM_OPTIONS_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
+
+	// Botón salir
+	createButton(MM_EXIT_BUTTON_POS, MM_EXIT_BUTTON_POS - FRAME_OFFSET, []() { SDLApplication::instance()->quitGame(); }, EXIT);
 }
