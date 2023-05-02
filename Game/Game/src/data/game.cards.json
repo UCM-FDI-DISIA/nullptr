@@ -116,7 +116,7 @@
     "maxUses": 20,
     "mana": 55,
     "downTime": 0.2,
-    "textureKey": "Blaster",
+    "textureKey": "LightBeam",
     "time": "Future"
   },
   {
@@ -128,7 +128,7 @@
     "maxUses": 5,
     "mana": 60,
     "downTime": 0.5,
-    "textureKey": "Megaphone",
+    "textureKey": "Speaker",
     "time": "Present"
   },
   {
@@ -140,7 +140,7 @@
     "maxUses": 5,
     "mana": 10,
     "downTime": 0.6,
-    "textureKey": "Shield",
+    "textureKey": "RiotShield",
     "time": "Present"
   },
   {
@@ -176,7 +176,7 @@
     "maxUses": 4,
     "mana": 50,
     "downTime": 1.25,
-    "textureKey": "Sword",
+    "textureKey": "LaserKatana",
     "time": "Future"
   }
 ]
