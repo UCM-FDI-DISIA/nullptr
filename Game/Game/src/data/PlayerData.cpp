@@ -34,10 +34,10 @@ void PlayerData::defaultPlayerStats() {
 	playerSpeed = PLAYER_SPEED;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_TORCH, 3);
-	addCardToDeck(_card_TORCH, 3);
-	addCardToLibrary(_card_RIOTSHIELD, 3);
-	addCardToDeck(_card_RIOTSHIELD, 3);
+	addCardToLibrary(_card_MEGAPHONE, 3);
+	addCardToDeck(_card_MEGAPHONE, 3);
+	addCardToLibrary(_card_MEGAPHONE, 3);
+	addCardToDeck(_card_MEGAPHONE, 3);
 	addCardToLibrary(_card_LASERKATANA, 2);
 	addCardToDeck(_card_LASERKATANA, 2);
 }

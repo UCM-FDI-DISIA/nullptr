@@ -15,6 +15,10 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
     // Calcular el ángulo de rotación del sprite
     float spriteRotation = atan2(dir.getY(), dir.getX()) * 180.0f / M_PI;
 
+    
+
+    
+
     for (int i = 0; i < numProjectiles; i++) {
         // Calcular el factor de interpolación entre -1 y 1
         float t = -1.0f + 2.0f * (float)i / (float)(numProjectiles - 1);
@@ -24,7 +28,8 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 
         // Sumar la posición del jugador, la dirección y el desplazamiento actual
         Vector2D startPos = playerPos + dir * 20.0f * (i + 1) + currentOffset;
-
+        
+        
         Hitbox::HitboxData data = { startPos, VECTOR_ZERO, spriteRotation, 50 * i, 100 * i, SOUND_ATTACK, _grp_ENEMIES };
 
         where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 0.5, data);
