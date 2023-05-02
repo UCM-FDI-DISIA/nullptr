@@ -43,7 +43,6 @@ constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 using grpId_type = int;
 enum grpId : grpId_type {
 	_grp_GENERAL,
-	_grp_OPTIONS,
 	_grp_ENEMIES,
 	_grp_ENM_ATTACK,
 	_grp_PLYR_ATTACK,
