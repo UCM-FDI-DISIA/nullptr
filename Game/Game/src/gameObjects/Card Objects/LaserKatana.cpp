@@ -14,12 +14,12 @@ void LaserKatanaCard::attack(Vector2D playerPos, Vector2D mousePos, float attack
 
 	auto slashAnim = where->addGameObject<GameObject>();
 
-	auto spritePosition = playerPos + dir * 100 - Vector2D(PLAYER_SPRITE_WIDTH * 2, PLAYER_SPRITE_HEIGHT * 3);
-	slashAnim->addComponent<Transform>(spritePosition, VECTOR_ZERO, 100, 200, rotation);
-	auto anim = slashAnim->addComponent<Animator>(SDLApplication::getTexture("NeonSlash"), 96, 192, 1, 9);
-	anim->createAnim("NeonSlash", Animation(0, 8, 20, 1));
+	auto spritePosition = playerPos - Vector2D(250, 70) / 2;
+	slashAnim->addComponent<Transform>(spritePosition, VECTOR_ZERO, 250, 70, rotation);
+	auto anim = slashAnim->addComponent<Animator>(SDLApplication::getTexture("NeonDash"), 250, 70, 1, 11);
+	anim->createAnim("NeonSlash", Animation(0, 10, 20, 1));
 	anim->play("NeonSlash");
-	slashAnim->addComponent<LifeTimeComponent>(0.4);
+	slashAnim->addComponent<LifeTimeComponent>(0.55);
 
 }
 
