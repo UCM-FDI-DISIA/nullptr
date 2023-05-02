@@ -36,10 +36,10 @@ void PlayerData::defaultPlayerStats() {
 	// Cartas iniciales
 	addCardToLibrary(_card_TORCH, 3);
 	addCardToDeck(_card_TORCH, 3);
-	addCardToLibrary(_card_RIOTSHIELD, 3);
-	addCardToDeck(_card_RIOTSHIELD, 3);
-	addCardToLibrary(_card_LASERKATANA, 2);
-	addCardToDeck(_card_LASERKATANA, 2);
+	addCardToLibrary(_card_SWORD, 3);
+	addCardToDeck(_card_SWORD, 3);
+	addCardToLibrary(_card_GUN, 2);
+	addCardToDeck(_card_GUN, 2);
 }
 
 void PlayerData::getDataFromJSON() {
