@@ -100,7 +100,7 @@ class  RiotShieldCard : public Card {
 public:
 	constexpr static cardId_type id = _card_RIOTSHIELD;
 
-	RiotShieldCard() : Card(cardsData().get("Shield")) {};
+	RiotShieldCard() : Card(cardsData().get("RiotShield")) {};
 	virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 	void checkCollisionWithBullets(GameObject* shield, BattleScene* where);
