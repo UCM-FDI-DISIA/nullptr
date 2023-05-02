@@ -57,9 +57,11 @@
       { "id" : "HealArea", "file" : "../Game/resources/images/Cards/CardEffects/HealArea_51x51.png" },
 
       { "id" : "GameLogo", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogo_spritesheet_200x140.png" },
+      { "id" : "GameLogoShadow", "file" : "../Game/resources/images/UI/MainMenuScene/TimelessDeckLogoShadow_200x140.png" },
       { "id" : "StudioLogo", "file" : "../Game/resources/images/UI/MainMenuScene/NullptrLogo_84x18.png" },
 
-      { "id" : "MainMenuBackground", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
+      { "id" : "MainMenuBackground1", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackground_106x59.png" },
+      { "id" : "MainMenuBackground2", "file" : "../Game/resources/images/UI/MainMenuScene/MainMenuBackgroundSaves_106x59.png" },
       { "id" : "ShopSceneBackground1", "file" : "../Game/resources/images/UI/ShopScene/ShopSceneBackground1_106x59.png" },
       { "id" : "ShopSceneBackground2", "file" : "../Game/resources/images/UI/ShopScene/ShopSceneBackground2_544x306.png" },
       { "id" : "BattleBackground", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground_1088x612.png" },
