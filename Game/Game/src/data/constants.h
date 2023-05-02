@@ -695,9 +695,9 @@ const string TAZA_CAFE = "Taza de Cafe";
 const string BOTELLA_MINIATURA = "Barco en Miniatura";
 
 //ENEMY GENERATOR---------------------------------------------------------------------------------
-const int MELEE_RADIUS = 500;
-const int RANGED_RADIUS = 800;
-const int TANK_RADIUS = 600;
+const int MELEE_RADIUS = 400;
+const int RANGED_RADIUS = 600;
+const int TANK_RADIUS = 500;
 
 const int STARTING_TIME_PER_WAVE = 15000;
 
