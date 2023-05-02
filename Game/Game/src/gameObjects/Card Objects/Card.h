@@ -10,6 +10,7 @@ class Card {
 		float downtime;
 		std::string name, abilityText, attackText;
 		Texture* texture;
+		SoundEffect* attackSound;
 	public:
 		Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _data, Texture* _texture);
 		Card(CardData myData);

@@ -5,6 +5,7 @@
 
 //Se crea una bala en la posición del jugador y se dirige hacia el cursor
 void BowCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	//Comprobación de que la cadencia no ha sido modificada previamente
 	if (downtime != BOW_CADENCE) downtime = BOW_CADENCE;
 
@@ -20,7 +21,7 @@ void BowCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 
 //Se disparan todas las flechas
 void BowCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 		Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 		dir = dir.normalize();
 		float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;

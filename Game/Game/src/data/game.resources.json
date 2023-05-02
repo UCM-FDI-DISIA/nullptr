@@ -266,7 +266,9 @@
       { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"},
       { "id" : "EtherPick", "file": "../Game/resources/sounds/EtherPick.wav"},
       { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
-      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"}
+      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"},
+      { "id" : "Slash", "file": "../Game/resources/sounds/SwordSlash.wav"},
+      { "id" : "Shot", "file": "../Game/resources/sounds/ShotSound.wav"}
     ],
   
     "musics" : [

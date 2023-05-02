@@ -717,6 +717,8 @@ const string FASE_COMPLETED_SOUND = "FaseCompleted";
 const string ETHER_PICK = "EtherPick";
 const string MANA_PICK = "ManaPick";
 const string HEAL_SOUND = "Heal";
+const string SLASH_SOUND = "Slash";
+const string SHOT_SOUND = "Shot";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
