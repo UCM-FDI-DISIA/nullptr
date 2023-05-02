@@ -35,6 +35,9 @@ private:
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
 
+	bool isPlayingMainMusic=false;
+	Music* mainMusic;
+
 	double deltaTime = 0.0;
 	Uint32 timeOffset = 0;
 	uint32_t startTime;
@@ -86,6 +89,10 @@ public:
 	static void returnToMapScene();
 	// Cierra el juego
 	static void quitGame();
+
+	inline void playMainMusic(){ mainMusic->play(); isPlayingMainMusic = true; }
+	inline void stopMainMusic(){ mainMusic->haltMusic(); isPlayingMainMusic = false; }
+	inline bool isMusicPlaying() { return isPlayingMainMusic; }
 
 	inline GameState* getCurrentState() { return SDLApplication::instance()->gameStateMachine->currentState(); }
 	inline double getDeltaTime() { return deltaTime; }

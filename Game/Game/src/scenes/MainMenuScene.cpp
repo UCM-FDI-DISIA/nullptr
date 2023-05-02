@@ -3,6 +3,9 @@
 #include "../gameObjects/GameObject.h"
 
 MainMenuScene::MainMenuScene() {
+	if (!SDLApplication::instance()->isMusicPlaying()) {
+		SDLApplication::instance()->playMainMusic();
+	}
 	// Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);

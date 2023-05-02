@@ -239,7 +239,8 @@
     ],
   
     "musics" : [
-      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"}
+      { "id" : "BattleMusic", "file" : "../Game/resources/sounds/TDCombatTheme.wav"},
+      { "id" : "MenusMusic", "file" : "../Game/resources/sounds/MenusMusic.wav"}
     ],
 
   "relics": [

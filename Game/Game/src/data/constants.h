@@ -710,6 +710,7 @@ const string FASE_COMPLETED_SOUND = "FaseCompleted";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
+const string MAIN_MUSIC = "MenusMusic";
 const string DEATH_MELODY = "Death";
 
 //SHOP ------------------------------------------------------------------------------------------

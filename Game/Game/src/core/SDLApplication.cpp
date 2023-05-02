@@ -2,7 +2,7 @@
 
 // Constructora
 SDLApplication::SDLApplication() {
-
+	
 	// Creacion de la ventana
 	SDLUtils::init("Timeless Deck - Es tiempo", WIN_WIDTH, WIN_HEIGHT, "../Game/src/data/game.resources.json");
 	utils = SDLUtils::instance();
@@ -15,6 +15,8 @@ SDLApplication::SDLApplication() {
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
 	exit = false;
+
+	mainMusic = &sdlutils().musics().at(MAIN_MUSIC);
 }
 
 // Destructora
@@ -26,6 +28,7 @@ SDLApplication::~SDLApplication() {
 void SDLApplication::run() {
 	gameStateMachine->pushState(new MainMenuScene());
 
+	playMainMusic();
 
 
 	uint32_t frameTime; double debugCounter;

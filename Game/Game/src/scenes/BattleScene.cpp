@@ -8,6 +8,8 @@
 
 // Constructora
 BattleScene::BattleScene(BattleType t_, bool tuto) : NodeScene(), type(t_) {
+	SDLApplication::instance()->stopMainMusic();
+
 	tutorial = tuto;
 	//Mana
 	PlayerData::instance()->resetMana();
