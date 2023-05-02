@@ -24,8 +24,6 @@ void ColliderComponent::initComponent()
 {
 	tr = gObj->getComponent<Transform>();
 	assert(tr != nullptr);
-	if (width == 0) width = tr->getWidth();
-	if (height == 0) height = tr->getHeight();
 }
 
 
@@ -73,17 +71,19 @@ void ColliderComponent::hasCollided() {
 
 Vector2D ColliderComponent::getPos()
 {
-	return tr->getCenter() - Vector2D(width / 2, height / 2);
+	return tr->getCenter() - Vector2D(getWidth() / 2, getHeight() / 2);
 }
 
 float ColliderComponent::getWidth()
 {
-	return width;
+	if (width == 0) return tr->getWidth();
+	else return width;
 }
 
 float ColliderComponent::getHeight()
 {
-	return height;
+	if (height == 0) return tr->getHeight();
+	else return height;
 }
 
 float ColliderComponent::getRotation()
@@ -94,22 +94,27 @@ float ColliderComponent::getRotation()
 Vector2D ColliderComponent::getAnchorPoint()
 {
 	Vector2D newAnch = tr->getAnchorPoint();
-	newAnch.setX((newAnch.getX() / tr->getWidth()) * width);
-	newAnch.setY((newAnch.getY() / tr->getHeight()) * height);
+	newAnch.setX((newAnch.getX() / tr->getWidth()) * getWidth());
+	newAnch.setY((newAnch.getY() / tr->getHeight()) * getHeight());
 	return newAnch;
 }
 
 #ifdef _DEBUG
 void ColliderComponent::render() const{
+
+	float wdt = (width == 0 ? tr->getWidth() : width);
+	float hgt = (height == 0 ? tr->getHeight() : height);
+
+
 	SDL_Rect rect;
-	rect.x = (tr->getCenter() - Vector2D(width / 2, height / 2)).getX() + gStt->getCamera()->getComponent<Transform>()->getRect().x;
-	rect.y = (tr->getCenter() - Vector2D(width / 2, height / 2)).getY() + gStt->getCamera()->getComponent<Transform>()->getRect().y;
-	rect.w = width;
-	rect.h = height;
+	rect.x = (tr->getCenter() - Vector2D(wdt / 2, hgt / 2)).getX() + gStt->getCamera()->getComponent<Transform>()->getRect().x;
+	rect.y = (tr->getCenter() - Vector2D(wdt / 2, hgt / 2)).getY() + gStt->getCamera()->getComponent<Transform>()->getRect().y;
+	rect.w = wdt;
+	rect.h = hgt;
 
 	SDL_Point* anch = new SDL_Point;
-	anch->x = (tr->getAnchorPoint().getX() / tr->getWidth()) * width;
-	anch->y = (tr->getAnchorPoint().getY() / tr->getHeight()) * height;
+	anch->x = (tr->getAnchorPoint().getX() / tr->getWidth()) * wdt;
+	anch->y = (tr->getAnchorPoint().getY() / tr->getHeight()) * hgt;
 
 	Texture* texture = SDLApplication::getTexture("Collider");
 
