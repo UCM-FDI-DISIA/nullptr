@@ -8,11 +8,28 @@ class ColliderComponent : public Component
 private:
 	vector <CallBackCol> functions;
 	grpId target;
+	Transform* tr;
+	float width, height;
+
 public:
 	static const int id = _COLLIDER_COMPONENT;
 	//Devuelve un booleano de colision entre el objeto y el objetivo
-	ColliderComponent(grpId list);
-	virtual void update();
+	ColliderComponent(grpId id);
+	ColliderComponent(grpId id, int width, int height);
+
+	void initComponent() override;
+	void update() override;
+
 	void hasCollided();
 	void addFunction(CallBackCol funct);
+
+	Vector2D getPos();
+	float getWidth();
+	float getHeight();
+	float getRotation();
+	Vector2D getAnchorPoint();
+
+#ifdef _DEBUG
+	void render() const;
+#endif
 };

@@ -6,7 +6,7 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "null", _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 100, 120, "null", _grp_ENEMIES };
 
 	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.1, data, Vector2D(-1, -1), nullptr, playerPos);
 
