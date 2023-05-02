@@ -48,7 +48,7 @@ void BossBehaviour::update() {
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
 				switch (attackState) {
 				case 0: // Conos
-					coneAttack();
+					targetedAttack();
 					break;
 				case 1: // BulletHell
 					bulletHellAttack();
@@ -302,7 +302,8 @@ void BossBehaviour::clockAttack()
 // Funcion para el ataque teledirigido
 void BossBehaviour::targetedAttack()
 {
-	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>());
+	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>(), true);
+	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>(), false);
 }
 
 void BossBehaviour::spawnMeleeEnemy() {

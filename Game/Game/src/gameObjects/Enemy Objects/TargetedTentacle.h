@@ -11,7 +11,7 @@
 class TargetedTentacle: public GameObject
 {
 public:
-	virtual void initGameObject(Vector2D pos, Transform* player);
+	virtual void initGameObject(Vector2D pos, Transform* player, bool imagen);
 
 private:
 	int damage = 30;
