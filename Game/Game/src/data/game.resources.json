@@ -64,7 +64,7 @@
       { "id": "Grenade", "file": "../Game/resources/images/Cards/CardEffects/Grenade_30x40.png" },
       { "id" : "Sound", "file" : "../Game/resources/images/Cards/CardEffects/Sound32x32.png" },
       { "id" : "SwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/SwordSlash_200x200.png" },
-      { "id" : "BossCone", "file" : "../Game/resources/images/Cards/CardEffects/BossCone_200x200.png" },
+      { "id" : "BossCone", "file" : "../Game/resources/images/Enemies/ConeAttack_150x90.png" },
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
 
       { "id" : "NewSwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin192x192.png" },
