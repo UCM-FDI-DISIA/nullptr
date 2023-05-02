@@ -18,4 +18,5 @@ public:
 	void handleInput() override;
 	void selectCard(CardData cData);
 	void deselectCard();
+	void createNumber(GameObject* number, Vector2D pos, int value, char type);
 };
