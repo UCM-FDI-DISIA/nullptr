@@ -32,7 +32,7 @@ void RiotShieldCard::ability(Vector2D playerPos, Vector2D mousePos, float attack
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 50, dir * SHIELD_SPEED, rotation, 200, 100, SWORD_SLASH, _grp_ENM_ATTACK };
+	Hitbox::HitboxData data = { playerPos + dir * 50, dir * SHIELD_SPEED, rotation, 100, 120, SWORD_SLASH, _grp_ENM_ATTACK };
 
     auto shield = where->addGameObject<CustomHitbox>();
     shield->initCustomHitbox(data);
