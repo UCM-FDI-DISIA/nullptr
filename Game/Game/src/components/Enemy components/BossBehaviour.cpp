@@ -48,7 +48,7 @@ void BossBehaviour::update() {
 				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
 				switch (attackState) {
 				case 0: // Conos
-					targetedAttack();
+					coneAttack();
 					break;
 				case 1: // BulletHell
 					bulletHellAttack();

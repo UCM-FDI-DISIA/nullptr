@@ -22,7 +22,7 @@ void TargetedComponent::initComponent() {
 
 // Actualizar el componente
 void TargetedComponent::update() {
-    if (gObj->getComponent<Image>() == NULL)
+    if (/*gObj->getComponent<Animator>() == NULL*/gObj->getComponent<Image>() == NULL)
     {
         // Primer estado: Inicializar y extender el objeto
         if (elapsedTime < initTime && !initCompleted && !delayCompleted) {
@@ -58,6 +58,7 @@ void TargetedComponent::update() {
         if (delayCompleted && initCompleted) gObj->setAlive(false);
     }
     else {
+        //gObj->getComponent<Animator>()->play(BOSS_TENTACLE);
         // Seguir al jugador mientras no haya llegado el momento de expandirse
         if (elapsedTime < delayTime) {
             elapsedTime += SDLApplication::instance()->getDeltaTimeSeconds(); // Incrementar el tiempo transcurrido

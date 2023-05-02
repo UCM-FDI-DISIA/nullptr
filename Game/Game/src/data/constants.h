@@ -229,6 +229,8 @@ const int CONE_ATTACK_DURATION = 2000; // 2 seconds
 const int CONE_ATTACK_COOLDOWN = 2000; // 2 seconds
 const float RAD_TO_DEG = 180.0f / M_PI;
 const string BOSS_TENTACLE = "TargetedTentacle";
+const Animation BOSS_TENTACLE_ANIMATION(0, 10, 5, -1);
+
 const string BOSS_BULLET = "BossBullet";
 const float BOSS_BULLET_W = 35;
 const float BOSS_BULLET_H = 7;
