@@ -21,6 +21,11 @@
       "size": 48
     },
     {
+      "id": "SILKSCREEN_REGULAR20",
+      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
+      "size": 20
+    },
+    {
       "id": "SILKSCREEN_REGULAR22",
       "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
       "size": 22
@@ -213,9 +218,13 @@
 
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
-
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
 
+      { "id" : "LeftArrow", "file" : "../Game/resources/images/UI/OptionsMenuScene/LeftArrow_spritesheet_32x22.png" },
+      { "id" : "RightArrow", "file" : "../Game/resources/images/UI/OptionsMenuScene/RightArrow_spritesheet_32x22.png" },
+
+      {"id": "Companion","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
+      {"id": "Screen", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
       {"id": "Tuto","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
       {"id": "DarkPlain", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
       {"id": "TutoTalking", "file":  "../Game/resources/images/UI/TutorialScene/TutoTalking_378x284.png"},
