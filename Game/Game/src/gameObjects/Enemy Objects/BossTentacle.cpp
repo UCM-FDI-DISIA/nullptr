@@ -1,7 +1,7 @@
 #include "BossTentacle.h"
 
 void BossTentacle::initGameObject(Transform* boss) {
-	Transform* ptr = addComponent<Transform>(boss->getCenter() - Vector2D(250, 100), Vector2D(), 500, 200);
+	Transform* ptr = addComponent<Transform>(boss->getCenter() - TENTACLES_PORTALS_OFFSET, Vector2D(), PORTALS_W, PORTALS_H);
 
 	addComponent<Image>(&sdlutils().images().at("BossPortals"));
 	addComponent<ColliderComponent>(_grp_PLAYER)->addFunction([&](GameObject* player)

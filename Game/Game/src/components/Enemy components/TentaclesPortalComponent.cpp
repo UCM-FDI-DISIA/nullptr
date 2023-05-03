@@ -21,19 +21,19 @@ void TentaclesPortalComponent::update() {
 		if (timeOffset >= 0.25) {
 			ti = gStt->addGameObject(_grp_ENM_ATTACK);
 			tentIzq = ti->addComponent<Transform>(tr->getPos() + Vector2D(0, tr->getHeight() / 2 - 20), Vector2D(), 50, 40, 180);
-			ti->addComponent<Image>(&sdlutils().images().at("BossTentacle"));
+			ti->addComponent<Image>(&sdlutils().images().at(BOSS_TENTACLE));
 			ti->addComponent<ColliderComponent>(_grp_PLAYER)->addFunction([&](GameObject* player)
 				{
-					player->getComponent<HealthComponent>()->receiveDamage(20);
+					player->getComponent<HealthComponent>()->receiveDamage(10);
 				}
 			);
 			
 			td = gStt->addGameObject(_grp_ENM_ATTACK);
 			tentDer = td->addComponent<Transform>(tr->getPos() + Vector2D(tr->getWidth() - 45, tr->getHeight() / 2 - 20), Vector2D(), 50, 40);
-			td->addComponent<Image>(&sdlutils().images().at("BossTentacle")); 
+			td->addComponent<Image>(&sdlutils().images().at(BOSS_TENTACLE));
 			td->addComponent<ColliderComponent>(_grp_PLAYER)->addFunction([&](GameObject* player)
 				{
-					player->getComponent<HealthComponent>()->receiveDamage(20);
+					player->getComponent<HealthComponent>()->receiveDamage(10);
 				}
 			);
 			state = 1;
@@ -47,7 +47,7 @@ void TentaclesPortalComponent::update() {
 		if (timeOffset >= 0.1) {
 			tentIzq->setWidth(tentIzq->getWidth() + 20);
 			tentDer->setWidth(tentDer->getWidth() + 20);
-			if (tentIzq->getWidth() >= 450 && tentDer->getWidth() >= 450) {
+			if (tentIzq->getWidth() >= TENTACLE_MAX_W && tentDer->getWidth() >= TENTACLE_MAX_W) {
 				state = 2;
 			}
 			timeOffset = 0;

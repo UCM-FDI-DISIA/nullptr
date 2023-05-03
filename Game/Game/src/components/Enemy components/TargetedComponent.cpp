@@ -3,7 +3,7 @@
 #include "../../core/SDLApplication.h"
 
 TargetedComponent::TargetedComponent(Transform* p, Transform* b) : 
-	Component(), tr(nullptr), pltr(p), bossTr(b), state(0), timeOffset(0), maxWidth(600) { }
+	Component(), tr(nullptr), pltr(p), bossTr(b), state(0), timeOffset(0), maxWidth(TARGETED_TENTACLE_MAX_W) { }
 
 void TargetedComponent::initComponent() {
 	tr = gObj->getComponent<Transform>();
@@ -54,7 +54,7 @@ void TargetedComponent::update() {
 }
 
 void TargetedComponent::calculatePos() {
-	Vector2D dir = (pltr->getPos() - bossTr->getCenter()).normalize() * 200;
+	Vector2D dir = (pltr->getPos() - bossTr->getCenter()).normalize() * POINTER_DEFAULT_RADIUS * 2;
 	tr->setPos(dir + bossTr->getCenter() + bossTr->getInitialPosition() - bossTr->getPos());
 	tr->setRotation(Vector2D(1, 0).angle(dir.normalize()));
 }

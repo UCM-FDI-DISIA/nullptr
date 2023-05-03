@@ -170,17 +170,7 @@ void BossBehaviour::coneAttack() {
 
 	// Generar los ataques de cono en dirección al jugador y en dirección contraria
 	for (int i = 0; i < 2; i++) {
-		/*Vector2D coneDir = dir.rotate(i * 180 + coneAttacksDone * 90);
-		Vector2D hitboxDir;
-		if (i % 2 == 0) {
-			hitboxDir = coneDir.rotate(45);
-		}
-		else {
-			hitboxDir = coneDir.rotate(315);
-		}*/
 
-		// Cambiar la posición de la hitbox para que se instancie desde el centro del boss
-		//Vector2D hitboxPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + coneDir * 200;
 		Vector2D hitboxPos = Vector2D(pos->getCenter().getX(), pos->getCenter().getY()) - Vector2D(0,90);
 		Vector2D offset = Vector2D(); float rotation = 0;
 		if (coneAttacksDone == 0) {
@@ -192,8 +182,6 @@ void BossBehaviour::coneAttack() {
 			rotation = i == 0 ? 90 : 270;
 		}
 
-		/*Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);*/
 		gStt->addGameObject<BossCone>(_grp_ENM_ATTACK, hitboxPos + offset, rotation + 90);
 	}
 
@@ -294,8 +282,10 @@ void BossBehaviour::grenadeAttack() {
 	};
 	// Creo las 4 granadas en direcciones arriba, abajo, izq y der
 	for (int i = 0; i < 4; i++) {
-		Hitbox::HitboxData data = { gObj->getComponent<Transform>()->getCenter(), directions[i] * BULLET_SPEED, 0, 100, 100, "BossGrenade", _grp_PLAYER};
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 3, StatusComponent::NONE, 200, 200, "BossGrenade", dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
+		Hitbox::HitboxData data = { gObj->getComponent<Transform>()->getCenter(), 
+			directions[i] * BULLET_SPEED, 0, BOSS_GRENADE_DIMENSIONS, BOSS_GRENADE_DIMENSIONS, "BossGrenade", _grp_PLAYER};
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, 5, true, 3, StatusComponent::NONE, 
+			BOSS_GRENADE_EXPLOSION, BOSS_GRENADE_EXPLOSION, "BossGrenade", dynamic_cast<BattleScene*>(gStt), data, Vector2D(-1,-1), bossGrenade);
 	}
 }
 

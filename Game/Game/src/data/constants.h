@@ -204,10 +204,11 @@ const int BOSS_ENEMY_SPRITE_WIDTH = 300;
 const int BOSS_ENEMY_SPRITE_HEIGHT = 300;
 const int BOSS_ENEMY_SPRITE_ROWS = 1;
 const int BOSS_ENEMY_SPRITE_COLS = 39;
-
 const int BOSS_ENEMY_WIDTH = BOSS_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
 const int BOSS_ENEMY_HEIGHT = BOSS_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
-
+const Vector2D BOSS_OFFSET = Vector2D(BOSS_ENEMY_WIDTH / 2, -BOSS_ENEMY_HEIGHT / 2);
+const int BOSS_LIFE = 500;
+const int BOSS_COLLIDER_W = 350;
 const float BOSS_CLOCK_DELAYTIME = 2;
 const float BOSS_CLOCK_ATTACKTIME = 1;
 const float BOSS_CLOCK_ATTACKDURATION = 4;
@@ -232,17 +233,30 @@ const Animation BOSS_ENEMY_COMBINED_ATTACK_ANIMATION(27, 38, 5, 1);
 
 //BOSS ATTACKS-----------------------------
 const int CONE_HITBOX_SIZE = 250;
-const int CONE_ATTACK_DURATION = 2000; // 2 seconds
+const float CONE_WITDH = 300;
+const float CONE_HEIGHT = 180;
+const int CONE_ATTACK_DURATION = 2; // 2 seconds
 const int CONE_ATTACK_COOLDOWN = 2000; // 2 seconds
 const float RAD_TO_DEG = 180.0f / M_PI;
 const Animation BOSS_TENTACLE_ANIMATION(0, 10, 5, -1);
 
-const string BOSS_TENTACLE = "TargetedTentacle";
+const string BOSS_TENTACLE = "BossTentacle";
+const string BOSS_TARGETED_TENTACLE = "TargetedTentacle";
 const string BOSS_BULLET = "BossBullet";
 const string CONE_BOSS = "ConeAttack";
 const float BOSS_BULLET_W = 35;
 const float BOSS_BULLET_H = 7;
 const float BOSS_BULLET_DMG = 20;
+const float BOSS_GRENADE_DIMENSIONS = 100;
+const float BOSS_GRENADE_EXPLOSION = 200;
+
+const Vector2D TENTACLES_PORTALS_OFFSET = Vector2D(250, 100);
+const float PORTALS_W = 500;
+const float PORTALS_H = 200;
+const float TENTACLE_MAX_W = 450;
+const float TARGETED_TENTACLE_MAX_W = 600;
+const float TENTACLE_INITIAL_W = 50;
+const float TENTACLE_H = 40;
 
 // NAMES SPRITES ---------------------------------------------------------------------------------------
 const string HEAL_AREA = "HealArea";
@@ -307,20 +321,20 @@ const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH 
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.7);
 const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + FRAME_OFFSET.getX() / 2, WIN_HEIGHT * 0.55);
 // PAUSEMENU: BUTTON POSITIONS AND DIMENSIONS
+const string PAUSE_MESSAGE = "PausaMessage";
+const float PAUSE_MESSAGE_W = 300;
+const float PAUSE_MESSAGE_H = 120;
+const Vector2D PAUSE_MESSAGE_POS = Vector2D(WIN_WIDTH / 2 - PAUSE_MESSAGE_W / 2, WIN_HEIGHT / 5);
 const int PM_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 4;
 const int PM_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 4;
 const int PM_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 4;
 const int PM_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 4;
-const Vector2D PM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT / 2);
-const Vector2D PM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (MM_BUTTON_WIDTH / 2), WIN_HEIGHT * 4 / 6);
-const Vector2D PM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (MM_BUTTON_WIDTH / 2), WIN_HEIGHT * 5 / 6);
+const Vector2D PM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 3 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT / 2);
+const Vector2D PM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH * 2 / 3 - (MM_BUTTON_WIDTH / 2), WIN_HEIGHT / 2);
+const Vector2D PM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - (MM_BUTTON_WIDTH / 2), WIN_HEIGHT * 2 / 3 + 30);
 const Vector2D PM_RESUMEFRAME_BUTTON_POS = PM_RESUME_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_OPTIONSFRAME_BUTTON_POS = PM_OPTIONS_BUTTON_POS - FRAME_OFFSET;
 const Vector2D PM_EXITFRAME_BUTTON_POS = PM_EXIT_BUTTON_POS - FRAME_OFFSET;
-const string PAUSE_MESSAGE = "PausaMessage";
-const float PAUSE_MESSAGE_W = 300;
-const float PAUSE_MESSAGE_H = 120;
-const Vector2D PAUSE_MESSAGE_POS = Vector2D(WIN_WIDTH/2 - PAUSE_MESSAGE_W/2, WIN_HEIGHT / 5);
 //CHESTMENU: BUTTON POSITIONS AND DIMENSIONS
 const int CHEST_BUTTON_WIDTH = 100;
 const int CHEST_BUTTON_HEIGHT = 50;
