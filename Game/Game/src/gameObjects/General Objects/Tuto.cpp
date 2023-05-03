@@ -5,7 +5,7 @@
 // Inicializa el objeto
 void Tuto::initGameObject(Transform* pl) {
 	// Componente transaforms
-	tr = addComponent<Transform>(Vector2D(WIN_WIDTH - 128 * 2, WIN_HEIGHT - 128 * 2), VECTOR_ZERO, TUTO_WIDTH, TUTO_HEIGHT);
+	tr = addComponent<Transform>(Vector2D(FLOOR_WIDTH/2 - 128 * 2, FLOOR_HEIGHT/2 - 128 * 2), VECTOR_ZERO, TUTO_WIDTH, TUTO_HEIGHT);
 
 	// Componente Animator
 	myAnim = addComponent<Animator>(SDLApplication::getTexture(TUTO_TEXTURE), TUTO_SPRITE_WIDTH, TUTO_SPRITE_HEIGHT, 8, 5);
