@@ -106,10 +106,15 @@ const int PLAYER_DEATH_FINAL_FRAME = 56;
 const int PLAYER_DEATH_FRAME_RATE = 8;
 const double DEATH_DELAY = 1000;
 
+// FLOOR -----------------------------------------------------------------------------------------
+const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
+const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
+const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
 const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
-const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
+const Vector2D PLAYER_INITIAL_POSITION = { FLOOR_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, FLOOR_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
@@ -394,11 +399,6 @@ const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT;
 const float BATTLEBACKGROUND3_SCROLLFACTOR = 0.1;
 const float BATTLEBACKGROUND2_SCROLLFACTOR = 0.2;
 const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
-
-// FLOOR -----------------------------------------------------------------------------------------
-const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
-const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
-const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
 // TUTORIALSCENE ---------------------------------------------------------------------------------
 // SPRITES DIMS
