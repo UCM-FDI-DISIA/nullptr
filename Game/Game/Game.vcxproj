@@ -220,6 +220,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossCone.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\BossEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\BossTentacle.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h" />
@@ -339,6 +340,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossCone.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\BossTentacle.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp" />

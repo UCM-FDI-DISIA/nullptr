@@ -71,7 +71,8 @@ void ColliderComponent::hasCollided() {
 
 Vector2D ColliderComponent::getPos()
 {
-	return tr->getCenter() - Vector2D(getWidth() / 2, getHeight() / 2);
+	if (width == 0 || height == 0) return tr->getPos();
+	else return tr->getCenter() - Vector2D(getWidth() / 2, getHeight() / 2);
 }
 
 float ColliderComponent::getWidth()

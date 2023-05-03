@@ -13,7 +13,7 @@ void BossEnemy::initGameObject(Vector2D pos, int life, Player* player, CallBack 
 		BOSS_ENEMY_SPRITE_HEIGHT, BOSS_ENEMY_SPRITE_ROWS, BOSS_ENEMY_SPRITE_COLS,
 		BOSS_ENEMY_IDLE_ANIMATION);
 
-	addComponent<ColliderComponent>(_grp_PLAYER)->addFunction([&](GameObject* player)
+	addComponent<ColliderComponent>(_grp_PLAYER, 350, BOSS_ENEMY_HEIGHT)->addFunction([&](GameObject* player)
 		{
 			player->getComponent<HealthComponent>()->receiveDamage(5);
 		}

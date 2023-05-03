@@ -1,6 +1,7 @@
 #include "BossBehaviour.h"
 #include "TentacleBehaviour.h"
 #include "../../gameObjects/Enemy Objects/TargetedTentacle.h"
+#include "../../gameObjects/Enemy Objects/BossCone.h"
 #include "../../gameObjects/Enemy Objects/BossTentacle.h"
 
 // Esta clase maneja el comportamiento de los enemigos a distancia
@@ -160,7 +161,7 @@ void BossBehaviour::enemyAttack() {
 void BossBehaviour::coneAttack() {
 
 #ifdef _DEBUG
-	cout << "ataqueCono";
+	//cout << "ataqueCono";
 #endif
 
 	// Obtener la dirección hacia el objetivo (en este caso, el player)
@@ -169,21 +170,31 @@ void BossBehaviour::coneAttack() {
 
 	// Generar los ataques de cono en dirección al jugador y en dirección contraria
 	for (int i = 0; i < 2; i++) {
-		Vector2D coneDir = dir.rotate(i * 180 + coneAttacksDone * 90);
+		/*Vector2D coneDir = dir.rotate(i * 180 + coneAttacksDone * 90);
 		Vector2D hitboxDir;
-
 		if (i % 2 == 0) {
 			hitboxDir = coneDir.rotate(45);
 		}
 		else {
 			hitboxDir = coneDir.rotate(315);
-		}
+		}*/
 
 		// Cambiar la posición de la hitbox para que se instancie desde el centro del boss
-		Vector2D hitboxPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + coneDir * 200;
-		float rotation = Vector2D(1, 0).angle(coneDir);
-		Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
-		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);
+		//Vector2D hitboxPos = Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() - 200) + coneDir * 200;
+		Vector2D hitboxPos = Vector2D(pos->getCenter().getX(), pos->getCenter().getY()) - Vector2D(0,90);
+		Vector2D offset = Vector2D(); float rotation = 0;
+		if (coneAttacksDone == 0) {
+			offset = i == 0 ? Vector2D(150, 0) : Vector2D(-400, 0);
+			rotation = i == 0 ? 0 : 180;
+		}
+		else {
+			offset = i == 0 ? Vector2D(-150, BOSS_ENEMY_HEIGHT / 2) : Vector2D(-150, -BOSS_ENEMY_HEIGHT / 2);
+			rotation = i == 0 ? 90 : 270;
+		}
+
+		/*Hitbox::HitboxData data = { hitboxPos, VECTOR_ZERO, rotation, 200, 200, CONE_BOSS, _grp_PLAYER };
+		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data);*/
+		gStt->addGameObject<BossCone>(_grp_ENM_ATTACK, hitboxPos + offset, rotation + 90);
 	}
 
 	// Incrementar el contador de ataques de cono

@@ -118,7 +118,6 @@
       { "id": "GrenadeExplosion", "file": "../Game/resources/images/Cards/CardEffects/GrenadeExplosion_256x256.jpg" },
       { "id" : "Sound", "file" : "../Game/resources/images/Cards/CardEffects/Sound32x32.png" },
       { "id" : "SwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/SwordSlash_200x200.png" },
-      { "id" : "BossCone", "file" : "../Game/resources/images/Enemies/BossCone_200x200.png" },
       { "id" : "SwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin_400x400.png" },
 
       { "id" : "NewSwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin192x192.png" },
@@ -158,12 +157,13 @@
       
       { "id" : "BossEnemy", "file" : "../Game/resources/images/Enemies/Boss_300x300.png" },
 
-      { "id": "TargetedTentacle", "file": "../Game/resources/images/Enemies/TargetedTentacle_250x50.png"},
+      { "id" : "TargetedTentacle", "file": "../Game/resources/images/Enemies/TargetedTentacle_250x50.png"},
       { "id" : "BossTentacle", "file" : "../Game/resources/images/Enemies/Tentacle_150x20.png" },
-      { "id" : "ConeAttack", "file" : "../Game/resources/images/Enemies/ConeAttack_250x250.png" },
+      { "id" : "ConeAttack", "file" : "../Game/resources/images/Enemies/ConeAttack_150x90.png" },
       { "id" : "BossPortals", "file" : "../Game/resources/images/Enemies/TentaclesPortal_250x100.png" },
       { "id" : "BossBullet", "file" : "../Game/resources/images/Enemies/BossBullet_35x7.png" },
       { "id" : "BossGrenade", "file" : "../Game/resources/images/Enemies/BossGrenade_100x100.png" },
+      { "id" : "BossCone", "file" : "../Game/resources/images/Enemies/BossCone_200x200.png" },
 
       { "id" : "TankEnemyDeath", "file" : "../Game/resources/images/Enemies/TankEnemyDeath_40x40.png" },
       {"id"  : "AssasinEnemyDeath", "file": "../Game/resources/images/Enemies/AssasinEnemyDeath_32x32.png"},

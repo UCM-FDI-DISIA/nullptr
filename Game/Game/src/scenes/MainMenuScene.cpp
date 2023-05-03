@@ -51,14 +51,14 @@ MainMenuScene::MainMenuScene() {
 	}
 	else {
 		// Botón jugar
-		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
+		/*createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
-			PLAY)->setAsDefaultButton();
+			PLAY)->setAsDefaultButton();*/
 
 		//Este es para probar el boss
-		/*createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
+		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToBoss(); },
-			PLAY)->setAsDefaultButton();*/
+			PLAY)->setAsDefaultButton();
 
 		// Botón album
 		createButton(MM_ALBUM_BUTTON_POS_NOSAVE, MM_ALBUM_BUTTON_POS_NOSAVE - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
