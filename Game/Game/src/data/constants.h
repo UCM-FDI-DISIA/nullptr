@@ -267,6 +267,7 @@ const string LASER = "Laser";
 const float BULLET_SPEED = 200;
 const float GUN_BULLET_SPEED = 550;
 const float LASER_BULLET_SPEED = 2000;
+const float LASER_BULLET_SPEED_A = 200;
 const float PULGA_BULLET_SPEED = 250;
 const float SMG_BULLET_SPEED = 700;
 const float LIGHT_BULLET_SPEED = 800;
