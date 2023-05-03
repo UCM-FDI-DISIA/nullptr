@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 #include "../components/General Components/CallbackDelayer.h"
 
-ChestScene::ChestScene() : NodeScene() {
+ChestScene::ChestScene() : GameState() {
 	// Sonido
 	chestOpening=&sdlutils().soundEffects().at(CHEST_OPENING_SOUND);
   

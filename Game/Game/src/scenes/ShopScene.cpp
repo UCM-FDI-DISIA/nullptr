@@ -2,7 +2,7 @@
 #include "../core/SDLApplication.h"
 
 // Constructora
-ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) {
+ShopScene::ShopScene() : GameState(), selectedCard(nullptr), buyButton(nullptr) {
 	SDLApplication::instance()->stopMainMusic();
 	shopMusic = &sdlutils().musics().at(SHOP_MUSIC);
 	shopMusic->play(-1);

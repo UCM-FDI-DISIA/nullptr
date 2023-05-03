@@ -121,6 +121,7 @@ void SDLApplication::returnToMapScene() {
 	assert(ms != nullptr);
 	ms->moveCamera();
 	ms->resetSelectedButton();
+	gameMap().completeCurrentNode();
 	pD().setDataToJSON();
 }
 

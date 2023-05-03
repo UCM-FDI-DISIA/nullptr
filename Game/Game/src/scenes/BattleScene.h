@@ -1,5 +1,5 @@
 #pragma once
-#include "NodeScene.h"
+#include "GameState.h"
 #include "../gameObjects/Player Object/Player.h"
 #include "../gameObjects/Enemy Objects/MeleeEnemy.h"
 #include "../gameObjects/Enemy Objects/RangedEnemy.h"
@@ -14,7 +14,7 @@ class StatisticsUI;
 class ChargedPortalComponent;
 class HandUI;
 
-class BattleScene : public NodeScene {
+class BattleScene : public GameState {
 protected:
 	Player* player;
 	GameObject *floor, *background, *background1, *background2, *background3;

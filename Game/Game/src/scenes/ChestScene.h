@@ -1,8 +1,8 @@
 #pragma once
-#include "NodeScene.h"
+#include "GameState.h"
 #include <utility>
 
-class ChestScene : public NodeScene {
+class ChestScene : public GameState {
 private:
 	GameObject* gachaButton;
 	AnimatorInfo* chestAI;
