@@ -7,7 +7,7 @@
 #include "../gameObjects/UI/HandUI.h"
 
 // Constructora
-BattleScene::BattleScene(BattleType t_, bool tuto) : NodeScene(), type(t_) {
+BattleScene::BattleScene(BattleType t_, bool tuto) : GameState(), type(t_) {
 	SDLApplication::instance()->stopMainMusic();
 
 	tutorial = tuto;

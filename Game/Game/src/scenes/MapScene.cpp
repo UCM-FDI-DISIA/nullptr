@@ -71,7 +71,7 @@ MapScene::MapScene() {
 }
 
 void MapScene::goToTutorial() {
-	gameMap().getNodeMap()[1][1]->loadNode()();
+	gameMap().getNodeMap()[0][1]->loadNode()();
 }
 
 void MapScene::handleInput() {

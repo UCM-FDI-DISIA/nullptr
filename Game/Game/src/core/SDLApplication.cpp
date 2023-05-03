@@ -7,6 +7,9 @@ SDLApplication::SDLApplication() {
 	SDLUtils::init("Timeless Deck - Es tiempo", WIN_WIDTH, WIN_HEIGHT, "../Game/src/data/game.resources.json");
 	utils = SDLUtils::instance();
 	window = utils->window();
+
+	SDL_SetWindowResizable(window, SDL_FALSE);
+
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
 	utils->hideCursor();
@@ -118,6 +121,7 @@ void SDLApplication::returnToMapScene() {
 	assert(ms != nullptr);
 	ms->moveCamera();
 	ms->resetSelectedButton();
+	gameMap().completeCurrentNode();
 	pD().setDataToJSON();
 }
 

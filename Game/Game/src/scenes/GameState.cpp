@@ -4,7 +4,7 @@
 // Constructor
 GameState::GameState() : entsByGroup_(), butNavigator(new ButtonNavigator()), gmCtrl_(gmCtrl()), lastButtonIndex(-1) {
     for (auto & grpEnts : entsByGroup_) {
-        grpEnts.reserve(100); //Reserva espacio para cada lista
+        grpEnts.reserve(500); //Reserva espacio para cada lista
     }
     camera = addGameObject<Camera>();
     pointer = addGameObject<Pointer>(_grp_POINTER);
