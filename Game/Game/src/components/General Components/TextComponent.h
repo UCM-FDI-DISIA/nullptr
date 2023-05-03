@@ -45,5 +45,8 @@ public:
 
 	// Añade texto al actual
 	std::string operator +=(std::string s);
+
+	// Devuelve el texto
+	inline string getText() { return text; }
 };
 

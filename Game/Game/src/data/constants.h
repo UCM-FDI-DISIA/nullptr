@@ -746,9 +746,9 @@ const string TAZA_CAFE = "Taza de Cafe";
 const string BOTELLA_MINIATURA = "Barco en Miniatura";
 
 //ENEMY GENERATOR---------------------------------------------------------------------------------
-const int MELEE_RADIUS = 500;
-const int RANGED_RADIUS = 800;
-const int TANK_RADIUS = 600;
+const int MELEE_RADIUS = 400;
+const int RANGED_RADIUS = 600;
+const int TANK_RADIUS = 500;
 
 const int STARTING_TIME_PER_WAVE = 15000;
 
@@ -768,6 +768,8 @@ const string FASE_COMPLETED_SOUND = "FaseCompleted";
 const string ETHER_PICK = "EtherPick";
 const string MANA_PICK = "ManaPick";
 const string HEAL_SOUND = "Heal";
+const string SLASH_SOUND = "Slash";
+const string SHOT_SOUND = "Shot";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
@@ -793,6 +795,18 @@ const Vector2D SHOP_MONEY_FRAME_POSITION = Vector2D(WIN_WIDTH / 2 - SHOP_MONEY_F
 const Vector2D SHOP_MONEY_COIN_POSITION = Vector2D(WIN_WIDTH / 2 - 32 * PIXEL_WIDTH - 10, WIN_HEIGHT - 75 - 32 * PIXEL_HEIGHT / 2);
 const int COIN_WIDHT = 32 * PIXEL_WIDTH;
 const int COIN_HEIGHT = 32 * PIXEL_HEIGHT;
+
+// OPTIONS -------------------------------------------------------------------------------------
+const string OPTIONS_JSON_ROOT = "../Game/src/data/game.options.json";
+const SDL_Rect MUSIC_RECT = { WIN_WIDTH / 3 - 200 , WIN_HEIGHT / 3, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
+const SDL_Rect FX_RECT = { WIN_WIDTH / 3 - 200 , MUSIC_RECT.y + MUSIC_RECT.h + 10, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
+const SDL_Rect FULL_WINDOW_RECT = { WIN_WIDTH / 3 - 200 , FX_RECT.y + FX_RECT.h + 10, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
+const SDL_Rect PERIPHERAL_RECT = { WIN_WIDTH / 3 - 200 , FULL_WINDOW_RECT.y + FULL_WINDOW_RECT.h + 10, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
+const SDL_Rect GAMEPAD_CONNECTION_RECT = { WIN_WIDTH / 2 - 200 , PERIPHERAL_RECT.y + PERIPHERAL_RECT.h + 20, MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT };
+const string GAMEPAD_CONNECTION_TEXT = "No se detectó ningún mando";
+const Animation ONOUT_OPTIONS_ARROW = Animation(0, 0, 7, -1);
+const Animation ONOVER_OPTIONS_ARROW = Animation(1, 1, 7, -1);
+const Animation ONCLICK_OPTIONS_ARROW = Animation(2, 2, 7, -1);
 
 //POSTGAME SCENE ------------------------------------------------------------------------------------------
 const Vector2D POSTGAME_EXITBUTTON_POSITION = Vector2D(1000, 650);

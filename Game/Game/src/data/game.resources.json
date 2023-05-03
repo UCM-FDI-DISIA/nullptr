@@ -21,6 +21,11 @@
       "size": 48
     },
     {
+      "id": "SILKSCREEN_REGULAR20",
+      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
+      "size": 20
+    },
+    {
       "id": "SILKSCREEN_REGULAR22",
       "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
       "size": 22
@@ -118,6 +123,16 @@
 
       { "id" : "NewSwordSpin", "file" : "../Game/resources/images/Cards/CardEffects/SwordSpin192x192.png" },
       { "id" : "NewSwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/NewSwordSlash96x192.png" },
+
+      { "id" : "NewSwordSlash", "file" : "../Game/resources/images/Cards/CardEffects/NewSwordSlash96x192.png" },
+
+      { "id" : "NeonSlash", "file" : "../Game/resources/images/Cards/CardEffects/NeonSlash96x192.png" },
+      { "id" : "NeonDash", "file" : "../Game/resources/images/Cards/CardEffects/NeonDash_250x70.png" },
+      { "id" : "NeonLaser", "file" : "../Game/resources/images/Cards/CardEffects/NeonLaser_15x150.png" },
+      { "id" : "ShieldSlash", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSlash96x192.png" },
+      { "id" : "ShieldSkill", "file" : "../Game/resources/images/Cards/CardEffects/ShieldSkill_100x120.png" },
+      { "id" : "TorchSlash", "file" : "../Game/resources/images/Cards/CardEffects/TorchSlash96x192.png" },
+      { "id" : "MegaphoneAtt", "file" : "../Game/resources/images/Cards/CardEffects/MegaphoneAttack_29x32.png" },
 
       { "id" : "SpearThrustAnim", "file" : "../Game/resources/images/Cards/CardEffects/Spear100x30.png" },
       { "id" : "SpearSkill", "file" : "../Game/resources/images/Cards/CardEffects/SpearSkill100x30.png" },
@@ -226,9 +241,13 @@
 
       { "id" : "Album", "file" : "../Game/resources/images/UI/AlbumScene/AlbumScene_544x306.png" },
       { "id" : "CardSelectedMenu", "file" : "../Game/resources/images/UI/AlbumScene/CardSelectedMenu_544x306.png" },
-
       { "id" : "CardSelection", "file" : "../Game/resources/images/Cards/CardSelection_58x93.png" },
 
+      { "id" : "LeftArrow", "file" : "../Game/resources/images/UI/OptionsMenuScene/LeftArrow_spritesheet_32x22.png" },
+      { "id" : "RightArrow", "file" : "../Game/resources/images/UI/OptionsMenuScene/RightArrow_spritesheet_32x22.png" },
+
+      {"id": "Companion","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
+      {"id": "Screen", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
       {"id": "Tuto","file": "../Game/resources/images/UI/TutorialScene/Tuto_128x96.png"},
       {"id": "DarkPlain", "file":  "../Game/resources/images/UI/TutorialScene/Screen.png"},
       {"id": "TutoTalking", "file":  "../Game/resources/images/UI/TutorialScene/TutoTalking_378x284.png"},
@@ -260,7 +279,9 @@
       { "id" : "FaseCompleted", "file": "../Game/resources/sounds/VictorySound.wav"},
       { "id" : "EtherPick", "file": "../Game/resources/sounds/EtherPick.wav"},
       { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
-      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"}
+      { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"},
+      { "id" : "Slash", "file": "../Game/resources/sounds/SwordSlash.wav"},
+      { "id" : "Shot", "file": "../Game/resources/sounds/ShotSound.wav"}
     ],
   
     "musics" : [

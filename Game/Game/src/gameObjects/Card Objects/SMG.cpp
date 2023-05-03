@@ -5,6 +5,7 @@
 
 //Se crea una bala en la posici�n del jugador y se dirige hacia el cursor
 void SMGCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	//Comprobaci�n de que la cadencia no ha sido modificada previamente
 	if (downtime != SMG_CADENCE) downtime = SMG_CADENCE;
 

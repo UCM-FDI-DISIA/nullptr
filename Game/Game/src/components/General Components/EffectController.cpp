@@ -14,6 +14,10 @@ void EffectController::update()
 	for (auto& effect : currentEffects)
 	{
 		double second = fmod(effect.timer, 1.0);
+	
+		#ifdef _DEBUG
+			std::cout << second << "\n";
+		#endif // DEBUG
 
 		switch (effect.effect)
 		{

@@ -111,7 +111,7 @@ void PostGameScene::showObject() {
 	case 8:
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(
-			newCard.second == 2 ? 575 : 620, 30), VECTOR_ZERO, 400, 100);
+			newCard.second == 2 ? 560 : 620, 30), VECTOR_ZERO, 400, 100);
 		
 		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), 
 			(newCard.second == 2 ? "NUEVAS CARTAS OBTENIDAS" : "NUEVA CARTA OBTENIDA"), build_sdlcolor(0xffffffff));

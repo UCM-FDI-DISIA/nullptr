@@ -34,6 +34,7 @@ enum cmpId : cmpId_type {
 	_TARGETED_BEHAVIOUR,
 	_TENTACLES_PORTAL_,
 	_PLAYERINPUT,
+	_OPTIONSUPDATE,
 	_LERP_COMPONENT,
 	_TUTORIAL_COMPONENT,
 	// ... (compoment ids)
@@ -83,6 +84,17 @@ enum CardId : cardId_type {
 	_LAST_CARD_ID
 };
 constexpr cardId_type maxCardId = _LAST_CARD_ID;
+
+using optionId_type = int;
+enum OptionId : optionId_type {
+	_option_MUSIC,
+	_option_SFX,
+	_option_FULLWINDOW, 
+	_option_PERIPHERAL,
+	// do not remove this
+	_LAST_OPTION_ID
+};
+constexpr optionId_type maxOptionId = _LAST_OPTION_ID;
 
 // Animaciones
 struct Animation {

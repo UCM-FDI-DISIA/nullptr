@@ -3,6 +3,7 @@
 
 void RitualAxeCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 

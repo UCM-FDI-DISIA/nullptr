@@ -155,7 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
     <ClInclude Include="src\components\Card Components\FollowEnemyComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
@@ -190,6 +189,7 @@
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LerpComponent.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
+    <ClInclude Include="src\components\General Components\OptionsUpdateComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\StatsTrackComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
@@ -212,6 +212,7 @@
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
+    <ClInclude Include="src\data\OptionsData.h" />
     <ClInclude Include="src\data\PlayerData.h" />
     <ClInclude Include="src\data\RelicData.h" />
     <ClInclude Include="src\framework.h" />
@@ -297,6 +298,7 @@
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LerpComponent.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
+    <ClCompile Include="src\components\General Components\OptionsUpdateComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
