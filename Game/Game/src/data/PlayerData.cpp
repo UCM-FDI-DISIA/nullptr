@@ -1,3 +1,4 @@
+
 #include "PlayerData.h"
 #include "../gameObjects/Card Objects/Cards.h"
 #include "../data/json/JSON.h"
@@ -34,12 +35,14 @@ void PlayerData::defaultPlayerStats() {
 	playerSpeed = PLAYER_SPEED;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_SPEAR, 3);
-	addCardToDeck(_card_SPEAR, 3);
-	addCardToLibrary(_card_SWORD, 3);
-	addCardToDeck(_card_SWORD, 3);
-	addCardToLibrary(_card_GUN, 2);
-	addCardToDeck(_card_GUN, 2);
+	//addCardToLibrary(_card_SPEAR, 3);
+	//addCardToDeck(_card_SPEAR, 3);
+	//addCardToLibrary(_card_SWORD, 3);
+	//addCardToDeck(_card_SWORD, 3);
+	//addCardToLibrary(_card_GUN, 2);
+	//addCardToDeck(_card_GUN, 2);
+	 addCardToLibrary(_card_LASERGLASSES, 4);
+	addCardToDeck(_card_LASERGLASSES, 4);
 }
 
 void PlayerData::getDataFromJSON() {
