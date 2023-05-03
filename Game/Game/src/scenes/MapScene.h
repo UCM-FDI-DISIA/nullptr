@@ -9,6 +9,8 @@ private:
 	Button* inventoryButton;
 	Transform* camTr;
 	int camYLimit;
+	GameObject* background;
+	GameObject* background2;
 public:
 	MapScene();
 

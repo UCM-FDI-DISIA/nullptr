@@ -122,6 +122,8 @@
       { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/ShopNode_32x32.png" },
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
+      { "id" : "MapBackground", "file" : "../Game/resources/images/UI/MapScene/backgroundMap_544x918.png" },
+      { "id" : "MapBackground2", "file" : "../Game/resources/images/UI/MapScene/backgroundMap_544x918_2.png" },
 
       { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
       { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
