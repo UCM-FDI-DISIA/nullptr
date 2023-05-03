@@ -47,7 +47,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 	camTr = camera->getComponent<Transform>();
 	GameObject* found = addGameObject();
 	found->addComponent<Transform>(FOUND_TEXT_POS, VECTOR_ZERO, 50, 24);
-	found->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR30"), to_string(Album::instance()->getFoundCards().size()) 
+	found->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_BOLD38"), to_string(Album::instance()->getFoundCards().size()) 
 		+ "/"+ to_string(CardsDataContainer::instance()->numOfCards()))->attachToCamera();
 }
 
@@ -110,17 +110,17 @@ void AlbumScene::selectCard(CardData cData) {
 	// NOMBRE
 	g = addGameObject();
 	g->addComponent<Transform>(Vector2D(300, 70), VECTOR_ZERO);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.name)->attachToCamera();
+	g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR22"), cData.name)->attachToCamera();
 	infoWindow.push_back(g);
 	// ATAQUE
 	g = addGameObject();
 	g->addComponent<Transform>(Vector2D(300, 100), VECTOR_ZERO, 200);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.attackText, true)->attachToCamera();
+	g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR22"), cData.attackText, true)->attachToCamera();
 	infoWindow.push_back(g);
 	// HABILIDAD
 	g = addGameObject();
 	g->addComponent<Transform>(Vector2D(300, 150), VECTOR_ZERO, 200);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.abilityText, true)->attachToCamera();
+	g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR22"), cData.abilityText, true)->attachToCamera();
 	infoWindow.push_back(g);
 
 	// TO DO -> QUE SE MUESTREN MANÁ Y MUNICIÓN EN EL POPUP
