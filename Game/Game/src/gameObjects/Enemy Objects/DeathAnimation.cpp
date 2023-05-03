@@ -1,6 +1,6 @@
 #include "DeathAnimation.h"
 
-void DeathAnimation::initGameObject(Vector2D pos, int enemy) {
+void DeathAnimation::initGameObject(Vector2D pos, int enemy, int xVel) {
 	if(enemy == 0){
 		addComponent<Transform>(pos, Vector2D(0, 0), MELEE_ENEMY_WIDTH, MELEE_ENEMY_HEIGHT);
 		addComponent<Image>(SDLApplication::getTexture("MeleeEnemyDeath"));
@@ -17,6 +17,6 @@ void DeathAnimation::initGameObject(Vector2D pos, int enemy) {
 		addComponent<Transform>(pos, Vector2D(0, 0), MELEE_ENEMY_WIDTH, MELEE_ENEMY_HEIGHT);
 		addComponent<Image>(SDLApplication::getTexture("AssasinEnemyDeath"));
 	}
-
-	addComponent<LifeTimeComponent>(0.75);
+	if (xVel < 0) { getComponent<Image>()->flipHorizontal(); }
+	addComponent<LifeTimeComponent>(0.35);
 }

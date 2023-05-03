@@ -3,6 +3,7 @@
 
 // Crea un gObj Slash en la direcci�n que apunta el jugador
 void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
@@ -23,6 +24,7 @@ void SwordCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 
 // Crea un gObj Spin en el centro del jugador
 void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	
 	Hitbox::HitboxData  data = { playerPos, VECTOR_ZERO, 0, 300, 300, "null", _grp_ENEMIES };
 

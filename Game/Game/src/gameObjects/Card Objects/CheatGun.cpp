@@ -3,6 +3,7 @@
 #include "../../components/Card Components/FollowEnemyComponent.h"
 void CheatGunCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where)
 {
+	Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset());
 
 	dir = dir.normalize();
