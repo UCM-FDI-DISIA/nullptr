@@ -1,4 +1,7 @@
 #include "BossBehaviour.h"
+#include "TentacleBehaviour.h"
+#include "../../gameObjects/Enemy Objects/TargetedTentacle.h"
+#include "../../gameObjects/Enemy Objects/BossTentacle.h"
 
 // Esta clase maneja el comportamiento de los enemigos a distancia
 // Como su movimento y su habilidad para atacar
@@ -295,15 +298,14 @@ Uint32 BossBehaviour::coneAttackTimerCallback(Uint32 interval, void* param) {
 // Funcion para el ataque de reloj
 void BossBehaviour::clockAttack()
 {
-	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX()+pos->getWidth()/2, pos->getPos().getY()+pos->getHeight()/2), false);
-	gStt->addGameObject<BossTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), true);
+	Transform* tr = gObj->getComponent<Transform>();
+	gStt->addGameObject<BossTentacle>(tr);
 }
 
 // Funcion para el ataque teledirigido
 void BossBehaviour::targetedAttack()
 {
-	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>(), true);
-	gStt->addGameObject<TargetedTentacle>(Vector2D(pos->getPos().getX() + pos->getWidth() / 2, pos->getPos().getY() + pos->getHeight() / 2), player->getComponent<Transform>(), false);
+	gStt->addGameObject<TargetedTentacle>(_grp_ENM_ATTACK, player->getComponent<Transform>(), gObj->getComponent<Transform>());
 }
 
 void BossBehaviour::spawnMeleeEnemy() {

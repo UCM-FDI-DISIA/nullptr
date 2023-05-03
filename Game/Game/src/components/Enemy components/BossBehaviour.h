@@ -3,8 +3,6 @@
 #include "../../gameObjects/Card Objects/Hitbox.h"
 #include "../../scenes/BattleScene.h"
 #include "../../core/SDLApplication.h"
-#include "../../gameObjects/Enemy Objects/BossTentacle.h"
-#include "../../gameObjects/Enemy Objects/TargetedTentacle.h"
 #include <cmath>
 
 // Esta clase define el comportamiento del enemigo a distancia
@@ -42,7 +40,6 @@ private:
 	HealthComponent* hc;
 
 	bossState_ID currentBossState = boss_IDLE;
-	
 
 public:
 	static const int id = _ENEMY_BEHAVIOUR;

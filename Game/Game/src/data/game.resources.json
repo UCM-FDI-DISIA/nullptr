@@ -142,9 +142,11 @@
       {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemyProv_32x32.png"},
       
       { "id" : "BossEnemy", "file" : "../Game/resources/images/Enemies/Boss_300x300.png" },
-      
-      { "id" : "TargetedTentacle", "file" : "../Game/resources/images/Enemies/TargetedTentacle_250x50.png" },
+
+      { "id": "TargetedTentacle", "file": "../Game/resources/images/Enemies/TargetedTentacle_250x50.png"},
+      { "id" : "BossTentacle", "file" : "../Game/resources/images/Enemies/Tentacle_150x20.png" },
       { "id" : "ConeAttack", "file" : "../Game/resources/images/Enemies/ConeAttack_250x250.png" },
+      { "id" : "BossPortals", "file" : "../Game/resources/images/Enemies/TentaclesPortal_250x100.png" },
       { "id" : "BossBullet", "file" : "../Game/resources/images/Enemies/BossBullet_35x7.png" },
       { "id" : "BossGrenade", "file" : "../Game/resources/images/Enemies/BossGrenade_100x100.png" },
 

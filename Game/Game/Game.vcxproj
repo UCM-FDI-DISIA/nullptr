@@ -177,6 +177,7 @@
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\TargetedComponent.h" />
     <ClInclude Include="src\components\Enemy components\TentacleBehaviour.h" />
+    <ClInclude Include="src\components\Enemy components\TentaclesPortalComponent.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
     <ClInclude Include="src\components\General Components\ButtonComponent.h" />
     <ClInclude Include="src\components\General Components\CallbackDelayer.h" />
@@ -283,6 +284,7 @@
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\TargetedComponent.cpp" />
     <ClCompile Include="src\components\Enemy components\TentacleBehaviour.cpp" />
+    <ClCompile Include="src\components\Enemy components\TentaclesPortalComponent.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CallbackDelayer.cpp" />

@@ -12,5 +12,5 @@ class BossTentacle:public GameObject
 private:
 	int damage = 25;
 public:
-	virtual void initGameObject(Vector2D pos, bool mirror);
+	virtual void initGameObject(Transform* boss);
 };

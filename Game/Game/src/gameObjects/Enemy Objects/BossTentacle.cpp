@@ -1,12 +1,14 @@
 #include "BossTentacle.h"
 
-void BossTentacle:: initGameObject(Vector2D pos, bool mirror) {
-	Transform* boss = addComponent<Transform>(pos, VECTOR_ZERO, 25, 50, mirror? 180 : 0);
-	addComponent<TentacleBehaviour>(mirror);
+void BossTentacle::initGameObject(Transform* boss) {
+	Transform* ptr = addComponent<Transform>(boss->getCenter() - Vector2D(250, 100), Vector2D(), 500, 200);
+
+	addComponent<Image>(&sdlutils().images().at("BossPortals"));
 	addComponent<ColliderComponent>(_grp_PLAYER)->addFunction([&](GameObject* player)
 		{
-			player->getComponent<HealthComponent>()->receiveDamage(damage);
+			player->getComponent<HealthComponent>()->receiveDamage(5);
 		}
 	);
-	addComponent<Image>(&sdlutils().images().at(BOSS_TENTACLE));
+
+	TentaclesPortalComponent* tc = addComponent<TentaclesPortalComponent>(boss);
 }
