@@ -66,6 +66,7 @@ void TentaclesPortalComponent::update() {
 			timeOffset = 0;
 		}
 		break;
+		// Cuento un segundo y me borro
 	case 3:
 		timeOffset += SDLApplication::instance()->getDeltaTimeSeconds();
 		if (timeOffset >= 1) { ti->setAlive(false); td->setAlive(false); gObj->setAlive(false); }
@@ -73,6 +74,7 @@ void TentaclesPortalComponent::update() {
 	}
 }
 
+// Magia de vectores
 void TentaclesPortalComponent::calculatePos() {
 	Vector2D dir = Vector2D(1, 0).rotate(tentDer->getRotation()) * tr->getWidth()/2;
 	tentDer->setPos(dir + boss->getCenter() -  Vector2D(0, tentDer->getHeight() / 2) + boss->getInitialPosition() - boss->getPos());

@@ -14,13 +14,8 @@ CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
 	fireRateMult = PlayerData::instance()->getFireRateMult();
-	if (!tuto) 
-	{
-		for (CardId card : PlayerData::instance()->getDeck()) {
-			deck.push_back(Card::getCard(card));
-		}
-	}
-	else {
+
+	if(tuto) {
 		tutorialInitCard = new SwordCard();
 		deck.push_back(tutorialInitCard);
 	}
