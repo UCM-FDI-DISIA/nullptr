@@ -252,7 +252,6 @@
     <ClInclude Include="src\scenes\InventoryScene.h" />
     <ClInclude Include="src\scenes\MainMenuScene.h" />
     <ClInclude Include="src\scenes\MapScene.h" />
-    <ClInclude Include="src\scenes\NodeScene.h" />
     <ClInclude Include="src\scenes\OptionsMenuScene.h" />
     <ClInclude Include="src\scenes\PauseMenuScene.h" />
     <ClInclude Include="src\scenes\PostGameScene.h" />
@@ -371,7 +370,6 @@
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
     <ClCompile Include="src\scenes\MainMenuScene.cpp" />
     <ClCompile Include="src\scenes\MapScene.cpp" />
-    <ClCompile Include="src\scenes\NodeScene.cpp" />
     <ClCompile Include="src\scenes\OptionsMenuScene.cpp" />
     <ClCompile Include="src\scenes\PauseMenuScene.cpp" />
     <ClCompile Include="src\scenes\PostGameScene.cpp" />
@@ -393,6 +391,7 @@
     <None Include="src\data\game.album.json" />
     <None Include="src\data\game.cards.json" />
     <None Include="src\data\game.map.json" />
+    <None Include="src\data\game.playerData.json" />
     <None Include="src\data\game.resources.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

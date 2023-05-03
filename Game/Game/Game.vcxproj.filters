@@ -824,5 +824,8 @@
     <None Include="src\data\game.album.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
+    <None Include="src\data\game.playerData.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
   </ItemGroup>
 </Project>

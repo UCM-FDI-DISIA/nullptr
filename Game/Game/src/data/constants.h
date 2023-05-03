@@ -17,8 +17,8 @@ const Vector2D VECTOR_ZERO = { 0,0 };
 
 
 // WINDOW ----------------------------------------------------------------------------------------
-const uint WIN_WIDTH = 1280;
-const uint WIN_HEIGHT = 720;
+const int WIN_WIDTH = 1280;
+const int WIN_HEIGHT = 720;
 const float WIN_WIDTH_PER_PIXEL = WIN_WIDTH/544;
 const float WIN_HEIGHT_PER_PIXEL = WIN_HEIGHT/306;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
@@ -106,10 +106,15 @@ const int PLAYER_DEATH_FINAL_FRAME = 56;
 const int PLAYER_DEATH_FRAME_RATE = 8;
 const double DEATH_DELAY = 1000;
 
+// FLOOR -----------------------------------------------------------------------------------------
+const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
+const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
+const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
 const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
-const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
+const Vector2D PLAYER_INITIAL_POSITION = { FLOOR_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, FLOOR_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
@@ -320,6 +325,7 @@ const Vector2D MM_ALBUM_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 
 const Vector2D MM_OPTIONS_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 - WIN_WIDTH / 8 - FRAME_OFFSET.getX() / 2, WIN_HEIGHT * 0.7);
 const Vector2D MM_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + WIN_WIDTH / 8 + FRAME_OFFSET.getX(), WIN_HEIGHT * 0.7);
 const Vector2D MM_RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2 + FRAME_OFFSET.getX() / 2, WIN_HEIGHT * 0.55);
+const Vector2D FOUND_TEXT_POS = Vector2D(1016, 40);
 // PAUSEMENU: BUTTON POSITIONS AND DIMENSIONS
 const string PAUSE_MESSAGE = "PausaMessage";
 const float PAUSE_MESSAGE_W = 300;
@@ -354,16 +360,21 @@ const Vector2D MS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH * 7 / 8 - (MS_BUTTON_WIDT
 const Vector2D MS_OPTIONSFRAME_BUTTON_POS = MS_OPTIONS_BUTTON_POS - FRAME_OFFSET;
 const Vector2D MS_INVENTORYFRAME_BUTTON_POS = MS_INVENTORY_BUTTON_POS - FRAME_OFFSET;
 const Vector2D MS_EXITFRAME_BUTTON_POS = MS_EXIT_BUTTON_POS - FRAME_OFFSET;
+// MAPSCENE: BACKGROUND
+const int MAP_BACKGROUND_WIDTH = 544;
+const int MAP_BACKGROUND_HEIGTH = 918;
+const int MAP_PARALLAX_WIDTH = 544 * PIXEL_WIDTH;
+const int MAP_PARALLAX_HEIGHT = 544 * PIXEL_HEIGHT;
+const float MAP_SCROLLFACTOR = 0.5;
+
 // INVENTORYSCENE: BUTTON POSITIONS AND DIMENSIONS
 const int IS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 2;
 const int IS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 2;
 const int IS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 2;
 const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
-const Vector2D IS_EXIT_BUTTON_POS = Vector2D(1115 - IS_BUTTON_WIDTH/2, 670);
-const Vector2D IS_EXITFRAME_BUTTON_POS = IS_EXIT_BUTTON_POS - Vector2D(24, 44);
+const Vector2D IS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - IS_BUTTON_WIDTH * 3 / 2 - 45, WIN_HEIGHT - IS_BUTTON_HEIGHT * 3 / 2 - 5);
 const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
 const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
-const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
@@ -382,7 +393,7 @@ const Vector2D SYMBOL_POSITIONS[5] = {
 };
 
 const Vector2D STAT_OFFSET = Vector2D(74, 20);
-const Vector2D STAT_VALUE_OFFSET = Vector2D(190, 20);
+const Vector2D STAT_VALUE_OFFSET = Vector2D(210, 20);
 
 const string CARD_CIRCLE = "CardCircle";
 const int CARD_CIRCLE_RADIOUS = 20;
@@ -396,29 +407,27 @@ const int CARD_RECTANGLE_WIDTH = 34;
 const int CARD_RECTANGLE_HEIGHT = 14;
 const Vector2D CARD_RECTANGLE_OFFSET = Vector2D(44, -7);
 
+const int PANEL_HEIGHT = 30;
+
 const string DECK_PANEL = "DeckPanel";
-const int DP_WIDTH = 90;
-const int DP_HEIGHT = 45;
-const Vector2D DP_POSITION = Vector2D(474 - DP_WIDTH/2, 465);
+const int DP_WIDTH = 74;
+const Vector2D DP_POSITION = Vector2D(0, 476);
 
 const string OBJECTS_PANEL = "ObjectsPanel";
 const int OP_WIDTH = 125;
-const int OP_HEIGHT = 30;
 const Vector2D OP_POSITION = Vector2D(1116 - OP_WIDTH/2, 99);
 
 const string INVENTORY_PANEL = "InventoryPanel";
 const int IP_WIDTH = 175;
-const int IP_HEIGHT = 30;
-const Vector2D IP_POSITION = Vector2D(474 - IP_WIDTH / 2, 0);
+const Vector2D IP_POSITION = Vector2D(0, 0);
 
 const string STATS_PANEL = "StatsPanel";
 const int SP_WIDTH = 210;
-const int SP_HEIGHT = 30;
 const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
 const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = { 75, 205, 340 };
+const int ALB_CARD_X[3] = { 65, 210, 355 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
 
@@ -433,12 +442,12 @@ const int DECK_HEIGHT = 520;
 // INVENTORY : OBJECTS
 const int OBJECTS_DIMENSIONS = 64;
 const Vector2D OBJECTS_POSITIONS[6] = {
-	Vector2D(960, 132),
-	Vector2D(1034, 132),
-	Vector2D(1108, 132),
-	Vector2D(960, 199),
-	Vector2D(1034, 199),
-	Vector2D(1108, 199)
+	Vector2D(1010, 132),
+	Vector2D(1090, 132),
+	Vector2D(1170, 132),
+	Vector2D(1010, 199),
+	Vector2D(1090, 199),
+	Vector2D(1170, 199),
 };
 
 // BUTTON KEYS
@@ -457,11 +466,6 @@ const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT;
 const float BATTLEBACKGROUND3_SCROLLFACTOR = 0.1;
 const float BATTLEBACKGROUND2_SCROLLFACTOR = 0.2;
 const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
-
-// FLOOR -----------------------------------------------------------------------------------------
-const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
-const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
-const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
 // TUTORIALSCENE ---------------------------------------------------------------------------------
 // SPRITES DIMS

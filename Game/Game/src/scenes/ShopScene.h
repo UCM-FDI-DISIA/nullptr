@@ -2,7 +2,7 @@
 #include "../components/General Components/TextComponent.h"
 #include "../components/General Components/Transform.h"
 #include "../gameObjects/UI/Button.h"
-#include "NodeScene.h"
+#include "GameState.h"
 #include "../data/PlayerData.h"
 #include <map>
 
@@ -16,7 +16,7 @@ struct Item {
 	int price;
 };
 
-class ShopScene : public NodeScene {
+class ShopScene : public GameState {
 private:
 	GameObject* background;
 	Music* shopMusic;

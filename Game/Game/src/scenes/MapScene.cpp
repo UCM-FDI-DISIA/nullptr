@@ -10,6 +10,13 @@ MapScene::MapScene() {
 	vector<vector<Node*>> const& nodeMap = gameMap().getNodeMap();
 	vector<int> const& nodesPerHeight = gameMap().getNodesPerWidth();
 
+	background = addGameObject();
+	background->addComponent<Transform>(Vector2D(0, -3 * WIN_HEIGHT), Vector2D(), WIN_WIDTH, 4 * WIN_HEIGHT);
+	background->addComponent<Image>(SDLApplication::getTexture("MapBackground"));
+	background2 = addGameObject();
+	background2->addComponent<Transform>(Vector2D(0, -2*MAP_PARALLAX_HEIGHT), Vector2D(), MAP_PARALLAX_WIDTH, 3* MAP_PARALLAX_HEIGHT);
+	background2->addComponent<Image>(SDLApplication::getTexture("MapBackground2"))->setScrollFactor(MAP_SCROLLFACTOR);
+
 	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
 	vector<vector<Vector2D>> nodesPositions(HEIGHT);
 	NodeButton* first = nullptr;
@@ -60,6 +67,7 @@ MapScene::MapScene() {
 
 	// Botón salir
 	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { pD().setDataToJSON(); SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+
 }
 
 void MapScene::goToTutorial() {

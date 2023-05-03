@@ -18,7 +18,7 @@ void CameraComponent::initComponent() {
 // Sigue la posicion del followObject
 void CameraComponent::update() {
 	if (followObjectTransform != nullptr) {
-		transform->setPos(followObjectInitialPosition - followObjectTransform->getPos());
+		transform->setPos(cameraInitialPosition - followObjectTransform->getPos());
 	}
 }
 
@@ -26,6 +26,6 @@ void CameraComponent::update() {
 void CameraComponent::setFollowObject(GameObject* followObject_) {
 	followObjectTransform = followObject_->getComponent<Transform>();
 	if (followObjectTransform != nullptr) {
-		followObjectInitialPosition = followObjectTransform->getInitialPosition();
+		cameraInitialPosition = Vector2D(WIN_WIDTH / 2 - followObjectTransform->getWidth() / 2, WIN_HEIGHT / 2 - followObjectTransform->getHeight()/2);
 	}
 }
