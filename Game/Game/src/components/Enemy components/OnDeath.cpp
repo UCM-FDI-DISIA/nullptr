@@ -35,8 +35,7 @@ void OnDeath::death() {
 }
 
 void OnDeath::deathAnim() {
-	gStt->addGameObject<DeathAnimation>(_grp_GENERAL, enemyTransform->getPos(), type);
-
+	gStt->addGameObject<DeathAnimation>(_grp_GENERAL, enemyTransform->getPos(), type, enemyTransform->getVel().getX());
 	GameObject* anim = gStt->addGameObject(_grp_GENERAL);
 	anim->addComponent<Transform>(Vector2D(enemyTransform->getPos().getX() - 10, enemyTransform->getPos().getY() - 10), VECTOR_ZERO, enemyTransform->getWidth() * 1.2, enemyTransform->getHeight() * 1.5);
 	anim->addComponent<Animator>(SDLApplication::getTexture("DeathAnim"), 40, 50, 2, 9);
@@ -44,9 +43,9 @@ void OnDeath::deathAnim() {
 	map.startFrame = 0;
 	map.endFrame = 17;
 	map.backwards = false;
-	map.frameRate = 12;
+	map.frameRate = 24;
 	map.repeat = 1;
 	anim->getComponent<Animator>()->createAnim("death", map);
 	anim->getComponent<Animator>()->play("death");
-	anim->addComponent<LifeTimeComponent>(1.5);
+	anim->addComponent<LifeTimeComponent>(0.8);
 }

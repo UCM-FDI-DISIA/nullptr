@@ -16,7 +16,7 @@ void Image::initComponent() {
 void Image::render() const {
 	texture->changeAlpha(alpha);
 	texture->changeTint(r,g,b);
-	texture->render(getRect(), transform->getRotation(), transform->getAnchorPointSDL());
+	texture->render(getRect(), transform->getRotation(), transform->getAnchorPointSDL(), flip);
 	texture->changeAlpha(255);
 	texture->changeTint(255, 255, 255);
 }

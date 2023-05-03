@@ -110,9 +110,9 @@ public:
 
 	// renders the complete texture at a destination rectangle (dest),
 	// with rotation and anchor point
-	inline void render(const SDL_Rect &dest, float rotation, const SDL_Point* p) {
+	inline void render(const SDL_Rect &dest, float rotation, const SDL_Point* p, SDL_RendererFlip flip = SDL_FLIP_NONE) {
 		SDL_Rect src = { 0, 0, width_, height_ };
-		render(src, dest, rotation, p);
+		render(src, dest, rotation, p, flip);
 	}
 
 

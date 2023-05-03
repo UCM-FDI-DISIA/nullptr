@@ -13,5 +13,5 @@
 class DeathAnimation :public GameObject
 {
 public:
-	virtual void initGameObject(Vector2D pos, int enemy);
+	virtual void initGameObject(Vector2D pos, int enemy, int xVel);
 };
