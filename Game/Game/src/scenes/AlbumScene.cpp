@@ -47,7 +47,7 @@ AlbumScene::AlbumScene() : cardsByRow(2), camTr(nullptr), camYLimit(0), selected
 	camTr = camera->getComponent<Transform>();
 	GameObject* found = addGameObject();
 	found->addComponent<Transform>(FOUND_TEXT_POS, VECTOR_ZERO, 50, 24);
-	found->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), to_string(Album::instance()->getFoundCards().size()) 
+	found->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR30"), to_string(Album::instance()->getFoundCards().size()) 
 		+ "/"+ to_string(CardsDataContainer::instance()->numOfCards()))->attachToCamera();
 }
 
