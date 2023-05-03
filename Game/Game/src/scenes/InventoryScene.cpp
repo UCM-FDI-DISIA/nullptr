@@ -46,17 +46,16 @@ InventoryScene::InventoryScene() : GameState() {
 		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]); // cleon llora porque esto son arrays
 	}
 	// Creamos el boton de salir
-	exitButton = createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, 
-		[&]() {
-			int cardsInDeck = 0;
-			for (auto& crd : inventory) {
-				if (inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck > 0) { 
-					cardsInDeck += inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck; 
-				}
+	exitButton = addGameObject<Button>([&]() {
+		int cardsInDeck = 0;
+		for (auto& crd : inventory) {
+			if (inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck > 0) {
+				cardsInDeck += inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck;
 			}
-			if (cardsInDeck >= 4) SDLApplication::popGameState(); 
-		}, 
-		EXIT, 1.0f, 2.0f);
+		}
+		if (cardsInDeck >= 4) SDLApplication::popGameState();
+	}
+	,IS_EXIT_BUTTON_POS, AnimatorInfo(EXIT), -1, nullptr, 1.0f, 2.0f);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
@@ -92,16 +91,11 @@ void InventoryScene::createMoneyInfo() {
 	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 64, 64);
 	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
 
-	// Texto
-	GameObject* text = addGameObject();
-	text->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, 70, 48);
-	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), "Dinero");
-
 	// Texto con el numero de monedas
-	GameObject* mon = addGameObject();
-	mon->addComponent<Transform>(MONEY_VALUE, VECTOR_ZERO, 50, 48);
+	GameObject* money = addGameObject();
+	money->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, WIN_WIDTH - MONEY_TEXT.getX() - 20, 64);
 	int m = PlayerData::instance()->getMoney();
-	mon->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), to_string(m));
+	money->addComponent<TextComponent>(SDLApplication::getFont("ARIAL36"), "Dinero " + to_string(m));
 }
 
 void InventoryScene::createObjects() {
@@ -122,7 +116,7 @@ void InventoryScene::createCards() {
 	int deckColumn = 0;
 
 	for (auto& crd : inventory) {
-		Vector2D pos = Vector2D(20 + (ALB_CARD_W + 20) * column, 20 + (ALB_CARD_H + 20) * (row ? 0 : 1));
+		Vector2D pos = Vector2D(20 + (INVENTORY_CARD_W + 40) * column, 50 + (INVENTORY_CARD_H + 20) * (row ? 0 : 1));
 		Button* cardButton = createCard(pos, crd.second.card, false);
 		if (column == 0 && !row) cardButton->setAsDefaultButton();
 
@@ -148,7 +142,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 
 	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
-	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
+	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, INVENTORY_CARD_W, INVENTORY_CARD_H);
 	cardObj->addComponent<Image>(cardDt.texture);
 	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd]()
@@ -164,7 +158,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 						reloadDeckCards();
 					}
 				}
-				// Si era el botón fuera del deck se aumente su canidad en este
+				// Si era el botón fuera del deck se aumente su cantidad en este
 				else {
 					invCard.cuantityDeck++;
 					// Si se añade por primera vez al deck este se reorganiza
@@ -177,7 +171,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 				invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 			}
 		}
-		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
+		, pos, AnimatorInfo("CardSelection", INVENTORY_CARD_W, INVENTORY_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
 			-1, nullptr, 0.5f, 0.5f); 
 	
 	Animator* a = b->getComponent<Animator>();
@@ -189,7 +183,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	// Texto que indica cuantas cartas hay en el deck
 	GameObject* text = addGameObject();
 	InventoryInfo& invCard = inventory.find(Card::getCardIDfromEnum(crd))->second;
-	text->addComponent<Transform>(Vector2D (pos.getX()+ ALB_CARD_W,pos.getY()), VECTOR_ZERO, 70, 48);
+	text->addComponent<Transform>(Vector2D (pos.getX()+ INVENTORY_CARD_W,pos.getY()), VECTOR_ZERO, 70, 48);
 	(dck ? invCard.myDeckText : invCard.myText) = text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(dck ? invCard.cuantityDeck : invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 	if (dck) {
 		deckButtons[crd].deckButton = b;
@@ -221,11 +215,13 @@ void InventoryScene::handleInput() {
 }
 
 void InventoryScene::reloadDeckCards() {
+
 	for (auto obj : deckButtons) {
 		obj.second.deckButton->setAlive(false);
 		obj.second.deckImage->setAlive(false);
 		obj.second.deckText->setAlive(false);
 	}
+
 	int column = 0;
 	for (auto& crd : inventory) {
 		if (crd.second.cuantityDeck > 0) {
