@@ -4,7 +4,6 @@
 #include <vector>
 #include "../components/General Components/TextComponent.h"
 
-
 class Card;
 struct InventoryInfo {
 
@@ -21,6 +20,9 @@ struct InventoryCard
 	GameObject* deckButton;
 	GameObject* deckImage;
 	GameObject* deckText;
+	GameObject* deckTextFrame;
+	pair<GameObject*, GameObject*> ammo;
+	pair<GameObject*, GameObject*> mana;
 };
 
 class InventoryScene : public GameState {
@@ -29,18 +31,26 @@ private:
 	std::map<CardId, InventoryCard> deckButtons;
 	vector<int> stats;
 
+	GameObject* inventoryPanel;
+	GameObject* deckPanel;
+
 	Button* exitButton;
 public:
 	InventoryScene();
 	virtual ~InventoryScene();
+
+	virtual void update();
+
 	void handleInput() override;
 	void createSymbol(Vector2D _pos, string key, string text, int val);
 	void createPanels();
-	void createPanel(Vector2D pos, int w, int h, string textureKey);
+	GameObject* createPanel(Vector2D pos, int w, int h, string textureKey);
 	void createMoneyInfo();
 	void createObjects();
 	void createCards();
 	void createDeckCards(CardId crd, int column);
 	Button* createCard(Vector2D pos, CardId card, bool deck);
 	void reloadDeckCards();
+
+	void createNumber(GameObject* number, Vector2D pos, int value, char type);
 };
