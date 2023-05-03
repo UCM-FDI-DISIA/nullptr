@@ -363,7 +363,7 @@ const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
 const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
-const int ALB_CARD_X[3] = { 65, 205, 350 };
+const int ALB_CARD_X[3] = { 65, 210, 355 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
 

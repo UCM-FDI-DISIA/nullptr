@@ -66,11 +66,11 @@ void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int va
 
 	GameObject* stat = addGameObject();
 	stat->addComponent<Transform>(_pos + STAT_OFFSET, VECTOR_ZERO, 100, 24);
-	stat->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), text);
+	stat->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"), text);
 
 	GameObject* value = addGameObject();
 	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
-	value->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), to_string(val));
+	value->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"), to_string(val));
 }
 // Crea los paneles en los que se colocan las cartas
 void InventoryScene::createPanels() {
@@ -95,13 +95,13 @@ void InventoryScene::createMoneyInfo() {
 	// Texto
 	GameObject* text = addGameObject();
 	text->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, 70, 48);
-	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), "Dinero");
+	text->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR30"), "Dinero");
 
 	// Texto con el numero de monedas
 	GameObject* mon = addGameObject();
 	mon->addComponent<Transform>(MONEY_VALUE, VECTOR_ZERO, 50, 48);
 	int m = PlayerData::instance()->getMoney();
-	mon->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), to_string(m));
+	mon->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR30"), to_string(m));
 }
 
 void InventoryScene::createObjects() {
