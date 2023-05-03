@@ -9,7 +9,7 @@ class CameraComponent : public Component {
 private:
 	Transform* transform;
 	Transform* followObjectTransform;
-	Vector2D followObjectInitialPosition;
+	Vector2D cameraInitialPosition;
 public:
 	// Identificador
 	static const int id = _CAMERACOMPONENT;

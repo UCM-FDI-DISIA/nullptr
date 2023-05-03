@@ -154,7 +154,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 
 	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
-	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
+	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, INVENTORY_CARD_W, INVENTORY_CARD_H);
 	cardObj->addComponent<Image>(cardDt.texture);
 	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd]()
@@ -170,7 +170,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 						reloadDeckCards();
 					}
 				}
-				// Si era el botón fuera del deck se aumente su canidad en este
+				// Si era el botón fuera del deck se aumente su cantidad en este
 				else {
 					invCard.cuantityDeck++;
 					// Si se añade por primera vez al deck este se reorganiza
@@ -183,7 +183,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 				invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 			}
 		}
-		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
+		, pos, AnimatorInfo("CardSelection", INVENTORY_CARD_W, INVENTORY_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
 			-1, nullptr, 0.5f, 0.5f); 
 	
 	Animator* a = b->getComponent<Animator>();
@@ -242,12 +242,14 @@ void InventoryScene::handleInput() {
 }
 
 void InventoryScene::reloadDeckCards() {
+
 	for (auto obj : deckButtons) {
 		obj.second.deckButton->setAlive(false);
 		obj.second.deckImage->setAlive(false);
 		obj.second.deckText->setAlive(false);
 		obj.second.deckTextFrame->setAlive(false);
 	}
+
 	int column = 0;
 	for (auto& crd : inventory) {
 		if (crd.second.cuantityDeck > 0) {

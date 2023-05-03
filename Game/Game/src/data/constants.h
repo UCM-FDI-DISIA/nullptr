@@ -106,10 +106,15 @@ const int PLAYER_DEATH_FINAL_FRAME = 56;
 const int PLAYER_DEATH_FRAME_RATE = 8;
 const double DEATH_DELAY = 1000;
 
+// FLOOR -----------------------------------------------------------------------------------------
+const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
+const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
+const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
+
 // PLAYER DIMENSIONS
 const float PLAYER_INITIAL_WIDTH = PLAYER_SPRITE_WIDTH * PIXEL_WIDTH;
 const float PLAYER_INITIAL_HEIGHT = PLAYER_SPRITE_HEIGHT * PIXEL_HEIGHT;
-const Vector2D PLAYER_INITIAL_POSITION = { WIN_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, WIN_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
+const Vector2D PLAYER_INITIAL_POSITION = { FLOOR_WIDTH / 2.0f - PLAYER_INITIAL_WIDTH / 2, FLOOR_HEIGHT / 2.0f - PLAYER_INITIAL_HEIGHT / 2};
 const Vector2D PLAYER_INITIAL_VELOCITY = { 0.0f, 0.0f };
 const float PLAYER_INITIAL_ROTATION = 0;
 const float PLAYER_SPEED = 200;
@@ -299,7 +304,6 @@ const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
 const Vector2D IS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - IS_BUTTON_WIDTH * 3 / 2 - 45, WIN_HEIGHT - IS_BUTTON_HEIGHT * 3 / 2 - 5);
 const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
 const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
-const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {
@@ -355,6 +359,8 @@ const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
 const int ALB_CARD_X[3] = { 75, 205, 340 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
+const int INVENTORY_CARD_W = 45 * PIXEL_WIDTH;
+const int INVENTORY_CARD_H = 73 * PIXEL_HEIGHT;
 
 const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
 const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
@@ -391,11 +397,6 @@ const float BATTLEBACKGROUND123_HEIGHT = 612 * PIXEL_HEIGHT;
 const float BATTLEBACKGROUND3_SCROLLFACTOR = 0.1;
 const float BATTLEBACKGROUND2_SCROLLFACTOR = 0.2;
 const float BATTLEBACKGROUND1_SCROLLFACTOR = 0.3;
-
-// FLOOR -----------------------------------------------------------------------------------------
-const float FLOOR_WIDTH = 6750; //Dimension horizontal del sprite de suelo
-const float FLOOR_HEIGHT = 4500; //Dimension vertical del sprite de suelo
-const Vector2D FLOOR_PAST_VELOCITY = VECTOR_ZERO;
 
 // TUTORIALSCENE ---------------------------------------------------------------------------------
 // SPRITES DIMS

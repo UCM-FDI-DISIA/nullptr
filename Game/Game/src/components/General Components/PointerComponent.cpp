@@ -20,7 +20,7 @@ void PointerComponent::update() {
 		// Calculo de la posicion del puntero
 		Vector2D dir = Vector2D(posX, posY).normalize() * radius;
 		Vector2D followObjectCenterPosition = Vector2D(followObjectTransform->getPos().getX() + followObjectTransform->getWidth() / 2, followObjectTransform->getPos().getY() + followObjectTransform->getHeight() / 2);
-		Vector2D pointerPosition = dir + followObjectCenterPosition - Vector2D(POINTER_WIDTH / 2, POINTER_HEIGHT / 2) + followObjectTransform->getInitialPosition() - followObjectTransform->getPos();
+		Vector2D pointerPosition = dir + followObjectCenterPosition - Vector2D(POINTER_WIDTH / 2, POINTER_HEIGHT / 2) + Vector2D(WIN_WIDTH / 2 - followObjectTransform->getWidth() / 2, WIN_HEIGHT / 2 - followObjectTransform->getHeight() / 2) - followObjectTransform->getPos();
 
 		// Calculo de la rotacion del puntero
 		float angle = abs(atan(posX / posY)) * 180 / M_PI;

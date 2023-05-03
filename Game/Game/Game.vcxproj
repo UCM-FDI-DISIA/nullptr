@@ -373,6 +373,7 @@
     <None Include="src\data\game.album.json" />
     <None Include="src\data\game.cards.json" />
     <None Include="src\data\game.map.json" />
+    <None Include="src\data\game.playerData.json" />
     <None Include="src\data\game.resources.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
