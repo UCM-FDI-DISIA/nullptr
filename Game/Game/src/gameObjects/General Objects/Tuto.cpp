@@ -5,19 +5,17 @@
 // Inicializa el objeto
 void Tuto::initGameObject(Transform* pl) {
 	// Componente transaforms
-	tr = addComponent<Transform>(Vector2D(WIN_WIDTH - 128 * 2, WIN_HEIGHT - 128 * 2),
-		VECTOR_ZERO, COMPANION_WIDTH, COMPANION_HEIGHT);
+	tr = addComponent<Transform>(Vector2D(WIN_WIDTH - 128 * 2, WIN_HEIGHT - 128 * 2), VECTOR_ZERO, TUTO_WIDTH, TUTO_HEIGHT);
 
 	// Componente Animator
-	myAnim = addComponent<Animator>(SDLApplication::getTexture(COMPANION_TEXTURE),
-		COMPANION_SPRITE_WIDTH, COMPANION_SPRITE_HEIGHT, 8, 5);
+	myAnim = addComponent<Animator>(SDLApplication::getTexture(TUTO_TEXTURE), TUTO_SPRITE_WIDTH, TUTO_SPRITE_HEIGHT, 8, 5);
 
 	// Crear animaciones
 	myAnim->createAnim(IDLE, 0, 1, 5, -1);
 	// Animaciones con controller
 	if (ih().isControllerConnected()) {
 		myAnim->createAnim("MovementCtrlls", 25, 26, 5, -1);
-		myAnim->createAnim("AimCtrlls", 27, 28, -1);
+		myAnim->createAnim("AimCtrlls", 27, 28, 5, -1);
 		myAnim->createAnim("AttackCtrlls", 29, 30, 5, -1);
 		myAnim->createAnim("AbilityCtrlls", 31, 32, 5, -1);
 		myAnim->createAnim("ChangeCtrlls", 33, 34, 5, -1);
@@ -45,6 +43,7 @@ void Tuto::changeAnim(int c) {
 	else if (c == 4) myAnim->play("AbilityCtrlls");
 	else if (c == 6) myAnim->play("PortalCtrlls");
 	current = c;
+	time = 0;
 }
 
 void Tuto::update() {

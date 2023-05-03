@@ -68,6 +68,16 @@ void AlbumScene::createCard(CardData myData, Vector2D pos, bool found) {
 	a->createAnim(ONCLICK, CLICKED_CARD_ANIM);
 	a->play(ONOUT);
 	a->dettachFromCamera();
+
+	// Añadir nº si es una carta encontrada
+	if (found) {
+		Transform* tr = b->getComponent<Transform>();
+		Vector2D decsPos = Vector2D(tr->getPos().getX() + 10, tr->getPos().getY() + 13);
+		createNumber(addGameObject(), decsPos, myData.maxUses / 10, 'a');
+		createNumber(addGameObject(), decsPos + Vector2D(10, 0), myData.maxUses % 10, 'a');
+		createNumber(addGameObject(), decsPos + Vector2D(3, 31), myData.mana / 10, 'm');
+		createNumber(addGameObject(), decsPos + Vector2D(14, 31), myData.mana % 10, 'm');
+	}
 }
 
 void AlbumScene::handleInput() {
@@ -94,7 +104,7 @@ void AlbumScene::selectCard(CardData cData) {
 	infoWindow.push_back(g);
 	// CARTA
 	g = addGameObject();
-	g->addComponent<Transform>(Vector2D(100, 70), VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
+	Transform* tr = g->addComponent<Transform>(Vector2D(100, 70), VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
 	g->addComponent<Image>(cData.texture)->attachToCamera();
 	infoWindow.push_back(g);
 	// NOMBRE
@@ -113,6 +123,7 @@ void AlbumScene::selectCard(CardData cData) {
 	g->addComponent<TextComponent>(&sdlutils().fonts().at("ARIAL16"), cData.abilityText, true)->attachToCamera();
 	infoWindow.push_back(g);
 
+	// TO DO -> QUE SE MUESTREN MANÁ Y MUNICIÓN EN EL POPUP
 
 	// BOTï¿½N SALIR
 	AnimatorInfo aI = AnimatorInfo(EXIT);
@@ -129,4 +140,22 @@ void AlbumScene::deselectCard() {
 		m->setAlive(false);
 	}
 	infoWindow.clear();
+}
+
+// Crear un número según los datos recibidos
+void AlbumScene::createNumber(GameObject* number, Vector2D pos, int value, char type) {
+	// Añadir componentes (transform y animator)
+	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH - 1, UI_AMMO_NUMBERS_HEIGHT - 1);
+
+	// Seleccionar textura
+	Texture* txt;
+	if (type == 'a') txt = SDLApplication::getTexture(STATISTICS_NUMBERS);
+	else txt = SDLApplication::getTexture(CARDS_NUMBERS);
+
+	// Añadir animator y crear animaciones
+	auto anim = number->addComponent<Animator>(txt, CARDS_NUMBERS_WIDTH, CARDS_NUMBERS_HEIGHT, CARDS_NUMBERS_ROWS, CARDS_NUMBERS_COLUMNS);
+	for (int j = 0; j < N_NUMBERS - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+
+	// Reproducir animación correspondiente
+	anim->play(to_string(value));
 }

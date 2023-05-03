@@ -20,11 +20,11 @@ public:
 
 	void relicUI(Relic* relic);
 	void relicImage(Relic* relic);
-	void relicName(Relic* relic, SDL_Color color);
-	void relicInfo(Relic* relic, SDL_Color color);
+	void relicName(Relic* relic);
+	void relicInfo(Relic* relic);
 
 	// M�todos auxiliares
-	void standarizeText(GameObject* g, int stat, SDL_Color color);
+	void standarizeText(GameObject* g, int stat);
 	string getEraString(string rEra);
-	void createStat(int stat, string symbol, int yOffset, SDL_Color color);
+	void createStat(int stat, string symbol, int yOffset);
 };

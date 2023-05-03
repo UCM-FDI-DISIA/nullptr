@@ -1,10 +1,7 @@
 #pragma once
-
 #include "Image.h"
 #include <unordered_map>
 #include <unordered_set>
-
-
 using AnimationMap = unordered_map<string, Animation>;
 
 class Animator : public Image {

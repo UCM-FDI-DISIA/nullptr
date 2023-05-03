@@ -155,7 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\libs\SDL2_mixer-2.6.2\include\SDL_mixer.h" />
     <ClInclude Include="src\components\Card Components\CardComponent.h" />
     <ClInclude Include="src\components\Card Components\FollowEnemyComponent.h" />
     <ClInclude Include="src\components\Card Components\HitboxDamageComponent.h" />
@@ -185,6 +184,7 @@
     <ClInclude Include="src\components\General Components\Image.h" />
     <ClInclude Include="src\components\General Components\LerpComponent.h" />
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
+    <ClInclude Include="src\components\General Components\OptionsUpdateComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\components\General Components\StatsTrackComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
@@ -207,6 +207,7 @@
     <ClInclude Include="src\data\constants.h" />
     <ClInclude Include="src\data\json\JSON.h" />
     <ClInclude Include="src\data\json\JSONValue.h" />
+    <ClInclude Include="src\data\OptionsData.h" />
     <ClInclude Include="src\data\PlayerData.h" />
     <ClInclude Include="src\data\RelicData.h" />
     <ClInclude Include="src\framework.h" />
@@ -215,6 +216,7 @@
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\DeathAnimation.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
@@ -282,6 +284,7 @@
     <ClCompile Include="src\components\General Components\Image.cpp" />
     <ClCompile Include="src\components\General Components\LerpComponent.cpp" />
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
+    <ClCompile Include="src\components\General Components\OptionsUpdateComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
@@ -307,6 +310,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\AssaultRifle.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Bow.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Card.cpp" />
+    <ClCompile Include="src\gameObjects\Card Objects\LaserKatana.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CheatGun.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\CustomHitbox.cpp" />
@@ -322,6 +326,7 @@
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\DeathAnimation.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />

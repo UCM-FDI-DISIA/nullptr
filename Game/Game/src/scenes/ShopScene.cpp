@@ -3,7 +3,9 @@
 
 // Constructora
 ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) {
-
+	SDLApplication::instance()->stopMainMusic();
+	shopMusic = &sdlutils().musics().at(SHOP_MUSIC);
+	shopMusic->play(-1);
 	// Fondo
 	background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
@@ -37,6 +39,8 @@ ShopScene::ShopScene() : NodeScene(), selectedCard(nullptr), buyButton(nullptr) 
 
 // Destructora
 ShopScene::~ShopScene() {
+	shopMusic->haltMusic();
+	SDLApplication::instance()->playMainMusic();
 }
 
 void ShopScene::handleInput() {

@@ -104,7 +104,7 @@
     "maxUses": 8,
     "mana": 20,
     "downTime": 0.8,
-    "textureKey": "Rifle",
+    "textureKey": "AssaultRifle",
     "time": "Present"
   },
   {
@@ -116,7 +116,7 @@
     "maxUses": 20,
     "mana": 55,
     "downTime": 0.2,
-    "textureKey": "SMG",
+    "textureKey": "LightBeam",
     "time": "Future"
   },
   {
@@ -128,7 +128,7 @@
     "maxUses": 5,
     "mana": 60,
     "downTime": 0.5,
-    "textureKey": "SMG",
+    "textureKey": "Speaker",
     "time": "Present"
   },
   {
@@ -140,7 +140,7 @@
     "maxUses": 5,
     "mana": 10,
     "downTime": 0.6,
-    "textureKey": "SMG",
+    "textureKey": "RiotShield",
     "time": "Present"
   },
   {
@@ -152,7 +152,7 @@
     "maxUses": 6,
     "mana": 25,
     "downTime": 0.5,
-    "textureKey": "Gun",
+    "textureKey": "CheatGun",
     "time": "Future"
   },
   {
@@ -166,5 +166,17 @@
     "downTime": 0.5,
     "textureKey": "Sword",
     "time": "Past"
+  },
+  {
+    "key": "LaserKatana",
+    "name": "Katana Laser",
+    "attackText": "Fium soy un ninja",
+    "abilityText": "Fium soy un samurai",
+    "damage": 20,
+    "maxUses": 4,
+    "mana": 50,
+    "downTime": 1.25,
+    "textureKey": "LaserKatana",
+    "time": "Future"
   }
 ]

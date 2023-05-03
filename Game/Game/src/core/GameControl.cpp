@@ -198,11 +198,22 @@ bool GameControl::goBack() const {
 	return false;
 }
 
+// Cambiar entre control por mando y control por teclado
 void GameControl::changeControl() {
 	if (!controller_) {
-		controller_ = ih().isControllerConnected();
+		changeToGamepad();
 	}
 	else {
-		controller_ = false;
+		changeToKeyboard();
 	}
+}
+
+// Cambiar a control por teclado
+void GameControl::changeToKeyboard() {
+	controller_ = false;
+}
+
+// Cambiar a control por mando
+void GameControl::changeToGamepad() {
+	controller_ = ih().isControllerConnected();
 }

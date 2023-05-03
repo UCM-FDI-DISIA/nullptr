@@ -111,14 +111,17 @@ void PostGameScene::showObject() {
 	case 8:
 		text = addGameObject(_grp_UI);
 		text->addComponent<Transform>(Vector2D(
-			newCard.second == 2 ? 575 : 620, 30), VECTOR_ZERO, 400, 100);
+			newCard.second == 2 ? 560 : 620, 30), VECTOR_ZERO, 400, 100);
 		
 		text->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), 
 			(newCard.second == 2 ? "NUEVAS CARTAS OBTENIDAS" : "NUEVA CARTA OBTENIDA"), build_sdlcolor(0xffffffff));
 		showCard();
 		break;
 	case 9:
-		addGameObject<Button>(_grp_UI, []() { SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT))->setAsCurrentButton();
+		addGameObject<Button>(_grp_UI, []() {
+			if(!SDLApplication::instance()->isMusicPlaying())
+			SDLApplication::instance()->playMainMusic();
+			SDLApplication::returnToMapScene(); }, POSTGAME_EXITBUTTON_POSITION, AnimatorInfo(EXIT))->setAsCurrentButton();
 		break;
 	}
 }

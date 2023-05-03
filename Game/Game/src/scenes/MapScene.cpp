@@ -3,6 +3,9 @@
 #include "../gameObjects/Node Objects/NodeButton.h"
 
 MapScene::MapScene() {
+	if (!SDLApplication::instance()->isMusicPlaying()) {
+		SDLApplication::instance()->playMainMusic();
+	}
 	// MAPA
 	vector<vector<Node*>> const& nodeMap = gameMap().getNodeMap();
 	vector<int> const& nodesPerHeight = gameMap().getNodesPerWidth();
@@ -68,7 +71,7 @@ MapScene::MapScene() {
 }
 
 void MapScene::goToTutorial() {
-	gameMap().getNodeMap()[0][1]->loadNode()();
+	gameMap().getNodeMap()[1][1]->loadNode()();
 }
 
 void MapScene::handleInput() {
