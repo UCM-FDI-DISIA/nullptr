@@ -27,7 +27,7 @@ struct InventoryCard
 
 class InventoryScene : public GameState {
 private:
-	std::map<string,InventoryInfo> inventory;
+	std::map<string, InventoryInfo> inventory;
 	std::map<CardId, InventoryCard> deckButtons;
 	vector<int> stats;
 

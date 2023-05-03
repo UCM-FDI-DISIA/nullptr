@@ -154,7 +154,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 
 	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
-	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, INVENTORY_CARD_W, INVENTORY_CARD_H);
+	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
 	cardObj->addComponent<Image>(cardDt.texture);
 	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd]()
@@ -183,7 +183,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 				invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 			}
 		}
-		, pos, AnimatorInfo("CardSelection", INVENTORY_CARD_W, INVENTORY_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
+		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
 			-1, nullptr, 0.5f, 0.5f); 
 	
 	Animator* a = b->getComponent<Animator>();
@@ -206,17 +206,22 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 		deckButtons[crd].deckImage = cardObj;
 		deckButtons[crd].deckText = text;
 		deckButtons[crd].deckTextFrame = textFrame;
+
+		// Guardar transform y obtener datos de la carta
+		Transform* trAux = b->getComponent<Transform>();
+		CardData card = cardsData().get(Card::getCardIDfromEnum(crd));
+
+		deckButtons[crd].ammo.first = addGameObject();
+		deckButtons[crd].ammo.second = addGameObject();
+		deckButtons[crd].mana.first = addGameObject();
+		deckButtons[crd].mana.second = addGameObject();
+
+		Vector2D decsPos = Vector2D(trAux->getPos().getX() + 10, trAux->getPos().getY() + 12);
+		createNumber(deckButtons[crd].ammo.first, decsPos, card.maxUses / 10, 'a');
+		createNumber(deckButtons[crd].ammo.second, decsPos + Vector2D(10, 0), card.maxUses % 10, 'a');
+		createNumber(deckButtons[crd].mana.first, decsPos + Vector2D(4, 32), card.mana / 10, 'm');
+		createNumber(deckButtons[crd].mana.second, decsPos + Vector2D(14, 32), card.mana % 10, 'm');
 	}
-
-	// Guardar transform y obtener datos de la carta
-	Transform* trAux = b->getComponent<Transform>();
-	CardData card = cardsData().get(Card::getCardIDfromEnum(crd));
-
-	Vector2D decsPos = Vector2D(trAux->getPos().getX() + 10, trAux->getPos().getY() + 12);
-	createNumber(deckButtons[crd].ammo.first, decsPos, card.maxUses / 10, 'a');
-	createNumber(deckButtons[crd].ammo.second, decsPos + Vector2D(10, 0), card.maxUses % 10, 'a');
-	createNumber(deckButtons[crd].mana.first, decsPos + Vector2D(4, 32), card.mana / 10, 'm');
-	createNumber(deckButtons[crd].mana.second, decsPos + Vector2D(14, 32), card.mana % 10, 'm');
 
 	return b;
 }
@@ -248,6 +253,10 @@ void InventoryScene::reloadDeckCards() {
 		obj.second.deckImage->setAlive(false);
 		obj.second.deckText->setAlive(false);
 		obj.second.deckTextFrame->setAlive(false);
+		obj.second.ammo.first->setAlive(false);
+		obj.second.ammo.second->setAlive(false);
+		obj.second.mana.first->setAlive(false);
+		obj.second.mana.second->setAlive(false);
 	}
 
 	int column = 0;
@@ -291,7 +300,6 @@ void InventoryScene::update() {
 
 // Crear un número según los datos recibidos
 void InventoryScene::createNumber(GameObject* number, Vector2D pos, int value, char type) {
-	number = addGameObject();
 	// Añadir componentes (transform y animator)
 	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH - 1, UI_AMMO_NUMBERS_HEIGHT - 1);
 

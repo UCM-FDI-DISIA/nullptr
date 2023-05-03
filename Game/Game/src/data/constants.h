@@ -359,8 +359,6 @@ const int ALB_CARD_H = 93 * PIXEL_HEIGHT;
 const int ALB_CARD_X[3] = { 75, 205, 340 };
 const int ALB_CARD_Y = 275;
 const int ALB_CARD_Y_DIST = 10;
-const int INVENTORY_CARD_W = 45 * PIXEL_WIDTH;
-const int INVENTORY_CARD_H = 73 * PIXEL_HEIGHT;
 
 const Animation UNSELECTED_CARD_ANIM(0, 0, 1, -1);
 const Animation SELECTED_CARD_ANIM(1, 2, 2, -1);
