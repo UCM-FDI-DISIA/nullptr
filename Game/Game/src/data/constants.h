@@ -296,8 +296,7 @@ const int IS_BUTTON_WIDTH = BUTTON_SPRITE_WIDTH * 2;
 const int IS_BUTTON_HEIGHT = BUTTON_SPRITE_HEIGHT * 2;
 const int IS_BUTTONFRAME_WIDTH = BUTTON_FRAME_SPRITE_WIDTH * 2;
 const int IS_BUTTONFRAME_HEIGHT = BUTTON_FRAME_SPRITE_HEIGTH * 2;
-const Vector2D IS_EXIT_BUTTON_POS = Vector2D(1115 - IS_BUTTON_WIDTH/2, 670);
-const Vector2D IS_EXITFRAME_BUTTON_POS = IS_EXIT_BUTTON_POS - Vector2D(24, 44);
+const Vector2D IS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - IS_BUTTON_WIDTH * 3 / 2 - 45, WIN_HEIGHT - IS_BUTTON_HEIGHT * 3 / 2 - 5);
 const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
 const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
 const Vector2D MONEY_VALUE = MONEY_TEXT + Vector2D(160, 0);
@@ -319,7 +318,7 @@ const Vector2D SYMBOL_POSITIONS[5] = {
 };
 
 const Vector2D STAT_OFFSET = Vector2D(74, 20);
-const Vector2D STAT_VALUE_OFFSET = Vector2D(190, 20);
+const Vector2D STAT_VALUE_OFFSET = Vector2D(210, 20);
 
 const string CARD_CIRCLE = "CardCircle";
 const int CARD_CIRCLE_RADIOUS = 20;
@@ -333,24 +332,22 @@ const int CARD_RECTANGLE_WIDTH = 34;
 const int CARD_RECTANGLE_HEIGHT = 14;
 const Vector2D CARD_RECTANGLE_OFFSET = Vector2D(44, -7);
 
+const int PANEL_HEIGHT = 30;
+
 const string DECK_PANEL = "DeckPanel";
-const int DP_WIDTH = 90;
-const int DP_HEIGHT = 45;
-const Vector2D DP_POSITION = Vector2D(474 - DP_WIDTH/2, 465);
+const int DP_WIDTH = 74;
+const Vector2D DP_POSITION = Vector2D(0, 476);
 
 const string OBJECTS_PANEL = "ObjectsPanel";
 const int OP_WIDTH = 125;
-const int OP_HEIGHT = 30;
 const Vector2D OP_POSITION = Vector2D(1116 - OP_WIDTH/2, 99);
 
 const string INVENTORY_PANEL = "InventoryPanel";
 const int IP_WIDTH = 175;
-const int IP_HEIGHT = 30;
-const Vector2D IP_POSITION = Vector2D(474 - IP_WIDTH / 2, 0);
+const Vector2D IP_POSITION = Vector2D(0, 0);
 
 const string STATS_PANEL = "StatsPanel";
 const int SP_WIDTH = 210;
-const int SP_HEIGHT = 30;
 const Vector2D SP_POSITION = Vector2D(1116 - SP_WIDTH / 2, 269);
 
 const int ALB_CARD_W = 58 * PIXEL_WIDTH;
@@ -370,12 +367,12 @@ const int DECK_HEIGHT = 520;
 // INVENTORY : OBJECTS
 const int OBJECTS_DIMENSIONS = 64;
 const Vector2D OBJECTS_POSITIONS[6] = {
-	Vector2D(960, 132),
-	Vector2D(1034, 132),
-	Vector2D(1108, 132),
-	Vector2D(960, 199),
-	Vector2D(1034, 199),
-	Vector2D(1108, 199)
+	Vector2D(1010, 132),
+	Vector2D(1090, 132),
+	Vector2D(1170, 132),
+	Vector2D(1010, 199),
+	Vector2D(1090, 199),
+	Vector2D(1170, 199),
 };
 
 // BUTTON KEYS
