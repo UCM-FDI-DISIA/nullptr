@@ -208,6 +208,16 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 		deckButtons[crd].deckTextFrame = textFrame;
 	}
 
+	// Guardar transform y obtener datos de la carta
+	Transform* trAux = b->getComponent<Transform>();
+	CardData card = cardsData().get(Card::getCardIDfromEnum(crd));
+
+	Vector2D decsPos = Vector2D(trAux->getPos().getX() + 10, trAux->getPos().getY() + 12);
+	createNumber(deckButtons[crd].ammo.first, decsPos, card.maxUses / 10, 'a');
+	createNumber(deckButtons[crd].ammo.second, decsPos + Vector2D(10, 0), card.maxUses % 10, 'a');
+	createNumber(deckButtons[crd].mana.first, decsPos + Vector2D(4, 32), card.mana / 10, 'm');
+	createNumber(deckButtons[crd].mana.second, decsPos + Vector2D(14, 32), card.mana % 10, 'm');
+
 	return b;
 }
 
@@ -250,23 +260,48 @@ void InventoryScene::reloadDeckCards() {
 void InventoryScene::update() {
 	GameState::update();
 
+	// Posición del ratón
 	int x; int y;
 	SDL_GetMouseState(&x, &y);
 
+	// Si me encuentro dentro de la zona del inventario
 	if (x >= 0 && x <= 942 && y >= 0 && y <= 461) {
+		// Desactivo el componente del mazo y añado el del inventario si no existe ya
 		if (!inventoryPanel->hasComponent<Image>()) {
 			inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"));
 			deckPanel->removeComponent<Image>();
 		}
 	}
+	// Si me encuentro dentro de la zona del mazo
 	else if (x >= 0 && x <= 942 && y > 461 && y <= 720) {
+		// Desactivo el componente del inventario y añado el del mazo si no existe ya
 		if (!deckPanel->hasComponent<Image>()) {
 			deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"));
 			inventoryPanel->removeComponent<Image>();
 		}
 	}
+	// Si me encuentro fuera, desactivo todo
 	else {
 		if (inventoryPanel->hasComponent<Image>()) inventoryPanel->removeComponent<Image>();
 		if (deckPanel->hasComponent<Image>()) deckPanel->removeComponent<Image>();
 	}
+}
+
+// Crear un número según los datos recibidos
+void InventoryScene::createNumber(GameObject* number, Vector2D pos, int value, char type) {
+	number = addGameObject();
+	// Añadir componentes (transform y animator)
+	number->addComponent<Transform>(pos, Vector2D(), UI_AMMO_NUMBERS_WIDTH - 1, UI_AMMO_NUMBERS_HEIGHT - 1);
+
+	// Seleccionar textura
+	Texture* txt;
+	if (type == 'a') txt = SDLApplication::getTexture(STATISTICS_NUMBERS);
+	else txt = SDLApplication::getTexture(CARDS_NUMBERS);
+
+	// Añadir animator y crear animaciones
+	auto anim = number->addComponent<Animator>(txt, CARDS_NUMBERS_WIDTH, CARDS_NUMBERS_HEIGHT, CARDS_NUMBERS_ROWS, CARDS_NUMBERS_COLUMNS);
+	for (int j = 0; j < N_NUMBERS - 2; j++) anim->createAnim(to_string(j), j, j, 1, 0);
+
+	// Reproducir animación correspondiente
+	anim->play(to_string(value));
 }
