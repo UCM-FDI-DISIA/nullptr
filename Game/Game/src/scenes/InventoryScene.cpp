@@ -35,28 +35,27 @@ InventoryScene::InventoryScene() : GameState() {
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("InventoryBackground"));
 
-	createPanels();
 	createMoneyInfo();
 	createObjects(); 
 	createCards();
+	createPanels();
 
-	
 	// Los simbolos
 	for (int i = 0; i < 5; i++) {
-		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]); // cleon llora porque esto son arrays
+		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
 	}
 	// Creamos el boton de salir
-	exitButton = createButton(IS_EXIT_BUTTON_POS, IS_EXITFRAME_BUTTON_POS, 
+	AnimatorInfo aI = AnimatorInfo(EXIT);
+	exitButton = addGameObject<Button>(_grp_UI,
 		[&]() {
 			int cardsInDeck = 0;
 			for (auto& crd : inventory) {
-				if (inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck > 0) { 
-					cardsInDeck += inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck; 
+				if (inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck > 0) {
+					cardsInDeck += inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck;
 				}
 			}
-			if (cardsInDeck >= 4) SDLApplication::popGameState(); 
-		}, 
-		EXIT, 1.0f, 2.0f);
+			if (cardsInDeck >= 4) SDLApplication::popGameState();
+		}, IS_EXIT_BUTTON_POS , aI);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
@@ -66,42 +65,48 @@ void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int va
 
 	GameObject* stat = addGameObject();
 	stat->addComponent<Transform>(_pos + STAT_OFFSET, VECTOR_ZERO, 100, 24);
-	stat->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), text);
+	stat->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), text);
 
 	GameObject* value = addGameObject();
 	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
-	value->addComponent<TextComponent>(SDLApplication::getFont("ARIAL24"), to_string(val));
-}
-// Crea los paneles en los que se colocan las cartas
-void InventoryScene::createPanels() {
-	createPanel(DP_POSITION, DP_WIDTH, DP_HEIGHT, DECK_PANEL);
-	createPanel(OP_POSITION, OP_WIDTH, OP_HEIGHT, OBJECTS_PANEL);
-	createPanel(IP_POSITION, IP_WIDTH, IP_HEIGHT, INVENTORY_PANEL);
-	createPanel(SP_POSITION, SP_WIDTH, SP_HEIGHT, STATS_PANEL);
+	value->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), to_string(val));
 }
 
-void InventoryScene::createPanel(Vector2D pos, int w, int h, string textureKey) {
+// Crea los paneles en los que se colocan las cartas
+void InventoryScene::createPanels() {
+	deckPanel = createPanel(DP_POSITION, DP_WIDTH, PANEL_HEIGHT, DECK_PANEL);
+	createPanel(OP_POSITION, OP_WIDTH, PANEL_HEIGHT, OBJECTS_PANEL);
+	inventoryPanel = createPanel(IP_POSITION, IP_WIDTH, PANEL_HEIGHT, INVENTORY_PANEL);
+	createPanel(SP_POSITION, SP_WIDTH, PANEL_HEIGHT, STATS_PANEL);
+
+	deckPanel->removeComponent<Image>();
+	inventoryPanel->removeComponent<Image>();
+}
+
+GameObject* InventoryScene::createPanel(Vector2D pos, int w, int h, string textureKey) {
 	GameObject* panel = addGameObject();
 	panel->addComponent<Transform>(pos, VECTOR_ZERO, w, h);
 	panel->addComponent<Image>(SDLApplication::getTexture(textureKey));
+
+	return panel;
 }
 
 void InventoryScene::createMoneyInfo() {
 	//Icono de moneda
 	GameObject* coin = addGameObject();
-	coin->addComponent<Transform>(COIN_OFFSET, Vector2D(), 64, 64);
+	Vector2D pos = Vector2D(WIN_WIDTH - 100, 15);
+	coin->addComponent<Transform>(pos, Vector2D(), 64, 64);
 	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
 
-	// Texto
-	GameObject* text = addGameObject();
-	text->addComponent<Transform>(MONEY_TEXT, VECTOR_ZERO, 70, 48);
-	text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), "Dinero");
-
 	// Texto con el numero de monedas
-	GameObject* mon = addGameObject();
-	mon->addComponent<Transform>(MONEY_VALUE, VECTOR_ZERO, 50, 48);
 	int m = PlayerData::instance()->getMoney();
-	mon->addComponent<TextComponent>(SDLApplication::getFont("ARIAL48"), to_string(m));
+	GameObject* mon = addGameObject();
+	if (m / 100 == 0) {
+		if (m / 10 == 0) mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 220, 15), VECTOR_ZERO, 50, 48);
+		else mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 245, 15), VECTOR_ZERO, 50, 48);
+	}
+	else mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 270, 15), VECTOR_ZERO, 50, 48);
+	mon->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_BOLD46"), to_string(m));
 }
 
 void InventoryScene::createObjects() {
@@ -115,6 +120,7 @@ void InventoryScene::createObjects() {
 		++i;
 	}
 }
+
 // Se encarga de crear las imagenes de las cartas en el inventario con sus cantidades
 void InventoryScene::createCards() {
 	bool row = true;
@@ -122,7 +128,7 @@ void InventoryScene::createCards() {
 	int deckColumn = 0;
 
 	for (auto& crd : inventory) {
-		Vector2D pos = Vector2D(20 + (ALB_CARD_W + 20) * column, 20 + (ALB_CARD_H + 20) * (row ? 0 : 1));
+		Vector2D pos = Vector2D(20 + (ALB_CARD_W + 20) * column, 10 + (ALB_CARD_H + 20) * (row ? 0 : 1));
 		Button* cardButton = createCard(pos, crd.second.card, false);
 		if (column == 0 && !row) cardButton->setAsDefaultButton();
 
@@ -139,7 +145,7 @@ void InventoryScene::createCards() {
 }
 // Se encarga de crear las imagenes de las cartas en la zona del deck
 void InventoryScene::createDeckCards(CardId crd, int column) {
-	Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT);
+	Vector2D posD = Vector2D(20 + 160 * column, DECK_HEIGHT - 30);
 	createCard(posD, crd, true);
 }
 // Se encarga de crear el objeto de la carta, así como sus botones y le añaden la funcionalidad para quitar o poner en el deck
@@ -187,14 +193,19 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	a->play(ONOUT);
 
 	// Texto que indica cuantas cartas hay en el deck
+	GameObject* textFrame = addGameObject();
 	GameObject* text = addGameObject();
 	InventoryInfo& invCard = inventory.find(Card::getCardIDfromEnum(crd))->second;
-	text->addComponent<Transform>(Vector2D (pos.getX()+ ALB_CARD_W,pos.getY()), VECTOR_ZERO, 70, 48);
-	(dck ? invCard.myDeckText : invCard.myText) = text->addComponent<TextComponent>(SDLApplication::getFont("ARIAL16"),  to_string(dck ? invCard.cuantityDeck : invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+	Transform* tr = text->addComponent<Transform>(Vector2D (pos.getX() + ALB_CARD_W - 20, pos.getY()), VECTOR_ZERO, 70, 48);
+	(dck ? invCard.myDeckText : invCard.myText) = text->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR16"),  to_string(dck ? invCard.cuantityDeck : invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+	textFrame->addComponent<Transform>(tr->getPos() - Vector2D(3, 7), VECTOR_ZERO, tr->getWidth() + 5, tr->getWidth() + 5);
+	textFrame->addComponent<Image>(SDLApplication::getTexture("CardCircle"));
+
 	if (dck) {
 		deckButtons[crd].deckButton = b;
 		deckButtons[crd].deckImage = cardObj;
 		deckButtons[crd].deckText = text;
+		deckButtons[crd].deckTextFrame = textFrame;
 	}
 
 	return b;
@@ -225,6 +236,7 @@ void InventoryScene::reloadDeckCards() {
 		obj.second.deckButton->setAlive(false);
 		obj.second.deckImage->setAlive(false);
 		obj.second.deckText->setAlive(false);
+		obj.second.deckTextFrame->setAlive(false);
 	}
 	int column = 0;
 	for (auto& crd : inventory) {
@@ -232,5 +244,29 @@ void InventoryScene::reloadDeckCards() {
 			createDeckCards(crd.second.card, column);
 			column++;
 		}
+	}
+}
+
+void InventoryScene::update() {
+	GameState::update();
+
+	int x; int y;
+	SDL_GetMouseState(&x, &y);
+
+	if (x >= 0 && x <= 942 && y >= 0 && y <= 461) {
+		if (!inventoryPanel->hasComponent<Image>()) {
+			inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"));
+			deckPanel->removeComponent<Image>();
+		}
+	}
+	else if (x >= 0 && x <= 942 && y > 461 && y <= 720) {
+		if (!deckPanel->hasComponent<Image>()) {
+			deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"));
+			inventoryPanel->removeComponent<Image>();
+		}
+	}
+	else {
+		if (inventoryPanel->hasComponent<Image>()) inventoryPanel->removeComponent<Image>();
+		if (deckPanel->hasComponent<Image>()) deckPanel->removeComponent<Image>();
 	}
 }

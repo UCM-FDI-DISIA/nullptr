@@ -1,60 +1,19 @@
 {
   "fonts": [
-    {
-      "id": "ARIAL16",
-      "file": "../Game/resources/fonts/ARIAL.ttf",
-      "size": 16
-    },
-    {
-      "id": "ARIAL24",
-      "file": "../Game/resources/fonts/ARIAL.ttf",
-      "size": 24
-    },
-    {
-      "id": "ARIAL36",
-      "file": "../Game/resources/fonts/ARIAL.ttf",
-      "size": 36
-    },
-    {
-      "id": "ARIAL48",
-      "file": "../Game/resources/fonts/ARIAL.ttf",
-      "size": 48
-    },
-    {
-      "id": "SILKSCREEN_REGULAR20",
-      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
-      "size": 20
-    },
-    {
-      "id": "SILKSCREEN_REGULAR22",
-      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
-      "size": 22
-    },
-    {
-      "id": "SILKSCREEN_BOLD22",
-      "file": "../Game/resources/fonts/Silkscreen-Bold.ttf",
-      "size": 22
-    },
-    {
-      "id": "SILKSCREEN_REGULAR30",
-      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
-      "size": 30
-    },
-    {
-      "id": "SILKSCREEN_BOLD30",
-      "file": "../Game/resources/fonts/Silkscreen-Bold.ttf",
-      "size": 30
-    },
-    {
-      "id": "SILKSCREEN_REGULAR28",
-      "file": "../Game/resources/fonts/Silkscreen-Regular.ttf",
-      "size": 28
-    },
-    {
-      "id": "SILKSCREEN_BOLD38",
-      "file": "../Game/resources/fonts/Silkscreen-Bold.ttf",
-      "size": 38
-    }
+    { "id": "ARIAL16", "file": "../Game/resources/fonts/ARIAL.ttf", "size": 16 },
+    { "id": "ARIAL24", "file": "../Game/resources/fonts/ARIAL.ttf", "size": 24 },
+    { "id": "ARIAL36", "file": "../Game/resources/fonts/ARIAL.ttf", "size": 36 },
+    { "id": "ARIAL48", "file": "../Game/resources/fonts/ARIAL.ttf", "size": 48 },
+    { "id": "SILKSCREEN_REGULAR16", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 16 },
+    { "id": "SILKSCREEN_REGULAR20", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 20 },
+    { "id": "SILKSCREEN_REGULAR20", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 20 },
+    { "id": "SILKSCREEN_REGULAR22", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 22 },
+    { "id": "SILKSCREEN_BOLD22", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 22 },
+    { "id": "SILKSCREEN_REGULAR30", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 30 },
+    { "id": "SILKSCREEN_BOLD30", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 30 },
+    { "id": "SILKSCREEN_REGULAR28", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 28 },
+    { "id": "SILKSCREEN_BOLD38", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 38 },
+    { "id": "SILKSCREEN_BOLD46", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 46 }
   ],
     
     "images" : [
@@ -184,7 +143,7 @@
       { "id" : "CardCircle", "file" : "../Game/resources/images/UI/InventoryScene/CardCircle_Inventory_20x20.png"},
       { "id" : "CardFrame", "file" : "../Game/resources/images/UI/InventoryScene/CardFrame_66x101.png"},
       { "id" : "CardRectangle", "file" : "../Game/resources/images/UI/InventoryScene/CardRectangle_Inventory_34x14.png"},
-      { "id" : "DeckPanel", "file" : "../Game/resources/images/UI/InventoryScene/DeckPanel_90x45.png"},
+      { "id" : "DeckPanel", "file" : "../Game/resources/images/UI/InventoryScene/DeckPanel_74x30.png"},
       { "id" : "ObjectsPanel", "file" : "../Game/resources/images/UI/InventoryScene/ObjectsPanel_125x30.png"},
       { "id" : "StatsPanel", "file" : "../Game/resources/images/UI/InventoryScene/StatsPanel_210x30.png"},
       { "id" : "InventoryPanel", "file" : "../Game/resources/images/UI/InventoryScene/InventoryPanel_175x30.png"},
