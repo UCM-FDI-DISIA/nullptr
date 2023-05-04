@@ -28,8 +28,6 @@ MainMenuScene::MainMenuScene() {
 	estudio->addComponent<Transform>(STUDIO_POSITION, Vector2D(), STUDIO_WIDTH, STUDIO_HEIGTH);
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
-	//Stats por defecto
-	PlayerData::instance()->defaultPlayerStats();
 
 	// Botón jugar
 	if (pD().hasSaveFile()) {
