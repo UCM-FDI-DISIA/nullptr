@@ -41,7 +41,7 @@ void TentacleBehaviour::update() {
 	case 2:
 		timeOffset += SDLApplication::instance()->getDeltaTimeSeconds();
 		if (timeOffset >= 1) {
-			state = 3; timeOffset = 0; portals->setStartRotation(true);
+			state = 3; timeOffset = 0;
 		}
 		break;
 		//Cuarto estado: roto 180 grados

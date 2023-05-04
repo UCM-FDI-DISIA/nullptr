@@ -12,9 +12,6 @@ void EnemyGenerator::initComponent() {
 	Vector2D spawn = playerPos->getPos();
 	Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
 	spawnPos = checkPos(spawnPos, RANGED_RADIUS);
-
-	//para la mitad del mapa cuando hagamos un mapa mas peuqeño
-	//new Vector2D(FLOOR_WIDTH / 2, FLOOR_HEIGHT / 2)
 }
 
 void EnemyGenerator::update() {

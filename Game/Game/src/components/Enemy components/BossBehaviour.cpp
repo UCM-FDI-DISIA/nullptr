@@ -4,8 +4,7 @@
 #include "../../gameObjects/Enemy Objects/BossCone.h"
 #include "../../gameObjects/Enemy Objects/BossTentacle.h"
 
-// Esta clase maneja el comportamiento de los enemigos a distancia
-// Como su movimento y su habilidad para atacar
+// Esta clase maneja el comportamiento del Jefe
 BossBehaviour::BossBehaviour(float spd, float safDist, float stptime, float mvTime,
 	int dmg, int atck, Player* plyr) :
 	EnemyBehaviour(spd, dmg, stptime, atck, plyr),
@@ -39,7 +38,7 @@ void BossBehaviour::update() {
 		// Si te has estado moviendo mas tiempo de lo que deberia, vuelves al ciclo de parada
 		if (behaviorTime > stopTime + moveTime) {
 			//pos->setVel(Vector2D(0, 0));
-			attacking = true; // comienza la animaci�n de ataque
+			attacking = true; // comienza la animacion de ataque
 			behaviorTime -= stopTime + moveTime;
 		}
 	}
@@ -49,39 +48,39 @@ void BossBehaviour::update() {
 			if (attackDelay < attackTime) {
 				attackTime = 0;
 				attacking = false;
-				//enemyAttack(); // ataca coincidiendo con la animaci�n  attackState
+				//enemyAttack(); // ataca coincidiendo con la animacion  attackState
 				switch (attackState) {
-				case 0: // Conos
+				case CONE: // Conos
 					coneAttack();
 					break;
-				case 1: // BulletHell
+				case BULLET_HELL: // BulletHell
 					bulletHellAttack();
 					break;
-				case 2: // Conos
+				case CONE_TWO: // Conos
 					coneAttack();
 					break;
-				case 3: // Granadas
+				case GRENADES: // Granadas
 					grenadeAttack();
 					break;
-				case 4: // Tent�culo Dirigido
+				case TARGETED_TENTACLE: // Tentaculo Dirigido
 					targetedAttack();
 					break;
-				case 5: // Aspersor
+				case CLOCK: // Aspersor
 					clockAttack();
 					break;
-				case 6: // BulletHell + Granadas
+				case BULLET_GRENADES: // BulletHell + Granadas
 					bulletHellAttack();
 					grenadeAttack();
 					break;
-				case 7: // Tent�culo Dirigido + Conos
+				case TT_CONES: // Tentaculo Dirigido + Conos
 					targetedAttack();
 					coneAttack();
 					break;
-				case 8: // BulletHell + Aspersor
+				case BULLET_CLOCK: // BulletHell + Aspersor
 					bulletHellAttack();
 					clockAttack();
 					break;
-				case 9: // Granadas + Tent�culo Dirigido
+				case GRENADE_TT: // Granadas + Tentaculo Dirigido
 					grenadeAttack();
 					targetedAttack();
 					break;
@@ -104,7 +103,7 @@ void BossBehaviour::update() {
 					}
 				}
 
-				if (attackState == 9 && !listaCompletada)
+				if (attackState == GRENADE_TT && !listaCompletada)
 				{
 					listaCompletada = true;
 				}
@@ -124,7 +123,7 @@ void BossBehaviour::update() {
 
 
 }
-// Permite al enemigo instanciar balas
+// Permite al enemigo instanciar balas (mismo comportamiento que los RangeEnemies)
 void BossBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
 	if (vel.magnitude() != 0) {
@@ -157,13 +156,8 @@ void BossBehaviour::enemyAttack() {
 		}
 	}
 }
-// Funci�n para ejecutar el ataque de Conos
+// Funcion para ejecutar el ataque de Conos
 void BossBehaviour::coneAttack() {
-
-#ifdef _DEBUG
-	//cout << "ataqueCono";
-#endif
-
 	// Obtener la dirección hacia el objetivo (en este caso, el player)
 	Vector2D dir = (playerPos->getPos() - pos->getPos());
 	dir = dir / dir.magnitude();
@@ -209,17 +203,17 @@ void BossBehaviour::updateAttackDelay()
 {
 	switch (attackState)
 	{
-	case 1: // BulletHell
-	case 8: // BulletHell + Aspersor
+	case BULLET_HELL: // BulletHell
+	case BULLET_CLOCK: // BulletHell + Aspersor
 		currentBossState = boss_BHELL;
 		attackDelay = 1800;
 		break;
-	case 3: // Granadas
-	case 9: // Granadas + Tent�culo Dirigido
+	case GRENADES: // Granadas
+	case GRENADE_TT: // Granadas + Tent�culo Dirigido
 		currentBossState = boss_GRENADE;
 		attackDelay = 1400;
 		break;
-	case 6: // BulletHell + Granadas
+	case BULLET_GRENADES: // BulletHell + Granadas
 		currentBossState = boss_COMBINED;
 		attackDelay = 1800;
 		break;
@@ -259,7 +253,7 @@ void BossBehaviour::bulletHellAttack() {
 }
 
 
-// Funci�n para ejecutar el ataque Granadas
+// Funcion para ejecutar el ataque Granadas
 void BossBehaviour::grenadeAttack() {
 
 	//anim->playDiff("GrenadeAttack");
@@ -289,7 +283,7 @@ void BossBehaviour::grenadeAttack() {
 	}
 }
 
-// Función de devolución de llamada del temporizador para coneAttack
+// Funcion de devolución de llamada del temporizador para coneAttack
 Uint32 BossBehaviour::coneAttackTimerCallback(Uint32 interval, void* param) {
 	BossBehaviour* boss = static_cast<BossBehaviour*>(param);
 	boss->coneAttack();

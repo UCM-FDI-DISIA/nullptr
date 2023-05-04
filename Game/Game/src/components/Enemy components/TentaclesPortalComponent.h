@@ -2,11 +2,14 @@
 #include "../General Components/Transform.h"
 
 class TentaclesPortalComponent : public Component {
+	enum ClockState {
+		INITIAL, SPREAD, MOVE, AWAIT
+	};
+
 private:
 	Transform* tr;
 	Transform* boss;
-	int state;
-	bool startRotation;
+	ClockState state;
 	double timeOffset;
 
 	Transform* tentIzq;
@@ -17,7 +20,6 @@ private:
 public:
 	static const int id = _TENTACLES_PORTAL_;
 	TentaclesPortalComponent(Transform* b);
-	void setStartRotation(bool value) { startRotation = value; }
 	virtual void initComponent();
 	virtual void update();
 	void calculatePos();

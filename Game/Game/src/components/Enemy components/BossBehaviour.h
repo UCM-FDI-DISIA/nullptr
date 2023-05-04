@@ -15,6 +15,11 @@ enum bossState_ID : int {
 	boss_COMBINED,
 };
 
+enum BossAttackState : int {
+	CONE, BULLET_HELL, CONE_TWO, GRENADES, TARGETED_TENTACLE, CLOCK, 
+	BULLET_GRENADES, TT_CONES, BULLET_CLOCK, GRENADE_TT
+};
+
 class BossBehaviour :public EnemyBehaviour
 {
 private:

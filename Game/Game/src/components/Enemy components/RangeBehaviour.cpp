@@ -24,7 +24,7 @@ void RangeBehaviour::setDirectionTo() {
 	else {
 		//Si no, vuelve a ir hacia �l
 		pos->lookAt(playerPos->getPos());
-		//Si estas dentro del rango de peligro, da media vuelta para salir de �l
+		//Si estas dentro del rango de peligro, da media vuelta para salir de el
 		if (pos->getDistance(playerPos->getPos()) < safeDistance)
 		{
 			pos->lookAt(playerPos->getPos() * -1);

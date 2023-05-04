@@ -34,14 +34,14 @@ MainMenuScene::MainMenuScene() {
 	// Botón jugar
 	if (pD().hasSaveFile()) {
 		// Botón jugar
-		/*createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
+		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
-			PLAY)->setAsDefaultButton();*/
+			PLAY)->setAsDefaultButton();
 
 		//Este es para probar el boss
-		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
+		/*createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToBoss(); },
-			PLAY)->setAsDefaultButton();
+			PLAY)->setAsDefaultButton();*/
 
 		// Botón continuar
 		createButton(MM_RESUME_BUTTON_POS, MM_RESUME_BUTTON_POS - FRAME_OFFSET, []() { pD().getDataFromJSON(); SDLApplication::newScene<MapScene>(); }, CONTINUE);
@@ -51,14 +51,14 @@ MainMenuScene::MainMenuScene() {
 	}
 	else {
 		// Botón jugar
-		/*createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
+		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
-			PLAY)->setAsDefaultButton();*/
+			PLAY)->setAsDefaultButton();
 
 		//Este es para probar el boss
-		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
+		/*createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
 			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToBoss(); },
-			PLAY)->setAsDefaultButton();
+			PLAY)->setAsDefaultButton();*/
 
 		// Botón album
 		createButton(MM_ALBUM_BUTTON_POS_NOSAVE, MM_ALBUM_BUTTON_POS_NOSAVE - FRAME_OFFSET, []() { SDLApplication::newScene<AlbumScene>(); }, ALBUM);
