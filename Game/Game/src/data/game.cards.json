@@ -40,7 +40,7 @@
     "name": "Gafas Laser",
     "attackText": "pium",
     "abilityText": "fium",
-    "damage": 20,
+    "damage": 10,
     "maxUses": 5,
     "mana": 80,
     "downTime": 1,

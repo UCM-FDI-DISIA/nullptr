@@ -9,7 +9,7 @@ CinematicScene::CinematicScene(string textureKey, int fw, int fh, int r, int c, 
 	animator->createAnim("cine", cinematic);
 	animator->play("cine");
 
-	createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, onComplete_, SKIP)->setAsDefaultButton();
+	createButton(QUIT_CINEMATIC_BUTTON_POS, QUIT_CINEMATICFRAME_BUTTON_POS, onComplete_, SKIP)->setAsDefaultButton();
 }
 
 void CinematicScene::update() {

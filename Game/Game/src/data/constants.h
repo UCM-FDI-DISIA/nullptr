@@ -291,7 +291,8 @@ const float LIGHT_BULLET_SPEED = 800;
 const float ARROW_SPEED = 350;
 const float THROWN_SPEAR_SPEED = 600;
 const float TORCH_SIZE_HEAL = 400;
-
+const float LASER_BULLET_SPEED = 2000;
+const float LASER_BULLET_SPEED_A = 200;
 // STATUS ---------------------------------------------------------------------------------------
 
 const int BURN_DAMAGE = 3;
@@ -904,6 +905,24 @@ const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 2
 // GUARDADO
 
 const string SAVE_FILENAME = "../Game/src/data/game.playerData.json";
+
+
+// CINEMATICS
+const int CINEMATIC_WIDTH = 544;
+const int CINEMATIC_HEIGHT = 306;
+
+const string CINEMATIC_INITIAL_NAME = "InitialCinematic";
+const int CINEMATIC_INITIAL_ROWS = 7;
+const int CINEMATIC_INITIAL_COLS = 7;
+const Animation CINEMATIC_INITIAL_ANIMATION = Animation(0, 49, 2, 1);
+
+const string CINEMATIC_FINAL_NAME = "FinalCinematic";
+const int CINEMATIC_FINAL_ROWS = 7;
+const int CINEMATIC_FINAL_COLS = 7;
+const Animation CINEMATIC_FINAL_ANIMATION = Animation(0,49,2,1);
+
+const Vector2D QUIT_CINEMATIC_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 40);
+const Vector2D QUIT_CINEMATICFRAME_BUTTON_POS = QUIT_CINEMATIC_BUTTON_POS - FRAME_OFFSET;
 
 //STRUCTS
 
