@@ -247,7 +247,13 @@
       { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
       { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"},
       { "id" : "Slash", "file": "../Game/resources/sounds/SwordSlash.wav"},
-      { "id" : "Shot", "file": "../Game/resources/sounds/ShotSound.wav"}
+      { "id" : "Shot", "file": "../Game/resources/sounds/ShotSound.wav"},
+      { "id" : "AssassinHit", "file": "../Game/resources/sounds/SpecialHit.wav"},
+      { "id" : "AssassinDeath", "file": "../Game/resources/sounds/SpecialDeath.wav"},
+      { "id" : "BuySound", "file": "../Game/resources/sounds/BuySound.wav"},
+      { "id" : "CantBuySound", "file": "../Game/resources/sounds/CantBuySound.wav"},
+      { "id" : "BossHit", "file": "../Game/resources/sounds/BossHit.wav"},
+      { "id" : "BossDeath", "file": "../Game/resources/sounds/BossDeath.wav"}
     ],
   
     "musics" : [

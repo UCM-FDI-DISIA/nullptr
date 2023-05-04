@@ -105,10 +105,10 @@ void HealthComponent::initComponent() {
 		hitSound = &sdlutils().soundEffects().at(PLAYER_HIT_SOUND);
 	}
 	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
-		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
+		hitSound = &sdlutils().soundEffects().at(ASSASSIN_HIT_SOUND);
 	}
 	else if (dynamic_cast<BossEnemy*>(gObj)) {
-		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
+		hitSound = &sdlutils().soundEffects().at(BOSS_HIT_SOUND);
 	}
 	healSound = &sdlutils().soundEffects().at(HEAL_SOUND);
 }

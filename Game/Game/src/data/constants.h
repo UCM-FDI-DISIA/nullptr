@@ -793,6 +793,12 @@ const string MANA_PICK = "ManaPick";
 const string HEAL_SOUND = "Heal";
 const string SLASH_SOUND = "Slash";
 const string SHOT_SOUND = "Shot";
+const string ASSASSIN_HIT_SOUND = "AssassinHit";
+const string ASSASSIN_DEATH_SOUND = "AssassinDeath";
+const string BUY_SOUND = "BuySound";
+const string CANT_BUY_SOUND = "CantBuySound";
+const string BOSS_HIT_SOUND = "BossHit";
+const string BOSS_DEATH_SOUND = "BossDeath";
 
 //MUSICS
 const string BATTLE_MUSIC = "BattleMusic";
