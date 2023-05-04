@@ -416,7 +416,7 @@ void InventoryScene::activatePopUp() {
 	AnimatorInfo aI = AnimatorInfo(RESUME);
 	button = addGameObject<Button>(_grp_UI, [&]() { deactivatePopUp(); }, RESUME_BUTTON_POS, aI);
 	button->getComponent<Animator>()->attachToCamera();
-	if (ih().isControllerConnected()) button->setAsCurrentButton();
+	button->setAsCurrentButton();
 }
 
 void InventoryScene::deactivatePopUp() {
