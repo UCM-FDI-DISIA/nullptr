@@ -39,10 +39,6 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
 //Se disparan todas las balas
 void  MegaphoneCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
     Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
-    Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0, 3, 3, HEAL_AREA, _grp_PLAYER };
-
-    where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 6* remainingUses, 0.5, data, 0.1);
-
+    where->getPlayer()->getComponent<HealthComponent>()->heal(6 * remainingUses);
     remainingUses = 0;
-
 }
