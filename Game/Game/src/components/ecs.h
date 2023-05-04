@@ -30,6 +30,9 @@ enum cmpId : cmpId_type {
 	_ON_DEATH,
 	_CHARGED_PORTAL,
 	_CALLBACK_DELAYER,
+	_TENTACLE_BEHAVIOUR,
+	_TARGETED_BEHAVIOUR,
+	_TENTACLES_PORTAL_,
 	_PLAYERINPUT,
 	_OPTIONSUPDATE,
 	_LERP_COMPONENT,
@@ -109,5 +112,7 @@ struct Animation {
 // Tipo de funci�n que devuelve y recibe void, funciona tambi�n con funciones lambda con capturas
 using CallBack = std::function<void(void)>;
 class GameObject;
+class Transform;
 using CallBackCol = std::function<void(GameObject*)>;
 using BoolCallBack = std::function<bool(void)>;
+using CallBackExpl = std::function<void(Transform*)>;

@@ -67,6 +67,12 @@ void Transform::update() {
 	tempVelocity_= tempVelocity_/REDUCTION_FACTOR;
 }
 
+float Transform::getAngle(Vector2D target ,const Vector2D& position) const {
+	Vector2D dir = target - position;
+	float angle = atan2(dir.getY(), dir.getX()) * RAD_TO_DEG;
+	return angle;
+}
+	
 void Transform::push(Vector2D impulse) {
 	tempVelocity_ = impulse;
 }

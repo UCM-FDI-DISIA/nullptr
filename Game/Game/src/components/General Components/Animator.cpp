@@ -43,7 +43,7 @@ void Animator::resume() {
 	currentAnimation = &anims[currentAnimKey];
 }
 
-// Inicia una nueva animaci�n si es diferente a la actual
+// Inicia una nueva animacion si es diferente a la actual
 bool Animator::playDiff(string key) {
 	if (!isCurrentAnimation(key) || !isPlaying()) {
 		play(key);

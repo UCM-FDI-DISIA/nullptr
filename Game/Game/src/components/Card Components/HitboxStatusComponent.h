@@ -27,7 +27,7 @@ public:
 	CallBackCol statusFunction() {
 		return [&](GameObject* trgt)
 		{			
-			if (hitRegistry.count(trgt) == 0) {
+			if (hitRegistry.count(trgt) == 0 && trgt->getComponent<StatusComponent>()) {
 				trgt->getComponent<StatusComponent>()->applyStatus(status, duration);
 				hitRegistry.insert(trgt);
 			}

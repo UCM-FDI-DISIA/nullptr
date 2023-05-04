@@ -7,6 +7,7 @@ class ColliderComponent : public Component
 {
 private:
 	vector <CallBackCol> functions;
+	vector <CallBackExpl> otherfncts;
 	grpId target;
 	Transform* tr;
 	float width, height;
@@ -22,6 +23,7 @@ public:
 
 	void hasCollided();
 	void addFunction(CallBackCol funct);
+	void addFunction(CallBackExpl funct);
 
 	Vector2D getPos();
 	float getWidth();
