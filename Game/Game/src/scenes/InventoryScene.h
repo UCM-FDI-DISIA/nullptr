@@ -6,7 +6,6 @@
 
 class Card;
 struct InventoryInfo {
-
 	int cuantity = 0;
 	int cuantityDeck = 0;
 	CardId card;
@@ -27,12 +26,25 @@ struct InventoryCard
 
 class InventoryScene : public GameState {
 private:
+	string texts[3] = {
+		"BIENVENIDO A TU INVENTARIO. Aquí podrás ver todas las cartas que posees y las que tienes en el mazo, así como tus objetos y estadísticas.",
+		"También podrás modificar tu mazo añadiendo cartas del inventario (clicando sobre ellas en la zona de inventario) ",
+		"o retirando las ya presentes(clicando sobre ellas en la zona de inventario)",
+	};
+	
+	bool interactive;
 	std::map<string, InventoryInfo> inventory;
 	std::map<CardId, InventoryCard> deckButtons;
 	vector<int> stats;
 
 	GameObject* inventoryPanel;
 	GameObject* deckPanel;
+
+	GameObject* screen;
+	GameObject* tuto;
+	GameObject* text1;
+	GameObject* text2;
+	Button* button;
 
 	Button* exitButton;
 
@@ -58,4 +70,7 @@ public:
 	void reloadDeckCards();
 
 	void createNumber(GameObject* number, Vector2D pos, int value, char type);
+
+	void activatePopUp();
+	void deactivatePopUp();
 };

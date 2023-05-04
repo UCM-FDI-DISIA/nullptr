@@ -14,9 +14,9 @@ MapScene::MapScene() {
 	background->addComponent<Transform>(Vector2D(0, -3 * WIN_HEIGHT), Vector2D(), WIN_WIDTH, 4 * WIN_HEIGHT);
 	background->addComponent<Image>(SDLApplication::getTexture("MapBackground"));
 	background2 = addGameObject();
-	background2->addComponent<Transform>(Vector2D(0, -2*MAP_PARALLAX_HEIGHT), Vector2D(), MAP_PARALLAX_WIDTH, 3* MAP_PARALLAX_HEIGHT);
+	background2->addComponent<Transform>(Vector2D(0, -2 * MAP_PARALLAX_HEIGHT), Vector2D(), MAP_PARALLAX_WIDTH, 3* MAP_PARALLAX_HEIGHT);
 	background2->addComponent<Image>(SDLApplication::getTexture("MapBackground2"))->setScrollFactor(MAP_SCROLLFACTOR);
-
+	
 	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
 	vector<vector<Vector2D>> nodesPositions(HEIGHT);
 	NodeButton* first = nullptr;
@@ -61,13 +61,20 @@ MapScene::MapScene() {
 	// Botón options
 	createButton(MS_OPTIONS_BUTTON_POS, MS_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
+	// Marca del boton de inventario
+	markPoint = addGameObject();
+	markPoint->addComponent<Transform>(MS_INVENTORY_BUTTON_POS + Vector2D(MM_BUTTON_WIDTH - 16, -16), Vector2D(), 32, 32);
+	Animator* anim = markPoint->addComponent<Animator>(&sdlutils().images().at("MarkPointer"), 32, 32, 1, 2);
+	anim->createAnim("Blinking", 0, 1, 2, -1);
+	anim->play("Blinking");
+	anim->attachToCamera();
+
 	// Botón Inventario
 	inventoryButton = createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
 	inventoryButton->setAsDefaultButton();
 
 	// Botón salir
 	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { pD().setDataToJSON(); SDLApplication::newScene<MainMenuScene>(); }, EXIT);
-
 }
 
 void MapScene::goToTutorial() {
@@ -94,6 +101,21 @@ void MapScene::handleInput() {
 	camTr->setY(camTr->getY() - gmCtrl_.scroll(false) * 50);
 	if (camTr->getY() > camYLimit) camTr->setY(camYLimit);
 	else if (camTr->getY() < 0) camTr->setY(0);
+}
+
+
+void MapScene::update() {
+	GameState::update();
+	if (PlayerData::instance()->getCardGained() && !markPoint->hasComponent<Animator>()) {
+		Animator* anim = markPoint->addComponent<Animator>(&sdlutils().images().at("MarkPointer"), 32, 32, 1, 2);
+		anim->createAnim("Blinking", 0, 1, 2, -1);
+		anim->play("Blinking");
+		anim->attachToCamera();
+	}
+
+	else if (!PlayerData::instance()->getCardGained() && markPoint->hasComponent<Animator>()) {
+		markPoint->removeComponent<Animator>();
+	}
 }
 
 // Mueve la camara a la altura de los siguientes al nodo actual
