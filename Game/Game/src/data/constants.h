@@ -914,7 +914,7 @@ const int CINEMATIC_HEIGHT = 306;
 const string CINEMATIC_INITIAL_NAME = "InitialCinematic";
 const int CINEMATIC_INITIAL_ROWS = 7;
 const int CINEMATIC_INITIAL_COLS = 7;
-const Animation CINEMATIC_INITIAL_ANIMATION = Animation(0, 49, 2, 1);
+const Animation CINEMATIC_INITIAL_ANIMATION = Animation(0, 6, 0.5f, 1);
 
 const string CINEMATIC_FINAL_NAME = "FinalCinematic";
 const int CINEMATIC_FINAL_ROWS = 7;

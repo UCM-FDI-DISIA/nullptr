@@ -217,7 +217,7 @@
 
       { "id": "Collider", "file": "../Game/resources/images/Collider.png" },
 
-      { "id": "InitialCinematic", "file": "../Game/resources/images/Cinematics/FinalCinematic_544x306.png" },
+      { "id": "InitialCinematic", "file": "../Game/resources/images/Cinematics/InitialCinematic_544x306.png" },
       { "id": "FinalCinematic", "file": "../Game/resources/images/Cinematics/FinalCinematic_544x306.png" }
     ],
     

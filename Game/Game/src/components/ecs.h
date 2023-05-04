@@ -99,11 +99,11 @@ constexpr optionId_type maxOptionId = _LAST_OPTION_ID;
 // Animaciones
 struct Animation {
 	int startFrame, endFrame;
-	int frameRate;
+	float frameRate;
 	int repeat;
 	bool backwards;
 	Animation() : startFrame(0), endFrame(0), frameRate(0), repeat(0), linked(false), backwards(false) {}
-	Animation(int _s, int _e, int _rate, int _rep, bool bck=false) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep), linked(false), backwards(bck) {}
+	Animation(int _s, int _e, float _rate, int _rep, bool bck=false) : startFrame(_s), endFrame(_e), frameRate(_rate), repeat(_rep), linked(false), backwards(bck) {}
 
 	bool linked;
 };
