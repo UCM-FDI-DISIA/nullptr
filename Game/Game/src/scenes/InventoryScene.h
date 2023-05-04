@@ -35,6 +35,11 @@ private:
 	GameObject* deckPanel;
 
 	Button* exitButton;
+
+	int cardsInDeck;
+	int camYLimit;
+	Transform* camTr;
+
 public:
 	InventoryScene();
 	virtual ~InventoryScene();
