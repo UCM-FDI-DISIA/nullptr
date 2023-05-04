@@ -7,7 +7,9 @@ InventoryScene::InventoryScene() : GameState() {
 	
 	vector<CardId> const& currentLibrary = PlayerData::instance()->getLibrary();
 	vector<CardId> const& currentDeck = PlayerData::instance()->getDeck();
-
+	camTr = camera->getComponent<Transform>();
+	cardsInDeck = 0;
+	camYLimit = 50;
 	for (CardId crd : currentLibrary) {
 		auto invCard = inventory.find(Card::getCardIDfromEnum(crd));
 		// Si la carta no está, se añade al inventario
@@ -33,7 +35,7 @@ InventoryScene::InventoryScene() : GameState() {
 	//Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(SDLApplication::getTexture("InventoryBackground"));
+	background->addComponent<Image>(SDLApplication::getTexture("InventoryBackground"))->attachToCamera();
 
 	createMoneyInfo();
 	createObjects(); 
@@ -44,32 +46,31 @@ InventoryScene::InventoryScene() : GameState() {
 	for (int i = 0; i < 5; i++) {
 		createSymbol(SYMBOL_POSITIONS[i], SYMBOLS_KEYS[i], STATS_TEXTS[i], stats[i]);
 	}
+	for (auto& crd : inventory) {
+		if (inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck > 0) {
+			cardsInDeck += inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck;
+		}
+	}
 	// Creamos el boton de salir
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	exitButton = addGameObject<Button>(_grp_UI,
 		[&]() {
-			int cardsInDeck = 0;
-			for (auto& crd : inventory) {
-				if (inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck > 0) {
-					cardsInDeck += inventory[Card::getCardIDfromEnum(crd.second.card)].cuantityDeck;
-				}
-			}
-			if (cardsInDeck >= 4) SDLApplication::popGameState();
+		if (cardsInDeck >= 4) SDLApplication::popGameState();
 		}, IS_EXIT_BUTTON_POS , aI);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
 	GameObject* symbol = addGameObject();
 	symbol->addComponent<Transform>(_pos, VECTOR_ZERO, SYMBOL_DIMENSIONS, SYMBOL_DIMENSIONS);
-	symbol->addComponent<Image>(SDLApplication::getTexture(key));
+	symbol->addComponent<Image>(SDLApplication::getTexture(key))->attachToCamera();
 
 	GameObject* stat = addGameObject();
 	stat->addComponent<Transform>(_pos + STAT_OFFSET, VECTOR_ZERO, 100, 24);
-	stat->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), text);
+	stat->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), text)->attachToCamera();
 
 	GameObject* value = addGameObject();
 	value->addComponent<Transform>(_pos + STAT_VALUE_OFFSET, VECTOR_ZERO, 50, 24);
-	value->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), to_string(val));
+	value->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR20"), to_string(val))->attachToCamera();
 }
 
 // Crea los paneles en los que se colocan las cartas
@@ -86,7 +87,7 @@ void InventoryScene::createPanels() {
 GameObject* InventoryScene::createPanel(Vector2D pos, int w, int h, string textureKey) {
 	GameObject* panel = addGameObject();
 	panel->addComponent<Transform>(pos, VECTOR_ZERO, w, h);
-	panel->addComponent<Image>(SDLApplication::getTexture(textureKey));
+	panel->addComponent<Image>(SDLApplication::getTexture(textureKey))->attachToCamera();
 
 	return panel;
 }
@@ -96,7 +97,7 @@ void InventoryScene::createMoneyInfo() {
 	GameObject* coin = addGameObject();
 	Vector2D pos = Vector2D(WIN_WIDTH - 100, 15);
 	coin->addComponent<Transform>(pos, Vector2D(), 64, 64);
-	coin->addComponent<Image>(SDLApplication::getTexture("Coin"));
+	coin->addComponent<Image>(SDLApplication::getTexture("Coin"))->attachToCamera();
 
 	// Texto con el numero de monedas
 	int m = PlayerData::instance()->getMoney();
@@ -106,7 +107,7 @@ void InventoryScene::createMoneyInfo() {
 		else mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 245, 15), VECTOR_ZERO, 50, 48);
 	}
 	else mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 270, 15), VECTOR_ZERO, 50, 48);
-	mon->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_BOLD46"), to_string(m));
+	mon->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_BOLD46"), to_string(m))->attachToCamera();
 }
 
 void InventoryScene::createObjects() {
@@ -116,7 +117,7 @@ void InventoryScene::createObjects() {
 	for (auto& rel : objs) {
 		GameObject* g = addGameObject();
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
-		g->addComponent<Image>(rel->texture);
+		g->addComponent<Image>(rel->texture)->attachToCamera();
 		++i;
 	}
 }
@@ -155,7 +156,8 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	// Imagen de la carta
 	GameObject* cardObj = addGameObject();
 	cardObj->addComponent<Transform>(pos, VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
-	cardObj->addComponent<Image>(cardDt.texture);
+	if(!dck)cardObj->addComponent<Image>(cardDt.texture)->attachToCamera();
+	else cardObj->addComponent<Image>(cardDt.texture);
 	// Botón de la carta con su función 
 	Button* b = addGameObject<Button>([&, deck = dck, card = crd]()
 		{
@@ -165,22 +167,29 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 				// Si era el botón en el deck reduce su cantidad
 				if (deck) {
 					--invCard.cuantityDeck;
+					cardsInDeck--;
 					// Si se borra por completo del deck este se reorganiza
 					if (invCard.cuantityDeck == 0) {
 						reloadDeckCards();
 					}
+					invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+					invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 				}
 				// Si era el botón fuera del deck se aumente su cantidad en este
 				else {
-					invCard.cuantityDeck++;
-					// Si se añade por primera vez al deck este se reorganiza
-					if (invCard.cuantityDeck == 1) {
-						reloadDeckCards();
+					if (cardsInDeck < MAX_CARDS) {
+						invCard.cuantityDeck++;
+						cardsInDeck++;
+						// Si se añade por primera vez al deck este se reorganiza
+						if (invCard.cuantityDeck == 1) {
+							reloadDeckCards();
+						}
+						invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+						invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 					}
 				}
 
-				invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
-				invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+				
 			}
 		}
 		, pos, AnimatorInfo("CardSelection", ALB_CARD_W, ALB_CARD_H, cardDt.texture->width(), cardDt.texture->height(), 1, 4),
@@ -198,8 +207,10 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	InventoryInfo& invCard = inventory.find(Card::getCardIDfromEnum(crd))->second;
 	Transform* tr = text->addComponent<Transform>(Vector2D (pos.getX() + ALB_CARD_W - 20, pos.getY()), VECTOR_ZERO, 70, 48);
 	(dck ? invCard.myDeckText : invCard.myText) = text->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR16"),  to_string(dck ? invCard.cuantityDeck : invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+	if (!dck) text->getComponent<TextComponent>()->attachToCamera();
 	textFrame->addComponent<Transform>(tr->getPos() - Vector2D(3, 7), VECTOR_ZERO, tr->getWidth() + 5, tr->getWidth() + 5);
-	textFrame->addComponent<Image>(SDLApplication::getTexture("CardCircle"));
+	if (!dck)textFrame->addComponent<Image>(SDLApplication::getTexture("CardCircle"))->attachToCamera();
+	else textFrame->addComponent<Image>(SDLApplication::getTexture("CardCircle"));
 
 	if (dck) {
 		deckButtons[crd].deckButton = b;
@@ -244,6 +255,10 @@ void InventoryScene::handleInput() {
 		if (exitButton->isCurrentButton()) butNavigator->selectDefaultButton();
 		else exitButton->setAsCurrentButton();
 	}
+// Scroll
+	camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll(false));
+	if (camTr->getY() < 0) camTr->setY(0);
+	else if (camTr->getY() < -100) camTr->setY(-100);
 }
 
 void InventoryScene::reloadDeckCards() {
@@ -279,7 +294,7 @@ void InventoryScene::update() {
 	if (x >= 0 && x <= 942 && y >= 0 && y <= 461) {
 		// Desactivo el componente del mazo y añado el del inventario si no existe ya
 		if (!inventoryPanel->hasComponent<Image>()) {
-			inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"));
+			inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"))->attachToCamera();
 			deckPanel->removeComponent<Image>();
 		}
 	}
@@ -287,7 +302,7 @@ void InventoryScene::update() {
 	else if (x >= 0 && x <= 942 && y > 461 && y <= 720) {
 		// Desactivo el componente del inventario y añado el del mazo si no existe ya
 		if (!deckPanel->hasComponent<Image>()) {
-			deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"));
+			deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"))->attachToCamera();
 			inventoryPanel->removeComponent<Image>();
 		}
 	}
