@@ -9,7 +9,9 @@ BossBattleScene::BossBattleScene(BattleType bt) : BattleScene(bt) {
 }
 
 void BossBattleScene::onBossDies() {
-	// Se debe pasar a la escena de cinematica
-	/*exitObject = addGameObject();
-	exitObject->addComponent<CallbackDelayer>();*/
+	// Se pasa a la escena de cinematica
+	SDLApplication::newScene<CinematicScene>(CINEMATIC_FINAL_NAME, CINEMATIC_WIDTH, CINEMATIC_HEIGHT, CINEMATIC_FINAL_ROWS, CINEMATIC_FINAL_COLS, CINEMATIC_FINAL_ANIMATION,
+	[]() {
+		SDLApplication::newScene<MainMenuScene>();
+	});
 }

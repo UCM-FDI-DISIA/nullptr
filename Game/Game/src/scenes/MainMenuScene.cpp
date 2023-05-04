@@ -36,8 +36,10 @@ MainMenuScene::MainMenuScene() {
 		// Botón jugar
 		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
 			[]() { 
-				SDLApplication::newScene<CinematicScene>(PLAYER, PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS, 
-					Animation(PLAYER_ATTACK_IDLE_INITIAL_FRAME, PLAYER_ATTACK_IDLE_FINAL_FRAME, PLAYER_ATTACK_IDLE_FRAME_RATE, 1),
+				SDLApplication::instance()->stopMainMusic();
+
+				SDLApplication::newScene<CinematicScene>(CINEMATIC_FINAL_NAME, CINEMATIC_WIDTH, CINEMATIC_HEIGHT, CINEMATIC_FINAL_ROWS, CINEMATIC_FINAL_COLS,
+					CINEMATIC_FINAL_ANIMATION,
 					[]() {
 						pD().defaultPlayerStats();
 						gameMap().reloadMap();
@@ -61,10 +63,12 @@ MainMenuScene::MainMenuScene() {
 	}
 	else {
 		// Botón jugar
-		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
+		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
 			[]() { 
-				SDLApplication::newScene<CinematicScene>(PLAYER, PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS, 
-					Animation(PLAYER_ATTACK_IDLE_INITIAL_FRAME, PLAYER_ATTACK_IDLE_FINAL_FRAME, PLAYER_ATTACK_IDLE_FRAME_RATE, 5),
+				SDLApplication::instance()->stopMainMusic();
+
+				SDLApplication::newScene<CinematicScene>(CINEMATIC_INITIAL_NAME, CINEMATIC_WIDTH, CINEMATIC_HEIGHT, CINEMATIC_INITIAL_ROWS, CINEMATIC_INITIAL_COLS,
+				CINEMATIC_INITIAL_ANIMATION,
 					[]() {
 						pD().defaultPlayerStats();
 						gameMap().reloadMap();
