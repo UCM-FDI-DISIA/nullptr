@@ -120,7 +120,7 @@ Cada carta estará relacionada con una época: pasado, presente o futuro. Esto i
 
 **4. Sistema de flujo de cartas**
 
-El jugador comienza con un mazo de 4 cartas predefinido. Como máximo, se podrá tener 16 cartas diferentes en su mazo de combate y nunca podrá llevar menos de 4. Este se podrá modificar en el inventario, antes de seleccionar algún nodo del mapa. 
+El jugador comienza con un mazo de 4 cartas predefinido. Como máximo, se podrá tener 15 cartas diferentes en su mazo de combate y nunca podrá llevar menos de 4. Este se podrá modificar en el inventario, antes de seleccionar algún nodo del mapa. 
 
 Al comienzo de un combate, se robarán 4 cartas aleatorias del mazo y estas pasarán a formar parte de la mano, las cuales se usarán para el combate. Se van usando las cartas y, una vez consumidos todos los usos de una carta, esta es descartada y va a la pila de descartes. Cuando el jugador se queda sin cartas en la mano, roba 4 cartas del mazo. Si se intenta robar de un mazo vacío, la pila de descartes se baraja, se vuelve a colocar en el lugar del mazo y el jugador roba de este. 
 
