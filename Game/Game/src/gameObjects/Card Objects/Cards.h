@@ -35,6 +35,8 @@ class LaserShadesCard : public Card {
 		constexpr static cardId_type id = _card_LASERGLASSES;
 
 		LaserShadesCard() : Card(cardsData().get("LaserGlasses")) { attackSound = &sdlutils().soundEffects().at(SHOT_SOUND); };
+		void spawnRay(Vector2D playerPos, Vector2D dir, float rotation, float attackMult, BattleScene* where, float speed, Vector2D offset);
+		void spawnParallelRays(Vector2D playerPos, Vector2D dir, float rotation, float attackMult, BattleScene* where, float speed);
 		virtual void attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 		virtual void ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where);
 };
