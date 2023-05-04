@@ -488,6 +488,8 @@ const string TUTO_TALKING_TEXTURE = "TutoTalking";
 const Vector2D TUTO_POPUP_POS = Vector2D(WIN_WIDTH / 2 - TUTO_POPUP_WIDTH / 2, 0);
 const Vector2D RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 5);
 const Vector2D TEXT_OFFSET = Vector2D(80, 80);
+const Vector2D SKIP_BUTTON_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 4 - 8, MM_BUTTON_HEIGHT / 2);
+const Vector2D SKIP_BUTTON_DROP_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT / 2);
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
@@ -914,7 +916,7 @@ const int CINEMATIC_HEIGHT = 306;
 const string CINEMATIC_INITIAL_NAME = "InitialCinematic";
 const int CINEMATIC_INITIAL_ROWS = 7;
 const int CINEMATIC_INITIAL_COLS = 7;
-const Animation CINEMATIC_INITIAL_ANIMATION = Animation(0, 49, 2, 1);
+const Animation CINEMATIC_INITIAL_ANIMATION = Animation(0, 6, 0.5f, 1);
 
 const string CINEMATIC_FINAL_NAME = "FinalCinematic";
 const int CINEMATIC_FINAL_ROWS = 7;
@@ -931,6 +933,8 @@ struct AnimatorInfo {
 	int w, h;
 	int fw, fh;
 	int rows, cols;
+
+	AnimatorInfo() : key("null"), w(20), h(20), fw(20), fh(20), rows(1), cols(1) {}
 	//Con constantes para botones gen�ricos
 	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
 		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }

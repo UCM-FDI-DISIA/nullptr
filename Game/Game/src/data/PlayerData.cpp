@@ -7,15 +7,11 @@ PlayerData::PlayerData() {
 	
 	defaultPlayerStats();
 
-	for (auto& var : sdlutils().relics().map_)
-	{
-		avlbRelics.push_back(var.first);
-	}
-
 	lastCard = _card_NULL;
 }
 
 void PlayerData::defaultPlayerStats() {
+	avlbRelics.clear();
 	for (auto& var : sdlutils().relics().map_)
 	{
 		avlbRelics.push_back(var.first);

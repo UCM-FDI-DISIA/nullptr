@@ -3,7 +3,8 @@
 #include "../gameObjects/UI/StatisticsUI.h"
 
 TutorialScene::TutorialScene(BattleType bt) : BattleScene(bt, true), current(0), screen(nullptr), 
-		testEnemy(nullptr), tuto(nullptr), tutoPopUp(nullptr), textOne(nullptr), textTwo(nullptr), button(nullptr) {
+		testEnemy(nullptr), tuto(nullptr), tutoPopUp(nullptr), textOne(nullptr), textTwo(nullptr), 
+		exitButton(nullptr), skipButton(nullptr) {
 	SDLApplication::instance()->stopMainMusic();
 	// Le impedimos el movimiento y el ataque
 	PlayerInputComponent* pic = player->getComponent<PlayerInputComponent>();
@@ -69,6 +70,11 @@ void TutorialScene::showPortalCharges() {
 	player->getComponent<PlayerInputComponent>()->setPortalComponent(statistics->getPortalComp());
 }
 
+void TutorialScene::exit() {
+	// Salir del tutorial
+	this->getTracker()->startStatsScene();
+}
+
 // Activa el popup
 void TutorialScene::activatePopUp() {
 	// Le impedimos el movimiento y el ataque
@@ -99,16 +105,20 @@ void TutorialScene::activatePopUp() {
 
 	// Boton
 	AnimatorInfo aI = AnimatorInfo(RESUME);
-	button = addGameObject<Button>(_grp_UI, [&]() { deactivatePopUp(); }, RESUME_BUTTON_POS, aI);
-	button->getComponent<Animator>()->attachToCamera();
-	if (ih().isControllerConnected()) button->setAsCurrentButton();
+	exitButton = addGameObject<Button>(_grp_UI, [&]() { deactivatePopUp(); }, RESUME_BUTTON_POS, aI, - 1, nullptr, 10.0f);
+	exitButton->getComponent<Animator>()->attachToCamera();
+	if (ih().isControllerConnected()) exitButton->setAsCurrentButton();
+	aI = AnimatorInfo("SkipButton");
+	skipButton = addGameObject<Button>(_grp_UI, [&]() { exit(); }, SKIP_BUTTON_POS, aI, -1, nullptr, 10.0f);
+	skipButton->getComponent<Animator>()->attachToCamera();
+	skipButton->getComponent<ButtonComponent>()->setDropDown(SKIP_BUTTON_DROP_POS);
 }
 
 // Desactiva el popup
 void TutorialScene::deactivatePopUp() {
 	// Objeto tuto
 	if (tuto == nullptr) {
-		tuto = addGameObject<Tuto>(_grp_UI, player->getComponent<Transform>());
+		tuto = addGameObject<Tuto>(_grp_TUTORIAL, player->getComponent<Transform>());
 		if (current >= 3) tuto->changeAnim(current);
 	}
 	else tuto->changeAnim(current);
@@ -116,14 +126,16 @@ void TutorialScene::deactivatePopUp() {
 
 	// Desactivar
 	screen->setAlive(false);
-	button->setAlive(false);
+	exitButton->setAlive(false);
+	skipButton->setAlive(false);
 	tutoPopUp->setAlive(false);
 	textOne->setAlive(false);
 	textTwo->setAlive(false);
 
 	// Anulo referencias
 	screen = nullptr;
-	button = nullptr;
+	exitButton = nullptr;
+	skipButton = nullptr;
 	tutoPopUp = nullptr;
 	textOne = nullptr;
 	textTwo = nullptr;
@@ -143,6 +155,7 @@ void TutorialScene::deactivatePopUp() {
 	tutorialController->setCanAdvance(true);
 }
 
+// Esconde a tuto cuando es necesario
 void TutorialScene::hideTuto() {
 	tuto->setAlive(false);
 	tuto = nullptr;
@@ -159,6 +172,7 @@ vector<CallBack> TutorialScene::getSteps() {
 	steps.push_back([&]() {showAbility(); });
 	steps.push_back([&]() {showDrops(); });
 	steps.push_back([&]() {showPortalCharges(); });
+
 	return steps;
 }
 

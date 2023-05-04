@@ -26,7 +26,7 @@ public:
 	// Crea una animacion nueva
 	void createAnim(string key, Animation anim);
 	// Crea una animacion nueva
-	void createAnim(string key, int start, int end, int rate, int _rep = 0);
+	void createAnim(string key, int start, int end, float rate, int _rep = 0);
 
 	// Empieza una nueva animacion
 	void play(string key);
