@@ -460,6 +460,7 @@ const string EXIT = "ExitButton";
 const string RESUME = "ResumeButton";
 const string INVENTORY = "InventoryButton";
 const string BUY = "BuyButton";
+const string SKIP = EXIT;
 
 // BATTLEBACKGROUND ------------------------------------------------------------------------------
 const float BATTLEBACKGROUND123_WIDTH = 1088 * PIXEL_WIDTH; 

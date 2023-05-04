@@ -247,6 +247,7 @@
     <ClInclude Include="src\scenes\BossBattleScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
+    <ClInclude Include="src\scenes\CinematicScene.h" />
     <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\scenes\GameState.h" />
     <ClInclude Include="src\scenes\InventoryScene.h" />
@@ -365,6 +366,7 @@
     <ClCompile Include="src\scenes\BossBattleScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
+    <ClCompile Include="src\scenes\CinematicScene.cpp" />
     <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\scenes\GameState.cpp" />
     <ClCompile Include="src\scenes\InventoryScene.cpp" />

@@ -35,7 +35,17 @@ MainMenuScene::MainMenuScene() {
 	if (pD().hasSaveFile()) {
 		// Botón jugar
 		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
-			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
+			[]() { 
+				SDLApplication::newScene<CinematicScene>(PLAYER, PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS, 
+					Animation(PLAYER_ATTACK_IDLE_INITIAL_FRAME, PLAYER_ATTACK_IDLE_FINAL_FRAME, PLAYER_ATTACK_IDLE_FRAME_RATE, 1),
+					[]() {
+						pD().defaultPlayerStats();
+						gameMap().reloadMap();
+						SDLApplication::newScene<MapScene>();
+						dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial();
+
+					});
+			},
 			PLAY)->setAsDefaultButton();
 
 		//Este es para probar el boss
@@ -51,8 +61,18 @@ MainMenuScene::MainMenuScene() {
 	}
 	else {
 		// Botón jugar
-		createButton(MM_PLAY_BUTTON_POS_NOSAVE, MM_PLAY_BUTTON_POS_NOSAVE - FRAME_OFFSET,
-			[]() { pD().defaultPlayerStats(); gameMap().reloadMap(); SDLApplication::newScene<MapScene>(); dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial(); },
+		createButton(MM_PLAY_BUTTON_POS, MM_PLAY_BUTTON_POS - FRAME_OFFSET,
+			[]() { 
+				SDLApplication::newScene<CinematicScene>(PLAYER, PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT, PLAYER_SPRITE_ROWS, PLAYER_SPRITE_COLS, 
+					Animation(PLAYER_ATTACK_IDLE_INITIAL_FRAME, PLAYER_ATTACK_IDLE_FINAL_FRAME, PLAYER_ATTACK_IDLE_FRAME_RATE, 5),
+					[]() {
+						pD().defaultPlayerStats();
+						gameMap().reloadMap();
+						SDLApplication::newScene<MapScene>();
+						dynamic_cast<MapScene*>(SDLApplication::instance()->getCurrentState())->goToTutorial();
+
+					});
+			},
 			PLAY)->setAsDefaultButton();
 
 		//Este es para probar el boss
