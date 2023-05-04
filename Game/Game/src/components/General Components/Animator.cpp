@@ -8,7 +8,7 @@ void Animator::createAnim(string key, Animation anim) {
 }
 
 // Crea una animacion nueva
-void Animator::createAnim(string key, int start, int end, int rate, int _rep) {
+void Animator::createAnim(string key, int start, int end, float rate, int _rep) {
 	createAnim(key, Animation(start, end, rate, _rep));
 }
 

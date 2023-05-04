@@ -33,7 +33,9 @@
       { "id" : "BattleBackground2", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground2_1088x612.png" },
       { "id" : "BattleBackground3", "file" : "../Game/resources/images/UI/BattleScene/Background/BattleBackground3_1088x612.png" },
       { "id" : "InventoryBackground", "file" :  "../Game/resources/images/UI/InventoryScene/InventoryBackground_1280x720.png"},
+      { "id" : "InventoryBackgroundStats", "file" :  "../Game/resources/images/UI/InventoryScene/InventoryBackground_stats_328x720.png"},
       { "id" : "ChestBackground", "file" : "../Game/resources/images/UI/ChestScene/ChestBackground_106x59.png" },
+      { "id" : "OptionsPauseBackground", "file" : "../Game/resources/images/UI/OptionsMenuScene/OptionsPauseBackground_106x59.png" },
 
       { "id" : "ButtonFrame", "file" : "../Game/resources/images/UI/MainMenuScene/ButtonFrame_spritesheet_95x45.png" }, 
       { "id" : "PlayButton", "file" : "../Game/resources/images/UI/MainMenuScene/PlayButton_spritesheet_79x18.png" },
@@ -44,6 +46,7 @@
       { "id" : "ResumeButton", "file" : "../Game/resources/images/UI/MainMenuScene/ResumeButton_spritesheet_79x18.png" },
       { "id" : "InventoryButton", "file" : "../Game/resources/images/UI/MainMenuScene/InventoryButton_spritesheet_79x18.png" },
       { "id" : "BuyButton", "file" : "../Game/resources/images/UI/ShopScene/BuyButton_spritesheet_79x18.png"},
+      { "id" : "SkipButton", "file" : "../Game/resources/images/UI/TutorialScene/SaltarTuto_spritesheet_79x18.png"},
       
       { "id" : "GameOver", "file" : "../Game/resources/images/UI/BattleScene/GameOver/GameOverBackground_2360x1640.png" },
       { "id" : "YouDied", "file" : "../Game/resources/images/UI/BattleScene/GameOver/YouDiedMessage_300x200.png" },
@@ -95,6 +98,7 @@
 
       { "id" : "SpearThrustAnim", "file" : "../Game/resources/images/Cards/CardEffects/Spear100x30.png" },
       { "id" : "SpearSkill", "file" : "../Game/resources/images/Cards/CardEffects/SpearSkill100x30.png" },
+      { "id" : "BowSkill", "file" : "../Game/resources/images/Cards/CardEffects/BowSkill_280x280.png" },
       
       { "id" : "Laser", "file" : "../Game/resources/images/Cards/CardEffects/Laser_10x10.png" },
       { "id" : "FlashBang", "file" : "../Game/resources/images/Cards/CardEffects/FlashBang_256x256.png" },
@@ -218,7 +222,7 @@
 
       { "id": "Collider", "file": "../Game/resources/images/Collider.png" },
 
-      { "id": "InitialCinematic", "file": "../Game/resources/images/Cinematics/FinalCinematic_544x306.png" },
+      { "id": "InitialCinematic", "file": "../Game/resources/images/Cinematics/InitialCinematic_544x306.png" },
       { "id": "FinalCinematic", "file": "../Game/resources/images/Cinematics/FinalCinematic_544x306.png" }
     ],
     
@@ -245,7 +249,13 @@
       { "id" : "ManaPick", "file": "../Game/resources/sounds/ManaPick.wav"},
       { "id" : "Heal", "file": "../Game/resources/sounds/HealSound.wav"},
       { "id" : "Slash", "file": "../Game/resources/sounds/SwordSlash.wav"},
-      { "id" : "Shot", "file": "../Game/resources/sounds/ShotSound.wav"}
+      { "id" : "Shot", "file": "../Game/resources/sounds/ShotSound.wav"},
+      { "id" : "AssassinHit", "file": "../Game/resources/sounds/SpecialHit.wav"},
+      { "id" : "AssassinDeath", "file": "../Game/resources/sounds/SpecialDeath.wav"},
+      { "id" : "BuySound", "file": "../Game/resources/sounds/BuySound.wav"},
+      { "id" : "CantBuySound", "file": "../Game/resources/sounds/CantBuySound.wav"},
+      { "id" : "BossHit", "file": "../Game/resources/sounds/BossHit.wav"},
+      { "id" : "BossDeath", "file": "../Game/resources/sounds/BossDeath.wav"}
     ],
   
     "musics" : [

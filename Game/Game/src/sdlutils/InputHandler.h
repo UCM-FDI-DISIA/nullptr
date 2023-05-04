@@ -43,6 +43,8 @@ public:
 		for (auto i = 0u; i < 3; i++) {
 			mbState_[i] = false;
 		}
+		isControllerDeviceAddedEvent_ = false;
+		isControllerDeviceRemovedEvent_ = false;
 		isControllerButtonDownEvent_ = false;
 		isControllerButtonUpEvent_ = false;
 		isControllerAxisMotionEvent_ = false;
@@ -217,6 +219,9 @@ public:
 
 	inline bool isControllerConnected() { return controller_ != nullptr; }
 
+	inline bool controllerDeviceAddedEvent() { return isControllerDeviceAddedEvent_; }
+	inline bool controllerDeviceRemovedEvent() { return isControllerDeviceRemovedEvent_; }
+
 private:
 	InputHandler() {
 		kbState_ = SDL_GetKeyboardState(0); 
@@ -274,6 +279,7 @@ private:
 	inline void onControllerDeviceAdded() {
 		if (controller_ == nullptr) {
 			controller_ = SDL_GameControllerOpen(0);
+			isControllerDeviceAddedEvent_ = true;
 #ifdef _DEBUG
 			std::cout << "GameController connected." << std::endl;
 #endif
@@ -283,6 +289,7 @@ private:
 		if (controller_ != nullptr) {
 			SDL_GameControllerClose(controller_);
 			controller_ = nullptr;
+			isControllerDeviceRemovedEvent_ = true;
 #ifdef _DEBUG
 			std::cout << "GameController disconnected." << std::endl;
 #endif
@@ -313,6 +320,8 @@ private:
 	bool isControllerButtonDownEvent_;
 	bool isControllerButtonUpEvent_;
 	bool isControllerAxisMotionEvent_;
+	bool isControllerDeviceAddedEvent_;
+	bool isControllerDeviceRemovedEvent_;
 	Vector2D mousePos_;
 	std::array<bool, 3> mbState_;
 	const Uint8 *kbState_;

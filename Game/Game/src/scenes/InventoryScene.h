@@ -65,7 +65,7 @@ public:
 	void createMoneyInfo();
 	void createObjects();
 	void createCards();
-	void createDeckCards(CardId crd, int column);
+	void createDeckCards(CardId crd, int column, int row);
 	Button* createCard(Vector2D pos, CardId card, bool deck);
 	void reloadDeckCards();
 

@@ -30,6 +30,7 @@ class CardComponent : public Component {
 		bool tutorial, system;
 
 		GameControl& gmCtrl_;
+		int lastAbilityTime;
 
 		void initDeck();
 		void reshufflePile();

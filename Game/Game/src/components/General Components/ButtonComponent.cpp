@@ -26,6 +26,8 @@ void ButtonComponent::update() {
 	else {
 		state = OnOut;
 	}
+
+	if (isDropDown) updatePos();
 }
 
 void ButtonComponent::handleInput() {
@@ -76,6 +78,11 @@ void ButtonComponent::onClick() {
 	function();
 }
 
+void ButtonComponent::setDropDown(Vector2D pos) {
+	isDropDown = true;
+	initialPos = tr_->getPos();
+	dropPos = pos;
+}
 
 // Actualiza la animación del botón según el estado
 void ButtonComponent::updateAnimation() {
@@ -89,6 +96,17 @@ void ButtonComponent::updateAnimation() {
 	case OnClick:
 		changeStateAnim(ONCLICK, state);
 		break;
+	}
+}
+
+void ButtonComponent::updatePos() {
+	switch (state) {
+		case OnOver:
+			tr_->setPos(dropPos);
+			break;
+		case OnOut:
+			tr_->setPos(initialPos);
+			break;
 	}
 }
 

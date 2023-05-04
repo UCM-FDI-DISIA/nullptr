@@ -11,7 +11,7 @@ private:
 	int fullWindow;
 	int peripheral;
 
-	OptionsData() : music(4), sfx(4), fullWindow(0), peripheral(0) {}
+	OptionsData() : music(10), sfx(10), fullWindow(0), peripheral(0) {}
 
 public:
 	inline int getMusic() { return music; }
