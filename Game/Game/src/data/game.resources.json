@@ -117,7 +117,7 @@
       { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
       { "id": "RangedEnemyDeath", "file": "../Game/resources/images/Enemies/RangedEnemyDeath_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
-      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemyProv_32x32.png"},
+      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemy_32x32.png"},
       
       { "id" : "BossEnemy", "file" : "../Game/resources/images/Enemies/Boss_300x300.png" },
 
@@ -140,6 +140,7 @@
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
       { "id" : "MapBackground", "file" : "../Game/resources/images/UI/MapScene/backgroundMap_544x918.png" },
       { "id" : "MapBackground2", "file" : "../Game/resources/images/UI/MapScene/backgroundMap_544x918_2.png" },
+      { "id" : "MarkPointer", "file" : "../Game/resources/images/UI/MapScene/markPointer_32x32.png" },
 
       { "id" : "StraightNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_6x50.png" },
       { "id" : "MidNodeConection", "file" : "../Game/resources/images/UI/MapScene/Node_Conection_213x50.png" },
