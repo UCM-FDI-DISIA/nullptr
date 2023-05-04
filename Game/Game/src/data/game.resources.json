@@ -10,6 +10,7 @@
     { "id": "SILKSCREEN_REGULAR22", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 22 },
     { "id": "SILKSCREEN_BOLD22", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 22 },
     { "id": "SILKSCREEN_REGULAR30", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 30 },
+    { "id": "SILKSCREEN_REGULAR46", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 46 },
     { "id": "SILKSCREEN_BOLD30", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 30 },
     { "id": "SILKSCREEN_REGULAR28", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 28 },
     { "id": "SILKSCREEN_BOLD38", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 38 },

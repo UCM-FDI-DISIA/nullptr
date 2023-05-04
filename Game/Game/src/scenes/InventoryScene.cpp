@@ -107,7 +107,7 @@ void InventoryScene::createMoneyInfo() {
 		else mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 245, 15), VECTOR_ZERO, 50, 48);
 	}
 	else mon->addComponent<Transform>(Vector2D(WIN_WIDTH - 270, 15), VECTOR_ZERO, 50, 48);
-	mon->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_BOLD46"), to_string(m))->attachToCamera();
+	mon->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR46"), to_string(m))->attachToCamera();
 }
 
 void InventoryScene::createObjects() {
