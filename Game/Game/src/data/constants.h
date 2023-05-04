@@ -488,6 +488,8 @@ const string TUTO_TALKING_TEXTURE = "TutoTalking";
 const Vector2D TUTO_POPUP_POS = Vector2D(WIN_WIDTH / 2 - TUTO_POPUP_WIDTH / 2, 0);
 const Vector2D RESUME_BUTTON_POS = Vector2D(WIN_WIDTH / 2 - MM_BUTTON_WIDTH / 2, WIN_HEIGHT - MM_BUTTON_HEIGHT - 5);
 const Vector2D TEXT_OFFSET = Vector2D(80, 80);
+const Vector2D SKIP_BUTTON_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH / 4 - 8, MM_BUTTON_HEIGHT / 2);
+const Vector2D SKIP_BUTTON_DROP_POS = Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH, MM_BUTTON_HEIGHT / 2);
 
 // STATISTICS FRAME ------------------------------------------------------------------------------
 // KEY ANIMATIONS
