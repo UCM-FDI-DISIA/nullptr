@@ -36,13 +36,6 @@ void PlayerData::defaultPlayerStats() {
 	addCardToDeck(_card_SWORD, 3);
 	addCardToLibrary(_card_GUN, 2);
 	addCardToDeck(_card_GUN, 2);
-	addCardToLibrary(_card_ASSAULTRIFLE, 2);
-	addCardToLibrary(_card_BOW, 2);
-	addCardToLibrary(_card_CHEATGUN, 2);
-	addCardToLibrary(_card_LASERGLASSES, 2);
-	addCardToLibrary(_card_LASERKATANA, 2);
-	addCardToLibrary(_card_LIGHTRIFLE, 2);
-	addCardToLibrary(_card_MEGAPHONE, 2);
 }
 
 void PlayerData::getDataFromJSON() {
