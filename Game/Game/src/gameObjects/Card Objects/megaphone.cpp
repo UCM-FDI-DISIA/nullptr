@@ -30,13 +30,20 @@ void MegaphoneCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMu
         Vector2D startPos = playerPos + dir * 20.0f * (i + 1) + currentOffset;
         
         
-        Hitbox::HitboxData data = { startPos, VECTOR_ZERO, spriteRotation, 50 * i, 100 * i, SOUND_ATTACK, _grp_ENEMIES };
+        Hitbox::HitboxData data = { startPos, VECTOR_ZERO, spriteRotation, 30 + 40 * i, 30 + 90 * i, "null", _grp_ENEMIES };
 
-        where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 0.5, data);
+        GameObject* hitbox = where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.5, data);
+
+        if(i == numProjectiles - 1){
+            auto anim = hitbox-> addComponent<Animator>(SDLApplication::getTexture("MegaphoneAtt"), 29, 32, 2, 6);
+            anim->createAnim("Attack", Animation(0, 11, 18, 1));
+            anim->play("Attack");
+        }
     }
+
 }
 
-//Se disparan todas las balas
+//Se cura 
 void  MegaphoneCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
     Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
     where->getPlayer()->getComponent<HealthComponent>()->heal(6 * remainingUses);

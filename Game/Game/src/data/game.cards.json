@@ -124,7 +124,7 @@
     "name": "Megafono",
     "attackText": "OSASUNA",
     "abilityText": "NUNCA SE RINDE",
-    "damage": 10,
+    "damage": 5,
     "maxUses": 5,
     "mana": 60,
     "downTime": 0.5,
