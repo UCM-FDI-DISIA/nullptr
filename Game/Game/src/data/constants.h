@@ -931,6 +931,8 @@ struct AnimatorInfo {
 	int w, h;
 	int fw, fh;
 	int rows, cols;
+
+	AnimatorInfo() : key("null"), w(20), h(20), fw(20), fh(20), rows(1), cols(1) {}
 	//Con constantes para botones gen�ricos
 	AnimatorInfo(string _k) : key(_k), w(MM_BUTTON_WIDTH), h(MM_BUTTON_HEIGHT), fw(BUTTON_SPRITE_WIDTH), fh(BUTTON_SPRITE_HEIGHT),
 		rows(BUTTON_SPRITE_ROWS), cols(BUTTON_SPRITE_COLUMS) { }

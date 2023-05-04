@@ -12,13 +12,8 @@ void Hitbox::initGameObject(int dmg, bool contact, float lifetime, StatusCompone
 
 void Hitbox::initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height,string sprite, int spriteWidth, int spriteHeight, int rows, int columns, Animation anim, BattleScene* scene, HitboxData data, Vector2D anch, CallBackExpl cb)
 {
-	if (anch.getX() == -1) anch = Vector2D(data.width / 2, data.height / 2);
-	addComponent<Transform>(data.pos - Vector2D(data.width / 2, data.height / 2), data.vel, anch, data.width, data.height, data.rot);
-	auto animator = addComponent<Animator>(SDLApplication::getTexture(sprite), spriteWidth, spriteHeight, rows, columns);
-	animator->createAnim("xplosion", anim);
-	animator->play("xplosion");
-	addComponent<ColliderComponent>(data.trgt);
-	addComponent<HitboxExplosionComponent>(dmg, lifetime, stts, contact, width, height, sprite, scene, data.trgt, cb);
+	initGameObject(data, anch);
+	addComponent<HitboxExplosionComponent>(dmg, lifetime, stts, contact, width, height, sprite, scene, data.trgt, AnimatorInfo(sprite, spriteWidth, spriteHeight, rows, columns), anim, cb);
 }
 
 void Hitbox::initGameObject(int healing, float cooldown, HitboxData data, float lifetime, Vector2D anch)
