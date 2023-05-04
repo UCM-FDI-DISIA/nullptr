@@ -1,10 +1,9 @@
 ﻿#include "InventoryScene.h"
 #include "../core/SDLApplication.h"
-
+#include "../data/PlayerData.h"
 
 // Se encarga de cargar todos los datos desde el dataplayer, así como obtener los datos del deck y de la library
 InventoryScene::InventoryScene() : GameState() {
-	
 	vector<CardId> const& currentLibrary = PlayerData::instance()->getLibrary();
 	vector<CardId> const& currentDeck = PlayerData::instance()->getDeck();
 	camTr = camera->getComponent<Transform>();
@@ -57,6 +56,15 @@ InventoryScene::InventoryScene() : GameState() {
 		[&]() {
 		if (cardsInDeck >= 4) SDLApplication::popGameState();
 		}, IS_EXIT_BUTTON_POS , aI);
+
+	interactive = true;
+
+	if (PlayerData::instance()->getInventoryOpen()) {
+		activatePopUp();
+	}
+
+	PlayerData::instance()->setCardGained(false);
+	PlayerData::instance()->setInventoryOpen(false);
 }
 
 void InventoryScene::createSymbol(Vector2D _pos, string key, string text, int val) {
@@ -250,15 +258,21 @@ InventoryScene::~InventoryScene() {
 
 
 void InventoryScene::handleInput() {
-	GameState::handleInput();
-	if (gmCtrl_.goBack()) {
-		if (exitButton->isCurrentButton()) butNavigator->selectDefaultButton();
-		else exitButton->setAsCurrentButton();
+	if (interactive) {
+		GameState::handleInput();
+		if (gmCtrl_.goBack()) {
+			if (exitButton->isCurrentButton()) butNavigator->selectDefaultButton();
+			else exitButton->setAsCurrentButton();
+		}
+		// Scroll
+		camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll(false));
+		if (camTr->getY() < 0) camTr->setY(0);
+		else if (camTr->getY() < -100) camTr->setY(-100);
 	}
-// Scroll
-	camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll(false));
-	if (camTr->getY() < 0) camTr->setY(0);
-	else if (camTr->getY() < -100) camTr->setY(-100);
+	else {
+		pointer->handleInput();
+		button->handleInput();
+	}
 }
 
 void InventoryScene::reloadDeckCards() {
@@ -284,32 +298,43 @@ void InventoryScene::reloadDeckCards() {
 }
 
 void InventoryScene::update() {
-	GameState::update();
+	if (interactive) {
+		GameState::update();
 
-	// Posición del ratón
-	int x; int y;
-	SDL_GetMouseState(&x, &y);
+		// Posición del ratón
+		int x; int y;
+		SDL_GetMouseState(&x, &y);
 
-	// Si me encuentro dentro de la zona del inventario
-	if (x >= 0 && x <= 942 && y >= 0 && y <= 461) {
-		// Desactivo el componente del mazo y añado el del inventario si no existe ya
-		if (!inventoryPanel->hasComponent<Image>()) {
-			inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"))->attachToCamera();
-			deckPanel->removeComponent<Image>();
+		// Si me encuentro dentro de la zona del inventario
+		if (x >= 0 && x <= 942 && y >= 0 && y <= 461) {
+			// Desactivo el componente del mazo y añado el del inventario si no existe ya
+			if (!inventoryPanel->hasComponent<Image>()) {
+				inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"))->attachToCamera();
+				deckPanel->removeComponent<Image>();
+			}
+		}
+		// Si me encuentro dentro de la zona del mazo
+		else if (x >= 0 && x <= 942 && y > 461 && y <= 720) {
+			// Desactivo el componente del inventario y añado el del mazo si no existe ya
+			if (!deckPanel->hasComponent<Image>()) {
+				deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"))->attachToCamera();
+				inventoryPanel->removeComponent<Image>();
+			}
+		}
+		// Si me encuentro fuera, desactivo todo
+		else {
+			if (inventoryPanel->hasComponent<Image>()) inventoryPanel->removeComponent<Image>();
+			if (deckPanel->hasComponent<Image>()) deckPanel->removeComponent<Image>();
 		}
 	}
-	// Si me encuentro dentro de la zona del mazo
-	else if (x >= 0 && x <= 942 && y > 461 && y <= 720) {
-		// Desactivo el componente del inventario y añado el del mazo si no existe ya
-		if (!deckPanel->hasComponent<Image>()) {
-			deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"))->attachToCamera();
-			inventoryPanel->removeComponent<Image>();
-		}
-	}
-	// Si me encuentro fuera, desactivo todo
+
 	else {
-		if (inventoryPanel->hasComponent<Image>()) inventoryPanel->removeComponent<Image>();
-		if (deckPanel->hasComponent<Image>()) deckPanel->removeComponent<Image>();
+		pointer->update();
+		screen->update();
+		tuto->update();
+		text1->update();
+		text2->update();
+		button->update();
 	}
 }
 
@@ -329,4 +354,58 @@ void InventoryScene::createNumber(GameObject* number, Vector2D pos, int value, c
 
 	// Reproducir animación correspondiente
 	anim->play(to_string(value));
+}
+
+void InventoryScene::activatePopUp() {
+	interactive = false;
+
+	// Objeto que cubre la pantalla
+	screen = addGameObject(_grp_UI);
+	screen->addComponent<Transform>(Vector2D(), VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	screen->addComponent<Image>(&sdlutils().images().at(DARK_PLAIN_TEXTURE))->attachToCamera();
+
+	// Imagen de tuto (cambiar luego t->width por constantes)
+	tuto = addGameObject(_grp_UI);
+	tuto->addComponent<Transform>(TUTO_POPUP_POS, Vector2D(), TUTO_POPUP_WIDTH, TUTO_POPUP_HEIGHT);
+	Animator* anim = tuto->addComponent<Animator>(SDLApplication::getTexture(TUTO_TALKING_TEXTURE),
+		TUTO_POPUP_SPRITE_WIDTH, TUTO_POPUP_SPRITE_HEIGHT, 2, 1);
+	anim->attachToCamera();
+	anim->createAnim("idle", 0, 1, 3, -1);
+	anim->play("idle");
+
+	// Mostar texto correspondiente
+	// Color del texto
+	SDL_Color color = { 213, 180, 152 };
+	Transform* tr = nullptr;
+
+	// Añadir objeto con el componente transform y el de texto con el string adecuado
+	text1 = addGameObject(_grp_UI);
+	text2 = addGameObject(_grp_UI);
+
+	// Seleccionar texto
+	// Primer texto
+	tr = text1->addComponent<Transform>(TUTO_POPUP_POS + TEXT_OFFSET, VECTOR_ZERO, TUTO_POPUP_WIDTH - 120, TUTO_POPUP_HEIGHT - 120);
+	text1->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG30), texts[0], color, true)->attachToCamera();
+
+	// Segundo texto
+	text2->addComponent<Transform>(Vector2D(tr->getPos().getX(), tr->getPos().getY() + tr->getHeight()), VECTOR_ZERO, TUTO_POPUP_WIDTH - 120, TUTO_POPUP_HEIGHT - 120);
+	text2->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG30), texts[1] + texts[2], color, true)->attachToCamera();
+
+
+	// Boton
+	AnimatorInfo aI = AnimatorInfo(RESUME);
+	button = addGameObject<Button>(_grp_UI, [&]() { deactivatePopUp(); }, RESUME_BUTTON_POS, aI);
+	button->getComponent<Animator>()->attachToCamera();
+	if (ih().isControllerConnected()) button->setAsCurrentButton();
+}
+
+void InventoryScene::deactivatePopUp() {
+	interactive = true;
+	screen->setAlive(false);
+	tuto->setAlive(false);
+	text1->setAlive(false);
+	text2->setAlive(false);
+	button->setAlive(false);
+
+	screen = tuto = text1 = text2 = button = nullptr;
 }

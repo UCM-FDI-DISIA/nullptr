@@ -32,6 +32,8 @@ void PlayerData::defaultPlayerStats() {
 	setMoney(0);
 	level = 1;
 	playerSpeed = PLAYER_SPEED;
+	cardGained = true;
+	inventoryNotOpen = true;
 
 	// Cartas iniciales
 	addCardToLibrary(_card_SPEAR, 3);
@@ -219,6 +221,7 @@ void PlayerData::addCardToLibrary(CardId newCard, int num) {
 
 		library.push_back(newCard);
 	}
+	cardGained = true;
 	Album::instance()->addCard(cardsData().get(Card::getCardIDfromEnum(newCard)));
 }
 
@@ -239,6 +242,7 @@ pair<CardId, int> PlayerData::getNewCard() {
 		addCardToLibrary(lastCard, 2);
 		lastCard = _card_NULL;
 	}
+	cardGained = true;
 	return res;
 }
 
