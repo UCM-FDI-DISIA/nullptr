@@ -66,6 +66,7 @@
       { "id" : "LightBeam", "file": "../Game/resources/images/Cards/BlasterCard_58x93.png"},
       { "id" : "LaserKatana", "file": "../Game/resources/images/Cards/KatanaCard_58x93.png"},
       { "id" : "CheatGun", "file": "../Game/resources/images/Cards/CheatGunCard_58x93.png"},
+      { "id" : "RitualAxe", "file": "../Game/resources/images/Cards/RitualAxeCard_58x93.png"},
 
       { "id" : "CardReverse", "file" : "../Game/resources/images/Cards/CardReverse_58x93.png" },
       { "id" : "ShufflingCards", "file" : "../Game/resources/images/Cards/ShufflingCards_spritesheet_58x93.png" },
