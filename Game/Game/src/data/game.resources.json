@@ -113,7 +113,7 @@
       { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
       { "id": "RangedEnemyDeath", "file": "../Game/resources/images/Enemies/RangedEnemyDeath_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
-      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemy_32x32.png"},
+      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemyProv_32x32.png"},
       
       { "id" : "BossEnemy", "file" : "../Game/resources/images/Enemies/Boss_300x300.png" },
 
