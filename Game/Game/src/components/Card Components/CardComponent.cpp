@@ -90,7 +90,7 @@ void CardComponent::attack() {
 
 //Checkea el mana necesario y llama al metodo habilidad de la carta activa, descartandola y consumiendo mana
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
-	if ((*active)->getMana() <= mana && SDL_GetTicks() - lastAbilityTime < 750) {
+	if ((*active)->getMana() <= mana && SDL_GetTicks() - lastAbilityTime > 750) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
 		PlayerData::instance()->setCurrMana(mana);
