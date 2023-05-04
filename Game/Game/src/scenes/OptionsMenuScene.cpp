@@ -3,7 +3,7 @@
 #include "../components/General Components/OptionsUpdateComponent.h"
 
 // Constructora
-OptionsMenuScene::OptionsMenuScene() : music({ nullptr, nullptr, 0, nullptr, nullptr }), sfx({ nullptr, nullptr, 0, nullptr, nullptr }), fullWindow({ nullptr, nullptr, 0, nullptr, nullptr }), peripheral({ nullptr, nullptr, 0, nullptr, nullptr }),
+OptionsMenuScene::OptionsMenuScene() : nVolumeValues(10), music({ nullptr, nullptr, 0, nullptr, nullptr }), sfx({ nullptr, nullptr, 0, nullptr, nullptr }), fullWindow({ nullptr, nullptr, 0, nullptr, nullptr }), peripheral({ nullptr, nullptr, 0, nullptr, nullptr }),
 gamepadConnection(nullptr) {
 
 	// Fondo
@@ -40,17 +40,14 @@ void OptionsMenuScene::addBackground() {
 void OptionsMenuScene::addOptions() {
 
 	music.titleText = addGameObject();
-	for (int i = 0; i < 5; ++i) {
-		controls[music.titleText].push_back({ to_string(25 * i), [i]() {
-			Mix_VolumeMusic(MIX_MAX_VOLUME * i / 4);
+	sfx.titleText = addGameObject();
+	for (int i = 0; i < nVolumeValues + 1; ++i) {
+		controls[music.titleText].push_back({ to_string(100/ nVolumeValues * i), [i, nV = nVolumeValues]() {
+			Mix_VolumeMusic(MIX_MAX_VOLUME * i / nV);
 		} 
 		});
-	}
-
-	sfx.titleText = addGameObject();
-	for (int i = 0; i < 5; ++i) {
-		controls[sfx.titleText].push_back({ to_string(25 * i), [i]() {
-			Mix_MasterVolume(MIX_MAX_VOLUME * i / 4);
+		controls[sfx.titleText].push_back({ to_string(100 / nVolumeValues * i), [i, nV = nVolumeValues]() {
+			Mix_MasterVolume(MIX_MAX_VOLUME * i / nV);
 		} 
 		});
 	}
@@ -131,7 +128,7 @@ void OptionsMenuScene::leftOption(control control, OptionId optionId, SDL_Rect c
 
 // Cambia a la opcion de la derecha y ejecuta su callback
 void OptionsMenuScene::rightOption(control control, OptionId optionId, SDL_Rect controlRect) {
-	if (!(control.currentOption == 4 && (optionId == _option_MUSIC || optionId == _option_SFX))) {
+	if (!(control.currentOption == nVolumeValues && (optionId == _option_MUSIC || optionId == _option_SFX))) {
 		++control.currentOption;
 
 		// Si se trataba de la ultima opcion, se coloca la primera
