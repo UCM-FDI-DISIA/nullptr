@@ -32,12 +32,12 @@ void PlayerData::defaultPlayerStats() {
 	inventoryNotOpen = true;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_SPEAR, 3);
-	addCardToDeck(_card_SPEAR, 3);
+	addCardToLibrary(_card_LASERGLASSES, 2);
+	addCardToDeck(_card_LASERGLASSES, 2);
 	addCardToLibrary(_card_SWORD, 3);
 	addCardToDeck(_card_SWORD, 3);
-	addCardToLibrary(_card_GUN, 2);
-	addCardToDeck(_card_GUN, 2);
+	addCardToLibrary(_card_GUN, 3);
+	addCardToDeck(_card_GUN, 3);
 }
 
 void PlayerData::getDataFromJSON() {
@@ -71,7 +71,8 @@ void PlayerData::getDataFromJSON() {
 		money = static_cast<int>(player["money"]->AsNumber());
 		level = static_cast<int>(player["level"]->AsNumber());
 		lastCard = static_cast<CardId>(player["lastCard"]->AsNumber());
-
+		cardGained = static_cast<bool>(player["cardGained"]->AsBool());
+		inventoryNotOpen = static_cast<bool>(player["inventoryNotOpen"]->AsBool());
 
 		JSONArray jsonRelics = player["relics"]->AsArray();
 		for (auto& jsonR : jsonRelics) {
@@ -109,6 +110,8 @@ void PlayerData::setDataToJSON()
 	player["money"] = new JSONValue(money);
 	player["level"] = new JSONValue(level);
 	player["lastCard"] = new JSONValue(lastCard);
+	player["cardGained"] = new JSONValue(cardGained);
+	player["inventoryNotOpen"] = new JSONValue(inventoryNotOpen);
 	JSONArray jsonRelics;
 	for (Relic* r : myRelics) {
 		jsonRelics.push_back(new JSONValue(r->id));
