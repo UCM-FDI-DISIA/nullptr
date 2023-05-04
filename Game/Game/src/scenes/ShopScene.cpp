@@ -12,7 +12,8 @@ ShopScene::ShopScene() : GameState(), selectedCard(nullptr), buyButton(nullptr) 
 	int rand = SDLApplication::instance()->getRandInt(0, 2);
 	(rand == 0) ? background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground1")) : 
 		background->addComponent<Image>(SDLApplication::getTexture("ShopSceneBackground2"));
-
+	buySound = &sdlutils().soundEffects().at(BUY_SOUND);
+	cantBuySound = &sdlutils().soundEffects().at(CANT_BUY_SOUND);
 	// Dinero actual del PlayerData
 	showMoney();
 
@@ -113,6 +114,7 @@ void ShopScene::selectCard() {
 void ShopScene::buyCard() {
 	// Si se puede comprar
 	if (canBuy()) {
+		Mix_PlayChannelTimed(-1, buySound->getChunk(), 0, -1);
 		// Le quita al dinero actual el precio de la carta
 		myMoney -= selectedCard->price;
 		PlayerData::instance()->setMoney(myMoney);
@@ -130,6 +132,9 @@ void ShopScene::buyCard() {
 		//// Deselecciona
 		//deselectCard();
 		//myItems[lastButtonIndex].card = nullptr;
+	}
+	else {
+		Mix_PlayChannelTimed(-1, cantBuySound->getChunk(), 0, -1);
 	}
 }
 

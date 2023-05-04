@@ -28,8 +28,6 @@ MainMenuScene::MainMenuScene() {
 	estudio->addComponent<Transform>(STUDIO_POSITION, Vector2D(), STUDIO_WIDTH, STUDIO_HEIGTH);
 	estudio->addComponent<Image>(SDLApplication::getTexture("StudioLogo"));
 
-	//Stats por defecto
-	PlayerData::instance()->defaultPlayerStats();
 
 	// Botón jugar
 	if (pD().hasSaveFile()) {
@@ -38,8 +36,8 @@ MainMenuScene::MainMenuScene() {
 			[]() { 
 				SDLApplication::instance()->stopMainMusic();
 
-				SDLApplication::newScene<CinematicScene>(CINEMATIC_FINAL_NAME, CINEMATIC_WIDTH, CINEMATIC_HEIGHT, CINEMATIC_FINAL_ROWS, CINEMATIC_FINAL_COLS,
-					CINEMATIC_FINAL_ANIMATION,
+				SDLApplication::newScene<CinematicScene>(CINEMATIC_INITIAL_NAME, CINEMATIC_WIDTH, CINEMATIC_HEIGHT, CINEMATIC_INITIAL_ROWS, CINEMATIC_INITIAL_COLS,
+					CINEMATIC_INITIAL_ANIMATION,
 					[]() {
 						pD().defaultPlayerStats();
 						gameMap().reloadMap();

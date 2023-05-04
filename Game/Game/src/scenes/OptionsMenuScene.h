@@ -29,6 +29,7 @@ private:
 	unordered_map<GameObject*, vector<pair<string, CallBack>>> controls;
 
 	GameObject* gamepadConnection;
+	const int nVolumeValues;
 public:
 	// Constructora
 	OptionsMenuScene();

@@ -71,6 +71,9 @@ void SDLApplication::run() {
 		if (ih().closeWindowEvent()) {
 			exit = true;
 		}
+		else if (ih().controllerDeviceRemovedEvent()) {
+			gmCtrl().changeToKeyboard();
+		}
 	}
 	gameStateMachine->clearStates();
 }

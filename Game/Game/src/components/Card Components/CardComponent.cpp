@@ -9,7 +9,7 @@
 #include "../../scenes/TutorialScene.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
-CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()) {
+CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()), lastAbilityTime(0) {
 	maxMana = PlayerData::instance()->getMaxMana();
 	mana = PlayerData::instance()->getMaxMana();
 	attackMult = PlayerData::instance()->getAttackMult();
@@ -90,13 +90,14 @@ void CardComponent::attack() {
 
 //Checkea el mana necesario y llama al metodo habilidad de la carta activa, descartandola y consumiendo mana
 void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
-	if ((*active)->getMana() <= mana) {
+	if ((*active)->getMana() <= mana && SDL_GetTicks() - lastAbilityTime > 750) {
 		(*active)->ability(playerPos, mousePos, attackMult, where);
 		mana -= (*active)->getMana();
 		PlayerData::instance()->setCurrMana(mana);
 		if((*active)->getUses() <= 0) discardCard(active);
 		where->onManaChanges(mana);
 		abiliting = true;
+		lastAbilityTime = SDL_GetTicks();
 	}
 }
 

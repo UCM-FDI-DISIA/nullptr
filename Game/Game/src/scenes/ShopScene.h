@@ -21,6 +21,9 @@ private:
 	GameObject* background;
 	Music* shopMusic;
 
+	SoundEffect* buySound;
+	SoundEffect* cantBuySound;
+
 	int myMoney;
 	GameObject* moneyPrint;
 	pair<GameObject*, GameObject*> moneyFrame;
