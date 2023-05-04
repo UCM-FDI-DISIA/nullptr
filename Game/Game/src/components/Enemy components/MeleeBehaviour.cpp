@@ -74,12 +74,8 @@ CallBackCol MeleeBehaviour::meleeAttack()
 		attacked = true;
 		enemyAttack();
 		//Da�a al jugador e informa de que ha atacado
-
-
 	};
 }
-
-
 
 void MeleeBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();

@@ -10,6 +10,7 @@
     { "id": "SILKSCREEN_REGULAR22", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 22 },
     { "id": "SILKSCREEN_BOLD22", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 22 },
     { "id": "SILKSCREEN_REGULAR30", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 30 },
+    { "id": "SILKSCREEN_REGULAR46", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 46 },
     { "id": "SILKSCREEN_BOLD30", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 30 },
     { "id": "SILKSCREEN_REGULAR28", "file": "../Game/resources/fonts/Silkscreen-Regular.ttf", "size": 28 },
     { "id": "SILKSCREEN_BOLD38", "file": "../Game/resources/fonts/Silkscreen-Bold.ttf", "size": 38 },
@@ -46,6 +47,7 @@
       
       { "id" : "GameOver", "file" : "../Game/resources/images/UI/BattleScene/GameOver/GameOverBackground_2360x1640.png" },
       { "id" : "YouDied", "file" : "../Game/resources/images/UI/BattleScene/GameOver/YouDiedMessage_300x200.png" },
+      { "id" : "PausaMessage", "file" : "../Game/resources/images/UI/BattleScene/PausaMessage_100x40.png" },
       
       { "id" : "Gun", "file" : "../Game/resources/images/Cards/GunCard_58x93.png" },
       { "id" : "Sword", "file" : "../Game/resources/images/Cards/SwordCard_58x93.png" },
@@ -102,23 +104,33 @@
       { "id" : "newPlayer", "file" : "../Game/resources/images/Player/Player_spritesheet_32x32.png" },
       { "id" : "LifeFrame", "file" : "../Game/resources/images/Player/LifeFrame_213x51.png" },
       { "id" : "LifeFrameFlipped", "file" : "../Game/resources/images/Player/LifeFrameFlipped_213x51.png" },
-      { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
       { "id" : "MeleeEnemyDeath", "file" : "../Game/resources/images/Enemies/MeleeEnemyDeath32x32.png" },
       { "id" : "DeathAnim", "file" : "../Game/resources/images/Enemies/DeathAnimation_40x50.png" },
 
       { "id" : "Pointer", "file" : "../Game/resources/images/Player/Pointer_22x32.png" },
+
+      { "id" : "MeleeEnemy", "file" : "../Game/resources/images/Enemies/MeleeEnemy32x32.png" },
       { "id": "RangedEnemy", "file": "../Game/resources/images/Enemies/RangedEnemy_32x32.png"},
       { "id": "RangedEnemyDeath", "file": "../Game/resources/images/Enemies/RangedEnemyDeath_32x32.png"},
       { "id" : "TankEnemy", "file" : "../Game/resources/images/Enemies/TankEnemy_40x40.png" },
+      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemyProv_32x32.png"},
+      
+      { "id" : "BossEnemy", "file" : "../Game/resources/images/Enemies/Boss_300x300.png" },
+
+      { "id" : "BossTentacle", "file" : "../Game/resources/images/Enemies/Tentacle_150x20.png" },
+      { "id" : "ConeAttack", "file" : "../Game/resources/images/Enemies/ConeAttack_150x90.png" },
+      { "id" : "BossPortals", "file" : "../Game/resources/images/Enemies/TentaclesPortal_250x100.png" },
+      { "id" : "BossBullet", "file" : "../Game/resources/images/Enemies/BossBullet_35x7.png" },
+      { "id" : "BossGrenade", "file" : "../Game/resources/images/Enemies/BossGrenade_100x100.png" },
+
       { "id" : "TankEnemyDeath", "file" : "../Game/resources/images/Enemies/TankEnemyDeath_40x40.png" },
-      {"id"  : "AssasinEnemy", "file": "../Game/resources/images/Enemies/AssasinEnemy_32x32.png"},
       {"id"  : "AssasinEnemyDeath", "file": "../Game/resources/images/Enemies/AssasinEnemyDeath_32x32.png"},
       { "id" : "Eter", "file" : "../Game/resources/images/Enemies/Eter.png" },
 
       { "id" : "BattleNode0", "file" : "../Game/resources/images/UI/MapScene/PastNode_32x32.png" },
       { "id" : "BattleNode1", "file" : "../Game/resources/images/UI/MapScene/PresentNode_32x32.png" },
       { "id" : "BattleNode2", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
-      { "id" : "BattleNode4", "file" : "../Game/resources/images/UI/MapScene/FutureNode_32x32.png" },
+      { "id" : "BattleNode4", "file" : "../Game/resources/images/UI/MapScene/BossNode_32x32.png" },
       { "id" : "ShopNode", "file" : "../Game/resources/images/UI/MapScene/ShopNode_32x32.png" },
       { "id" : "ChestNode", "file" : "../Game/resources/images/UI/MapScene/ChestNode_32x32.png" },
       { "id" : "EventNode", "file" : "../Game/resources/images/UI/MapScene/TestNode.png" },
@@ -203,7 +215,10 @@
       { "id" : "SpotLight", "file": "../Game/resources/images/UI/PostGameScene/SpotLight_30x10.png" },
       { "id": "PostGameFrame", "file": "../Game/resources/images/UI/PostGameScene/cuadroPostCombate_68x92.png" },
 
-      { "id": "Collider", "file": "../Game/resources/images/Collider.png" }
+      { "id": "Collider", "file": "../Game/resources/images/Collider.png" },
+
+      { "id": "InitialCinematic", "file": "../Game/resources/images/Cinematics/FinalCinematic_544x306.png" },
+      { "id": "FinalCinematic", "file": "../Game/resources/images/Cinematics/FinalCinematic_544x306.png" }
     ],
     
     "messages" : [

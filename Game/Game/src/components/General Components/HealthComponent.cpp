@@ -5,6 +5,7 @@
 #include "../../scenes/BattleScene.h"
 #include "../Enemy components/RangeBehaviour.h"
 #include "../Enemy components/MeleeBehaviour.h"
+#include "../../gameObjects/Enemy Objects/BossEnemy.h"
 #include "../Enemy components/OnDeath.h"
 #include "../../gameObjects/Card Objects/Cards.h"
 
@@ -13,7 +14,7 @@
 HealthComponent::HealthComponent(int life, bool Invincibility) :
 	maxLife(life), modifiedMaxLife(life), lifePoints(life), 
 	invincibility(Invincibility), invTime(0),
-	onDeath(nullptr){}
+	onDeath(nullptr), knockBack(true) {}
 
 // Resta el da�o a la vida actual y si baja de 0, mata al objeto
 void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D damageOrigin, Vector2D damageVel)
@@ -45,11 +46,13 @@ void HealthComponent::receiveDamage(float damage, RitualAxeCard* axe, Vector2D d
 			//Si la hitbox es estática es un ataque cuerpo a cuerpo, si no es una bala
 			//En el primer caso tomamos en cuenta el objeto que lo origina para calcular la direccion
 			//En el segundo tomamos en cuenta la velocidad de la bala
-			if (damageVel.magnitude()!=Vector2D().magnitude())
-				transform->push(damageVel.normalize()*PUSH_STRENGTH);
-			else {
-				Vector2D vel = transform->getPos() - damageOrigin;
-				transform->push((vel.normalize()) * PUSH_STRENGTH);
+			if (knockBack) {
+				if (damageVel.magnitude() != Vector2D().magnitude())
+					transform->push(damageVel.normalize() * PUSH_STRENGTH);
+				else {
+					Vector2D vel = transform->getPos() - damageOrigin;
+					transform->push((vel.normalize()) * PUSH_STRENGTH);
+				}
 			}
 			//Reproduce el sonido de golpe
 			Mix_PlayChannelTimed(-1, hitSound->getChunk(), 0, -1);
@@ -102,6 +105,9 @@ void HealthComponent::initComponent() {
 		hitSound = &sdlutils().soundEffects().at(PLAYER_HIT_SOUND);
 	}
 	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
+		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
+	}
+	else if (dynamic_cast<BossEnemy*>(gObj)) {
 		hitSound = &sdlutils().soundEffects().at(TANK_HIT_SOUND);
 	}
 	healSound = &sdlutils().soundEffects().at(HEAL_SOUND);

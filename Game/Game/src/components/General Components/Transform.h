@@ -169,4 +169,5 @@ public:
 	void push(Vector2D impulse);
 	void move();
 	virtual void update();
+	float getAngle(Vector2D target, const Vector2D& pos) const;
 };

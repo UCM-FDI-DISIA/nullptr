@@ -163,6 +163,8 @@
     <ClInclude Include="src\components\Card Components\HitboxStatusComponent.h" />
     <ClInclude Include="src\components\Component.h" />
     <ClInclude Include="src\components\ecs.h" />
+    <ClInclude Include="src\components\Enemy components\BossAnimator.h" />
+    <ClInclude Include="src\components\Enemy components\BossBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\EnemyAnimator.h" />
     <ClInclude Include="src\components\Enemy components\EnemyBehaviour.h" />
@@ -172,6 +174,9 @@
     <ClInclude Include="src\components\Enemy components\OnDeath.h" />
     <ClInclude Include="src\components\Enemy components\RangeBehaviour.h" />
     <ClInclude Include="src\components\Enemy components\TankBehaviour.h" />
+    <ClInclude Include="src\components\Enemy components\TargetedComponent.h" />
+    <ClInclude Include="src\components\Enemy components\TentacleBehaviour.h" />
+    <ClInclude Include="src\components\Enemy components\TentaclesPortalComponent.h" />
     <ClInclude Include="src\components\General Components\Animator.h" />
     <ClInclude Include="src\components\General Components\ButtonComponent.h" />
     <ClInclude Include="src\components\General Components\CallbackDelayer.h" />
@@ -215,12 +220,16 @@
     <ClInclude Include="src\gameObjects\Card Objects\Cards.h" />
     <ClInclude Include="src\gameObjects\Card Objects\CustomHitbox.h" />
     <ClInclude Include="src\gameObjects\Card Objects\Hitbox.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossCone.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossEnemy.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossTentacle.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\DeathAnimation.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\MeleeEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\RangedEnemy.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\SpacialEter.h" />
     <ClInclude Include="src\gameObjects\Enemy Objects\TankEnemy.h" />
+    <ClInclude Include="src\gameObjects\Enemy Objects\TargetedTentacle.h" />
     <ClInclude Include="src\gameObjects\GameObject.h" />
     <ClInclude Include="src\gameObjects\General Objects\Camera.h" />
     <ClInclude Include="src\gameObjects\General Objects\Pointer.h" />
@@ -235,8 +244,10 @@
     <ClInclude Include="src\gameObjects\UI\HandUI.h" />
     <ClInclude Include="src\gameObjects\UI\StatisticsUI.h" />
     <ClInclude Include="src\scenes\AlbumScene.h" />
+    <ClInclude Include="src\scenes\BossBattleScene.h" />
     <ClInclude Include="src\scenes\ChestScene.h" />
     <ClInclude Include="src\scenes\BattleScene.h" />
+    <ClInclude Include="src\scenes\CinematicScene.h" />
     <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\scenes\GameState.h" />
     <ClInclude Include="src\scenes\InventoryScene.h" />
@@ -263,6 +274,8 @@
   <ItemGroup>
     <ClCompile Include="src\components\Card Components\CardComponent.cpp" />
     <ClCompile Include="src\components\Card Components\FollowEnemyComponent.cpp" />
+    <ClCompile Include="src\components\Enemy components\BossAnimator.cpp" />
+    <ClCompile Include="src\components\Enemy components\BossBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyAnimator.cpp" />
     <ClCompile Include="src\components\Enemy components\EnemyGenerator.cpp" />
@@ -271,6 +284,9 @@
     <ClCompile Include="src\components\Enemy components\OnDeath.cpp" />
     <ClCompile Include="src\components\Enemy components\RangeBehaviour.cpp" />
     <ClCompile Include="src\components\Enemy components\TankBehaviour.cpp" />
+    <ClCompile Include="src\components\Enemy components\TargetedComponent.cpp" />
+    <ClCompile Include="src\components\Enemy components\TentacleBehaviour.cpp" />
+    <ClCompile Include="src\components\Enemy components\TentaclesPortalComponent.cpp" />
     <ClCompile Include="src\components\General Components\Animator.cpp" />
     <ClCompile Include="src\components\General Components\ButtonComponent.cpp" />
     <ClCompile Include="src\components\General Components\CallbackDelayer.cpp" />
@@ -324,12 +340,16 @@
     <ClCompile Include="src\gameObjects\Card Objects\Spear.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Sword.cpp" />
     <ClCompile Include="src\gameObjects\Card Objects\Torch.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossCone.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossTentacle.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\DeathAnimation.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\MeleeEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\RangedEnemy.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\SpacialEter.cpp" />
     <ClCompile Include="src\gameObjects\Enemy Objects\TankEnemy.cpp" />
+    <ClCompile Include="src\gameObjects\Enemy Objects\TargetedTentacle.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Camera.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Pointer.cpp" />
     <ClCompile Include="src\gameObjects\General Objects\Tuto.cpp" />
@@ -343,8 +363,10 @@
     <ClCompile Include="src\gameObjects\UI\HandUI.cpp" />
     <ClCompile Include="src\gameObjects\UI\StatisticsUI.cpp" />
     <ClCompile Include="src\scenes\AlbumScene.cpp" />
+    <ClCompile Include="src\scenes\BossBattleScene.cpp" />
     <ClCompile Include="src\scenes\ChestScene.cpp" />
     <ClCompile Include="src\scenes\BattleScene.cpp" />
+    <ClCompile Include="src\scenes\CinematicScene.cpp" />
     <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\scenes\GameState.cpp" />
     <ClCompile Include="src\scenes\InventoryScene.cpp" />
