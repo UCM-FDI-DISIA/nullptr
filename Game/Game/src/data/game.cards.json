@@ -19,7 +19,7 @@
     "damage": 15,
     "maxUses": 5,
     "mana": 80,
-    "downTime": 0.5,
+    "downTime": 0.75,
     "textureKey": "Sword",
     "time": "Past"
   },
@@ -40,7 +40,7 @@
     "name": "Gafas Laser",
     "attackText": "pium",
     "abilityText": "fium",
-    "damage": 10,
+    "damage": 5,
     "maxUses": 5,
     "mana": 80,
     "downTime": 1,
@@ -52,10 +52,10 @@
     "name": "Arco",
     "attackText": "flechazo",
     "abilityText": "en la rodilla",
-    "damage": 15,
-    "maxUses": 12,
+    "damage": 7,
+    "maxUses": 6,
     "mana": 60,
-    "downTime": 0.5,
+    "downTime": 0.75,
     "textureKey": "Bow",
     "time": "Past"
   },
@@ -93,17 +93,17 @@
     "mana": 60,
     "downTime": 0.2,
     "textureKey": "SMG",
-    "time": "Future"
+    "time": "Present"
   },
   {
     "key": "AssaultRifle",
     "name": "Rifle de asalto",
     "attackText": "a",
     "abilityText": "chimpo",
-    "damage": 5,
-    "maxUses": 8,
-    "mana": 20,
-    "downTime": 0.8,
+    "damage": 4,
+    "maxUses": 6,
+    "mana": 25,
+    "downTime": 1,
     "textureKey": "AssaultRifle",
     "time": "Present"
   },
@@ -138,7 +138,7 @@
     "abilityText": "el mayor de los 3 chicos",
     "damage": 3,
     "maxUses": 5,
-    "mana": 10,
+    "mana": 30,
     "downTime": 0.6,
     "textureKey": "RiotShield",
     "time": "Present"

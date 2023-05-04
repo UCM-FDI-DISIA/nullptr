@@ -120,16 +120,16 @@ void ShopScene::buyCard() {
 		moneyPrint->getComponent<TextComponent>()->changeText(to_string(myMoney));
 		pD().addCardToLibrary(selectedCard->cardObj, 1);
 		// Elimina la carta
-		myItems[lastButtonIndex].card->setAlive(false);
-		myItems[lastButtonIndex].cardObj = _card_NULL;
-		myItems[lastButtonIndex].priceObj->setAlive(false);
-		myItems[lastButtonIndex].ammo.first->setAlive(false);
-		myItems[lastButtonIndex].ammo.second->setAlive(false);
-		myItems[lastButtonIndex].mana.first->setAlive(false);
-		myItems[lastButtonIndex].mana.second->setAlive(false);
-		// Deselecciona
-		deselectCard();
-		myItems[lastButtonIndex].card = nullptr;
+		//myItems[lastButtonIndex].card->setAlive(false);
+		//myItems[lastButtonIndex].cardObj = _card_NULL;
+		//myItems[lastButtonIndex].priceObj->setAlive(false);
+		//myItems[lastButtonIndex].ammo.first->setAlive(false);
+		//myItems[lastButtonIndex].ammo.second->setAlive(false);
+		//myItems[lastButtonIndex].mana.first->setAlive(false);
+		//myItems[lastButtonIndex].mana.second->setAlive(false);
+		//// Deselecciona
+		//deselectCard();
+		//myItems[lastButtonIndex].card = nullptr;
 	}
 }
 
@@ -186,7 +186,7 @@ CallBack ShopScene::buy() {
 Item ShopScene::createItem(CardId cardType, int minPrice, int maxPrice, int i) {
 	itemToInsert.cardObj = cardType;
 	itemToInsert.card = addGameObject<Button>(_grp_CARDS, changeSelected(), Vector2D(SHOP_CARD_OFFSET_X + CARD_WIDTH * SHOP_NUMBER_OF_CARDS * i, SHOP_CARD_UNSELECTED_POSY), AnimatorInfo(Card::getCardIDfromEnum(cardType), UI_CARD_WIDTH, UI_CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT, CARD_NUMROWS, CARD_NUMCOLS), i, nullptr, 0.5f, 0.5f);
-	itemToInsert.price = SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1);
+	itemToInsert.price = /*SDLApplication::instance()->getRandInt(minPrice, maxPrice + 1)*/ 100;
 
 	// Guardar transform y obtener datos de la carta
 	Transform* tr = itemToInsert.card->getComponent<Transform>();

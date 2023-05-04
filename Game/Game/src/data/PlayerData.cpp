@@ -12,7 +12,6 @@ PlayerData::PlayerData() {
 		avlbRelics.push_back(var.first);
 	}
 
-	lastCard = _card_NULL;
 }
 
 void PlayerData::defaultPlayerStats() {
@@ -34,12 +33,13 @@ void PlayerData::defaultPlayerStats() {
 	playerSpeed = PLAYER_SPEED;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_SPEAR, 3);
-	addCardToDeck(_card_SPEAR, 3);
-	addCardToLibrary(_card_SWORD, 3);
-	addCardToDeck(_card_SWORD, 3);
-	addCardToLibrary(_card_GUN, 2);
-	addCardToDeck(_card_GUN, 2);
+	addCardToLibrary(_card_BOW, 3);
+	addCardToDeck(_card_BOW, 3);
+	addCardToLibrary(_card_LASERGLASSES, 3);
+	addCardToDeck(_card_LASERGLASSES, 3);
+	addCardToLibrary(_card_MEGAPHONE, 2);
+	addCardToDeck(_card_MEGAPHONE, 2);
+	lastCard = _card_NULL;
 }
 
 void PlayerData::getDataFromJSON() {

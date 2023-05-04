@@ -14,9 +14,11 @@ void BowCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, Ba
 	dir = dir.normalize();
 	float rot = where->getPointer()->getComponent<Transform>()->getRotation() - 90;
 
-	Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, rot, 50, 10, PLAYER_ARROW, _grp_ENEMIES };
+	for (int i = 0; i < 3; i++) {
+		Hitbox::HitboxData data = { playerPos, dir.rotate(-10 + i*10) * ARROW_SPEED, rot - 10 + i*10, 50, 10, PLAYER_ARROW, _grp_ENEMIES};
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
+		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, true, 10, data);
+	}
 }
 
 //Se disparan todas las flechas
@@ -28,7 +30,7 @@ void BowCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, B
 
 		Hitbox::HitboxData data = { playerPos, dir * ARROW_SPEED, rot, 16, 16, PLAYER_ARROW, _grp_ENEMIES };
 
-		float size = 100 + remainingUses * 15;
+		float size = 100 + remainingUses * 30;
 		where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.75, StatusComponent::NONE, size, size, BULLET, where, data);
 
 
