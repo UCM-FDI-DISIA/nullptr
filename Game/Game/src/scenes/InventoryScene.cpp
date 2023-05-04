@@ -85,7 +85,7 @@ void InventoryScene::createPanels() {
 }
 
 GameObject* InventoryScene::createPanel(Vector2D pos, int w, int h, string textureKey) {
-	GameObject* panel = addGameObject();
+	GameObject* panel = addGameObject(_grp_UI);
 	panel->addComponent<Transform>(pos, VECTOR_ZERO, w, h);
 	panel->addComponent<Image>(SDLApplication::getTexture(textureKey))->attachToCamera();
 

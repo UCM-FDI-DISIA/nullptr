@@ -11,7 +11,7 @@ gamepadConnection(nullptr) {
 
 	// Boton de salida
 	AnimatorInfo aI = AnimatorInfo(EXIT);
-	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 50, WIN_HEIGHT - MM_BUTTON_HEIGHT - 50), aI, -1, nullptr, 2.0f)->setAsDefaultButton();
+	addGameObject<Button>([]() { SDLApplication::popGameState(); }, Vector2D(WIN_WIDTH - MM_BUTTON_WIDTH - 50, WIN_HEIGHT - MM_BUTTON_HEIGHT - 50), aI, -1, nullptr, 3.0f)->setAsDefaultButton();
 
 	// Anade todas las opciones
 	addOptions();
@@ -33,7 +33,7 @@ void OptionsMenuScene::addBackground() {
 	// Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
+	background->addComponent<Image>(SDLApplication::getTexture("OptionsPauseBackground"));
 }
 
 // Anade las opciones de los controles
@@ -170,7 +170,7 @@ void OptionsMenuScene::showOption(control control, OptionId optionId, SDL_Rect c
 
 // Crea una boton flecha
 Button* OptionsMenuScene::createArrow(CallBack cb, Vector2D pos, AnimatorInfo aI) {
-	return addGameObject<Button>(cb, pos, aI, ONOUT_OPTIONS_ARROW, ONOVER_OPTIONS_ARROW, ONCLICK_OPTIONS_ARROW);
+	return addGameObject<Button>(cb, pos, aI, ONOUT_OPTIONS_ARROW, ONOVER_OPTIONS_ARROW, ONCLICK_OPTIONS_ARROW, -1, nullptr, 2.0f);
 }
 
 // Crea un boton flecha izquierda
