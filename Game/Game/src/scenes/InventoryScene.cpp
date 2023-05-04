@@ -206,8 +206,8 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 			-1, nullptr, 0.5f, 0.5f); 
 	b->getComponent<ButtonComponent>()->setOnSelected(
 		[&](Transform* myTr) {
-			if (myTr->getY() > 10 - ((ALB_CARD_H + 20))+ ALB_CARD_H * 2) camTr->setY(-myTr->getY() + (10 - ((ALB_CARD_H + 20))+ALB_CARD_H * 2));
-			else camTr->setY(10 - ((ALB_CARD_H + 20)));
+			if (myTr->getY() > 10 - ((ALB_CARD_H + 20))+ ALB_CARD_H * 2) camTr->setY(10 - ((ALB_CARD_H + 20)));
+			else camTr->setY(-myTr->getY() + (10 - ((ALB_CARD_H + 20)) + ALB_CARD_H * 2)); 
 		});
 	
 	Animator* a = b->getComponent<Animator>();
