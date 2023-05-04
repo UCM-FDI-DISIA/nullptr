@@ -1,30 +1,71 @@
-# **Timeless Deck : ¡Es Tiempo! GDD - un juego creado por Nullptr**
+# **Timeless Deck : ¡Es Tiempo! - un juego creado por Nullptr**
 
 ---
 
-**Integrantes:**
+## **Integrantes**
 
-DANIEL ALONSO HERRANZ
-
-LUIS RAFAEL ARGANDOÑA BLACIDO
-
-MIGUEL CURROS GARCÍA
-
-PABLO GONZÁLEZ ARROYO
-
-ALEJANDRO GONZÁLEZ SÁNCHEZ
-
-DIEGO LÓPEZ BALBOA
-
-JAVIER MURILLO GONZÁLEZ
-
-JOSE EDUARDO ROBLES ROCA
-
-RAFAEL VILCHES HERNÁNDEZ
-
-YI WANG QIU
+<table>
+  <tr>
+   <td><strong>DANIEL ALONSO HERRANZ</strong>
+   </td>
+   <td><strong>LUIS RAFAEL ARGANDOÑA BLACIDO</strong>
+<p>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>MIGUEL CURROS GARCÍA</strong>
+   </td>
+   <td><strong>PABLO GONZÁLEZ ARROYO</strong>
+<p>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>ALEJANDRO GONZÁLEZ SÁNCHEZ</strong>
+   </td>
+   <td><strong>DIEGO LÓPEZ BALBOA</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>JAVIER MURILLO GONZÁLEZ</strong>
+   </td>
+   <td><strong>JOSE EDUARDO ROBLES ROCA</strong>
+<p>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>RAFAEL VILCHES HERNÁNDEZ</strong>
+   </td>
+   <td><strong>YI WANG QIU</strong>
+<p>
+</table>
 
 ---
+
+## **Enlaces de interés**
+
+Página web : [TimeLess Deck - Es tiempo](https://nullptr23.github.io/TimeLess-Deck-Es-tiempo/)
+
+Release : [Release]()
+
+Vídeo técnico: [Vídeo técnico](https://drive.google.com/file/d/1dgtzYvj6ATE8d7Bw-_a2wKQ2iCqXEsie/view?usp=share_link)
+
+# **Presentaciones**
+
+Hito 0: [Presentación Hito 0](https://drive.google.com/drive/folders/1-1Pm2kTzUgSnDB2sXTowAMRi6hBAmNl6?usp=share_link)
+
+Hito 1: [Presentación Hito 1](https://drive.google.com/drive/folders/1Ych5ag9gQ0Kl-kh5Kt4_yDpjAXTWlqfM?usp=share_link)
+
+Hito 2: [Presentación Hito 2](https://drive.google.com/drive/folders/1qYsZWpWPVjYKSIToGLxZUGzRbRmwNSki?usp=share_link)
+
+# **Arquitectura**
+
+UML: [UML]()
+
+El proyecto tiene una arquitectura por componentes.
+
+En cada escena, existen entidades organizados por grupos los cuales contienen los componentes que necesitan. Estos componentes son los que se encargan de realizar todas las gestiones del objeto al que pertenecen como su renderizado o su cambio de posición en la escena.
+
+# **GDD**
 
 ## **Ficha Técnica**
 
@@ -162,7 +203,7 @@ Los tipos de nodos (fases de juego) son:
 
 ## **Dinámicas**
 
-**1. Bucle de juego**
+### **1. Bucle de juego**
 
 El bucle de juego consistirá en ir superando niveles donde se debe matar enemigos usando cartas para completarlos, de forma que al terminar se consiga una cantidad de oro como recompensa, la cual servirá para comprar más cartas en tiendas. También se debe completar niveles para tener la posibilidad de acceder a cofres, los cuales darán objetos pasivos que aumentarán las estadísticas permanentemente. Tiene dos profundidades:
 
@@ -174,7 +215,7 @@ Desde donde empieza el juego y a donde se volverá siempre tras finalizar cada n
 
 En esta fase, el jugador tomará control del personaje principal dentro de una gran sala rectangular y plana. Se intentará derrotar a un cierto número de enemigos para reparar la máquina del tiempo y así tener la opción de salir del combate.
 
-**2. Sistema de economía** {#2-sistema-de-economía}
+### **2. Sistema de economía** {#2-sistema-de-economía}
 
 Durante el juego, al derrotar enemigos, ganarás monedas de oro que sirven para gastar en la tienda.
 
@@ -269,7 +310,7 @@ Aquí se entregará un objeto pasivo aleatorio al jugador. El jugador verá los 
 
 ## **Estadísticas**
 
-**1. Personaje** {#1-personaje}
+**1. Personaje**
 
 <table>
   <tr>
@@ -312,7 +353,7 @@ Aquí se entregará un objeto pasivo aleatorio al jugador. El jugador verá los 
   </tr>
 </table>
 
-**2. Enemigos** {#2-enemigos}
+**2. Enemigos**
 
 <table>
   <tr>
@@ -447,14 +488,13 @@ Harán daño al jugador con proyectiles disparados desde lejos.
 
 **1. Cartas**
 
-Acceder al siguiente link para observar la tabla de información de las cartas: [cartas](https://docs.google.com/spreadsheets/d/19VJMATqT5oYdefOX2d9ag7M0UlijncVVMV4D1HyVSeI/edit?usp=share_link)
+Acceder al siguiente link para observar la tabla de información de las cartas: [Cartas]()
 
 **2. Reliquias**
 
-Acceder al siguiente link para observar la tabla de información de las reliquias: 
+Acceder al siguiente link para observar la tabla de información de las reliquias: [Reliquias](https://docs.google.com/spreadsheets/d/15Z0YxwjXVC0gQB7iJaG8bLAthahnz9QcRWQ3Nuaxg0E/edit?usp=sharing)
 
-[reliquias](https://docs.google.com/spreadsheets/d/15Z0YxwjXVC0gQB7iJaG8bLAthahnz9QcRWQ3Nuaxg0E/edit?usp=sharing)
-
+## **Arte**
 
 **1.  Estética**
 
@@ -506,3 +546,13 @@ Las cartas son un invento del futuro que materializan armas y permiten usar habi
 5. _Neon White._ (2022) Annapurna Interactive.
 6. _Risk of Rain 2._ (2020) Gearbox Publishing.
 7. _Clash Royale._ (2016) Supercell.
+
+# **QA**
+
+Plan de pruebas: [Plan](https://drive.google.com/file/d/14fco4yJ0lXpVoNFdA9_S9QIY0pJd1wCR/view?usp=share_link)
+
+Recursos:
+* [Plantilla](https://drive.google.com/file/d/1F6Em-SCeocR-f0f4FEtDpCQG90TBAFPL/view?usp=share_link)
+* [Cuestionario](https://docs.google.com/forms/d/e/1FAIpQLSeTre0SvykQUv85FEmA8itLLOeNr9uU0yc-B1BtncbNxMuHhg/viewform?usp=share_link)
+
+Conclusiones: [Conclusiones](https://drive.google.com/file/d/1LaSy8qCloewaPmsaGIRaRgBi_qPvmkQ1/view?usp=share_link)
