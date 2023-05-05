@@ -1,7 +1,5 @@
 # **Timeless Deck : ¡Es Tiempo! - un juego creado por Nullptr**
 
-
-
 ## **Enlaces de interés**
 
 Página web : [TimeLess Deck - Es tiempo](https://nullptr23.github.io/TimeLess-Deck-Es-tiempo/)
@@ -122,9 +120,9 @@ Cada carta estará relacionada con una época: pasado, presente o futuro. Esto i
 
 **4. Sistema de flujo de cartas**
 
-El jugador comienza con un mazo de 4 cartas predefinido. Como máximo, se podrá tener 15 cartas diferentes en su mazo de combate y nunca podrá llevar menos de 4. Este se podrá modificar en el inventario, antes de seleccionar algún nodo del mapa. 
-
+El jugador comienza con un mazo de 4 cartas predefinido. Como máximo, se podrá tener un límite de 16 cartas en su mazo de combate y nunca podrá llevar menos de 4. Este se podrá modificar en el inventario, antes de seleccionar algún nodo del mapa. 
 Al comienzo de un combate, se robarán 4 cartas aleatorias del mazo y estas pasarán a formar parte de la mano, las cuales se usarán para el combate. Se van usando las cartas y, una vez consumidos todos los usos de una carta, esta es descartada y va a la pila de descartes. Cuando el jugador se queda sin cartas en la mano, roba 4 cartas del mazo. Si se intenta robar de un mazo vacío, la pila de descartes se baraja, se vuelve a colocar en el lugar del mazo y el jugador roba de este. 
+ 
 
 ![cardsLoop](https://github.com/UCM-FDI-DISIA/nullptr/blob/main/docs/images/gameLoop.png)
 
@@ -176,9 +174,9 @@ Desde donde empieza el juego y a donde se volverá siempre tras finalizar cada n
 
 En esta fase, el jugador tomará control del personaje principal dentro de una gran sala rectangular y plana. Se intentará derrotar a un cierto número de enemigos para reparar la máquina del tiempo y así tener la opción de salir del combate.
 
-### **2. Sistema de economía** {#2-sistema-de-economía}
+### **2. Sistema de economía** 
 
-Durante el juego, al derrotar enemigos, ganarás monedas de oro que sirven para gastar en la tienda.
+Durante el juego, al derrotar enemigos, ganarás monedas que sirven para gastar en la tienda.
 
 Este oro se otorgará al final del combate y se entregará en una cantidad dependiente de los enemigos derrotados, el tiempo utilizado (solo se cuenta el usado para llenar el portal) y los golpes recibidos de forma que es directamente proporcional a lo primero e inversamente proporcional a los dos últimos factores.
 
@@ -449,11 +447,11 @@ Harán daño al jugador con proyectiles disparados desde lejos.
 
 **1. Cartas**
 
-Acceder al siguiente link para observar la tabla de información de las cartas: [Cartas]()
+Acceder al siguiente link para observar la tabla de información de las cartas: [Cartas](https://docs.google.com/document/d/1ATJbsZTfOIwozwCqvrlwWCuKqZEyyLE3iLUeYfmeXqY/edit?usp=share_link)
 
 **2. Reliquias**
 
-Acceder al siguiente link para observar la tabla de información de las reliquias: [Reliquias](https://docs.google.com/spreadsheets/d/15Z0YxwjXVC0gQB7iJaG8bLAthahnz9QcRWQ3Nuaxg0E/edit?usp=sharing)
+Acceder al siguiente link para observar la tabla de información de las reliquias: [Reliquias](https://docs.google.com/spreadsheets/d/17g_rx4EHi-8a6cPFMRmHIR4Y9GMgpnNo/edit?usp=share_link&ouid=104210713025005844659&rtpof=true&sd=true)
 
 ## **Arte**
 
