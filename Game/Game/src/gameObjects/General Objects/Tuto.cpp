@@ -13,7 +13,7 @@ void Tuto::initGameObject(Transform* pl) {
 	// Crear animaciones
 	myAnim->createAnim(IDLE, 0, 1, 5, -1);
 	// Animaciones con controller
-	if (ih().isControllerConnected()) {
+	if (gmCtrl().controllerActive()) {
 		myAnim->createAnim("MovementCtrlls", 25, 26, 5, -1);
 		myAnim->createAnim("AimCtrlls", 27, 28, 5, -1);
 		myAnim->createAnim("AttackCtrlls", 29, 30, 5, -1);

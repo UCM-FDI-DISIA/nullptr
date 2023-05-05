@@ -4,7 +4,7 @@
 
 Página web : [TimeLess Deck - Es tiempo](https://nullptr23.github.io/TimeLess-Deck-Es-tiempo/)
 
-Release : [Release]()
+Release : [Release](https://github.com/UCM-FDI-DISIA/nullptr/releases/download/v1.0.0/TimeLess.Deck.Es.Tiempo.exe)
 
 Vídeo técnico: [Vídeo técnico](https://drive.google.com/file/d/1dgtzYvj6ATE8d7Bw-_a2wKQ2iCqXEsie/view?usp=share_link)
 
