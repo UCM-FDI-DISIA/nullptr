@@ -377,6 +377,10 @@ const Vector2D IS_EXIT_BUTTON_POS = Vector2D(WIN_WIDTH - IS_BUTTON_WIDTH * 3 / 2
 const Vector2D COIN_OFFSET = Vector2D(WIN_WIDTH * 5 / 6 - 96, 10);
 const Vector2D MONEY_TEXT = COIN_OFFSET + Vector2D(80, 8);
 const int MAX_CARDS = 16;
+const string FEEDBACKTEXT = "Necesitas al menos 4 cartas.";
+const Vector2D FEEDBACK_POS = Vector2D(WIN_WIDTH / 2 - 18 * FEEDBACKTEXT.size() / 2, WIN_HEIGHT - 130);
+const int FEEDBACK_WIDTH = 500;
+const int FEEDBACK_HEIGHT = 150;
 
 // INVENTORYSCENE : SYMBOLS
 const string SYMBOLS_KEYS[5] = {

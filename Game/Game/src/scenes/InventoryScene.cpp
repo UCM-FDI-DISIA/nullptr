@@ -1,9 +1,10 @@
 ﻿#include "InventoryScene.h"
 #include "../core/SDLApplication.h"
 #include "../data/PlayerData.h"
+#include "../components/General Components/CallbackDelayer.h"
 
 // Se encarga de cargar todos los datos desde el dataplayer, así como obtener los datos del deck y de la library
-InventoryScene::InventoryScene() : GameState() {
+InventoryScene::InventoryScene() : GameState(), feedback(nullptr) {
 	vector<CardId> const& currentLibrary = PlayerData::instance()->getLibrary();
 	vector<CardId> const& currentDeck = PlayerData::instance()->getDeck();
 	camTr = camera->getComponent<Transform>();
@@ -57,7 +58,13 @@ InventoryScene::InventoryScene() : GameState() {
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 	exitButton = addGameObject<Button>(_grp_UI,
 		[&]() {
-		if (cardsInDeck >= 4) SDLApplication::popGameState();
+			if (cardsInDeck >= 4) SDLApplication::popGameState();
+			else {
+				feedback = addGameObject();
+				feedback->addComponent<Transform>(FEEDBACK_POS, Vector2D(), FEEDBACK_WIDTH, FEEDBACK_HEIGHT);
+				feedback->addComponent<TextComponent>(SDLApplication::getFont("SILKSCREEN_REGULAR22"), FEEDBACKTEXT, COLOR_RED, COLOR_WHITE);
+				feedback->addComponent<CallbackDelayer>([&]() { feedback->setAlive(false); }, 2000);
+			}
 		}, IS_EXIT_BUTTON_POS , aI);
 
 	interactive = true;

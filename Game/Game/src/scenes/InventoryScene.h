@@ -47,6 +47,7 @@ private:
 	GameObject* tuto;
 	GameObject* text1;
 	GameObject* text2;
+	GameObject* feedback;
 	Button* button;
 
 	Button* exitButton;

@@ -8,7 +8,7 @@ class TextComponent : public Image {
 private:
 	Font* font;
 	std::string text;
-	SDL_Color color;
+	SDL_Color color, bgColor;
 	bool wrapped;
 	float originalWidth;
 	Texture texture;
@@ -22,7 +22,10 @@ public:
 	TextComponent(Font* _f, std::string _text, SDL_Color _color);
 	// Texto con color personalizado sin fondo ajustado a una anchura
 	TextComponent(Font* _f, std::string _text, SDL_Color _color, bool _wrapped);
-
+	// Texto con color personalizado con fondo personalizado
+	TextComponent(Font* _f, std::string _text, SDL_Color _color, SDL_Color _bgColor);
+	// Texto con color personalizado con fondo personalizado ajustado a una anchura
+	TextComponent(Font* _f, std::string _text, SDL_Color _color, SDL_Color _bgColor, bool _wrapped);
 	// Ajusta el transform al texto
 	virtual void initComponent();
 
