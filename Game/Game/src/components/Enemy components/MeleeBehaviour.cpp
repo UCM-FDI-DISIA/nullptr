@@ -28,10 +28,8 @@ void MeleeBehaviour::close() {
 		// Si no ha estado cerca del jugador antes
 		if (!hasBeenCloseToPlayer) {
 			// Llama al callback meleeAttack() aquí
-			if (playerLife->getInvencibility() > 0) 
-			{
+			
 				meleeAttack()(gObj);
-			}
 			// Configura elapsedTime, velocidad a 0 y marca que ha estado cerca del jugador ya
 			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
 			pos->setVel(Vector2D(0, 0));
@@ -86,13 +84,14 @@ CallBackCol MeleeBehaviour::meleeAttack()
 
 void MeleeBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
-	if (vel.magnitude() != 0) {
+	if (vel.magnitude() != 0 && playerLife->getInvencibility() <= 0) {
 		vel = vel / vel.magnitude();
 		Vector2D attackPos = pos->getPos() + vel * 100;
 		float rotation = Vector2D(1, 0).angle(vel);
 		Hitbox::HitboxData data = { attackPos, VECTOR_ZERO, rotation, 200, 100, "NewSwordSpin", _grp_PLAYER };
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 0.1, data, Vector2D(-1,-1),nullptr, gObj->getComponent<Transform>()->getPos());
 		//player->getComponent<HealthComponent>()->receiveDamage(0);
+		cout << "hitbox" << endl;
 	}
 }
 

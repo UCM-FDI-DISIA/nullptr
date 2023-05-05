@@ -87,7 +87,7 @@ void HealthComponent::setInvencibility(float time)
 
 	}
 }
-int HealthComponent::getInvencibility()
+float HealthComponent::getInvencibility()
 {
 	return invTime;
 
