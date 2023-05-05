@@ -13,7 +13,10 @@ class SDLApplication;
 
 class ButtonComponent : public Component {
 
-protected:	
+protected:
+	// Función que se realizará en el update actual
+	static CallBack mainFunc;
+
 	// Funci�n a realizar
 	CallBack function;
 
@@ -84,4 +87,11 @@ public:
 	inline bool isCurrentButton() { return butNav->isCurrentButton(animButton); }
 
 	inline void setCallBack(CallBack cb) { function = cb; }
+
+	inline static void resetFunction() { mainFunc = nullptr; }
+	inline static bool mainFunctionCall() { 
+		if (mainFunc == nullptr) return false;
+		mainFunc(); 
+		return false;
+	}
 };
