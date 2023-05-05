@@ -165,6 +165,7 @@
       { "id" : "ObjectsPanel", "file" : "../Game/resources/images/UI/InventoryScene/ObjectsPanel_125x30.png"},
       { "id" : "StatsPanel", "file" : "../Game/resources/images/UI/InventoryScene/StatsPanel_210x30.png"},
       { "id" : "InventoryPanel", "file" : "../Game/resources/images/UI/InventoryScene/InventoryPanel_175x30.png"},
+      { "id" : "PopupFrame", "file" : "../Game/resources/images/UI/InventoryScene/PopupFrame_72x100.png"},
 
       { "id" : "Numbers", "file" : "../Game/resources/images/UI/CounterNumbers_130x250.png" }, 
       { "id" : "CardAmmo", "file" : "../Game/resources/images/UI/BattleScene/CardAmmoBlock_7x5.png" }, 

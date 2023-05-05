@@ -37,6 +37,7 @@ enum cmpId : cmpId_type {
 	_OPTIONSUPDATE,
 	_LERP_COMPONENT,
 	_TUTORIAL_COMPONENT,
+	_POPUP_COMPONENT,
 	// ... (compoment ids)
 
 	// do not remove this

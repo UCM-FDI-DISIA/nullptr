@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include "../components/General Components/TextComponent.h"
+#include "../components/General Components/PopupComponent.h"
 
 class Card;
 struct InventoryInfo {

@@ -217,9 +217,6 @@
     <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\scenes\NodeScene.cpp">
-      <Filter>Archivos de Dependecias\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\Map.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
@@ -327,6 +324,10 @@
     </ClCompile>
     <ClCompile Include="src\components\Enemy components\TentaclesPortalComponent.cpp">
       <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\CinematicScene.cpp" />
+    <ClCompile Include="src\components\General Components\PopupComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -570,9 +571,6 @@
     <ClInclude Include="src\components\General Components\PointerComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\scenes\NodeScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\Map.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
     </ClInclude>
@@ -677,6 +675,10 @@
     </ClInclude>
     <ClInclude Include="src\components\Enemy components\TentaclesPortalComponent.h">
       <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\CinematicScene.h" />
+    <ClInclude Include="src\components\General Components\PopupComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

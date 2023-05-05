@@ -121,6 +121,7 @@ void InventoryScene::createObjects() {
 		GameObject* g = addGameObject();
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
 		g->addComponent<Image>(rel->texture)->attachToCamera();
+		g->addComponent<PopupComponent>(rel);
 		++i;
 	}
 }
