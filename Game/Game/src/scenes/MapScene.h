@@ -11,12 +11,16 @@ private:
 	int camYLimit;
 	GameObject* background;
 	GameObject* background2;
+	GameObject* markPoint;
+
 public:
 	MapScene();
 
 	void goToTutorial();
+	void goToBoss();
 
 	void handleInput() override;
+	void update() override;
 
 	// Mover la camara a la altura de los siguientes al current
 	void moveCamera();

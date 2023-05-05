@@ -19,6 +19,8 @@ private:
 	Transform* transform;
 	SoundEffect* hitSound;
 	SoundEffect* healSound;
+	bool knockBack;
+
 public:
 	static const int id = _HEALTH;
 	HealthComponent(int Maxlife, bool invincibility = false);
@@ -32,4 +34,5 @@ public:
 	// Devuelve el valor actual de la vida
 	inline int getLife() { return lifePoints; }
 	void multiplyLife(double multiplier);
+	void setKnockBack(bool value) { knockBack = value; }
 };

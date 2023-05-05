@@ -37,7 +37,10 @@ public:
 	// Constructora
 	BattleScene(BattleType t_, bool tuto = false);
 	// Destructora
-	virtual ~BattleScene() { battleSceneOST->haltMusic(); };
+	virtual ~BattleScene() { 
+		battleSceneOST->haltMusic();
+		sdlutils().unfocusMouseOnWindow();
+	};
 
 	// Getters
 	Player* getPlayer() { return player; };

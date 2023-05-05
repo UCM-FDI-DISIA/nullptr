@@ -81,8 +81,6 @@ CallBackCol MeleeBehaviour::meleeAttack()
 	};
 }
 
-
-
 void MeleeBehaviour::enemyAttack() {
 	Vector2D vel = playerPos->getPos() - pos->getPos();
 	if (vel.magnitude() != 0) {

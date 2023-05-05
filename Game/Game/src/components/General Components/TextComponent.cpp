@@ -27,6 +27,17 @@ TextComponent::TextComponent(Font* _f, std::string _text, SDL_Color _color, bool
 	font(_f), text(_text), color(_color), wrapped(_wrapped), originalWidth(0),
 	texture(sdlutils().renderer(), text, *font, color, 1) {}
 
+// Texto con color personalizado con fondo personalizado
+TextComponent::TextComponent(Font* _f, std::string _text, SDL_Color _color, SDL_Color _bgColor) :
+	Image(&texture),
+	font(_f), text(_text), color(_color), bgColor(_bgColor), wrapped(false), originalWidth(0),
+	texture(sdlutils().renderer(), text, *font, color, bgColor) {}
+
+// Texto con color personalizado con fondo personalizado ajustado a una anchura
+TextComponent::TextComponent(Font* _f, std::string _text, SDL_Color _color, SDL_Color _bgColor, bool _wrapped) :
+	Image(&texture),
+	font(_f), text(_text), color(_color), bgColor(_bgColor), wrapped(_wrapped), originalWidth(0),
+	texture(sdlutils().renderer(), text, *font, color, bgColor) {}
 
 // Ajusta el transform al texto
 void TextComponent::initComponent() {

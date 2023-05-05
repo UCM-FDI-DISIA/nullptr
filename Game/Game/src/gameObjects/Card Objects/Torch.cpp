@@ -27,7 +27,7 @@ void TorchCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, 
 void TorchCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
 	Hitbox::HitboxData data = { playerPos, VECTOR_ZERO, 0,TORCH_SIZE_HEAL, TORCH_SIZE_HEAL, HEAL_AREA, _grp_PLAYER };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 5, 0.5, data, 6);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 1, 0.2, data, remainingUses);
 
 	remainingUses = 0;
 }

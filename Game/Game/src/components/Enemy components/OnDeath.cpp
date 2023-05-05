@@ -1,4 +1,5 @@
 #include "OnDeath.h"
+#include "../../gameObjects/Enemy Objects/BossEnemy.h"
 
 void OnDeath::initComponent() {
 	enemyTransform = gObj->getComponent<Transform>();
@@ -15,8 +16,11 @@ void OnDeath::initComponent() {
 		type = tankEnemy;
 	}
 	else if (dynamic_cast<AssasinEnemy*>(gObj)) {
-		deathSound = &sdlutils().soundEffects().at(TANK_DEATH_SOUND);
+		deathSound = &sdlutils().soundEffects().at(ASSASSIN_DEATH_SOUND);
 		type = assasinEnemy;
+	}
+	else if (dynamic_cast<BossEnemy*>(gObj)) {
+		deathSound = &sdlutils().soundEffects().at(BOSS_DEATH_SOUND);
 	}
 }
 
@@ -32,6 +36,7 @@ void OnDeath::death() {
 
 	BattleScene* bS = dynamic_cast<BattleScene*>(gStt);
 	bS->getTracker()->onEnemyKilled(gObj);
+	if (finalFunction != nullptr) finalFunction();
 }
 
 void OnDeath::deathAnim() {

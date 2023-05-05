@@ -15,7 +15,8 @@ private:
 	GameObject* tutoPopUp;
 	GameObject* textOne;
 	GameObject* textTwo;
-	Button* button;
+	Button* exitButton;
+	Button* skipButton;
 	// Paso en el que estamos
 	int current;
 
@@ -87,6 +88,9 @@ public:
 	void activatePopUp();
 	// Desactiva el popup
 	void deactivatePopUp();
+	
+	// Salta el tutorial
+	void exit();
 
 	// Texto del popup
 	void showPopUpText();

@@ -7,6 +7,11 @@ void EnemyGenerator::initComponent() {
 	levelType = (level == 1 ? level : (level < 5 ? 2 : 5));
 	depth = level - levelType;
 	timePerWave = STARTING_TIME_PER_WAVE - depth * 500;
+
+
+	Vector2D spawn = playerPos->getPos();
+	Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * RANGED_RADIUS;
+	spawnPos = checkPos(spawnPos, RANGED_RADIUS);
 }
 
 void EnemyGenerator::update() {
@@ -121,6 +126,7 @@ void EnemyGenerator::spawnWave(const int wave[3]) {
 		spawnPos = checkPos(spawnPos, RANGED_RADIUS);
 		GameObject* enemy = where->addGameObject<RangedEnemy>(_grp_ENEMIES, spawnPos, RANGED_LIFE, player);
 	}
+
 	//Hacemos un for y añadimos enemigos tank
 	for (int i = 0; i < wave[2]; i++) {
 		Vector2D spawnPos = spawn + Vector2D(1, 0).rotate(rand() % 360) * TANK_RADIUS;

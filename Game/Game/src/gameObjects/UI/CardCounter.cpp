@@ -10,16 +10,17 @@ void CardCounter::initGameObject(bool _ref, CardComponent* _data) {
 	Transform* trP;
 	// Si soy el contador de cartas del mazo me coloco a la izquierda
 	int right = WIN_WIDTH - 2 * REVERSE_WIDTH;
-	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
+	if (_ref) trP = addComponent<Transform>(Vector2D(LEFT_OFFSET, DOWN_OFFSET), Vector2D(), DECK_COUNTER_W, BS_REVERSE_HEIGHT);
 	// Si soy el contador de cartas de los descartes me coloco a la derecha
 	else trP = addComponent<Transform>(Vector2D(right, DOWN_OFFSET), Vector2D(), BS_REVERSE_WIDTH, BS_REVERSE_HEIGHT);
 
 	if (_ref)
 	{
 		//SI soy mazo debo enseñar la animacion de barajear
-		Animator* anim = addComponent<Animator>(SDLApplication::getTexture(SHUFFLING_CARDS), 58, 93, 1, 5);
+		Animator* anim = 
+			addComponent<Animator>(SDLApplication::getTexture(SHUFFLING_CARDS), DECK_COUNTER_FRAME_W, REVERSE_HEIGHT, 1, 5);
 		anim->attachToCamera();
-		anim->createAnim(SHUFFLING_CARDS, 0, 4, 5, 1);
+		anim->createAnim(SHUFFLING_CARDS, 0, 4, 3, 1);
 		anim->createAnim(IDLE, 0, 0, 1, 1);
 		anim->play(IDLE);
 	}
@@ -118,5 +119,6 @@ void CardCounter::createAnims(Animator* &_anim) {
 
 //Metodo para reproducir la animacion de barajar el mazo
 void CardCounter::showShuffle() {
-	if (amIDeck) { getComponent<Animator>()->play(SHUFFLING_CARDS); }
+	if (amIDeck) { 
+		getComponent<Animator>()->play(SHUFFLING_CARDS); }
 }

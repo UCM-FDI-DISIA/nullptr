@@ -13,7 +13,6 @@ SDLApplication::SDLApplication() {
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
 	utils->hideCursor();
-	utils->focusMouseOnWindow();
 
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
@@ -70,6 +69,9 @@ void SDLApplication::run() {
 
 		if (ih().closeWindowEvent()) {
 			exit = true;
+		}
+		else if (ih().controllerDeviceRemovedEvent()) {
+			gmCtrl().changeToKeyboard();
 		}
 	}
 	gameStateMachine->clearStates();
