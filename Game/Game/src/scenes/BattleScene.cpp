@@ -33,7 +33,6 @@ BattleScene::BattleScene(BattleType t_, bool tuto) : GameState(), type(t_) {
 	//Música
 	battleSceneOST = &sdlutils().musics().at("BattleMusic");
 	battleSceneOST->play();
-	sdlutils().focusMouseOnWindow();
 };
 
 void BattleScene::createUI() {
