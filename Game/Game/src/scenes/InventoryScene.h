@@ -32,7 +32,7 @@ private:
 	string texts[3] = {
 		"BIENVENIDO A TU INVENTARIO. Aquí podrás ver todas las cartas que posees y las que tienes en el mazo, así como tus objetos y estadísticas.",
 		"También podrás modificar tu mazo añadiendo cartas del inventario (clicando sobre ellas en la zona de inventario) ",
-		"o retirando las ya presentes(clicando sobre ellas en la zona de inventario)",
+		"o retirando las ya presentes (clicando sobre ellas en la zona del mazo)",
 	};
 	
 	bool interactive;
