@@ -9,24 +9,28 @@ void PopupComponent::update() {
 	int x; int y;
 	SDL_GetMouseState(&x, &y);
 
+	// Dimensiones del objeto
 	Vector2D pos = tr->getPos();
 	int width = tr->getWidth();
 	int height = tr->getHeight();
 
+	// Si estoy por encima, crear popup si no lo he creado ya y marcar que estoy encima
 	if (pos.getX() <= x && pos.getX() + width >= x  && pos.getY() <= y && pos.getY() + height >= y) {
-		if (rel != nullptr && !over) {
+		if (!over && rel != nullptr) {
 			createRelicFrame();
 			over = true;
 		}
 	}
+	// Si no, marcar que no estoy encima
 	else over = false;
 
+	// Si no estoy encima, quitar popup anterior
 	if (!over) quitFrame();
 }
 
 void PopupComponent::createRelicFrame() {
+	// Posición del objeto
 	Vector2D objPos = tr->getPos();
-	cout << "hola" << endl;
 
 	// Frame
 	frame = gStt->addGameObject(_grp_UI);
@@ -46,25 +50,17 @@ void PopupComponent::createRelicFrame() {
 	desc->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR16"), rel->description, COLOR_WHITE, true)->attachToCamera();
 
 	// Upgrades
-	string upgrades = "";
-	if (rel->health > 0) upgrades += ">Vida: +" + to_string((int)rel->health) + "\n";
-	if (rel->mana > 0) upgrades += ">Mana: +" + to_string((int)rel->mana) + "\n";
-	if (rel->speed > 0) upgrades += ">Velocidad: +" + to_string((int)rel->speed) + "\n";
-	if (rel->attackMult > 0) upgrades += ">Ataque: +" + to_string((int)rel->attackMult) + "\n";
-	if (rel->fireRateMult > 0) upgrades += ">Cadencia: +" + to_string((int)rel->fireRateMult);
-
 	stats = gStt->addGameObject(_grp_UI);
 	Transform* trStats = stats->addComponent<Transform>(trDesc->getPos() + Vector2D(0, +trDesc->getHeight() + 10), VECTOR_ZERO, 200, 200);
-	stats->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR16"), upgrades, COLOR_WHITE, true)->attachToCamera();
+	stats->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR16"), getUpgradesString(rel), COLOR_WHITE, true)->attachToCamera();
 
-	// Reposicionar frame
+	// Reposicionar y redimensionar frame dependiendo del contenido
 	trFrame->setPos(trName->getPos() - Vector2D(55, 20));
 	trFrame->setWidth(trDesc->getWidth() + 50);
 	trFrame->setHeight(trName->getHeight() + trDesc->getHeight() + trStats->getHeight() + 60);
-
-	cout << "hola2" << endl;
 }
 
+// Desactiva todo el contenido del popup
 void PopupComponent::quitFrame() {
 	if (frame != nullptr) frame->setAlive(false);
 	if (name != nullptr) name->setAlive(false);
@@ -74,4 +70,17 @@ void PopupComponent::quitFrame() {
 	name = nullptr;
 	desc = nullptr;
 	stats = nullptr;
+}
+
+// Obtiene el string con la información de los stats de la reliquia
+string PopupComponent::getUpgradesString(Relic* r) {
+	string upgrades = "";
+
+	if (rel->health > 0) upgrades += ">Vida: +" + to_string((int)rel->health) + "\n";
+	if (rel->mana > 0) upgrades += ">Mana: +" + to_string((int)rel->mana) + "\n";
+	if (rel->speed > 0) upgrades += ">Velocidad: +" + to_string((int)rel->speed) + "\n";
+	if (rel->attackMult > 0) upgrades += ">Ataque: +" + to_string((int)rel->attackMult) + "\n";
+	if (rel->fireRateMult > 0) upgrades += ">Cadencia: +" + to_string((int)rel->fireRateMult);
+
+	return upgrades;
 }

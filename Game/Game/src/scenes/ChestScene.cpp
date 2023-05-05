@@ -66,23 +66,13 @@ void ChestScene::spawnNewItem() {
 		int Rand = rand() % aux.size();
 
 		// Sacamos la reliquia con la key que nos dan
-		Relic* item1 = SDLApplication::instance()->getRelic(aux[0]);
-		Relic* item2 = SDLApplication::instance()->getRelic(aux[1]);
-		Relic* item3 = SDLApplication::instance()->getRelic(aux[5]);
-		Relic* item4 = SDLApplication::instance()->getRelic(aux[6]);
-		Relic* item5 = SDLApplication::instance()->getRelic(aux[7]);
-		Relic* item6 = SDLApplication::instance()->getRelic(aux[8]);
+		Relic* item = SDLApplication::instance()->getRelic(aux[Rand]);
 
 		// Asignarsela al jugador
-		PlayerData::instance()->addRelic(item1);
-		PlayerData::instance()->addRelic(item2);
-		PlayerData::instance()->addRelic(item3);
-		PlayerData::instance()->addRelic(item4);
-		PlayerData::instance()->addRelic(item5);
-		PlayerData::instance()->addRelic(item6);
+		PlayerData::instance()->addRelic(item);
 
 		// Mostrar en la interfaz
-		relicUI(item1);
+		relicUI(item);
 
 		// Borrar del vector
 		auto it = aux.begin();

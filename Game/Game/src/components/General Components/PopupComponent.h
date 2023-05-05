@@ -29,4 +29,6 @@ public:
 
 	void createRelicFrame();
 	void quitFrame();
+
+	string getUpgradesString(Relic* r);
 };
