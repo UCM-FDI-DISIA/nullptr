@@ -324,6 +324,7 @@ Aquí se entregará un objeto pasivo aleatorio al jugador. El jugador verá los 
    <td>Ataque a corta distancia.
 <p>
 Harán daño al jugador tanto por contacto como realizando un ataque en una pequeña área delante de él.
+Daño: 10 pts. de salud.
    </td>
   </tr>
   <tr>
@@ -366,6 +367,7 @@ Harán daño al jugador tanto por contacto como realizando un ataque en una pequ
    <td>Ataque cuerpo a cuerpo.
 <p>
 Harán daño al jugador únicamente por contacto.
+Daño:20 pts. de salud.
    </td>
   </tr>
   <tr>
@@ -408,6 +410,7 @@ Harán daño al jugador únicamente por contacto.
    <td>Ataque a distancia.
 <p>
 Harán daño al jugador con proyectiles disparados desde lejos.
+Daño: 20 pts. de salud.
    </td>
   </tr>
   <tr>
