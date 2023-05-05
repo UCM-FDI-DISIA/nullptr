@@ -808,6 +808,8 @@ const string BOSS_DEATH_SOUND = "BossDeath";
 const string BATTLE_MUSIC = "BattleMusic";
 const string MAIN_MUSIC = "MenusMusic";
 const string SHOP_MUSIC = "ShopMusic";
+const string INIT_MUSIC = "InitMusic";
+const string FINAL_MUSIC = "EndMusic";
 const string DEATH_MELODY = "Death";
 
 //SHOP ------------------------------------------------------------------------------------------
