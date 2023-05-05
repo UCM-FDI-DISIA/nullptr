@@ -27,6 +27,7 @@ public:
 	//Delete del padre
 	void receiveDamage(float damage, RitualAxeCard* axe = nullptr, Vector2D damageOrigin=VECTOR_ZERO, Vector2D damageVel=Vector2D());
 	void setInvencibility(float time);
+	float getInvencibility();
 	virtual void initComponent();
 	virtual void update();
 	void heal(int heal);
