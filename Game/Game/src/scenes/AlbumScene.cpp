@@ -98,37 +98,48 @@ void AlbumScene::handleInput() {
 void AlbumScene::selectCard(CardData cData) {
 	selected = true;
 	// FONDO
+	// Objeto que cubre la pantalla
 	GameObject* g = addGameObject();
-	g->addComponent<Transform>(VECTOR_ZERO, VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	g->addComponent<Transform>(Vector2D(), VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	g->addComponent<Image>(&sdlutils().images().at(DARK_PLAIN_TEXTURE))->attachToCamera();
+	infoWindow.push_back(g);
+	g = addGameObject();
+	g->addComponent<Transform>(Vector2D(), VECTOR_ZERO, WIN_WIDTH, WIN_HEIGHT);
+	g->addComponent<Image>(&sdlutils().images().at(DARK_PLAIN_TEXTURE))->attachToCamera();
+	infoWindow.push_back(g);
+	// PopUp
+	g = addGameObject();
+	Transform* puTr = g->addComponent<Transform>(Vector2D(WIN_WIDTH / 2 - 408, WIN_HEIGHT/2 - 230), VECTOR_ZERO, 816, 459);
 	g->addComponent<Image>(SDLApplication::getTexture("CardSelectedMenu"))->attachToCamera();
 	infoWindow.push_back(g);
 	// CARTA
 	g = addGameObject();
-	Transform* tr = g->addComponent<Transform>(Vector2D(100, 70), VECTOR_ZERO, ALB_CARD_W, ALB_CARD_H);
+	Transform* tr = g->addComponent<Transform>(puTr->getPos() + Vector2D(70, 78), VECTOR_ZERO, ALB_CARD_W * 1.5, ALB_CARD_H * 1.5);
 	g->addComponent<Image>(cData.texture)->attachToCamera();
 	infoWindow.push_back(g);
 	// NOMBRE
 	g = addGameObject();
-	g->addComponent<Transform>(Vector2D(300, 70), VECTOR_ZERO);
-	g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR22"), cData.name)->attachToCamera();
+	g->addComponent<Transform>(tr->getPos() + Vector2D(tr->getWidth() + 30, 0), VECTOR_ZERO, 450);
+	if (cData.name != "Escudo Antidisturbios") g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), cData.name)->attachToCamera();
+	else g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_BOLD38"), cData.name, true)->attachToCamera();
 	infoWindow.push_back(g);
 	// ATAQUE
 	g = addGameObject();
-	g->addComponent<Transform>(Vector2D(300, 100), VECTOR_ZERO, 200);
+	g->addComponent<Transform>(tr->getPos() + Vector2D(tr->getWidth() + 30, 100), VECTOR_ZERO, 450);
 	g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR22"), cData.attackText, true)->attachToCamera();
 	infoWindow.push_back(g);
 	// HABILIDAD
 	g = addGameObject();
-	g->addComponent<Transform>(Vector2D(300, 150), VECTOR_ZERO, 200);
+	g->addComponent<Transform>(tr->getPos() + Vector2D(tr->getWidth() + 30, 220), VECTOR_ZERO, 450);
 	g->addComponent<TextComponent>(&sdlutils().fonts().at("SILKSCREEN_REGULAR22"), cData.abilityText, true)->attachToCamera();
 	infoWindow.push_back(g);
 
 	// TO DO -> QUE SE MUESTREN MANÁ Y MUNICIÓN EN EL POPUP
 
-	// BOTï¿½N SALIR
+	// BOTON SALIR
 	AnimatorInfo aI = AnimatorInfo(EXIT);
 
-	Button* b = addGameObject<Button>([&]() { deselectCard(); butNavigator->unlockMovement(); butNavigator->selectDefaultButton(); }, Vector2D(700, 500), aI);
+	Button* b = addGameObject<Button>([&]() { deselectCard(); butNavigator->unlockMovement(); butNavigator->selectDefaultButton(); }, RESUME_BUTTON_POS, aI);
 	butNavigator->lockMovement();
 	b->setAsCurrentButton();
 	infoWindow.push_back(b);
