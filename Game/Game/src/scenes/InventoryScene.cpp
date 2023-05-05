@@ -338,7 +338,6 @@ void InventoryScene::update() {
 		int x; int y;
 		SDL_GetMouseState(&x, &y);
 
-		cout << x << " " << y << endl;
 		// Si me encuentro dentro de la zona del inventario
 		if (x >= 0 && x <= 942 && y >= 0 && y <= 246) {
 			// Desactivo el componente del mazo y añado el del inventario si no existe ya
