@@ -295,7 +295,7 @@ const float LASER_BULLET_SPEED = 2000;
 const float LASER_BULLET_SPEED_A = 200;
 // STATUS ---------------------------------------------------------------------------------------
 
-const int BURN_DAMAGE = 3;
+const int BURN_DAMAGE = 4;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS
