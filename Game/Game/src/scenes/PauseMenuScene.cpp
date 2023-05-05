@@ -13,13 +13,14 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 	cartel->addComponent<Image>(SDLApplication::getTexture(PAUSE_MESSAGE));
 
 	// Botón jugar
-	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { SDLApplication::resumeGame(); }, RESUME)->setAsDefaultButton();
+	createButton(PM_RESUME_BUTTON_POS, PM_RESUMEFRAME_BUTTON_POS, []() { sdlutils().focusMouseOnWindow(); SDLApplication::resumeGame(); }, RESUME)->setAsDefaultButton();
 
 	// Botón Opciones
 	createButton(PM_OPTIONS_BUTTON_POS, PM_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
 	// Botón salir
-	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { pD().loseSavedData(); SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { pD().loseSavedData(); SDLApplication::newScene<MainMenuScene>();}, EXIT);
+	sdlutils().unfocusMouseOnWindow();
 }
 
 void PauseMenuScene::handleInput() {
