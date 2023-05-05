@@ -13,7 +13,6 @@ SDLApplication::SDLApplication() {
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
 	utils->hideCursor();
-	utils->focusMouseOnWindow();
 
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
