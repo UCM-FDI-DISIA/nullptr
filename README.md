@@ -1,45 +1,6 @@
 # **Timeless Deck : ¡Es Tiempo! - un juego creado por Nullptr**
 
----
 
-## **Integrantes**
-
-<table>
-  <tr>
-   <td><strong>DANIEL ALONSO HERRANZ</strong>
-   </td>
-   <td><strong>LUIS RAFAEL ARGANDOÑA BLACIDO</strong>
-<p>
-   </td>
-  </tr>
-  <tr>
-   <td><strong>MIGUEL CURROS GARCÍA</strong>
-   </td>
-   <td><strong>PABLO GONZÁLEZ ARROYO</strong>
-<p>
-   </td>
-  </tr>
-  <tr>
-   <td><strong>ALEJANDRO GONZÁLEZ SÁNCHEZ</strong>
-   </td>
-   <td><strong>DIEGO LÓPEZ BALBOA</strong>
-   </td>
-  </tr>
-  <tr>
-   <td><strong>JAVIER MURILLO GONZÁLEZ</strong>
-   </td>
-   <td><strong>JOSE EDUARDO ROBLES ROCA</strong>
-<p>
-   </td>
-  </tr>
-  <tr>
-   <td><strong>RAFAEL VILCHES HERNÁNDEZ</strong>
-   </td>
-   <td><strong>YI WANG QIU</strong>
-<p>
-</table>
-
----
 
 ## **Enlaces de interés**
 
@@ -556,3 +517,5 @@ Recursos:
 * [Cuestionario](https://docs.google.com/forms/d/e/1FAIpQLSeTre0SvykQUv85FEmA8itLLOeNr9uU0yc-B1BtncbNxMuHhg/viewform?usp=share_link)
 
 Conclusiones: [Conclusiones](https://drive.google.com/file/d/1LaSy8qCloewaPmsaGIRaRgBi_qPvmkQ1/view?usp=share_link)
+
+Correcciones y Pulido frente al QA: [Respuesta al QA](https://docs.google.com/document/d/1hM0LYs8_kqnzjQUple49OmstzvuXE6KMKKPAmaSWuQw/edit?usp=sharing)
