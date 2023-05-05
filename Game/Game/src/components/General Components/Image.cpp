@@ -14,7 +14,11 @@ void Image::initComponent() {
 
 // Dibuja en pantalla la textura en el rect�ngulo del transform
 void Image::render() const {
-	texture->render(getRect(), transform->getRotation(), transform->getAnchorPointSDL());
+	texture->changeAlpha(alpha);
+	texture->changeTint(r,g,b);
+	texture->render(getRect(), transform->getRotation(), transform->getAnchorPointSDL(), flip);
+	texture->changeAlpha(255);
+	texture->changeTint(255, 255, 255);
 }
 
 //Devuelve el rect dependiendo de la c�mara

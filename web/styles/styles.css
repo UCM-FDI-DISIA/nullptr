@@ -1,0 +1,267 @@
+/* ------------ ESTILOS DE ETIQUETAS HTML ------------ */
+header {
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+body {
+	background-size: 100%;
+	font-family: Silkscreen;
+	background-color: #c1a86c;
+	overflow-x:hidden;
+}
+
+h2 {
+	text-align: center;
+	color: white;
+	font-size: 40px;
+}
+
+p {
+	color: white;
+	font-size: 20px;
+}
+
+footer {
+	width: 100%;
+	background-color: #ac945ea7;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
+	padding: 20px;
+}
+
+footer img {
+	width: 80px;
+	border-radius: 1em;
+}
+
+footer img:hover {
+	filter: brightness(75%);
+	-webkit-filter: brightness(75%);
+}
+
+/* ------------ ESTILOS PROPIOS ------------ */
+.cuadro {
+	display: block;
+	position: relative;
+	background-color: #894e18;
+	color: #fff;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 50px;
+	padding: 5px;
+	text-align: center;
+	border-radius: 90px;
+	background-image: url('../assets/tabla.png');
+}
+
+.descripcion {
+	margin-top: 50px;
+  	text-align: center;
+}
+
+.descripcion-txt {
+	font-size: 25px;
+	text-align: justify;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+}
+
+.video-txt {
+	font-size: 25px;
+	text-align: center;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+}
+
+.descarga {
+	display: block;
+	position: relative;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 50px;
+	padding: 10px;
+	text-align: center;
+}
+
+.descarga-boton {
+	background-color: greenyellow; 
+	border-color: green;
+	width: 75%;
+	height: 75px;
+	font-size: 25px;
+	font-family: Silkscreen;
+	border-radius: 30px;
+}
+
+.btn-descarga {
+	display: inline-block;
+	padding: 1.5rem 2.375rem 1.5rem 2.375rem;
+	border: 0.125rem solid rgb(144, 233, 11);
+	border-radius: 2rem;
+	background-color: rgb(144, 233, 11);
+	color: #fff;
+	font: 600px "Silkscreen", Silkscreen;
+	text-decoration: none;
+	transition: all 0.2s;
+	font-size: 30px;
+}
+
+.btn-descarga:hover {
+	border: 0.125rem solid rgb(144, 233, 11);
+	background-color: rgb(144, 233, 11, 0.5);
+	color: rgb(144, 233, 11);
+}
+
+.row {
+	margin-top: 100px;
+	display: flex;
+  	justify-content: center;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.slideshow-container {
+	width: auto;
+	height: auto;
+	position: relative;
+	align-items: center;
+	display: flex;
+  	justify-content: center;
+  	margin: 30px auto 0;
+}
+
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	background-color: #894e18;
+  }
+  
+.prev {
+	left: 0;
+}
+  
+.next {
+	right: 0;
+}
+
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  	background-color: #894e18;
+}
+
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #ab6d32;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  	background-color: #894e18;
+}
+
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {opacity: .4}
+	to {opacity: 1}
+}
+
+.participant-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+}
+
+.participant {
+	display: flex;
+	flex-direction: row;
+	margin: 20px;
+}
+
+.participant-info {
+	text-align: justify;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+	font-size: 25px;
+}
+
+.descripcionParticipant{
+	font-size: 25px;
+}
+
+.marco {
+	width:"100px";
+	height:"100px";
+}
+
+.video {
+    display: block;
+    margin: 30px auto;
+}
+
+.footer-container {
+	line-height: 40%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.footer-content {
+	margin: 30px 30px 30px;
+}
+
+::-webkit-scrollbar {
+	width: 15px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: #e0b54e;
+	background-image: url('../assets/tubo.png');
+	background-repeat: repeat repeat;
+}

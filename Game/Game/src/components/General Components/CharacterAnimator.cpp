@@ -10,6 +10,7 @@ CharacterAnimator::CharacterAnimator(Texture* _texture, int _w, int _h, int _r, 
 // Actualiza la animacion del personaje en función a sus acciones
 void CharacterAnimator::update() {
 	updatePlayingAnimation();
+	
 	Animator::update();
 	if (wantToAdjustDirection) adjustDirection();
 }

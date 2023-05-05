@@ -2,19 +2,23 @@
 
 // Constructora
 SDLApplication::SDLApplication() {
-
+	
 	// Creacion de la ventana
 	SDLUtils::init("Timeless Deck - Es tiempo", WIN_WIDTH, WIN_HEIGHT, "../Game/src/data/game.resources.json");
 	utils = SDLUtils::instance();
 	window = utils->window();
+
+	SDL_SetWindowResizable(window, SDL_FALSE);
+
 	renderer = utils->renderer();
 	//utils->toggleFullScreen();
 	utils->hideCursor();
-	utils->focusMouseOnWindow();
 
 	// Maquina de estados
 	gameStateMachine = new GameStateMachine();
 	exit = false;
+
+	mainMusic = &sdlutils().musics().at(MAIN_MUSIC);
 }
 
 // Destructora
@@ -26,6 +30,7 @@ SDLApplication::~SDLApplication() {
 void SDLApplication::run() {
 	gameStateMachine->pushState(new MainMenuScene());
 
+	playMainMusic();
 
 
 	uint32_t frameTime; double debugCounter;
@@ -45,7 +50,7 @@ void SDLApplication::run() {
 		frameTime = SDL_GetTicks() - startTime;
 		
 		update();
-		
+
 		LAST = NOW;
 		NOW = SDL_GetPerformanceCounter();
 
@@ -59,14 +64,14 @@ void SDLApplication::run() {
 			
 			render();
 		}
-		
-		// Descomentar para analizar el deltaTime
-		// std::cout << deltaTime << " " << SDL_GetTicks() << " " <<  debugCounter << " " << SDL_GetTicks() - debugCounter << " " << timeOffset << std::endl;
-		
+
 		handleInput();
 
 		if (ih().closeWindowEvent()) {
 			exit = true;
+		}
+		else if (ih().controllerDeviceRemovedEvent()) {
+			gmCtrl().changeToKeyboard();
 		}
 	}
 	gameStateMachine->clearStates();
@@ -87,14 +92,22 @@ void SDLApplication::update() {
 
 // Actualiza el juego en función al evento actual
 void SDLApplication::handleInput() {
+	ButtonComponent::resetFunction();
 	gameStateMachine->currentState()->handleInput();
+	ButtonComponent::mainFunctionCall();
 }
 
 // Devuelve la Texture pedida
-Texture* SDLApplication::getTexture(TextureName texture) { return &SDLUtils::instance()->images().at(texture); }
+Texture* SDLApplication::getTexture(TextureName texture) { return &sdlutils().images().at(texture); }
+
+// Devuelve el Font pedido
+Font* SDLApplication::getFont(string fontName) { return &sdlutils().fonts().at(fontName); }
 
 // Devuelve la Reliquia pedida
-Relic* SDLApplication::getRelic(TextureName texture) { return &SDLUtils::instance()->relics().at(texture); }
+Relic* SDLApplication::getRelic(TextureName texture) { return &sdlutils().relics().at(texture); }
+
+// Devuelve un numero entero random
+int SDLApplication::getRandInt(int min, int max) { return sdlutils().rand().nextInt(min, max); }
 
 // Pausa el juego
 void SDLApplication::pauseGame() { SDLApplication::instance()->gameStateMachine->pushState(new PauseMenuScene()); }
@@ -111,6 +124,9 @@ void SDLApplication::returnToMapScene() {
 	MapScene* ms = dynamic_cast<MapScene*>(SDLApplication::instance()->gameStateMachine->currentState());
 	assert(ms != nullptr);
 	ms->moveCamera();
+	ms->resetSelectedButton();
+	gameMap().completeCurrentNode();
+	pD().setDataToJSON();
 }
 
 // Cierra el juego

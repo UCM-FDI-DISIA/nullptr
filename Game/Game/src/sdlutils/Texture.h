@@ -54,6 +54,16 @@ public:
 		return height_;
 	}
 
+	inline void changeTint(Uint8 r, Uint8 g, Uint8 b) {
+		if (texture_ != nullptr)
+			SDL_SetTextureColorMod(texture_, r, g, b);
+	}
+
+	inline void changeAlpha(Uint8 a) {
+		if (texture_ != nullptr)
+			SDL_SetTextureAlphaMod(texture_, a);
+	}
+
 	// This rendering method corresponds to method SDL_RenderCopyEx.
 	//
 	// Renders part of the texture (src) to a destination rectangle (dest)
@@ -100,9 +110,9 @@ public:
 
 	// renders the complete texture at a destination rectangle (dest),
 	// with rotation and anchor point
-	inline void render(const SDL_Rect &dest, float rotation, const SDL_Point* p) {
+	inline void render(const SDL_Rect &dest, float rotation, const SDL_Point* p, SDL_RendererFlip flip = SDL_FLIP_NONE) {
 		SDL_Rect src = { 0, 0, width_, height_ };
-		render(src, dest, rotation, p);
+		render(src, dest, rotation, p, flip);
 	}
 
 

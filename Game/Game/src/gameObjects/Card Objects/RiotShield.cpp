@@ -6,13 +6,24 @@
 
 // Crea un gObj Slash en la dirección que apunta el jugador
 void RiotShieldCard::attack(Vector2D playerPos, Vector2D mousePos, float attackMult, BattleScene* where) {
-
+    Mix_PlayChannelTimed(-1, attackSound->getChunk(), 0, -1);
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 200, 100, "SwordSlash", _grp_ENEMIES };
+	Hitbox::HitboxData data = { playerPos + dir * 100, VECTOR_ZERO, rotation, 100, 120, "null", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, false, 0.06, data);;
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.06, data, Vector2D(-1, -1), nullptr, playerPos);
+
+    auto slashAnim = where->addGameObject<GameObject>();
+
+    auto spritePosition = playerPos + dir * 100 - Vector2D(PLAYER_SPRITE_WIDTH * 2, PLAYER_SPRITE_HEIGHT * 3);
+    slashAnim->addComponent<Transform>(spritePosition, VECTOR_ZERO, 100, 200, rotation);
+    auto anim = slashAnim->addComponent<Animator>(SDLApplication::getTexture("ShieldSlash"), 96, 192, 1, 9);
+    anim->createAnim("ShieldSlash", Animation(0, 8, 20, 1));
+    anim->play("ShieldSlash");
+    slashAnim->addComponent<LifeTimeComponent>(0.4);
+
+
 }
 
 
@@ -21,11 +32,11 @@ void RiotShieldCard::ability(Vector2D playerPos, Vector2D mousePos, float attack
 	Vector2D dir = (mousePos - playerPos - where->getCamera()->getOffset()).normalize();
 	float rotation = Vector2D(1, 0).angle(dir);
 
-	Hitbox::HitboxData data = { playerPos + dir * 50, dir * SHIELD_SPEED, rotation, 200, 100, SWORD_SLASH, _grp_ENM_ATTACK };
+    Hitbox::HitboxData data = { playerPos + dir * 50, VECTOR_ZERO, rotation, 100, 120, "ShieldSkill", _grp_ENM_ATTACK };
 
     auto shield = where->addGameObject<CustomHitbox>();
     shield->initCustomHitbox(data);
-    shield->addComponent<LifeTimeComponent>(remainingUses*1.0f);
+    shield->addComponent<LifeTimeComponent>(remainingUses*1.5f);
 
 	auto shieldTransform = shield->getComponent<Transform>();
 	auto playerTransform = where->getPlayer()->getComponent<Transform>();

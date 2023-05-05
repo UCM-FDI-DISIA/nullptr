@@ -25,8 +25,11 @@ void FollowEnemyComponent::update() {
 	if (followStartTime <= 0) {
 		if (enemy == nullptr) enemy = findClosestEnemy();
 		else {
+
 			Vector2D vel = tr->getVel();
-			tr->setVel(vel.rotate(vel.angle(enemy->getCenter() - tr->getCenter()) > 0 ? 1 : -1));
+			tr->setVel(vel.rotate(vel.angle(enemy->getCenter() - tr->getCenter()) > 0 ? 0.25 : -0.25));
+			tr->setRotation(Vector2D(1, 0).angle(tr->getVel()));
+
 		}
 	}
 	followStartTime -= SDLApplication::instance()->getDeltaTimeSeconds();

@@ -8,15 +8,7 @@
 #include <list>
 #include <string>
 
-struct InventoryInfo {
-	
-	int cuantity = 0;
-	int cuantityDeck = 0;
-	CardData* card;
 
-	InventoryInfo() : cuantity(0), cuantityDeck(0), card(nullptr) { }
-	InventoryInfo(int c, int cd, CardData* ca) : cuantity(c), cuantityDeck(cd), card(ca) { }
-};
 
 class Card;
 class PlayerData : public Singleton<PlayerData>
@@ -41,11 +33,10 @@ class PlayerData : public Singleton<PlayerData>
 	
 	*/
 
-	std::vector<Card*> deck;
-	std::vector<Card*> library;
-	std::vector<InventoryInfo> inventory;
-	std::unordered_map<string, vector<InventoryInfo>::iterator> receivedCard;
+	std::vector<CardId> library;
+	std::vector<CardId> deck;
 	
+	CardId lastCard;
 	
 	//Vector con todas las reliquias disponibles, saca su key del mapa
 	std::vector<std::string> avlbRelics;
@@ -64,10 +55,11 @@ class PlayerData : public Singleton<PlayerData>
 	
 	int level;
 
+	bool cardGained, inventoryNotOpen;
+
 	PlayerData();
 
 	public:
-		virtual ~PlayerData();
 		inline int getMaxMana() { return maxMana; }
 		inline int getCurrMana() { return currMana; }
 		inline void resetMana() { currMana = maxMana; }
@@ -79,34 +71,54 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getMoney() { return money; }
 		inline int getLevel() { return level; }
 		inline vector<Relic*> getRelics() { return myRelics; }
-		inline vector<InventoryInfo> getInventoryInfo() { return inventory; }
-		inline unordered_map<string, vector<InventoryInfo>::iterator> getReceivedCards() { return receivedCard; }
+		inline void setCardGained(bool value) { cardGained = value; }
+		inline bool getCardGained() { return cardGained; }
+		inline void setInventoryOpen(bool value) { inventoryNotOpen = value; }
+		inline bool getInventoryOpen() { return inventoryNotOpen; }
 
-		inline void setMaxMana(int maxMana) { this->maxMana = maxMana; }
-		inline void setCurrMana(int currMana) { this->currMana = currMana; }
-		inline void setMaxHP(int maxHP) { this->maxHP = maxHP; }
-		inline void setCurrHP(int currHP) { this->currHP = currHP; }
-		inline void setAttackMult(float attackMult) { this->attackMult = attackMult; }
-		inline void setFireRateMult(float fireRateMult) { this->fireRateMult = fireRateMult; }
-		inline void setLevel(int level) { this->level = level; }
-		inline void setMoney(int mon) { money += mon; }
-		inline void getPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
+		inline void setMoney(int newMoney) { money = newMoney; }
+		inline void setMaxMana(int newMaxMana) { maxMana = newMaxMana; }
+		inline void setCurrMana(int newCurrMana) { currMana = newCurrMana; }
+		inline void setMaxHP(int newMaxHP) { maxHP = newMaxHP; }
+		inline void setCurrHP(int newCurrHP) { currHP = newCurrHP; }
+		inline void setAttackMult(float newAttackMult) { attackMult = newAttackMult; }
+		inline void setFireRateMult(float newFireRateMult) { fireRateMult = newFireRateMult; }
+		inline void setLevel(int newLevel) { level = newLevel; }
+		inline void setPlayerMoveSpeed(float newMoveSpeed) { playerSpeed = newMoveSpeed; }
+
+		inline void addMoney(int mon) { money += mon; }
+		inline void addMaxMana(int mana) { maxMana += mana; }
+		inline void addCurrMana(int mana) { currMana += mana; }
+		inline void addMaxHP(int hp) { maxHP += hp; }
+		inline void addCurrHP(int hp) { currHP += hp; }
+		inline void addAttackMult(float attack) { attackMult += attack; }
+		inline void addFireRateMult(float rate) { fireRateMult += rate; }
+		inline void addPlayerMoveSpeed(float speed) { playerSpeed += speed; }
+
+		inline void nextLevel() { level++; }
+
 		void defaultPlayerStats();
-		void updatePlayerStats();
 
 		void getDataFromJSON();
 		void setDataToJSON();
+		bool hasSaveFile() const;
+		void loseSavedData();
 
-		std::vector<Card*> getDeck();
 		std::vector<std::string> getAvailableItems();
-		
-
-		void setDeck(std::vector<Card*> newDeck);
-		void addCardToLibrary(Card* newCard, int num);
 		void setAvailableItems(std::vector<std::string> newItems);
 
+		pair<CardId, int> getNewCard();
+
+		bool cardAvailable();
+
 		void addRelic(Relic* relic);
-		std::vector<Card*> getLibrary();
+
+		void addCardToLibrary(CardId newCard, int num);
+		std::vector<CardId> const& getLibrary();
+
+		void addCardToDeck(CardId newCard, int num);
+		std::vector<CardId> const& getDeck();
+		void setDeck(std::vector<CardId>);
 		
 };
 

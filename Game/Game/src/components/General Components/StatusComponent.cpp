@@ -11,6 +11,7 @@ void StatusComponent::initComponent()
 {
 	health = gObj->getComponent<HealthComponent>();
 	enemyAI = gObj->getComponent<EnemyBehaviour>();
+	eController = gObj->getComponent<EffectController>();
 }
 
 void StatusComponent::update()
@@ -25,11 +26,17 @@ void StatusComponent::update()
 	for (auto e : statusMap) {
 		if(e.second > 0) e.second -= SDLApplication::instance()->getDeltaTimeSeconds();
 	}
-	if (aSecond >= 1000) aSecond = 0;
+	if (aSecond >= 1000) aSecond -= 1000;
 }
 
 void StatusComponent::applyStatus(status stts, float duration)
 {
 	statusMap[stts] = duration;
-	if (stts == CONFUSED) enemyAI->setConfusion(true);
+	if (stts == CONFUSED) {
+		enemyAI->setConfusion(true);
+		eController->startEffect(E_CONFUSED, duration);
+	}
+	if (stts == BURNED) {
+		eController->startEffect(E_BURNING, duration);
+	}
 }

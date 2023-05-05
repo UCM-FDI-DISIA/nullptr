@@ -1,8 +1,9 @@
 #include "GameOverScene.h"
 #include "../core/SDLApplication.h"
+#include "TutorialScene.h"
 
-
-GameOverScene::GameOverScene() {
+GameOverScene::GameOverScene(BattleType prevBt, bool cameFromTutorial) : previousBT(prevBt) {
+	pD().loseSavedData();
 	//Creo el background
 	auto bc = addGameObject();
 	bc->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
@@ -10,7 +11,7 @@ GameOverScene::GameOverScene() {
 	i->attachToCamera();
 
 	//Sonido
-	deathSound = &sdlutils().soundEffects().at("Death");
+	deathSound = &sdlutils().soundEffects().at(DEATH_MELODY);
 
 	//Creo el objeto con la imagen del mensaje de muerte
 		GameObject * message = addGameObject();
@@ -20,25 +21,17 @@ GameOverScene::GameOverScene() {
 
 	deathSound->play();
 
+	CallBack cb;
+	string key = EXIT;
+	if (!cameFromTutorial) cb = []() { SDLApplication::newScene<MainMenuScene>(); };
+	else {
+		cb = [&]() { SDLApplication::popGameState();  SDLApplication::pushNewScene<TutorialScene>(previousBT); };
+		key = RESUME; 
+	}
+
 	//Creo el boton y su marco y los fijo a la camara
 	createButton(Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3), Vector2D(WIN_WIDTH / 2 - 79 * 1.5, WIN_HEIGHT * 2 / 3) - FRAME_OFFSET,
-		[]() { 
-			SDLApplication::newScene<MainMenuScene>();
-
-		}, EXIT);
-}
-
-// Crear un botón especificado en la escena
-void GameOverScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key);
-
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols);
-
-	// Crear botón
-	addGameObject<Button>(_cb, _bPos, aI, frame);
+		cb, key)->setAsDefaultButton();
 }
 
 GameOverScene::~GameOverScene() {

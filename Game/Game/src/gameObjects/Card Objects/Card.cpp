@@ -12,7 +12,6 @@ Card::Card(int _damage, int _maxUses, int _mana, float _downtime, std::string _d
 			case 0:
 				name += _data[i];
 				break;
-				std::cout << name;
 			case 1:
 				attackText += _data[i];
 				break;
@@ -30,21 +29,30 @@ Card::Card(CardData myData) :
 	damage(myData.damage), maxUses(myData.maxUses), remainingUses(myData.maxUses), mana(myData.mana), downtime(myData.downTime),
 	name(myData.name), attackText(myData.attackText), abilityText(myData.abilityText), texture(myData.texture){}
 
-//Devuelve la carta correspondiente al id
-Card Card::getCard(CardId type) {
+Card::~Card() {}
 
-	// cleon says: podéis sacar un elemento random de un vector, y el elemento que sea una lambda
+//Devuelve la carta correspondiente al id
+Card* Card::getCard(CardId type) {
+
+	// cleon says: podï¿½is sacar un elemento random de un vector, y el elemento que sea una lambda
 	switch (type)
 	{
-	case gun:
-		return GunCard();
-	case sword:
-		return SwordCard();
-	case laserShades:
-		return LaserShadesCard();
-	case smg:
-		return SMGCard();
-	default:
-		break;
+	case _card_GUN: return new GunCard();
+	case _card_SWORD: return new SwordCard();
+	case _card_TORCH: return new TorchCard();
+	case _card_LASERGLASSES: return new LaserShadesCard();
+	case _card_BOW: return new BowCard();
+	case _card_PULGA: return new PulgaCard();
+	case _card_SPEAR: return new SpearCard();
+	case _card_SMG: return new SMGCard();
+	case _card_ASSAULTRIFLE: return new AssaultRifleCard();
+	case _card_LIGHTRIFLE: return new LightRifleCard();
+	case _card_MEGAPHONE: return new MegaphoneCard();
+	case _card_RIOTSHIELD: return new RiotShieldCard();
+	case _card_RITUALAXE: return new RitualAxeCard();
+	case _card_CHEATGUN: return new CheatGunCard();
+	case _card_LASERKATANA: return new LaserKatanaCard();
+	default: return nullptr;
 	}
 }
+

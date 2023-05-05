@@ -1,122 +1,282 @@
 #include "PlayerData.h"
 #include "../gameObjects/Card Objects/Cards.h"
+#include "../data/json/JSON.h"
+#include <fstream>
+#include "Album.h"
 PlayerData::PlayerData() {
-	
 	defaultPlayerStats();
+}
 
-	level = 5;
-	// Cartas iniciales
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	deck.push_back(new SwordCard());
-	// A�adimos al vector de informacion las cartas que tiene el jugador de este tipo y las que est�n de ellas en el mazo
-	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Espada")));
-	// La marcamos como a�adida
-	receivedCard["Espada"] = prev(inventory.end());
-
-	deck.push_back(new GunCard());
-	deck.push_back(new GunCard());
-	deck.push_back(new GunCard());
-	inventory.push_back(InventoryInfo(3, 3, &cardsData().get("Pistola")));
-	receivedCard["Pistola"] = prev(inventory.end());
-
-	deck.push_back(new LaserShadesCard());
-	deck.push_back(new LaserShadesCard());
-	inventory.push_back(InventoryInfo(2, 2, &cardsData().get("Gafas Laser")));
-	receivedCard["Gafas Laser"] = prev(inventory.end());
-
+void PlayerData::defaultPlayerStats() {
+	avlbRelics.clear();
 	for (auto& var : sdlutils().relics().map_)
 	{
 		avlbRelics.push_back(var.first);
 	}
-}
-
-PlayerData::~PlayerData() {
-	for (auto& card : deck) {
-		delete card;
-		card = nullptr;
-	}
+	library.clear();
 	deck.clear();
-}
-
-void PlayerData::defaultPlayerStats()
-{
+	myRelics.clear();
 	money = 0;
 	setMaxMana(100);
 	setMaxHP(100);
 	setCurrHP(100);
 	setAttackMult(1);
 	setFireRateMult(1);
-	setMoney(50);
+	setMoney(0);
+	level = 1;
 	playerSpeed = PLAYER_SPEED;
+	cardGained = true;
+	inventoryNotOpen = true;
+
+	// Cartas iniciales
+	addCardToLibrary(_card_LASERGLASSES, 2);
+	addCardToDeck(_card_LASERGLASSES, 2);
+	addCardToLibrary(_card_SWORD, 3);
+	addCardToDeck(_card_SWORD, 3);
+	addCardToLibrary(_card_GUN, 3);
+	addCardToDeck(_card_GUN, 3);
+	lastCard = _card_NULL;
 }
 
-void PlayerData::updatePlayerStats()
-{
-	//para no duplicar los efectos de las reliquias, se resetean las estad�sticas del jugador
+void PlayerData::getDataFromJSON() {
 	defaultPlayerStats();
 
-	for (auto relic : myRelics) {
-		maxMana += relic->mana;
-		maxHP += relic->health;
-		attackMult += relic->attackMult;
-		fireRateMult += relic->cadencyMult;
-		playerSpeed += relic->movementVelocity;
-	}
-}
+	// Load JSON configuration file. We use a unique pointer since we
+	// can exit the method in different ways, this way we guarantee that
+	// it is always deleted
+	std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(SAVE_FILENAME));
 
-void PlayerData::getDataFromJSON()
-{
-	throw "Sin implementar lololo";
+	// check it was loaded correctly
+	// the root must be a JSON object
+	if (jValueRoot == nullptr || !jValueRoot->IsObject()) {
+		throw "Something went wrong while load/parsing '" + SAVE_FILENAME + "'";
+	}
+
+	// we know the root is JSONObject
+	JSONObject root = jValueRoot->AsObject();
+	JSONValue* jValue = nullptr;
+
+	jValue = root["player"];
+	if (jValue != nullptr) {
+		JSONObject player = jValue->AsObject();
+		maxHP = static_cast<int>(player["health"]->AsNumber());
+		currHP = static_cast<int>(player["currHP"]->AsNumber());
+		maxMana = static_cast<int>(player["mana"]->AsNumber());
+		currMana = static_cast<int>(player["currMana"]->AsNumber());
+		playerSpeed = static_cast<float>(player["speed"]->AsNumber());
+		attackMult = static_cast<float>(player["attack"]->AsNumber());
+		fireRateMult = static_cast<float>(player["fireRate"]->AsNumber());
+		money = static_cast<int>(player["money"]->AsNumber());
+		level = static_cast<int>(player["level"]->AsNumber());
+		lastCard = static_cast<CardId>(player["lastCard"]->AsNumber());
+		cardGained = static_cast<bool>(player["cardGained"]->AsBool());
+		inventoryNotOpen = static_cast<bool>(player["inventoryNotOpen"]->AsBool());
+
+		JSONArray jsonRelics = player["relics"]->AsArray();
+		for (auto& jsonR : jsonRelics) {
+			myRelics.push_back(&sdlutils().relics().at(jsonR->AsString()));
+		}
+		
+		library.clear();
+		JSONArray jsonLibrary = player["library"]->AsArray();
+		for (auto& jsonC : jsonLibrary) {
+			addCardToLibrary(static_cast<CardId>(jsonC->AsNumber()), 1);
+		}
+
+		deck.clear();
+		JSONArray jsonDeck = player["deck"]->AsArray();
+		for (auto& jsonC : jsonDeck) {
+			addCardToDeck(static_cast<CardId>(jsonC->AsNumber()), 1);
+		}
+
+		gameMap().clearMap();
+		gameMap().createMap(SAVE_FILENAME);
+	}
 }
 
 
 void PlayerData::setDataToJSON()
 {
+	JSONObject player;
+	player["health"] = new JSONValue(maxHP);
+	player["currHP"] = new JSONValue(currHP);
+	player["mana"] = new JSONValue(maxMana);
+	player["currMana"] = new JSONValue(currMana);
+	player["speed"] = new JSONValue(playerSpeed);
+	player["attack"] = new JSONValue(attackMult);
+	player["fireRate"] = new JSONValue(fireRateMult);
+	player["money"] = new JSONValue(money);
+	player["level"] = new JSONValue(level);
+	player["lastCard"] = new JSONValue(lastCard);
+	player["cardGained"] = new JSONValue(cardGained);
+	player["inventoryNotOpen"] = new JSONValue(inventoryNotOpen);
+	JSONArray jsonRelics;
+	for (Relic* r : myRelics) {
+		jsonRelics.push_back(new JSONValue(r->id));
+	}
+	player["relics"] = new JSONValue(jsonRelics);
+
+	JSONArray jsonDeck;
+	for (CardId cId : deck) {
+		jsonDeck.push_back(new JSONValue(cId));
+	}
+	player["deck"] = new JSONValue(jsonDeck);
+
+	JSONArray jsonLibrary;
+	for (CardId cId : library) {
+		jsonLibrary.push_back(new JSONValue(cId));
+	}
+	player["library"] = new JSONValue(jsonLibrary);
+
+
+	JSONObject jsonData;
+	jsonData["player"] = new JSONValue(player);
+	jsonData["map"] = gameMap().mapToJSON();
+	jsonData["saved"] = new JSONValue(true);
+
+	
+	std::ofstream save(SAVE_FILENAME);
+	// comprobar que se ha abierto el archivo
+	if (!save.is_open()) {
+		save.close();
+		throw "Could not create save Player Data file";
+	}
+	std::unique_ptr<JSONValue> jval(new JSONValue(jsonData));
+	try {
+		// Guardar los detos de la partida en el archivo
+		save << JSON::Stringify(&*jval);
+	}
+	catch (...) {
+		// Cerrar el archivo e informar si hubo algún problema al guardar
+		save.close();
+		throw "Could not save Player Data correctly";
+	}
 }
 
-std::vector<Card*> PlayerData::getDeck()
-{
-	return deck;
+
+bool PlayerData::hasSaveFile() const {
+	try {
+		// Load JSON configuration file. We use a unique pointer since we
+		// can exit the method in different ways, this way we guarantee that
+		// it is always deleted
+		std::unique_ptr<JSONValue> jValueRoot(JSON::ParseFromFile(SAVE_FILENAME));
+
+		// check it was loaded correctly
+		// the root must be a JSON object
+		if (jValueRoot == nullptr || !jValueRoot->IsObject()) {
+			throw "Something went wrong while load/parsing '" + SAVE_FILENAME + "'";
+		}
+
+		// we know the root is JSONObject
+		JSONObject root = jValueRoot->AsObject();
+		JSONValue* saved = nullptr;
+
+		saved = root["saved"];
+
+		return saved->AsBool();
+	}
+	catch (...) {
+		return false;
+	}
+}
+
+
+void PlayerData::loseSavedData() {
+	JSONObject jsonData;
+	jsonData["saved"] = new JSONValue(false);
+
+	std::ofstream save(SAVE_FILENAME);
+	// comprobar que se ha abierto el archivo
+	if (!save.is_open()) {
+		save.close();
+		throw "Could not create save Player Data file";
+	}
+
+	std::unique_ptr<JSONValue> jval(new JSONValue(jsonData));
+	try {
+		// Guardar los detos de la partida en el archivo
+		save << JSON::Stringify(&*jval);
+	}
+	catch (...) {
+		// Cerrar el archivo e informar si hubo algún problema al guardar
+		save.close();
+		throw "Could not save Player Data correctly";
+	}
 }
 
 std::vector<std::string> PlayerData::getAvailableItems() {
 	return avlbRelics;
 }
 
-void PlayerData::setDeck(std::vector<Card*> newDeck)
-{
-	deck = newDeck;
-}
-
 void PlayerData::setAvailableItems(std::vector<std::string> newItems) {
 	avlbRelics = newItems;
 }
 
-void PlayerData::addCardToLibrary(Card* newCard, int num)
-{
+void PlayerData::addCardToLibrary(CardId newCard, int num) {
 	// A�ado la carta a la libreria
-	library.push_back(newCard);
+	for (int i = 0; i < num; i++) {
 
-	//Busco si ya la habia recibido antes
-	auto it = receivedCard.find(newCard->getName());
-
-	// Si ya la habia recibido simplemente aumento el contador de cartas
-	if (it != receivedCard.end()) {
-		it->second->cuantity += num;
+		library.push_back(newCard);
 	}
-	// Si no la habia recibido, la creo en el inventario y me guardo su posicion en el mapa 
+	cardGained = true;
+	Album::instance()->addCard(cardsData().get(Card::getCardIDfromEnum(newCard)));
+}
+
+pair<CardId, int> PlayerData::getNewCard() {
+	pair<CardId, int> res;
+	bool available = cardAvailable();
+	if (lastCard == _card_NULL) {
+		lastCard = (CardId) SDLApplication::instance()->getRandInt(0, maxCardId);
+		while (count(library.begin(), library.end(), lastCard) && available)
+		{
+			lastCard = (CardId)SDLApplication::instance()->getRandInt(0, maxCardId);
+		}
+		res = pair<CardId, int>{lastCard, 1};
+		addCardToLibrary(lastCard, 1);
+	}
 	else {
-		inventory.push_back(InventoryInfo(num, 0, &cardsData().get(newCard->getName())));
-		receivedCard[newCard->getName()] = prev(inventory.end());
+		res =  pair<CardId, int>{lastCard , 2};
+		addCardToLibrary(lastCard, 2);
+		lastCard = _card_NULL;
 	}
+	cardGained = true;
+	return res;
+}
+
+bool PlayerData::cardAvailable() {
+	for (int i = 0; i < maxCardId; i++) {
+		if (!count(library.begin(), library.end(), (CardId)i)) return true;
+	}
+	return false;
 }
 
 void PlayerData::addRelic(Relic* relic) {
+	maxMana += relic->mana;
+	maxHP += relic->health;
+	attackMult += relic->attackMult / 100.0f;
+	fireRateMult += relic->fireRateMult / 100.0f;
+	playerSpeed += relic->speed;
 	myRelics.push_back(relic);
 }
 
-std::vector<Card*> PlayerData::getLibrary()
-{
+std::vector<CardId> const& PlayerData::getLibrary() {
 	return library;
+}
+void PlayerData::addCardToDeck(CardId newCard, int num)
+{
+	for (int i = 0; i < num; i++)
+	{
+		deck.push_back(newCard);
+	}
+}
+
+std::vector<CardId> const& PlayerData::getDeck() {
+	return deck;
+}
+
+void PlayerData::setDeck(std::vector<CardId> newDeck)
+{
+	deck = newDeck;
+
+	setDataToJSON();
 }

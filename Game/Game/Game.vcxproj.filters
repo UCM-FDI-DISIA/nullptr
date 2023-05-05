@@ -217,9 +217,6 @@
     <ClCompile Include="src\gameObjects\Card Objects\Megaphone.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\scenes\NodeScene.cpp">
-      <Filter>Archivos de Dependecias\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="src\gameObjects\Node Objects\Map.cpp">
       <Filter>Archivos de Dependecias\Objects\Node Objects</Filter>
     </ClCompile>
@@ -247,14 +244,90 @@
     <ClCompile Include="src\data\Album.cpp">
       <Filter>Archivos de Dependecias\Data</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObjects\UI\InventoryCard.cpp">
-      <Filter>Archivos de Dependecias\Objects\UI Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\General Components\CallbackDelayer.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
     <ClCompile Include="src\gameObjects\Card Objects\RitualAxe.cpp">
       <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\BossBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\TentacleBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossTentacle.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\TargetedTentacle.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\TargetedComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Card Objects\LaserKatana.cpp">
+      <Filter>Archivos de Dependecias\Objects\Card Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\PostGameScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\GameControl.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Player components\PlayerInputComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\ButtonNavigator.cpp">
+      <Filter>Archivos de Dependecias\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\LerpComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\TutorialComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\General Objects\Tuto.cpp">
+      <Filter>Archivos de Dependecias\Objects\General Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\TutorialScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\EffectController.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\AssasinBehaviour.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\AssasinEnemy.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\BossBattleScene.cpp">
+      <Filter>Archivos de Dependecias\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\BossAnimator.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\DeathAnimation.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\General Components\OptionsUpdateComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameObjects\Enemy Objects\BossCone.cpp">
+      <Filter>Archivos de Dependecias\Objects\Enemy Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Enemy components\TentaclesPortalComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\Enemy Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\CinematicScene.cpp" />
+    <ClCompile Include="src\components\General Components\PopupComponent.cpp">
+      <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,9 +362,6 @@
       <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\sdlutils\InputHandler.h">
-      <Filter>Archivos de Encabezado\sdlutils</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Image.h">
       <Filter>Archivos de Encabezado\sdlutils</Filter>
     </ClInclude>
     <ClInclude Include="src\framework.h">
@@ -492,7 +562,6 @@
     <ClInclude Include="src\data\RelicData.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\General Components\PointerComponent.h" />
     <ClInclude Include="src\core\SDLApplication.h">
       <Filter>Archivos de Encabezado\Core</Filter>
     </ClInclude>
@@ -501,9 +570,6 @@
     </ClInclude>
     <ClInclude Include="src\components\General Components\PointerComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\scenes\NodeScene.h">
-      <Filter>Archivos de Encabezado\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\gameObjects\Node Objects\Map.h">
       <Filter>Archivos de Encabezado\Objects\Node Objects</Filter>
@@ -529,10 +595,89 @@
     <ClInclude Include="src\data\Album.h">
       <Filter>Archivos de Encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\gameObjects\UI\InventoryCard.h">
-      <Filter>Archivos de Encabezado\Objects\UI Objects</Filter>
-      </ClInclude>
     <ClInclude Include="src\components\General Components\CallbackDelayer.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\BossBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\TentacleBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossTentacle.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\TargetedTentacle.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\TargetedComponent.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\StatsTrackComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\PostGameScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\GameControl.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Player components\PlayerInputComponent.h">
+      <Filter>Archivos de Encabezado\Components\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ButtonNavigator.h">
+      <Filter>Archivos de Encabezado\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\LerpComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\PointerComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\TutorialComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\General Objects\Tuto.h">
+      <Filter>Archivos de Encabezado\Objects\General Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\TutorialScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\EffectController.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\AssasinBehaviour.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\AssasinEnemy.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\BossBattleScene.h">
+      <Filter>Archivos de Encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\BossAnimator.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\DeathAnimation.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\data\OptionsData.h">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\General Components\OptionsUpdateComponent.h">
+      <Filter>Archivos de Encabezado\Components\General Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameObjects\Enemy Objects\BossCone.h">
+      <Filter>Archivos de Encabezado\Objects\Enemy Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Enemy components\TentaclesPortalComponent.h">
+      <Filter>Archivos de Encabezado\Components\Enemy Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\CinematicScene.h" />
+    <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -676,6 +821,12 @@
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
     <None Include="src\data\game.cards.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
+    <None Include="src\data\game.album.json">
+      <Filter>Archivos de Encabezado\Data</Filter>
+    </None>
+    <None Include="src\data\game.playerData.json">
       <Filter>Archivos de Encabezado\Data</Filter>
     </None>
   </ItemGroup>

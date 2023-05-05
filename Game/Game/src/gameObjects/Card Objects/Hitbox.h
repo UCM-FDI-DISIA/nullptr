@@ -31,11 +31,11 @@ public:
 	}
 
 	//Constructor de hitbox que causa dano, se le anade un lifetime component
-	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr)
+	void initGameObject(float dmg, bool isDestroyed, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), RitualAxeCard* axe = nullptr, Vector2D parentData=VECTOR_ZERO)
 	{
 		initGameObject(data, anch);
 		addComponent<LifeTimeComponent>(lifetime);
-		addComponent<HitboxDamageComponent>(dmg, isDestroyed, knockBack, axe);
+		addComponent<HitboxDamageComponent>(dmg, isDestroyed, axe, parentData);
 	}
 
 	//Constructor de hitbox que aflige estados alterados, se le anade un lifetime component
@@ -47,18 +47,21 @@ public:
 	}
 
 	//Constructor de hitbox que aflige estatus y causa dano, se le anade un lifetime component
-	void initGameObject(int dmg, bool isDestroyed, bool knockBack, float drtn, StatusComponent::status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1))
+	void initGameObject(int dmg, bool isDestroyed, float drtn, StatusComponent::status stts, float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1), Vector2D originPosition=VECTOR_ZERO)
 	{
-		initGameObject(dmg, isDestroyed, knockBack, lifetime, data, anch);
+		initGameObject(dmg, isDestroyed, lifetime, data, anch, nullptr, originPosition);
 		addComponent<HitboxStatusComponent>(stts, drtn);
 	}
-
-	//Constructor de hitbox que crea una explosion
 
 	//Constructor de hitbox que crea una area de curación
 	void initGameObject(int healing, float cooldown, HitboxData data, float lifetime, Vector2D anch = Vector2D(-1, -1));
 
-	void initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1));
+	//Constructor de hitbox que crea una explosion
+	void initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height, string sprite, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1), CallBackExpl cb = nullptr);
+
+	//Constructor de hitbox que crea una explosion con animacion
+	void initGameObject(int dmg, bool contact, float lifetime, StatusComponent::status stts, float width, float height, string sprite, int spriteWidth, int spriteHeight, int rows, int columns, Animation anim, BattleScene* scene, HitboxData data, Vector2D anch = Vector2D(-1, -1), CallBackExpl cb = nullptr);
+
 
 	// Constructor de hitbox que no causa daño ni inflige estados alterados, se le añade un lifetime component
 	void initGameObject(float lifetime, HitboxData data, Vector2D anch = Vector2D(-1, -1)) {
@@ -66,6 +69,7 @@ public:
 		addComponent<LifeTimeComponent>(lifetime);
 		addComponent<ColliderComponent>(data.trgt); 
 	}
+
 	// Agrega este método predeterminado a la clase Hitbox
 	void initGameObject() {}
 

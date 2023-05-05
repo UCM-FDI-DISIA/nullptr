@@ -22,7 +22,7 @@
 #include "../scenes/PauseMenuScene.h"
 #include "../scenes/ShopScene.h"
 #include "../scenes/GameOverScene.h"
-
+#include "../scenes/CinematicScene.h"
 #include "../gameObjects/Node Objects/Node.h"
 
 using namespace std;
@@ -35,6 +35,9 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
+
+	bool isPlayingMainMusic=false;
+	Music* mainMusic;
 
 	double deltaTime = 0.0;
 	Uint32 timeOffset = 0;
@@ -53,10 +56,15 @@ public:
 	void update();
 	// Actualiza el juego en función al evento actual
 	void handleInput();
+
 	// Devuelve la Texture pedida
 	static Texture* getTexture(TextureName texture);
+	// Devuelve el Font Pedido
+	static Font* getFont(string fontName);
 	// Devuelve la Reliquia pedida
 	static Relic* getRelic(TextureName texture);
+	// Devuelve un numero entero random
+	static int getRandInt(int min, int max);
 
 	// Inicializa una nueva escena y la mete en la máquina de estados borrando la anterior
 	template<typename T, typename ...Ts>
@@ -83,6 +91,11 @@ public:
 	// Cierra el juego
 	static void quitGame();
 
+	inline void playMainMusic(){ mainMusic->play(-1); isPlayingMainMusic = true; }
+	inline void stopMainMusic(){ mainMusic->haltMusic(); isPlayingMainMusic = false; }
+	inline bool isMusicPlaying() { return isPlayingMainMusic; }
+
+	inline GameState* getCurrentState() { return SDLApplication::instance()->gameStateMachine->currentState(); }
 	inline double getDeltaTime() { return deltaTime; }
 	inline uint32_t getCurrentTime() { return SDL_GetTicks() - timeOffset; }
 	inline double getDeltaTimeSeconds() { return getDeltaTime() / 1000.0; }

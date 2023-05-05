@@ -3,19 +3,28 @@
 #include "../gameObjects/Node Objects/NodeButton.h"
 
 MapScene::MapScene() {
+	if (!SDLApplication::instance()->isMusicPlaying()) {
+		SDLApplication::instance()->playMainMusic();
+	}
 	// MAPA
-	gameMap().reloadMap();
 	vector<vector<Node*>> const& nodeMap = gameMap().getNodeMap();
 	vector<int> const& nodesPerHeight = gameMap().getNodesPerWidth();
 
+	background = addGameObject();
+	background->addComponent<Transform>(Vector2D(0, -3 * WIN_HEIGHT), Vector2D(), WIN_WIDTH, 4 * WIN_HEIGHT);
+	background->addComponent<Image>(SDLApplication::getTexture("MapBackground"));
+	background2 = addGameObject();
+	background2->addComponent<Transform>(Vector2D(0, -2 * MAP_PARALLAX_HEIGHT), Vector2D(), MAP_PARALLAX_WIDTH, 3* MAP_PARALLAX_HEIGHT);
+	background2->addComponent<Image>(SDLApplication::getTexture("MapBackground2"))->setScrollFactor(MAP_SCROLLFACTOR);
+	
 	// VECTOR PARA EL RENDERIZADO DE LAS CONEXIONES
 	vector<vector<Vector2D>> nodesPositions(HEIGHT);
-
+	NodeButton* first = nullptr;
 	int i = 0;
 	for (auto& height : nodeMap) {
 		int j = 0;
 		for (Node* node : height) {
-			Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * i);
+			Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * (i + 3));
 			if (node != nullptr) { 
 				switch (nodesPerHeight[i]) {
 				case 1:
@@ -31,7 +40,11 @@ MapScene::MapScene() {
 					else pos.setX(NODE_POSITIONS_X[4]);
 					break;
 				}
-				addGameObject<NodeButton>(node, node->loadNode(), pos);
+				NodeButton* g = addGameObject<NodeButton>(node, node->loadNode(), pos, (nodesPerHeight[i] == 1) ? 8.0f : 5.0f,
+					[&](Transform* myTr) {
+						camTr->setY(-myTr->getY() + sdlutils().height() / 2 - NODE_HEIGHT / 2);
+					});
+				if (i == 0 && j == 0) first = g;
 				++j;
 			}
 			nodesPositions[i].push_back(pos);
@@ -40,29 +53,69 @@ MapScene::MapScene() {
 		++i;
 	}
 
-	camera->getComponent<Transform>()->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
+	camTr = camera->getComponent<Transform>();
+	camTr->setY((- (int)WIN_HEIGHT / 2) + NODE_HEIGHT);
+	camYLimit = -nodesPositions[nodesPositions.size() - 1][nodesPositions[nodesPositions.size() - 1].size() - 1].getY() + sdlutils().height() / 2;
 
 	// BOTONES
 	// Botón options
 	createButton(MS_OPTIONS_BUTTON_POS, MS_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
+	// Marca del boton de inventario
+	markPoint = addGameObject();
+	markPoint->addComponent<Transform>(MS_INVENTORY_BUTTON_POS + Vector2D(MM_BUTTON_WIDTH - 16, -16), Vector2D(), 32, 32);
+	Animator* anim = markPoint->addComponent<Animator>(&sdlutils().images().at("MarkPointer"), 32, 32, 1, 2);
+	anim->createAnim("Blinking", 0, 1, 2, -1);
+	anim->play("Blinking");
+	anim->attachToCamera();
+
 	// Botón Inventario
-	createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
+	inventoryButton = createButton(MS_INVENTORY_BUTTON_POS, MS_INVENTORYFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<InventoryScene>(); }, INVENTORY);
+	inventoryButton->setAsDefaultButton();
 
 	// Botón salir
-	createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { SDLApplication::newScene<MainMenuScene>(); }, EXIT);
+	exitButton = createButton(MS_EXIT_BUTTON_POS, MS_EXITFRAME_BUTTON_POS, []() { pD().setDataToJSON(); SDLApplication::newScene<MainMenuScene>(); }, EXIT);
 }
 
-// Crear un bot�n especificado en la escena
-void MapScene::createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key) {
-	AnimatorInfo aI = AnimatorInfo(key);
-	// Crear marco
-	GameObject* frame = addGameObject();
-	frame->addComponent<Transform>(_fPos, Vector2D(), MM_BUTTONFRAME_WIDTH, MM_BUTTONFRAME_HEIGHT);
-	frame->addComponent<Animator>(SDLApplication::getTexture("ButtonFrame"), BUTTON_FRAME_SPRITE_WIDTH, BUTTON_FRAME_SPRITE_HEIGTH, aI.rows, aI.cols)->attachToCamera();
+void MapScene::goToTutorial() {
+	gameMap().getNodeMap()[0][1]->loadNode()();
+}
 
-	// Crear bot�n
-	addGameObject<Button>(_cb, _bPos, aI, frame);
+void MapScene::goToBoss() {
+	gameMap().getNodeMap()[16][1]->loadNode()();
+}
+
+void MapScene::handleInput() {
+	GameState::handleInput();
+
+	// Opciones
+	if (gmCtrl_.pause()) {
+		SDLApplication::pushNewScene<OptionsMenuScene>();
+	}
+	// Atrás
+	else if (gmCtrl_.goBack()) {
+		exitButton->setAsCurrentButton();
+	}
+
+	// Scroll
+	camTr->setY(camTr->getY() - gmCtrl_.scroll(false) * 50);
+	if (camTr->getY() > camYLimit) camTr->setY(camYLimit);
+	else if (camTr->getY() < 0) camTr->setY(0);
+}
+
+
+void MapScene::update() {
+	GameState::update();
+	if (PlayerData::instance()->getCardGained() && !markPoint->hasComponent<Animator>()) {
+		Animator* anim = markPoint->addComponent<Animator>(&sdlutils().images().at("MarkPointer"), 32, 32, 1, 2);
+		anim->createAnim("Blinking", 0, 1, 2, -1);
+		anim->play("Blinking");
+		anim->attachToCamera();
+	}
+
+	else if (!PlayerData::instance()->getCardGained() && markPoint->hasComponent<Animator>()) {
+		markPoint->removeComponent<Animator>();
+	}
 }
 
 // Mueve la camara a la altura de los siguientes al nodo actual
@@ -70,6 +123,10 @@ void MapScene::moveCamera() {
 	Transform* tr = camera->getComponent<Transform>();
 	float prevY = tr->getY();
 	tr->setY(prevY + NODE_POSITION_Y);
+}
+
+void MapScene::resetSelectedButton() {
+	inventoryButton->setAsCurrentButton();
 }
 
 void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vector<Vector2D>> const& nodesPos, vector<int> const& nodesPerHeight, int alt) {
@@ -82,7 +139,7 @@ void MapScene::createConections(vector<vector<Node*>> const& nodes, vector<vecto
 					if (nodes[alt - 1][i]->conectsWith(j)) {
 						GameObject* conection = addGameObject();
 						string key = "";
-						Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * alt + NODE_HEIGHT);
+						Vector2D pos = Vector2D(0, (int)WIN_HEIGHT - NODE_POSITION_Y * (alt + 3) + NODE_HEIGHT);
 						
 						if (nodesPerHeight[alt - 1] == 1) {
 							if (nodesPerHeight[alt] == 1) {

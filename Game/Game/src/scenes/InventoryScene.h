@@ -1,26 +1,80 @@
 #pragma once
 #include "GameState.h"
-#include "../gameObjects/UI/InventoryCard.h"
+#include <map>
 #include <vector>
+#include "../components/General Components/TextComponent.h"
+#include "../components/General Components/PopupComponent.h"
+
+class Card;
+struct InventoryInfo {
+	int cuantity = 0;
+	int cuantityDeck = 0;
+	CardId card;
+	TextComponent* myText;
+	TextComponent* myDeckText;
+	pair<GameObject*, GameObject*> ammo;
+	pair<GameObject*, GameObject*> mana;
+
+	InventoryInfo() : cuantity(0), cuantityDeck(0), card(_card_NULL), myText(nullptr), myDeckText(nullptr) { };
+};
+struct InventoryCard
+{
+	GameObject* deckButton;
+	GameObject* deckImage;
+	GameObject* deckText;
+	GameObject* deckTextFrame;
+	pair<GameObject*, GameObject*> ammo;
+	pair<GameObject*, GameObject*> mana;
+};
 
 class InventoryScene : public GameState {
 private:
-	vector<InventoryInfo> info;
-	unordered_map<string, vector<InventoryInfo>::iterator> cr;
-	vector<int> deck;
+	string texts[3] = {
+		"BIENVENIDO A TU INVENTARIO. Aquí podrás ver todas las cartas que posees y las que tienes en el mazo, así como tus objetos y estadísticas.",
+		"También podrás modificar tu mazo añadiendo cartas del inventario (clicando sobre ellas en la zona de inventario) ",
+		"o retirando las ya presentes (clicando sobre ellas en la zona del mazo)",
+	};
+	
+	bool interactive;
+	std::map<string, InventoryInfo> inventory;
+	std::map<CardId, InventoryCard> deckButtons;
 	vector<int> stats;
-	int deckCards;
+
+	GameObject* inventoryPanel;
+	GameObject* deckPanel;
+
+	GameObject* screen;
+	GameObject* tuto;
+	GameObject* text1;
+	GameObject* text2;
+	GameObject* feedback;
+	Button* button;
+
+	Button* exitButton;
+
+	int cardsInDeck;
+	int camYLimit;
+	Transform* camTr;
+
 public:
 	InventoryScene();
+	virtual ~InventoryScene();
 
-	// Crear un botón especificado en la escena
-	void createButton(Vector2D _bPos, Vector2D _fPos, CallBack _cb, string key);
+	virtual void update();
+
+	void handleInput() override;
 	void createSymbol(Vector2D _pos, string key, string text, int val);
 	void createPanels();
+	GameObject* createPanel(Vector2D pos, int w, int h, string textureKey);
 	void createMoneyInfo();
 	void createObjects();
+	void createCards();
+	void createDeckCards(CardId crd, int column, int row);
+	Button* createCard(Vector2D pos, CardId card, bool deck);
+	void reloadDeckCards();
 
-	void removeFromDeck(int ind);
-	int getFirstDeckPos();
-	void changeDeckCardsNumber(int num);
+	void createNumber(GameObject* number, Vector2D pos, int value, char type);
+
+	void activatePopUp();
+	void deactivatePopUp();
 };
