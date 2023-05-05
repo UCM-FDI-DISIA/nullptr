@@ -12,7 +12,7 @@ CinematicScene::CinematicScene(string textureKey, int fw, int fh, int r, int c, 
 		cinematicMusic = &sdlutils().musics().at(INIT_MUSIC);
 	}
 	else if (textureKey == CINEMATIC_FINAL_NAME) {
-		cinematicMusic = &sdlutils().musics().at(INIT_MUSIC);
+		cinematicMusic = &sdlutils().musics().at(FINAL_MUSIC);
 	}
 
 	createButton(QUIT_CINEMATIC_BUTTON_POS, QUIT_CINEMATICFRAME_BUTTON_POS, onComplete_, SKIP)->setAsDefaultButton();
