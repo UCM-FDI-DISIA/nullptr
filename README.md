@@ -136,7 +136,7 @@ Estos se podrán obtener de manera aleatoria en los cofres del mundo. Durante un
 
 Los enemigos son el principal peligro al que se enfrentará el jugador. Acabar con ellos será esencial para poder cargar la máquina (terminar el nivel) y usar habilidades. 
 
-Habrá 3 tipos de enemigos: los TANQUES (T), los LUCHADORES (L) y los TIRADORES (T). Estos serán los mismos para el resto del juego, pero irán variando en aspecto y fuerza según lo avanzado del nivel y la época en la que se encuentre el jugador. Compartirán las siguientes mecánicas:
+Habrá 4 tipos de enemigos: los TANQUES (T), los LUCHADORES (L), los TIRADORES (R) y los ASESINOS (A). Estos serán los mismos para el resto del juego, pero irán variando en aspecto y fuerza según lo avanzado del nivel y la época en la que se encuentre el jugador. Compartirán las siguientes mecánicas:
 * <span style="text-decoration:underline;">Movimiento:</span> top-down con patrones de movimiento diferentes por enemigo.
 * <span style="text-decoration:underline;">Ataque:</span> cuerpo a cuerpo o a distancia con diferentes patrones según el enemigo.
 * <span style="text-decoration:underline;">Muerte:</span> los enemigos al morir, dependiendo de qué tipo sean, soltarán cierta cantidad de maná al suelo que podrá ser recogida por el jugador. Además, al morir, estos proporcionarán éter espacio-temporal que contribuirá a la carga de la máquina del tiempo, permitiendo al jugador completar el nivel.
@@ -145,6 +145,8 @@ Sus comportamientos serán distintos para cada tipo:
 * <span style="text-decoration:underline;">Tanque:</span> avanza hacia el jugador, pudiendo atacar cuerpo a cuerpo o en un área corta.
 * <span style="text-decoration:underline;">Luchador:</span> avanza hacia el jugador con la intención de colisionar con él, atacando cuerpo a cuerpo.
 * <span style="text-decoration:underline;">Tirador:</span> avanza hacia el jugador pero mantiene las distancias de forma que pueda atacar al jugador con proyectiles a distancia.
+* <span style="text-decoration:underline;">Asesino:</span> avanza hacia el jugador con la intención de dashear hacia él, atacando cuerpo a cuerpo y esquiva las balas del jugador con dicho dash también.
+
 
 Las estadísticas y características de los enemigos se explican más adelante.
 
