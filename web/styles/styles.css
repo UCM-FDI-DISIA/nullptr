@@ -77,6 +77,14 @@ footer img:hover {
 	padding: 10px;
 }
 
+.video-txt {
+	font-size: 25px;
+	text-align: center;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+}
+
 .descarga {
 	display: block;
 	position: relative;
@@ -138,8 +146,8 @@ footer img:hover {
 }
 
 .slideshow-container {
-	max-width: none;
-	max-height: 760px;
+	max-width: 1280px;
+	max-height: 720px;
 	position: relative;
 	margin-left: 100px;
 	margin-right: 100px;
@@ -223,6 +231,11 @@ footer img:hover {
 .marco {
 	width:"100px";
 	height:"100px";
+}
+
+.video {
+    display: block;
+    margin: 30px auto;
 }
 
 .footer-container {
