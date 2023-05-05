@@ -4,10 +4,7 @@
 #include <fstream>
 #include "Album.h"
 PlayerData::PlayerData() {
-	
 	defaultPlayerStats();
-
-	lastCard = _card_NULL;
 }
 
 void PlayerData::defaultPlayerStats() {
@@ -38,6 +35,7 @@ void PlayerData::defaultPlayerStats() {
 	addCardToDeck(_card_SWORD, 3);
 	addCardToLibrary(_card_GUN, 3);
 	addCardToDeck(_card_GUN, 3);
+	lastCard = _card_NULL;
 }
 
 void PlayerData::getDataFromJSON() {
