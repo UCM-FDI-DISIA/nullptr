@@ -207,8 +207,8 @@ const float BOSS_ENEMY_COOLDOWN = 500;
 const string BOSS_ENEMY_TEXTURE_KEY = "BossEnemy";
 const int BOSS_ENEMY_SPRITE_WIDTH = 300;
 const int BOSS_ENEMY_SPRITE_HEIGHT = 300;
-const int BOSS_ENEMY_SPRITE_ROWS = 1;
-const int BOSS_ENEMY_SPRITE_COLS = 39;
+const int BOSS_ENEMY_SPRITE_ROWS = 6;
+const int BOSS_ENEMY_SPRITE_COLS = 7;
 const int BOSS_ENEMY_WIDTH = BOSS_ENEMY_SPRITE_WIDTH * PIXEL_WIDTH;
 const int BOSS_ENEMY_HEIGHT = BOSS_ENEMY_SPRITE_HEIGHT * PIXEL_HEIGHT;
 const Vector2D BOSS_OFFSET = Vector2D(BOSS_ENEMY_WIDTH / 2, -BOSS_ENEMY_HEIGHT / 2);
@@ -295,7 +295,7 @@ const float LASER_BULLET_SPEED = 2000;
 const float LASER_BULLET_SPEED_A = 200;
 // STATUS ---------------------------------------------------------------------------------------
 
-const int BURN_DAMAGE = 3;
+const int BURN_DAMAGE = 4;
 
 // BUTTONS ---------------------------------------------------------------------------------------
 // BUTTONS DIMENSIONS

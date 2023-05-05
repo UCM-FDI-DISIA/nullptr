@@ -55,6 +55,8 @@ class PlayerData : public Singleton<PlayerData>
 	
 	int level;
 
+	bool cardGained, inventoryNotOpen;
+
 	PlayerData();
 
 	public:
@@ -69,6 +71,10 @@ class PlayerData : public Singleton<PlayerData>
 		inline float getMoney() { return money; }
 		inline int getLevel() { return level; }
 		inline vector<Relic*> getRelics() { return myRelics; }
+		inline void setCardGained(bool value) { cardGained = value; }
+		inline bool getCardGained() { return cardGained; }
+		inline void setInventoryOpen(bool value) { inventoryNotOpen = value; }
+		inline bool getInventoryOpen() { return inventoryNotOpen; }
 
 		inline void setMoney(int newMoney) { money = newMoney; }
 		inline void setMaxMana(int newMaxMana) { maxMana = newMaxMana; }

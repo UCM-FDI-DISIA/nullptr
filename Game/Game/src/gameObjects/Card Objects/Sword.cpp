@@ -28,7 +28,7 @@ void SwordCard::ability(Vector2D playerPos, Vector2D mousePos, float attackMult,
 	
 	Hitbox::HitboxData  data = { playerPos, VECTOR_ZERO, 0, 300, 300, "null", _grp_ENEMIES };
 
-	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, damage * attackMult, false, 0.1, data, Vector2D(-1, -1), nullptr, playerPos);
+	where->addGameObject<Hitbox>(_grp_PLYR_ATTACK, 2 * damage * attackMult, false, 0.1, data, Vector2D(-1, -1), nullptr, playerPos);
 
 	auto spinAnim = where->addGameObject<GameObject>();
 	spinAnim->addComponent<Transform>(playerPos - Vector2D(150, 150), VECTOR_ZERO, 300, 300);

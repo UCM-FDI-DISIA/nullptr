@@ -42,86 +42,83 @@ void BossBehaviour::update() {
 			behaviorTime -= stopTime + moveTime;
 		}
 	}
-	if (!confused) {
-		if (attacking) {
-			//iniciar la animacion y sumar el delay al ataque
-			if (attackDelay < attackTime) {
-				attackTime = 0;
-				attacking = false;
-				//enemyAttack(); // ataca coincidiendo con la animacion  attackState
-				switch (attackState) {
-				case CONE: // Conos
-					coneAttack();
-					break;
-				case BULLET_HELL: // BulletHell
-					bulletHellAttack();
-					break;
-				case CONE_TWO: // Conos
-					coneAttack();
-					break;
-				case GRENADES: // Granadas
-					grenadeAttack();
-					break;
-				case TARGETED_TENTACLE: // Tentaculo Dirigido
-					targetedAttack();
-					break;
-				case CLOCK: // Aspersor
-					clockAttack();
-					break;
-				case BULLET_GRENADES: // BulletHell + Granadas
-					bulletHellAttack();
-					grenadeAttack();
-					break;
-				case TT_CONES: // Tentaculo Dirigido + Conos
-					targetedAttack();
-					coneAttack();
-					break;
-				case BULLET_CLOCK: // BulletHell + Aspersor
-					bulletHellAttack();
-					clockAttack();
-					break;
-				case GRENADE_TT: // Granadas + Tentaculo Dirigido
-					grenadeAttack();
-					targetedAttack();
-					break;
-				default:
-					break;
-				}
-				// Spawn de enemigos
-				if (hc->getLife() <= initlife / 2) {
-					if (meleeSpawnTimer >= meleeSpawnRate) {
-						spawnMeleeEnemy();
-						meleeSpawnTimer = 0;
-					}
-					if (rangedSpawnTimer >= rangedSpawnRate) {
-						spawnRangedEnemy();
-						rangedSpawnTimer = 0;
-					}
-					if (tankSpawnTimer >= tankSpawnRate) {
-						spawnTankEnemy();
-						tankSpawnTimer = 0;
-					}
-				}
-
-				if (attackState == GRENADE_TT && !listaCompletada)
-				{
-					listaCompletada = true;
-				}
-				if (!listaCompletada)
-				{
-					attackState++;
-				}
-				else
-				{
-					attackState = rand() % 10;
-				}
-				updateAttackDelay();
+	
+	if (attacking) {
+		//iniciar la animacion y sumar el delay al ataque
+		if (attackDelay < attackTime) {
+			attackTime = 0;
+			attacking = false;
+			//enemyAttack(); // ataca coincidiendo con la animacion  attackState
+			switch (attackState) {
+			case CONE: // Conos
+				coneAttack();
+				break;
+			case BULLET_HELL: // BulletHell
+				bulletHellAttack();
+				break;
+			case CONE_TWO: // Conos
+				coneAttack();
+				break;
+			case GRENADES: // Granadas
+				grenadeAttack();
+				break;
+			case TARGETED_TENTACLE: // Tentaculo Dirigido
+				targetedAttack();
+				break;
+			case CLOCK: // Aspersor
+				clockAttack();
+				break;
+			case BULLET_GRENADES: // BulletHell + Granadas
+				bulletHellAttack();
+				grenadeAttack();
+				break;
+			case TT_CONES: // Tentaculo Dirigido + Conos
+				targetedAttack();
+				coneAttack();
+				break;
+			case BULLET_CLOCK: // BulletHell + Aspersor
+				bulletHellAttack();
+				clockAttack();
+				break;
+			case GRENADE_TT: // Granadas + Tentaculo Dirigido
+				grenadeAttack();
+				targetedAttack();
+				break;
+			default:
+				break;
 			}
-			else attackTime += SDLApplication::instance()->getDeltaTime();
+			// Spawn de enemigos
+			if (hc->getLife() <= initlife / 2) {
+				if (meleeSpawnTimer >= meleeSpawnRate) {
+					spawnMeleeEnemy();
+					meleeSpawnTimer = 0;
+				}
+				if (rangedSpawnTimer >= rangedSpawnRate) {
+					spawnRangedEnemy();
+					rangedSpawnTimer = 0;
+				}
+				if (tankSpawnTimer >= tankSpawnRate) {
+					spawnTankEnemy();
+					tankSpawnTimer = 0;
+				}
+			}
+
+			if (attackState == GRENADE_TT && !listaCompletada)
+			{
+				listaCompletada = true;
+			}
+			if (!listaCompletada)
+			{
+				attackState++;
+			}
+			else
+			{
+				attackState = rand() % 10;
+			}
+			updateAttackDelay();
 		}
+		else attackTime += SDLApplication::instance()->getDeltaTime();
 	}
-
-
 }
 // Permite al enemigo instanciar balas (mismo comportamiento que los RangeEnemies)
 void BossBehaviour::enemyAttack() {

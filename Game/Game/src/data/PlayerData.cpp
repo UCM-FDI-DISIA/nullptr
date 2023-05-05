@@ -4,10 +4,7 @@
 #include <fstream>
 #include "Album.h"
 PlayerData::PlayerData() {
-	
 	defaultPlayerStats();
-
-	lastCard = _card_NULL;
 }
 
 void PlayerData::defaultPlayerStats() {
@@ -28,14 +25,17 @@ void PlayerData::defaultPlayerStats() {
 	setMoney(0);
 	level = 1;
 	playerSpeed = PLAYER_SPEED;
+	cardGained = true;
+	inventoryNotOpen = true;
 
 	// Cartas iniciales
-	addCardToLibrary(_card_SPEAR, 3);
-	addCardToDeck(_card_SPEAR, 3);
+	addCardToLibrary(_card_LASERGLASSES, 2);
+	addCardToDeck(_card_LASERGLASSES, 2);
 	addCardToLibrary(_card_SWORD, 3);
 	addCardToDeck(_card_SWORD, 3);
-	addCardToLibrary(_card_GUN, 2);
-	addCardToDeck(_card_GUN, 2);
+	addCardToLibrary(_card_GUN, 3);
+	addCardToDeck(_card_GUN, 3);
+	lastCard = _card_NULL;
 }
 
 void PlayerData::getDataFromJSON() {
@@ -69,7 +69,8 @@ void PlayerData::getDataFromJSON() {
 		money = static_cast<int>(player["money"]->AsNumber());
 		level = static_cast<int>(player["level"]->AsNumber());
 		lastCard = static_cast<CardId>(player["lastCard"]->AsNumber());
-
+		cardGained = static_cast<bool>(player["cardGained"]->AsBool());
+		inventoryNotOpen = static_cast<bool>(player["inventoryNotOpen"]->AsBool());
 
 		JSONArray jsonRelics = player["relics"]->AsArray();
 		for (auto& jsonR : jsonRelics) {
@@ -107,6 +108,8 @@ void PlayerData::setDataToJSON()
 	player["money"] = new JSONValue(money);
 	player["level"] = new JSONValue(level);
 	player["lastCard"] = new JSONValue(lastCard);
+	player["cardGained"] = new JSONValue(cardGained);
+	player["inventoryNotOpen"] = new JSONValue(inventoryNotOpen);
 	JSONArray jsonRelics;
 	for (Relic* r : myRelics) {
 		jsonRelics.push_back(new JSONValue(r->id));
@@ -215,6 +218,7 @@ void PlayerData::addCardToLibrary(CardId newCard, int num) {
 
 		library.push_back(newCard);
 	}
+	cardGained = true;
 	Album::instance()->addCard(cardsData().get(Card::getCardIDfromEnum(newCard)));
 }
 
@@ -235,6 +239,7 @@ pair<CardId, int> PlayerData::getNewCard() {
 		addCardToLibrary(lastCard, 2);
 		lastCard = _card_NULL;
 	}
+	cardGained = true;
 	return res;
 }
 
