@@ -17,6 +17,7 @@ void MeleeBehaviour::initComponent() {
 	attacking = false;
 	elapsedTime = SDL_GetTicks();
 	gObj->getComponent<ColliderComponent>()->addFunction(meleeAttack());
+	playerLife = player->getComponent<HealthComponent>();
 }
 
 
@@ -27,8 +28,10 @@ void MeleeBehaviour::close() {
 		// Si no ha estado cerca del jugador antes
 		if (!hasBeenCloseToPlayer) {
 			// Llama al callback meleeAttack() aquí
-			meleeAttack()(gObj);
-
+			if (playerLife->getInvencibility() > 0) 
+			{
+				meleeAttack()(gObj);
+			}
 			// Configura elapsedTime, velocidad a 0 y marca que ha estado cerca del jugador ya
 			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
 			pos->setVel(Vector2D(0, 0));

@@ -87,7 +87,11 @@ void HealthComponent::setInvencibility(float time)
 
 	}
 }
+int HealthComponent::getInvencibility()
+{
+	return invTime;
 
+}
 void HealthComponent::initComponent() {
 	transform = gObj->getComponent<Transform>();
 	eController = gObj->getComponent<EffectController>();
