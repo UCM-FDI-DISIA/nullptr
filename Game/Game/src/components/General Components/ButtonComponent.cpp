@@ -2,6 +2,8 @@
 #include "../../gameObjects/GameObject.h"
 #include "../../scenes/GameState.h"
 
+CallBack ButtonComponent::mainFunc = nullptr;
+
 ButtonComponent::~ButtonComponent() {
 	butNav->erase(animButton);
 }
@@ -75,7 +77,7 @@ bool ButtonComponent::isOver(int mouseX, int mouseY) {
 void ButtonComponent::onClick() {
 	gStt->setLastIndex(index);
 	state = OnClick;
-	function();
+	mainFunc = function;
 }
 
 void ButtonComponent::setDropDown(Vector2D pos) {
