@@ -50,7 +50,7 @@ void SDLApplication::run() {
 		frameTime = SDL_GetTicks() - startTime;
 		
 		update();
-		
+
 		LAST = NOW;
 		NOW = SDL_GetPerformanceCounter();
 
@@ -64,7 +64,7 @@ void SDLApplication::run() {
 			
 			render();
 		}
-		
+
 		handleInput();
 
 		if (ih().closeWindowEvent()) {
@@ -92,7 +92,9 @@ void SDLApplication::update() {
 
 // Actualiza el juego en función al evento actual
 void SDLApplication::handleInput() {
+	ButtonComponent::resetFunction();
 	gameStateMachine->currentState()->handleInput();
+	ButtonComponent::mainFunctionCall();
 }
 
 // Devuelve la Texture pedida
