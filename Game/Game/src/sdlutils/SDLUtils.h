@@ -126,6 +126,10 @@ public:
 	inline void focusMouseOnWindow() {
 		SDL_SetWindowGrab(window(), SDL_TRUE);
 	}
+	inline void unfocusMouseOnWindow()
+	{
+		SDL_SetWindowGrab(window(), SDL_FALSE);
+	}
 
 // All resource maps can be modified from outside, this way you can store
 // your own dynamically. Be careful when modifying them!
