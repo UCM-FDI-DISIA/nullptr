@@ -191,6 +191,7 @@
     <ClInclude Include="src\components\General Components\LifetimeComponent.h" />
     <ClInclude Include="src\components\General Components\OptionsUpdateComponent.h" />
     <ClInclude Include="src\components\General Components\PointerComponent.h" />
+    <ClInclude Include="src\components\General Components\PopupComponent.h" />
     <ClInclude Include="src\components\General Components\StatsTrackComponent.h" />
     <ClInclude Include="src\components\General Components\StatusComponent.h" />
     <ClInclude Include="src\components\General Components\TextComponent.h" />
@@ -301,6 +302,7 @@
     <ClCompile Include="src\components\General Components\LifetimeComponent.cpp" />
     <ClCompile Include="src\components\General Components\OptionsUpdateComponent.cpp" />
     <ClCompile Include="src\components\General Components\PointerComponent.cpp" />
+    <ClCompile Include="src\components\General Components\PopupComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatsTrackComponent.cpp" />
     <ClCompile Include="src\components\General Components\StatusComponent.cpp" />
     <ClCompile Include="src\components\General Components\TextComponent.cpp" />

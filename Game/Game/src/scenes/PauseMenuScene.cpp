@@ -5,7 +5,7 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 	// Imagen de fondo
 	GameObject* background = addGameObject();
 	background->addComponent<Transform>(Vector2D(), Vector2D(), WIN_WIDTH, WIN_HEIGHT);
-	background->addComponent<Image>(SDLApplication::getTexture("MainMenuBackground"));
+	background->addComponent<Image>(SDLApplication::getTexture("OptionsPauseBackground"));
 
 	// Cartel de Pausa
 	GameObject* cartel = addGameObject();

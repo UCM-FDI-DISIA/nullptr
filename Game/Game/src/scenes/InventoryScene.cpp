@@ -129,6 +129,7 @@ void InventoryScene::createObjects() {
 		GameObject* g = addGameObject();
 		g->addComponent<Transform>(OBJECTS_POSITIONS[i], VECTOR_ZERO, OBJECTS_DIMENSIONS, OBJECTS_DIMENSIONS);
 		g->addComponent<Image>(rel->texture)->attachToCamera();
+		g->addComponent<PopupComponent>(rel);
 		++i;
 	}
 }
@@ -234,15 +235,15 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 	textFrame->addComponent<Transform>(tr->getPos() - Vector2D(3, 7), VECTOR_ZERO, tr->getWidth() + 5, tr->getWidth() + 5);
 	textFrame->addComponent<Image>(SDLApplication::getTexture("CardCircle"));
 
+	// Guardar transform y obtener datos de la carta
+	Transform* trAux = b->getComponent<Transform>();
+	CardData card = cardsData().get(Card::getCardIDfromEnum(crd));
+
 	if (dck) {
 		deckButtons[crd].deckButton = b;
 		deckButtons[crd].deckImage = cardObj;
 		deckButtons[crd].deckText = text;
 		deckButtons[crd].deckTextFrame = textFrame;
-
-		// Guardar transform y obtener datos de la carta
-		Transform* trAux = b->getComponent<Transform>();
-		CardData card = cardsData().get(Card::getCardIDfromEnum(crd));
 
 		deckButtons[crd].ammo.first = addGameObject();
 		deckButtons[crd].ammo.second = addGameObject();
@@ -254,6 +255,18 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 		createNumber(deckButtons[crd].ammo.second, decsPos + Vector2D(10, 0), card.maxUses % 10, 'a');
 		createNumber(deckButtons[crd].mana.first, decsPos + Vector2D(4, 32), card.mana / 10, 'm');
 		createNumber(deckButtons[crd].mana.second, decsPos + Vector2D(14, 32), card.mana % 10, 'm');
+	}
+	else {
+		invCard.ammo.first = addGameObject();
+		invCard.ammo.second = addGameObject();
+		invCard.mana.first = addGameObject();
+		invCard.mana.second = addGameObject();
+
+		Vector2D decsPos = Vector2D(trAux->getPos().getX() + 10, trAux->getPos().getY() + 12);
+		createNumber(invCard.ammo.first, decsPos, card.maxUses / 10, 'a');
+		createNumber(invCard.ammo.second, decsPos + Vector2D(10, 0), card.maxUses % 10, 'a');
+		createNumber(invCard.mana.first, decsPos + Vector2D(4, 32), card.mana / 10, 'm');
+		createNumber(invCard.mana.second, decsPos + Vector2D(14, 32), card.mana % 10, 'm');
 	}
 
 	return b;
@@ -326,18 +339,18 @@ void InventoryScene::update() {
 		SDL_GetMouseState(&x, &y);
 
 		// Si me encuentro dentro de la zona del inventario
-		if (x >= 0 && x <= 942 && y >= 0 && y <= 461) {
+		if (x >= 0 && x <= 942 && y >= 0 && y <= 246) {
 			// Desactivo el componente del mazo y añado el del inventario si no existe ya
 			if (!inventoryPanel->hasComponent<Image>()) {
-				inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"));
+				inventoryPanel->addComponent<Image>(SDLApplication::getTexture("InventoryPanel"))->attachToCamera();
 				deckPanel->removeComponent<Image>();
 			}
 		}
 		// Si me encuentro dentro de la zona del mazo
-		else if (x >= 0 && x <= 942 && y > 461 && y <= 720) {
+		else if (x >= 0 && x <= 942 && y > 246 && y <= 720) {
 			// Desactivo el componente del inventario y añado el del mazo si no existe ya
 			if (!deckPanel->hasComponent<Image>()) {
-				deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"));
+				deckPanel->addComponent<Image>(SDLApplication::getTexture("DeckPanel"))->attachToCamera();
 				inventoryPanel->removeComponent<Image>();
 			}
 		}
@@ -410,7 +423,6 @@ void InventoryScene::activatePopUp() {
 	// Segundo texto
 	text2->addComponent<Transform>(Vector2D(tr->getPos().getX(), tr->getPos().getY() + tr->getHeight()), VECTOR_ZERO, TUTO_POPUP_WIDTH - 120, TUTO_POPUP_HEIGHT - 120);
 	text2->addComponent<TextComponent>(&sdlutils().fonts().at(FONT_SS_REG30), texts[1] + texts[2], color, true)->attachToCamera();
-
 
 	// Boton
 	AnimatorInfo aI = AnimatorInfo(RESUME);

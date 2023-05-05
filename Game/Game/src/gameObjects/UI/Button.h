@@ -7,8 +7,6 @@
 #include "../../components/General Components/Animator.h"
 #include "../../data/constants.h"
 
-
-
 class Button : public GameObject {
 private:
 	ButtonComponent* bComp;

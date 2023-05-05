@@ -413,7 +413,7 @@ const int PANEL_HEIGHT = 30;
 
 const string DECK_PANEL = "DeckPanel";
 const int DP_WIDTH = 74;
-const Vector2D DP_POSITION = Vector2D(0, 476);
+const Vector2D DP_POSITION = Vector2D(0, 243);
 
 const string OBJECTS_PANEL = "ObjectsPanel";
 const int OP_WIDTH = 125;

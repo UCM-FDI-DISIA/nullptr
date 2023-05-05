@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include "../components/General Components/TextComponent.h"
+#include "../components/General Components/PopupComponent.h"
 
 class Card;
 struct InventoryInfo {
@@ -11,6 +12,8 @@ struct InventoryInfo {
 	CardId card;
 	TextComponent* myText;
 	TextComponent* myDeckText;
+	pair<GameObject*, GameObject*> ammo;
+	pair<GameObject*, GameObject*> mana;
 
 	InventoryInfo() : cuantity(0), cuantityDeck(0), card(_card_NULL), myText(nullptr), myDeckText(nullptr) { };
 };
