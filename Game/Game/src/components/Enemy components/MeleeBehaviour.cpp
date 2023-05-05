@@ -22,11 +22,14 @@ void MeleeBehaviour::initComponent() {
 
 //Metodo para saber si el enemigo esta cerca del player
 void MeleeBehaviour::close() {
-	//Si esta cerca del player
+	// Si está cerca del jugador
 	if (pos->getDistance(playerPos->getPos()) < attackDistance) {
-		//Si ya ha estado cerca del player
+		// Si no ha estado cerca del jugador antes
 		if (!hasBeenCloseToPlayer) {
-			//Setea elapsed time, velocidad a 0 y marca que ha estado cerca del player ya
+			// Llama al callback meleeAttack() aquí
+			meleeAttack()(gObj);
+
+			// Configura elapsedTime, velocidad a 0 y marca que ha estado cerca del jugador ya
 			behaviorTime = SDLApplication::instance()->getCurrentTime() + stopTime;
 			pos->setVel(Vector2D(0, 0));
 			hasBeenCloseToPlayer = true;
@@ -35,6 +38,7 @@ void MeleeBehaviour::close() {
 		}
 	}
 }
+
 
 void MeleeBehaviour::update() {
 	attacking = false;
@@ -74,8 +78,6 @@ CallBackCol MeleeBehaviour::meleeAttack()
 		attacked = true;
 		enemyAttack();
 		//Da�a al jugador e informa de que ha atacado
-
-
 	};
 }
 
@@ -87,7 +89,7 @@ void MeleeBehaviour::enemyAttack() {
 		vel = vel / vel.magnitude();
 		Vector2D attackPos = pos->getPos() + vel * 100;
 		float rotation = Vector2D(1, 0).angle(vel);
-		Hitbox::HitboxData data = { attackPos, VECTOR_ZERO, rotation, 200, 100, "null", _grp_PLAYER };
+		Hitbox::HitboxData data = { attackPos, VECTOR_ZERO, rotation, 200, 100, "NewSwordSpin", _grp_PLAYER };
 		gStt->addGameObject<Hitbox>(_grp_ENM_ATTACK, damage, true, 10, data, Vector2D(-1,-1),nullptr, gObj->getComponent<Transform>()->getPos());
 		//player->getComponent<HealthComponent>()->receiveDamage(0);
 	}
