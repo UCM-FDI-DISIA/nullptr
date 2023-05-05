@@ -45,11 +45,6 @@ footer img:hover {
 }
 
 /* ------------ ESTILOS PROPIOS ------------ */
-.cuerpo {
-	margin: auto;
-	width: auto;
-}
-
 .cuadro {
 	display: block;
 	position: relative;
@@ -140,17 +135,14 @@ footer img:hover {
 	justify-content: center;
 }
 
-.image {
-	max-width: 100%;
-	height: 500px;
-}
-
 .slideshow-container {
-	max-width: 1280px;
-	max-height: 720px;
+	width: auto;
+	height: auto;
 	position: relative;
-	margin-left: 100px;
-	margin-right: 100px;
+	align-items: center;
+	display: flex;
+  	justify-content: center;
+  	margin: 30px auto 0;
 }
 
 .prev, .next {
@@ -166,6 +158,15 @@ footer img:hover {
 	transition: 0.6s ease;
 	border-radius: 0 3px 3px 0;
 	user-select: none;
+	background-color: #894e18;
+  }
+  
+.prev {
+	left: 0;
+}
+  
+.next {
+	right: 0;
 }
 
 .next {
