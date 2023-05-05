@@ -18,11 +18,13 @@ Hito 2: [Presentación Hito 2](https://drive.google.com/drive/folders/1qYsZWpWPV
 
 # **Arquitectura**
 
-UML: [UML]()
+<img src="docs/architecture/UML.png"></img>
 
-El proyecto tiene una arquitectura por componentes.
-
-En cada escena, existen entidades organizados por grupos los cuales contienen los componentes que necesitan. Estos componentes son los que se encargan de realizar todas las gestiones del objeto al que pertenecen como su renderizado o su cambio de posición en la escena.
+La arquitectura se puede resumir en 4 grandes grupos:
+- Información: se encargan de guardar datos utilizados en todos los demás grupos.
+- Escenas: se encargan de los estados del juego y contienen las entidades de juego.
+- Entidades de juego: contienen sus propios componentes.
+- Componentes: se encargan de actualizar datos y comportamientos del objeto al que pertenecen.
 
 # **GDD**
 
@@ -1026,122 +1028,122 @@ Las cartas son un invento del futuro que materializan armas y permiten usar habi
 * **Espada**
     *     Daño de ataque: 
 
-            	   20 => 15
+            	  20 => 15
 
     *     Tiempo entre disparos:
 
-               	0.5s => 0.75s
+                0.5s => 0.75s
 
     *     Rango:
 
-                	200 => 120
+                200 => 120
 
 * **Antorcha**
    *    Daño de ataque: 
 
-        			20 => 5
+        		  20 => 5
 
 
 
    *     Rango:
 
-                 200 => 120
+               200 => 120
 
    *     Curación de la habilidad:
 
-        			5 cada 0.5s => 1 cada 0.2s
+        		  5 cada 0.5s => 1 cada 0.2s
 
 
 
 * **Lanza**
    *     Rango:
 
-                	100 => 120
+               100 => 120
 
 * **Gafas Laser**
     *     Ataque: 
 
-         	      Ahora lanza 2 proyectiles en lugar de 1
+         	    Ahora lanza 2 proyectiles en lugar de 1
 
     *     Daño de ataque: 
 
-                  10 => 5 (para que el daño total se mantenga)
+                10 => 5 (para que el daño total se mantenga)
 
 * **Arco**
     *     Ataque: 
 
-         	      Ahora lanza 3 proyectiles en lugar de 1
+         	    Ahora lanza 3 proyectiles en lugar de 1
 
     *     Daño de ataque: 
 
-                  15 => 7
+                15 => 7
 
     *     Usos máximos: 
 
-                  12 => 6
+                12 => 6
 
     *     Tiempo entre disparos: 
 
-                  0.5s => 0.75s
+                0.5s => 0.75s
 
 * **Pulga**
-    *     Daño de ataque: 
+   *     Daño de ataque: 
 
-        			30 => 20
+        		  30 => 20
 
 
 
 * **SMG**
-    *     Daño de ataque: 
+   *     Daño de ataque: 
 
-        			3 => 5
+        		  3 => 5
 
 
 
-    *     Tiempo entre disparos: 
+   *     Tiempo entre disparos: 
 
-       			   0.3s = 0.2s
+       			  0.3s = 0.2s
 
 
 
 * **Rifle**
    *     Habilidad
 
-			   La granada de la habilidad explota antes (2s => 1s)
+			  La granada de la habilidad explota antes (2s => 1s)
 
    *     Daño de ataque: 
 
-       		   5 => 4 (por bala)
+       		  5 => 4 (por bala)
 
    *     Usos máximos: 
 
-               8 => 6
+              8 => 6
 
    *     Tiempo entre disparos:
 
-               0.8s => 1s
+              0.8s => 1s
 
    *     Maná:
 
-               20 => 25
+              20 => 25
 
 
 
 * **Bláster**
    *     Tiempo entre disparos:
 
-       		   0.2s => 0.3s
+       		  0.2s => 0.3s
 
 
 
 * **Megáfono**
    *     Ataque: 
 
-               Ahora cada hitbox no se rompe al chocar con un enemigo
+              Ahora cada hitbox no se rompe al chocar con un enemigo
 
    *     Daño de ataque: 
 
-               7 => 5
+              7 => 5
 
 * **Escudo Antidisturbios**
    *     Habilidad: 
