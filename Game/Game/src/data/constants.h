@@ -914,7 +914,7 @@ const int WAVES[7][3] = {
 
 const float ENEMYFACTOR = 3.75;
 const float DAMAGEFACTOR = 0.25;
-const float MINTIME[12] = {60, 80, 95, 115, 130, 150, 165, 180, 195, 210, 225, 240};
+const float MINTIME[12] = {60, 70, 80, 90, 100, 110, 120, 125, 130, 135, 140, 145};
 
 // GUARDADO
 
