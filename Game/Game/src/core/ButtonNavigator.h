@@ -57,6 +57,9 @@ public:
 	// Desbloquea la navegación entre botones
 	void unlockMovement();
 	// Comprueba si la imagen pasada es la del botón actual
-	inline bool isCurrentButton(Image* im) { return im == currentButton.buttonIm; }
+	inline bool isCurrentButton(Image* im) { 
+		if (!gmCtrl_.controllerActive()) return false;
+		return im == currentButton.buttonIm; 
+	}
 };
 

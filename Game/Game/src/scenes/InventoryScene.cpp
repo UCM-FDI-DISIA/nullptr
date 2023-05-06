@@ -148,10 +148,11 @@ void InventoryScene::createCards() {
 	int deckColumn = 0;
 	int deckRow = 0;
 
+	Button* startCard = nullptr;
 	for (auto& crd : inventory) {
 		Vector2D pos = Vector2D(20 + (ALB_CARD_W + 20) * column, 10 + ((ALB_CARD_H + 20) * (1-row)));
 		Button* cardButton = createCard(pos, crd.second.card, false);
-		if (column == 0 && !row) cardButton->setAsDefaultButton();
+		if (column == 0) startCard = cardButton;
 
 		if (crd.second.cuantityDeck > 0) {
 			createDeckCards(crd.second.card, deckColumn, deckRow);
@@ -170,6 +171,7 @@ void InventoryScene::createCards() {
 			row++;
 		}
 	}
+	if (startCard != nullptr) startCard->setAsDefaultButton();
 }
 // Se encarga de crear las imagenes de las cartas en la zona del deck
 void InventoryScene::createDeckCards(CardId crd, int column, int row) {
@@ -222,8 +224,9 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 			-1, nullptr, 0.5f, 0.5f); 
 	b->getComponent<ButtonComponent>()->setOnSelected(
 		[&](Transform* myTr) {
-			if (myTr->getY() > 10 - ((ALB_CARD_H + 20))+ ALB_CARD_H * 2) camTr->setY(10 - ((ALB_CARD_H + 20)));
-			else camTr->setY(-myTr->getY() + (10 - ((ALB_CARD_H + 20)) + ALB_CARD_H * 2)); 
+			if (myTr->getY() > ALB_CARD_H * 2) camTr->setY(-myTr->getY() + ALB_CARD_H * 2);
+			else if (myTr->getY() < 0) camTr->setY(myTr->getY() + 10 + (ALB_CARD_H + 20) * 2);
+			else camTr->setY(0);
 		});
 	
 	Animator* a = b->getComponent<Animator>();
@@ -300,8 +303,8 @@ void InventoryScene::handleInput() {
 		}
 		// Scroll
 		camTr->setY(camTr->getY() - 20 * gmCtrl_.scroll(false));
-		if (camTr->getY() > 10 + ((ALB_CARD_H + 20))) camTr->setY(10 + ((ALB_CARD_H + 20)));
-		else if (camTr->getY() < 10 - ((ALB_CARD_H + 20))) camTr->setY(10 - ((ALB_CARD_H + 20)));
+		if (camTr->getY() > (30 + ((ALB_CARD_H + 20)))) camTr->setY(30 + ((ALB_CARD_H + 20)));
+		else if (camTr->getY() <  - ((ALB_CARD_H + 40) * 2)) camTr->setY(-((ALB_CARD_H + 40) * 2));
 	}
 	else {
 		pointer->handleInput();

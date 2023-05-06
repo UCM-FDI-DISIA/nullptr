@@ -52,7 +52,7 @@ class Card {
 			case _card_MEGAPHONE: return "Speaker";
 			case _card_RIOTSHIELD: return "RiotShield";
 			case _card_CHEATGUN: return "CheatGun";
-			case _card_RITUALAXE: return "SMG";
+			case _card_RITUALAXE: return "RitualAxe";
 			case _card_LASERKATANA: return "LaserKatana";
 			default: return REVERSE;
 			}
